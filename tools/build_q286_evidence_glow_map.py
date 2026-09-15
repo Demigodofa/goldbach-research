@@ -147,6 +147,8 @@ def main():
         EVIDENCE / "q286-centered-3-1-residue5-multichannel-horizon.json")
     multichannel_selected_reference_horizon = load_json(
         EVIDENCE / "q286-multichannel-selected-reference-horizon-audit.json")
+    watchlist_fresh_unseen_window = load_json(
+        EVIDENCE / "q286-watchlist-fresh-unseen-window-audit.json")
     centered_3_1_stress_class = load_json(
         EVIDENCE / "q286-centered-3-1-stress-class-audit.json")
     selected_deficit_provenance = load_json(
@@ -2173,6 +2175,90 @@ def main():
         "multichannel-selected-reference-horizon-audit",
         2.5,
         "(3,1) helps the selected watchlist but cannot be used as scalar closure")
+
+    layer(
+        "watchlist-fresh-unseen-window-audit",
+        "Watchlist and scalar (3,1) pass fresh unseen selected-reference windows",
+        "finite_fresh_unseen_watchlist_evidence",
+        "evidence/q286-watchlist-fresh-unseen-window-audit.json",
+        3.5,
+        "Finite fresh unseen window audit only; no signed correlation theorem.")
+    add_hit(
+        mechanism_stacks,
+        "centered-3-1-selected-stress-fresh-window-classifier",
+        "watchlist-fresh-unseen-window-audit",
+        3.5,
+        "scalar (3,1) passes all fresh unseen comparisons against selected deficit references",
+        {
+            "comparison_row_count":
+                watchlist_fresh_unseen_window["comparison_row_count"],
+            "scalar_3_1_passes_unseen_windows":
+                watchlist_fresh_unseen_window[
+                    "scalar_3_1_passes_unseen_windows"],
+            "scalar_3_1_minimum_margin":
+                next(
+                    row for row in watchlist_fresh_unseen_window[
+                        "subset_results"]
+                    if row["name"] == "scalar_3_1")[
+                        "weighted_gap_summary"]["minimum"],
+        })
+    add_hit(
+        mechanism_stacks,
+        "kevin-watchlist-distributed-cone",
+        "watchlist-fresh-unseen-window-audit",
+        3.5,
+        "four-channel watchlist passes all fresh unseen comparisons against selected deficit references",
+        {
+            "kevin_watchlist_4_passes_unseen_windows":
+                watchlist_fresh_unseen_window[
+                    "kevin_watchlist_4_passes_unseen_windows"],
+            "kevin_watchlist_4_minimum_margin":
+                next(
+                    row for row in watchlist_fresh_unseen_window[
+                        "subset_results"]
+                    if row["name"] == "kevin_watchlist_4")[
+                        "weighted_gap_summary"]["minimum"],
+        })
+    add_hit(
+        mechanism_stacks,
+        "full-17-lp-overincluded-for-13822",
+        "watchlist-fresh-unseen-window-audit",
+        3.0,
+        "frozen full 17-channel LP fails fresh unseen comparisons, including all rows against 13822",
+        {
+            "frozen_full_17_lp_passes_unseen_windows":
+                watchlist_fresh_unseen_window[
+                    "frozen_full_17_lp_passes_unseen_windows"],
+            "frozen_full_17_lp_failure_count":
+                next(
+                    row for row in watchlist_fresh_unseen_window[
+                        "subset_results"]
+                    if row["name"] == "frozen_full_17_lp")[
+                        "failing_target_count"],
+        })
+    add_hit(
+        target_stacks,
+        "13822",
+        "watchlist-fresh-unseen-window-audit",
+        3.5,
+        "selected stress witness: scalar (3,1) and watchlist pass unseen windows while full 17 LP fails",
+        {
+            "fresh_unseen_target_count":
+                watchlist_fresh_unseen_window["fresh_target_count"],
+            "full_lp_failing_rows_against_13822": 606,
+        })
+    add_hit(
+        theorem_stacks,
+        "ap-count-to-17-channel-bridge",
+        "watchlist-fresh-unseen-window-audit",
+        3.0,
+        "fresh unseen evidence supports a selected low-dimensional watchlist cone rather than full 17 LP")
+    add_hit(
+        theorem_stacks,
+        "centered-3-1-stress-class-theorem",
+        "watchlist-fresh-unseen-window-audit",
+        3.0,
+        "(3,1) survives as selected-stress fresh-window classifier coordinate")
 
     layer(
         "centered-3-1-stress-class-audit",

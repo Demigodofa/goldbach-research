@@ -6,6 +6,32 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The fixed watchlist now has a fresh unseen window audit:
+`tools/build_q286_watchlist_fresh_unseen_window_audit.py` generated
+`evidence/q286-watchlist-fresh-unseen-window-audit.json`, with explanation in
+`notes/q286-watchlist-fresh-unseen-window-audit.md`.
+
+Mechanism: use later fresh windows `48M,52M,56M,60M,64M,68M`, not the previous
+`24M..44M` fresh-window lane.  For every fresh target and each selected
+deficit reference `24424,13822,55864,164598,1222142`, subtract the full
+target-reference local q286 vector, then apply frozen LP channel weights.  No
+channel selection or refitting is performed.
+
+Result: scalar `(3,1)` passes all `3030` fresh unseen selected-reference
+comparisons, with minimum margin `0.0035109555591320892`.  Kevin's watchlist
+`(5,5),(3,1),(3,11),(3,7)` also passes all `3030`, with minimum margin
+`0.0020345565333929026`.  The watchlist without `(3,1)` fails `67`, and the
+frozen full 17-channel LP vector fails `611`, including all `606` rows for
+reference `13822`.
+
+Interpretation: preserve two distinct live statements.  Scalar `(3,1)` is a
+strong selected-stress fresh-window classifier coordinate.  The four-channel
+watchlist remains the stronger local-horizon rescue cone because it survived
+the residue-5 micro-horizon where scalar `(3,1)` failed.  The full 17 LP
+vector should not be promoted as the theorem route.
+
+## Previous continuation evidence, 2026-09-15
+
 The multichannel rescue now has an alternate selected-reference horizon audit:
 `tools/build_q286_multichannel_selected_reference_horizon_audit.py` generated
 `evidence/q286-multichannel-selected-reference-horizon-audit.json`, with

@@ -6,6 +6,36 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The fixed watchlist now has a fresh unseen window audit.
+`tools/build_q286_watchlist_fresh_unseen_window_audit.py` generated
+`evidence/q286-watchlist-fresh-unseen-window-audit.json`, with the human note
+`notes/q286-watchlist-fresh-unseen-window-audit.md`.
+
+Question: does the fixed watchlist survive fresh windows not used in the
+watchlist selection/replay lane?
+
+Result: yes for scalar `(3,1)` and yes for Kevin's watchlist.  The check used
+fresh unseen windows `48M,52M,56M,60M,64M,68M`, `101` targets each, against all
+five selected deficit references.
+
+```text
+scalar (3,1):                         0 failures, min  0.003510955559
+watchlist (5,5),(3,1),(3,11),(3,7):   0 failures, min  0.002034556533
+watchlist without (3,1):             67 failures, min -0.018376824958
+frozen full 17 LP:                  611 failures, min -0.143214427823
+```
+
+No fresh unseen target is itself a dominant-floor deficit in the checked q286
+profile.  The full 17 LP failures include all `606` rows against reference
+`13822`.
+
+Decision: keep `(3,1)` as a strong selected-stress fresh-window classifier
+coordinate, and keep the four-channel watchlist as the stronger local-horizon
+rescue cone.  Do not promote the full 17 LP vector.  The next falsifier is an
+alternate non-post-hoc stress predicate plus more fresh windows.
+
+## Previous active checkpoint note, 2026-09-15
+
 The multichannel rescue now has an alternate selected-reference horizon audit.
 `tools/build_q286_multichannel_selected_reference_horizon_audit.py` generated
 `evidence/q286-multichannel-selected-reference-horizon-audit.json`, with the

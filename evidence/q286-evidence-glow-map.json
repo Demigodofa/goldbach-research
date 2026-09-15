@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "receipt": "q286-evidence-glow-map",
-  "generated_from_commit": "e67864151b881ab648449c5752c5a589635769a8",
+  "generated_from_commit": "7fa2fbde5a07c12cb4d14d1be4ab72a2f1a8f79f",
   "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
   "visual_encoding": {
     "target_shape": "circle",
@@ -372,6 +372,14 @@
       "boundary": "Finite selected-reference horizon audit only; no signed correlation theorem."
     },
     {
+      "id": "watchlist-fresh-unseen-window-audit",
+      "label": "Watchlist and scalar (3,1) pass fresh unseen selected-reference windows",
+      "kind": "finite_fresh_unseen_watchlist_evidence",
+      "source": "evidence/q286-watchlist-fresh-unseen-window-audit.json",
+      "default_weight": 3.5,
+      "boundary": "Finite fresh unseen window audit only; no signed correlation theorem."
+    },
+    {
       "id": "centered-3-1-stress-class-audit",
       "label": "Centered (3,1) fails the full-nonpositive stress class",
       "kind": "finite_stress_class_falsifier",
@@ -407,7 +415,7 @@
   "target_stacks": [
     {
       "id": "13822",
-      "stack_weight": 62.5,
+      "stack_weight": 66.0,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -724,9 +732,18 @@
             "watchlist_minimum_margin": 0.08971939021326615,
             "full_lp_failing_rows": 101
           }
+        },
+        {
+          "layer": "watchlist-fresh-unseen-window-audit",
+          "weight": 3.5,
+          "reason": "selected stress witness: scalar (3,1) and watchlist pass unseen windows while full 17 LP fails",
+          "value": {
+            "fresh_unseen_target_count": 606,
+            "full_lp_failing_rows_against_13822": 606
+          }
         }
       ],
-      "layer_count": 29,
+      "layer_count": 30,
       "glow": 1.0
     },
     {
@@ -1035,7 +1052,7 @@
         }
       ],
       "layer_count": 28,
-      "glow": 0.96
+      "glow": 0.909091
     },
     {
       "id": "1222142",
@@ -1345,7 +1362,7 @@
         }
       ],
       "layer_count": 29,
-      "glow": 0.944
+      "glow": 0.893939
     },
     {
       "id": "24424",
@@ -1622,7 +1639,7 @@
         }
       ],
       "layer_count": 25,
-      "glow": 0.824
+      "glow": 0.780303
     },
     {
       "id": "55864",
@@ -1899,7 +1916,7 @@
         }
       ],
       "layer_count": 25,
-      "glow": 0.824
+      "glow": 0.780303
     },
     {
       "id": "1242118",
@@ -2114,7 +2131,7 @@
         }
       ],
       "layer_count": 18,
-      "glow": 0.632
+      "glow": 0.598485
     },
     {
       "id": "129706",
@@ -2281,7 +2298,7 @@
         }
       ],
       "layer_count": 15,
-      "glow": 0.488
+      "glow": 0.462121
     },
     {
       "id": "13556",
@@ -2437,7 +2454,7 @@
         }
       ],
       "layer_count": 14,
-      "glow": 0.456
+      "glow": 0.431818
     },
     {
       "id": "1240888",
@@ -2560,7 +2577,7 @@
         }
       ],
       "layer_count": 11,
-      "glow": 0.36
+      "glow": 0.340909
     },
     {
       "id": "40420",
@@ -2683,7 +2700,7 @@
         }
       ],
       "layer_count": 11,
-      "glow": 0.36
+      "glow": 0.340909
     },
     {
       "id": "1220056",
@@ -2783,7 +2800,7 @@
         }
       ],
       "layer_count": 7,
-      "glow": 0.272
+      "glow": 0.257576
     },
     {
       "id": "1222048",
@@ -2883,7 +2900,7 @@
         }
       ],
       "layer_count": 7,
-      "glow": 0.272
+      "glow": 0.257576
     },
     {
       "id": "1200224",
@@ -2952,7 +2969,7 @@
         }
       ],
       "layer_count": 6,
-      "glow": 0.224
+      "glow": 0.212121
     },
     {
       "id": "1222072",
@@ -3031,7 +3048,7 @@
         }
       ],
       "layer_count": 5,
-      "glow": 0.216
+      "glow": 0.204545
     },
     {
       "id": "1220124",
@@ -3110,7 +3127,7 @@
         }
       ],
       "layer_count": 5,
-      "glow": 0.2
+      "glow": 0.189394
     },
     {
       "id": "1221052",
@@ -3190,7 +3207,7 @@
         }
       ],
       "layer_count": 5,
-      "glow": 0.192
+      "glow": 0.181818
     },
     {
       "id": "1221042",
@@ -3249,7 +3266,7 @@
         }
       ],
       "layer_count": 5,
-      "glow": 0.184
+      "glow": 0.174242
     },
     {
       "id": "1242070",
@@ -3318,7 +3335,7 @@
         }
       ],
       "layer_count": 4,
-      "glow": 0.176
+      "glow": 0.166667
     },
     {
       "id": "1240160",
@@ -3397,7 +3414,7 @@
         }
       ],
       "layer_count": 7,
-      "glow": 0.16
+      "glow": 0.151515
     },
     {
       "id": "1200262",
@@ -3445,7 +3462,7 @@
         }
       ],
       "layer_count": 4,
-      "glow": 0.152
+      "glow": 0.143939
     },
     {
       "id": "1222018",
@@ -3493,7 +3510,7 @@
         }
       ],
       "layer_count": 4,
-      "glow": 0.152
+      "glow": 0.143939
     },
     {
       "id": "1200254",
@@ -3552,7 +3569,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.136
+      "glow": 0.128788
     },
     {
       "id": "1222030",
@@ -3611,7 +3628,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.136
+      "glow": 0.128788
     },
     {
       "id": "1242162",
@@ -3680,7 +3697,7 @@
         }
       ],
       "layer_count": 6,
-      "glow": 0.12
+      "glow": 0.113636
     },
     {
       "id": "1240144",
@@ -3718,7 +3735,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.112
+      "glow": 0.106061
     },
     {
       "id": "1200482",
@@ -3767,7 +3784,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.096
+      "glow": 0.090909
     },
     {
       "id": "1379072",
@@ -3793,7 +3810,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.096
+      "glow": 0.090909
     },
     {
       "id": "1426162",
@@ -3823,7 +3840,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.096
+      "glow": 0.090909
     },
     {
       "id": "1426262",
@@ -3853,7 +3870,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.096
+      "glow": 0.090909
     },
     {
       "id": "1200362",
@@ -3911,7 +3928,7 @@
         }
       ],
       "layer_count": 5,
-      "glow": 0.088
+      "glow": 0.083333
     },
     {
       "id": "1221148",
@@ -3939,7 +3956,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.088
+      "glow": 0.083333
     },
     {
       "id": "10000028",
@@ -3964,7 +3981,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.072
+      "glow": 0.068182
     },
     {
       "id": "10000054",
@@ -3989,7 +4006,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.072
+      "glow": 0.068182
     },
     {
       "id": "12000026",
@@ -4014,7 +4031,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.072
+      "glow": 0.068182
     },
     {
       "id": "12000052",
@@ -4039,7 +4056,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.072
+      "glow": 0.068182
     },
     {
       "id": "16000022",
@@ -4064,7 +4081,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.072
+      "glow": 0.068182
     },
     {
       "id": "16000048",
@@ -4089,7 +4106,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.072
+      "glow": 0.068182
     },
     {
       "id": "20000018",
@@ -4114,7 +4131,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.072
+      "glow": 0.068182
     },
     {
       "id": "20000044",
@@ -4139,7 +4156,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.072
+      "glow": 0.068182
     },
     {
       "id": "6000032",
@@ -4164,7 +4181,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.072
+      "glow": 0.068182
     },
     {
       "id": "6000058",
@@ -4189,7 +4206,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.072
+      "glow": 0.068182
     },
     {
       "id": "8000030",
@@ -4214,7 +4231,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.072
+      "glow": 0.068182
     },
     {
       "id": "8000056",
@@ -4239,7 +4256,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.072
+      "glow": 0.068182
     },
     {
       "id": "1221092",
@@ -4267,7 +4284,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.064
+      "glow": 0.060606
     },
     {
       "id": "1221118",
@@ -4295,7 +4312,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.064
+      "glow": 0.060606
     },
     {
       "id": "1222168",
@@ -4323,7 +4340,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.064
+      "glow": 0.060606
     },
     {
       "id": "1242106",
@@ -4351,7 +4368,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.064
+      "glow": 0.060606
     },
     {
       "id": "1323632",
@@ -4371,7 +4388,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.064
+      "glow": 0.060606
     },
     {
       "id": "1200208",
@@ -4400,7 +4417,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.056
+      "glow": 0.05303
     },
     {
       "id": "1200598",
@@ -4438,7 +4455,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.056
+      "glow": 0.05303
     },
     {
       "id": "1220098",
@@ -4467,7 +4484,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.056
+      "glow": 0.05303
     },
     {
       "id": "1242136",
@@ -4496,7 +4513,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.056
+      "glow": 0.05303
     },
     {
       "id": "6000000",
@@ -4515,7 +4532,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.056
+      "glow": 0.05303
     },
     {
       "id": "6000002",
@@ -4534,7 +4551,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.056
+      "glow": 0.05303
     },
     {
       "id": "6000004",
@@ -4553,7 +4570,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.056
+      "glow": 0.05303
     },
     {
       "id": "6000006",
@@ -4572,7 +4589,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.056
+      "glow": 0.05303
     },
     {
       "id": "6000008",
@@ -4591,7 +4608,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.056
+      "glow": 0.05303
     },
     {
       "id": "6000010",
@@ -4610,7 +4627,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.056
+      "glow": 0.05303
     },
     {
       "id": "6000012",
@@ -4629,7 +4646,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.056
+      "glow": 0.05303
     },
     {
       "id": "6000014",
@@ -4648,7 +4665,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.056
+      "glow": 0.05303
     },
     {
       "id": "6000016",
@@ -4667,7 +4684,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.056
+      "glow": 0.05303
     },
     {
       "id": "6000018",
@@ -4686,7 +4703,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.056
+      "glow": 0.05303
     },
     {
       "id": "6000020",
@@ -4705,7 +4722,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.056
+      "glow": 0.05303
     },
     {
       "id": "6000022",
@@ -4724,7 +4741,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.056
+      "glow": 0.05303
     },
     {
       "id": "1200232",
@@ -4742,7 +4759,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048
+      "glow": 0.045455
     },
     {
       "id": "1200392",
@@ -4760,7 +4777,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048
+      "glow": 0.045455
     },
     {
       "id": "1200520",
@@ -4778,7 +4795,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048
+      "glow": 0.045455
     },
     {
       "id": "1221154",
@@ -4796,7 +4813,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048
+      "glow": 0.045455
     },
     {
       "id": "1260058",
@@ -4814,7 +4831,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048
+      "glow": 0.045455
     },
     {
       "id": "1261180",
@@ -4832,7 +4849,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048
+      "glow": 0.045455
     },
     {
       "id": "1261196",
@@ -4850,7 +4867,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048
+      "glow": 0.045455
     },
     {
       "id": "1262014",
@@ -4868,7 +4885,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048
+      "glow": 0.045455
     },
     {
       "id": "1262162",
@@ -4886,7 +4903,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048
+      "glow": 0.045455
     },
     {
       "id": "1280026",
@@ -4904,7 +4921,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048
+      "glow": 0.045455
     },
     {
       "id": "1280086",
@@ -4922,7 +4939,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048
+      "glow": 0.045455
     },
     {
       "id": "1281148",
@@ -4940,7 +4957,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048
+      "glow": 0.045455
     },
     {
       "id": "1282052",
@@ -4958,7 +4975,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048
+      "glow": 0.045455
     },
     {
       "id": "1282108",
@@ -4976,7 +4993,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048
+      "glow": 0.045455
     },
     {
       "id": "1282142",
@@ -4994,7 +5011,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048
+      "glow": 0.045455
     },
     {
       "id": "1282186",
@@ -5012,7 +5029,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048
+      "glow": 0.045455
     },
     {
       "id": "1426164",
@@ -5031,7 +5048,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048
+      "glow": 0.045455
     },
     {
       "id": "1426166",
@@ -5050,7 +5067,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048
+      "glow": 0.045455
     },
     {
       "id": "1426168",
@@ -5069,7 +5086,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048
+      "glow": 0.045455
     },
     {
       "id": "1426170",
@@ -5088,7 +5105,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048
+      "glow": 0.045455
     },
     {
       "id": "1426172",
@@ -5107,7 +5124,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048
+      "glow": 0.045455
     },
     {
       "id": "1426174",
@@ -5126,7 +5143,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048
+      "glow": 0.045455
     },
     {
       "id": "1426176",
@@ -5145,7 +5162,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048
+      "glow": 0.045455
     },
     {
       "id": "1426178",
@@ -5164,7 +5181,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048
+      "glow": 0.045455
     },
     {
       "id": "1426180",
@@ -5183,7 +5200,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048
+      "glow": 0.045455
     },
     {
       "id": "1426182",
@@ -5202,7 +5219,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048
+      "glow": 0.045455
     },
     {
       "id": "1426196",
@@ -5221,7 +5238,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048
+      "glow": 0.045455
     },
     {
       "id": "1426264",
@@ -5240,7 +5257,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048
+      "glow": 0.045455
     },
     {
       "id": "1500044",
@@ -5259,7 +5276,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048
+      "glow": 0.045455
     },
     {
       "id": "2200064",
@@ -5278,7 +5295,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048
+      "glow": 0.045455
     },
     {
       "id": "2200190",
@@ -5297,7 +5314,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048
+      "glow": 0.045455
     },
     {
       "id": "3305164",
@@ -5316,7 +5333,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048
+      "glow": 0.045455
     },
     {
       "id": "3305176",
@@ -5335,7 +5352,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048
+      "glow": 0.045455
     },
     {
       "id": "3305206",
@@ -5354,7 +5371,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048
+      "glow": 0.045455
     },
     {
       "id": "4304280",
@@ -5373,7 +5390,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048
+      "glow": 0.045455
     },
     {
       "id": "5000152",
@@ -5392,7 +5409,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048
+      "glow": 0.045455
     },
     {
       "id": "7988986",
@@ -5422,7 +5439,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048
+      "glow": 0.045455
     },
     {
       "id": "1220188",
@@ -5440,7 +5457,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.04
+      "glow": 0.037879
     },
     {
       "id": "1221002",
@@ -5458,7 +5475,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.04
+      "glow": 0.037879
     },
     {
       "id": "1221156",
@@ -5476,7 +5493,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.04
+      "glow": 0.037879
     },
     {
       "id": "1221162",
@@ -5494,7 +5511,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.04
+      "glow": 0.037879
     },
     {
       "id": "1240138",
@@ -5512,7 +5529,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.04
+      "glow": 0.037879
     },
     {
       "id": "1242062",
@@ -5530,7 +5547,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.04
+      "glow": 0.037879
     },
     {
       "id": "1242152",
@@ -5548,7 +5565,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.04
+      "glow": 0.037879
     },
     {
       "id": "1240116",
@@ -5576,7 +5593,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.032
+      "glow": 0.030303
     },
     {
       "id": "1200210",
@@ -5594,7 +5611,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.024
+      "glow": 0.022727
     },
     {
       "id": "1200302",
@@ -5612,7 +5629,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.024
+      "glow": 0.022727
     },
     {
       "id": "1200328",
@@ -5630,7 +5647,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.024
+      "glow": 0.022727
     },
     {
       "id": "1200342",
@@ -5648,7 +5665,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.024
+      "glow": 0.022727
     },
     {
       "id": "1200400",
@@ -5666,7 +5683,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.024
+      "glow": 0.022727
     },
     {
       "id": "1200432",
@@ -5684,7 +5701,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.024
+      "glow": 0.022727
     },
     {
       "id": "1200526",
@@ -5702,7 +5719,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.024
+      "glow": 0.022727
     },
     {
       "id": "1220038",
@@ -5720,7 +5737,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.024
+      "glow": 0.022727
     },
     {
       "id": "1220076",
@@ -5738,7 +5755,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.024
+      "glow": 0.022727
     },
     {
       "id": "1221016",
@@ -5756,7 +5773,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.024
+      "glow": 0.022727
     },
     {
       "id": "1222078",
@@ -5774,7 +5791,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.024
+      "glow": 0.022727
     },
     {
       "id": "1240046",
@@ -5792,7 +5809,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.024
+      "glow": 0.022727
     },
     {
       "id": "1240098",
@@ -5810,7 +5827,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.024
+      "glow": 0.022727
     },
     {
       "id": "1240104",
@@ -5828,7 +5845,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.024
+      "glow": 0.022727
     },
     {
       "id": "1242044",
@@ -5846,7 +5863,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.024
+      "glow": 0.022727
     },
     {
       "id": "10664",
@@ -5860,7 +5877,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.016
+      "glow": 0.015152
     },
     {
       "id": "14138",
@@ -5874,7 +5891,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.016
+      "glow": 0.015152
     }
   ],
   "mechanism_stacks": [
@@ -6221,6 +6238,33 @@
       "glow": 0.444444
     },
     {
+      "id": "kevin-watchlist-distributed-cone",
+      "stack_weight": 7.0,
+      "layers": [
+        {
+          "layer": "multichannel-selected-reference-horizon-audit",
+          "weight": 3.5,
+          "reason": "four-channel watchlist passes all selected-reference horizons without refitting",
+          "value": {
+            "comparison_row_count": 505,
+            "kevin_watchlist_passes_all_horizons": true,
+            "kevin_watchlist_minimum_margin": 0.010449868155660333
+          }
+        },
+        {
+          "layer": "watchlist-fresh-unseen-window-audit",
+          "weight": 3.5,
+          "reason": "four-channel watchlist passes all fresh unseen comparisons against selected deficit references",
+          "value": {
+            "kevin_watchlist_4_passes_unseen_windows": true,
+            "kevin_watchlist_4_minimum_margin": 0.0020345565333929026
+          }
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.388889
+    },
+    {
       "id": "low-frequency-lp-cap-certificate-survives",
       "stack_weight": 6.5,
       "layers": [
@@ -6253,6 +6297,33 @@
       ],
       "layer_count": 2,
       "glow": 0.361111
+    },
+    {
+      "id": "full-17-lp-overincluded-for-13822",
+      "stack_weight": 6.0,
+      "layers": [
+        {
+          "layer": "multichannel-selected-reference-horizon-audit",
+          "weight": 3.0,
+          "reason": "frozen full 17-channel LP fails every row in the 13822 selected-reference horizon",
+          "value": {
+            "frozen_full_17_lp_passes_all_horizons": false,
+            "frozen_full_17_lp_failure_count": 101,
+            "minimum_full_lp_margin": -0.13674707424582655
+          }
+        },
+        {
+          "layer": "watchlist-fresh-unseen-window-audit",
+          "weight": 3.0,
+          "reason": "frozen full 17-channel LP fails fresh unseen comparisons, including all rows against 13822",
+          "value": {
+            "frozen_full_17_lp_passes_unseen_windows": false,
+            "frozen_full_17_lp_failure_count": 611
+          }
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.333333
     },
     {
       "id": "zero-local-target-correlation-decomposition",
@@ -6296,17 +6367,17 @@
       "glow": 0.277778
     },
     {
-      "id": "kevin-watchlist-distributed-cone",
+      "id": "centered-3-1-selected-stress-fresh-window-classifier",
       "stack_weight": 3.5,
       "layers": [
         {
-          "layer": "multichannel-selected-reference-horizon-audit",
+          "layer": "watchlist-fresh-unseen-window-audit",
           "weight": 3.5,
-          "reason": "four-channel watchlist passes all selected-reference horizons without refitting",
+          "reason": "scalar (3,1) passes all fresh unseen comparisons against selected deficit references",
           "value": {
-            "comparison_row_count": 505,
-            "kevin_watchlist_passes_all_horizons": true,
-            "kevin_watchlist_minimum_margin": 0.010449868155660333
+            "comparison_row_count": 3030,
+            "scalar_3_1_passes_unseen_windows": true,
+            "scalar_3_1_minimum_margin": 0.0035109555591320892
           }
         }
       ],
@@ -6366,24 +6437,6 @@
             "frozen_full_17_lp_passes": true,
             "watchlist_minimum_margin": 0.026187595109613864,
             "full_lp_minimum_margin": 0.055956206788778495
-          }
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.166667
-    },
-    {
-      "id": "full-17-lp-overincluded-for-13822",
-      "stack_weight": 3.0,
-      "layers": [
-        {
-          "layer": "multichannel-selected-reference-horizon-audit",
-          "weight": 3.0,
-          "reason": "frozen full 17-channel LP fails every row in the 13822 selected-reference horizon",
-          "value": {
-            "frozen_full_17_lp_passes_all_horizons": false,
-            "frozen_full_17_lp_failure_count": 101,
-            "minimum_full_lp_margin": -0.13674707424582655
           }
         }
       ],
@@ -7069,7 +7122,7 @@
   "theorem_gap_stacks": [
     {
       "id": "centered-3-1-stress-class-theorem",
-      "stack_weight": 30.5,
+      "stack_weight": 33.5,
       "layers": [
         {
           "layer": "centered-channel-scalar-order-audit",
@@ -7117,6 +7170,11 @@
           "reason": "(3,1) helps the selected watchlist but cannot be used as scalar closure"
         },
         {
+          "layer": "watchlist-fresh-unseen-window-audit",
+          "weight": 3.0,
+          "reason": "(3,1) survives as selected-stress fresh-window classifier coordinate"
+        },
+        {
           "layer": "centered-3-1-stress-class-audit",
           "weight": 3.0,
           "reason": "full_nonpositive classifier version falsified; a different predeclared class or signed estimate is needed"
@@ -7127,12 +7185,12 @@
           "reason": "scope guard: selected-deficit separation cannot be promoted across fixture predicates"
         }
       ],
-      "layer_count": 11,
+      "layer_count": 12,
       "glow": 1.0
     },
     {
       "id": "ap-count-to-17-channel-bridge",
-      "stack_weight": 18.0,
+      "stack_weight": 21.0,
       "layers": [
         {
           "layer": "lp-cone-local-singular-audit",
@@ -7165,13 +7223,18 @@
           "reason": "bridge narrows from full 17 LP to a fixed four-channel watchlist cone"
         },
         {
+          "layer": "watchlist-fresh-unseen-window-audit",
+          "weight": 3.0,
+          "reason": "fresh unseen evidence supports a selected low-dimensional watchlist cone rather than full 17 LP"
+        },
+        {
           "layer": "ap-count-bridge-gap-audit",
           "weight": 3.0,
           "reason": "raw AP counts alone are demoted; bridge needs binary convolution or signed character correlation"
         }
       ],
-      "layer_count": 7,
-      "glow": 0.590164
+      "layer_count": 8,
+      "glow": 0.626866
     },
     {
       "id": "rank1-outside-direction-arithmetic-meaning",
@@ -7214,7 +7277,7 @@
         }
       ],
       "layer_count": 7,
-      "glow": 0.57377
+      "glow": 0.522388
     },
     {
       "id": "portfolio-residual-lower-bound",
@@ -7262,7 +7325,7 @@
         }
       ],
       "layer_count": 8,
-      "glow": 0.540984
+      "glow": 0.492537
     },
     {
       "id": "rank1-residual-drag-bound",
@@ -7295,7 +7358,7 @@
         }
       ],
       "layer_count": 5,
-      "glow": 0.491803
+      "glow": 0.447761
     },
     {
       "id": "alternate-stress-channel-reference-gate",
@@ -7318,7 +7381,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.262295
+      "glow": 0.238806
     },
     {
       "id": "fixed-modulus-binary-prime-discrepancy",
@@ -7341,7 +7404,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.262295
+      "glow": 0.238806
     },
     {
       "id": "active-lane-strict-closure",
@@ -7359,7 +7422,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.163934
+      "glow": 0.149254
     },
     {
       "id": "near-boundary-selector-theorem",
@@ -7377,7 +7440,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.114754
+      "glow": 0.104478
     },
     {
       "id": "distributed-cone-correlation-theorem",
@@ -7390,7 +7453,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.098361
+      "glow": 0.089552
     },
     {
       "id": "alignment-plus-complement-tail",
@@ -7403,7 +7466,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.065574
+      "glow": 0.059701
     },
     {
       "id": "dangerous-reflection-orbit-mass-bound",
@@ -7416,7 +7479,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.065574
+      "glow": 0.059701
     },
     {
       "id": "dominant-staircase-above-floor-threshold-sign",
@@ -7429,7 +7492,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.065574
+      "glow": 0.059701
     },
     {
       "id": "dominant-staircase-hinge-balance",
@@ -7442,7 +7505,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.065574
+      "glow": 0.059701
     },
     {
       "id": "dominant-staircase-hinge-threshold-surplus",
@@ -7455,7 +7518,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.065574
+      "glow": 0.059701
     },
     {
       "id": "interpolation-or-cone-endpoint-theorem",
@@ -7468,7 +7531,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.065574
+      "glow": 0.059701
     },
     {
       "id": "rarity-plus-complement-floor",
@@ -7481,7 +7544,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.065574
+      "glow": 0.059701
     },
     {
       "id": "sample-size-cherry-pick-risk",
@@ -7498,7 +7561,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.04918
+      "glow": 0.044776
     },
     {
       "id": "alignment-complement-route",
@@ -7511,7 +7574,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.032787
+      "glow": 0.029851
     }
   ],
   "goldbach_proved": false,
