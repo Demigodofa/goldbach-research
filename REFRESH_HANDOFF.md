@@ -6,6 +6,50 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS four-modulus route now has a finite edge-character row-load
+audit.
+
+```text
+tools/build_q286_wbss_four_modulus_edge_character_load_audit.py
+notes/q286-wbss-four-modulus-edge-character-load-audit.md
+evidence/q286-wbss-four-modulus-edge-character-load-audit.json
+```
+
+Result:
+
+```text
+all dual-edge rows:                       230
+post-discovery rows:                      196
+edge-load reconstruction max error: 1.87627691161651e-14
+edge signed contribution sum:
+  negative rows:                          230 / 230
+  minimum:                    -2.0365751016482774
+  mean:                       -0.5529256424042925
+  maximum:                    -0.21377190910116042
+dominant absolute edge counts, all rows:
+  11,13 -> 227
+  7,11  ->   2
+  5,7   ->   1
+  5,13  ->   0
+dominant absolute edge, post rows:
+  11,13 -> 196 / 196
+character conjugacy groups total:          50
+rank needed for 50% absolute load:         16
+rank needed for 80% absolute load:         29
+rank needed for 90% absolute load:         33
+```
+
+Decision: the finite binary-prime row loads point to `11,13` as the first
+analytic stress edge. They do not justify dropping the other edges or most
+character groups. The next theorem-shaped target is a signed binary-prime
+estimate for the `11,13` edge-character family with residual control for the
+remaining edge groups. This is finite prioritization evidence only; no
+character-sum bound, binary-prime projection-control theorem, signed
+discrepancy theorem, q286 threshold theorem, strict-central Goldbach theorem,
+or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286-WBSS four-modulus route now has a CRT edge-character obligation
 audit.
 

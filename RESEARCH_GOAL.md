@@ -6,6 +6,37 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS four-modulus route now has a finite edge-character row-load
+audit: `tools/build_q286_wbss_four_modulus_edge_character_load_audit.py`
+generated `evidence/q286-wbss-four-modulus-edge-character-load-audit.json`,
+with explanation in
+`notes/q286-wbss-four-modulus-edge-character-load-audit.md`.
+
+Question: after naming the `98` fully nonprincipal edge-character obligations,
+which of those obligations actually carry the existing finite binary-prime
+row stress?
+
+Result: replaying all `230` available lower-face dual-edge rows against the
+four edge-character bases reconstructs the row loads with maximum group error
+`1.87627691161651e-14`. The sum of the four edge signed contributions is
+negative on all `230` rows, with minimum `-2.0365751016482774`, mean
+`-0.5529256424042925`, and maximum `-0.21377190910116042`. The dominant
+absolute edge is `11,13` on `227/230` rows. On the `196` post-discovery rows,
+`11,13` is dominant on all rows. Finite absolute character-group load is not
+tiny: among the `50` conjugate character groups, the ranks needed for `50%`,
+`80%`, and `90%` of absolute group load are `16`, `29`, and `33`.
+
+Decision: the finite data points to the `11,13` edge as the first analytic
+stress target, but it does not justify dropping the other edges or most
+character groups. The next theorem-shaped target is a signed binary-prime
+estimate for the `11,13` edge-character family with residual control for the
+remaining edge groups. This is finite prioritization evidence only; it proves
+no character-sum bound, binary-prime projection-control theorem, signed
+discrepancy theorem, q286 threshold theorem, strict-central Goldbach theorem,
+or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286-WBSS four-modulus route now has a CRT edge-character obligation
 audit: `tools/build_q286_wbss_four_modulus_edge_character_audit.py`
 generated `evidence/q286-wbss-four-modulus-edge-character-audit.json`, with
