@@ -6,6 +6,40 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 signed-witness bridge now has a direct raw-action census.
+
+`tools/build_q286_raw_signed_witness_census.py` generated
+`evidence/q286-raw-signed-witness-census.json`, with explanation in
+`notes/q286-raw-signed-witness-census.md`.
+
+Question: after the nonnegative-minorant shortcut failed, is the raw
+unnormalized q286 signed action positive on the first twelve full `M=10010`
+cycles?
+
+Result: not from `10000`.
+
+```text
+total even targets scanned:     60060
+nonpositive raw signed actions: 89
+last nonpositive target:        88346
+positive suffix in this scan:   cycle 8, target 90080
+cycle counts:                   75,3,5,4,0,0,0,2,0,0,0,0
+worst ratio:                    14138 at -1.876941273440844
+```
+
+Decision: the signed-witness implication survives:
+
+```text
+RawFull(N)>0 => T_N>0.
+```
+
+But the naive threshold claim `RawFull(N)>0 for all even N>=10000` is
+falsified.  A future threshold theorem must start after the last checked
+nonpositive target or supply a non-post-hoc condition explaining why
+cycle-`7`-style recurrences cannot happen.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 bridge pivot now has a coefficient-side minorant audit.
 
 `tools/build_q286_unnormalized_witness_minorant_audit.py` generated

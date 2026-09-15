@@ -1,0 +1,311 @@
+{
+  "all_scanned_targets_positive": false,
+  "arithmetic_period": 10010,
+  "base_target_minimum": 10000,
+  "contiguous_positive_suffix_start_cycle": 8,
+  "contiguous_positive_suffix_start_target": 90080,
+  "cycle_count": 12,
+  "cycle_minimum_ratio_summary": {
+    "count": 12,
+    "maximum": -0.8394464677042788,
+    "mean": -1.0819254403416818,
+    "minimum": -1.876941273440844
+  },
+  "cycle_nonpositive_count_summary": {
+    "count": 12,
+    "maximum": 75.0,
+    "mean": 7.416666666666667,
+    "minimum": 0.0
+  },
+  "cycle_rows": [
+    {
+      "cycle_index": 0,
+      "mean_centered_to_principal_ratio": -0.05012035309192424,
+      "minimum_centered_to_principal_ratio": -1.876941273440844,
+      "minimum_centered_to_principal_target": 14138,
+      "negative_or_zero_targets": [
+        10042,
+        10088,
+        10294,
+        10344,
+        10354,
+        10392,
+        10424,
+        10464,
+        10498,
+        10522,
+        10532,
+        10564,
+        10664,
+        10814,
+        10824,
+        10934,
+        11168,
+        11192,
+        11486,
+        11576,
+        11614,
+        11894,
+        11902,
+        11908,
+        12020,
+        12032,
+        12118,
+        12124,
+        12346,
+        12352,
+        12424,
+        12604,
+        12956,
+        13048,
+        13288,
+        13444,
+        13588,
+        13768,
+        13810,
+        14138,
+        14256,
+        14258,
+        14528,
+        14774,
+        14852,
+        14888,
+        14988,
+        14996,
+        15026,
+        15296,
+        15308,
+        15362,
+        15452,
+        15470,
+        15560,
+        15572,
+        15992,
+        16328,
+        16376,
+        16388,
+        16712,
+        16748,
+        16894,
+        17042,
+        17096,
+        17198,
+        17306,
+        17522,
+        17678,
+        17702,
+        18364,
+        18368,
+        18428,
+        18458,
+        18626
+      ],
+      "negative_or_zero_weighted_sum_count": 75,
+      "target_range": [
+        10000,
+        20008
+      ],
+      "tested_target_count": 5005
+    },
+    {
+      "cycle_index": 1,
+      "mean_centered_to_principal_ratio": 0.02371436431817178,
+      "minimum_centered_to_principal_ratio": -1.021459631566533,
+      "minimum_centered_to_principal_target": 22744,
+      "negative_or_zero_targets": [
+        22744,
+        24844,
+        26056
+      ],
+      "negative_or_zero_weighted_sum_count": 3,
+      "target_range": [
+        20010,
+        30018
+      ],
+      "tested_target_count": 5005
+    },
+    {
+      "cycle_index": 2,
+      "mean_centered_to_principal_ratio": -0.05600161112603835,
+      "minimum_centered_to_principal_ratio": -1.2263522951893324,
+      "minimum_centered_to_principal_target": 37568,
+      "negative_or_zero_targets": [
+        30164,
+        30610,
+        34084,
+        37568,
+        39206
+      ],
+      "negative_or_zero_weighted_sum_count": 5,
+      "target_range": [
+        30020,
+        40028
+      ],
+      "tested_target_count": 5005
+    },
+    {
+      "cycle_index": 3,
+      "mean_centered_to_principal_ratio": -0.038735255231364694,
+      "minimum_centered_to_principal_ratio": -1.2036060970128193,
+      "minimum_centered_to_principal_target": 42356,
+      "negative_or_zero_targets": [
+        40676,
+        42356,
+        43268,
+        47452
+      ],
+      "negative_or_zero_weighted_sum_count": 4,
+      "target_range": [
+        40030,
+        50038
+      ],
+      "tested_target_count": 5005
+    },
+    {
+      "cycle_index": 4,
+      "mean_centered_to_principal_ratio": -0.002343506866979156,
+      "minimum_centered_to_principal_ratio": -0.9975041993462069,
+      "minimum_centered_to_principal_target": 58736,
+      "negative_or_zero_targets": [],
+      "negative_or_zero_weighted_sum_count": 0,
+      "target_range": [
+        50040,
+        60048
+      ],
+      "tested_target_count": 5005
+    },
+    {
+      "cycle_index": 5,
+      "mean_centered_to_principal_ratio": -0.0077385249604573336,
+      "minimum_centered_to_principal_ratio": -0.973613649508457,
+      "minimum_centered_to_principal_target": 66002,
+      "negative_or_zero_targets": [],
+      "negative_or_zero_weighted_sum_count": 0,
+      "target_range": [
+        60050,
+        70058
+      ],
+      "tested_target_count": 5005
+    },
+    {
+      "cycle_index": 6,
+      "mean_centered_to_principal_ratio": 0.06507060067579598,
+      "minimum_centered_to_principal_ratio": -0.9596049947458746,
+      "minimum_centered_to_principal_target": 75692,
+      "negative_or_zero_targets": [],
+      "negative_or_zero_weighted_sum_count": 0,
+      "target_range": [
+        70060,
+        80068
+      ],
+      "tested_target_count": 5005
+    },
+    {
+      "cycle_index": 7,
+      "mean_centered_to_principal_ratio": 0.028710340054504967,
+      "minimum_centered_to_principal_ratio": -1.1294250400216068,
+      "minimum_centered_to_principal_target": 88346,
+      "negative_or_zero_targets": [
+        85496,
+        88346
+      ],
+      "negative_or_zero_weighted_sum_count": 2,
+      "target_range": [
+        80070,
+        90078
+      ],
+      "tested_target_count": 5005
+    },
+    {
+      "cycle_index": 8,
+      "mean_centered_to_principal_ratio": 0.02524272436931557,
+      "minimum_centered_to_principal_ratio": -0.9874235337062002,
+      "minimum_centered_to_principal_target": 94856,
+      "negative_or_zero_targets": [],
+      "negative_or_zero_weighted_sum_count": 0,
+      "target_range": [
+        90080,
+        100088
+      ],
+      "tested_target_count": 5005
+    },
+    {
+      "cycle_index": 9,
+      "mean_centered_to_principal_ratio": 0.01565387885785245,
+      "minimum_centered_to_principal_ratio": -0.9227395140632803,
+      "minimum_centered_to_principal_target": 109178,
+      "negative_or_zero_targets": [],
+      "negative_or_zero_weighted_sum_count": 0,
+      "target_range": [
+        100090,
+        110098
+      ],
+      "tested_target_count": 5005
+    },
+    {
+      "cycle_index": 10,
+      "mean_centered_to_principal_ratio": -0.00856581557593627,
+      "minimum_centered_to_principal_ratio": -0.8449885877947494,
+      "minimum_centered_to_principal_target": 110522,
+      "negative_or_zero_targets": [],
+      "negative_or_zero_weighted_sum_count": 0,
+      "target_range": [
+        110100,
+        120108
+      ],
+      "tested_target_count": 5005
+    },
+    {
+      "cycle_index": 11,
+      "mean_centered_to_principal_ratio": -0.019997722460350198,
+      "minimum_centered_to_principal_ratio": -0.8394464677042788,
+      "minimum_centered_to_principal_target": 125504,
+      "negative_or_zero_targets": [],
+      "negative_or_zero_weighted_sum_count": 0,
+      "target_range": [
+        120110,
+        130118
+      ],
+      "tested_target_count": 5005
+    }
+  ],
+  "eventual_signed_witness_threshold_proved": false,
+  "falsified_candidate": "The naive threshold candidate 'raw q286 signed action is positive for every even N>=10000' is falsified by finite rows.",
+  "full_cycles_scanned": true,
+  "global_minimum_centered_to_principal_ratio": -1.876941273440844,
+  "global_minimum_centered_to_principal_target": 14138,
+  "goldbach_proved": false,
+  "last_nonpositive_target": 88346,
+  "naive_from_10000_signed_witness_positivity_falsified": true,
+  "nonpositive_cycle_indices": [
+    0,
+    1,
+    2,
+    3,
+    7
+  ],
+  "nonpositive_raw_signed_action_count": 89,
+  "nonpositive_raw_signed_action_fraction": 0.0014818514818514819,
+  "positive_cycle_indices": [
+    4,
+    5,
+    6,
+    8,
+    9,
+    10,
+    11
+  ],
+  "principal_mean": {
+    "imag": 3.182577756888349e-10,
+    "real": 44002.512499999146
+  },
+  "raw_signed_witness_census_measured": true,
+  "schema_version": 1,
+  "signed_prime_correlation_estimate_proved": false,
+  "signed_witness_implication": "For any target, strict positivity of the raw unnormalized signed q286 action implies at least one strict-central prime pair, because all W_N(r) are nonnegative and absence of prime pairs makes the signed action exactly zero.",
+  "source_commit": "a7a7ca8f2f06d1d36f8767cf243f63adb6dd55ce",
+  "status_boundary": "finite raw-action census only; no threshold theorem, no pointwise signed prime-correlation theorem, no strict-central Goldbach theorem, and no Goldbach proof",
+  "surviving_candidate": "A later threshold or a residue-conditioned signed correlation theorem remains possible only after explicitly checking or excluding the finite nonpositive rows.",
+  "targets_per_cycle": 5005,
+  "total_even_targets_scanned": 60060
+}

@@ -1878,6 +1878,22 @@
       "status": "open",
       "statement": "Prove the raw unnormalized q286 full action is strictly positive for all sufficiently large covered even targets; this would imply T_N>0 without coefficientwise nonnegativity, but requires a pointwise signed binary-prime correlation estimate.",
       "goldbach_proved": false
+    },
+    {
+      "id": "receipt.q286_raw_signed_witness_census",
+      "type": "receipt",
+      "label": "q286 raw signed witness census",
+      "status": "validated_falsifier",
+      "validation": "tools/build_q286_raw_signed_witness_census.py generated evidence/q286-raw-signed-witness-census.json; over twelve full M=10010 cycles from 10000, 60060 even targets were scanned and 89 had nonpositive raw signed q286 action, with last observed nonpositive target 88346 and a finite positive suffix beginning at 90080.",
+      "status_boundary": "finite raw-action census only; falsifies the threshold-from-10000 signed-witness claim, but does not prove an eventual threshold, signed prime-correlation theorem, or Goldbach"
+    },
+    {
+      "id": "lane.q286_raw_signed_witness_from_10000",
+      "type": "closed_lane",
+      "label": "Raw q286 signed witness positive from 10000",
+      "status": "falsified",
+      "reason": "The twelve-cycle raw-action census found 89 nonpositive raw signed actions from 10000, including two recurrences in cycle 7 after cycles 4..6 were clean.",
+      "nuance": "Does not refute a later explicit threshold or residue-conditioned signed correlation theorem."
     }
   ],
   "edges": [
@@ -4318,6 +4334,21 @@
     },
     {
       "from": "lane.q286_existing_coefficient_nonnegative_minorant",
+      "to": "theorem.q286_positive_signed_witness",
+      "type": "scope_guard"
+    },
+    {
+      "from": "receipt.q286_raw_signed_witness_census",
+      "to": "theorem.q286_positive_signed_witness",
+      "type": "tests"
+    },
+    {
+      "from": "receipt.q286_raw_signed_witness_census",
+      "to": "lane.q286_raw_signed_witness_from_10000",
+      "type": "falsifies"
+    },
+    {
+      "from": "lane.q286_raw_signed_witness_from_10000",
       "to": "theorem.q286_positive_signed_witness",
       "type": "scope_guard"
     }

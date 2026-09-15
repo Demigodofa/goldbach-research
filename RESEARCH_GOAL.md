@@ -6,6 +6,33 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The surviving signed-witness route now has a direct raw-action finite census:
+`tools/build_q286_raw_signed_witness_census.py` generated
+`evidence/q286-raw-signed-witness-census.json`, with explanation in
+`notes/q286-raw-signed-witness-census.md`.
+
+Mechanism: test the unnormalized implication
+`raw q286 signed action > 0 => T_N>0`, where `T_N` is the total
+strict-central binary-prime weight.  This implication is valid because all
+`W_N(r)` are nonnegative and no prime pairs would make every signed sum zero.
+
+Result: the naive threshold candidate beginning at `10000` is falsified.  In
+the first `12` full `M=10010` cycles, the receipt scanned `60060` even targets
+and found `89` nonpositive raw signed actions.  The last observed
+nonpositive target is `88346`; cycles `8..11`, starting at `90080`, are clean
+in this finite scan.  The nonpositive counts by cycle are
+`75,3,5,4,0,0,0,2,0,0,0,0`, so cycles `4..6` being clean did not establish a
+monotone threshold.
+
+Decision: preserve the signed-witness theorem target, but demote the claim
+`raw q286 signed action > 0 for every even N>=10000`.  Any future threshold
+claim must start after the last checked nonpositive row or explain why
+recurrences such as cycle `7` cannot continue.  No eventual threshold theorem,
+pointwise signed prime-correlation theorem, strict-central Goldbach theorem,
+or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286-to-Goldbach bridge now has a finite coefficient audit separating the
 signed-witness route from the stronger nonnegative-minorant shortcut:
 `tools/build_q286_unnormalized_witness_minorant_audit.py` generated

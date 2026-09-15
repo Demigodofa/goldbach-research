@@ -304,3 +304,33 @@ Decision: demote the nonnegative-minorant shortcut for this coefficient, but
 preserve the signed-witness route.  A direct proof that the unnormalized q286
 full action is strictly positive would still imply a Goldbach pair; it is just
 not a nonnegative sieve lower bound.
+
+## Raw Signed-Witness Census
+
+`tools/build_q286_raw_signed_witness_census.py` generated
+`evidence/q286-raw-signed-witness-census.json`.
+
+Result: the signed-witness implication is valid, but the naive threshold
+starting at `10000` is false on the checked finite block.
+
+```text
+base target:                   10000
+cycles scanned:                12
+targets per cycle:             5005
+total even targets scanned:    60060
+nonpositive raw signed action: 89
+last nonpositive target:       88346
+positive suffix in this scan:  cycle 8, target 90080
+```
+
+Nonpositive raw signed-action counts by cycle:
+
+```text
+75, 3, 5, 4, 0, 0, 0, 2, 0, 0, 0, 0
+```
+
+This is a useful warning.  Cycles `4..6` are clean, but cycle `7` has two
+nonpositive targets.  Therefore a finite clean run does not establish a
+monotone threshold.  Any eventual signed-witness theorem must either start
+after the last checked nonpositive target or prove a reason that later
+recurrences cannot happen.
