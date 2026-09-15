@@ -25,6 +25,8 @@ maximum projected cell error range:               0.0054355245292371495..0.03166
 mean maximum projected cell error:                0.011916198098095038
 error-to-budget ratio range:                      3.356723557399196..19.552207975890227
 projection formula replay max abs error:          4.440892098500626e-16
+mod 286 signed weighted error count:              196 / 196 negative
+mod 286 signed weighted error range:              -0.7066366026664204..-0.27555447095822444
 ```
 
 Decision: common absolute projected-cell uniformity is too strong even after

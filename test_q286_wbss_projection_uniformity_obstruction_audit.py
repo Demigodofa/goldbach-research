@@ -49,6 +49,16 @@ class Q286WbssProjectionUniformityObstructionAuditTests(unittest.TestCase):
 
         self.assertEqual(moduli, {"70", "130", "154", "286"})
 
+    def test_modulus_286_is_consistent_signed_drag_in_fixture(self):
+        receipt = self.load_receipt()
+        summary = receipt["summary"]["post_discovery_modulus_summaries"]["286"]
+
+        self.assertEqual(summary["row_count"], 196)
+        self.assertEqual(
+            summary["negative_signed_weighted_error_count"], 196)
+        self.assertEqual(
+            summary["positive_signed_weighted_error_count"], 0)
+
 
 if __name__ == "__main__":
     unittest.main()

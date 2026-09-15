@@ -39,6 +39,19 @@ projection formula replay max abs error:        4.440892098500626e-16
 The worst row is target `93932`, where the largest projected cell error is
 `0.03166078595284763`, about `19.55` times the sufficient budget.
 
+The signed decomposition gives the useful surviving clue. The modulo `286`
+projection contributes negative signed weighted error on all `196`
+post-discovery rows, with range:
+
+```text
+-0.7066366026664204..-0.27555447095822444
+```
+
+The other three moduli are smaller and mixed-sign. Thus the next target should
+not be "make every projected residue uniform"; it should explain why the
+negative `286` drag is still beaten by the positive local main term and the
+other signed projection components.
+
 ## Decision
 
 Demote the blunt four-modulus projected L-infinity uniformity bridge. The

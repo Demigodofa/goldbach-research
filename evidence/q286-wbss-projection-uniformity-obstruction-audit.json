@@ -14,7 +14,7 @@
   "projection_error_budget": 0.0016192946592982506,
   "projection_uniformity_theorem_proved": false,
   "schema_version": 1,
-  "source_commit": "f7483be259ba217f6381572b0cc4ae443a6eba44",
+  "source_commit": "8ba793d4640ab300a92f741f20f9dfab20c060a2",
   "sources": {
     "four_modulus_projection_formula": "evidence\\q286-wbss-four-modulus-projection-formula.json",
     "lower_face_dual_edge_audit": "evidence\\q286-lower-face-dual-edge-audit.json"
@@ -588,6 +588,12 @@
         "maximum": 41.17018868916532,
         "mean": 10.169847306123005,
         "minimum": 3.3567235573992003
+      },
+      "nonconstant_signed_projection_error_summary": {
+        "count": 230,
+        "maximum": -0.21192022167429403,
+        "mean": -0.5537675950151973,
+        "minimum": -2.0408307622540702
       },
       "outside_blunt_projection_error_budget_count": 230,
       "positive_actual_expectation_count": 196,
@@ -1167,6 +1173,12 @@
         "mean": 26.37423633498581,
         "minimum": 17.73187987507167
       },
+      "nonconstant_signed_projection_error_summary": {
+        "count": 34,
+        "maximum": -0.9270254844579151,
+        "mean": -1.2788022933971779,
+        "minimum": -2.0408307622540702
+      },
       "outside_blunt_projection_error_budget_count": 34,
       "positive_actual_expectation_count": 0,
       "projection_formula_abs_error_summary": {
@@ -1191,6 +1203,9 @@
           "mean": 0.009322733194228265,
           "minimum": 0.0038223646332667116
         },
+        "near_zero_signed_weighted_error_count": 0,
+        "negative_signed_weighted_error_count": 104,
+        "positive_signed_weighted_error_count": 92,
         "row_count": 196,
         "signed_weighted_error_summary": {
           "count": 196,
@@ -1212,6 +1227,9 @@
           "mean": 0.00867387397414135,
           "minimum": 0.003804108752301378
         },
+        "near_zero_signed_weighted_error_count": 0,
+        "negative_signed_weighted_error_count": 150,
+        "positive_signed_weighted_error_count": 46,
         "row_count": 196,
         "signed_weighted_error_summary": {
           "count": 196,
@@ -1233,6 +1251,9 @@
           "mean": 0.0070769200583918005,
           "minimum": 0.004322423169302855
         },
+        "near_zero_signed_weighted_error_count": 0,
+        "negative_signed_weighted_error_count": 196,
+        "positive_signed_weighted_error_count": 0,
         "row_count": 196,
         "signed_weighted_error_summary": {
           "count": 196,
@@ -1254,6 +1275,9 @@
           "mean": 0.01064437050762931,
           "minimum": 0.002940573161007917
         },
+        "near_zero_signed_weighted_error_count": 0,
+        "negative_signed_weighted_error_count": 138,
+        "positive_signed_weighted_error_count": 58,
         "row_count": 196,
         "signed_weighted_error_summary": {
           "count": 196,
@@ -1830,6 +1854,12 @@
         "maximum": 19.552207975890184,
         "mean": 7.3588818623406835,
         "minimum": 3.3567235573992003
+      },
+      "nonconstant_signed_projection_error_summary": {
+        "count": 196,
+        "maximum": -0.21192022167429403,
+        "mean": -0.4279962697856701,
+        "minimum": -0.8188784309040199
       },
       "outside_blunt_projection_error_budget_count": 196,
       "positive_actual_expectation_count": 196,

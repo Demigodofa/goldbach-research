@@ -26,9 +26,12 @@ the actual signed expectation with max absolute error
 `4.440892098500626e-16`.
 
 Decision: demote common absolute projected-cell uniformity. The four-modulus
-formula survives, but the next theorem must control its signed weighted
-projection error or prove the raw q286-WBSS witness directly. Goldbach is not
-proved.
+formula survives. The signed decomposition localizes the recurring drag:
+modulus `286` contributes negative signed weighted error on all `196`
+post-discovery rows, ranging from `-0.7066366026664204` to
+`-0.27555447095822444`. The next theorem must control that signed weighted
+projection error, plus the smaller mixed-sign moduli, or prove the raw
+q286-WBSS witness directly. Goldbach is not proved.
 
 ## Latest continuation evidence, 2026-09-15
 

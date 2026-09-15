@@ -189,6 +189,8 @@ def build_row(edge_row, context, full_coefficients, first_three_coefficients,
         "projection_formula_abs_error": float(
             abs(actual_expectation - formula_projection_expectation)),
         "actual_positive": bool(actual_expectation > TOLERANCE),
+        "nonconstant_signed_projection_error": float(
+            actual_expectation - local_uniform_main),
         "max_abs_projection_error": max(
             row["max_abs_projection_error"] for row in projection_summary),
         "max_l1_projection_error": max(
@@ -216,6 +218,8 @@ def row_summary(rows, budget):
             row["actual_formula_expectation"] for row in rows),
         "local_uniform_main_term_summary": finite_summary(
             row["local_uniform_main_term"] for row in rows),
+        "nonconstant_signed_projection_error_summary": finite_summary(
+            row["nonconstant_signed_projection_error"] for row in rows),
         "projection_formula_abs_error_summary": finite_summary(
             row["projection_formula_abs_error"] for row in rows),
         "largest_projection_error_rows": sorted(
@@ -269,6 +273,15 @@ def modulus_summary(rows):
         ]
         result[str(modulus)] = {
             "row_count": len(items),
+            "negative_signed_weighted_error_count": sum(
+                item["signed_weighted_error"] < -TOLERANCE
+                for item in items),
+            "positive_signed_weighted_error_count": sum(
+                item["signed_weighted_error"] > TOLERANCE
+                for item in items),
+            "near_zero_signed_weighted_error_count": sum(
+                abs(item["signed_weighted_error"]) <= TOLERANCE
+                for item in items),
             "max_abs_projection_error_summary": finite_summary(
                 item["max_abs_projection_error"] for item in items),
             "l1_projection_error_summary": finite_summary(
