@@ -144,6 +144,25 @@ The latest receipts supporting this definition layer are:
 ```text
 evidence/q286-principal-rescue-obstruction-audit.json
 evidence/q286-nonprincipal-drag-envelope-audit.json
+evidence/q286-convex-envelope-obstruction-audit.json
 ```
 
 They prove only checked finite statements.  They do not prove Goldbach.
+
+## Convex-envelope refinement
+
+`tools/build_q286_convex_envelope_obstruction_audit.py` generated
+`evidence/q286-convex-envelope-obstruction-audit.json`.
+
+This refines the cone-duality target without scanning new targets.  For each
+tested residue, the reflection simplex is pushed into the `(F3, Full)` plane
+and LP computes the coefficient-only lower envelope at observed `F3` values.
+
+Result: every one of the `204` tested residues admits a synthetic tail failure
+inside the coefficient hull, and actual post-discovery rows sit at least
+`3.1310310375615944` above the lower envelope.
+
+Therefore `Q286*` cannot be defined by support, reflection, and q286
+coefficient geometry alone.  A viable definition must add arithmetic
+anti-extremality: actual strict-central prime-pair measures avoid the lower
+convex face of the coefficient hull.

@@ -6,6 +6,39 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 landing-cone route now has a convex-envelope obstruction audit:
+`tools/build_q286_convex_envelope_obstruction_audit.py` generated
+`evidence/q286-convex-envelope-obstruction-audit.json`, with explanation in
+`notes/q286-convex-envelope-obstruction-audit.md`.
+
+Question: does support/reflection plus q286 coefficient geometry itself force
+rescue, or do actual strict-central prime-pair measures avoid a bad lower
+convex face for a deeper arithmetic reason?
+
+Result: on `230` pre-existing tight source rows over `204` target residues,
+every tested residue admits a synthetic coefficient-only tail failure inside
+the reflection simplex:
+
+```text
+synthetic tail-failure residues: 204 / 204
+minimum full on tail halfspace:  -10.089065110068542..-4.709304090441504
+```
+
+Actual rows sit well above the coefficient-only lower envelope.  Across the
+`196` post-discovery rows in the fixture, the surplus above that lower face
+ranges from `3.1310310375615944` to `7.8631684141402225`, with mean
+`5.496203298315322`.
+
+Decision: coefficient geometry alone cannot close the q286 hole.  The next
+proof object is a q286 convex-envelope anti-extremality theorem: prove actual
+prime-pair measures cannot concentrate on the lower face strongly enough to
+make `Full<=0` after the finite boundary split.  This is a coefficient-matched
+transport/correlation theorem, not a scan extension.  No anti-extremality
+theorem, signed prime-correlation theorem, q286 threshold theorem,
+strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 bridge now has a finite landing-advantage audit:
 `tools/build_q286_landing_advantage_audit.py` generated
 `evidence/q286-landing-advantage-audit.json`, with explanation in

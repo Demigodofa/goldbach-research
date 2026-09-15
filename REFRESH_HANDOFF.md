@@ -6,6 +6,37 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 landing-cone route now has a convex-envelope obstruction audit.
+
+`tools/build_q286_convex_envelope_obstruction_audit.py` generated
+`evidence/q286-convex-envelope-obstruction-audit.json`, with explanation in
+`notes/q286-convex-envelope-obstruction-audit.md`.
+
+Question: does support/reflection plus q286 coefficient geometry force rescue,
+or is the remaining theorem about actual prime-pair measures avoiding the
+lower convex face?
+
+Result:
+
+```text
+tight source rows checked:              230
+target residues checked:                204
+synthetic tail-failure residues:        204
+post-discovery rows checked:            196
+post-discovery lower-envelope surplus:  3.1310310375615944..7.8631684141402225
+```
+
+Decision: the bad branch exists inside the coefficient hull for every tested
+residue, so coefficient geometry alone cannot close the q286 hole.  The next
+mathematical object is the q286 Convex-Envelope Anti-Extremality Problem:
+prove actual strict-central prime-pair mass cannot concentrate on the lower
+`(F3, Full)` envelope strongly enough to make `Full<=0` after the finite
+boundary split.
+
+Goldbach is not proved.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 bridge now has a finite landing-advantage audit.
 
 `tools/build_q286_landing_advantage_audit.py` generated

@@ -577,3 +577,37 @@ and `1.1701947485425508`.
 
 This supports the landing-advantage theorem as the right proof language.  It
 does not prove the theorem.
+
+## Convex-Envelope Obstruction Audit
+
+`tools/build_q286_convex_envelope_obstruction_audit.py` generated
+`evidence/q286-convex-envelope-obstruction-audit.json`.
+
+This receipt tests whether the remaining landing-cone gap can be closed by
+coefficient geometry alone.  For each tested target residue, it computes the
+lower convex envelope
+
+```text
+L_a(t) = min Full(mu) subject to F3(mu)=t
+```
+
+over the support/reflection simplex.
+
+Result: no.  All `204` tested residues admit synthetic coefficient-only tail
+failures, with `minimum full on tail halfspace` ranging from
+`-10.089065110068542` to `-4.709304090441504`.
+
+Actual post-discovery rows sit above that bad lower face: the checked surplus
+above the coefficient-only lower envelope is at least
+`3.1310310375615944`.
+
+Decision: the bridge needs a genuine anti-extremality theorem for actual
+prime-pair landing.  In theorem language:
+
+```text
+Full(mu_N) >= L_a(F3(mu_N)) + eta_a(N),
+```
+
+with enough positive margin to force `Full(mu_N)>0` after the finite boundary
+split.  This remains a pointwise signed binary-prime correlation/transport
+problem, not a consequence of q286 coefficient geometry alone.
