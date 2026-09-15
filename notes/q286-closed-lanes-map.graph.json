@@ -1984,6 +1984,22 @@
       "validation": "tools/build_q286_support_tail_stability_window_audit.py generated evidence/q286-support-tail-stability-window-audit.json; across 85085 post-boundary targets from 90080..250238 plus fresh cycle 250240..260248 there are zero tail sign changes, zero negative-tail kills, zero positive-tail rescues, zero full nonpositive rows, and zero principal-plus-dominant nonpositive rows.",
       "status_boundary": "finite support-tail stability window audit only; no signed tail-control theorem, no q286 threshold theorem, no strict-central Goldbach theorem, and no Goldbach proof",
       "goldbach_proved": false
+    },
+    {
+      "id": "receipt.q286_support_tail_coefficient_minorant_audit",
+      "type": "receipt",
+      "label": "q286 support-tail coefficient minorant audit",
+      "status": "validated_falsifier",
+      "validation": "tools/build_q286_support_tail_coefficient_minorant_audit.py generated evidence/q286-support-tail-coefficient-minorant-audit.json; across all 5005 even residues, zero have all-positive partial coefficients, zero have all-positive full coefficients, and zero pass separated coefficientwise tail control.",
+      "status_boundary": "finite coefficient-side audit only; no signed prime-correlation theorem, no q286 threshold theorem, no strict-central Goldbach theorem, and no Goldbach proof",
+      "goldbach_proved": false
+    },
+    {
+      "id": "lane.q286_coefficientwise_tail_control_minorant",
+      "type": "closed_lane",
+      "label": "q286 coefficientwise support-tail minorant",
+      "status": "falsified",
+      "reason": "The fixed coefficient is sign-indefinite on every even admissible residue support; arbitrary nonnegative residue mass is too broad."
     }
   ],
   "edges": [
@@ -4531,6 +4547,21 @@
       "from": "receipt.q286_support_tail_stability_window_audit",
       "to": "candidate.q286_raw_signed_witness_from_90080",
       "type": "supports"
+    },
+    {
+      "from": "receipt.q286_support_tail_coefficient_minorant_audit",
+      "to": "lane.q286_coefficientwise_tail_control_minorant",
+      "type": "falsifies"
+    },
+    {
+      "from": "receipt.q286_support_tail_coefficient_minorant_audit",
+      "to": "problem.q286_signed_support_tail_control",
+      "type": "scope_guard"
+    },
+    {
+      "from": "lane.q286_coefficientwise_tail_control_minorant",
+      "to": "theorem.q286_positive_signed_witness",
+      "type": "requires"
     }
   ]
 }

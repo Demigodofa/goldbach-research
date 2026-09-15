@@ -533,3 +533,27 @@ positive-tail rescue count:              0
 The tail still frequently erodes positive partial margins, but not enough to
 erase them in this finite later fixture.  This supports, but does not prove,
 a boundary/later split for the signed support-tail control theorem.
+
+## Support-Tail Coefficient Minorant Audit
+
+`tools/build_q286_support_tail_coefficient_minorant_audit.py` generated
+`evidence/q286-support-tail-coefficient-minorant-audit.json`.
+
+Result: the stronger coefficientwise shortcut fails for every even target
+residue modulo `10010`:
+
+```text
+partial coefficients all positive: 0/5005
+full coefficients all positive:    0/5005
+separated tail-control passes:     0/5005
+```
+
+Thus the q286 bridge cannot be proved for arbitrary nonnegative residue mass.
+It must use actual prime-pair distribution.  The remaining proof obligation is
+to constrain the landing of `W_N(r)` on the positive and negative coefficient
+cells strongly enough that
+
+```text
+sum_r W_N(r)*(P+D)(r) > 0
+sum_r W_N(r)*R(r) > -sum_r W_N(r)*(P+D)(r).
+```

@@ -1,0 +1,352 @@
+{
+  "arithmetic_period": 10010,
+  "coefficientwise_sufficient_conditions": {
+    "full_minorant": "full coefficient ratio > 0 on every r in A_a",
+    "separated_tail_control": "min_r(1+d(r)) > 0 and min_r r_tail(r) > -min_r(1+d(r))"
+  },
+  "coefficientwise_tail_control_shortcut_falsified": true,
+  "decision": "The coefficientwise shortcut is falsified; actual prime-pair mass distribution is still required.",
+  "even_target_residue_count": 5005,
+  "falsifier": "Any target residue with an admissible unit where the full coefficient is nonpositive falsifies the full-minorant shortcut; any residue failing min-tail > -min-partial falsifies the separated coefficientwise tail-control shortcut.",
+  "global_unit_ratio_summaries": {
+    "full": {
+      "count": 2880,
+      "maximum": 40.22881030015595,
+      "mean": 1.0000000000000002,
+      "minimum": -11.747067126163127
+    },
+    "principal_plus_dominant": {
+      "count": 2880,
+      "maximum": 39.29608368571964,
+      "mean": 1.0000000000000002,
+      "minimum": -11.64548630338637
+    },
+    "support_tail": {
+      "count": 2880,
+      "maximum": 0.9350883353360848,
+      "mean": 1.544039418890919e-17,
+      "minimum": -0.7126246050853711
+    }
+  },
+  "goldbach_proved": false,
+  "mechanism": "Split the fixed coefficient into principal, dominant supports 286/154/70, and lower-support tail.  For each even target residue a, inspect all admissible unit residues r in A_a.",
+  "prediction": "If the coefficientwise shortcut were viable, all 5005 even target residues would pass full_minorant or at least the separated tail-control condition.",
+  "q286_threshold_theorem_proved": false,
+  "question": "Can the q286 signed support-tail control theorem be replaced by a coefficientwise nonnegative-weight certificate over every admissible residue support?",
+  "schema_version": 1,
+  "selected_target_residue_rows": [
+    {
+      "admissible_support_size": 1485,
+      "full_coefficients_all_positive": false,
+      "full_ratio_summary": {
+        "count": 1485,
+        "maximum": 36.552885693380915,
+        "mean": 0.7110192034986897,
+        "minimum": -11.747067126163127
+      },
+      "full_sign_counts": {
+        "negative_count": 680,
+        "positive_count": 805,
+        "zero_count": 0
+      },
+      "partial_coefficients_all_positive": false,
+      "partial_ratio_summary": {
+        "count": 1485,
+        "maximum": 36.22625028226654,
+        "mean": 0.7968515201046094,
+        "minimum": -11.64548630338637
+      },
+      "partial_sign_counts": {
+        "negative_count": 678,
+        "positive_count": 807,
+        "zero_count": 0
+      },
+      "separated_tail_control_margin": -12.35811090847174,
+      "separated_tail_control_passes": false,
+      "tail_ratio_summary": {
+        "count": 1485,
+        "maximum": 0.9350883353360848,
+        "mean": -0.08583231660591951,
+        "minimum": -0.7126246050853711
+      },
+      "tail_sign_counts": {
+        "negative_count": 940,
+        "positive_count": 545,
+        "zero_count": 0
+      },
+      "target_residue": 4766
+    },
+    {
+      "admissible_support_size": 1485,
+      "full_coefficients_all_positive": false,
+      "full_ratio_summary": {
+        "count": 1485,
+        "maximum": 36.552885693380915,
+        "mean": 0.7113804268189517,
+        "minimum": -11.747067126163119
+      },
+      "full_sign_counts": {
+        "negative_count": 678,
+        "positive_count": 807,
+        "zero_count": 0
+      },
+      "partial_coefficients_all_positive": false,
+      "partial_ratio_summary": {
+        "count": 1485,
+        "maximum": 36.22625028226654,
+        "mean": 0.8130057547142703,
+        "minimum": -11.645486303386317
+      },
+      "partial_sign_counts": {
+        "negative_count": 677,
+        "positive_count": 808,
+        "zero_count": 0
+      },
+      "separated_tail_control_margin": -12.358110908471687,
+      "separated_tail_control_passes": false,
+      "tail_ratio_summary": {
+        "count": 1485,
+        "maximum": 0.9350883353360833,
+        "mean": -0.10162532789531861,
+        "minimum": -0.7126246050853711
+      },
+      "tail_sign_counts": {
+        "negative_count": 956,
+        "positive_count": 529,
+        "zero_count": 0
+      },
+      "target_residue": 5454
+    },
+    {
+      "admissible_support_size": 1485,
+      "full_coefficients_all_positive": false,
+      "full_ratio_summary": {
+        "count": 1485,
+        "maximum": 36.552885693380915,
+        "mean": 0.750988581818552,
+        "minimum": -11.747067126163127
+      },
+      "full_sign_counts": {
+        "negative_count": 675,
+        "positive_count": 810,
+        "zero_count": 0
+      },
+      "partial_coefficients_all_positive": false,
+      "partial_ratio_summary": {
+        "count": 1485,
+        "maximum": 36.22625028226654,
+        "mean": 0.8264822729888378,
+        "minimum": -11.64548630338637
+      },
+      "partial_sign_counts": {
+        "negative_count": 674,
+        "positive_count": 811,
+        "zero_count": 0
+      },
+      "separated_tail_control_margin": -12.35811090847172,
+      "separated_tail_control_passes": false,
+      "tail_ratio_summary": {
+        "count": 1485,
+        "maximum": 0.9350883353360848,
+        "mean": -0.07549369117028572,
+        "minimum": -0.7126246050853485
+      },
+      "tail_sign_counts": {
+        "negative_count": 923,
+        "positive_count": 562,
+        "zero_count": 0
+      },
+      "target_residue": 8266
+    },
+    {
+      "admissible_support_size": 1980,
+      "full_coefficients_all_positive": false,
+      "full_ratio_summary": {
+        "count": 1980,
+        "maximum": 40.22881030015589,
+        "mean": 1.2869728662106956,
+        "minimum": -11.747067126163119
+      },
+      "full_sign_counts": {
+        "negative_count": 734,
+        "positive_count": 1246,
+        "zero_count": 0
+      },
+      "partial_coefficients_all_positive": false,
+      "partial_ratio_summary": {
+        "count": 1980,
+        "maximum": 39.296083685719495,
+        "mean": 1.3129184502295692,
+        "minimum": -11.645486303386317
+      },
+      "partial_sign_counts": {
+        "negative_count": 751,
+        "positive_count": 1229,
+        "zero_count": 0
+      },
+      "separated_tail_control_margin": -12.358110908471687,
+      "separated_tail_control_passes": false,
+      "tail_ratio_summary": {
+        "count": 1980,
+        "maximum": 0.9350883353360717,
+        "mean": -0.025945584018873494,
+        "minimum": -0.7126246050853711
+      },
+      "tail_sign_counts": {
+        "negative_count": 1042,
+        "positive_count": 938,
+        "zero_count": 0
+      },
+      "target_residue": 10000
+    }
+  ],
+  "signed_prime_pair_distribution_still_required": true,
+  "signed_tail_control_theorem_proved": false,
+  "source_commit": "d97122bd8a51273f0eab3aba081e0bfb747a9e85",
+  "status_boundary": "finite coefficient-side audit only; no signed prime-correlation estimate, no q286 threshold theorem, no strict-central Goldbach theorem, and no Goldbach proof",
+  "strict_central_goldbach_theorem_proved": false,
+  "tail_support_labels": [
+    "5",
+    "5x13",
+    "7",
+    "11",
+    "13"
+  ],
+  "target_residue_counts": {
+    "full_coefficients_all_positive": 0,
+    "partial_coefficients_all_positive": 0,
+    "separated_tail_control_passes": 0,
+    "total_even_residues": 5005
+  },
+  "top_three_support_labels": [
+    "11x13",
+    "7x11",
+    "5x7"
+  ],
+  "unit_group_order": 2880,
+  "worst_rows": {
+    "worst_full_ratio_row": {
+      "admissible_support_size": 2880,
+      "full_coefficients_all_positive": false,
+      "full_ratio_summary": {
+        "count": 2880,
+        "maximum": 40.22881030015595,
+        "mean": 1.0000000000000002,
+        "minimum": -11.747067126163127
+      },
+      "full_sign_counts": {
+        "negative_count": 1228,
+        "positive_count": 1652,
+        "zero_count": 0
+      },
+      "partial_coefficients_all_positive": false,
+      "partial_ratio_summary": {
+        "count": 2880,
+        "maximum": 39.29608368571964,
+        "mean": 1.0000000000000002,
+        "minimum": -11.64548630338637
+      },
+      "partial_sign_counts": {
+        "negative_count": 1240,
+        "positive_count": 1640,
+        "zero_count": 0
+      },
+      "separated_tail_control_margin": -12.35811090847174,
+      "separated_tail_control_passes": false,
+      "tail_ratio_summary": {
+        "count": 2880,
+        "maximum": 0.9350883353360848,
+        "mean": 1.544039418890919e-17,
+        "minimum": -0.7126246050853711
+      },
+      "tail_sign_counts": {
+        "negative_count": 1488,
+        "positive_count": 1392,
+        "zero_count": 0
+      },
+      "target_residue": 0
+    },
+    "worst_partial_ratio_row": {
+      "admissible_support_size": 2880,
+      "full_coefficients_all_positive": false,
+      "full_ratio_summary": {
+        "count": 2880,
+        "maximum": 40.22881030015595,
+        "mean": 1.0000000000000002,
+        "minimum": -11.747067126163127
+      },
+      "full_sign_counts": {
+        "negative_count": 1228,
+        "positive_count": 1652,
+        "zero_count": 0
+      },
+      "partial_coefficients_all_positive": false,
+      "partial_ratio_summary": {
+        "count": 2880,
+        "maximum": 39.29608368571964,
+        "mean": 1.0000000000000002,
+        "minimum": -11.64548630338637
+      },
+      "partial_sign_counts": {
+        "negative_count": 1240,
+        "positive_count": 1640,
+        "zero_count": 0
+      },
+      "separated_tail_control_margin": -12.35811090847174,
+      "separated_tail_control_passes": false,
+      "tail_ratio_summary": {
+        "count": 2880,
+        "maximum": 0.9350883353360848,
+        "mean": 1.544039418890919e-17,
+        "minimum": -0.7126246050853711
+      },
+      "tail_sign_counts": {
+        "negative_count": 1488,
+        "positive_count": 1392,
+        "zero_count": 0
+      },
+      "target_residue": 0
+    },
+    "worst_separated_tail_control_margin_row": {
+      "admissible_support_size": 2880,
+      "full_coefficients_all_positive": false,
+      "full_ratio_summary": {
+        "count": 2880,
+        "maximum": 40.22881030015595,
+        "mean": 1.0000000000000002,
+        "minimum": -11.747067126163127
+      },
+      "full_sign_counts": {
+        "negative_count": 1228,
+        "positive_count": 1652,
+        "zero_count": 0
+      },
+      "partial_coefficients_all_positive": false,
+      "partial_ratio_summary": {
+        "count": 2880,
+        "maximum": 39.29608368571964,
+        "mean": 1.0000000000000002,
+        "minimum": -11.64548630338637
+      },
+      "partial_sign_counts": {
+        "negative_count": 1240,
+        "positive_count": 1640,
+        "zero_count": 0
+      },
+      "separated_tail_control_margin": -12.35811090847174,
+      "separated_tail_control_passes": false,
+      "tail_ratio_summary": {
+        "count": 2880,
+        "maximum": 0.9350883353360848,
+        "mean": 1.544039418890919e-17,
+        "minimum": -0.7126246050853711
+      },
+      "tail_sign_counts": {
+        "negative_count": 1488,
+        "positive_count": 1392,
+        "zero_count": 0
+      },
+      "target_residue": 0
+    }
+  }
+}

@@ -6,6 +6,34 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 signed tail-control route now has a coefficientwise shortcut audit.
+
+`tools/build_q286_support_tail_coefficient_minorant_audit.py` generated
+`evidence/q286-support-tail-coefficient-minorant-audit.json`, with explanation
+in `notes/q286-support-tail-coefficient-minorant-audit.md`.
+
+Question: can we avoid the signed prime-correlation theorem by proving the
+coefficient itself is positive on every admissible residue cell?
+
+Result: no.
+
+```text
+even residues checked:                   5005
+partial coefficients all positive:       0
+full coefficients all positive:          0
+separated tail-control passes:           0
+principal+dominant coefficient range:    -11.64548630338637..39.29608368571964
+support-tail coefficient range:          -0.7126246050853711..0.9350883353360848
+full coefficient range:                  -11.747067126163127..40.22881030015595
+```
+
+Decision: coefficient bookkeeping alone cannot close the bridge.  The next
+mathematical object must constrain actual prime-pair landing on positive and
+negative coefficient cells, likely as a signed binary-prime correlation cone
+or fixed-modulus AP-pair estimate.  Goldbach is not proved.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 signed tail-control target now has a post-boundary stability audit.
 
 `tools/build_q286_support_tail_stability_window_audit.py` generated
