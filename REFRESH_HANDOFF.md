@@ -6,6 +6,38 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS four-modulus route now has a coefficient-span minimality audit.
+
+```text
+tools/build_q286_wbss_four_modulus_minimality_audit.py
+notes/q286-wbss-four-modulus-minimality-audit.md
+evidence/q286-wbss-four-modulus-minimality-audit.json
+```
+
+Result:
+
+```text
+projection families enumerated:           16
+proper projection families:               15
+proper exact-span families:                0
+full four-modulus exact span:           true
+best proper family:           70,154,286
+best proper relative L2 residual: 0.0252841747236269
+best proper max abs residual:      0.273926119559664
+full family relative L2 residual:  8.75253864513401e-16
+full family max abs residual:      2.1316282072803e-14
+```
+
+Decision: Fourier/projection sparsification does not produce a smaller
+coefficient theorem target at this algebraic level. The live theorem target
+remains strict-central binary-prime projection control for all four moduli
+`70,130,154,286`, or direct positivity of the raw q286-WBSS signed witness.
+No universal projection-control theorem, signed discrepancy theorem, q286
+threshold theorem, strict-central Goldbach theorem, or Goldbach proof is
+established.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286-WBSS four-modulus route now has a budget-trajectory audit.
 
 ```text
