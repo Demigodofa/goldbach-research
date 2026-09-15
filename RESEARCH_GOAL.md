@@ -6,6 +6,36 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS four-modulus route now has a CRT edge-character obligation
+audit: `tools/build_q286_wbss_four_modulus_edge_character_audit.py`
+generated `evidence/q286-wbss-four-modulus-edge-character-audit.json`, with
+explanation in `notes/q286-wbss-four-modulus-edge-character-audit.md`.
+
+Question: after Fourier/projection sparsification failed to produce a smaller
+coefficient theorem target, what exact character-sum obligations remain for
+the four CRT edges?
+
+Result: the nonzero character supports remain exactly `empty`, `5`, `7`,
+`11`, `13`, `5,7`, `5,13`, `7,11`, and `11,13`. There are no three-factor or
+four-factor character obligations. The edge components have no nonzero
+principal-axis terms at audit tolerance. The fully nonprincipal edge-character
+counts are `5,7 -> 8`, `5,13 -> 17`, `7,11 -> 23`, and `11,13 -> 50`, for
+`98` hard edge-character terms total. The singleton/AP side has `12` nonzero
+character terms, for `110` nonconstant terms total. The maximum Parseval error
+is `1.77635683940025e-15`, and the maximum inverse reconstruction error is
+`4.44092486392079e-15`.
+
+Decision: the live analytic theorem target is now named more sharply: control
+the signed binary-prime correlations against those edge characters, plus the
+singleton/AP and constant components. This is not a smaller coefficient
+theorem and not a proof. The residual absorption constants `.126` and `.13`
+are finite fixture fits only; no universal bound is established. This proves
+no character-sum bound, binary-prime projection-control theorem, signed
+discrepancy theorem, q286 threshold theorem, strict-central Goldbach theorem,
+or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286-WBSS four-modulus route now has a CRT factor-ANOVA coefficient audit:
 `tools/build_q286_wbss_four_modulus_factor_anova_audit.py` generated
 `evidence/q286-wbss-four-modulus-factor-anova-audit.json`, with explanation in

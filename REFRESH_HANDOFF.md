@@ -6,6 +6,45 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS four-modulus route now has a CRT edge-character obligation
+audit.
+
+```text
+tools/build_q286_wbss_four_modulus_edge_character_audit.py
+notes/q286-wbss-four-modulus-edge-character-audit.md
+evidence/q286-wbss-four-modulus-edge-character-audit.json
+```
+
+Result:
+
+```text
+nonzero character supports:
+  empty, 5, 7, 11, 13, 5,7, 5,13, 7,11, 11,13
+no three/four-factor character obligations: true
+edge principal-axis nonzero terms: 0
+fully nonprincipal edge-character counts:
+  5,7   -> 8
+  5,13  -> 17
+  7,11  -> 23
+  11,13 -> 50
+fully nonprincipal edge-character total: 98
+singleton/AP nonzero character terms:     12
+total nonconstant character terms:       110
+maximum Parseval error:        1.77635683940025e-15
+maximum reconstruction error:  4.44092486392079e-15
+```
+
+Decision: Fourier/projection sparsification did not produce a smaller
+coefficient theorem, but the analytic obligation is now sharper: control the
+signed binary-prime correlations against these four edge-character families,
+plus the singleton/AP and constant components. The residual absorption
+constants `.126` and `.13` are finite fixture fits only; no universal bound is
+established. No character-sum bound, binary-prime projection-control theorem,
+signed discrepancy theorem, q286 threshold theorem, strict-central Goldbach
+theorem, or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286-WBSS four-modulus route now has a CRT factor-ANOVA coefficient audit.
 
 ```text

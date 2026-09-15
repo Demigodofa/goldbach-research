@@ -1,0 +1,1009 @@
+{
+  "binary_prime_theorem_obligations": [
+    {
+      "edge_key": "5,7",
+      "edge_support": [
+        5,
+        7
+      ],
+      "fully_nonprincipal_character_count": 8,
+      "obligation": "Control the signed binary-prime correlation against each fully nonprincipal product character on this CRT edge, with the coefficient listed in this receipt.  Principal axis terms are absent at audit tolerance because the ANOVA edge component has zero marginal on each active factor.",
+      "zero_axis_nonzero_character_count": 0
+    },
+    {
+      "edge_key": "5,13",
+      "edge_support": [
+        5,
+        13
+      ],
+      "fully_nonprincipal_character_count": 17,
+      "obligation": "Control the signed binary-prime correlation against each fully nonprincipal product character on this CRT edge, with the coefficient listed in this receipt.  Principal axis terms are absent at audit tolerance because the ANOVA edge component has zero marginal on each active factor.",
+      "zero_axis_nonzero_character_count": 0
+    },
+    {
+      "edge_key": "7,11",
+      "edge_support": [
+        7,
+        11
+      ],
+      "fully_nonprincipal_character_count": 23,
+      "obligation": "Control the signed binary-prime correlation against each fully nonprincipal product character on this CRT edge, with the coefficient listed in this receipt.  Principal axis terms are absent at audit tolerance because the ANOVA edge component has zero marginal on each active factor.",
+      "zero_axis_nonzero_character_count": 0
+    },
+    {
+      "edge_key": "11,13",
+      "edge_support": [
+        11,
+        13
+      ],
+      "fully_nonprincipal_character_count": 50,
+      "obligation": "Control the signed binary-prime correlation against each fully nonprincipal product character on this CRT edge, with the coefficient listed in this receipt.  Principal axis terms are absent at audit tolerance because the ANOVA edge component has zero marginal on each active factor.",
+      "zero_axis_nonzero_character_count": 0
+    }
+  ],
+  "candidate": {
+    "falsifier": "A reconstruction/Parseval mismatch, a nonzero character outside the factor-ANOVA supports, or a nonzero principal-axis edge character would falsify this exact finite translation.",
+    "mechanism": "Expand each nonzero CRT factor-ANOVA component of the q286-WBSS unit coefficient in the orthonormal multiplicative character basis of its active unit-group factors.",
+    "name": "q286-WBSS four-modulus edge-character obligation",
+    "novelty_label": "new-to-this-task",
+    "prediction": "The hard nonlocal terms should be exactly the fully nonprincipal product characters on the four coefficient edges 5,7; 5,13; 7,11; and 11,13, with no three-factor or four-factor character obligations.",
+    "smallest_test": "Compute DFT coefficients on the exponent coordinates of the unit groups for each nonzero ANOVA component, then verify inverse reconstruction and Parseval energy."
+  },
+  "character_rows": [
+    {
+      "axis_marginal_max_abs": {},
+      "character_energy": 0.9999999999999998,
+      "coefficient_count": 1,
+      "dimensions": [],
+      "full_tensor_l2_norm": 53.66563145999495,
+      "fully_nonprincipal_character_count": 0,
+      "max_reconstruction_error": 0.0,
+      "mean_square": 0.9999999999999998,
+      "nonzero_character_count": 1,
+      "order": 0,
+      "parseval_error": 0.0,
+      "support": [],
+      "support_key": "empty",
+      "top_coefficients": [
+        {
+          "abs_coefficient": 0.9999999999999999,
+          "coefficient_imag": 0.0,
+          "coefficient_real": 0.9999999999999999,
+          "energy": 0.9999999999999998,
+          "energy_fraction_within_support": 1.0,
+          "frequency": []
+        }
+      ],
+      "zero_axis_nonzero_character_count": 0
+    },
+    {
+      "axis_marginal_max_abs": {
+        "5": 0.0
+      },
+      "character_energy": 0.007826234774313306,
+      "coefficient_count": 4,
+      "dimensions": [
+        4
+      ],
+      "full_tensor_l2_norm": 4.747584243594033,
+      "fully_nonprincipal_character_count": 1,
+      "max_reconstruction_error": 0.0,
+      "mean_square": 0.007826234774313306,
+      "nonzero_character_count": 1,
+      "order": 1,
+      "parseval_error": 0.0,
+      "support": [
+        5
+      ],
+      "support_key": "5",
+      "top_coefficients": [
+        {
+          "abs_coefficient": 0.08846600914652647,
+          "coefficient_imag": 0.0,
+          "coefficient_real": 0.08846600914652647,
+          "energy": 0.007826234774313306,
+          "energy_fraction_within_support": 1.0,
+          "frequency": [
+            2
+          ]
+        },
+        {
+          "abs_coefficient": 2.124706989126661e-15,
+          "coefficient_imag": 7.216449660063518e-16,
+          "coefficient_real": -1.9984014443252818e-15,
+          "energy": 4.5143797896436815e-30,
+          "energy_fraction_within_support": 5.768265225649054e-28,
+          "frequency": [
+            1
+          ]
+        },
+        {
+          "abs_coefficient": 2.124706989126661e-15,
+          "coefficient_imag": -7.216449660063518e-16,
+          "coefficient_real": -1.9984014443252818e-15,
+          "energy": 4.5143797896436815e-30,
+          "energy_fraction_within_support": 5.768265225649054e-28,
+          "frequency": [
+            3
+          ]
+        },
+        {
+          "abs_coefficient": 0.0,
+          "coefficient_imag": 0.0,
+          "coefficient_real": 0.0,
+          "energy": 0.0,
+          "energy_fraction_within_support": 0.0,
+          "frequency": [
+            0
+          ]
+        }
+      ],
+      "zero_axis_nonzero_character_count": 0
+    },
+    {
+      "axis_marginal_max_abs": {
+        "7": 1.2952601953960158e-16
+      },
+      "character_energy": 0.06508048812761076,
+      "coefficient_count": 6,
+      "dimensions": [
+        6
+      ],
+      "full_tensor_l2_norm": 13.69057361133999,
+      "fully_nonprincipal_character_count": 2,
+      "max_reconstruction_error": 5.551115123125783e-17,
+      "mean_square": 0.06508048812761073,
+      "nonzero_character_count": 2,
+      "order": 1,
+      "parseval_error": 2.7755575615628914e-17,
+      "support": [
+        7
+      ],
+      "support_key": "7",
+      "top_coefficients": [
+        {
+          "abs_coefficient": 0.1803891461917966,
+          "coefficient_imag": -0.05223121164103312,
+          "coefficient_real": 0.1726619373061561,
+          "energy": 0.03254024406380537,
+          "energy_fraction_within_support": 0.5,
+          "frequency": [
+            2
+          ]
+        },
+        {
+          "abs_coefficient": 0.1803891461917966,
+          "coefficient_imag": 0.05223121164103312,
+          "coefficient_real": 0.1726619373061561,
+          "energy": 0.03254024406380537,
+          "energy_fraction_within_support": 0.5,
+          "frequency": [
+            4
+          ]
+        },
+        {
+          "abs_coefficient": 2.3381407018600055e-15,
+          "coefficient_imag": -1.874888619223975e-15,
+          "coefficient_real": 1.3970306393199885e-15,
+          "energy": 5.466901941694399e-30,
+          "energy_fraction_within_support": 8.400216561029507e-29,
+          "frequency": [
+            1
+          ]
+        },
+        {
+          "abs_coefficient": 2.3381407018600055e-15,
+          "coefficient_imag": 1.874888619223975e-15,
+          "coefficient_real": 1.3970306393199885e-15,
+          "energy": 5.466901941694399e-30,
+          "energy_fraction_within_support": 8.400216561029507e-29,
+          "frequency": [
+            5
+          ]
+        },
+        {
+          "abs_coefficient": 2.127927463864883e-15,
+          "coefficient_imag": 1.314768175368353e-31,
+          "coefficient_real": -2.127927463864883e-15,
+          "energy": 4.5280752914704335e-30,
+          "energy_fraction_within_support": 6.957654162937008e-29,
+          "frequency": [
+            3
+          ]
+        },
+        {
+          "abs_coefficient": 1.2952601953960158e-16,
+          "coefficient_imag": 0.0,
+          "coefficient_real": 1.2952601953960158e-16,
+          "energy": 1.677698973777325e-32,
+          "energy_fraction_within_support": 2.577883205927511e-31,
+          "frequency": [
+            0
+          ]
+        }
+      ],
+      "zero_axis_nonzero_character_count": 0
+    },
+    {
+      "axis_marginal_max_abs": {
+        "11": 2.2204460492503132e-17
+      },
+      "character_energy": 0.004362295342166592,
+      "coefficient_count": 10,
+      "dimensions": [
+        10
+      ],
+      "full_tensor_l2_norm": 3.544490172851348,
+      "fully_nonprincipal_character_count": 4,
+      "max_reconstruction_error": 2.7755575615628914e-17,
+      "mean_square": 0.00436229534216659,
+      "nonzero_character_count": 4,
+      "order": 1,
+      "parseval_error": 2.6020852139652106e-18,
+      "support": [
+        11
+      ],
+      "support_key": "11",
+      "top_coefficients": [
+        {
+          "abs_coefficient": 0.040416660423125174,
+          "coefficient_imag": -0.024716222750175824,
+          "coefficient_real": 0.031978348498975115,
+          "energy": 0.0016335064397582128,
+          "energy_fraction_within_support": 0.37446030395248536,
+          "frequency": [
+            2
+          ]
+        },
+        {
+          "abs_coefficient": 0.040416660423125174,
+          "coefficient_imag": 0.024716222750175824,
+          "coefficient_real": 0.031978348498975115,
+          "energy": 0.0016335064397582128,
+          "energy_fraction_within_support": 0.37446030395248536,
+          "frequency": [
+            8
+          ]
+        },
+        {
+          "abs_coefficient": 0.023401735647705334,
+          "coefficient_imag": 0.010449994185831389,
+          "coefficient_real": 0.020938931511449498,
+          "energy": 0.0005476412313250825,
+          "energy_fraction_within_support": 0.1255396960475146,
+          "frequency": [
+            4
+          ]
+        },
+        {
+          "abs_coefficient": 0.023401735647705334,
+          "coefficient_imag": -0.010449994185831389,
+          "coefficient_real": 0.020938931511449498,
+          "energy": 0.0005476412313250825,
+          "energy_fraction_within_support": 0.1255396960475146,
+          "frequency": [
+            6
+          ]
+        },
+        {
+          "abs_coefficient": 1.3084736621045528e-14,
+          "coefficient_imag": -3.1585580842502553e-15,
+          "coefficient_real": -1.2697788912662995e-14,
+          "energy": 1.7121033244212994e-28,
+          "energy_fraction_within_support": 3.9247762705836444e-26,
+          "frequency": [
+            3
+          ]
+        },
+        {
+          "abs_coefficient": 1.3084736621045528e-14,
+          "coefficient_imag": 3.158558084250255e-15,
+          "coefficient_real": -1.2697788912662995e-14,
+          "energy": 1.7121033244212994e-28,
+          "energy_fraction_within_support": 3.9247762705836444e-26,
+          "frequency": [
+            7
+          ]
+        },
+        {
+          "abs_coefficient": 9.570122472268853e-15,
+          "coefficient_imag": 3.1554436208840474e-31,
+          "coefficient_real": -9.570122472268853e-15,
+          "energy": 9.15872441342253e-29,
+          "energy_fraction_within_support": 2.0995195636785404e-26,
+          "frequency": [
+            5
+          ]
+        },
+        {
+          "abs_coefficient": 8.953140001828868e-15,
+          "coefficient_imag": 7.707787647465867e-15,
+          "coefficient_real": -4.555076890011939e-15,
+          "energy": 8.015871589234823e-29,
+          "energy_fraction_within_support": 1.8375352791344103e-26,
+          "frequency": [
+            1
+          ]
+        }
+      ],
+      "zero_axis_nonzero_character_count": 0
+    },
+    {
+      "axis_marginal_max_abs": {
+        "13": 2.4054832200211723e-16
+      },
+      "character_energy": 0.023818515245820168,
+      "coefficient_count": 12,
+      "dimensions": [
+        12
+      ],
+      "full_tensor_l2_norm": 8.28235014400877,
+      "fully_nonprincipal_character_count": 5,
+      "max_reconstruction_error": 7.657275442073951e-17,
+      "mean_square": 0.02381851524582018,
+      "nonzero_character_count": 5,
+      "order": 1,
+      "parseval_error": 1.0408340855860843e-17,
+      "support": [
+        13
+      ],
+      "support_key": "13",
+      "top_coefficients": [
+        {
+          "abs_coefficient": 0.08049872153510376,
+          "coefficient_imag": 0.07457281315078942,
+          "coefficient_real": -0.030314018334157315,
+          "energy": 0.0064800441687861785,
+          "energy_fraction_within_support": 0.2720591145967144,
+          "frequency": [
+            2
+          ]
+        },
+        {
+          "abs_coefficient": 0.08049872153510375,
+          "coefficient_imag": -0.07457281315078941,
+          "coefficient_real": -0.030314018334157318,
+          "energy": 0.006480044168786176,
+          "energy_fraction_within_support": 0.2720591145967143,
+          "frequency": [
+            10
+          ]
+        },
+        {
+          "abs_coefficient": 0.0747494096984136,
+          "coefficient_imag": -1.3877787807814457e-17,
+          "coefficient_real": 0.0747494096984136,
+          "energy": 0.0055874742502612885,
+          "energy_fraction_within_support": 0.23458532963098172,
+          "frequency": [
+            6
+          ]
+        },
+        {
+          "abs_coefficient": 0.051336890527117665,
+          "coefficient_imag": -0.04388865184618608,
+          "coefficient_real": -0.026631983931309562,
+          "energy": 0.0026354763289932635,
+          "energy_fraction_within_support": 0.11064822058779479,
+          "frequency": [
+            4
+          ]
+        },
+        {
+          "abs_coefficient": 0.051336890527117665,
+          "coefficient_imag": 0.04388865184618608,
+          "coefficient_real": -0.026631983931309562,
+          "energy": 0.0026354763289932635,
+          "energy_fraction_within_support": 0.11064822058779479,
+          "frequency": [
+            8
+          ]
+        },
+        {
+          "abs_coefficient": 1.2152533661694404e-14,
+          "coefficient_imag": -1.7393494052460785e-15,
+          "coefficient_real": 1.2027416100105862e-14,
+          "energy": 1.4768407439861561e-28,
+          "energy_fraction_within_support": 6.200389607598743e-27,
+          "frequency": [
+            3
+          ]
+        },
+        {
+          "abs_coefficient": 1.2152533661694403e-14,
+          "coefficient_imag": 1.739349405246078e-15,
+          "coefficient_real": 1.2027416100105862e-14,
+          "energy": 1.4768407439861557e-28,
+          "energy_fraction_within_support": 6.200389607598741e-27,
+          "frequency": [
+            9
+          ]
+        },
+        {
+          "abs_coefficient": 1.0536061817229564e-14,
+          "coefficient_imag": 5.791212090200214e-15,
+          "coefficient_real": 8.801730576585585e-15,
+          "energy": 1.1100859861648273e-28,
+          "energy_fraction_within_support": 4.6606011109766066e-27,
+          "frequency": [
+            1
+          ]
+        }
+      ],
+      "zero_axis_nonzero_character_count": 0
+    },
+    {
+      "axis_marginal_max_abs": {
+        "5": 3.885780586188048e-16,
+        "7": 1.4802973661668753e-16
+      },
+      "character_energy": 4.165620599257908,
+      "coefficient_count": 24,
+      "dimensions": [
+        4,
+        6
+      ],
+      "full_tensor_l2_norm": 109.53075972466718,
+      "fully_nonprincipal_character_count": 8,
+      "max_reconstruction_error": 8.883711458431553e-16,
+      "mean_square": 4.165620599257909,
+      "nonzero_character_count": 8,
+      "order": 2,
+      "parseval_error": 8.881784197001252e-16,
+      "support": [
+        5,
+        7
+      ],
+      "support_key": "5,7",
+      "top_coefficients": [
+        {
+          "abs_coefficient": 0.8524668270719904,
+          "coefficient_imag": 0.04862918352343312,
+          "coefficient_real": 0.8510786648530387,
+          "energy": 0.7266996912581868,
+          "energy_fraction_within_support": 0.1744517230848258,
+          "frequency": [
+            1,
+            3
+          ]
+        },
+        {
+          "abs_coefficient": 0.8524668270719904,
+          "coefficient_imag": -0.0486291835234331,
+          "coefficient_real": 0.8510786648530387,
+          "energy": 0.7266996912581868,
+          "energy_fraction_within_support": 0.1744517230848258,
+          "frequency": [
+            3,
+            3
+          ]
+        },
+        {
+          "abs_coefficient": 0.7442982757749647,
+          "coefficient_imag": -0.2914021424467159,
+          "coefficient_real": 0.6848829934368711,
+          "energy": 0.5539799233215853,
+          "energy_fraction_within_support": 0.13298856919909482,
+          "frequency": [
+            2,
+            2
+          ]
+        },
+        {
+          "abs_coefficient": 0.7442982757749647,
+          "coefficient_imag": 0.2914021424467159,
+          "coefficient_real": 0.6848829934368711,
+          "energy": 0.5539799233215853,
+          "energy_fraction_within_support": 0.13298856919909482,
+          "frequency": [
+            2,
+            4
+          ]
+        },
+        {
+          "abs_coefficient": 0.6881201789314325,
+          "coefficient_imag": 0.029887630947811678,
+          "coefficient_real": 0.6874708067757889,
+          "energy": 0.4735093806526267,
+          "energy_fraction_within_support": 0.11367078911050632,
+          "frequency": [
+            1,
+            5
+          ]
+        },
+        {
+          "abs_coefficient": 0.6881201789314325,
+          "coefficient_imag": -0.029887630947811678,
+          "coefficient_real": 0.6874708067757889,
+          "energy": 0.4735093806526267,
+          "energy_fraction_within_support": 0.11367078911050632,
+          "frequency": [
+            3,
+            1
+          ]
+        },
+        {
+          "abs_coefficient": 0.5732550081739849,
+          "coefficient_imag": -0.15405081775686422,
+          "coefficient_real": 0.5521681355755662,
+          "energy": 0.32862130439655546,
+          "energy_fraction_within_support": 0.07888891860557301,
+          "frequency": [
+            1,
+            1
+          ]
+        },
+        {
+          "abs_coefficient": 0.5732550081739849,
+          "coefficient_imag": 0.15405081775686422,
+          "coefficient_real": 0.5521681355755662,
+          "energy": 0.32862130439655546,
+          "energy_fraction_within_support": 0.07888891860557301,
+          "frequency": [
+            3,
+            5
+          ]
+        }
+      ],
+      "zero_axis_nonzero_character_count": 0
+    },
+    {
+      "axis_marginal_max_abs": {
+        "13": 1.7578531223231644e-16,
+        "5": 1.1102230246251565e-15
+      },
+      "character_energy": 0.020181412677298168,
+      "coefficient_count": 48,
+      "dimensions": [
+        4,
+        12
+      ],
+      "full_tensor_l2_norm": 7.623809317566825,
+      "fully_nonprincipal_character_count": 17,
+      "max_reconstruction_error": 9.517856484538495e-17,
+      "mean_square": 0.02018141267729817,
+      "nonzero_character_count": 17,
+      "order": 2,
+      "parseval_error": 3.469446951953614e-18,
+      "support": [
+        5,
+        13
+      ],
+      "support_key": "5,13",
+      "top_coefficients": [
+        {
+          "abs_coefficient": 0.048512772268796515,
+          "coefficient_imag": -0.009478625415613298,
+          "coefficient_real": 0.04757777562512357,
+          "energy": 0.0023534890732041123,
+          "energy_fraction_within_support": 0.11661666657515628,
+          "frequency": [
+            1,
+            3
+          ]
+        },
+        {
+          "abs_coefficient": 0.048512772268796515,
+          "coefficient_imag": 0.009478625415613298,
+          "coefficient_real": 0.04757777562512357,
+          "energy": 0.0023534890732041123,
+          "energy_fraction_within_support": 0.11661666657515628,
+          "frequency": [
+            3,
+            9
+          ]
+        },
+        {
+          "abs_coefficient": 0.04671482544856864,
+          "coefficient_imag": -0.0346523773311054,
+          "coefficient_real": 0.031328703484072386,
+          "energy": 0.0021822749166902364,
+          "energy_fraction_within_support": 0.10813291178298196,
+          "frequency": [
+            1,
+            9
+          ]
+        },
+        {
+          "abs_coefficient": 0.04671482544856864,
+          "coefficient_imag": 0.0346523773311054,
+          "coefficient_real": 0.03132870348407238,
+          "energy": 0.0021822749166902364,
+          "energy_fraction_within_support": 0.10813291178298196,
+          "frequency": [
+            3,
+            3
+          ]
+        },
+        {
+          "abs_coefficient": 0.04318268893233749,
+          "coefficient_imag": -0.019814503741096934,
+          "coefficient_real": 0.03836834717473608,
+          "energy": 0.0018647446234270227,
+          "energy_fraction_within_support": 0.09239911265105102,
+          "frequency": [
+            3,
+            7
+          ]
+        },
+        {
+          "abs_coefficient": 0.04318268893233748,
+          "coefficient_imag": 0.019814503741096945,
+          "coefficient_real": 0.03836834717473607,
+          "energy": 0.001864744623427022,
+          "energy_fraction_within_support": 0.092399112651051,
+          "frequency": [
+            1,
+            5
+          ]
+        },
+        {
+          "abs_coefficient": 0.04048543094161492,
+          "coefficient_imag": 0.03908478801577651,
+          "coefficient_real": -0.010556962834550643,
+          "energy": 0.0016390701185282708,
+          "energy_fraction_within_support": 0.08121681790750165,
+          "frequency": [
+            3,
+            5
+          ]
+        },
+        {
+          "abs_coefficient": 0.04048543094161491,
+          "coefficient_imag": -0.0390847880157765,
+          "coefficient_real": -0.01055696283455064,
+          "energy": 0.0016390701185282697,
+          "energy_fraction_within_support": 0.0812168179075016,
+          "frequency": [
+            1,
+            7
+          ]
+        }
+      ],
+      "zero_axis_nonzero_character_count": 0
+    },
+    {
+      "axis_marginal_max_abs": {
+        "11": 5.107025913275721e-16,
+        "7": 3.515706244646329e-16
+      },
+      "character_energy": 4.858323253521782,
+      "coefficient_count": 60,
+      "dimensions": [
+        6,
+        10
+      ],
+      "full_tensor_l2_norm": 118.28766195230479,
+      "fully_nonprincipal_character_count": 23,
+      "max_reconstruction_error": 1.3914613852113253e-15,
+      "mean_square": 4.8583232535217835,
+      "nonzero_character_count": 23,
+      "order": 2,
+      "parseval_error": 1.7763568394002505e-15,
+      "support": [
+        7,
+        11
+      ],
+      "support_key": "7,11",
+      "top_coefficients": [
+        {
+          "abs_coefficient": 0.8243242710545523,
+          "coefficient_imag": -7.401486830834377e-17,
+          "coefficient_real": 0.8243242710545523,
+          "energy": 0.679510503849619,
+          "energy_fraction_within_support": 0.13986523094300984,
+          "frequency": [
+            3,
+            5
+          ]
+        },
+        {
+          "abs_coefficient": 0.8091996050168482,
+          "coefficient_imag": -0.6000499421916565,
+          "coefficient_real": 0.5429033685981445,
+          "energy": 0.6548040007594231,
+          "energy_fraction_within_support": 0.13477983382121764,
+          "frequency": [
+            3,
+            1
+          ]
+        },
+        {
+          "abs_coefficient": 0.8091996050168482,
+          "coefficient_imag": 0.6000499421916565,
+          "coefficient_real": 0.5429033685981445,
+          "energy": 0.6548040007594231,
+          "energy_fraction_within_support": 0.13477983382121764,
+          "frequency": [
+            3,
+            9
+          ]
+        },
+        {
+          "abs_coefficient": 0.6187853804618566,
+          "coefficient_imag": 0.5860614594377194,
+          "coefficient_real": -0.19856312053111727,
+          "energy": 0.3828953470733246,
+          "energy_fraction_within_support": 0.07881224181527342,
+          "frequency": [
+            5,
+            1
+          ]
+        },
+        {
+          "abs_coefficient": 0.6187853804618564,
+          "coefficient_imag": -0.5860614594377193,
+          "coefficient_real": -0.19856312053111722,
+          "energy": 0.38289534707332434,
+          "energy_fraction_within_support": 0.07881224181527337,
+          "frequency": [
+            1,
+            9
+          ]
+        },
+        {
+          "abs_coefficient": 0.5787036196388299,
+          "coefficient_imag": 0.21690274773690377,
+          "coefficient_real": -0.5365175462249716,
+          "energy": 0.33489787938308346,
+          "energy_fraction_within_support": 0.06893281115872994,
+          "frequency": [
+            3,
+            3
+          ]
+        },
+        {
+          "abs_coefficient": 0.5787036196388298,
+          "coefficient_imag": -0.21690274773690377,
+          "coefficient_real": -0.5365175462249715,
+          "energy": 0.33489787938308335,
+          "energy_fraction_within_support": 0.06893281115872993,
+          "frequency": [
+            3,
+            7
+          ]
+        },
+        {
+          "abs_coefficient": 0.36773540545940286,
+          "coefficient_imag": -0.2228022694165731,
+          "coefficient_real": -0.29255508399482,
+          "energy": 0.13522932842839142,
+          "energy_fraction_within_support": 0.02783456788931534,
+          "frequency": [
+            2,
+            6
+          ]
+        }
+      ],
+      "zero_axis_nonzero_character_count": 0
+    },
+    {
+      "axis_marginal_max_abs": {
+        "11": 1.5543122344752192e-15,
+        "13": 5.458596537740352e-16
+      },
+      "character_energy": 21.423290902512896,
+      "coefficient_count": 120,
+      "dimensions": [
+        10,
+        12
+      ],
+      "full_tensor_l2_norm": 248.39299064031,
+      "fully_nonprincipal_character_count": 50,
+      "max_reconstruction_error": 4.440924863920786e-15,
+      "mean_square": 21.423290902512896,
+      "nonzero_character_count": 50,
+      "order": 2,
+      "parseval_error": 0.0,
+      "support": [
+        11,
+        13
+      ],
+      "support_key": "11,13",
+      "top_coefficients": [
+        {
+          "abs_coefficient": 0.8166661291234234,
+          "coefficient_imag": -0.7774356624444775,
+          "coefficient_real": -0.25007470327274717,
+          "energy": 0.666943566457436,
+          "energy_fraction_within_support": 0.031131704717654064,
+          "frequency": [
+            3,
+            7
+          ]
+        },
+        {
+          "abs_coefficient": 0.8166661291234234,
+          "coefficient_imag": 0.7774356624444775,
+          "coefficient_real": -0.25007470327274717,
+          "energy": 0.666943566457436,
+          "energy_fraction_within_support": 0.031131704717654064,
+          "frequency": [
+            7,
+            5
+          ]
+        },
+        {
+          "abs_coefficient": 0.7901095344040822,
+          "coefficient_imag": -0.6229813010622008,
+          "coefficient_real": -0.48597054939891465,
+          "energy": 0.6242730763562355,
+          "energy_fraction_within_support": 0.029139924356019926,
+          "frequency": [
+            5,
+            7
+          ]
+        },
+        {
+          "abs_coefficient": 0.790109534404082,
+          "coefficient_imag": 0.6229813010622007,
+          "coefficient_real": -0.48597054939891465,
+          "energy": 0.6242730763562353,
+          "energy_fraction_within_support": 0.029139924356019916,
+          "frequency": [
+            5,
+            5
+          ]
+        },
+        {
+          "abs_coefficient": 0.7554102060921651,
+          "coefficient_imag": 0.6269771490859085,
+          "coefficient_real": -0.4213599814793923,
+          "energy": 0.5706445794682075,
+          "energy_fraction_within_support": 0.026636644298251695,
+          "frequency": [
+            4,
+            8
+          ]
+        },
+        {
+          "abs_coefficient": 0.7554102060921651,
+          "coefficient_imag": -0.6269771490859085,
+          "coefficient_real": -0.4213599814793923,
+          "energy": 0.5706445794682075,
+          "energy_fraction_within_support": 0.026636644298251695,
+          "frequency": [
+            6,
+            4
+          ]
+        },
+        {
+          "abs_coefficient": 0.7232176250526491,
+          "coefficient_imag": 0.5871160050958635,
+          "coefficient_real": -0.4223014678485833,
+          "energy": 0.5230437331867941,
+          "energy_fraction_within_support": 0.024414723936061686,
+          "frequency": [
+            3,
+            11
+          ]
+        },
+        {
+          "abs_coefficient": 0.7232176250526491,
+          "coefficient_imag": -0.5871160050958635,
+          "coefficient_real": -0.4223014678485834,
+          "energy": 0.5230437331867941,
+          "energy_fraction_within_support": 0.024414723936061686,
+          "frequency": [
+            7,
+            1
+          ]
+        }
+      ],
+      "zero_axis_nonzero_character_count": 0
+    }
+  ],
+  "character_sum_bound_proved": false,
+  "decision": "The four-modulus coefficient target translates exactly into 98 fully nonprincipal edge-character binary-prime correlation terms, plus the singleton/AP and constant main components.  This is a sharper statement of the analytic obligation, not a smaller coefficient theorem and not a universal residual-absorption constant.  Goldbach remains open.",
+  "edge_supports": [
+    [
+      5,
+      7
+    ],
+    [
+      5,
+      13
+    ],
+    [
+      7,
+      11
+    ],
+    [
+      11,
+      13
+    ]
+  ],
+  "edge_translation_verified": true,
+  "factors": [
+    5,
+    7,
+    11,
+    13
+  ],
+  "four_modulus_projection_theorem_proved": false,
+  "goldbach_proved": false,
+  "no_three_or_four_factor_character_obligations": true,
+  "primitive_roots": {
+    "11": 2,
+    "13": 2,
+    "5": 2,
+    "7": 3
+  },
+  "residual_absorption_constant_universal": false,
+  "residues_by_exponent": {
+    "11": [
+      1,
+      2,
+      4,
+      8,
+      5,
+      10,
+      9,
+      7,
+      3,
+      6
+    ],
+    "13": [
+      1,
+      2,
+      4,
+      8,
+      3,
+      6,
+      12,
+      11,
+      9,
+      5,
+      10,
+      7
+    ],
+    "5": [
+      1,
+      2,
+      4,
+      3
+    ],
+    "7": [
+      1,
+      3,
+      2,
+      6,
+      4,
+      5
+    ]
+  },
+  "schema_version": 1,
+  "signed_discrepancy_theorem_proved": false,
+  "source_commit": "bdd8b98fc6c4ab4f732d1d07626f7ae08d615c2c",
+  "sources": {
+    "factor_anova_audit": "evidence\\q286-wbss-four-modulus-factor-anova-audit.json",
+    "factor_anova_source_commit": "e787e7c5404ae5566e2b5b1accd86006cf669f0a"
+  },
+  "status_boundary": "finite q286-WBSS CRT edge-character coefficient audit only; the residual absorption constants .126 and .13 are finite fixture fits, not universal bounds; no character-sum bound, binary-prime projection-control theorem, signed discrepancy theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof",
+  "summary": {
+    "edge_character_counts": {
+      "11,13": 50,
+      "5,13": 17,
+      "5,7": 8,
+      "7,11": 23
+    },
+    "fully_nonprincipal_edge_character_count": 98,
+    "maximum_parseval_error": 1.7763568394002505e-15,
+    "maximum_reconstruction_error": 4.440924863920786e-15,
+    "nonzero_singleton_character_count": 12,
+    "nonzero_support_keys": [
+      "empty",
+      "5",
+      "7",
+      "11",
+      "13",
+      "5,7",
+      "5,13",
+      "7,11",
+      "11,13"
+    ],
+    "total_nonconstant_character_count": 110,
+    "zero_axis_nonzero_edge_character_count": 0
+  },
+  "universal_bound_open": true
+}
