@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "receipt": "q286-evidence-glow-map",
-  "generated_from_commit": "eac8a29d4264dd7d47a9d887548ed0ae2e183b3e",
+  "generated_from_commit": "dfada18e03142ceac6bd893e5f07ec59ddf26e9c",
   "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
   "visual_encoding": {
     "target_shape": "circle",
@@ -402,6 +402,14 @@
       "source": "evidence/q286-selected-stress-subclass-channel-decomposition.json",
       "default_weight": 3.5,
       "boundary": "Finite subclass channel-decomposition only; no signed correlation theorem."
+    },
+    {
+      "id": "additional-stress-reference-generalization-audit",
+      "label": "Additional full_nonpositive stress references falsify broad watchlist generalization",
+      "kind": "validated_falsifier",
+      "source": "evidence/q286-additional-stress-reference-generalization-audit.json",
+      "default_weight": 3.5,
+      "boundary": "Finite additional-stress-reference audit only; no broad stress theorem."
     },
     {
       "id": "centered-3-1-stress-class-audit",
@@ -6029,7 +6037,7 @@
   "mechanism_stacks": [
     {
       "id": "centered-3-1-selected-stress-fresh-window-classifier",
-      "stack_weight": 19.0,
+      "stack_weight": 21.5,
       "layers": [
         {
           "layer": "watchlist-fresh-unseen-window-audit",
@@ -6151,9 +6159,19 @@
             "channel_3_1_negative_count": 0,
             "passing_singletons": 2
           }
+        },
+        {
+          "layer": "additional-stress-reference-generalization-audit",
+          "weight": 2.5,
+          "reason": "selected-reference (3,1) signal does not extend to broad full_nonpositive references",
+          "value": {
+            "additional_reference_count": 89,
+            "scalar_3_1_failures": 32661,
+            "scalar_3_1_reference_passes": 33
+          }
         }
       ],
-      "layer_count": 6,
+      "layer_count": 7,
       "glow": 1.0
     },
     {
@@ -6273,7 +6291,44 @@
         }
       ],
       "layer_count": 6,
-      "glow": 0.947368
+      "glow": 0.837209
+    },
+    {
+      "id": "kevin-watchlist-distributed-cone",
+      "stack_weight": 9.5,
+      "layers": [
+        {
+          "layer": "multichannel-selected-reference-horizon-audit",
+          "weight": 3.5,
+          "reason": "four-channel watchlist passes all selected-reference horizons without refitting",
+          "value": {
+            "comparison_row_count": 505,
+            "kevin_watchlist_passes_all_horizons": true,
+            "kevin_watchlist_minimum_margin": 0.010449868155660333
+          }
+        },
+        {
+          "layer": "watchlist-fresh-unseen-window-audit",
+          "weight": 3.5,
+          "reason": "four-channel watchlist passes all fresh unseen comparisons against selected deficit references",
+          "value": {
+            "kevin_watchlist_4_passes_unseen_windows": true,
+            "kevin_watchlist_4_minimum_margin": 0.0020345565333929026
+          }
+        },
+        {
+          "layer": "additional-stress-reference-generalization-audit",
+          "weight": 2.5,
+          "reason": "four-channel watchlist fails as a broad full_nonpositive reference cone",
+          "value": {
+            "watchlist_failures": 11634,
+            "watchlist_reference_passes": 57,
+            "comparison_row_count": 53934
+          }
+        }
+      ],
+      "layer_count": 3,
+      "glow": 0.44186
     },
     {
       "id": "channel-carried-strict-slack",
@@ -6299,7 +6354,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.473684
+      "glow": 0.418605
     },
     {
       "id": "full-17-lp-overincluded-for-13822",
@@ -6339,7 +6394,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.473684
+      "glow": 0.418605
     },
     {
       "id": "same-stress-singleton-channel-candidates",
@@ -6536,34 +6591,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.421053
-    },
-    {
-      "id": "kevin-watchlist-distributed-cone",
-      "stack_weight": 7.0,
-      "layers": [
-        {
-          "layer": "multichannel-selected-reference-horizon-audit",
-          "weight": 3.5,
-          "reason": "four-channel watchlist passes all selected-reference horizons without refitting",
-          "value": {
-            "comparison_row_count": 505,
-            "kevin_watchlist_passes_all_horizons": true,
-            "kevin_watchlist_minimum_margin": 0.010449868155660333
-          }
-        },
-        {
-          "layer": "watchlist-fresh-unseen-window-audit",
-          "weight": 3.5,
-          "reason": "four-channel watchlist passes all fresh unseen comparisons against selected deficit references",
-          "value": {
-            "kevin_watchlist_4_passes_unseen_windows": true,
-            "kevin_watchlist_4_minimum_margin": 0.0020345565333929026
-          }
-        }
-      ],
-      "layer_count": 2,
-      "glow": 0.368421
+      "glow": 0.372093
     },
     {
       "id": "low-frequency-lp-cap-certificate-survives",
@@ -6597,7 +6625,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.342105
+      "glow": 0.302326
     },
     {
       "id": "zero-local-target-correlation-decomposition",
@@ -6638,7 +6666,30 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.263158
+      "glow": 0.232558
+    },
+    {
+      "id": "centered-3-1-broad-full-nonpositive-generalization-falsified",
+      "stack_weight": 3.5,
+      "layers": [
+        {
+          "layer": "additional-stress-reference-generalization-audit",
+          "weight": 3.5,
+          "reason": "broad full_nonpositive stress-reference version has many nonpositive fresh-unseen margins",
+          "value": {
+            "scalar_3_1_failure_count": 32661,
+            "watchlist_failure_count": 11634,
+            "reference_pass_counts": {
+              "frozen_full_17_lp": 58,
+              "kevin_watchlist_4": 57,
+              "kevin_watchlist_without_3_1": 71,
+              "scalar_3_1": 33
+            }
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.162791
     },
     {
       "id": "selected-stress-two-subclass-split",
@@ -6658,7 +6709,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.184211
+      "glow": 0.162791
     },
     {
       "id": "centered-3-1-full-nonpositive-classifier-falsified",
@@ -6677,7 +6728,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.157895
+      "glow": 0.139535
     },
     {
       "id": "centered-3-1-selected-deficit-separator-clipped",
@@ -6697,7 +6748,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.157895
+      "glow": 0.139535
     },
     {
       "id": "distributed-channel-rescue-of-scalar-3-1-failure",
@@ -6717,7 +6768,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.157895
+      "glow": 0.139535
     },
     {
       "id": "fresh-unseen-seed-nonseed-scope-guard",
@@ -6735,7 +6786,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.157895
+      "glow": 0.139535
     },
     {
       "id": "local-singular-cone-orientation-floor",
@@ -6760,7 +6811,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.157895
+      "glow": 0.139535
     },
     {
       "id": "low-frequency-label-lattice-heldout-survives",
@@ -6779,7 +6830,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.157895
+      "glow": 0.139535
     },
     {
       "id": "low-frequency-label-lattice-horizon-survives",
@@ -6800,7 +6851,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.157895
+      "glow": 0.139535
     },
     {
       "id": "rank1-cap-survives-full-window",
@@ -6821,7 +6872,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.157895
+      "glow": 0.139535
     },
     {
       "id": "raw-ap-count-pigeonhole-bridge-falsified",
@@ -6840,7 +6891,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.157895
+      "glow": 0.139535
     },
     {
       "id": "small-fixed-channel-certificate-refuted",
@@ -6879,7 +6930,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.157895
+      "glow": 0.139535
     },
     {
       "id": "coarse-target-residue-lift-demoted",
@@ -6898,7 +6949,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.131579
+      "glow": 0.116279
     },
     {
       "id": "frobenius-gcd-parity-rank1-shortcut-refuted",
@@ -6919,7 +6970,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.131579
+      "glow": 0.116279
     },
     {
       "id": "near-sharp-rank1-residual-drag-cap",
@@ -6937,7 +6988,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.131579
+      "glow": 0.116279
     },
     {
       "id": "positive-rank1-outside-direction",
@@ -6955,7 +7006,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.131579
+      "glow": 0.116279
     },
     {
       "id": "recurrent-portfolio-versus-residual",
@@ -6974,7 +7025,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.131579
+      "glow": 0.116279
     },
     {
       "id": "simple-label-only-lift-demoted",
@@ -6995,7 +7046,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.131579
+      "glow": 0.116279
     },
     {
       "id": "actual-arithmetic-placement-inside-weak-cone",
@@ -7028,7 +7079,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.105263
+      "glow": 0.093023
     },
     {
       "id": "actual-mass-avoids-extremal-breaker-orbits",
@@ -7056,7 +7107,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.105263
+      "glow": 0.093023
     },
     {
       "id": "clear-side-prefix-versus-deficit-classification",
@@ -7073,7 +7124,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.105263
+      "glow": 0.093023
     },
     {
       "id": "fixed-component-pair-((5,7),(7,11))",
@@ -7086,7 +7137,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.105263
+      "glow": 0.093023
     },
     {
       "id": "low-frequency-label-lattice-partial-signal",
@@ -7099,7 +7150,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.105263
+      "glow": 0.093023
     },
     {
       "id": "mixed-mass-landing-hinge-balance",
@@ -7131,7 +7182,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.105263
+      "glow": 0.093023
     },
     {
       "id": "nonposthoc-above-floor-sign-surplus",
@@ -7159,7 +7210,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.105263
+      "glow": 0.093023
     },
     {
       "id": "prefix-lower-bound-plus-tail-classification",
@@ -7177,7 +7228,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.105263
+      "glow": 0.093023
     },
     {
       "id": "selected-deficit-versus-full-nonpositive-scope-guard",
@@ -7204,7 +7255,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.105263
+      "glow": 0.093023
     },
     {
       "id": "signed-cumulative-portfolio-staircase",
@@ -7228,7 +7279,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.105263
+      "glow": 0.093023
     },
     {
       "id": "simple-near-boundary-selectors-refuted",
@@ -7256,7 +7307,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.105263
+      "glow": 0.093023
     },
     {
       "id": "small-residual-channel-classifier-demoted",
@@ -7273,7 +7324,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.105263
+      "glow": 0.093023
     },
     {
       "id": "tail-package-not-compressed",
@@ -7291,7 +7342,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.105263
+      "glow": 0.093023
     },
     {
       "id": "tail-thinning-after-cycle-232",
@@ -7309,7 +7360,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.105263
+      "glow": 0.093023
     },
     {
       "id": "tiny-positive-hinge-threshold-surplus",
@@ -7332,7 +7383,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.105263
+      "glow": 0.093023
     },
     {
       "id": "weak-geometry-staircase-shortcut-closed",
@@ -7349,7 +7400,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.105263
+      "glow": 0.093023
     },
     {
       "id": "active-selector-rarity",
@@ -7366,7 +7417,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.078947
+      "glow": 0.069767
     },
     {
       "id": "sparse-near-boundary-above-floor-margins",
@@ -7410,13 +7461,13 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.078947
+      "glow": 0.069767
     }
   ],
   "theorem_gap_stacks": [
     {
       "id": "centered-3-1-stress-class-theorem",
-      "stack_weight": 44.0,
+      "stack_weight": 47.5,
       "layers": [
         {
           "layer": "centered-channel-scalar-order-audit",
@@ -7484,6 +7535,11 @@
           "reason": "(3,1) is load-bearing on selected subclasses but broad stress class remains unproved"
         },
         {
+          "layer": "additional-stress-reference-generalization-audit",
+          "weight": 3.5,
+          "reason": "broad full_nonpositive stress-reference theorem route finitely falsified"
+        },
+        {
           "layer": "centered-3-1-stress-class-audit",
           "weight": 3.0,
           "reason": "full_nonpositive classifier version falsified; a different predeclared class or signed estimate is needed"
@@ -7494,12 +7550,12 @@
           "reason": "scope guard: selected-deficit separation cannot be promoted across fixture predicates"
         }
       ],
-      "layer_count": 15,
+      "layer_count": 16,
       "glow": 1.0
     },
     {
       "id": "ap-count-to-17-channel-bridge",
-      "stack_weight": 28.5,
+      "stack_weight": 31.5,
       "layers": [
         {
           "layer": "lp-cone-local-singular-audit",
@@ -7552,13 +7608,18 @@
           "reason": "channel decomposition narrows the bridge to a signed empirical/correlation estimate"
         },
         {
+          "layer": "additional-stress-reference-generalization-audit",
+          "weight": 3.0,
+          "reason": "bridge must distinguish selected deficits from broad full_nonpositive references"
+        },
+        {
           "layer": "ap-count-bridge-gap-audit",
           "weight": 3.0,
           "reason": "raw AP counts alone are demoted; bridge needs binary convolution or signed character correlation"
         }
       ],
-      "layer_count": 11,
-      "glow": 0.647727
+      "layer_count": 12,
+      "glow": 0.663158
     },
     {
       "id": "rank1-outside-direction-arithmetic-meaning",
@@ -7601,7 +7662,7 @@
         }
       ],
       "layer_count": 7,
-      "glow": 0.397727
+      "glow": 0.368421
     },
     {
       "id": "portfolio-residual-lower-bound",
@@ -7649,7 +7710,7 @@
         }
       ],
       "layer_count": 8,
-      "glow": 0.375
+      "glow": 0.347368
     },
     {
       "id": "rank1-residual-drag-bound",
@@ -7682,7 +7743,7 @@
         }
       ],
       "layer_count": 5,
-      "glow": 0.340909
+      "glow": 0.315789
     },
     {
       "id": "alternate-stress-channel-reference-gate",
@@ -7705,7 +7766,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.181818
+      "glow": 0.168421
     },
     {
       "id": "fixed-modulus-binary-prime-discrepancy",
@@ -7728,7 +7789,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.181818
+      "glow": 0.168421
     },
     {
       "id": "active-lane-strict-closure",
@@ -7746,7 +7807,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.113636
+      "glow": 0.105263
     },
     {
       "id": "near-boundary-selector-theorem",
@@ -7764,7 +7825,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.079545
+      "glow": 0.073684
     },
     {
       "id": "distributed-cone-correlation-theorem",
@@ -7777,7 +7838,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.068182
+      "glow": 0.063158
     },
     {
       "id": "alignment-plus-complement-tail",
@@ -7790,7 +7851,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.045455
+      "glow": 0.042105
     },
     {
       "id": "dangerous-reflection-orbit-mass-bound",
@@ -7803,7 +7864,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.045455
+      "glow": 0.042105
     },
     {
       "id": "dominant-staircase-above-floor-threshold-sign",
@@ -7816,7 +7877,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.045455
+      "glow": 0.042105
     },
     {
       "id": "dominant-staircase-hinge-balance",
@@ -7829,7 +7890,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.045455
+      "glow": 0.042105
     },
     {
       "id": "dominant-staircase-hinge-threshold-surplus",
@@ -7842,7 +7903,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.045455
+      "glow": 0.042105
     },
     {
       "id": "interpolation-or-cone-endpoint-theorem",
@@ -7855,7 +7916,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.045455
+      "glow": 0.042105
     },
     {
       "id": "rarity-plus-complement-floor",
@@ -7868,7 +7929,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.045455
+      "glow": 0.042105
     },
     {
       "id": "sample-size-cherry-pick-risk",
@@ -7885,7 +7946,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.034091
+      "glow": 0.031579
     },
     {
       "id": "alignment-complement-route",
@@ -7898,7 +7959,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.022727
+      "glow": 0.021053
     }
   ],
   "goldbach_proved": false,

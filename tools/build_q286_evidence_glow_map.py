@@ -156,6 +156,9 @@ def main():
     selected_stress_subclass_channel_decomposition = load_json(
         EVIDENCE
         / "q286-selected-stress-subclass-channel-decomposition.json")
+    additional_stress_reference_generalization = load_json(
+        EVIDENCE
+        / "q286-additional-stress-reference-generalization-audit.json")
     centered_3_1_stress_class = load_json(
         EVIDENCE / "q286-centered-3-1-stress-class-audit.json")
     selected_deficit_provenance = load_json(
@@ -2478,6 +2481,80 @@ def main():
         "selected-stress-subclass-channel-decomposition",
         3.0,
         "channel decomposition narrows the bridge to a signed empirical/correlation estimate")
+
+    layer(
+        "additional-stress-reference-generalization-audit",
+        "Additional full_nonpositive stress references falsify broad watchlist generalization",
+        "validated_falsifier",
+        "evidence/q286-additional-stress-reference-generalization-audit.json",
+        3.5,
+        "Finite additional-stress-reference audit only; no broad stress theorem.")
+    full_nonpositive_generalization = next(
+        row for row in additional_stress_reference_generalization[
+            "class_results"]
+        if row["class_id"] == "full_nonpositive")
+    add_hit(
+        mechanism_stacks,
+        "centered-3-1-selected-stress-fresh-window-classifier",
+        "additional-stress-reference-generalization-audit",
+        2.5,
+        "selected-reference (3,1) signal does not extend to broad full_nonpositive references",
+        {
+            "additional_reference_count":
+                additional_stress_reference_generalization[
+                    "additional_reference_count"],
+            "scalar_3_1_failures":
+                additional_stress_reference_generalization[
+                    "full_nonpositive_scalar_3_1_failure_count"],
+            "scalar_3_1_reference_passes":
+                full_nonpositive_generalization["reference_pass_counts"][
+                    "scalar_3_1"],
+        })
+    add_hit(
+        mechanism_stacks,
+        "kevin-watchlist-distributed-cone",
+        "additional-stress-reference-generalization-audit",
+        2.5,
+        "four-channel watchlist fails as a broad full_nonpositive reference cone",
+        {
+            "watchlist_failures":
+                additional_stress_reference_generalization[
+                    "full_nonpositive_watchlist_failure_count"],
+            "watchlist_reference_passes":
+                full_nonpositive_generalization["reference_pass_counts"][
+                    "kevin_watchlist_4"],
+            "comparison_row_count":
+                additional_stress_reference_generalization[
+                    "comparison_row_count"],
+        })
+    add_hit(
+        mechanism_stacks,
+        "centered-3-1-broad-full-nonpositive-generalization-falsified",
+        "additional-stress-reference-generalization-audit",
+        3.5,
+        "broad full_nonpositive stress-reference version has many nonpositive fresh-unseen margins",
+        {
+            "scalar_3_1_failure_count":
+                additional_stress_reference_generalization[
+                    "full_nonpositive_scalar_3_1_failure_count"],
+            "watchlist_failure_count":
+                additional_stress_reference_generalization[
+                    "full_nonpositive_watchlist_failure_count"],
+            "reference_pass_counts":
+                full_nonpositive_generalization["reference_pass_counts"],
+        })
+    add_hit(
+        theorem_stacks,
+        "centered-3-1-stress-class-theorem",
+        "additional-stress-reference-generalization-audit",
+        3.5,
+        "broad full_nonpositive stress-reference theorem route finitely falsified")
+    add_hit(
+        theorem_stacks,
+        "ap-count-to-17-channel-bridge",
+        "additional-stress-reference-generalization-audit",
+        3.0,
+        "bridge must distinguish selected deficits from broad full_nonpositive references")
 
     layer(
         "centered-3-1-stress-class-audit",

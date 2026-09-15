@@ -6,6 +6,37 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The selected-reference `(3,1)` result now has an additional-stress-reference
+generalization audit:
+`tools/build_q286_additional_stress_reference_generalization_audit.py`
+generated `evidence/q286-additional-stress-reference-generalization-audit.json`,
+with explanation in
+`notes/q286-additional-stress-reference-generalization-audit.md`.
+
+Mechanism: use the later fresh-unseen target windows against additional
+references from the predeclared, channel-independent baseline
+`full_nonpositive` fixture.  The selected five deficit references are excluded;
+none overlap that baseline set, leaving `89` additional references and
+`53,934` fresh-unseen comparison rows.  Each comparison subtracts the full
+target-reference local q286 vector and applies the frozen LP channel weights.
+
+Result: the broad generalization is finitely falsified.  Scalar `(3,1)` has
+`32,661` nonpositive margins, minimum `-0.24630701569141283`.  Kevin's
+four-channel watchlist has `11,634` nonpositive margins, minimum
+`-0.40305159447199645`.  Reference-level pass counts out of `89` are:
+scalar `(3,1)` `33/89`, watchlist `57/89`, watchlist without `(3,1)` `71/89`,
+and frozen full 17 LP `58/89`.
+
+Interpretation: keep `(3,1)` as a load-bearing finite selected-reference
+coordinate for the selected five, but reject the broad
+`full_nonpositive` stress-reference theorem route.  The next theorem branch
+must either define a sharper non-post-hoc selected-stress family or replace
+classifier language with a signed empirical/correlation estimate explaining
+why the selected five separate while many baseline `full_nonpositive`
+references do not.
+
+## Previous continuation evidence, 2026-09-15
+
 The selected-stress subclass split now has a 17-channel decomposition:
 `tools/build_q286_selected_stress_subclass_channel_decomposition.py`
 generated `evidence/q286-selected-stress-subclass-channel-decomposition.json`,

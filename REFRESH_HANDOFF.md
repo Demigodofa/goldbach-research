@@ -6,6 +6,50 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+Kevin asked whether `(3,1)` could be a stress-classifier lemma, and whether
+the large negative selected reference `13822` was making the result look
+stronger than it is.  The broad additional-reference generalization has now
+been tested and falsified.
+
+`tools/build_q286_additional_stress_reference_generalization_audit.py`
+generated
+`evidence/q286-additional-stress-reference-generalization-audit.json`, with
+the human note
+`notes/q286-additional-stress-reference-generalization-audit.md`.
+
+Fixture: later fresh-unseen windows `48M,52M,56M,60M,64M,68M`, `606` fresh
+targets, against `89` additional references from the predeclared baseline
+`full_nonpositive` q286 stress fixture.  The selected five deficit references
+are excluded; none overlap this baseline set.
+
+Result: scalar `(3,1)` and Kevin's watchlist do not generalize to the broad
+`full_nonpositive` reference population.
+
+```text
+scalar (3,1):        32,661 nonpositive margins / 53,934, min -0.246307015691
+Kevin watchlist:     11,634 nonpositive margins / 53,934, min -0.403051594472
+watchlist no (3,1):   5,916 nonpositive margins / 53,934, min -0.227177892839
+frozen full 17 LP:   11,073 nonpositive margins / 53,934, min -0.293436417771
+```
+
+Reference-level pass counts:
+
+```text
+scalar (3,1):        33 / 89
+Kevin watchlist:     57 / 89
+watchlist no (3,1):  71 / 89
+frozen full 17 LP:   58 / 89
+```
+
+Decision: preserve `(3,1)` as a finite load-bearing selected-reference
+coordinate for the selected five, but treat the broad
+`full_nonpositive` stress-reference version as finitely falsified.  The next
+theorem branch needs a sharper non-post-hoc selected-stress family or a signed
+empirical/correlation estimate; do not try to close the hole with one broad
+stress predicate.
+
+## Previous active checkpoint note, 2026-09-15
+
 Kevin asked whether `(3,1)` might be a stress-classifier lemma, with `13822`
 as a large negative selected reference.  The selected-stress subclass split now
 has a full outside-channel decomposition.
