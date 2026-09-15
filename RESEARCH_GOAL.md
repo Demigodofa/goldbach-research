@@ -6,6 +6,33 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The scalar `(3,1)` residue-5 near-collision failure now has a multichannel
+horizon audit:
+`tools/build_q286_centered_3_1_residue5_multichannel_horizon.py` generated
+`evidence/q286-centered-3-1-residue5-multichannel-horizon.json`, with
+explanation in
+`notes/q286-centered-3-1-residue5-multichannel-horizon.md`.
+
+Mechanism: keep the exact same residue-5 horizon
+`8000140 + 286*k` for `-50 <= k <= 50`, reference `164598`, and zero local
+gap, then sum frozen LP-weighted after-local gaps over pre-existing channel
+sets.
+
+Result: scalar `(3,1)` still fails `5/101` targets, but Kevin's pre-existing
+watchlist `(5,5),(3,1),(3,11),(3,7)` passes all `101` with minimum margin
+`0.026187595109613864`.  Removing `(3,1)` from that watchlist still passes
+all `101` with minimum margin `0.021108340504738393`.  The frozen full
+17-channel LP vector also passes all `101`, with minimum margin
+`0.055956206788778495`.
+
+Interpretation: `(3,1)` remains plausible as a stress/reference classifier
+coordinate, especially around strong witnesses such as `13822`, but it is not
+the scalar closure mechanism for the residue-5 neighborhood.  The live route
+has shifted to a distributed multichannel signed-correlation/cone obligation
+with future fresh-window and alternate-reference falsifiers.
+
+## Previous continuation evidence, 2026-09-15
+
 The selected `(3,1)` residue-5 near-collision route now has a finite
 falsifier:
 `tools/build_q286_centered_3_1_residue5_near_collision_horizon.py`

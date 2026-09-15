@@ -143,6 +143,8 @@ def main():
         / "q286-centered-3-1-available-same-residue-population-audit.json")
     centered_3_1_residue5_horizon = load_json(
         EVIDENCE / "q286-centered-3-1-residue5-near-collision-horizon.json")
+    centered_3_1_residue5_multichannel = load_json(
+        EVIDENCE / "q286-centered-3-1-residue5-multichannel-horizon.json")
     centered_3_1_stress_class = load_json(
         EVIDENCE / "q286-centered-3-1-stress-class-audit.json")
     selected_deficit_provenance = load_json(
@@ -2018,6 +2020,73 @@ def main():
         "centered-3-1-residue5-near-collision-horizon",
         2.0,
         "future bridge must use higher-dimensional signed correlation or a narrower non-post-hoc family")
+
+    layer(
+        "centered-3-1-residue5-multichannel-horizon",
+        "Pre-existing multichannel sets rescue the scalar residue-5 failure",
+        "finite_multichannel_rescue",
+        "evidence/q286-centered-3-1-residue5-multichannel-horizon.json",
+        3.0,
+        "Finite multichannel horizon audit only; no signed correlation theorem.")
+    add_hit(
+        mechanism_stacks,
+        "distributed-channel-rescue-of-scalar-3-1-failure",
+        "centered-3-1-residue5-multichannel-horizon",
+        3.0,
+        "watchlist and full 17-channel LP stay positive on the same residue-5 horizon where scalar (3,1) fails",
+        {
+            "scalar_passes":
+                centered_3_1_residue5_multichannel[
+                    "scalar_3_1_passes_horizon"],
+            "kevin_watchlist_passes":
+                centered_3_1_residue5_multichannel[
+                    "kevin_watchlist_4_passes_horizon"],
+            "frozen_full_17_lp_passes":
+                centered_3_1_residue5_multichannel[
+                    "frozen_full_17_lp_passes_horizon"],
+            "watchlist_minimum_margin":
+                next(
+                    row for row in centered_3_1_residue5_multichannel[
+                        "subset_results"]
+                    if row["name"] == "kevin_watchlist_4")[
+                        "weighted_gap_summary"]["minimum"],
+            "full_lp_minimum_margin":
+                next(
+                    row for row in centered_3_1_residue5_multichannel[
+                        "subset_results"]
+                    if row["name"] == "frozen_full_17_lp")[
+                        "weighted_gap_summary"]["minimum"],
+        })
+    add_hit(
+        target_stacks,
+        "164598",
+        "centered-3-1-residue5-multichannel-horizon",
+        3.0,
+        "selected reference remains below all residue-5 horizon targets after multichannel aggregation",
+        {
+            "reference_target":
+                centered_3_1_residue5_multichannel["reference_target"],
+            "target_count":
+                centered_3_1_residue5_multichannel["target_count"],
+            "watchlist_passes":
+                centered_3_1_residue5_multichannel[
+                    "kevin_watchlist_4_passes_horizon"],
+            "full_lp_passes":
+                centered_3_1_residue5_multichannel[
+                    "frozen_full_17_lp_passes_horizon"],
+        })
+    add_hit(
+        theorem_stacks,
+        "ap-count-to-17-channel-bridge",
+        "centered-3-1-residue5-multichannel-horizon",
+        3.0,
+        "finite rescue redirects the bridge toward a distributed signed-correlation cone")
+    add_hit(
+        theorem_stacks,
+        "centered-3-1-stress-class-theorem",
+        "centered-3-1-residue5-multichannel-horizon",
+        2.0,
+        "(3,1) remains a possible stress-reference classifier coordinate, not a scalar closure theorem")
 
     layer(
         "centered-3-1-stress-class-audit",

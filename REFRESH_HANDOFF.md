@@ -6,6 +6,32 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The scalar `(3,1)` residue-5 near-collision failure now has a multichannel
+rescue audit.  `tools/build_q286_centered_3_1_residue5_multichannel_horizon.py`
+generated
+`evidence/q286-centered-3-1-residue5-multichannel-horizon.json`, with the
+human note
+`notes/q286-centered-3-1-residue5-multichannel-horizon.md`.
+
+Question: if scalar `(3,1)` fails on the residue-5 micro-horizon, do the
+pre-existing multichannel objects still keep the horizon above reference
+`164598` after the zero local contribution is subtracted?
+
+Result: yes, finitely.  On the same horizon
+`8000140 + 286*k` for `-50 <= k <= 50`, scalar `(3,1)` fails `5/101`
+targets, but Kevin's watchlist `(5,5),(3,1),(3,11),(3,7)` passes all `101`
+with minimum margin `0.026187595109613864`.  The watchlist without `(3,1)`
+also passes all `101` with minimum margin `0.021108340504738393`, and the
+frozen full 17-channel LP vector passes with minimum margin
+`0.055956206788778495`.
+
+Decision: preserve `(3,1)` as a possible stress-reference classifier
+coordinate, not as a scalar closure lemma.  The proof route now needs a
+non-post-hoc distributed signed-correlation/cone statement and fresh
+predeclared window plus alternate-stress-reference tests.
+
+## Previous active checkpoint note, 2026-09-15
+
 The selected `(3,1)` near-collision route now has a finite residue-5
 falsifier.  `tools/build_q286_centered_3_1_residue5_near_collision_horizon.py`
 generated `evidence/q286-centered-3-1-residue5-near-collision-horizon.json`,

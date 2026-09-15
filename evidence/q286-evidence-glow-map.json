@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "receipt": "q286-evidence-glow-map",
-  "generated_from_commit": "6844830fa0f14ada80d863271184b377d67ae809",
+  "generated_from_commit": "187bbd3bc877534570830ea911851280ce1f2cd8",
   "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
   "visual_encoding": {
     "target_shape": "circle",
@@ -356,6 +356,14 @@
       "boundary": "Finite residue-5 horizon falsifier only; no signed correlation theorem."
     },
     {
+      "id": "centered-3-1-residue5-multichannel-horizon",
+      "label": "Pre-existing multichannel sets rescue the scalar residue-5 failure",
+      "kind": "finite_multichannel_rescue",
+      "source": "evidence/q286-centered-3-1-residue5-multichannel-horizon.json",
+      "default_weight": 3.0,
+      "boundary": "Finite multichannel horizon audit only; no signed correlation theorem."
+    },
+    {
       "id": "centered-3-1-stress-class-audit",
       "label": "Centered (3,1) fails the full-nonpositive stress class",
       "kind": "finite_stress_class_falsifier",
@@ -389,6 +397,314 @@
     }
   ],
   "target_stacks": [
+    {
+      "id": "164598",
+      "stack_weight": 60.0,
+      "layers": [
+        {
+          "layer": "portfolio-residual-obligation",
+          "weight": 2.5,
+          "reason": "portfolio/residual floor failed",
+          "value": -0.01915179245517605
+        },
+        {
+          "layer": "residual-channel-profile",
+          "weight": 2.0,
+          "reason": "residual signed pressure profiled",
+          "value": {
+            "residual_sum": -0.21191545554929755,
+            "residual_negative_pressure": 0.22193871911816507,
+            "dominant_floor_passes": false
+          }
+        },
+        {
+          "layer": "portfolio-ablation",
+          "weight": 2.0,
+          "reason": "portfolio ablation baseline row",
+          "value": {
+            "full_portfolio_slack": -0.01915179245517605,
+            "dominant_floor_passes": false
+          }
+        },
+        {
+          "layer": "prefix-tail-classification",
+          "weight": 2.0,
+          "reason": "prefix/tail floor obligation",
+          "value": {
+            "prefix_slack": 0.04904634279178903,
+            "tail_slack": -0.01915179245517605,
+            "dominant_floor_passes": false
+          }
+        },
+        {
+          "layer": "tail-ablation",
+          "weight": 2.0,
+          "reason": "tail ablation slack row",
+          "value": {
+            "subtail_slack": -0.01915179245517605,
+            "dominant_floor_passes": false
+          }
+        },
+        {
+          "layer": "residual-staircase",
+          "weight": 2.0,
+          "reason": "cumulative residual stage row",
+          "value": {
+            "stage": "empty",
+            "remaining_requirement": -0.08808454445070218,
+            "stage_floor_passes": true,
+            "dominant_floor_passes": false
+          }
+        },
+        {
+          "layer": "residual-staircase",
+          "weight": 2.0,
+          "reason": "cumulative residual stage row",
+          "value": {
+            "stage": "prefix_1",
+            "remaining_requirement": -0.07236094882533538,
+            "stage_floor_passes": true,
+            "dominant_floor_passes": false
+          }
+        },
+        {
+          "layer": "residual-staircase",
+          "weight": 2.0,
+          "reason": "cumulative residual stage row",
+          "value": {
+            "stage": "prefix_2",
+            "remaining_requirement": -0.062321204133864216,
+            "stage_floor_passes": true,
+            "dominant_floor_passes": false
+          }
+        },
+        {
+          "layer": "residual-staircase",
+          "weight": 2.0,
+          "reason": "cumulative residual stage row",
+          "value": {
+            "stage": "prefix_3",
+            "remaining_requirement": -0.04846286600740002,
+            "stage_floor_passes": true,
+            "dominant_floor_passes": false
+          }
+        },
+        {
+          "layer": "residual-staircase",
+          "weight": 2.0,
+          "reason": "cumulative residual stage row",
+          "value": {
+            "stage": "prefix_4",
+            "remaining_requirement": -0.04904634279178903,
+            "stage_floor_passes": true,
+            "dominant_floor_passes": false
+          }
+        },
+        {
+          "layer": "residual-staircase",
+          "weight": 2.0,
+          "reason": "cumulative residual stage row",
+          "value": {
+            "stage": "prefix_plus_tail_1",
+            "remaining_requirement": -0.020545544149867187,
+            "stage_floor_passes": true,
+            "dominant_floor_passes": false
+          }
+        },
+        {
+          "layer": "residual-staircase",
+          "weight": 2.0,
+          "reason": "cumulative residual stage row",
+          "value": {
+            "stage": "prefix_plus_tail_2",
+            "remaining_requirement": -0.02128809800597603,
+            "stage_floor_passes": true,
+            "dominant_floor_passes": false
+          }
+        },
+        {
+          "layer": "residual-staircase",
+          "weight": 2.0,
+          "reason": "cumulative residual stage row",
+          "value": {
+            "stage": "prefix_plus_tail_3",
+            "remaining_requirement": 0.009635331122728005,
+            "stage_floor_passes": false,
+            "dominant_floor_passes": false
+          }
+        },
+        {
+          "layer": "residual-staircase",
+          "weight": 2.0,
+          "reason": "cumulative residual stage row",
+          "value": {
+            "stage": "prefix_plus_tail_4",
+            "remaining_requirement": 0.005384466831267892,
+            "stage_floor_passes": false,
+            "dominant_floor_passes": false
+          }
+        },
+        {
+          "layer": "residual-staircase",
+          "weight": 2.0,
+          "reason": "cumulative residual stage row",
+          "value": {
+            "stage": "prefix_plus_tail_5",
+            "remaining_requirement": 0.01745934379193556,
+            "stage_floor_passes": false,
+            "dominant_floor_passes": false
+          }
+        },
+        {
+          "layer": "residual-staircase",
+          "weight": 2.0,
+          "reason": "cumulative residual stage row",
+          "value": {
+            "stage": "prefix_plus_tail_6",
+            "remaining_requirement": 0.029256638055512027,
+            "stage_floor_passes": false,
+            "dominant_floor_passes": false
+          }
+        },
+        {
+          "layer": "residual-staircase",
+          "weight": 2.0,
+          "reason": "cumulative residual stage row",
+          "value": {
+            "stage": "prefix_plus_tail_7",
+            "remaining_requirement": 0.01915179245517605,
+            "stage_floor_passes": false,
+            "dominant_floor_passes": false
+          }
+        },
+        {
+          "layer": "staircase-geometry-obstruction",
+          "weight": 2.0,
+          "reason": "full-stage classification breakable by weak geometry"
+        },
+        {
+          "layer": "staircase-arithmetic-gap",
+          "weight": 2.0,
+          "reason": "one_sided_upper_bound",
+          "value": {
+            "actual_gap": 0.01915179245517605,
+            "position": 0.30166603875804077,
+            "uniform_correct": false
+          }
+        },
+        {
+          "layer": "staircase-orbit-mass-gap",
+          "weight": 2.0,
+          "reason": "actual breaker-orbit mass measured",
+          "value": {
+            "breaking_orbit": [
+              153,
+              281
+            ],
+            "breaking_mass": 0.014670102460857546,
+            "top_actual_orbit": [
+              171,
+              263
+            ],
+            "top_actual_mass": 0.02935341139923258,
+            "breaking_orbit_is_top": false
+          }
+        },
+        {
+          "layer": "staircase-hinge-decomposition",
+          "weight": 2.0,
+          "reason": "above-floor/below-floor hinge balance measured",
+          "value": {
+            "supporting_mass": 0.5572164027328628,
+            "opposing_mass": 0.44278359726713723,
+            "supporting_hinge": 0.8154342412225315,
+            "opposing_hinge": 0.7962824487673553,
+            "hinge_margin": 0.019151792455176175,
+            "mass_driven": true,
+            "landing_driven": false
+          }
+        },
+        {
+          "layer": "staircase-hinge-threshold",
+          "weight": 2.0,
+          "reason": "support-mass surplus over landing-dependent threshold",
+          "value": {
+            "supporting_mass": 0.5572164027328628,
+            "threshold": 0.5513447942937817,
+            "surplus": 0.0058716084390810774,
+            "relative_surplus": 0.01064961254708504,
+            "identity_error": 2.185751579730777e-16
+          }
+        },
+        {
+          "layer": "staircase-above-floor-threshold",
+          "weight": 2.0,
+          "reason": "above-floor signed surplus measured",
+          "value": {
+            "above_mass": 0.44278359726713723,
+            "threshold": 0.44865520570621836,
+            "signed_surplus": -0.005871608439081133,
+            "predicts_pass": false,
+            "identity_error": 8.673617379884035e-17
+          }
+        },
+        {
+          "layer": "centered-3-1-same-residue-fresh-population-audit",
+          "weight": 2.5,
+          "reason": "selected deficit below all same-residue fresh predeclared targets",
+          "value": {
+            "count": 6,
+            "maximum": 0.013237891244304297,
+            "mean": 0.010579423036042625,
+            "minimum": 0.007258334506941435
+          }
+        },
+        {
+          "layer": "centered-3-1-signed-gap-obligation",
+          "weight": 2.5,
+          "reason": "same-residue signed empirical/correlation gap remains positive on checked fresh targets",
+          "value": {
+            "count": 6,
+            "maximum": 0.013237891244304297,
+            "mean": 0.010579423036042625,
+            "minimum": 0.007258334506941435
+          }
+        },
+        {
+          "layer": "centered-3-1-available-same-residue-population-audit",
+          "weight": 3.0,
+          "reason": "tightest checked available same-residue gate: 164598 versus 8000140",
+          "value": {
+            "comparison_target": 8000140,
+            "weighted_gap": 0.0003925287417802202,
+            "comparison_scope": "same-window nonseed"
+          }
+        },
+        {
+          "layer": "centered-3-1-residue5-near-collision-horizon",
+          "weight": 2.5,
+          "reason": "selected reference no longer below all local residue-5 horizon targets",
+          "value": {
+            "failing_target_count": 5,
+            "worst_failing_target": 7988986,
+            "worst_weighted_gap": -0.0073386462295386805
+          }
+        },
+        {
+          "layer": "centered-3-1-residue5-multichannel-horizon",
+          "weight": 3.0,
+          "reason": "selected reference remains below all residue-5 horizon targets after multichannel aggregation",
+          "value": {
+            "reference_target": 164598,
+            "target_count": 101,
+            "watchlist_passes": true,
+            "full_lp_passes": true
+          }
+        }
+      ],
+      "layer_count": 28,
+      "glow": 1.0
+    },
     {
       "id": "1222142",
       "stack_weight": 59.0,
@@ -697,7 +1013,7 @@
         }
       ],
       "layer_count": 29,
-      "glow": 1.0
+      "glow": 0.983333
     },
     {
       "id": "13822",
@@ -1012,304 +1328,7 @@
         }
       ],
       "layer_count": 28,
-      "glow": 1.0
-    },
-    {
-      "id": "164598",
-      "stack_weight": 57.0,
-      "layers": [
-        {
-          "layer": "portfolio-residual-obligation",
-          "weight": 2.5,
-          "reason": "portfolio/residual floor failed",
-          "value": -0.01915179245517605
-        },
-        {
-          "layer": "residual-channel-profile",
-          "weight": 2.0,
-          "reason": "residual signed pressure profiled",
-          "value": {
-            "residual_sum": -0.21191545554929755,
-            "residual_negative_pressure": 0.22193871911816507,
-            "dominant_floor_passes": false
-          }
-        },
-        {
-          "layer": "portfolio-ablation",
-          "weight": 2.0,
-          "reason": "portfolio ablation baseline row",
-          "value": {
-            "full_portfolio_slack": -0.01915179245517605,
-            "dominant_floor_passes": false
-          }
-        },
-        {
-          "layer": "prefix-tail-classification",
-          "weight": 2.0,
-          "reason": "prefix/tail floor obligation",
-          "value": {
-            "prefix_slack": 0.04904634279178903,
-            "tail_slack": -0.01915179245517605,
-            "dominant_floor_passes": false
-          }
-        },
-        {
-          "layer": "tail-ablation",
-          "weight": 2.0,
-          "reason": "tail ablation slack row",
-          "value": {
-            "subtail_slack": -0.01915179245517605,
-            "dominant_floor_passes": false
-          }
-        },
-        {
-          "layer": "residual-staircase",
-          "weight": 2.0,
-          "reason": "cumulative residual stage row",
-          "value": {
-            "stage": "empty",
-            "remaining_requirement": -0.08808454445070218,
-            "stage_floor_passes": true,
-            "dominant_floor_passes": false
-          }
-        },
-        {
-          "layer": "residual-staircase",
-          "weight": 2.0,
-          "reason": "cumulative residual stage row",
-          "value": {
-            "stage": "prefix_1",
-            "remaining_requirement": -0.07236094882533538,
-            "stage_floor_passes": true,
-            "dominant_floor_passes": false
-          }
-        },
-        {
-          "layer": "residual-staircase",
-          "weight": 2.0,
-          "reason": "cumulative residual stage row",
-          "value": {
-            "stage": "prefix_2",
-            "remaining_requirement": -0.062321204133864216,
-            "stage_floor_passes": true,
-            "dominant_floor_passes": false
-          }
-        },
-        {
-          "layer": "residual-staircase",
-          "weight": 2.0,
-          "reason": "cumulative residual stage row",
-          "value": {
-            "stage": "prefix_3",
-            "remaining_requirement": -0.04846286600740002,
-            "stage_floor_passes": true,
-            "dominant_floor_passes": false
-          }
-        },
-        {
-          "layer": "residual-staircase",
-          "weight": 2.0,
-          "reason": "cumulative residual stage row",
-          "value": {
-            "stage": "prefix_4",
-            "remaining_requirement": -0.04904634279178903,
-            "stage_floor_passes": true,
-            "dominant_floor_passes": false
-          }
-        },
-        {
-          "layer": "residual-staircase",
-          "weight": 2.0,
-          "reason": "cumulative residual stage row",
-          "value": {
-            "stage": "prefix_plus_tail_1",
-            "remaining_requirement": -0.020545544149867187,
-            "stage_floor_passes": true,
-            "dominant_floor_passes": false
-          }
-        },
-        {
-          "layer": "residual-staircase",
-          "weight": 2.0,
-          "reason": "cumulative residual stage row",
-          "value": {
-            "stage": "prefix_plus_tail_2",
-            "remaining_requirement": -0.02128809800597603,
-            "stage_floor_passes": true,
-            "dominant_floor_passes": false
-          }
-        },
-        {
-          "layer": "residual-staircase",
-          "weight": 2.0,
-          "reason": "cumulative residual stage row",
-          "value": {
-            "stage": "prefix_plus_tail_3",
-            "remaining_requirement": 0.009635331122728005,
-            "stage_floor_passes": false,
-            "dominant_floor_passes": false
-          }
-        },
-        {
-          "layer": "residual-staircase",
-          "weight": 2.0,
-          "reason": "cumulative residual stage row",
-          "value": {
-            "stage": "prefix_plus_tail_4",
-            "remaining_requirement": 0.005384466831267892,
-            "stage_floor_passes": false,
-            "dominant_floor_passes": false
-          }
-        },
-        {
-          "layer": "residual-staircase",
-          "weight": 2.0,
-          "reason": "cumulative residual stage row",
-          "value": {
-            "stage": "prefix_plus_tail_5",
-            "remaining_requirement": 0.01745934379193556,
-            "stage_floor_passes": false,
-            "dominant_floor_passes": false
-          }
-        },
-        {
-          "layer": "residual-staircase",
-          "weight": 2.0,
-          "reason": "cumulative residual stage row",
-          "value": {
-            "stage": "prefix_plus_tail_6",
-            "remaining_requirement": 0.029256638055512027,
-            "stage_floor_passes": false,
-            "dominant_floor_passes": false
-          }
-        },
-        {
-          "layer": "residual-staircase",
-          "weight": 2.0,
-          "reason": "cumulative residual stage row",
-          "value": {
-            "stage": "prefix_plus_tail_7",
-            "remaining_requirement": 0.01915179245517605,
-            "stage_floor_passes": false,
-            "dominant_floor_passes": false
-          }
-        },
-        {
-          "layer": "staircase-geometry-obstruction",
-          "weight": 2.0,
-          "reason": "full-stage classification breakable by weak geometry"
-        },
-        {
-          "layer": "staircase-arithmetic-gap",
-          "weight": 2.0,
-          "reason": "one_sided_upper_bound",
-          "value": {
-            "actual_gap": 0.01915179245517605,
-            "position": 0.30166603875804077,
-            "uniform_correct": false
-          }
-        },
-        {
-          "layer": "staircase-orbit-mass-gap",
-          "weight": 2.0,
-          "reason": "actual breaker-orbit mass measured",
-          "value": {
-            "breaking_orbit": [
-              153,
-              281
-            ],
-            "breaking_mass": 0.014670102460857546,
-            "top_actual_orbit": [
-              171,
-              263
-            ],
-            "top_actual_mass": 0.02935341139923258,
-            "breaking_orbit_is_top": false
-          }
-        },
-        {
-          "layer": "staircase-hinge-decomposition",
-          "weight": 2.0,
-          "reason": "above-floor/below-floor hinge balance measured",
-          "value": {
-            "supporting_mass": 0.5572164027328628,
-            "opposing_mass": 0.44278359726713723,
-            "supporting_hinge": 0.8154342412225315,
-            "opposing_hinge": 0.7962824487673553,
-            "hinge_margin": 0.019151792455176175,
-            "mass_driven": true,
-            "landing_driven": false
-          }
-        },
-        {
-          "layer": "staircase-hinge-threshold",
-          "weight": 2.0,
-          "reason": "support-mass surplus over landing-dependent threshold",
-          "value": {
-            "supporting_mass": 0.5572164027328628,
-            "threshold": 0.5513447942937817,
-            "surplus": 0.0058716084390810774,
-            "relative_surplus": 0.01064961254708504,
-            "identity_error": 2.185751579730777e-16
-          }
-        },
-        {
-          "layer": "staircase-above-floor-threshold",
-          "weight": 2.0,
-          "reason": "above-floor signed surplus measured",
-          "value": {
-            "above_mass": 0.44278359726713723,
-            "threshold": 0.44865520570621836,
-            "signed_surplus": -0.005871608439081133,
-            "predicts_pass": false,
-            "identity_error": 8.673617379884035e-17
-          }
-        },
-        {
-          "layer": "centered-3-1-same-residue-fresh-population-audit",
-          "weight": 2.5,
-          "reason": "selected deficit below all same-residue fresh predeclared targets",
-          "value": {
-            "count": 6,
-            "maximum": 0.013237891244304297,
-            "mean": 0.010579423036042625,
-            "minimum": 0.007258334506941435
-          }
-        },
-        {
-          "layer": "centered-3-1-signed-gap-obligation",
-          "weight": 2.5,
-          "reason": "same-residue signed empirical/correlation gap remains positive on checked fresh targets",
-          "value": {
-            "count": 6,
-            "maximum": 0.013237891244304297,
-            "mean": 0.010579423036042625,
-            "minimum": 0.007258334506941435
-          }
-        },
-        {
-          "layer": "centered-3-1-available-same-residue-population-audit",
-          "weight": 3.0,
-          "reason": "tightest checked available same-residue gate: 164598 versus 8000140",
-          "value": {
-            "comparison_target": 8000140,
-            "weighted_gap": 0.0003925287417802202,
-            "comparison_scope": "same-window nonseed"
-          }
-        },
-        {
-          "layer": "centered-3-1-residue5-near-collision-horizon",
-          "weight": 2.5,
-          "reason": "selected reference no longer below all local residue-5 horizon targets",
-          "value": {
-            "failing_target_count": 5,
-            "worst_failing_target": 7988986,
-            "worst_weighted_gap": -0.0073386462295386805
-          }
-        }
-      ],
-      "layer_count": 27,
-      "glow": 0.966102
+      "glow": 0.983333
     },
     {
       "id": "24424",
@@ -1586,7 +1605,7 @@
         }
       ],
       "layer_count": 25,
-      "glow": 0.872881
+      "glow": 0.858333
     },
     {
       "id": "55864",
@@ -1863,7 +1882,7 @@
         }
       ],
       "layer_count": 25,
-      "glow": 0.872881
+      "glow": 0.858333
     },
     {
       "id": "1242118",
@@ -2078,7 +2097,7 @@
         }
       ],
       "layer_count": 18,
-      "glow": 0.669492
+      "glow": 0.658333
     },
     {
       "id": "129706",
@@ -2245,7 +2264,7 @@
         }
       ],
       "layer_count": 15,
-      "glow": 0.516949
+      "glow": 0.508333
     },
     {
       "id": "13556",
@@ -2401,7 +2420,7 @@
         }
       ],
       "layer_count": 14,
-      "glow": 0.483051
+      "glow": 0.475
     },
     {
       "id": "1240888",
@@ -2524,7 +2543,7 @@
         }
       ],
       "layer_count": 11,
-      "glow": 0.381356
+      "glow": 0.375
     },
     {
       "id": "40420",
@@ -2647,7 +2666,7 @@
         }
       ],
       "layer_count": 11,
-      "glow": 0.381356
+      "glow": 0.375
     },
     {
       "id": "1220056",
@@ -2747,7 +2766,7 @@
         }
       ],
       "layer_count": 7,
-      "glow": 0.288136
+      "glow": 0.283333
     },
     {
       "id": "1222048",
@@ -2847,7 +2866,7 @@
         }
       ],
       "layer_count": 7,
-      "glow": 0.288136
+      "glow": 0.283333
     },
     {
       "id": "1200224",
@@ -2916,7 +2935,7 @@
         }
       ],
       "layer_count": 6,
-      "glow": 0.237288
+      "glow": 0.233333
     },
     {
       "id": "1222072",
@@ -2995,7 +3014,7 @@
         }
       ],
       "layer_count": 5,
-      "glow": 0.228814
+      "glow": 0.225
     },
     {
       "id": "1220124",
@@ -3074,7 +3093,7 @@
         }
       ],
       "layer_count": 5,
-      "glow": 0.211864
+      "glow": 0.208333
     },
     {
       "id": "1221052",
@@ -3154,7 +3173,7 @@
         }
       ],
       "layer_count": 5,
-      "glow": 0.20339
+      "glow": 0.2
     },
     {
       "id": "1221042",
@@ -3213,7 +3232,7 @@
         }
       ],
       "layer_count": 5,
-      "glow": 0.194915
+      "glow": 0.191667
     },
     {
       "id": "1242070",
@@ -3282,7 +3301,7 @@
         }
       ],
       "layer_count": 4,
-      "glow": 0.186441
+      "glow": 0.183333
     },
     {
       "id": "1240160",
@@ -3361,7 +3380,7 @@
         }
       ],
       "layer_count": 7,
-      "glow": 0.169492
+      "glow": 0.166667
     },
     {
       "id": "1200262",
@@ -3409,7 +3428,7 @@
         }
       ],
       "layer_count": 4,
-      "glow": 0.161017
+      "glow": 0.158333
     },
     {
       "id": "1222018",
@@ -3457,7 +3476,7 @@
         }
       ],
       "layer_count": 4,
-      "glow": 0.161017
+      "glow": 0.158333
     },
     {
       "id": "1200254",
@@ -3516,7 +3535,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.144068
+      "glow": 0.141667
     },
     {
       "id": "1222030",
@@ -3575,7 +3594,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.144068
+      "glow": 0.141667
     },
     {
       "id": "1242162",
@@ -3644,7 +3663,7 @@
         }
       ],
       "layer_count": 6,
-      "glow": 0.127119
+      "glow": 0.125
     },
     {
       "id": "1240144",
@@ -3682,7 +3701,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.118644
+      "glow": 0.116667
     },
     {
       "id": "1200482",
@@ -3731,7 +3750,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.101695
+      "glow": 0.1
     },
     {
       "id": "1379072",
@@ -3757,7 +3776,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.101695
+      "glow": 0.1
     },
     {
       "id": "1426162",
@@ -3787,7 +3806,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.101695
+      "glow": 0.1
     },
     {
       "id": "1426262",
@@ -3817,7 +3836,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.101695
+      "glow": 0.1
     },
     {
       "id": "1200362",
@@ -3875,7 +3894,7 @@
         }
       ],
       "layer_count": 5,
-      "glow": 0.09322
+      "glow": 0.091667
     },
     {
       "id": "1221148",
@@ -3903,7 +3922,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.09322
+      "glow": 0.091667
     },
     {
       "id": "10000028",
@@ -3928,7 +3947,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.076271
+      "glow": 0.075
     },
     {
       "id": "10000054",
@@ -3953,7 +3972,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.076271
+      "glow": 0.075
     },
     {
       "id": "12000026",
@@ -3978,7 +3997,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.076271
+      "glow": 0.075
     },
     {
       "id": "12000052",
@@ -4003,7 +4022,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.076271
+      "glow": 0.075
     },
     {
       "id": "16000022",
@@ -4028,7 +4047,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.076271
+      "glow": 0.075
     },
     {
       "id": "16000048",
@@ -4053,7 +4072,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.076271
+      "glow": 0.075
     },
     {
       "id": "20000018",
@@ -4078,7 +4097,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.076271
+      "glow": 0.075
     },
     {
       "id": "20000044",
@@ -4103,7 +4122,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.076271
+      "glow": 0.075
     },
     {
       "id": "6000032",
@@ -4128,7 +4147,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.076271
+      "glow": 0.075
     },
     {
       "id": "6000058",
@@ -4153,7 +4172,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.076271
+      "glow": 0.075
     },
     {
       "id": "8000030",
@@ -4178,7 +4197,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.076271
+      "glow": 0.075
     },
     {
       "id": "8000056",
@@ -4203,7 +4222,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.076271
+      "glow": 0.075
     },
     {
       "id": "1221092",
@@ -4231,7 +4250,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.067797
+      "glow": 0.066667
     },
     {
       "id": "1221118",
@@ -4259,7 +4278,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.067797
+      "glow": 0.066667
     },
     {
       "id": "1222168",
@@ -4287,7 +4306,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.067797
+      "glow": 0.066667
     },
     {
       "id": "1242106",
@@ -4315,7 +4334,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.067797
+      "glow": 0.066667
     },
     {
       "id": "1323632",
@@ -4335,7 +4354,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.067797
+      "glow": 0.066667
     },
     {
       "id": "1200208",
@@ -4364,7 +4383,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.059322
+      "glow": 0.058333
     },
     {
       "id": "1200598",
@@ -4402,7 +4421,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.059322
+      "glow": 0.058333
     },
     {
       "id": "1220098",
@@ -4431,7 +4450,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.059322
+      "glow": 0.058333
     },
     {
       "id": "1242136",
@@ -4460,7 +4479,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.059322
+      "glow": 0.058333
     },
     {
       "id": "6000000",
@@ -4479,7 +4498,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.059322
+      "glow": 0.058333
     },
     {
       "id": "6000002",
@@ -4498,7 +4517,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.059322
+      "glow": 0.058333
     },
     {
       "id": "6000004",
@@ -4517,7 +4536,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.059322
+      "glow": 0.058333
     },
     {
       "id": "6000006",
@@ -4536,7 +4555,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.059322
+      "glow": 0.058333
     },
     {
       "id": "6000008",
@@ -4555,7 +4574,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.059322
+      "glow": 0.058333
     },
     {
       "id": "6000010",
@@ -4574,7 +4593,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.059322
+      "glow": 0.058333
     },
     {
       "id": "6000012",
@@ -4593,7 +4612,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.059322
+      "glow": 0.058333
     },
     {
       "id": "6000014",
@@ -4612,7 +4631,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.059322
+      "glow": 0.058333
     },
     {
       "id": "6000016",
@@ -4631,7 +4650,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.059322
+      "glow": 0.058333
     },
     {
       "id": "6000018",
@@ -4650,7 +4669,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.059322
+      "glow": 0.058333
     },
     {
       "id": "6000020",
@@ -4669,7 +4688,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.059322
+      "glow": 0.058333
     },
     {
       "id": "6000022",
@@ -4688,7 +4707,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.059322
+      "glow": 0.058333
     },
     {
       "id": "1200232",
@@ -4706,7 +4725,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.050847
+      "glow": 0.05
     },
     {
       "id": "1200392",
@@ -4724,7 +4743,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.050847
+      "glow": 0.05
     },
     {
       "id": "1200520",
@@ -4742,7 +4761,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.050847
+      "glow": 0.05
     },
     {
       "id": "1221154",
@@ -4760,7 +4779,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.050847
+      "glow": 0.05
     },
     {
       "id": "1260058",
@@ -4778,7 +4797,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.050847
+      "glow": 0.05
     },
     {
       "id": "1261180",
@@ -4796,7 +4815,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.050847
+      "glow": 0.05
     },
     {
       "id": "1261196",
@@ -4814,7 +4833,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.050847
+      "glow": 0.05
     },
     {
       "id": "1262014",
@@ -4832,7 +4851,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.050847
+      "glow": 0.05
     },
     {
       "id": "1262162",
@@ -4850,7 +4869,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.050847
+      "glow": 0.05
     },
     {
       "id": "1280026",
@@ -4868,7 +4887,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.050847
+      "glow": 0.05
     },
     {
       "id": "1280086",
@@ -4886,7 +4905,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.050847
+      "glow": 0.05
     },
     {
       "id": "1281148",
@@ -4904,7 +4923,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.050847
+      "glow": 0.05
     },
     {
       "id": "1282052",
@@ -4922,7 +4941,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.050847
+      "glow": 0.05
     },
     {
       "id": "1282108",
@@ -4940,7 +4959,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.050847
+      "glow": 0.05
     },
     {
       "id": "1282142",
@@ -4958,7 +4977,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.050847
+      "glow": 0.05
     },
     {
       "id": "1282186",
@@ -4976,7 +4995,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.050847
+      "glow": 0.05
     },
     {
       "id": "1426164",
@@ -4995,7 +5014,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.050847
+      "glow": 0.05
     },
     {
       "id": "1426166",
@@ -5014,7 +5033,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.050847
+      "glow": 0.05
     },
     {
       "id": "1426168",
@@ -5033,7 +5052,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.050847
+      "glow": 0.05
     },
     {
       "id": "1426170",
@@ -5052,7 +5071,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.050847
+      "glow": 0.05
     },
     {
       "id": "1426172",
@@ -5071,7 +5090,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.050847
+      "glow": 0.05
     },
     {
       "id": "1426174",
@@ -5090,7 +5109,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.050847
+      "glow": 0.05
     },
     {
       "id": "1426176",
@@ -5109,7 +5128,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.050847
+      "glow": 0.05
     },
     {
       "id": "1426178",
@@ -5128,7 +5147,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.050847
+      "glow": 0.05
     },
     {
       "id": "1426180",
@@ -5147,7 +5166,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.050847
+      "glow": 0.05
     },
     {
       "id": "1426182",
@@ -5166,7 +5185,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.050847
+      "glow": 0.05
     },
     {
       "id": "1426196",
@@ -5185,7 +5204,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.050847
+      "glow": 0.05
     },
     {
       "id": "1426264",
@@ -5204,7 +5223,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.050847
+      "glow": 0.05
     },
     {
       "id": "1500044",
@@ -5223,7 +5242,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.050847
+      "glow": 0.05
     },
     {
       "id": "2200064",
@@ -5242,7 +5261,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.050847
+      "glow": 0.05
     },
     {
       "id": "2200190",
@@ -5261,7 +5280,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.050847
+      "glow": 0.05
     },
     {
       "id": "3305164",
@@ -5280,7 +5299,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.050847
+      "glow": 0.05
     },
     {
       "id": "3305176",
@@ -5299,7 +5318,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.050847
+      "glow": 0.05
     },
     {
       "id": "3305206",
@@ -5318,7 +5337,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.050847
+      "glow": 0.05
     },
     {
       "id": "4304280",
@@ -5337,7 +5356,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.050847
+      "glow": 0.05
     },
     {
       "id": "5000152",
@@ -5356,7 +5375,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.050847
+      "glow": 0.05
     },
     {
       "id": "7988986",
@@ -5386,7 +5405,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.050847
+      "glow": 0.05
     },
     {
       "id": "1220188",
@@ -5404,7 +5423,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.042373
+      "glow": 0.041667
     },
     {
       "id": "1221002",
@@ -5422,7 +5441,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.042373
+      "glow": 0.041667
     },
     {
       "id": "1221156",
@@ -5440,7 +5459,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.042373
+      "glow": 0.041667
     },
     {
       "id": "1221162",
@@ -5458,7 +5477,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.042373
+      "glow": 0.041667
     },
     {
       "id": "1240138",
@@ -5476,7 +5495,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.042373
+      "glow": 0.041667
     },
     {
       "id": "1242062",
@@ -5494,7 +5513,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.042373
+      "glow": 0.041667
     },
     {
       "id": "1242152",
@@ -5512,7 +5531,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.042373
+      "glow": 0.041667
     },
     {
       "id": "1240116",
@@ -5540,7 +5559,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.033898
+      "glow": 0.033333
     },
     {
       "id": "1200210",
@@ -5558,7 +5577,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.025424
+      "glow": 0.025
     },
     {
       "id": "1200302",
@@ -5576,7 +5595,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.025424
+      "glow": 0.025
     },
     {
       "id": "1200328",
@@ -5594,7 +5613,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.025424
+      "glow": 0.025
     },
     {
       "id": "1200342",
@@ -5612,7 +5631,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.025424
+      "glow": 0.025
     },
     {
       "id": "1200400",
@@ -5630,7 +5649,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.025424
+      "glow": 0.025
     },
     {
       "id": "1200432",
@@ -5648,7 +5667,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.025424
+      "glow": 0.025
     },
     {
       "id": "1200526",
@@ -5666,7 +5685,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.025424
+      "glow": 0.025
     },
     {
       "id": "1220038",
@@ -5684,7 +5703,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.025424
+      "glow": 0.025
     },
     {
       "id": "1220076",
@@ -5702,7 +5721,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.025424
+      "glow": 0.025
     },
     {
       "id": "1221016",
@@ -5720,7 +5739,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.025424
+      "glow": 0.025
     },
     {
       "id": "1222078",
@@ -5738,7 +5757,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.025424
+      "glow": 0.025
     },
     {
       "id": "1240046",
@@ -5756,7 +5775,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.025424
+      "glow": 0.025
     },
     {
       "id": "1240098",
@@ -5774,7 +5793,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.025424
+      "glow": 0.025
     },
     {
       "id": "1240104",
@@ -5792,7 +5811,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.025424
+      "glow": 0.025
     },
     {
       "id": "1242044",
@@ -5810,7 +5829,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.025424
+      "glow": 0.025
     },
     {
       "id": "10664",
@@ -5824,7 +5843,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.016949
+      "glow": 0.016667
     },
     {
       "id": "14138",
@@ -5838,7 +5857,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.016949
+      "glow": 0.016667
     }
   ],
   "mechanism_stacks": [
@@ -6292,6 +6311,26 @@
             "target_count": 101,
             "failing_target_count": 5,
             "minimum_weighted_gap": -0.0073386462295386805
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.166667
+    },
+    {
+      "id": "distributed-channel-rescue-of-scalar-3-1-failure",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "centered-3-1-residue5-multichannel-horizon",
+          "weight": 3.0,
+          "reason": "watchlist and full 17-channel LP stay positive on the same residue-5 horizon where scalar (3,1) fails",
+          "value": {
+            "scalar_passes": false,
+            "kevin_watchlist_passes": true,
+            "frozen_full_17_lp_passes": true,
+            "watchlist_minimum_margin": 0.026187595109613864,
+            "full_lp_minimum_margin": 0.055956206788778495
           }
         }
       ],
@@ -6977,7 +7016,7 @@
   "theorem_gap_stacks": [
     {
       "id": "centered-3-1-stress-class-theorem",
-      "stack_weight": 26.0,
+      "stack_weight": 28.0,
       "layers": [
         {
           "layer": "centered-channel-scalar-order-audit",
@@ -7015,6 +7054,11 @@
           "reason": "scalar residue-5 neighborhood promotion is falsified by five same-residue crossings"
         },
         {
+          "layer": "centered-3-1-residue5-multichannel-horizon",
+          "weight": 2.0,
+          "reason": "(3,1) remains a possible stress-reference classifier coordinate, not a scalar closure theorem"
+        },
+        {
           "layer": "centered-3-1-stress-class-audit",
           "weight": 3.0,
           "reason": "full_nonpositive classifier version falsified; a different predeclared class or signed estimate is needed"
@@ -7025,7 +7069,7 @@
           "reason": "scope guard: selected-deficit separation cannot be promoted across fixture predicates"
         }
       ],
-      "layer_count": 9,
+      "layer_count": 10,
       "glow": 1.0
     },
     {
@@ -7069,7 +7113,7 @@
         }
       ],
       "layer_count": 7,
-      "glow": 0.673077
+      "glow": 0.625
     },
     {
       "id": "portfolio-residual-lower-bound",
@@ -7117,7 +7161,45 @@
         }
       ],
       "layer_count": 8,
-      "glow": 0.634615
+      "glow": 0.589286
+    },
+    {
+      "id": "ap-count-to-17-channel-bridge",
+      "stack_weight": 15.0,
+      "layers": [
+        {
+          "layer": "lp-cone-local-singular-audit",
+          "weight": 3.0,
+          "reason": "BMOR q286 AP-count constants are useful input but do not directly prove the signed 17-channel functional"
+        },
+        {
+          "layer": "centered-3-1-signed-gap-obligation",
+          "weight": 2.0,
+          "reason": "same-residue cancellation narrows the bridge from local AP counts to a signed channel correlation estimate"
+        },
+        {
+          "layer": "centered-3-1-available-same-residue-population-audit",
+          "weight": 2.0,
+          "reason": "signed channel correlation estimate must explain the thin 164598/8000140 same-residue gap"
+        },
+        {
+          "layer": "centered-3-1-residue5-near-collision-horizon",
+          "weight": 2.0,
+          "reason": "future bridge must use higher-dimensional signed correlation or a narrower non-post-hoc family"
+        },
+        {
+          "layer": "centered-3-1-residue5-multichannel-horizon",
+          "weight": 3.0,
+          "reason": "finite rescue redirects the bridge toward a distributed signed-correlation cone"
+        },
+        {
+          "layer": "ap-count-bridge-gap-audit",
+          "weight": 3.0,
+          "reason": "raw AP counts alone are demoted; bridge needs binary convolution or signed character correlation"
+        }
+      ],
+      "layer_count": 6,
+      "glow": 0.535714
     },
     {
       "id": "rank1-residual-drag-bound",
@@ -7150,40 +7232,7 @@
         }
       ],
       "layer_count": 5,
-      "glow": 0.576923
-    },
-    {
-      "id": "ap-count-to-17-channel-bridge",
-      "stack_weight": 12.0,
-      "layers": [
-        {
-          "layer": "lp-cone-local-singular-audit",
-          "weight": 3.0,
-          "reason": "BMOR q286 AP-count constants are useful input but do not directly prove the signed 17-channel functional"
-        },
-        {
-          "layer": "centered-3-1-signed-gap-obligation",
-          "weight": 2.0,
-          "reason": "same-residue cancellation narrows the bridge from local AP counts to a signed channel correlation estimate"
-        },
-        {
-          "layer": "centered-3-1-available-same-residue-population-audit",
-          "weight": 2.0,
-          "reason": "signed channel correlation estimate must explain the thin 164598/8000140 same-residue gap"
-        },
-        {
-          "layer": "centered-3-1-residue5-near-collision-horizon",
-          "weight": 2.0,
-          "reason": "future bridge must use higher-dimensional signed correlation or a narrower non-post-hoc family"
-        },
-        {
-          "layer": "ap-count-bridge-gap-audit",
-          "weight": 3.0,
-          "reason": "raw AP counts alone are demoted; bridge needs binary convolution or signed character correlation"
-        }
-      ],
-      "layer_count": 5,
-      "glow": 0.461538
+      "glow": 0.535714
     },
     {
       "id": "alternate-stress-channel-reference-gate",
@@ -7206,7 +7255,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.307692
+      "glow": 0.285714
     },
     {
       "id": "fixed-modulus-binary-prime-discrepancy",
@@ -7229,7 +7278,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.307692
+      "glow": 0.285714
     },
     {
       "id": "active-lane-strict-closure",
@@ -7247,7 +7296,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.192308
+      "glow": 0.178571
     },
     {
       "id": "near-boundary-selector-theorem",
@@ -7265,7 +7314,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.134615
+      "glow": 0.125
     },
     {
       "id": "distributed-cone-correlation-theorem",
@@ -7278,7 +7327,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.115385
+      "glow": 0.107143
     },
     {
       "id": "alignment-plus-complement-tail",
@@ -7291,7 +7340,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.076923
+      "glow": 0.071429
     },
     {
       "id": "dangerous-reflection-orbit-mass-bound",
@@ -7304,7 +7353,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.076923
+      "glow": 0.071429
     },
     {
       "id": "dominant-staircase-above-floor-threshold-sign",
@@ -7317,7 +7366,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.076923
+      "glow": 0.071429
     },
     {
       "id": "dominant-staircase-hinge-balance",
@@ -7330,7 +7379,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.076923
+      "glow": 0.071429
     },
     {
       "id": "dominant-staircase-hinge-threshold-surplus",
@@ -7343,7 +7392,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.076923
+      "glow": 0.071429
     },
     {
       "id": "interpolation-or-cone-endpoint-theorem",
@@ -7356,7 +7405,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.076923
+      "glow": 0.071429
     },
     {
       "id": "rarity-plus-complement-floor",
@@ -7369,7 +7418,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.076923
+      "glow": 0.071429
     },
     {
       "id": "sample-size-cherry-pick-risk",
@@ -7386,7 +7435,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.057692
+      "glow": 0.053571
     },
     {
       "id": "alignment-complement-route",
@@ -7399,7 +7448,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.038462
+      "glow": 0.035714
     }
   ],
   "goldbach_proved": false,
