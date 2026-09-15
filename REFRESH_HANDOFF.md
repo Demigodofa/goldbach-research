@@ -6,6 +6,47 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 low-`(3,1)` scalar-selected pocket now has an independent descriptor
+audit.
+
+`tools/build_q286_low_3_1_independent_descriptor_audit.py` generated
+`evidence/q286-low-3-1-independent-descriptor-audit.json`, with the human note
+`notes/q286-low-3-1-independent-descriptor-audit.md`.
+
+Question: can the scalar-selected broad low-`(3,1)` references be described by
+small independent arithmetic/filter/correlation features?
+
+Result: only a small pocket.
+
+```text
+broad full_nonpositive references:       89
+low-33 group:                            33
+strict low-24 group:                     24
+
+best low-33 independent descriptor:      target_mod_13 == 4
+descriptor support:                       6
+low count:                                6
+above-threshold count:                    0
+precision:                                1.0
+recall:                                   0.18181818181818182
+later-cycle holdout support:              0
+
+strict low-24 zero-failure descriptors:   0
+best strict descriptor above rows:        1
+```
+
+Cycle support is lopsided: cycle `0` contains `75` of the `89` broad
+references, while the later holdout side contains only cycle `7` with `2`
+references.  The `mod 13 == 4` pocket is real but does not explain the whole
+low-`(3,1)` family.
+
+Decision: freeze `target_mod_13 == 4` only as a small candidate pocket for a
+future prospective test.  Do not promote it to a stress theorem.  The broad and
+strict low-`(3,1)` families still need an independent arithmetic/correlation
+definition, or the route should become a signed correlation estimate.
+
+## Previous active checkpoint note, 2026-09-15
+
 The centered `(3,1)` stress/reference hunch now has a reference-sensitivity
 audit.
 

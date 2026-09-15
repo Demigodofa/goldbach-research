@@ -170,6 +170,8 @@ def main():
         EVIDENCE / "q286-independent-stress-feature-audit.json")
     centered_3_1_reference_sensitivity = load_json(
         EVIDENCE / "q286-centered-3-1-reference-sensitivity-audit.json")
+    low_3_1_independent_descriptor = load_json(
+        EVIDENCE / "q286-low-3-1-independent-descriptor-audit.json")
     centered_3_1_stress_class = load_json(
         EVIDENCE / "q286-centered-3-1-stress-class-audit.json")
     selected_deficit_provenance = load_json(
@@ -2844,6 +2846,63 @@ def main():
         "centered-3-1-reference-sensitivity-audit",
         2.0,
         "bridge must explain reference ordering without selecting by the same scalar")
+
+    layer(
+        "low-3-1-independent-descriptor-audit",
+        "Small mod-13 pocket found; broad low-(3,1) family still unexplained",
+        "validated_candidate_pocket",
+        "evidence/q286-low-3-1-independent-descriptor-audit.json",
+        3.0,
+        "Finite independent-descriptor audit only; no stress theorem.")
+    descriptor_metrics = low_3_1_independent_descriptor[
+        "decision_metrics"]
+    best_low_descriptor = descriptor_metrics[
+        "best_low_33_predeclared_descriptor"]
+    best_strict_descriptor = descriptor_metrics[
+        "best_strict_low_24_predeclared_descriptor"]
+    add_hit(
+        mechanism_stacks,
+        "mod-13-4-low-3-1-candidate-pocket",
+        "low-3-1-independent-descriptor-audit",
+        2.5,
+        "target_mod_13==4 gives a small independent low-33 pocket but low recall and no holdout support",
+        {
+            "descriptor": best_low_descriptor["descriptor"],
+            "reference_count": best_low_descriptor["reference_count"],
+            "low_count": best_low_descriptor["low_count"],
+            "above_threshold_count":
+                best_low_descriptor["above_threshold_count"],
+            "recall": best_low_descriptor["recall"],
+            "holdout_supported_zero_descriptor_count":
+                descriptor_metrics[
+                    "low_33_zero_failure_predeclared_holdout_supported_count"],
+        })
+    add_hit(
+        mechanism_stacks,
+        "strict-low-24-independent-descriptor-route-fails",
+        "low-3-1-independent-descriptor-audit",
+        2.5,
+        "strict low-24 has no predeclared zero-failure descriptor at support at least five",
+        {
+            "zero_failure_predeclared_descriptor_count":
+                descriptor_metrics[
+                    "strict_low_24_zero_failure_predeclared_descriptor_count"],
+            "best_descriptor": best_strict_descriptor["descriptor"],
+            "best_descriptor_above_threshold_count":
+                best_strict_descriptor["above_threshold_count"],
+        })
+    add_hit(
+        theorem_stacks,
+        "centered-3-1-stress-class-theorem",
+        "low-3-1-independent-descriptor-audit",
+        3.0,
+        "small independent mod-13 pocket is not enough to define the broad or strict low-(3,1) stress family")
+    add_hit(
+        theorem_stacks,
+        "ap-count-to-17-channel-bridge",
+        "low-3-1-independent-descriptor-audit",
+        2.0,
+        "an arithmetic/correlation bridge still has to explain the remaining low-(3,1) references")
 
     layer(
         "centered-3-1-stress-class-audit",

@@ -6,6 +6,34 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 low-`(3,1)` broad pocket now has an independent descriptor audit:
+`tools/build_q286_low_3_1_independent_descriptor_audit.py` generated
+`evidence/q286-low-3-1-independent-descriptor-audit.json`, with explanation in
+`notes/q286-low-3-1-independent-descriptor-audit.md`.
+
+Mechanism: inside the `89` broad `full_nonpositive` references, label the
+frozen low-33 and strict low-24 centered `(3,1)` groups, then search one- and
+two-atom descriptors built from independent q286 filter predicates, round
+numeric filter thresholds, CRT residues, and quadratic-character signs.  Exact
+residues modulo `143` are included only as exploratory post-hoc diagnostics.
+
+Result: a small predeclared independent pocket exists for the low-33 group:
+`target_mod_13 == 4` has `6` references, all `6` low and `0` above-threshold
+rows, for precision `1.0` and recall `0.18181818181818182`.  No predeclared
+low-33 zero-failure descriptor has later-cycle holdout support in this fixture.
+For the strict low-24 group, there are `0` predeclared zero-failure descriptors
+with support at least `5`; the best tested predeclared descriptor still has
+`1` above-threshold row.
+
+Interpretation: `mod 13 == 4` is a real small candidate pocket worth freezing
+for a future prospective test, but it does not define the broad low-`(3,1)`
+family.  The strict low-24 family remains unexplained by the tested independent
+dictionary.  The next branch should either freeze the `mod 13 == 4` pocket on
+new windows/references or move from classifier language to a signed correlation
+estimate.
+
+## Previous continuation evidence, 2026-09-15
+
 The centered `(3,1)` reference signal now has a reference-sensitivity audit:
 `tools/build_q286_centered_3_1_reference_sensitivity_audit.py` generated
 `evidence/q286-centered-3-1-reference-sensitivity-audit.json`, with explanation

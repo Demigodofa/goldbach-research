@@ -1592,6 +1592,14 @@
       "status_boundary": "finite centered-(3,1) reference-sensitivity audit only; shows the fresh-window signal is not 13822-only but proves no independent stress theorem, signed correlation theorem, pointwise character-sum theorem, or Goldbach proof"
     },
     {
+      "id": "receipt.q286_low_3_1_independent_descriptor_audit",
+      "type": "receipt",
+      "label": "q286 low (3,1) independent descriptor audit",
+      "status": "validated_candidate_pocket",
+      "validation": "tools/build_q286_low_3_1_independent_descriptor_audit.py generated evidence/q286-low-3-1-independent-descriptor-audit.json; target_mod_13==4 is a predeclared independent low-33 pocket with 6/6 low rows and 0 above-threshold rows, but recall is only 0.1818 and no predeclared zero-failure low-33 descriptor has later-cycle holdout support; strict low-24 has 0 predeclared zero-failure descriptors at support at least 5",
+      "status_boundary": "finite independent-descriptor audit only; preserves a small mod-13 candidate pocket but proves no broad stress theorem, signed correlation theorem, pointwise character-sum theorem, or Goldbach proof"
+    },
+    {
       "id": "receipt.q286_centered_3_1_stress_class_audit",
       "type": "receipt",
       "label": "q286 centered (3,1) full-nonpositive stress-class audit",
@@ -3680,6 +3688,26 @@
     {
       "from": "receipt.q286_centered_3_1_reference_sensitivity_audit",
       "to": "obligation.centered_3_1_stress_class",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_low_3_1_independent_descriptor_audit",
+      "to": "receipt.q286_centered_3_1_reference_sensitivity_audit",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_low_3_1_independent_descriptor_audit",
+      "to": "receipt.q286_independent_stress_feature_audit",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_low_3_1_independent_descriptor_audit",
+      "to": "obligation.centered_3_1_stress_class",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_low_3_1_independent_descriptor_audit",
+      "to": "obligation.ap_count_to_17_channel_bridge",
       "type": "requires"
     }
   ]
