@@ -6,6 +6,43 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 L1-uniformity cone now has a source-backed AP-bound comparison.
+
+`tools/build_q286_l1_uniformity_ap_bound_comparison.py` generated
+`evidence/q286-l1-uniformity-ap-bound-comparison.json`, with the human note
+`notes/q286-l1-uniformity-ap-bound-comparison.md`.
+
+Question: can Bennett-Martin-O'Bryant-Rechnitzer explicit AP bounds supply the
+small L1 radius needed by the q286 cone-duality candidate?
+
+Result: not for the actual denominator.
+
+```text
+nearest-bad L1 radii: 0.05724560696825869 .. 0.11764562474360012
+
+q=286 marginal L1 proxy:
+  theta 0.00552492660243689
+  pi    0.005758369440451972
+
+q=10010 marginal L1 proxy:
+  theta 0.14750510727702712
+  pi    0.15294654772000832
+
+q=10010 x needed for minimum radius by blunt proxy:
+  theta 1.303568776017155e+18
+  pi    7.776406097957707e+18
+```
+
+Decision: the apparent q286 AP strength is a denominator illusion for this
+cone.  The strict-central binary measure lives modulo `10010`, and a
+one-dimensional AP count theorem still does not control the reflected binary
+prime-pair measure.  Pivot away from more label-only or blunt L1 audits.  The
+next proof object should be coefficient-sensitive: signed character moments,
+q286 mass/landing inequalities, PSD/covariance constraints, or a genuine
+Goldbach-in-progressions theorem for the exact signed functionals.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 post-discovery closure now has a direct complement-rescue margin
 audit.
 

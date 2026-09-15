@@ -1,0 +1,209 @@
+{
+  "comparison_model": "For a one-dimensional AP count bound at modulus q, normalize the per-class BMOR error by total prime mass and union-bound over phi(q) reduced classes, giving the proxy phi(q)*c/log(x).  This is only a marginal residue-distribution proxy; the q286 cone uses a binary reflected strict-central prime-pair measure modulo 10010.",
+  "decision": "BMOR directly supplies strong fixed-modulus AP count bounds, but not the needed binary strict-central L1 cone theorem.  At the assembled period q=10010, the marginal proxy at BMOR validity thresholds is about 0.15, larger than every computed nearest-bad L1 radius.  Closing even the minimum radius with this blunt one-dimensional union-bound proxy would require x around 7.776e+18 for pi or 1.304e+18 for theta, before paying any binary-pair convolution cost.  Therefore this does not close the route; it redirects the strategy toward coefficient-sensitive cones or a genuine Goldbach-in-progressions estimate for the signed functionals.",
+  "goldbach_proved": false,
+  "l1_bad_radius_summary": {
+    "maximum": 0.11764562474360012,
+    "mean": 0.09720394355055242,
+    "minimum": 0.05724560696825869
+  },
+  "l1_candidate_source": "evidence\\q286-cone-duality-l1-uniformity-candidate.json",
+  "modulus_rows": [
+    {
+      "bmor_constants_row": [
+        "143",
+        "1e+12",
+        "6",
+        "5640.197166",
+        "0.0008379",
+        "0.0008409",
+        "0.0008769"
+      ],
+      "bmor_thresholds_row": [
+        "143",
+        "85882271",
+        "85881413",
+        "85881413",
+        "86891851",
+        "86891851",
+        "655180846"
+      ],
+      "c_pi": 0.0008769,
+      "c_theta": 0.0008409,
+      "phi_q": 120,
+      "pi_probability_l1_proxy_at_x_pi": 0.00575640009385811,
+      "pi_x_needed_for_l1_radius": {
+        "maximum": 86891851.0,
+        "mean": 86891851.0,
+        "minimum": 86891851.0
+      },
+      "q": 143,
+      "theta_probability_l1_proxy_at_x_theta": 0.0055236128640936645,
+      "theta_x_needed_for_l1_radius": {
+        "maximum": 85881413.0,
+        "mean": 85881413.0,
+        "minimum": 85881413.0
+      },
+      "x_pi": 86891851.0,
+      "x_theta": 85881413.0
+    },
+    {
+      "bmor_constants_row": [
+        "286",
+        "1e+12",
+        "6",
+        "5640.197166",
+        "0.0008379",
+        "0.0008411",
+        "0.0008772"
+      ],
+      "bmor_thresholds_row": [
+        "286",
+        "85882271",
+        "85881413",
+        "85881413",
+        "86891851",
+        "86891851",
+        "141762479"
+      ],
+      "c_pi": 0.0008772,
+      "c_theta": 0.0008411,
+      "phi_q": 120,
+      "pi_probability_l1_proxy_at_x_pi": 0.005758369440451972,
+      "pi_x_needed_for_l1_radius": {
+        "maximum": 86891851.0,
+        "mean": 86891851.0,
+        "minimum": 86891851.0
+      },
+      "q": 286,
+      "theta_probability_l1_proxy_at_x_theta": 0.00552492660243689,
+      "theta_x_needed_for_l1_radius": {
+        "maximum": 85881413.0,
+        "mean": 85881413.0,
+        "minimum": 85881413.0
+      },
+      "x_pi": 86891851.0,
+      "x_theta": 85881413.0
+    },
+    {
+      "bmor_constants_row": [
+        "10010",
+        "1e+12",
+        "7",
+        "237.9630127",
+        "0.0008278",
+        "0.0008291",
+        "0.0008646"
+      ],
+      "bmor_thresholds_row": [
+        "10010",
+        "10725895",
+        "10723716",
+        "10723716",
+        "11763491",
+        "11763491",
+        "20446961"
+      ],
+      "c_pi": 0.0008646,
+      "c_theta": 0.0008291,
+      "phi_q": 2880,
+      "pi_probability_l1_proxy_at_x_pi": 0.15294654772000832,
+      "pi_x_needed_for_l1_radius": {
+        "maximum": 1556438449.1706617,
+        "mean": 133416075354.58272,
+        "minimum": 7.776406097957707e+18
+      },
+      "q": 10010,
+      "theta_probability_l1_proxy_at_x_theta": 0.14750510727702712,
+      "theta_x_needed_for_l1_radius": {
+        "maximum": 652691675.2753191,
+        "mean": 46602931774.13567,
+        "minimum": 1.303568776017155e+18
+      },
+      "x_pi": 11763491.0,
+      "x_theta": 10723716.0
+    }
+  ],
+  "next_obligation": "Do not run more label-only or blunt L1 audits as the main lane. Define the actual operator/cone: coefficient-sensitive signed moments, q286 landing inequalities, or a binary in-progressions theorem that controls the same reflected pair measure.",
+  "schema_version": 1,
+  "source": {
+    "data_index": "http://www.nt.math.ubc.ca/BeMaObRe/",
+    "paper": "Bennett, Martin, O'Bryant, Rechnitzer, Explicit bounds for primes in arithmetic progressions, Illinois J. Math. 62 (2018), 427-532; arXiv:1802.00085.",
+    "tables": {
+      "constants": {
+        "headers": [
+          "#q\tx2\tm\tH\tc_psi\tc_theta\tc_pi"
+        ],
+        "rows": {
+          "10010": [
+            "10010",
+            "1e+12",
+            "7",
+            "237.9630127",
+            "0.0008278",
+            "0.0008291",
+            "0.0008646"
+          ],
+          "143": [
+            "143",
+            "1e+12",
+            "6",
+            "5640.197166",
+            "0.0008379",
+            "0.0008409",
+            "0.0008769"
+          ],
+          "286": [
+            "286",
+            "1e+12",
+            "6",
+            "5640.197166",
+            "0.0008379",
+            "0.0008411",
+            "0.0008772"
+          ]
+        },
+        "sha256": "ce5d67887f3e95a4b76b5cfcf9037187c0399357d6848a2f24e65cadf03f443c",
+        "url": "http://www.nt.math.ubc.ca/BeMaObRe/c-psi-theta-pi/c_all_rounded.txt"
+      },
+      "thresholds": {
+        "headers": [
+          "#q, xpsi, xtheta, xthetaH, xpi, max-x, env-x"
+        ],
+        "rows": {
+          "10010": [
+            "10010",
+            "10725895",
+            "10723716",
+            "10723716",
+            "11763491",
+            "11763491",
+            "20446961"
+          ],
+          "143": [
+            "143",
+            "85882271",
+            "85881413",
+            "85881413",
+            "86891851",
+            "86891851",
+            "655180846"
+          ],
+          "286": [
+            "286",
+            "85882271",
+            "85881413",
+            "85881413",
+            "86891851",
+            "86891851",
+            "141762479"
+          ]
+        },
+        "sha256": "022e8bbda7f3cbce9b2950e40450c37dbf6d34f9457f8a70ef57ad0d0366c0c3",
+        "url": "http://www.nt.math.ubc.ca/BeMaObRe/x-psi-theta-pi/x0-all-xm-xe.txt"
+      }
+    }
+  },
+  "source_commit": "be8938a6de1b724532b84abc5342f649dde01330",
+  "status_boundary": "source-backed AP-bound comparison only; it proves no AP uniformity theorem for the binary strict-central measure, no signed prime-correlation theorem, no q286 threshold theorem, and no Goldbach theorem."
+}

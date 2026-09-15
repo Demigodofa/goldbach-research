@@ -6,6 +6,38 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 L1 cone route now has a source-backed AP-bound comparison:
+`tools/build_q286_l1_uniformity_ap_bound_comparison.py` generated
+`evidence/q286-l1-uniformity-ap-bound-comparison.json`, with explanation in
+`notes/q286-l1-uniformity-ap-bound-comparison.md`.
+
+Source: Bennett, Martin, O'Bryant, and Rechnitzer, *Explicit bounds for primes
+in arithmetic progressions*, Illinois J. Math. 62 (2018), 427-532; public
+computation tables at `http://www.nt.math.ubc.ca/BeMaObRe/`.
+
+Result: BMOR directly covers `q=143`, `q=286`, and the lifted assembled period
+`q=10010`.  The one-dimensional marginal L1 proxy at the BMOR validity
+threshold is about `0.0055` for `q=286`, but `q=286` is not the strict-central
+binary cone denominator.  At `q=10010`, the marginal proxy is
+`0.14750510727702712` for theta and `0.15294654772000832` for pi, larger than
+every computed nearest-bad L1 radius
+`0.05724560696825869..0.11764562474360012`.  Closing the minimum radius by
+this blunt proxy would require roughly `1.303568776017155e+18` in the
+theta-style comparison or `7.776406097957707e+18` in the pi-style comparison,
+before any bridge to binary pair measures.
+
+Decision: published AP bounds are useful background but do not close the q286
+L1 cone route.  The denominator lift to `10010` and the binary reflected
+prime-pair measure are the blockers.  Stop treating larger label-only or
+generic-uniformity audits as the main lane.  The next route must define a
+coefficient-sensitive arithmetic cone: signed character moments, q286
+mass/landing inequalities, PSD/covariance constraints, or a genuine binary
+Goldbach-in-progressions estimate for the same signed functionals.  No AP
+uniformity theorem, binary Goldbach-in-progressions theorem, threshold theorem,
+or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-15
+
 The first q286 cone-duality candidate has been tested and demoted:
 `tools/build_q286_cone_duality_l1_uniformity_candidate.py` generated
 `evidence/q286-cone-duality-l1-uniformity-candidate.json`, with explanation in

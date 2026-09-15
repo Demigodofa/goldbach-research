@@ -1742,6 +1742,30 @@
       "status": "open",
       "statement": "Define a non-circular arithmetic condition or signed correlation cone that forces complement_to_principal_ratio > -first_three_modes_to_principal_ratio on the q286 target class where post-discovery tail rows are finitely rescued.",
       "goldbach_proved": false
+    },
+    {
+      "id": "receipt.q286_l1_uniformity_ap_bound_comparison",
+      "type": "receipt",
+      "label": "q286 L1 uniformity AP-bound comparison",
+      "status": "validated_source_backed_strategy_decision",
+      "validation": "tools/build_q286_l1_uniformity_ap_bound_comparison.py generated evidence/q286-l1-uniformity-ap-bound-comparison.json from BMOR public AP-bound tables; q=10010 marginal L1 proxy is about .1475 theta and .1529 pi, larger than nearest-bad L1 radii .05725...11765",
+      "status_boundary": "source-backed comparison only; no AP-uniformity theorem for the binary strict-central measure, no signed prime-correlation theorem, no q286 threshold theorem, and no Goldbach proof"
+    },
+    {
+      "id": "lane.blunt_l1_ap_uniformity_from_published_ap_bounds",
+      "type": "demoted_lane",
+      "label": "Blunt L1 AP uniformity from published one-dimensional AP bounds",
+      "status": "demoted_as_wrong_denominator_and_too_coarse",
+      "reason": "BMOR q=286 looks strong, but the strict-central binary cone lives modulo 10010; at q=10010 the marginal one-dimensional proxy is larger than every computed nearest-bad L1 radius and still does not control reflected binary pair measures.",
+      "nuance": "Does not refute BMOR AP bounds or a future coefficient-sensitive Goldbach-in-progressions theorem for the exact signed functionals."
+    },
+    {
+      "id": "strategy.coefficient_sensitive_cone_pivot",
+      "type": "open_obligation",
+      "label": "Define coefficient-sensitive arithmetic cone for q286 signed operator",
+      "status": "open",
+      "statement": "Replace label-only and blunt L1 audits with a cone controlling the actual reflected strict-central pair measure through signed character moments, q286 mass/landing inequalities, PSD/covariance constraints, or a binary in-progressions theorem for the same functionals.",
+      "goldbach_proved": false
     }
   ],
   "edges": [
@@ -4064,6 +4088,26 @@
       "from": "receipt.q286_cone_duality_l1_uniformity_candidate",
       "to": "obligation.ap_count_to_17_channel_bridge",
       "type": "falsifies_simplification"
+    },
+    {
+      "from": "receipt.q286_l1_uniformity_ap_bound_comparison",
+      "to": "receipt.q286_cone_duality_l1_uniformity_candidate",
+      "type": "compares_with"
+    },
+    {
+      "from": "receipt.q286_l1_uniformity_ap_bound_comparison",
+      "to": "lane.blunt_l1_ap_uniformity_from_published_ap_bounds",
+      "type": "demotes"
+    },
+    {
+      "from": "lane.blunt_l1_ap_uniformity_from_published_ap_bounds",
+      "to": "strategy.coefficient_sensitive_cone_pivot",
+      "type": "requires"
+    },
+    {
+      "from": "strategy.coefficient_sensitive_cone_pivot",
+      "to": "strategy.q286_cone_duality_proof_route",
+      "type": "refines"
     }
   ]
 }
