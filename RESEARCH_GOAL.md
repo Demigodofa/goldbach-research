@@ -6,6 +6,41 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 pivot now has a coefficient-sensitive signed pair-correlation
+definition:
+`tools/build_q286_signed_pair_correlation_definition.py` generated
+`evidence/q286-signed-pair-correlation-definition.json`, with explanation in
+`notes/q286-signed-pair-correlation-definition.md`.
+
+Mechanism: define the actual object to be proved about.  For target residue
+`a=N mod 10010`, the normalized strict-central binary-prime measure `mu_N` on
+admissible residues is centered as `nu_N=mu_N-u_a`.  The q286 verifier induces
+fixed coefficient functions `gamma_F3_a` and `gamma_full_a`.  The non-rescue
+bad branch becomes the two centered inequalities
+`<nu_N,gamma_F3_a> <= -0.3` and
+`<nu_N,gamma_full_a> <= -<u_a,gamma_full_a>`.
+
+Result: on the seven frozen selected residues, `<u_a,gamma_F3_a>` is zero up
+to maximum absolute error `1.0039712117215771e-16`, while the full-action
+uniform baseline is positive with range
+`0.7110192034986899..1.2391609565397612`.  The centered full coefficient is
+strongly aligned with the first-three coefficient, with cosine range
+`0.7795203896833228..0.8764725525194792`.  Therefore the rescue is not generic
+geometry: negative first-three pressure naturally tends to push full action
+down too, and the missing theorem must control actual signed prime-pair
+landing.
+
+Decision: the next proof object is a signed pair-correlation cone `K_a` for
+`nu_N`, stated without measured pass/fail labels and falsified by LP if it
+admits a reflected nonnegative synthetic bad measure.  Plausible cones are
+signed moment/covariance inequalities, q286 mass/landing inequalities, or a
+binary Goldbach-in-progressions estimate for the exact functionals.  More
+target scans or generic uniformity cones are not the main lane.  No signed
+pair-correlation estimate, binary Goldbach-in-progressions theorem, threshold
+theorem, or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 L1 cone route now has a source-backed AP-bound comparison:
 `tools/build_q286_l1_uniformity_ap_bound_comparison.py` generated
 `evidence/q286-l1-uniformity-ap-bound-comparison.json`, with explanation in

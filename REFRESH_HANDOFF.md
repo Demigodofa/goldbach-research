@@ -6,6 +6,43 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 pivot now has the exact coefficient-sensitive signed pair-correlation
+definition.
+
+`tools/build_q286_signed_pair_correlation_definition.py` generated
+`evidence/q286-signed-pair-correlation-definition.json`, with the human note
+`notes/q286-signed-pair-correlation-definition.md`.
+
+Question: after the L1/AP bridge failed, what mathematical object should a
+proof actually control?
+
+Answer: the centered strict-central binary prime-pair measure modulo `10010`
+against the two q286 coefficient functions.  For
+`nu_N=mu_N-u_a`, the bad branch is exactly:
+
+```text
+<nu_N,gamma_F3_a>   <= -0.3
+<nu_N,gamma_full_a> <= -<u_a,gamma_full_a>
+```
+
+Frozen selected-residue constants:
+
+```text
+uniform first-three max abs error: 1.0039712117215771e-16
+uniform full-action baseline:      0.7110192034986899 .. 1.2391609565397612
+cosine(F3, centered full):         0.7795203896833228 .. 0.8764725525194792
+negative first-three uniform mass: 0.43636363636363645 .. 0.5858585858585856
+positive first-three uniform mass: 0.4141414141414141 .. 0.5636363636363638
+```
+
+Decision: the hole is not closing by broad uniformity.  The coefficient
+directions are strongly aligned, so negative first-three pressure naturally
+pulls full action down.  Rescue must come from the actual signed landing of
+prime-pair mass.  The next lane is a signed pair-correlation cone `K_a`, with
+LP falsification against the frozen operator rows before any new scan.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 L1-uniformity cone now has a source-backed AP-bound comparison.
 
 `tools/build_q286_l1_uniformity_ap_bound_comparison.py` generated

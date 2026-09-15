@@ -1766,6 +1766,30 @@
       "status": "open",
       "statement": "Replace label-only and blunt L1 audits with a cone controlling the actual reflected strict-central pair measure through signed character moments, q286 mass/landing inequalities, PSD/covariance constraints, or a binary in-progressions theorem for the same functionals.",
       "goldbach_proved": false
+    },
+    {
+      "id": "receipt.q286_signed_pair_correlation_definition",
+      "type": "receipt",
+      "label": "q286 signed pair-correlation definition",
+      "status": "validated_theorem_definition",
+      "validation": "tools/build_q286_signed_pair_correlation_definition.py generated evidence/q286-signed-pair-correlation-definition.json; on seven frozen residues uniform first-three is zero within 1.01e-16, uniform full baseline is .7110..1.2392, and cosine(F3, centered full) is .7795...8765",
+      "status_boundary": "definition and proof-obligation artifact only; no signed pair-correlation estimate, no binary Goldbach-in-progressions theorem, no q286 threshold theorem, and no Goldbach proof"
+    },
+    {
+      "id": "theorem.q286_signed_pair_correlation_cone",
+      "type": "theorem_target",
+      "label": "Signed pair-correlation cone excludes q286 non-rescue branch",
+      "status": "open",
+      "statement": "For nu_N=mu_N-u_a on reflected strict-central prime-pair residues modulo 10010, prove a non-post-hoc cone K_a that excludes <nu,gamma_F3_a><=-.3 and <nu,gamma_full_a><=-<u_a,gamma_full_a>.",
+      "goldbach_proved": false
+    },
+    {
+      "id": "lane.generic_variance_cone",
+      "type": "demoted_lane",
+      "label": "Generic variance or chi-square cone as immediate rescue",
+      "status": "dormant_not_main_lane",
+      "reason": "A quick quadratic scout showed the nearest bad variance point is still much closer to uniform than actual finite rows on sampled residues; a variance cone may be useful only if tied to coefficient-sensitive signed moments or a sourced large-sieve style theorem.",
+      "nuance": "This does not refute PSD/covariance constraints; it blocks chasing an unchanged generic near-uniform variance cone as the next proof engine."
     }
   ],
   "edges": [
@@ -4108,6 +4132,26 @@
       "from": "strategy.coefficient_sensitive_cone_pivot",
       "to": "strategy.q286_cone_duality_proof_route",
       "type": "refines"
+    },
+    {
+      "from": "receipt.q286_signed_pair_correlation_definition",
+      "to": "receipt.q286_l1_uniformity_ap_bound_comparison",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_signed_pair_correlation_definition",
+      "to": "strategy.coefficient_sensitive_cone_pivot",
+      "type": "implements_definition"
+    },
+    {
+      "from": "theorem.q286_signed_pair_correlation_cone",
+      "to": "receipt.q286_signed_pair_correlation_definition",
+      "type": "requires"
+    },
+    {
+      "from": "lane.generic_variance_cone",
+      "to": "theorem.q286_signed_pair_correlation_cone",
+      "type": "scope_guard"
     }
   ]
 }

@@ -1,0 +1,371 @@
+{
+  "creative_tool_state": {
+    "inventive_synthesis": {
+      "candidate": "Replace residue-uniformity cones with a signed pair-correlation cone on the exact q286 operator image.",
+      "falsifier": "Any proposed non-post-hoc cone is refuted if an LP finds a reflected nonnegative synthetic measure satisfying the cone and both bad-branch inequalities.",
+      "novelty_label": "new-to-this-task"
+    },
+    "preserve_hypotheses": "The AP and L1 components remain useful background, but the unchanged claim that they close the q10010 binary cone is blocked by the BMOR comparison.",
+    "pursue_curiosity": "changed-under-evidence: the repeated audit loop exposed a geometry mismatch rather than a missing larger sample."
+  },
+  "decision": "The next proof object is the signed pair-correlation theorem for nu_N against gamma_F3_a and gamma_full_a.  Further audits are useful only if they test a predeclared cone that implies the two bad-branch inequalities cannot hold together.",
+  "definition": {
+    "admissible_support": "A_a={r in (Z/10010Z)^*: gcd(a-r,10010)=1}",
+    "centered_discrepancy": "nu_N=mu_N-u_a",
+    "normalized_measure": "mu_N(r)=W_N(r)/sum_s W_N(s)",
+    "operators": {
+      "bad_branch": "F3_a(mu)<=-0.3 and A_a(mu)<=0, equivalently <nu,gamma_F3_a><=-0.3 and <nu,gamma_full_a><=-<u_a,gamma_full_a>.",
+      "first_three": "F3_a(mu)=<mu,gamma_F3_a>; by construction <u_a,gamma_F3_a> is zero up to floating error.",
+      "full": "A_a(mu)=<mu,gamma_full_a>; q286 closure on this lane requires A_a(mu_N)>0."
+    },
+    "period": 10010,
+    "q286_modulus": 286,
+    "strict_central_weight": "Strict-central W_N(r)=sum log(p)log(N-p) over primes N/3<p<2N/3 with p=r mod 10010",
+    "target_residue": "a = N mod 10010",
+    "uniform_measure": "u_a(r)=1/|A_a| on admissible residues"
+  },
+  "goldbach_proved": false,
+  "next_obligation": "Choose one non-post-hoc cone family for nu_N, preferably a signed moment/covariance inequality or a binary Goldbach-in-progressions estimate, then run the LP falsifier against these frozen operator rows.",
+  "prior_evidence_digest": {
+    "actual_l1_summary": {
+      "count": 7,
+      "maximum": 1.8989898989898988,
+      "mean": 1.0412615462552854,
+      "minimum": 0.47982423933735313
+    },
+    "bmor_q10010_pi_probability_l1_proxy": 0.15294654772000832,
+    "bmor_q10010_theta_probability_l1_proxy": 0.14750510727702712,
+    "l1_nearest_bad_radius": {
+      "count": 7,
+      "maximum": 0.11764562474360012,
+      "mean": 0.09720394355055242,
+      "minimum": 0.05724560696825869
+    },
+    "mass_landing_obligation": "For every sufficiently large even N in the strict-central q286 first-three lane, prove m_plus(N)*ell_plus(N)+tau >= m_minus(N)*ell_minus(N), with tau=tail_threshold."
+  },
+  "schema_version": 1,
+  "selected_operator_rows": [
+    {
+      "admissible_unit_count": 1485,
+      "bad_branch_centered_inequalities": {
+        "first_three_centered_action_at_most": -0.3,
+        "full_centered_action_at_most": -1.163889488813228,
+        "meaning": "For nu=mu-u_a with sum nu=0, the bad branch is <nu,gamma_F3_a><=-0.3 and <nu,gamma_full_a><=-uniform_full_a."
+      },
+      "centered_full_coefficient_summary": {
+        "count": 743,
+        "maximum": 22.218273850550073,
+        "mean": 0.002430366309864104,
+        "minimum": -7.303338015204271
+      },
+      "coefficient_cosine_first_three_full_centered": 0.8180635942804516,
+      "first_three_coefficient_summary": {
+        "count": 743,
+        "maximum": 16.170639903365423,
+        "mean": -0.0016228686984181054,
+        "minimum": -4.178852440903208
+      },
+      "full_coefficient_summary": {
+        "count": 743,
+        "maximum": 23.382163339363302,
+        "mean": 1.1663198551230922,
+        "minimum": -6.1394485263910425
+      },
+      "maximum_first_three_coefficient": 16.170639903365423,
+      "maximum_full_coefficient": 23.382163339363302,
+      "minimum_first_three_coefficient": -4.178852440903208,
+      "minimum_full_coefficient": -6.1394485263910425,
+      "negative_first_three_orbit_count": 413,
+      "negative_first_three_uniform_mass": 0.5555555555555554,
+      "positive_first_three_orbit_count": 330,
+      "positive_first_three_uniform_mass": 0.44444444444444436,
+      "reflection_orbit_count": 743,
+      "target_mod_286": 124,
+      "target_residue": 4128,
+      "uniform_first_three_to_principal": 8.608565249534905e-17,
+      "uniform_full_action_to_principal": 1.163889488813228,
+      "zero_first_three_orbit_count": 0
+    },
+    {
+      "admissible_unit_count": 1485,
+      "bad_branch_centered_inequalities": {
+        "first_three_centered_action_at_most": -0.3,
+        "full_centered_action_at_most": -1.0569507764159045,
+        "meaning": "For nu=mu-u_a with sum nu=0, the bad branch is <nu,gamma_F3_a><=-0.3 and <nu,gamma_full_a><=-uniform_full_a."
+      },
+      "centered_full_coefficient_summary": {
+        "count": 743,
+        "maximum": 19.632358355027925,
+        "mean": -0.0026752364436907787,
+        "minimum": -7.096051646828803
+      },
+      "coefficient_cosine_first_three_full_centered": 0.8519156010252658,
+      "first_three_coefficient_summary": {
+        "count": 743,
+        "maximum": 16.170639903365423,
+        "mean": -0.0016228686984181054,
+        "minimum": -4.178852440903208
+      },
+      "full_coefficient_summary": {
+        "count": 743,
+        "maximum": 20.68930913144383,
+        "mean": 1.0542755399722137,
+        "minimum": -6.039100870412899
+      },
+      "maximum_first_three_coefficient": 16.170639903365423,
+      "maximum_full_coefficient": 20.68930913144383,
+      "minimum_first_three_coefficient": -4.178852440903208,
+      "minimum_full_coefficient": -6.039100870412899,
+      "negative_first_three_orbit_count": 413,
+      "negative_first_three_uniform_mass": 0.5555555555555554,
+      "positive_first_three_orbit_count": 330,
+      "positive_first_three_uniform_mass": 0.44444444444444436,
+      "reflection_orbit_count": 743,
+      "target_mod_286": 124,
+      "target_residue": 4986,
+      "uniform_first_three_to_principal": 3.5778671692021646e-17,
+      "uniform_full_action_to_principal": 1.0569507764159045,
+      "zero_first_three_orbit_count": 0
+    },
+    {
+      "admissible_unit_count": 1485,
+      "bad_branch_centered_inequalities": {
+        "first_three_centered_action_at_most": -0.3,
+        "full_centered_action_at_most": -0.7110192034986899,
+        "meaning": "For nu=mu-u_a with sum nu=0, the bad branch is <nu,gamma_F3_a><=-0.3 and <nu,gamma_full_a><=-uniform_full_a."
+      },
+      "centered_full_coefficient_summary": {
+        "count": 743,
+        "maximum": 19.867575312077612,
+        "mean": 0.004315119036294865,
+        "minimum": -7.238836401097732
+      },
+      "coefficient_cosine_first_three_full_centered": 0.8764725525194792,
+      "first_three_coefficient_summary": {
+        "count": 743,
+        "maximum": 16.215286536232966,
+        "mean": 0.0004083939793025457,
+        "minimum": -3.7595097962758244
+      },
+      "full_coefficient_summary": {
+        "count": 743,
+        "maximum": 20.578594515576302,
+        "mean": 0.7153343225349846,
+        "minimum": -6.527817197599042
+      },
+      "maximum_first_three_coefficient": 16.215286536232966,
+      "maximum_full_coefficient": 20.578594515576302,
+      "minimum_first_three_coefficient": -3.7595097962758244,
+      "minimum_full_coefficient": -6.527817197599042,
+      "negative_first_three_orbit_count": 435,
+      "negative_first_three_uniform_mass": 0.5858585858585856,
+      "positive_first_three_orbit_count": 308,
+      "positive_first_three_uniform_mass": 0.4141414141414141,
+      "reflection_orbit_count": 743,
+      "target_mod_286": 190,
+      "target_residue": 4766,
+      "uniform_first_three_to_principal": 4.96564594998361e-17,
+      "uniform_full_action_to_principal": 0.7110192034986899,
+      "zero_first_three_orbit_count": 0
+    },
+    {
+      "admissible_unit_count": 1485,
+      "bad_branch_centered_inequalities": {
+        "first_three_centered_action_at_most": -0.3,
+        "full_centered_action_at_most": -1.2262937551444026,
+        "meaning": "For nu=mu-u_a with sum nu=0, the bad branch is <nu,gamma_F3_a><=-0.3 and <nu,gamma_full_a><=-uniform_full_a."
+      },
+      "centered_full_coefficient_summary": {
+        "count": 743,
+        "maximum": 19.502186902898462,
+        "mean": -0.00248709991554702,
+        "minimum": -8.686022546889836
+      },
+      "coefficient_cosine_first_three_full_centered": 0.8219236950860018,
+      "first_three_coefficient_summary": {
+        "count": 743,
+        "maximum": 16.3284762964054,
+        "mean": -0.00125857077668686,
+        "minimum": -4.210864541223183
+      },
+      "full_coefficient_summary": {
+        "count": 743,
+        "maximum": 20.728480658042866,
+        "mean": 1.2238066552288556,
+        "minimum": -7.459728791745434
+      },
+      "maximum_first_three_coefficient": 16.3284762964054,
+      "maximum_full_coefficient": 20.728480658042866,
+      "minimum_first_three_coefficient": -4.210864541223183,
+      "minimum_full_coefficient": -7.459728791745434,
+      "negative_first_three_orbit_count": 383,
+      "negative_first_three_uniform_mass": 0.515151515151515,
+      "positive_first_three_orbit_count": 360,
+      "positive_first_three_uniform_mass": 0.48484848484848475,
+      "reflection_orbit_count": 743,
+      "target_mod_286": 64,
+      "target_residue": 922,
+      "uniform_first_three_to_principal": -8.196568423990414e-17,
+      "uniform_full_action_to_principal": 1.2262937551444026,
+      "zero_first_three_orbit_count": 0
+    },
+    {
+      "admissible_unit_count": 1650,
+      "bad_branch_centered_inequalities": {
+        "first_three_centered_action_at_most": -0.3,
+        "full_centered_action_at_most": -1.1708358583458554,
+        "meaning": "For nu=mu-u_a with sum nu=0, the bad branch is <nu,gamma_F3_a><=-0.3 and <nu,gamma_full_a><=-uniform_full_a."
+      },
+      "centered_full_coefficient_summary": {
+        "count": 825,
+        "maximum": 21.666782824655947,
+        "mean": -3.3508549470504725e-17,
+        "minimum": -7.905504251196475
+      },
+      "coefficient_cosine_first_three_full_centered": 0.7795203896833228,
+      "first_three_coefficient_summary": {
+        "count": 825,
+        "maximum": 15.149262968493488,
+        "mean": 6.560408781875925e-17,
+        "minimum": -5.254494186637555
+      },
+      "full_coefficient_summary": {
+        "count": 825,
+        "maximum": 22.837618683001804,
+        "mean": 1.1708358583458554,
+        "minimum": -6.73466839285062
+      },
+      "maximum_first_three_coefficient": 15.149262968493488,
+      "maximum_full_coefficient": 22.837618683001804,
+      "minimum_first_three_coefficient": -5.254494186637555,
+      "minimum_full_coefficient": -6.73466839285062,
+      "negative_first_three_orbit_count": 360,
+      "negative_first_three_uniform_mass": 0.43636363636363645,
+      "positive_first_three_orbit_count": 465,
+      "positive_first_three_uniform_mass": 0.5636363636363638,
+      "reflection_orbit_count": 825,
+      "target_mod_286": 220,
+      "target_residue": 9658,
+      "uniform_first_three_to_principal": 1.0039712117215771e-16,
+      "uniform_full_action_to_principal": 1.1708358583458554,
+      "zero_first_three_orbit_count": 0
+    },
+    {
+      "admissible_unit_count": 1485,
+      "bad_branch_centered_inequalities": {
+        "first_three_centered_action_at_most": -0.3,
+        "full_centered_action_at_most": -1.017191226717544,
+        "meaning": "For nu=mu-u_a with sum nu=0, the bad branch is <nu,gamma_F3_a><=-0.3 and <nu,gamma_full_a><=-uniform_full_a."
+      },
+      "centered_full_coefficient_summary": {
+        "count": 743,
+        "maximum": 35.6668824740621,
+        "mean": 0.022827927123485817,
+        "minimum": -8.683445814303559
+      },
+      "coefficient_cosine_first_three_full_centered": 0.8681950439136612,
+      "first_three_coefficient_summary": {
+        "count": 743,
+        "maximum": 31.91047951862548,
+        "mean": 0.021474077737971324,
+        "minimum": -5.2648241083268745
+      },
+      "full_coefficient_summary": {
+        "count": 743,
+        "maximum": 36.68407370077964,
+        "mean": 1.04001915384103,
+        "minimum": -7.666254587586014
+      },
+      "maximum_first_three_coefficient": 31.91047951862548,
+      "maximum_full_coefficient": 36.68407370077964,
+      "minimum_first_three_coefficient": -5.2648241083268745,
+      "minimum_full_coefficient": -7.666254587586014,
+      "negative_first_three_orbit_count": 375,
+      "negative_first_three_uniform_mass": 0.505050505050505,
+      "positive_first_three_orbit_count": 368,
+      "positive_first_three_uniform_mass": 0.49494949494949486,
+      "reflection_orbit_count": 743,
+      "target_mod_286": 20,
+      "target_residue": 878,
+      "uniform_first_three_to_principal": -2.1467203015212988e-17,
+      "uniform_full_action_to_principal": 1.017191226717544,
+      "zero_first_three_orbit_count": 0
+    },
+    {
+      "admissible_unit_count": 1485,
+      "bad_branch_centered_inequalities": {
+        "first_three_centered_action_at_most": -0.3,
+        "full_centered_action_at_most": -1.2391609565397612,
+        "meaning": "For nu=mu-u_a with sum nu=0, the bad branch is <nu,gamma_F3_a><=-0.3 and <nu,gamma_full_a><=-uniform_full_a."
+      },
+      "centered_full_coefficient_summary": {
+        "count": 743,
+        "maximum": 38.98964934361617,
+        "mean": 0.026237987445232945,
+        "minimum": -8.153323236376174
+      },
+      "coefficient_cosine_first_three_full_centered": 0.8552344138857422,
+      "first_three_coefficient_summary": {
+        "count": 743,
+        "maximum": 31.91047951862566,
+        "mean": 0.021474077737971504,
+        "minimum": -5.264824108327049
+      },
+      "full_coefficient_summary": {
+        "count": 743,
+        "maximum": 40.228810300155935,
+        "mean": 1.2653989439849942,
+        "minimum": -6.914162279836414
+      },
+      "maximum_first_three_coefficient": 31.91047951862566,
+      "maximum_full_coefficient": 40.228810300155935,
+      "minimum_first_three_coefficient": -5.264824108327049,
+      "minimum_full_coefficient": -6.914162279836414,
+      "negative_first_three_orbit_count": 375,
+      "negative_first_three_uniform_mass": 0.505050505050505,
+      "positive_first_three_orbit_count": 368,
+      "positive_first_three_uniform_mass": 0.4949494949494948,
+      "reflection_orbit_count": 743,
+      "target_mod_286": 266,
+      "target_residue": 7702,
+      "uniform_first_three_to_principal": -4.85722573273506e-17,
+      "uniform_full_action_to_principal": 1.2391609565397612,
+      "zero_first_three_orbit_count": 0
+    }
+  ],
+  "source_commit": "84d10842e548f075d9f97db77a5930b60ccc54cc",
+  "status_boundary": "definition and proof-obligation artifact only; it proves no signed pair-correlation estimate, no binary Goldbach-in-progressions theorem, no q286 threshold theorem, and no Goldbach theorem.",
+  "summary": {
+    "first_three_full_centered_cosine_summary": {
+      "count": 7,
+      "maximum": 0.8764725525194792,
+      "mean": 0.8387607557705606,
+      "minimum": 0.7795203896833228
+    },
+    "negative_first_three_uniform_mass_summary": {
+      "count": 7,
+      "maximum": 0.5858585858585856,
+      "mean": 0.5226551226551226,
+      "minimum": 0.43636363636363645
+    },
+    "positive_first_three_uniform_mass_summary": {
+      "count": 7,
+      "maximum": 0.5636363636363638,
+      "mean": 0.4773448773448773,
+      "minimum": 0.4141414141414141
+    },
+    "selected_residue_count": 7,
+    "uniform_first_three_abs_error_summary": {
+      "count": 7,
+      "maximum": 1.0039712117215771e-16,
+      "mean": 6.056043563454746e-17,
+      "minimum": 2.1467203015212988e-17
+    },
+    "uniform_full_action_summary": {
+      "count": 7,
+      "maximum": 1.2391609565397612,
+      "mean": 1.083620180782198,
+      "minimum": 0.7110192034986899
+    }
+  }
+}
