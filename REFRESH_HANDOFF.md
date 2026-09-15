@@ -6,6 +6,40 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS route now has a mod-286 Fourier interaction audit.
+
+```text
+tools/build_q286_wbss_mod286_fourier_interaction_audit.py
+notes/q286-wbss-mod286-fourier-interaction-audit.md
+evidence/q286-wbss-mod286-fourier-interaction-audit.json
+```
+
+Result:
+
+```text
+post-discovery rows checked:                    196
+nonzero conjugacy groups:                       25
+zero Fourier-axis energy share:                 3.243981252694915e-33
+top 8 group coefficient-energy share:           0.41552805891437444
+top 8 contribution negative count:              189 / 196
+top 10 group coefficient-energy share:          0.5079835773727566
+top 10 contribution negative count:             196 / 196
+top 10 contribution / total ratio range:        0.009071759166255295..1.0393932987832106
+top 20 group coefficient-energy share:          0.8702131544344734
+top 20 contribution negative count:             196 / 196
+top 20 contribution / total ratio range:        0.5030209754400546..1.1437286994687021
+```
+
+Decision: the mod-286 drag is a broad signed `C10 x C12` interaction, not a
+tiny-character phenomenon. The first sign-stable truncation uses `10`
+conjugacy groups but can be too weak on individual rows; the first tested
+truncation carrying at least half the drag everywhere uses `20` groups. The
+next theorem target is a band-limited signed interaction inequality plus a
+residual bound for the remaining five conjugacy groups, or a direct raw
+q286-WBSS signed-witness estimate. Goldbach is not proved.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286-WBSS route now has a mod-286 interaction audit.
 
 ```text

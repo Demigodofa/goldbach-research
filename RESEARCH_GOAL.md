@@ -6,6 +6,32 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS route now has a mod-286 Fourier interaction audit:
+`tools/build_q286_wbss_mod286_fourier_interaction_audit.py` generated
+`evidence/q286-wbss-mod286-fourier-interaction-audit.json`, with explanation
+in `notes/q286-wbss-mod286-fourier-interaction-audit.md`.
+
+Question: once the mod-286 drag is known to be a modulo `11 x 13`
+interaction, is it carried by a tiny set of multiplicative character modes?
+
+Result: no tiny-character shortcut, but a sharper finite theorem target. The
+interaction has `25` nonzero conjugacy groups and zero Fourier-axis energy
+share `3.243981252694915e-33`. The top `8` conjugacy groups carry only
+`0.41552805891437444` of coefficient energy and are not sign-stable on actual
+rows (`189/196` negative). The top `10` groups are sign-stable on all `196`
+rows, but the weakest contribution-to-total ratio is only
+`0.009071759166255295`. The top `20` groups carry
+`0.8702131544344734` of coefficient energy, are negative on all `196` rows,
+and carry at least half of the full interaction drag on every row
+(`0.5030209754400546..1.1437286994687021` of total interaction drag).
+
+Decision: demote one- or few-character explanations. The surviving theorem
+target is now a band-limited signed `C10 x C12` interaction inequality for the
+top `20` conjugacy groups plus a residual bound for the remaining five groups,
+or a direct raw q286-WBSS witness estimate. Goldbach is not proved.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286-WBSS route now has a mod-286 interaction audit:
 `tools/build_q286_wbss_mod286_interaction_audit.py` generated
 `evidence/q286-wbss-mod286-interaction-audit.json`, with explanation in
