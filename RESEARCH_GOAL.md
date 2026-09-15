@@ -6,6 +6,45 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 bridge now has a finite landing-advantage audit:
+`tools/build_q286_landing_advantage_audit.py` generated
+`evidence/q286-landing-advantage-audit.json`, with explanation in
+`notes/q286-landing-advantage-audit.md`.
+
+Question: since the coefficient is sign-indefinite, do actual strict-central
+prime-pair weights land with enough weighted advantage on positive coefficient
+cells to overcome negative coefficient drag?
+
+Result: across `85198` targets from known extremals, the checked positive
+suffix, and one fresh arithmetic cycle:
+
+```text
+partial positive count:       85125
+full positive count:          85109
+tail sign-change count:       16
+negative-tail kill count:     16
+positive-tail rescue count:   0
+```
+
+All `16` sign changes are the known early negative-tail kills.  In the checked
+positive suffix the full positive/negative landing ratio has minimum
+`1.0097513835500775`; in the fresh cycle it has minimum
+`1.1701947485425508`.  The fresh cycle tail-control margin minimum is
+`24462.756459696568`.
+
+Decision: the live theorem is now a landing-advantage theorem for actual
+prime-pair mass:
+
+```text
+sum_r W_N(r)c_+(r) > sum_r W_N(r)c_-(r),
+```
+
+plus tail lower-control.  This is a signed binary-prime distribution/cone
+problem, not coefficient bookkeeping.  No q286 landing theorem, threshold
+theorem, strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 signed tail-control route now has a coefficientwise shortcut audit:
 `tools/build_q286_support_tail_coefficient_minorant_audit.py` generated
 `evidence/q286-support-tail-coefficient-minorant-audit.json`, with explanation

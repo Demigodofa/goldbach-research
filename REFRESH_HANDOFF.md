@@ -6,6 +6,43 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 bridge now has a finite landing-advantage audit.
+
+`tools/build_q286_landing_advantage_audit.py` generated
+`evidence/q286-landing-advantage-audit.json`, with explanation in
+`notes/q286-landing-advantage-audit.md`.
+
+Question: after the coefficientwise shortcut failed, can we measure the
+actual thing needed: prime-pair mass landing advantage on positive coefficient
+cells?
+
+Result:
+
+```text
+targets checked:               85198
+partial positive count:        85125
+full positive count:           85109
+tail sign-change count:        16
+negative-tail kill count:      16
+positive-tail rescue count:    0
+```
+
+All `16` sign changes are the known early negative-tail kills.  The later
+windows have none.  Minimum full positive/negative landing ratio is
+`1.0097513835500775` in the checked suffix and `1.1701947485425508` in the
+fresh cycle.
+
+Decision: the next proof target should be a source-backed fixed-modulus
+AP-pair or cone theorem proving actual landing advantage:
+
+```text
+sum_r W_N(r)c_+(r) > sum_r W_N(r)c_-(r).
+```
+
+Goldbach is not proved.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 signed tail-control route now has a coefficientwise shortcut audit.
 
 `tools/build_q286_support_tail_coefficient_minorant_audit.py` generated

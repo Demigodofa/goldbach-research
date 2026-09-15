@@ -557,3 +557,23 @@ cells strongly enough that
 sum_r W_N(r)*(P+D)(r) > 0
 sum_r W_N(r)*R(r) > -sum_r W_N(r)*(P+D)(r).
 ```
+
+## Landing Advantage Audit
+
+`tools/build_q286_landing_advantage_audit.py` generated
+`evidence/q286-landing-advantage-audit.json`.
+
+This receipt measures the actual landing form of the remaining obligation:
+
+```text
+sum_r W_N(r)c_+(r) > sum_r W_N(r)c_-(r).
+```
+
+Across known extremals plus the post-boundary windows, the only sign changes
+are the `16` known early negative-tail kills.  The checked positive suffix and
+fresh next arithmetic cycle both have full positive/negative landing ratio
+strictly above `1` on every tested target, with minima `1.0097513835500775`
+and `1.1701947485425508`.
+
+This supports the landing-advantage theorem as the right proof language.  It
+does not prove the theorem.

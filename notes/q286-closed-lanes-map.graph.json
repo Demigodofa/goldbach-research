@@ -2000,6 +2000,23 @@
       "label": "q286 coefficientwise support-tail minorant",
       "status": "falsified",
       "reason": "The fixed coefficient is sign-indefinite on every even admissible residue support; arbitrary nonnegative residue mass is too broad."
+    },
+    {
+      "id": "problem.q286_landing_advantage",
+      "type": "theorem_target",
+      "label": "q286 landing advantage",
+      "status": "open",
+      "statement": "For actual strict-central prime-pair residue weights W_N, prove sum_r W_N(r)c_+(r)>sum_r W_N(r)c_-(r) for the full q286 coefficient, plus tail_negative_drag < partial_margin + tail_positive_mass.",
+      "goldbach_proved": false
+    },
+    {
+      "id": "receipt.q286_landing_advantage_audit",
+      "type": "receipt",
+      "label": "q286 landing advantage audit",
+      "status": "validated_finite_support",
+      "validation": "tools/build_q286_landing_advantage_audit.py generated evidence/q286-landing-advantage-audit.json; across 85198 targets, all 16 sign changes are known early negative-tail kills, while checked suffix and fresh cycle have full positive/negative landing ratio above 1 on every tested target.",
+      "status_boundary": "finite landing-advantage audit only; no signed prime-correlation theorem, no q286 threshold theorem, no strict-central Goldbach theorem, and no Goldbach proof",
+      "goldbach_proved": false
     }
   ],
   "edges": [
@@ -4560,6 +4577,21 @@
     },
     {
       "from": "lane.q286_coefficientwise_tail_control_minorant",
+      "to": "theorem.q286_positive_signed_witness",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_landing_advantage_audit",
+      "to": "problem.q286_landing_advantage",
+      "type": "defines"
+    },
+    {
+      "from": "problem.q286_landing_advantage",
+      "to": "problem.q286_signed_support_tail_control",
+      "type": "refines"
+    },
+    {
+      "from": "problem.q286_landing_advantage",
       "to": "theorem.q286_positive_signed_witness",
       "type": "requires"
     }
