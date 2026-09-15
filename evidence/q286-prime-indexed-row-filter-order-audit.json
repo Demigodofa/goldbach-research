@@ -1,0 +1,1475 @@
+{
+  "benchmark": {
+    "first_target": 490480,
+    "first_three_tail_count": 0,
+    "full_nonpositive_count": 0,
+    "last_target": 490680,
+    "optimized_seconds": 0.11241959998733364,
+    "target_count": 101,
+    "targets_per_second": 898.419848597395
+  },
+  "comparison": {
+    "matches_within_tolerance": true,
+    "maximum_ratio_deltas": {
+      "complement": 6.661338147750939e-16,
+      "first_three": 6.487865800153259e-16,
+      "first_two": 6.435824095873954e-16,
+      "full": 8.881784197001252e-16
+    },
+    "predicate_mismatch_count": 0,
+    "rows": [
+      {
+        "deltas": {
+          "complement": 1.1102230246251565e-16,
+          "first_three": 0.0,
+          "first_two": 0.0,
+          "full": 1.6653345369377348e-16
+        },
+        "direct": {
+          "complement_to_principal_ratio": 0.9340259936979926,
+          "first_three_modes_to_principal_ratio": -1.1500880008976306,
+          "first_two_modes_to_principal_ratio": -1.1124437977839818,
+          "full_action_to_principal_ratio": -0.21606200719963808,
+          "passed_predicates": [
+            "complement_floor",
+            "complement_positive",
+            "first_three_tail",
+            "first_two_active",
+            "full_nonpositive"
+          ]
+        },
+        "optimized": {
+          "complement_to_principal_ratio": 0.9340259936979927,
+          "first_three_modes_to_principal_ratio": -1.1500880008976306,
+          "first_two_modes_to_principal_ratio": -1.1124437977839818,
+          "full_action_to_principal_ratio": -0.21606200719963792,
+          "passed_predicates": [
+            "first_two_active",
+            "first_three_tail",
+            "complement_positive",
+            "complement_floor",
+            "full_nonpositive"
+          ],
+          "small_support_to_principal_ratio": 0.02993127283210842,
+          "target": 10664
+        },
+        "predicate_match": true,
+        "target": 10664
+      },
+      {
+        "deltas": {
+          "complement": 1.1102230246251565e-16,
+          "first_three": 4.440892098500626e-16,
+          "first_two": 4.440892098500626e-16,
+          "full": 5.551115123125783e-16
+        },
+        "direct": {
+          "complement_to_principal_ratio": 0.018073313793834367,
+          "first_three_modes_to_principal_ratio": -0.8950145872346785,
+          "first_two_modes_to_principal_ratio": -0.8699032465481025,
+          "full_action_to_principal_ratio": -0.8769412734408442,
+          "passed_predicates": [
+            "complement_positive",
+            "first_three_tail",
+            "first_two_active",
+            "full_nonpositive"
+          ]
+        },
+        "optimized": {
+          "complement_to_principal_ratio": 0.018073313793834478,
+          "first_three_modes_to_principal_ratio": -0.8950145872346781,
+          "first_two_modes_to_principal_ratio": -0.869903246548102,
+          "full_action_to_principal_ratio": -0.8769412734408436,
+          "passed_predicates": [
+            "first_two_active",
+            "first_three_tail",
+            "complement_positive",
+            "full_nonpositive"
+          ],
+          "small_support_to_principal_ratio": 0.0695739946937908,
+          "target": 14138
+        },
+        "predicate_match": true,
+        "target": 14138
+      },
+      {
+        "deltas": {
+          "complement": 4.440892098500626e-16,
+          "first_three": 1.3877787807814457e-16,
+          "first_two": 1.3877787807814457e-16,
+          "full": 2.220446049250313e-16
+        },
+        "direct": {
+          "complement_to_principal_ratio": 1.3776028000182077,
+          "first_three_modes_to_principal_ratio": -0.12082743421006822,
+          "first_two_modes_to_principal_ratio": -0.03480563128734149,
+          "full_action_to_principal_ratio": 1.2567753658081395,
+          "passed_predicates": [
+            "complement_floor",
+            "complement_positive",
+            "full_positive"
+          ]
+        },
+        "optimized": {
+          "complement_to_principal_ratio": 1.3776028000182081,
+          "first_three_modes_to_principal_ratio": -0.12082743421006836,
+          "first_two_modes_to_principal_ratio": -0.034805631287341626,
+          "full_action_to_principal_ratio": 1.2567753658081398,
+          "passed_predicates": [
+            "complement_positive",
+            "complement_floor",
+            "full_positive"
+          ],
+          "small_support_to_principal_ratio": 0.08571300219631221,
+          "target": 24148
+        },
+        "predicate_match": true,
+        "target": 24148
+      },
+      {
+        "deltas": {
+          "complement": 1.1102230246251565e-16,
+          "first_three": 0.0,
+          "first_two": 0.0,
+          "full": 6.938893903907228e-17
+        },
+        "direct": {
+          "complement_to_principal_ratio": 0.5977285032800622,
+          "first_three_modes_to_principal_ratio": -0.5851520369862627,
+          "first_two_modes_to_principal_ratio": -0.5884416699078524,
+          "full_action_to_principal_ratio": 0.012576466293799509,
+          "passed_predicates": [
+            "complement_floor",
+            "complement_positive",
+            "first_three_tail",
+            "first_two_active",
+            "full_positive"
+          ]
+        },
+        "optimized": {
+          "complement_to_principal_ratio": 0.5977285032800623,
+          "first_three_modes_to_principal_ratio": -0.5851520369862627,
+          "first_two_modes_to_principal_ratio": -0.5884416699078524,
+          "full_action_to_principal_ratio": 0.012576466293799578,
+          "passed_predicates": [
+            "first_two_active",
+            "first_three_tail",
+            "complement_positive",
+            "complement_floor",
+            "full_positive"
+          ],
+          "small_support_to_principal_ratio": -0.09817000756761163,
+          "target": 94856
+        },
+        "predicate_match": true,
+        "target": 94856
+      },
+      {
+        "deltas": {
+          "complement": 2.220446049250313e-16,
+          "first_three": 2.5500435096859064e-16,
+          "first_two": 2.579316968343015e-16,
+          "full": 4.440892098500626e-16
+        },
+        "direct": {
+          "complement_to_principal_ratio": 1.278313397587108,
+          "first_three_modes_to_principal_ratio": -0.009330422706038663,
+          "first_two_modes_to_principal_ratio": -0.0005673852194624869,
+          "full_action_to_principal_ratio": 1.2689829748810693,
+          "passed_predicates": [
+            "complement_floor",
+            "complement_positive",
+            "full_positive"
+          ]
+        },
+        "optimized": {
+          "complement_to_principal_ratio": 1.2783133975871077,
+          "first_three_modes_to_principal_ratio": -0.009330422706038918,
+          "first_two_modes_to_principal_ratio": -0.0005673852194627449,
+          "full_action_to_principal_ratio": 1.2689829748810688,
+          "passed_predicates": [
+            "complement_positive",
+            "complement_floor",
+            "full_positive"
+          ],
+          "small_support_to_principal_ratio": -0.029598151064232376,
+          "target": 490480
+        },
+        "predicate_match": true,
+        "target": 490480
+      },
+      {
+        "deltas": {
+          "complement": 0.0,
+          "first_three": 6.938893903907228e-18,
+          "first_two": 1.9081958235744878e-17,
+          "full": 0.0
+        },
+        "direct": {
+          "complement_to_principal_ratio": 0.883546335826972,
+          "first_three_modes_to_principal_ratio": -0.00848490669997139,
+          "first_two_modes_to_principal_ratio": -0.014250548445396798,
+          "full_action_to_principal_ratio": 0.8750614291270006,
+          "passed_predicates": [
+            "complement_floor",
+            "complement_positive",
+            "full_positive"
+          ]
+        },
+        "optimized": {
+          "complement_to_principal_ratio": 0.883546335826972,
+          "first_three_modes_to_principal_ratio": -0.008484906699971383,
+          "first_two_modes_to_principal_ratio": -0.014250548445396779,
+          "full_action_to_principal_ratio": 0.8750614291270006,
+          "passed_predicates": [
+            "complement_positive",
+            "complement_floor",
+            "full_positive"
+          ],
+          "small_support_to_principal_ratio": -0.06728302765336316,
+          "target": 490580
+        },
+        "predicate_match": true,
+        "target": 490580
+      },
+      {
+        "deltas": {
+          "complement": 2.220446049250313e-16,
+          "first_three": 3.469446951953614e-17,
+          "first_two": 2.7755575615628914e-17,
+          "full": 2.220446049250313e-16
+        },
+        "direct": {
+          "complement_to_principal_ratio": 0.9626997749907196,
+          "first_three_modes_to_principal_ratio": -0.059078867505263644,
+          "first_two_modes_to_principal_ratio": -0.05700691244504677,
+          "full_action_to_principal_ratio": 0.903620907485456,
+          "passed_predicates": [
+            "complement_floor",
+            "complement_positive",
+            "full_positive"
+          ]
+        },
+        "optimized": {
+          "complement_to_principal_ratio": 0.9626997749907198,
+          "first_three_modes_to_principal_ratio": -0.05907886750526361,
+          "first_two_modes_to_principal_ratio": -0.05700691244504674,
+          "full_action_to_principal_ratio": 0.9036209074854562,
+          "passed_predicates": [
+            "complement_positive",
+            "complement_floor",
+            "full_positive"
+          ],
+          "small_support_to_principal_ratio": -0.05045604157912046,
+          "target": 490680
+        },
+        "predicate_match": true,
+        "target": 490680
+      },
+      {
+        "deltas": {
+          "complement": 2.220446049250313e-16,
+          "first_three": 1.3877787807814457e-16,
+          "first_two": 1.3877787807814457e-16,
+          "full": 4.440892098500626e-16
+        },
+        "direct": {
+          "complement_to_principal_ratio": 1.3091403309098657,
+          "first_three_modes_to_principal_ratio": -0.15275563729247968,
+          "first_two_modes_to_principal_ratio": -0.15443098864258814,
+          "full_action_to_principal_ratio": 1.156384693617386,
+          "passed_predicates": [
+            "complement_floor",
+            "complement_positive",
+            "full_positive"
+          ]
+        },
+        "optimized": {
+          "complement_to_principal_ratio": 1.3091403309098655,
+          "first_three_modes_to_principal_ratio": -0.15275563729247982,
+          "first_two_modes_to_principal_ratio": -0.15443098864258828,
+          "full_action_to_principal_ratio": 1.1563846936173856,
+          "passed_predicates": [
+            "complement_positive",
+            "complement_floor",
+            "full_positive"
+          ],
+          "small_support_to_principal_ratio": -0.02203494244109459,
+          "target": 570560
+        },
+        "predicate_match": true,
+        "target": 570560
+      },
+      {
+        "deltas": {
+          "complement": 2.220446049250313e-16,
+          "first_three": 1.3877787807814457e-16,
+          "first_two": 1.6653345369377348e-16,
+          "full": 1.1102230246251565e-16
+        },
+        "direct": {
+          "complement_to_principal_ratio": 0.8882246426998781,
+          "first_three_modes_to_principal_ratio": -0.13879336501081818,
+          "first_two_modes_to_principal_ratio": -0.14374598650240306,
+          "full_action_to_principal_ratio": 0.7494312776890599,
+          "passed_predicates": [
+            "complement_floor",
+            "complement_positive",
+            "full_positive"
+          ]
+        },
+        "optimized": {
+          "complement_to_principal_ratio": 0.8882246426998783,
+          "first_three_modes_to_principal_ratio": -0.13879336501081832,
+          "first_two_modes_to_principal_ratio": -0.14374598650240322,
+          "full_action_to_principal_ratio": 0.74943127768906,
+          "passed_predicates": [
+            "complement_positive",
+            "complement_floor",
+            "full_positive"
+          ],
+          "small_support_to_principal_ratio": -0.06685445776933699,
+          "target": 570660
+        },
+        "predicate_match": true,
+        "target": 570660
+      },
+      {
+        "deltas": {
+          "complement": 1.1102230246251565e-16,
+          "first_three": 6.938893903907228e-18,
+          "first_two": 0.0,
+          "full": 1.1102230246251565e-16
+        },
+        "direct": {
+          "complement_to_principal_ratio": 0.8661100511967387,
+          "first_three_modes_to_principal_ratio": -0.04414985260257849,
+          "first_two_modes_to_principal_ratio": -0.03796359018857443,
+          "full_action_to_principal_ratio": 0.8219601985941601,
+          "passed_predicates": [
+            "complement_floor",
+            "complement_positive",
+            "full_positive"
+          ]
+        },
+        "optimized": {
+          "complement_to_principal_ratio": 0.8661100511967388,
+          "first_three_modes_to_principal_ratio": -0.0441498526025785,
+          "first_two_modes_to_principal_ratio": -0.03796359018857443,
+          "full_action_to_principal_ratio": 0.8219601985941603,
+          "passed_predicates": [
+            "complement_positive",
+            "complement_floor",
+            "full_positive"
+          ],
+          "small_support_to_principal_ratio": -0.05617918204289225,
+          "target": 570760
+        },
+        "predicate_match": true,
+        "target": 570760
+      },
+      {
+        "deltas": {
+          "complement": 0.0,
+          "first_three": 6.487865800153259e-16,
+          "first_two": 6.435824095873954e-16,
+          "full": 6.661338147750939e-16
+        },
+        "direct": {
+          "complement_to_principal_ratio": 1.220137665989947,
+          "first_three_modes_to_principal_ratio": 0.006895399056105303,
+          "first_two_modes_to_principal_ratio": 0.004384221422822017,
+          "full_action_to_principal_ratio": 1.2270330650460524,
+          "passed_predicates": [
+            "complement_floor",
+            "complement_positive",
+            "full_positive"
+          ]
+        },
+        "optimized": {
+          "complement_to_principal_ratio": 1.220137665989947,
+          "first_three_modes_to_principal_ratio": 0.0068953990561059515,
+          "first_two_modes_to_principal_ratio": 0.00438422142282266,
+          "full_action_to_principal_ratio": 1.227033065046053,
+          "passed_predicates": [
+            "complement_positive",
+            "complement_floor",
+            "full_positive"
+          ],
+          "small_support_to_principal_ratio": -0.023417233992816297,
+          "target": 650640
+        },
+        "predicate_match": true,
+        "target": 650640
+      },
+      {
+        "deltas": {
+          "complement": 0.0,
+          "first_three": 2.7755575615628914e-17,
+          "first_two": 2.7755575615628914e-17,
+          "full": 0.0
+        },
+        "direct": {
+          "complement_to_principal_ratio": 0.9043797668206355,
+          "first_three_modes_to_principal_ratio": -0.20193600797537953,
+          "first_two_modes_to_principal_ratio": -0.20313729510585107,
+          "full_action_to_principal_ratio": 0.702443758845256,
+          "passed_predicates": [
+            "complement_floor",
+            "complement_positive",
+            "first_two_active",
+            "full_positive"
+          ]
+        },
+        "optimized": {
+          "complement_to_principal_ratio": 0.9043797668206355,
+          "first_three_modes_to_principal_ratio": -0.2019360079753795,
+          "first_two_modes_to_principal_ratio": -0.20313729510585105,
+          "full_action_to_principal_ratio": 0.702443758845256,
+          "passed_predicates": [
+            "first_two_active",
+            "complement_positive",
+            "complement_floor",
+            "full_positive"
+          ],
+          "small_support_to_principal_ratio": -0.06384674839350697,
+          "target": 650740
+        },
+        "predicate_match": true,
+        "target": 650740
+      },
+      {
+        "deltas": {
+          "complement": 2.220446049250313e-16,
+          "first_three": 2.7755575615628914e-16,
+          "first_two": 2.7755575615628914e-16,
+          "full": 4.440892098500626e-16
+        },
+        "direct": {
+          "complement_to_principal_ratio": 0.9961359368782372,
+          "first_three_modes_to_principal_ratio": 0.16379478186915014,
+          "first_two_modes_to_principal_ratio": 0.16311988106259503,
+          "full_action_to_principal_ratio": 1.1599307187473873,
+          "passed_predicates": [
+            "complement_floor",
+            "complement_positive",
+            "full_positive"
+          ]
+        },
+        "optimized": {
+          "complement_to_principal_ratio": 0.996135936878237,
+          "first_three_modes_to_principal_ratio": 0.16379478186914986,
+          "first_two_modes_to_principal_ratio": 0.16311988106259476,
+          "full_action_to_principal_ratio": 1.1599307187473868,
+          "passed_predicates": [
+            "complement_positive",
+            "complement_floor",
+            "full_positive"
+          ],
+          "small_support_to_principal_ratio": -0.05857882101790416,
+          "target": 650840
+        },
+        "predicate_match": true,
+        "target": 650840
+      },
+      {
+        "deltas": {
+          "complement": 2.220446049250313e-16,
+          "first_three": 2.636779683484747e-16,
+          "first_two": 2.636779683484747e-16,
+          "full": 4.440892098500626e-16
+        },
+        "direct": {
+          "complement_to_principal_ratio": 1.2900336994224657,
+          "first_three_modes_to_principal_ratio": 0.04159380971413276,
+          "first_two_modes_to_principal_ratio": 0.045832017321660826,
+          "full_action_to_principal_ratio": 1.3316275091365986,
+          "passed_predicates": [
+            "complement_floor",
+            "complement_positive",
+            "full_positive"
+          ]
+        },
+        "optimized": {
+          "complement_to_principal_ratio": 1.290033699422466,
+          "first_three_modes_to_principal_ratio": 0.041593809714133026,
+          "first_two_modes_to_principal_ratio": 0.04583201732166109,
+          "full_action_to_principal_ratio": 1.331627509136599,
+          "passed_predicates": [
+            "complement_positive",
+            "complement_floor",
+            "full_positive"
+          ],
+          "small_support_to_principal_ratio": -0.029306407463340636,
+          "target": 730720
+        },
+        "predicate_match": true,
+        "target": 730720
+      },
+      {
+        "deltas": {
+          "complement": 3.3306690738754696e-16,
+          "first_three": 5.204170427930421e-17,
+          "first_two": 4.85722573273506e-17,
+          "full": 3.3306690738754696e-16
+        },
+        "direct": {
+          "complement_to_principal_ratio": 0.8996973215685381,
+          "first_three_modes_to_principal_ratio": 0.014906098272762321,
+          "first_two_modes_to_principal_ratio": 0.01650873576113434,
+          "full_action_to_principal_ratio": 0.9146034198413004,
+          "passed_predicates": [
+            "complement_floor",
+            "complement_positive",
+            "full_positive"
+          ]
+        },
+        "optimized": {
+          "complement_to_principal_ratio": 0.8996973215685378,
+          "first_three_modes_to_principal_ratio": 0.014906098272762373,
+          "first_two_modes_to_principal_ratio": 0.016508735761134388,
+          "full_action_to_principal_ratio": 0.9146034198413001,
+          "passed_predicates": [
+            "complement_positive",
+            "complement_floor",
+            "full_positive"
+          ],
+          "small_support_to_principal_ratio": -0.06979672598837065,
+          "target": 730820
+        },
+        "predicate_match": true,
+        "target": 730820
+      },
+      {
+        "deltas": {
+          "complement": 2.220446049250313e-16,
+          "first_three": 1.0408340855860843e-17,
+          "first_two": 2.7755575615628914e-17,
+          "full": 2.220446049250313e-16
+        },
+        "direct": {
+          "complement_to_principal_ratio": 1.0205175250885012,
+          "first_three_modes_to_principal_ratio": 0.019328432387211745,
+          "first_two_modes_to_principal_ratio": 0.03156787729277593,
+          "full_action_to_principal_ratio": 1.039845957475713,
+          "passed_predicates": [
+            "complement_floor",
+            "complement_positive",
+            "full_positive"
+          ]
+        },
+        "optimized": {
+          "complement_to_principal_ratio": 1.020517525088501,
+          "first_three_modes_to_principal_ratio": 0.019328432387211734,
+          "first_two_modes_to_principal_ratio": 0.0315678772927759,
+          "full_action_to_principal_ratio": 1.0398459574757128,
+          "passed_predicates": [
+            "complement_positive",
+            "complement_floor",
+            "full_positive"
+          ],
+          "small_support_to_principal_ratio": -0.049963745517307596,
+          "target": 730920
+        },
+        "predicate_match": true,
+        "target": 730920
+      },
+      {
+        "deltas": {
+          "complement": 2.220446049250313e-16,
+          "first_three": 8.326672684688674e-17,
+          "first_two": 7.632783294297951e-17,
+          "full": 4.440892098500626e-16
+        },
+        "direct": {
+          "complement_to_principal_ratio": 1.1726558513481167,
+          "first_three_modes_to_principal_ratio": -0.06410870972620925,
+          "first_two_modes_to_principal_ratio": -0.0451910576586162,
+          "full_action_to_principal_ratio": 1.1085471416219075,
+          "passed_predicates": [
+            "complement_floor",
+            "complement_positive",
+            "full_positive"
+          ]
+        },
+        "optimized": {
+          "complement_to_principal_ratio": 1.1726558513481165,
+          "first_three_modes_to_principal_ratio": -0.06410870972620933,
+          "first_two_modes_to_principal_ratio": -0.04519105765861628,
+          "full_action_to_principal_ratio": 1.108547141621907,
+          "passed_predicates": [
+            "complement_positive",
+            "complement_floor",
+            "full_positive"
+          ],
+          "small_support_to_principal_ratio": -0.02486448047942595,
+          "target": 810800
+        },
+        "predicate_match": true,
+        "target": 810800
+      },
+      {
+        "deltas": {
+          "complement": 6.661338147750939e-16,
+          "first_three": 2.42861286636753e-17,
+          "first_two": 3.122502256758253e-17,
+          "full": 7.771561172376096e-16
+        },
+        "direct": {
+          "complement_to_principal_ratio": 0.8659837137305268,
+          "first_three_modes_to_principal_ratio": -0.013457676941635537,
+          "first_two_modes_to_principal_ratio": -0.011893167643136176,
+          "full_action_to_principal_ratio": 0.8525260367888913,
+          "passed_predicates": [
+            "complement_floor",
+            "complement_positive",
+            "full_positive"
+          ]
+        },
+        "optimized": {
+          "complement_to_principal_ratio": 0.8659837137305275,
+          "first_three_modes_to_principal_ratio": -0.013457676941635513,
+          "first_two_modes_to_principal_ratio": -0.011893167643136145,
+          "full_action_to_principal_ratio": 0.852526036788892,
+          "passed_predicates": [
+            "complement_positive",
+            "complement_floor",
+            "full_positive"
+          ],
+          "small_support_to_principal_ratio": -0.06959877302990294,
+          "target": 810900
+        },
+        "predicate_match": true,
+        "target": 810900
+      },
+      {
+        "deltas": {
+          "complement": 1.1102230246251565e-16,
+          "first_three": 1.1102230246251565e-16,
+          "first_two": 1.1102230246251565e-16,
+          "full": 2.220446049250313e-16
+        },
+        "direct": {
+          "complement_to_principal_ratio": 0.8683091310656755,
+          "first_three_modes_to_principal_ratio": 0.13723340746181187,
+          "first_two_modes_to_principal_ratio": 0.14327403248639928,
+          "full_action_to_principal_ratio": 1.0055425385274874,
+          "passed_predicates": [
+            "complement_floor",
+            "complement_positive",
+            "full_positive"
+          ]
+        },
+        "optimized": {
+          "complement_to_principal_ratio": 0.8683091310656754,
+          "first_three_modes_to_principal_ratio": 0.13723340746181176,
+          "first_two_modes_to_principal_ratio": 0.14327403248639917,
+          "full_action_to_principal_ratio": 1.0055425385274872,
+          "passed_predicates": [
+            "complement_positive",
+            "complement_floor",
+            "full_positive"
+          ],
+          "small_support_to_principal_ratio": -0.05908887212225777,
+          "target": 811000
+        },
+        "predicate_match": true,
+        "target": 811000
+      },
+      {
+        "deltas": {
+          "complement": 4.440892098500626e-16,
+          "first_three": 5.273559366969494e-16,
+          "first_two": 5.26488574958961e-16,
+          "full": 8.881784197001252e-16
+        },
+        "direct": {
+          "complement_to_principal_ratio": 1.2520241319380667,
+          "first_three_modes_to_principal_ratio": -0.008200479162508958,
+          "first_two_modes_to_principal_ratio": -0.007591643359261727,
+          "full_action_to_principal_ratio": 1.2438236527755577,
+          "passed_predicates": [
+            "complement_floor",
+            "complement_positive",
+            "full_positive"
+          ]
+        },
+        "optimized": {
+          "complement_to_principal_ratio": 1.2520241319380663,
+          "first_three_modes_to_principal_ratio": -0.008200479162509485,
+          "first_two_modes_to_principal_ratio": -0.007591643359262253,
+          "full_action_to_principal_ratio": 1.2438236527755568,
+          "passed_predicates": [
+            "complement_positive",
+            "complement_floor",
+            "full_positive"
+          ],
+          "small_support_to_principal_ratio": -0.026325921409299832,
+          "target": 890880
+        },
+        "predicate_match": true,
+        "target": 890880
+      },
+      {
+        "deltas": {
+          "complement": 0.0,
+          "first_three": 2.0816681711721685e-17,
+          "first_two": 2.7755575615628914e-17,
+          "full": 0.0
+        },
+        "direct": {
+          "complement_to_principal_ratio": 0.9497427871224672,
+          "first_three_modes_to_principal_ratio": -0.03782916676965247,
+          "first_two_modes_to_principal_ratio": -0.03482872323803834,
+          "full_action_to_principal_ratio": 0.9119136203528148,
+          "passed_predicates": [
+            "complement_floor",
+            "complement_positive",
+            "full_positive"
+          ]
+        },
+        "optimized": {
+          "complement_to_principal_ratio": 0.9497427871224672,
+          "first_three_modes_to_principal_ratio": -0.03782916676965245,
+          "first_two_modes_to_principal_ratio": -0.03482872323803831,
+          "full_action_to_principal_ratio": 0.9119136203528148,
+          "passed_predicates": [
+            "complement_positive",
+            "complement_floor",
+            "full_positive"
+          ],
+          "small_support_to_principal_ratio": -0.06911623741767921,
+          "target": 890980
+        },
+        "predicate_match": true,
+        "target": 890980
+      },
+      {
+        "deltas": {
+          "complement": 0.0,
+          "first_three": 0.0,
+          "first_two": 0.0,
+          "full": 0.0
+        },
+        "direct": {
+          "complement_to_principal_ratio": 1.0309760044361214,
+          "first_three_modes_to_principal_ratio": 0.11505727123274848,
+          "first_two_modes_to_principal_ratio": 0.12143374271886681,
+          "full_action_to_principal_ratio": 1.1460332756688698,
+          "passed_predicates": [
+            "complement_floor",
+            "complement_positive",
+            "full_positive"
+          ]
+        },
+        "optimized": {
+          "complement_to_principal_ratio": 1.0309760044361214,
+          "first_three_modes_to_principal_ratio": 0.11505727123274848,
+          "first_two_modes_to_principal_ratio": 0.12143374271886681,
+          "full_action_to_principal_ratio": 1.1460332756688698,
+          "passed_predicates": [
+            "complement_positive",
+            "complement_floor",
+            "full_positive"
+          ],
+          "small_support_to_principal_ratio": -0.05397011373519667,
+          "target": 891080
+        },
+        "predicate_match": true,
+        "target": 891080
+      },
+      {
+        "deltas": {
+          "complement": 1.1102230246251565e-16,
+          "first_three": 1.3877787807814457e-16,
+          "first_two": 1.3877787807814457e-16,
+          "full": 0.0
+        },
+        "direct": {
+          "complement_to_principal_ratio": 0.6639468494536203,
+          "first_three_modes_to_principal_ratio": 0.11198512503415395,
+          "first_two_modes_to_principal_ratio": 0.10452543194775267,
+          "full_action_to_principal_ratio": 0.7759319744877742,
+          "passed_predicates": [
+            "complement_floor",
+            "complement_positive",
+            "full_positive"
+          ]
+        },
+        "optimized": {
+          "complement_to_principal_ratio": 0.6639468494536204,
+          "first_three_modes_to_principal_ratio": 0.11198512503415381,
+          "first_two_modes_to_principal_ratio": 0.10452543194775253,
+          "full_action_to_principal_ratio": 0.7759319744877742,
+          "passed_predicates": [
+            "complement_positive",
+            "complement_floor",
+            "full_positive"
+          ],
+          "small_support_to_principal_ratio": -0.12131787912076095,
+          "target": 490636
+        },
+        "predicate_match": true,
+        "target": 490636
+      },
+      {
+        "deltas": {
+          "complement": 1.1102230246251565e-16,
+          "first_three": 1.3877787807814457e-17,
+          "first_two": 2.7755575615628914e-17,
+          "full": 2.220446049250313e-16
+        },
+        "direct": {
+          "complement_to_principal_ratio": 0.6885576804936018,
+          "first_three_modes_to_principal_ratio": 0.12289454084902335,
+          "first_two_modes_to_principal_ratio": 0.12512749997586162,
+          "full_action_to_principal_ratio": 0.8114522213426251,
+          "passed_predicates": [
+            "complement_floor",
+            "complement_positive",
+            "full_positive"
+          ]
+        },
+        "optimized": {
+          "complement_to_principal_ratio": 0.6885576804936019,
+          "first_three_modes_to_principal_ratio": 0.12289454084902336,
+          "first_two_modes_to_principal_ratio": 0.12512749997586164,
+          "full_action_to_principal_ratio": 0.8114522213426253,
+          "passed_predicates": [
+            "complement_positive",
+            "complement_floor",
+            "full_positive"
+          ],
+          "small_support_to_principal_ratio": -0.08753611843308642,
+          "target": 491044
+        },
+        "predicate_match": true,
+        "target": 491044
+      },
+      {
+        "deltas": {
+          "complement": 5.551115123125783e-16,
+          "first_three": 5.898059818321144e-17,
+          "first_two": 2.7755575615628914e-17,
+          "full": 4.440892098500626e-16
+        },
+        "direct": {
+          "complement_to_principal_ratio": 0.6505562520898546,
+          "first_three_modes_to_principal_ratio": 0.009230710398748714,
+          "first_two_modes_to_principal_ratio": -0.008504958775448629,
+          "full_action_to_principal_ratio": 0.6597869624886032,
+          "passed_predicates": [
+            "complement_floor",
+            "complement_positive",
+            "full_positive"
+          ]
+        },
+        "optimized": {
+          "complement_to_principal_ratio": 0.650556252089854,
+          "first_three_modes_to_principal_ratio": 0.009230710398748773,
+          "first_two_modes_to_principal_ratio": -0.008504958775448601,
+          "full_action_to_principal_ratio": 0.6597869624886028,
+          "passed_predicates": [
+            "complement_positive",
+            "complement_floor",
+            "full_positive"
+          ],
+          "small_support_to_principal_ratio": -0.08663170548847209,
+          "target": 491686
+        },
+        "predicate_match": true,
+        "target": 491686
+      },
+      {
+        "deltas": {
+          "complement": 1.1102230246251565e-16,
+          "first_three": 1.3877787807814457e-16,
+          "first_two": 1.3877787807814457e-16,
+          "full": 3.3306690738754696e-16
+        },
+        "direct": {
+          "complement_to_principal_ratio": 0.7844017306095517,
+          "first_three_modes_to_principal_ratio": -0.17205746990009257,
+          "first_two_modes_to_principal_ratio": -0.16871856438031255,
+          "full_action_to_principal_ratio": 0.6123442607094591,
+          "passed_predicates": [
+            "complement_floor",
+            "complement_positive",
+            "full_positive"
+          ]
+        },
+        "optimized": {
+          "complement_to_principal_ratio": 0.7844017306095515,
+          "first_three_modes_to_principal_ratio": -0.1720574699000927,
+          "first_two_modes_to_principal_ratio": -0.16871856438031269,
+          "full_action_to_principal_ratio": 0.6123442607094588,
+          "passed_predicates": [
+            "complement_positive",
+            "complement_floor",
+            "full_positive"
+          ],
+          "small_support_to_principal_ratio": -0.04019559541795373,
+          "target": 494332
+        },
+        "predicate_match": true,
+        "target": 494332
+      },
+      {
+        "deltas": {
+          "complement": 0.0,
+          "first_three": 5.551115123125783e-17,
+          "first_two": 8.326672684688674e-17,
+          "full": 1.1102230246251565e-16
+        },
+        "direct": {
+          "complement_to_principal_ratio": 0.670425121754366,
+          "first_three_modes_to_principal_ratio": -0.14854656105276284,
+          "first_two_modes_to_principal_ratio": -0.15126709998133336,
+          "full_action_to_principal_ratio": 0.5218785607016031,
+          "passed_predicates": [
+            "complement_floor",
+            "complement_positive",
+            "full_positive"
+          ]
+        },
+        "optimized": {
+          "complement_to_principal_ratio": 0.670425121754366,
+          "first_three_modes_to_principal_ratio": -0.1485465610527628,
+          "first_two_modes_to_principal_ratio": -0.15126709998133328,
+          "full_action_to_principal_ratio": 0.5218785607016032,
+          "passed_predicates": [
+            "complement_positive",
+            "complement_floor",
+            "full_positive"
+          ],
+          "small_support_to_principal_ratio": -0.0815097816375836,
+          "target": 495256
+        },
+        "predicate_match": true,
+        "target": 495256
+      },
+      {
+        "deltas": {
+          "complement": 6.661338147750939e-16,
+          "first_three": 1.1796119636642288e-16,
+          "first_two": 9.71445146547012e-17,
+          "full": 5.551115123125783e-16
+        },
+        "direct": {
+          "complement_to_principal_ratio": 0.7299389171159466,
+          "first_three_modes_to_principal_ratio": 0.048456000206197905,
+          "first_two_modes_to_principal_ratio": 0.03506105250248923,
+          "full_action_to_principal_ratio": 0.7783949173221445,
+          "passed_predicates": [
+            "complement_floor",
+            "complement_positive",
+            "full_positive"
+          ]
+        },
+        "optimized": {
+          "complement_to_principal_ratio": 0.7299389171159459,
+          "first_three_modes_to_principal_ratio": 0.04845600020619802,
+          "first_two_modes_to_principal_ratio": 0.03506105250248933,
+          "full_action_to_principal_ratio": 0.7783949173221439,
+          "passed_predicates": [
+            "complement_positive",
+            "complement_floor",
+            "full_positive"
+          ],
+          "small_support_to_principal_ratio": -0.0772133947019867,
+          "target": 498616
+        },
+        "predicate_match": true,
+        "target": 498616
+      },
+      {
+        "deltas": {
+          "complement": 0.0,
+          "first_three": 1.1102230246251565e-16,
+          "first_two": 1.1102230246251565e-16,
+          "full": 1.1102230246251565e-16
+        },
+        "direct": {
+          "complement_to_principal_ratio": 0.8111748501806101,
+          "first_three_modes_to_principal_ratio": 0.14996174625303557,
+          "first_two_modes_to_principal_ratio": 0.14577982122240357,
+          "full_action_to_principal_ratio": 0.9611365964336457,
+          "passed_predicates": [
+            "complement_floor",
+            "complement_positive",
+            "full_positive"
+          ]
+        },
+        "optimized": {
+          "complement_to_principal_ratio": 0.8111748501806101,
+          "first_three_modes_to_principal_ratio": 0.14996174625303546,
+          "first_two_modes_to_principal_ratio": 0.14577982122240346,
+          "full_action_to_principal_ratio": 0.9611365964336456,
+          "passed_predicates": [
+            "complement_positive",
+            "complement_floor",
+            "full_positive"
+          ],
+          "small_support_to_principal_ratio": -0.020676994426092825,
+          "target": 509578
+        },
+        "predicate_match": true,
+        "target": 509578
+      },
+      {
+        "deltas": {
+          "complement": 1.1102230246251565e-16,
+          "first_three": 1.9081958235744878e-17,
+          "first_two": 1.734723475976807e-17,
+          "full": 1.1102230246251565e-16
+        },
+        "direct": {
+          "complement_to_principal_ratio": 0.9103161859489435,
+          "first_three_modes_to_principal_ratio": -0.01014537709396434,
+          "first_two_modes_to_principal_ratio": -0.020408726498617035,
+          "full_action_to_principal_ratio": 0.9001708088549791,
+          "passed_predicates": [
+            "complement_floor",
+            "complement_positive",
+            "full_positive"
+          ]
+        },
+        "optimized": {
+          "complement_to_principal_ratio": 0.9103161859489436,
+          "first_three_modes_to_principal_ratio": -0.01014537709396436,
+          "first_two_modes_to_principal_ratio": -0.020408726498617052,
+          "full_action_to_principal_ratio": 0.9001708088549792,
+          "passed_predicates": [
+            "complement_positive",
+            "complement_floor",
+            "full_positive"
+          ],
+          "small_support_to_principal_ratio": -0.03794639895826241,
+          "target": 510922
+        },
+        "predicate_match": true,
+        "target": 510922
+      },
+      {
+        "deltas": {
+          "complement": 2.220446049250313e-16,
+          "first_three": 5.551115123125783e-17,
+          "first_two": 5.551115123125783e-17,
+          "full": 3.3306690738754696e-16
+        },
+        "direct": {
+          "complement_to_principal_ratio": 0.6585013125019945,
+          "first_three_modes_to_principal_ratio": -0.08445769811689996,
+          "first_two_modes_to_principal_ratio": -0.07749024288896972,
+          "full_action_to_principal_ratio": 0.5740436143850945,
+          "passed_predicates": [
+            "complement_floor",
+            "complement_positive",
+            "full_positive"
+          ]
+        },
+        "optimized": {
+          "complement_to_principal_ratio": 0.6585013125019943,
+          "first_three_modes_to_principal_ratio": -0.08445769811690002,
+          "first_two_modes_to_principal_ratio": -0.07749024288896977,
+          "full_action_to_principal_ratio": 0.5740436143850942,
+          "passed_predicates": [
+            "complement_positive",
+            "complement_floor",
+            "full_positive"
+          ],
+          "small_support_to_principal_ratio": -0.08221211063806079,
+          "target": 514354
+        },
+        "predicate_match": true,
+        "target": 514354
+      },
+      {
+        "deltas": {
+          "complement": 4.440892098500626e-16,
+          "first_three": 5.204170427930421e-18,
+          "first_two": 6.938893903907228e-18,
+          "full": 4.440892098500626e-16
+        },
+        "direct": {
+          "complement_to_principal_ratio": 0.7605706665133992,
+          "first_three_modes_to_principal_ratio": -0.0020577121432587267,
+          "first_two_modes_to_principal_ratio": -0.007212044945466935,
+          "full_action_to_principal_ratio": 0.7585129543701405,
+          "passed_predicates": [
+            "complement_floor",
+            "complement_positive",
+            "full_positive"
+          ]
+        },
+        "optimized": {
+          "complement_to_principal_ratio": 0.7605706665133997,
+          "first_three_modes_to_principal_ratio": -0.0020577121432587215,
+          "first_two_modes_to_principal_ratio": -0.007212044945466928,
+          "full_action_to_principal_ratio": 0.758512954370141,
+          "passed_predicates": [
+            "complement_positive",
+            "complement_floor",
+            "full_positive"
+          ],
+          "small_support_to_principal_ratio": -0.07916149540852464,
+          "target": 514704
+        },
+        "predicate_match": true,
+        "target": 514704
+      },
+      {
+        "deltas": {
+          "complement": 1.1102230246251565e-16,
+          "first_three": 5.551115123125783e-17,
+          "first_two": 5.551115123125783e-17,
+          "full": 1.1102230246251565e-16
+        },
+        "direct": {
+          "complement_to_principal_ratio": 0.652673705005265,
+          "first_three_modes_to_principal_ratio": 0.05754658828515902,
+          "first_two_modes_to_principal_ratio": 0.07412739858960474,
+          "full_action_to_principal_ratio": 0.710220293290424,
+          "passed_predicates": [
+            "complement_floor",
+            "complement_positive",
+            "full_positive"
+          ]
+        },
+        "optimized": {
+          "complement_to_principal_ratio": 0.6526737050052651,
+          "first_three_modes_to_principal_ratio": 0.05754658828515896,
+          "first_two_modes_to_principal_ratio": 0.07412739858960468,
+          "full_action_to_principal_ratio": 0.7102202932904241,
+          "passed_predicates": [
+            "complement_positive",
+            "complement_floor",
+            "full_positive"
+          ],
+          "small_support_to_principal_ratio": -0.10513837283766013,
+          "target": 525694
+        },
+        "predicate_match": true,
+        "target": 525694
+      },
+      {
+        "deltas": {
+          "complement": 3.3306690738754696e-16,
+          "first_three": 2.220446049250313e-16,
+          "first_two": 2.220446049250313e-16,
+          "full": 5.551115123125783e-16
+        },
+        "direct": {
+          "complement_to_principal_ratio": 0.827005306163603,
+          "first_three_modes_to_principal_ratio": -0.12833293824546874,
+          "first_two_modes_to_principal_ratio": -0.13025112485617207,
+          "full_action_to_principal_ratio": 0.6986723679181343,
+          "passed_predicates": [
+            "complement_floor",
+            "complement_positive",
+            "full_positive"
+          ]
+        },
+        "optimized": {
+          "complement_to_principal_ratio": 0.8270053061636027,
+          "first_three_modes_to_principal_ratio": -0.12833293824546896,
+          "first_two_modes_to_principal_ratio": -0.1302511248561723,
+          "full_action_to_principal_ratio": 0.6986723679181337,
+          "passed_predicates": [
+            "complement_positive",
+            "complement_floor",
+            "full_positive"
+          ],
+          "small_support_to_principal_ratio": -0.07222077122626232,
+          "target": 525904
+        },
+        "predicate_match": true,
+        "target": 525904
+      },
+      {
+        "deltas": {
+          "complement": 1.1102230246251565e-16,
+          "first_three": 2.7755575615628914e-17,
+          "first_two": 2.7755575615628914e-17,
+          "full": 1.1102230246251565e-16
+        },
+        "direct": {
+          "complement_to_principal_ratio": 0.5320501643621288,
+          "first_three_modes_to_principal_ratio": -0.09480478638496771,
+          "first_two_modes_to_principal_ratio": -0.09976975679740394,
+          "full_action_to_principal_ratio": 0.4372453779771611,
+          "passed_predicates": [
+            "complement_floor",
+            "complement_positive",
+            "full_positive"
+          ]
+        },
+        "optimized": {
+          "complement_to_principal_ratio": 0.5320501643621289,
+          "first_three_modes_to_principal_ratio": -0.09480478638496774,
+          "first_two_modes_to_principal_ratio": -0.09976975679740396,
+          "full_action_to_principal_ratio": 0.43724537797716123,
+          "passed_predicates": [
+            "complement_positive",
+            "complement_floor",
+            "full_positive"
+          ],
+          "small_support_to_principal_ratio": -0.1132258388857882,
+          "target": 570716
+        },
+        "predicate_match": true,
+        "target": 570716
+      },
+      {
+        "deltas": {
+          "complement": 1.1102230246251565e-16,
+          "first_three": 1.3877787807814457e-17,
+          "first_two": 2.7755575615628914e-17,
+          "full": 1.1102230246251565e-16
+        },
+        "direct": {
+          "complement_to_principal_ratio": 0.724259115090618,
+          "first_three_modes_to_principal_ratio": 0.07250481032831793,
+          "first_two_modes_to_principal_ratio": 0.08439510176075062,
+          "full_action_to_principal_ratio": 0.7967639254189359,
+          "passed_predicates": [
+            "complement_floor",
+            "complement_positive",
+            "full_positive"
+          ]
+        },
+        "optimized": {
+          "complement_to_principal_ratio": 0.7242591150906181,
+          "first_three_modes_to_principal_ratio": 0.07250481032831792,
+          "first_two_modes_to_principal_ratio": 0.08439510176075059,
+          "full_action_to_principal_ratio": 0.796763925418936,
+          "passed_predicates": [
+            "complement_positive",
+            "complement_floor",
+            "full_positive"
+          ],
+          "small_support_to_principal_ratio": -0.08789235630117676,
+          "target": 571124
+        },
+        "predicate_match": true,
+        "target": 571124
+      },
+      {
+        "deltas": {
+          "complement": 1.1102230246251565e-16,
+          "first_three": 5.551115123125783e-17,
+          "first_two": 4.163336342344337e-17,
+          "full": 2.220446049250313e-16
+        },
+        "direct": {
+          "complement_to_principal_ratio": 0.7232871908695556,
+          "first_three_modes_to_principal_ratio": -0.06736211998579592,
+          "first_two_modes_to_principal_ratio": -0.052348951455993366,
+          "full_action_to_principal_ratio": 0.6559250708837597,
+          "passed_predicates": [
+            "complement_floor",
+            "complement_positive",
+            "full_positive"
+          ]
+        },
+        "optimized": {
+          "complement_to_principal_ratio": 0.7232871908695555,
+          "first_three_modes_to_principal_ratio": -0.06736211998579597,
+          "first_two_modes_to_principal_ratio": -0.05234895145599341,
+          "full_action_to_principal_ratio": 0.6559250708837595,
+          "passed_predicates": [
+            "complement_positive",
+            "complement_floor",
+            "full_positive"
+          ],
+          "small_support_to_principal_ratio": -0.09246896705870063,
+          "target": 571766
+        },
+        "predicate_match": true,
+        "target": 571766
+      },
+      {
+        "deltas": {
+          "complement": 2.220446049250313e-16,
+          "first_three": 1.3877787807814457e-17,
+          "first_two": 2.0816681711721685e-17,
+          "full": 2.220446049250313e-16
+        },
+        "direct": {
+          "complement_to_principal_ratio": 0.8250021456512138,
+          "first_three_modes_to_principal_ratio": 0.028941910374727216,
+          "first_two_modes_to_principal_ratio": 0.03627207151337648,
+          "full_action_to_principal_ratio": 0.853944056025941,
+          "passed_predicates": [
+            "complement_floor",
+            "complement_positive",
+            "full_positive"
+          ]
+        },
+        "optimized": {
+          "complement_to_principal_ratio": 0.825002145651214,
+          "first_three_modes_to_principal_ratio": 0.02894191037472723,
+          "first_two_modes_to_principal_ratio": 0.036272071513376504,
+          "full_action_to_principal_ratio": 0.8539440560259413,
+          "passed_predicates": [
+            "complement_positive",
+            "complement_floor",
+            "full_positive"
+          ],
+          "small_support_to_principal_ratio": -0.02900908881438848,
+          "target": 574412
+        },
+        "predicate_match": true,
+        "target": 574412
+      },
+      {
+        "deltas": {
+          "complement": 0.0,
+          "first_three": 2.7755575615628914e-17,
+          "first_two": 2.7755575615628914e-17,
+          "full": 1.1102230246251565e-16
+        },
+        "direct": {
+          "complement_to_principal_ratio": 0.6299497492703949,
+          "first_three_modes_to_principal_ratio": -0.08190001975022171,
+          "first_two_modes_to_principal_ratio": -0.06564916389997905,
+          "full_action_to_principal_ratio": 0.5480497295201733,
+          "passed_predicates": [
+            "complement_floor",
+            "complement_positive",
+            "full_positive"
+          ]
+        },
+        "optimized": {
+          "complement_to_principal_ratio": 0.6299497492703949,
+          "first_three_modes_to_principal_ratio": -0.08190001975022174,
+          "first_two_modes_to_principal_ratio": -0.06564916389997907,
+          "full_action_to_principal_ratio": 0.5480497295201732,
+          "passed_predicates": [
+            "complement_positive",
+            "complement_floor",
+            "full_positive"
+          ],
+          "small_support_to_principal_ratio": -0.08232723527117985,
+          "target": 575336
+        },
+        "predicate_match": true,
+        "target": 575336
+      },
+      {
+        "deltas": {
+          "complement": 3.3306690738754696e-16,
+          "first_three": 1.1102230246251565e-16,
+          "first_two": 1.1102230246251565e-16,
+          "full": 4.440892098500626e-16
+        },
+        "direct": {
+          "complement_to_principal_ratio": 0.6189168059487538,
+          "first_three_modes_to_principal_ratio": -0.154719043522876,
+          "first_two_modes_to_principal_ratio": -0.1381737448334822,
+          "full_action_to_principal_ratio": 0.4641977624258778,
+          "passed_predicates": [
+            "complement_floor",
+            "complement_positive",
+            "full_positive"
+          ]
+        },
+        "optimized": {
+          "complement_to_principal_ratio": 0.6189168059487534,
+          "first_three_modes_to_principal_ratio": -0.1547190435228761,
+          "first_two_modes_to_principal_ratio": -0.1381737448334823,
+          "full_action_to_principal_ratio": 0.46419776242587735,
+          "passed_predicates": [
+            "complement_positive",
+            "complement_floor",
+            "full_positive"
+          ],
+          "small_support_to_principal_ratio": -0.08548465732441367,
+          "target": 578696
+        },
+        "predicate_match": true,
+        "target": 578696
+      }
+    ],
+    "target_count": 40
+  },
+  "decision": "If optimized_row_verifier_validated is true, the prime-indexed path is now row-level equivalent on the validation fixture and ready for an exhaustive later full-block receipt. That future receipt remains finite computation, not an asymptotic theorem.",
+  "decision_metrics": {
+    "benchmark_optimized_seconds": 0.11241959998733364,
+    "benchmark_targets_per_second": 898.419848597395,
+    "comparison_seconds": 24.297086599995964,
+    "goldbach_proved": false,
+    "maximum_complement_delta": 6.661338147750939e-16,
+    "maximum_first_three_delta": 6.487865800153259e-16,
+    "maximum_first_two_delta": 6.435824095873954e-16,
+    "maximum_full_delta": 8.881784197001252e-16,
+    "optimized_row_verifier_validated": true,
+    "predicate_mismatch_count": 0,
+    "projected_full_later_block_minutes": 4.456713647022613,
+    "ready_for_exhaustive_later_full_block_receipt": true,
+    "validation_target_count": 40
+  },
+  "falsifier": "Any validation target with predicate mismatch or ratio delta above 1e-07 falsifies the drop-in optimized verifier.",
+  "goldbach_proved": false,
+  "mechanism": "Reuse the exact q286 support/mode linear action from the direct receipt, but feed it residue weights computed by the validated prime-indexed central-pair kernel.",
+  "next_obligation": "Run the optimized row verifier over the six later full q286 blocks and record whether the frozen post-discovery threshold is falsified, rescued with support, or support-starved at full-block scale.",
+  "prediction": "The optimized row verifier should match direct row ratios and predicate classifications within floating tolerance on validation targets.",
+  "projection": {
+    "full_later_block_target_count": 240240,
+    "projected_full_later_block_minutes": 4.456713647022613,
+    "projected_full_later_block_seconds": 267.4028188213568,
+    "projection_boundary": "Linear projection from the optimized 101-target benchmark; not a completed exhaustive verification."
+  },
+  "question": "Can prime-indexed residue weights reproduce the existing q286 row-level first-two, first-three, complement, full, and predicate outputs?",
+  "schema_version": 1,
+  "source_commit": "536f1b9efc6bcc8314c1840d73b48c314efcb480",
+  "sources": {
+    "direct_receipt": "q286_first_two_mode_lower_tail_receipt",
+    "kernel_route": "evidence\\q286-prime-indexed-kernel-route-audit.json",
+    "suffix_sampled_holdout": "evidence\\q286-complement-rescue-suffix-holdout.json"
+  },
+  "status_boundary": "finite row-level verifier integration audit only; validates sampled row-ratio equivalence but does not run exhaustive later full blocks, prove a threshold theorem, prove a signed correlation theorem, or prove Goldbach.",
+  "upstream_kernel_validated": true,
+  "validation_targets": [
+    10664,
+    14138,
+    24148,
+    94856,
+    490480,
+    490580,
+    490680,
+    570560,
+    570660,
+    570760,
+    650640,
+    650740,
+    650840,
+    730720,
+    730820,
+    730920,
+    810800,
+    810900,
+    811000,
+    890880,
+    890980,
+    891080,
+    490636,
+    491044,
+    491686,
+    494332,
+    495256,
+    498616,
+    509578,
+    510922,
+    514354,
+    514704,
+    525694,
+    525904,
+    570716,
+    571124,
+    571766,
+    574412,
+    575336,
+    578696
+  ]
+}

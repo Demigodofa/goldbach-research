@@ -1648,6 +1648,14 @@
       "status_boundary": "finite optimized-kernel route audit only; validates residue-weight input equivalence but not the full q286 row-level verifier, full-block threshold theorem, signed correlation theorem, pointwise character-sum theorem, or Goldbach proof"
     },
     {
+      "id": "receipt.q286_prime_indexed_row_filter_order_audit",
+      "type": "receipt",
+      "label": "q286 prime-indexed row filter-order audit",
+      "status": "validated_row_level_verifier",
+      "validation": "tools/build_q286_prime_indexed_row_filter_order_audit.py generated evidence/q286-prime-indexed-row-filter-order-audit.json; on 40 validation targets the optimized row verifier matched the direct receipt with 0 predicate mismatches and maximum ratio deltas 6.43582409587395e-16 first-two, 6.48786580015326e-16 first-three, 6.66133814775094e-16 complement, and 8.88178419700125e-16 full; the 101-target benchmark projects the six later full q286 blocks at about 4.46 minutes",
+      "status_boundary": "finite row-level verifier integration audit only; validates sampled row-ratio equivalence but does not run exhaustive later full blocks, prove a threshold theorem, prove a signed correlation theorem, prove a pointwise character-sum theorem, or prove Goldbach"
+    },
+    {
       "id": "receipt.q286_centered_3_1_stress_class_audit",
       "type": "receipt",
       "label": "q286 centered (3,1) full-nonpositive stress-class audit",
@@ -3868,6 +3876,21 @@
     },
     {
       "from": "receipt.q286_prime_indexed_kernel_route_audit",
+      "to": "obligation.ap_count_to_17_channel_bridge",
+      "type": "supports_verification_route"
+    },
+    {
+      "from": "receipt.q286_prime_indexed_row_filter_order_audit",
+      "to": "receipt.q286_prime_indexed_kernel_route_audit",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_prime_indexed_row_filter_order_audit",
+      "to": "obligation.first_three_complement_rescue_correlation",
+      "type": "supports_verification_route"
+    },
+    {
+      "from": "receipt.q286_prime_indexed_row_filter_order_audit",
       "to": "obligation.ap_count_to_17_channel_bridge",
       "type": "supports_verification_route"
     }

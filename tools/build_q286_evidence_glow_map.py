@@ -184,6 +184,8 @@ def main():
         EVIDENCE / "q286-complement-rescue-suffix-holdout.json")
     prime_indexed_kernel_route = load_json(
         EVIDENCE / "q286-prime-indexed-kernel-route-audit.json")
+    prime_indexed_row_filter_order = load_json(
+        EVIDENCE / "q286-prime-indexed-row-filter-order-audit.json")
     centered_3_1_stress_class = load_json(
         EVIDENCE / "q286-centered-3-1-stress-class-audit.json")
     selected_deficit_provenance = load_json(
@@ -3215,6 +3217,48 @@ def main():
         "prime-indexed-kernel-route-audit",
         1.5,
         "faster exact finite verification route supports later falsifier searches")
+
+    layer(
+        "prime-indexed-row-filter-order-audit",
+        "Prime-indexed q286 row verifier matches direct filter-order receipt",
+        "validated_row_level_verifier",
+        "evidence/q286-prime-indexed-row-filter-order-audit.json",
+        4.0,
+        "Finite row-level verifier integration audit only; no full-block scan or theorem.")
+    row_metrics = prime_indexed_row_filter_order["decision_metrics"]
+    add_hit(
+        mechanism_stacks,
+        "prime-indexed-row-verifier-validated",
+        "prime-indexed-row-filter-order-audit",
+        4.0,
+        "row-level q286 ratios and predicates match the direct receipt",
+        {
+            "validation_target_count": (
+                row_metrics["validation_target_count"]),
+            "predicate_mismatch_count": (
+                row_metrics["predicate_mismatch_count"]),
+            "maximum_first_two_delta": (
+                row_metrics["maximum_first_two_delta"]),
+            "maximum_first_three_delta": (
+                row_metrics["maximum_first_three_delta"]),
+            "maximum_complement_delta": (
+                row_metrics["maximum_complement_delta"]),
+            "maximum_full_delta": row_metrics["maximum_full_delta"],
+            "projected_full_later_block_minutes": (
+                row_metrics["projected_full_later_block_minutes"]),
+        })
+    add_hit(
+        theorem_stacks,
+        "optimized-full-block-verifier-needed",
+        "prime-indexed-row-filter-order-audit",
+        4.0,
+        "row-level verifier is validated; next gate is exhaustive later full-block scan")
+    add_hit(
+        theorem_stacks,
+        "first-three-complement-rescue-correlation",
+        "prime-indexed-row-filter-order-audit",
+        2.0,
+        "validated verifier can test whether later blocks are falsified, rescued, or support-starved")
 
     layer(
         "centered-3-1-stress-class-audit",

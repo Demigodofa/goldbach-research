@@ -6,6 +6,32 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 full-block verification route now has a validated row-level
+prime-indexed verifier:
+`tools/build_q286_prime_indexed_row_filter_order_audit.py` generated
+`evidence/q286-prime-indexed-row-filter-order-audit.json`, with explanation in
+`notes/q286-prime-indexed-row-filter-order-audit.md`.
+
+Mechanism: plug the previously validated prime-indexed strict-central residue
+kernel into the same q286 support/mode linear action used by the direct
+filter-order receipt, then compare first-two, first-three, complement, full,
+and predicate rows against `q286_first_two_mode_lower_tail_receipt`.
+
+Result: on `40` validation targets, the optimized row verifier matched the
+direct receipt with `0` predicate mismatches.  Maximum ratio deltas were
+`6.43582409587395e-16` for first-two, `6.48786580015326e-16` for first-three,
+`6.66133814775094e-16` for complement, and `8.88178419700125e-16` for full.
+The optimized `101`-target benchmark ran in `0.112419599987334` seconds
+(`898.419848597395` targets/second), projecting the six later full q286 blocks
+at about `4.45671364702261` minutes.
+
+Interpretation: the optimized path is now finite row-level equivalent on the
+validation fixture and ready for an exhaustive later full-block receipt.  This
+is still computation infrastructure, not a threshold theorem, signed
+correlation theorem, pointwise character-sum theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 full-block verification route now has a validated optimized input
 kernel audit:
 `tools/build_q286_prime_indexed_kernel_route_audit.py` generated

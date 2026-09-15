@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "receipt": "q286-evidence-glow-map",
-  "generated_from_commit": "db10e12fc018e3fb1c4e375d7480cff064ddecbe",
+  "generated_from_commit": "536f1b9efc6bcc8314c1840d73b48c314efcb480",
   "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
   "visual_encoding": {
     "target_shape": "circle",
@@ -506,6 +506,14 @@
       "source": "evidence/q286-prime-indexed-kernel-route-audit.json",
       "default_weight": 3.0,
       "boundary": "Finite optimized-kernel route audit only; no full q286 verifier yet."
+    },
+    {
+      "id": "prime-indexed-row-filter-order-audit",
+      "label": "Prime-indexed q286 row verifier matches direct filter-order receipt",
+      "kind": "validated_row_level_verifier",
+      "source": "evidence/q286-prime-indexed-row-filter-order-audit.json",
+      "default_weight": 4.0,
+      "boundary": "Finite row-level verifier integration audit only; no full-block scan or theorem."
     },
     {
       "id": "centered-3-1-stress-class-audit",
@@ -7045,6 +7053,28 @@
       "glow": 0.172414
     },
     {
+      "id": "prime-indexed-row-verifier-validated",
+      "stack_weight": 4.0,
+      "layers": [
+        {
+          "layer": "prime-indexed-row-filter-order-audit",
+          "weight": 4.0,
+          "reason": "row-level q286 ratios and predicates match the direct receipt",
+          "value": {
+            "validation_target_count": 40,
+            "predicate_mismatch_count": 0,
+            "maximum_first_two_delta": 6.435824095873954e-16,
+            "maximum_first_three_delta": 6.487865800153259e-16,
+            "maximum_complement_delta": 6.661338147750939e-16,
+            "maximum_full_delta": 8.881784197001252e-16,
+            "projected_full_later_block_minutes": 4.456713647022613
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.137931
+    },
+    {
       "id": "selected-reference-scope-fork",
       "stack_weight": 3.5,
       "layers": [
@@ -8478,6 +8508,44 @@
       "glow": 0.227586
     },
     {
+      "id": "first-three-complement-rescue-correlation",
+      "stack_weight": 16.0,
+      "layers": [
+        {
+          "layer": "mod13-4-support-schedule-audit",
+          "weight": 2.5,
+          "reason": "predeclared future blocks suggest the next theorem target is complement rescue rather than a single channel classifier"
+        },
+        {
+          "layer": "complement-rescue-margin-schedule",
+          "weight": 4.0,
+          "reason": "prove a non-circular lower bound complement_to_principal_ratio > -first_three_modes_to_principal_ratio on the rescued q286 class"
+        },
+        {
+          "layer": "complement-rescue-threshold-candidate-audit",
+          "weight": 4.0,
+          "reason": "freeze block>=1 on future q286 blocks and replace it with a non-circular complement lower bound"
+        },
+        {
+          "layer": "complement-rescue-suffix-holdout",
+          "weight": 2.0,
+          "reason": "sampled later starts are support-starved, so rescue needs full-block or theorem-level support"
+        },
+        {
+          "layer": "prime-indexed-kernel-route-audit",
+          "weight": 1.5,
+          "reason": "faster exact finite verification route supports later falsifier searches"
+        },
+        {
+          "layer": "prime-indexed-row-filter-order-audit",
+          "weight": 2.0,
+          "reason": "validated verifier can test whether later blocks are falsified, rescued, or support-starved"
+        }
+      ],
+      "layer_count": 6,
+      "glow": 0.22069
+    },
+    {
       "id": "rank1-residual-drag-bound",
       "stack_weight": 15.0,
       "layers": [
@@ -8511,37 +8579,27 @@
       "glow": 0.206897
     },
     {
-      "id": "first-three-complement-rescue-correlation",
-      "stack_weight": 14.0,
+      "id": "optimized-full-block-verifier-needed",
+      "stack_weight": 9.5,
       "layers": [
         {
-          "layer": "mod13-4-support-schedule-audit",
-          "weight": 2.5,
-          "reason": "predeclared future blocks suggest the next theorem target is complement rescue rather than a single channel classifier"
-        },
-        {
-          "layer": "complement-rescue-margin-schedule",
-          "weight": 4.0,
-          "reason": "prove a non-circular lower bound complement_to_principal_ratio > -first_three_modes_to_principal_ratio on the rescued q286 class"
-        },
-        {
-          "layer": "complement-rescue-threshold-candidate-audit",
-          "weight": 4.0,
-          "reason": "freeze block>=1 on future q286 blocks and replace it with a non-circular complement lower bound"
-        },
-        {
           "layer": "complement-rescue-suffix-holdout",
-          "weight": 2.0,
-          "reason": "sampled later starts are support-starved, so rescue needs full-block or theorem-level support"
+          "weight": 2.5,
+          "reason": "direct prime-pair looping is too opaque for later full-block scans"
         },
         {
           "layer": "prime-indexed-kernel-route-audit",
-          "weight": 1.5,
-          "reason": "faster exact finite verification route supports later falsifier searches"
+          "weight": 3.0,
+          "reason": "validated input kernel still needs row-level q286 filter-order integration"
+        },
+        {
+          "layer": "prime-indexed-row-filter-order-audit",
+          "weight": 4.0,
+          "reason": "row-level verifier is validated; next gate is exhaustive later full-block scan"
         }
       ],
-      "layer_count": 5,
-      "glow": 0.193103
+      "layer_count": 3,
+      "glow": 0.131034
     },
     {
       "id": "alternate-stress-channel-reference-gate",
@@ -8588,24 +8646,6 @@
       ],
       "layer_count": 3,
       "glow": 0.110345
-    },
-    {
-      "id": "optimized-full-block-verifier-needed",
-      "stack_weight": 5.5,
-      "layers": [
-        {
-          "layer": "complement-rescue-suffix-holdout",
-          "weight": 2.5,
-          "reason": "direct prime-pair looping is too opaque for later full-block scans"
-        },
-        {
-          "layer": "prime-indexed-kernel-route-audit",
-          "weight": 3.0,
-          "reason": "validated input kernel still needs row-level q286 filter-order integration"
-        }
-      ],
-      "layer_count": 2,
-      "glow": 0.075862
     },
     {
       "id": "active-lane-strict-closure",

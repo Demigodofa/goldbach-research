@@ -22334,6 +22334,28 @@ interpolation route between crude `L1`/triangle control and measured
 `L2`/Fourier control, but that remains a theorem-shaping analogy until the
 operator and endpoint bounds are defined from actual prime-pair arithmetic.
 
+Prime-indexed q286 row filter-order audit:
+
+- `tools/build_q286_prime_indexed_row_filter_order_audit.py`
+- `notes/q286-prime-indexed-row-filter-order-audit.md`
+- `evidence/q286-prime-indexed-row-filter-order-audit.json`
+
+This receipt integrates the validated prime-indexed strict-central residue
+kernel into the q286 support/mode row action and compares it against the
+existing direct filter-order receipt.
+
+Result: on `40` validation targets, the optimized row verifier matched the
+direct receipt with `0` predicate mismatches.  Maximum ratio deltas were
+`6.43582409587395e-16` for first-two, `6.48786580015326e-16` for first-three,
+`6.66133814775094e-16` for complement, and `8.88178419700125e-16` for full.
+The optimized `101`-target benchmark ran in `0.112419599987334` seconds, or
+`898.419848597395` targets/second.  Linear projection puts the six later full
+q286 blocks at about `4.45671364702261` minutes.
+
+Decision: the optimized route is row-level equivalent on this validation
+fixture and ready for the exhaustive later full-block receipt.  That next
+receipt remains finite computation, not an asymptotic theorem.
+
 Prime-indexed q286 kernel route audit:
 
 - `tools/build_q286_prime_indexed_kernel_route_audit.py`
