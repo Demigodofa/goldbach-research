@@ -6,6 +6,32 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 raw signed-witness bridge now has a local main-term positivity audit:
+`tools/build_q286_local_main_term_positivity_audit.py` generated
+`evidence/q286-local-main-term-positivity-audit.json`, with explanation in
+`notes/q286-local-main-term-positivity-audit.md`.
+
+Question: after the coefficientwise nonnegative minorant failed, does the
+assembled q286 coefficient at least have a positive local singular main term
+on every even residue modulo `M=10010`?
+
+Result: yes, as a finite coefficient-side check.  For every even residue
+`a mod 10010`, the average of the raw q286 coefficient over the admissible
+support `A_a={r in U_10010:gcd(a-r,10010)=1}` is positive.  The local/principal
+ratio ranges from `0.6039353780830684` at residue `4124` to
+`1.5716524655081636` at residue `8856`; the real local means range from
+`26574.674023291926` to `69156.65725917745`, with global principal mean
+`44002.512499999146`.  There are `0` nonpositive local main terms across all
+`5005` even residues.
+
+Decision: preserve the raw signed-witness route.  The obstruction is not a
+local-main-term sign failure of the current coefficient; it is the still-open
+pointwise centered signed binary-prime correlation estimate
+`CenteredError_a(N)>-LocalMain_a(N)`.  This is a sharper theorem-shaped target,
+not a Goldbach proof.
+
+## Previous continuation evidence, 2026-09-15
+
 The raw q286 signed-witness threshold candidate now has a fresh full-cycle
 holdout:
 `tools/build_q286_raw_signed_witness_threshold_holdout.py` generated

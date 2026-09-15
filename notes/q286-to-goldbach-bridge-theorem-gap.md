@@ -363,3 +363,37 @@ checked consecutive even targets: 80080
 This supports but does not prove an eventual threshold after `88346`.
 The active falsifier is any future unchanged full-cycle holdout at or above
 `90080` containing `RawFull(N)<=0`.
+
+## Local Main-Term Positivity Audit
+
+`tools/build_q286_local_main_term_positivity_audit.py` generated
+`evidence/q286-local-main-term-positivity-audit.json`.
+
+Result: the existing assembled q286 coefficient has positive local main-term
+average on every even target residue modulo `10010`.  For
+
+```text
+A_a = {r in U_10010 : gcd(a-r,10010)=1},
+```
+
+the support average
+
+```text
+LocalMean(a) = (1/|A_a|) sum_{r in A_a} c(r)
+```
+
+has `0` nonpositive cases across all `5005` even residues.  The
+local/principal ratio ranges from `0.6039353780830684` at residue `4124` to
+`1.5716524655081636` at residue `8856`.
+
+Decision: the raw signed-witness bridge is not blocked by a local-main-term
+sign obstruction.  The remaining gap is sharper: prove the unnormalized
+pointwise centered-error inequality
+
+```text
+CenteredError_a(N) > -LocalMain_a(N)
+```
+
+for all sufficiently large even `N == a mod 10010`, then finite-check the
+remaining targets.  This is still a signed binary-prime correlation theorem,
+not a consequence of the finite coefficient audit.

@@ -6,6 +6,44 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 raw signed-witness bridge now has a coefficient-side local main-term
+audit.
+
+`tools/build_q286_local_main_term_positivity_audit.py` generated
+`evidence/q286-local-main-term-positivity-audit.json`, with explanation in
+`notes/q286-local-main-term-positivity-audit.md`.
+
+Question: does the assembled raw q286 coefficient have positive local
+main-term average on every even target residue modulo `M=10010`?
+
+Result: yes, finitely.
+
+```text
+even target residues checked:       5005
+nonpositive local main terms:       0
+support size range:                 1485..2880
+global principal mean:              44002.512499999146
+local main-term range:              26574.674023291926..69156.65725917745
+local/principal ratio range:        0.6039353780830684..1.5716524655081636
+weakest/strongest residues:         4124 / 8856
+```
+
+Decision: the signed-witness route survives the local sign test.  The current
+q286 coefficient is not a coefficientwise nonnegative minorant, but under the
+fixed-modulus local/singular model its main term is positive in every even
+residue.  The live theorem is now:
+
+```text
+RawFull(N) = LocalMain_a(N) + CenteredError_a(N)
+CenteredError_a(N) > -LocalMain_a(N)
+```
+
+for all sufficiently large even `N == a mod 10010`, stated as an unnormalized
+signed-prime correlation estimate and followed by finite checking.  This does
+not prove Goldbach.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 raw signed-witness threshold candidate now has its first fresh
 full-cycle holdout.
 

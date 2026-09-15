@@ -1910,6 +1910,22 @@
       "status": "finite_supported_open",
       "statement": "Candidate: RawFull(N)>0 for every even N>=90080. Current finite support covers every checked even target from 90080 through 250238, but no analytic reason yet excludes later recurrences.",
       "goldbach_proved": false
+    },
+    {
+      "id": "receipt.q286_local_main_term_positivity_audit",
+      "type": "receipt",
+      "label": "q286 local main-term positivity audit",
+      "status": "validated_finite_support",
+      "validation": "tools/build_q286_local_main_term_positivity_audit.py generated evidence/q286-local-main-term-positivity-audit.json; all 5005 even residues modulo 10010 have positive local admissible-support average of the assembled raw q286 coefficient, with local/principal ratios 0.6039353780830684..1.5716524655081636 and no nonpositive local main terms.",
+      "status_boundary": "finite coefficient-side diagnostic only; no binary-prime equidistribution theorem, no q286 threshold theorem, no strict-central Goldbach theorem, and no Goldbach proof"
+    },
+    {
+      "id": "problem.q286_local_positive_main_term_signed_correlation",
+      "type": "theorem_target",
+      "label": "q286 local positive-main-term signed correlation",
+      "status": "open",
+      "statement": "For each even residue a modulo 10010, prove RawFull(N)=LocalMain_a(N)+CenteredError_a(N) with LocalMain_a(N)>0 and CenteredError_a(N)>-LocalMain_a(N) for all sufficiently large N==a mod 10010, then finite-check the remaining targets.",
+      "goldbach_proved": false
     }
   ],
   "edges": [
@@ -4380,6 +4396,21 @@
     },
     {
       "from": "candidate.q286_raw_signed_witness_from_90080",
+      "to": "theorem.q286_positive_signed_witness",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_local_main_term_positivity_audit",
+      "to": "theorem.q286_positive_signed_witness",
+      "type": "supports"
+    },
+    {
+      "from": "receipt.q286_local_main_term_positivity_audit",
+      "to": "problem.q286_local_positive_main_term_signed_correlation",
+      "type": "defines"
+    },
+    {
+      "from": "problem.q286_local_positive_main_term_signed_correlation",
       "to": "theorem.q286_positive_signed_witness",
       "type": "refines"
     }

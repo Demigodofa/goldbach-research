@@ -1,0 +1,184 @@
+{
+  "admissible_support_size_summary": {
+    "count": 5005,
+    "maximum": 2880.0,
+    "mean": 1657.2227772227773,
+    "minimum": 1485.0
+  },
+  "all_even_residue_local_main_terms_positive": true,
+  "arithmetic_period": 10010,
+  "assembled_quotients": [
+    35,
+    55,
+    65,
+    77,
+    143
+  ],
+  "candidate_mechanism": "The raw signed witness decomposes into a positive local main term plus a centered binary-prime correlation error for each even residue modulo 10010.",
+  "decision": "If all local means are positive, preserve the signed-witness route and move the open gap to a pointwise centered-error estimate for the exact coefficient. If any local mean is nonpositive, the existing coefficient cannot supply an eventual positive-main-term q286 bridge in that residue.",
+  "even_target_residue_count": 5005,
+  "eventual_signed_witness_threshold_proved": false,
+  "falsifier": "Any even residue with local_main_term_mean <= 0 falsifies this local-main-term bridge for the current assembled coefficient.",
+  "goldbach_proved": false,
+  "local_centered_deviation_to_principal_ratio_summary": {
+    "count": 5005,
+    "maximum": 0.5716524655081636,
+    "mean": -3.1587319121461474e-17,
+    "minimum": -0.39606462191693165
+  },
+  "local_main_term_imag_abs_summary": {
+    "count": 5005,
+    "maximum": 1.2156747741841028e-09,
+    "mean": 3.3475233049282174e-10,
+    "minimum": 4.4872095955246295e-15
+  },
+  "local_main_term_positivity_measured": true,
+  "local_main_term_summary": {
+    "count": 5005,
+    "maximum": 69156.65725917745,
+    "mean": 44002.512499999146,
+    "minimum": 26574.674023291926
+  },
+  "local_main_term_to_principal_ratio_summary": {
+    "count": 5005,
+    "maximum": 1.5716524655081636,
+    "mean": 1.0,
+    "minimum": 0.6039353780830684
+  },
+  "maximum_local_ratio_row": {
+    "admissible_support_size": 1485,
+    "local_centered_deviation_to_principal_ratio": 0.5716524655081636,
+    "local_error_ratio_needed_for_positive_raw_action": "centered_error(N).real/local_main_term_action(N).real > -1",
+    "local_main_term_imag_mean": 7.422440014547368e-11,
+    "local_main_term_mean": 69156.65725917745,
+    "local_main_term_positive": true,
+    "local_main_term_to_principal_ratio": 1.5716524655081636,
+    "target_residue": 8856
+  },
+  "minimum_local_ratio_row": {
+    "admissible_support_size": 1485,
+    "local_centered_deviation_to_principal_ratio": -0.39606462191693165,
+    "local_error_ratio_needed_for_positive_raw_action": "centered_error(N).real/local_main_term_action(N).real > -1",
+    "local_main_term_imag_mean": 6.995323958764144e-10,
+    "local_main_term_mean": 26574.674023291926,
+    "local_main_term_positive": true,
+    "local_main_term_to_principal_ratio": 0.6039353780830684,
+    "target_residue": 4124
+  },
+  "nonpositive_local_main_term_count": 0,
+  "nonpositive_local_main_term_residues": [],
+  "pointwise_centered_error_estimate_proved": false,
+  "prediction": "If a fixed-modulus binary Goldbach-in-progressions theorem controls the centered error below the local main term, then the raw q286 signed action is eventually positive in every even residue class.",
+  "principal_mean": {
+    "imag": 3.1825777568883487e-10,
+    "real": 44002.512499999146
+  },
+  "schema_version": 1,
+  "selected_target_residue_rows": [
+    {
+      "admissible_support_size": 1485,
+      "local_centered_deviation_to_principal_ratio": 0.01719122671754419,
+      "local_error_ratio_needed_for_positive_raw_action": "centered_error(N).real/local_main_term_action(N).real > -1",
+      "local_main_term_imag_mean": 2.9623721960899263e-10,
+      "local_main_term_mean": 44758.9696685282,
+      "local_main_term_positive": true,
+      "local_main_term_to_principal_ratio": 1.0171912267175443,
+      "target_residue": 878
+    },
+    {
+      "admissible_support_size": 1485,
+      "local_centered_deviation_to_principal_ratio": 0.22629375514440286,
+      "local_error_ratio_needed_for_positive_raw_action": "centered_error(N).real/local_main_term_action(N).real > -1",
+      "local_main_term_imag_mean": 4.736464457977415e-10,
+      "local_main_term_mean": 53960.00628941248,
+      "local_main_term_positive": true,
+      "local_main_term_to_principal_ratio": 1.2262937551444029,
+      "target_residue": 922
+    },
+    {
+      "admissible_support_size": 1485,
+      "local_centered_deviation_to_principal_ratio": 0.16388948881322796,
+      "local_error_ratio_needed_for_positive_raw_action": "centered_error(N).real/local_main_term_action(N).real > -1",
+      "local_main_term_imag_mean": 4.65795095595574e-10,
+      "local_main_term_mean": 51214.06178012168,
+      "local_main_term_positive": true,
+      "local_main_term_to_principal_ratio": 1.163889488813228,
+      "target_residue": 4128
+    },
+    {
+      "admissible_support_size": 1485,
+      "local_centered_deviation_to_principal_ratio": -0.2514578609807848,
+      "local_error_ratio_needed_for_positive_raw_action": "centered_error(N).real/local_main_term_action(N).real > -1",
+      "local_main_term_imag_mean": 4.918061354904138e-10,
+      "local_main_term_mean": 32937.734828969114,
+      "local_main_term_positive": true,
+      "local_main_term_to_principal_ratio": 0.7485421390192152,
+      "target_residue": 4194
+    },
+    {
+      "admissible_support_size": 1485,
+      "local_centered_deviation_to_principal_ratio": -0.2889807965013103,
+      "local_error_ratio_needed_for_positive_raw_action": "centered_error(N).real/local_main_term_action(N).real > -1",
+      "local_main_term_imag_mean": 4.572895510810532e-10,
+      "local_main_term_mean": 31286.63138969053,
+      "local_main_term_positive": true,
+      "local_main_term_to_principal_ratio": 0.7110192034986897,
+      "target_residue": 4766
+    },
+    {
+      "admissible_support_size": 1485,
+      "local_centered_deviation_to_principal_ratio": 0.05695077641590429,
+      "local_error_ratio_needed_for_positive_raw_action": "centered_error(N).real/local_main_term_action(N).real > -1",
+      "local_main_term_imag_mean": 2.1566522927037362e-10,
+      "local_main_term_mean": 46508.48975112463,
+      "local_main_term_positive": true,
+      "local_main_term_to_principal_ratio": 1.0569507764159043,
+      "target_residue": 4986
+    },
+    {
+      "admissible_support_size": 1485,
+      "local_centered_deviation_to_principal_ratio": 0.23916095653976133,
+      "local_error_ratio_needed_for_positive_raw_action": "centered_error(N).real/local_main_term_action(N).real > -1",
+      "local_main_term_imag_mean": 1.3692467479355955e-10,
+      "local_main_term_mean": 54526.195479651746,
+      "local_main_term_positive": true,
+      "local_main_term_to_principal_ratio": 1.2391609565397612,
+      "target_residue": 7702
+    },
+    {
+      "admissible_support_size": 1485,
+      "local_centered_deviation_to_principal_ratio": -0.2490114181814478,
+      "local_error_ratio_needed_for_positive_raw_action": "centered_error(N).real/local_main_term_action(N).real > -1",
+      "local_main_term_imag_mean": 3.850017585748365e-11,
+      "local_main_term_mean": 33045.38445882747,
+      "local_main_term_positive": true,
+      "local_main_term_to_principal_ratio": 0.7509885818185522,
+      "target_residue": 8266
+    },
+    {
+      "admissible_support_size": 1650,
+      "local_centered_deviation_to_principal_ratio": 0.17083585834585538,
+      "local_error_ratio_needed_for_positive_raw_action": "centered_error(N).real/local_main_term_action(N).real > -1",
+      "local_main_term_imag_mean": 4.227162037762453e-10,
+      "local_main_term_mean": 51519.71949231073,
+      "local_main_term_positive": true,
+      "local_main_term_to_principal_ratio": 1.1708358583458554,
+      "target_residue": 9658
+    },
+    {
+      "admissible_support_size": 1980,
+      "local_centered_deviation_to_principal_ratio": 0.2869728662106942,
+      "local_error_ratio_needed_for_positive_raw_action": "centered_error(N).real/local_main_term_action(N).real > -1",
+      "local_main_term_imag_mean": 5.513188579279266e-10,
+      "local_main_term_mean": 56630.0396325958,
+      "local_main_term_positive": true,
+      "local_main_term_to_principal_ratio": 1.2869728662106943,
+      "target_residue": 10000
+    }
+  ],
+  "signed_prime_correlation_estimate_proved": false,
+  "smallest_new_problem": "For every even residue a modulo 10010, prove RawFull(N) = LocalMain_a(N) + CenteredError_a(N) with LocalMain_a(N)>0 and CenteredError_a(N) > -LocalMain_a(N) for all sufficiently large N == a mod 10010, then finite-check the remaining targets.",
+  "source_commit": "dc5a67935e0c104f5b0b03fabb9f76afae4f24c6",
+  "status_boundary": "finite local coefficient audit only; no binary-prime equidistribution theorem, no q286 threshold theorem, no strict-central Goldbach theorem, and no Goldbach proof",
+  "unit_group_order": 2880
+}
