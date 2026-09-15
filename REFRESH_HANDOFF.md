@@ -6,6 +6,42 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS route now has a one-sided adverse-drag audit on the aggregate
+lambda horizon.
+
+```text
+tools/build_q286_wbss_four_modulus_adverse_drag_horizon_audit.py
+notes/q286-wbss-four-modulus-adverse-drag-horizon-audit.md
+evidence/q286-wbss-four-modulus-adverse-drag-horizon-audit.json
+```
+
+Result:
+
+```text
+horizon targets:                         232
+target range:                1036248..1115822
+actual positive rows:                    232 / 232
+adverse-only positive rows:              232 / 232
+adverse-only nonpositive rows:             0 / 232
+projected subset checks:                3480
+projected subset failures:                 0
+maximum adverse-drag ratio: 0.18121406011311528
+largest adverse-drag target:          1059514
+minimum adverse-only expectation: 0.6096203823025632
+tightest adverse-only target:          1059514
+```
+
+Decision: the aggregate lambda horizon has a stronger finite one-sided
+certificate: local main beats total adverse projected drag even after all
+helpful positive projected terms are discarded. This demotes explanations
+that require delicate signed cancellation or one essential projected modulus.
+The live theorem-shaped direction is now a source-backed bound on one-sided
+adverse four-modulus drag relative to local main. No one-sided signed
+concentration theorem, fixed-modulus equidistribution theorem, q286 threshold
+theorem, strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286-WBSS route now has a farther aggregate four-modulus lambda horizon
 holdout.
 

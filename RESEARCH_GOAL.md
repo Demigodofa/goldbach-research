@@ -6,6 +6,38 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS route now has a one-sided adverse-drag audit on the aggregate
+lambda horizon:
+`tools/build_q286_wbss_four_modulus_adverse_drag_horizon_audit.py` generated
+`evidence/q286-wbss-four-modulus-adverse-drag-horizon-audit.json`, with
+explanation in
+`notes/q286-wbss-four-modulus-adverse-drag-horizon-audit.md`.
+
+Question: on the successful `232`-row aggregate lambda horizon, is positivity
+dependent on delicate signed cancellation among the four projected moduli, or
+does positivity survive after discarding every helpful positive projected
+term?
+
+Result: all `232/232` rows remain positive under the adverse-only certificate
+`local_main - sum(max(0,-E_d)) > 0`. There are `0` adverse-only nonpositive
+rows. Every single-modulus removal remains positive, every
+single-modulus-only expectation remains positive, and every nonempty
+projected subset remains positive, for `232 * 15 = 3480` positive subset
+checks. The maximum adverse-drag ratio is `0.18121406011311528` at target
+`1059514`; the same target has the minimum adverse-only expectation
+`0.6096203823025632`.
+
+Decision: this strengthens the finite aggregate route. The successful horizon
+does not appear to depend on delicate signed cancellation or one essential
+projected modulus; even the one-sided adverse projected drag stays below the
+local main term. This is finite horizon evidence only, not a theorem. The
+next theorem target is now a source-backed bound on one-sided adverse
+four-modulus drag relative to local main. This proves no one-sided signed
+concentration theorem, fixed-modulus equidistribution theorem, q286 threshold
+theorem, strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286-WBSS route now has a farther aggregate four-modulus lambda horizon
 holdout:
 `tools/build_q286_wbss_four_modulus_lambda_horizon_holdout.py` generated
