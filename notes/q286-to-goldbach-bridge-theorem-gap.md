@@ -462,3 +462,26 @@ hard rows.  The tail is small enough on this fixture to be treated as a
 separate explicit bound, but this remains finite evidence.  The theorem still
 requires a pointwise signed-prime correlation estimate for
 `E_286+E_154+E_70+E_tail`.
+
+## Three-Support Known-Extremals Audit
+
+`tools/build_q286_three_support_known_extremals_audit.py` generated
+`evidence/q286-three-support-known-extremals-audit.json`.
+
+Result: the selected-row simplification does not survive the stronger
+known-extremals fixture.  Across `113` deduplicated targets built from every
+recorded census raw-action failure, census cycle minima, fresh holdout cycle
+minima, the fresh global minimum, and the selected hard fixture, the tail
+changes `16` sign decisions.  All `16` occur inside the census raw-action
+failure source; fresh holdout cycle minima have `0` tail sign changes.
+
+Decision: a pure three-support theorem is too narrow for the current bridge.
+The useful object is the full signed support-rescue inequality
+
+```text
+LocalMain_a(N) + E_286(N) + E_154(N) + E_70(N) + E_tail(N) > 0,
+```
+
+possibly split into an early/boundary tail-rescue regime and a later
+tail-stable threshold regime.  This is still a pointwise signed binary-prime
+correlation obligation, not a consequence of the finite q286 evidence.

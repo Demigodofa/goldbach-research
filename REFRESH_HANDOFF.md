@@ -6,6 +6,45 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 three-support reduction has now been tested on the stronger
+known-extremals fixture.
+
+`tools/build_q286_three_support_known_extremals_audit.py` generated
+`evidence/q286-three-support-known-extremals-audit.json`, with explanation in
+`notes/q286-three-support-known-extremals-audit.md`.
+
+Question: does the three-support skeleton preserve sign after adding every
+recorded raw-action failure, every census cycle minimum, every fresh holdout
+cycle minimum, the fresh global minimum, and the frozen hard fixture?
+
+Result: no on the full known-extremals fixture.
+
+```text
+tested targets:                         113
+full-action positive count:              24
+principal+top-three positive count:      40
+tail sign-decision changes:              16
+tail/principal ratio range:              -0.12674411748961492..0.09363293903366753
+top-three centered/principal range:      -1.9465152681346343..0.288029587486139
+```
+
+All `16` tail sign changes occur in the recorded census raw-action failures;
+the fresh holdout cycle minima have `0` tail sign changes.  The live theorem
+target is therefore not a pure three-support theorem.  It is the full signed
+support-rescue inequality:
+
+```text
+LocalMain_a(N) + E_286(N) + E_154(N) + E_70(N) + E_tail(N) > 0.
+```
+
+Decision: demote the "tail is harmless for known extremals" simplification.
+Preserve the frequency-stress skeleton as a useful compression and split the
+next theory question into early/boundary tail rescue versus possible later
+tail-stable threshold behavior.  This is finite evidence only; Goldbach is not
+proved.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 three-dominant-support target now has an action-level decomposition
 on selected hard rows.
 

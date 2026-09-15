@@ -1,0 +1,1064 @@
+{
+  "all_known_extremal_sign_decisions_preserved_by_top_three": false,
+  "arithmetic_period": 10010,
+  "candidate_curiosity_mechanism": {
+    "falsifier": "Any known extremal target whose sign is changed by the tail shows that the tail must remain part of the main theorem.",
+    "mechanism": "Instead of treating the q286 heat map as 17 channel labels, test whether its action-level stress lives on the three dominant CRT Fourier supports 286, 154, and 70.",
+    "name": "frequency stress skeleton",
+    "novelty_label": "new-to-this-task",
+    "prediction": "Known failures and near-failures should keep the same sign after dropping the small centered tail.",
+    "smallest_next_test": "If this audit survives, run a full-block later-window version before attempting an analytic tail inequality."
+  },
+  "centered_error_to_local_main_ratio_summary": {
+    "count": 113,
+    "maximum": -0.021150447344220426,
+    "mean": -1.0505666338773225,
+    "minimum": -1.8933883541461998
+  },
+  "decision": "The tail changes at least one known extremal sign decision; E_tail cannot be demoted to a secondary bound for this theorem route.",
+  "full_action_positive_count": 24,
+  "full_action_to_principal_ratio_summary": {
+    "count": 113,
+    "maximum": 1.2597528143704648,
+    "mean": -0.046511361178384995,
+    "minimum": -0.8769412734408429
+  },
+  "full_nonpositive_top_three_positive_targets": [
+    10464,
+    10934,
+    11192,
+    11486,
+    11894,
+    12020,
+    14774,
+    14988,
+    15308,
+    18626,
+    22744,
+    24844,
+    30164,
+    30610,
+    34084,
+    40676
+  ],
+  "goldbach_proved": false,
+  "known_extremals_audit_measured": true,
+  "maximum_support_reconstruction_relative_error": 3.3570340089139845e-13,
+  "nonpositive_full_targets": [
+    10042,
+    10088,
+    10294,
+    10344,
+    10354,
+    10392,
+    10424,
+    10464,
+    10498,
+    10522,
+    10532,
+    10564,
+    10664,
+    10814,
+    10824,
+    10934,
+    11168,
+    11192,
+    11486,
+    11576,
+    11614,
+    11894,
+    11902,
+    11908,
+    12020,
+    12032,
+    12118,
+    12124,
+    12346,
+    12352,
+    12424,
+    12604,
+    12956,
+    13048,
+    13288,
+    13444,
+    13588,
+    13768,
+    13810,
+    14138,
+    14256,
+    14258,
+    14528,
+    14774,
+    14852,
+    14888,
+    14988,
+    14996,
+    15026,
+    15296,
+    15308,
+    15362,
+    15452,
+    15470,
+    15560,
+    15572,
+    15992,
+    16328,
+    16376,
+    16388,
+    16712,
+    16748,
+    16894,
+    17042,
+    17096,
+    17198,
+    17306,
+    17522,
+    17678,
+    17702,
+    18364,
+    18368,
+    18428,
+    18458,
+    18626,
+    22744,
+    24844,
+    26056,
+    30164,
+    30610,
+    34084,
+    37568,
+    39206,
+    40676,
+    42356,
+    43268,
+    47452,
+    85496,
+    88346
+  ],
+  "nonpositive_principal_plus_top_three_targets": [
+    10042,
+    10088,
+    10294,
+    10344,
+    10354,
+    10392,
+    10424,
+    10498,
+    10522,
+    10532,
+    10564,
+    10664,
+    10814,
+    10824,
+    11168,
+    11576,
+    11614,
+    11902,
+    11908,
+    12032,
+    12118,
+    12124,
+    12346,
+    12352,
+    12424,
+    12604,
+    12956,
+    13048,
+    13288,
+    13444,
+    13588,
+    13768,
+    13810,
+    14138,
+    14256,
+    14258,
+    14528,
+    14852,
+    14888,
+    14996,
+    15026,
+    15296,
+    15362,
+    15452,
+    15470,
+    15560,
+    15572,
+    15992,
+    16328,
+    16376,
+    16388,
+    16712,
+    16748,
+    16894,
+    17042,
+    17096,
+    17198,
+    17306,
+    17522,
+    17678,
+    17702,
+    18364,
+    18368,
+    18428,
+    18458,
+    26056,
+    37568,
+    39206,
+    42356,
+    43268,
+    47452,
+    85496,
+    88346
+  ],
+  "pointwise_centered_error_estimate_proved": false,
+  "principal_plus_top_three_positive_count": 40,
+  "schema_version": 1,
+  "signed_prime_correlation_estimate_proved": false,
+  "source_commit": "3a6aedef5d48a11b06e00c58613a8028a1b6cdcd",
+  "source_summaries": {
+    "census_cycle_minimum": {
+      "full_action_positive_count": 7,
+      "full_action_to_principal_ratio_summary": {
+        "count": 12,
+        "maximum": 0.1605535322957205,
+        "mean": -0.08192544034168188,
+        "minimum": -0.8769412734408429
+      },
+      "nonpositive_full_targets": [
+        14138,
+        22744,
+        37568,
+        42356,
+        88346
+      ],
+      "nonpositive_principal_plus_top_three_targets": [
+        14138,
+        37568,
+        42356,
+        88346
+      ],
+      "principal_plus_top_three_positive_count": 8,
+      "tail_centered_to_principal_ratio_summary": {
+        "count": 12,
+        "maximum": 0.06957399469379077,
+        "mean": -0.05008310767849026,
+        "minimum": -0.09817000756761152
+      },
+      "tail_changes_sign_decision_count": 1,
+      "target_count": 12,
+      "top_three_centered_to_principal_ratio_summary": {
+        "count": 12,
+        "maximum": -0.755756706020857,
+        "mean": -1.0318423326631916,
+        "minimum": -1.9465152681346343
+      }
+    },
+    "census_nonpositive_raw_action": {
+      "full_action_positive_count": 0,
+      "full_action_to_principal_ratio_summary": {
+        "count": 89,
+        "maximum": -0.004013505752947769,
+        "mean": -0.1552499806195169,
+        "minimum": -0.8769412734408429
+      },
+      "nonpositive_full_targets": [
+        10042,
+        10088,
+        10294,
+        10344,
+        10354,
+        10392,
+        10424,
+        10464,
+        10498,
+        10522,
+        10532,
+        10564,
+        10664,
+        10814,
+        10824,
+        10934,
+        11168,
+        11192,
+        11486,
+        11576,
+        11614,
+        11894,
+        11902,
+        11908,
+        12020,
+        12032,
+        12118,
+        12124,
+        12346,
+        12352,
+        12424,
+        12604,
+        12956,
+        13048,
+        13288,
+        13444,
+        13588,
+        13768,
+        13810,
+        14138,
+        14256,
+        14258,
+        14528,
+        14774,
+        14852,
+        14888,
+        14988,
+        14996,
+        15026,
+        15296,
+        15308,
+        15362,
+        15452,
+        15470,
+        15560,
+        15572,
+        15992,
+        16328,
+        16376,
+        16388,
+        16712,
+        16748,
+        16894,
+        17042,
+        17096,
+        17198,
+        17306,
+        17522,
+        17678,
+        17702,
+        18364,
+        18368,
+        18428,
+        18458,
+        18626,
+        22744,
+        24844,
+        26056,
+        30164,
+        30610,
+        34084,
+        37568,
+        39206,
+        40676,
+        42356,
+        43268,
+        47452,
+        85496,
+        88346
+      ],
+      "nonpositive_principal_plus_top_three_targets": [
+        10042,
+        10088,
+        10294,
+        10344,
+        10354,
+        10392,
+        10424,
+        10498,
+        10522,
+        10532,
+        10564,
+        10664,
+        10814,
+        10824,
+        11168,
+        11576,
+        11614,
+        11902,
+        11908,
+        12032,
+        12118,
+        12124,
+        12346,
+        12352,
+        12424,
+        12604,
+        12956,
+        13048,
+        13288,
+        13444,
+        13588,
+        13768,
+        13810,
+        14138,
+        14256,
+        14258,
+        14528,
+        14852,
+        14888,
+        14996,
+        15026,
+        15296,
+        15362,
+        15452,
+        15470,
+        15560,
+        15572,
+        15992,
+        16328,
+        16376,
+        16388,
+        16712,
+        16748,
+        16894,
+        17042,
+        17096,
+        17198,
+        17306,
+        17522,
+        17678,
+        17702,
+        18364,
+        18368,
+        18428,
+        18458,
+        26056,
+        37568,
+        39206,
+        42356,
+        43268,
+        47452,
+        85496,
+        88346
+      ],
+      "principal_plus_top_three_positive_count": 16,
+      "tail_centered_to_principal_ratio_summary": {
+        "count": 89,
+        "maximum": 0.09000311488529258,
+        "mean": -0.015134370818190806,
+        "minimum": -0.12674411748961492
+      },
+      "tail_changes_sign_decision_count": 16,
+      "target_count": 89,
+      "top_three_centered_to_principal_ratio_summary": {
+        "count": 89,
+        "maximum": -0.8975029434603515,
+        "mean": -1.1401156098013259,
+        "minimum": -1.9465152681346343
+      }
+    },
+    "fresh_holdout_cycle_minimum": {
+      "full_action_positive_count": 12,
+      "full_action_to_principal_ratio_summary": {
+        "count": 12,
+        "maximum": 0.40150785655867754,
+        "mean": 0.27733765825508644,
+        "minimum": 0.17360050532072394
+      },
+      "nonpositive_full_targets": [],
+      "nonpositive_principal_plus_top_three_targets": [],
+      "principal_plus_top_three_positive_count": 12,
+      "tail_centered_to_principal_ratio_summary": {
+        "count": 12,
+        "maximum": 0.03193163829963655,
+        "mean": -0.06154554579588678,
+        "minimum": -0.09713751122962452
+      },
+      "tail_changes_sign_decision_count": 0,
+      "target_count": 12,
+      "top_three_centered_to_principal_ratio_summary": {
+        "count": 12,
+        "maximum": -0.5020442485112229,
+        "mean": -0.6611167959490271,
+        "minimum": -0.7679745855284661
+      }
+    },
+    "fresh_holdout_global_minimum": {
+      "full_action_positive_count": 1,
+      "full_action_to_principal_ratio_summary": {
+        "count": 1,
+        "maximum": 0.17360050532072394,
+        "mean": 0.17360050532072394,
+        "minimum": 0.17360050532072394
+      },
+      "nonpositive_full_targets": [],
+      "nonpositive_principal_plus_top_three_targets": [],
+      "principal_plus_top_three_positive_count": 1,
+      "tail_centered_to_principal_ratio_summary": {
+        "count": 1,
+        "maximum": -0.07641384197878111,
+        "mean": -0.07641384197878111,
+        "minimum": -0.07641384197878111
+      },
+      "tail_changes_sign_decision_count": 0,
+      "target_count": 1,
+      "top_three_centered_to_principal_ratio_summary": {
+        "count": 1,
+        "maximum": -0.7499856527004951,
+        "mean": -0.7499856527004951,
+        "minimum": -0.7499856527004951
+      }
+    },
+    "selected_hard_fixture": {
+      "full_action_positive_count": 7,
+      "full_action_to_principal_ratio_summary": {
+        "count": 10,
+        "maximum": 1.2597528143704648,
+        "mean": 0.3735041921742516,
+        "minimum": -0.8769412734408429
+      },
+      "nonpositive_full_targets": [
+        14138,
+        14996,
+        88346
+      ],
+      "nonpositive_principal_plus_top_three_targets": [
+        14138,
+        14996,
+        88346
+      ],
+      "principal_plus_top_three_positive_count": 7,
+      "tail_centered_to_principal_ratio_summary": {
+        "count": 10,
+        "maximum": 0.09363293903366753,
+        "mean": 0.016430859457073094,
+        "minimum": -0.09817000756761152
+      },
+      "tail_changes_sign_decision_count": 0,
+      "target_count": 10,
+      "top_three_centered_to_principal_ratio_summary": {
+        "count": 10,
+        "maximum": 0.288029587486139,
+        "mean": -0.6429266672828211,
+        "minimum": -1.9465152681346343
+      }
+    }
+  },
+  "status_boundary": "finite known-extremal support-action audit only; no pointwise signed-prime correlation theorem, no q286 threshold theorem, no strict-central Goldbach theorem, and no Goldbach proof",
+  "tail_centered_to_principal_ratio_summary": {
+    "count": 113,
+    "maximum": 0.09363293903366753,
+    "mean": -0.01973445400695561,
+    "minimum": -0.12674411748961492
+  },
+  "tail_changed_full_positive_targets": [],
+  "tail_changed_sign_targets": [
+    10464,
+    10934,
+    11192,
+    11486,
+    11894,
+    12020,
+    14774,
+    14988,
+    15308,
+    18626,
+    22744,
+    24844,
+    30164,
+    30610,
+    34084,
+    40676
+  ],
+  "tail_changes_sign_decision_count": 16,
+  "target_selection": {
+    "rule": "deduplicated union of all recorded census raw-action nonpositive targets, census cycle minima, fresh holdout cycle minima, the fresh global minimum, and the frozen selected hard fixture",
+    "source_counts_before_deduplication": {
+      "census_cycle_minimum": 12,
+      "census_nonpositive_raw_action": 89,
+      "fresh_holdout_cycle_minimum": 12,
+      "fresh_holdout_global_minimum": 1,
+      "selected_hard_fixture": 10
+    },
+    "source_unique_counts": {
+      "census_cycle_minimum": 12,
+      "census_nonpositive_raw_action": 89,
+      "fresh_holdout_cycle_minimum": 12,
+      "fresh_holdout_global_minimum": 1,
+      "selected_hard_fixture": 10
+    },
+    "target_count": 113,
+    "target_sources": {
+      "10042": [
+        "census_nonpositive_raw_action"
+      ],
+      "10088": [
+        "census_nonpositive_raw_action"
+      ],
+      "10294": [
+        "census_nonpositive_raw_action"
+      ],
+      "10344": [
+        "census_nonpositive_raw_action"
+      ],
+      "10354": [
+        "census_nonpositive_raw_action"
+      ],
+      "10392": [
+        "census_nonpositive_raw_action"
+      ],
+      "10424": [
+        "census_nonpositive_raw_action"
+      ],
+      "10464": [
+        "census_nonpositive_raw_action"
+      ],
+      "10498": [
+        "census_nonpositive_raw_action"
+      ],
+      "10522": [
+        "census_nonpositive_raw_action"
+      ],
+      "10532": [
+        "census_nonpositive_raw_action"
+      ],
+      "10564": [
+        "census_nonpositive_raw_action"
+      ],
+      "10664": [
+        "census_nonpositive_raw_action"
+      ],
+      "10814": [
+        "census_nonpositive_raw_action"
+      ],
+      "10824": [
+        "census_nonpositive_raw_action"
+      ],
+      "109178": [
+        "census_cycle_minimum"
+      ],
+      "10934": [
+        "census_nonpositive_raw_action"
+      ],
+      "110522": [
+        "census_cycle_minimum"
+      ],
+      "11168": [
+        "census_nonpositive_raw_action"
+      ],
+      "11192": [
+        "census_nonpositive_raw_action"
+      ],
+      "11486": [
+        "census_nonpositive_raw_action"
+      ],
+      "11576": [
+        "census_nonpositive_raw_action"
+      ],
+      "11614": [
+        "census_nonpositive_raw_action"
+      ],
+      "11894": [
+        "census_nonpositive_raw_action"
+      ],
+      "11902": [
+        "census_nonpositive_raw_action"
+      ],
+      "11908": [
+        "census_nonpositive_raw_action"
+      ],
+      "12020": [
+        "census_nonpositive_raw_action"
+      ],
+      "12032": [
+        "census_nonpositive_raw_action"
+      ],
+      "12118": [
+        "census_nonpositive_raw_action"
+      ],
+      "12124": [
+        "census_nonpositive_raw_action"
+      ],
+      "1222142": [
+        "selected_hard_fixture"
+      ],
+      "12346": [
+        "census_nonpositive_raw_action"
+      ],
+      "12352": [
+        "census_nonpositive_raw_action"
+      ],
+      "1240888": [
+        "selected_hard_fixture"
+      ],
+      "1242118": [
+        "selected_hard_fixture"
+      ],
+      "12424": [
+        "census_nonpositive_raw_action"
+      ],
+      "125504": [
+        "census_cycle_minimum"
+      ],
+      "12604": [
+        "census_nonpositive_raw_action"
+      ],
+      "12956": [
+        "census_nonpositive_raw_action"
+      ],
+      "130436": [
+        "fresh_holdout_cycle_minimum"
+      ],
+      "13048": [
+        "census_nonpositive_raw_action"
+      ],
+      "13288": [
+        "census_nonpositive_raw_action"
+      ],
+      "13444": [
+        "census_nonpositive_raw_action"
+      ],
+      "13588": [
+        "census_nonpositive_raw_action"
+      ],
+      "13768": [
+        "census_nonpositive_raw_action"
+      ],
+      "1379072": [
+        "selected_hard_fixture"
+      ],
+      "13810": [
+        "census_nonpositive_raw_action"
+      ],
+      "14138": [
+        "census_cycle_minimum",
+        "census_nonpositive_raw_action",
+        "selected_hard_fixture"
+      ],
+      "142456": [
+        "fresh_holdout_cycle_minimum"
+      ],
+      "14256": [
+        "census_nonpositive_raw_action"
+      ],
+      "14258": [
+        "census_nonpositive_raw_action"
+      ],
+      "14528": [
+        "census_nonpositive_raw_action"
+      ],
+      "14774": [
+        "census_nonpositive_raw_action"
+      ],
+      "14852": [
+        "census_nonpositive_raw_action"
+      ],
+      "14888": [
+        "census_nonpositive_raw_action"
+      ],
+      "14988": [
+        "census_nonpositive_raw_action"
+      ],
+      "14996": [
+        "census_nonpositive_raw_action",
+        "selected_hard_fixture"
+      ],
+      "15026": [
+        "census_nonpositive_raw_action"
+      ],
+      "151766": [
+        "fresh_holdout_cycle_minimum"
+      ],
+      "15296": [
+        "census_nonpositive_raw_action"
+      ],
+      "15308": [
+        "census_nonpositive_raw_action"
+      ],
+      "15362": [
+        "census_nonpositive_raw_action"
+      ],
+      "15452": [
+        "census_nonpositive_raw_action"
+      ],
+      "15470": [
+        "census_nonpositive_raw_action"
+      ],
+      "15560": [
+        "census_nonpositive_raw_action"
+      ],
+      "15572": [
+        "census_nonpositive_raw_action"
+      ],
+      "15992": [
+        "census_nonpositive_raw_action"
+      ],
+      "16328": [
+        "census_nonpositive_raw_action"
+      ],
+      "16376": [
+        "census_nonpositive_raw_action"
+      ],
+      "16388": [
+        "census_nonpositive_raw_action"
+      ],
+      "16712": [
+        "census_nonpositive_raw_action"
+      ],
+      "16748": [
+        "census_nonpositive_raw_action"
+      ],
+      "168748": [
+        "fresh_holdout_cycle_minimum"
+      ],
+      "16894": [
+        "census_nonpositive_raw_action"
+      ],
+      "17042": [
+        "census_nonpositive_raw_action"
+      ],
+      "17096": [
+        "census_nonpositive_raw_action"
+      ],
+      "171058": [
+        "fresh_holdout_cycle_minimum"
+      ],
+      "17198": [
+        "census_nonpositive_raw_action"
+      ],
+      "17306": [
+        "census_nonpositive_raw_action"
+      ],
+      "17522": [
+        "census_nonpositive_raw_action"
+      ],
+      "17678": [
+        "census_nonpositive_raw_action"
+      ],
+      "17702": [
+        "census_nonpositive_raw_action"
+      ],
+      "18364": [
+        "census_nonpositive_raw_action"
+      ],
+      "18368": [
+        "census_nonpositive_raw_action"
+      ],
+      "18428": [
+        "census_nonpositive_raw_action"
+      ],
+      "18458": [
+        "census_nonpositive_raw_action"
+      ],
+      "186206": [
+        "fresh_holdout_cycle_minimum"
+      ],
+      "18626": [
+        "census_nonpositive_raw_action"
+      ],
+      "194384": [
+        "fresh_holdout_cycle_minimum",
+        "fresh_holdout_global_minimum",
+        "selected_hard_fixture"
+      ],
+      "207346": [
+        "fresh_holdout_cycle_minimum"
+      ],
+      "218324": [
+        "fresh_holdout_cycle_minimum"
+      ],
+      "226388": [
+        "fresh_holdout_cycle_minimum"
+      ],
+      "22744": [
+        "census_cycle_minimum",
+        "census_nonpositive_raw_action"
+      ],
+      "237224": [
+        "fresh_holdout_cycle_minimum"
+      ],
+      "247444": [
+        "fresh_holdout_cycle_minimum"
+      ],
+      "24844": [
+        "census_nonpositive_raw_action"
+      ],
+      "26056": [
+        "census_nonpositive_raw_action"
+      ],
+      "30164": [
+        "census_nonpositive_raw_action"
+      ],
+      "30610": [
+        "census_nonpositive_raw_action"
+      ],
+      "34084": [
+        "census_nonpositive_raw_action"
+      ],
+      "37568": [
+        "census_cycle_minimum",
+        "census_nonpositive_raw_action"
+      ],
+      "39206": [
+        "census_nonpositive_raw_action"
+      ],
+      "40676": [
+        "census_nonpositive_raw_action"
+      ],
+      "42356": [
+        "census_cycle_minimum",
+        "census_nonpositive_raw_action"
+      ],
+      "43268": [
+        "census_nonpositive_raw_action"
+      ],
+      "47452": [
+        "census_nonpositive_raw_action"
+      ],
+      "58736": [
+        "census_cycle_minimum"
+      ],
+      "66002": [
+        "census_cycle_minimum"
+      ],
+      "75692": [
+        "census_cycle_minimum"
+      ],
+      "85496": [
+        "census_nonpositive_raw_action"
+      ],
+      "88346": [
+        "census_cycle_minimum",
+        "census_nonpositive_raw_action",
+        "selected_hard_fixture"
+      ],
+      "90080": [
+        "selected_hard_fixture"
+      ],
+      "94856": [
+        "census_cycle_minimum",
+        "selected_hard_fixture"
+      ]
+    },
+    "targets": [
+      10042,
+      10088,
+      10294,
+      10344,
+      10354,
+      10392,
+      10424,
+      10464,
+      10498,
+      10522,
+      10532,
+      10564,
+      10664,
+      10814,
+      10824,
+      10934,
+      11168,
+      11192,
+      11486,
+      11576,
+      11614,
+      11894,
+      11902,
+      11908,
+      12020,
+      12032,
+      12118,
+      12124,
+      12346,
+      12352,
+      12424,
+      12604,
+      12956,
+      13048,
+      13288,
+      13444,
+      13588,
+      13768,
+      13810,
+      14138,
+      14256,
+      14258,
+      14528,
+      14774,
+      14852,
+      14888,
+      14988,
+      14996,
+      15026,
+      15296,
+      15308,
+      15362,
+      15452,
+      15470,
+      15560,
+      15572,
+      15992,
+      16328,
+      16376,
+      16388,
+      16712,
+      16748,
+      16894,
+      17042,
+      17096,
+      17198,
+      17306,
+      17522,
+      17678,
+      17702,
+      18364,
+      18368,
+      18428,
+      18458,
+      18626,
+      22744,
+      24844,
+      26056,
+      30164,
+      30610,
+      34084,
+      37568,
+      39206,
+      40676,
+      42356,
+      43268,
+      47452,
+      58736,
+      66002,
+      75692,
+      85496,
+      88346,
+      90080,
+      94856,
+      109178,
+      110522,
+      125504,
+      130436,
+      142456,
+      151766,
+      168748,
+      171058,
+      186206,
+      194384,
+      207346,
+      218324,
+      226388,
+      237224,
+      247444,
+      1222142,
+      1240888,
+      1242118,
+      1379072
+    ]
+  },
+  "tested_target_count": 113,
+  "three_support_action_reduction_proved": false,
+  "top_three_centered_to_principal_ratio_summary": {
+    "count": 113,
+    "maximum": 0.288029587486139,
+    "mean": -1.0267769071714292,
+    "minimum": -1.9465152681346343
+  },
+  "top_three_energy_fraction": 0.9960328792226287,
+  "top_three_natural_moduli": [
+    286,
+    154,
+    70
+  ],
+  "top_three_support_labels": [
+    "11x13",
+    "7x11",
+    "5x7"
+  ]
+}

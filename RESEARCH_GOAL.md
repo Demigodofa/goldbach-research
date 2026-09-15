@@ -6,6 +6,40 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 three-dominant-support target now has a known-extremals audit:
+`tools/build_q286_three_support_known_extremals_audit.py` generated
+`evidence/q286-three-support-known-extremals-audit.json`, with explanation in
+`notes/q286-three-support-known-extremals-audit.md`.
+
+Question: does the selected-row sign preservation survive every known raw
+q286 failure, every census cycle minimum, every fresh holdout cycle minimum,
+the fresh global minimum, and the frozen hard fixture?
+
+Result: no.  On the deduplicated `113`-target known-extremal fixture, the
+full action is positive on `24/113` targets and
+`Principal+E_286+E_154+E_70` is positive on `40/113`, but the tail changes
+`16` sign decisions:
+
+```text
+10464, 10934, 11192, 11486, 11894, 12020, 14774, 14988,
+15308, 18626, 22744, 24844, 30164, 30610, 34084, 40676
+```
+
+All `16` tail sign changes occur inside the recorded census raw-action
+failure source.  The fresh holdout cycle minima have `0` tail sign changes.
+The tail/principal ratio ranges from `-0.12674411748961492` to
+`0.09363293903366753`.
+
+Decision: the stronger simplification that the small-energy tail can be
+demoted for all known extremals is falsified.  Preserve the useful spectral
+compression, but state the proof target as a signed support-rescue inequality
+including `E_tail`.  A plausible split is early/boundary rows needing full
+tail rescue and later rows possibly admitting a tail-stable threshold.  No
+pointwise signed-prime correlation theorem, q286 threshold theorem, or
+Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 three-dominant-support target now has an action-level decomposition
 on selected hard rows:
 `tools/build_q286_three_support_action_decomposition.py` generated
