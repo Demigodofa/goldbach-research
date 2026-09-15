@@ -6,6 +6,32 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS route now has a projected-uniformity obstruction audit:
+`tools/build_q286_wbss_projection_uniformity_obstruction_audit.py` generated
+`evidence/q286-wbss-projection-uniformity-obstruction-audit.json`, with
+explanation in `notes/q286-wbss-projection-uniformity-obstruction-audit.md`.
+
+Question: can the explicit four-modulus projection formula be proved positive
+by bounding every projected residue probability error modulo
+`70,130,154,286` by the common sufficient budget
+`0.0016192946592982506`?
+
+Result: no as an explanation of the checked successful rows. On the `196`
+post-discovery q286-WBSS rows, all actual signed expectations are positive,
+but `0/196` rows satisfy the blunt projected L-infinity budget. The maximum
+projected cell error ranges from `0.0054355245292371495` to
+`0.03166078595284763`, or `3.356723557399196` to
+`19.552207975890227` times the budget. The projection formula itself replays
+the actual signed expectation with max absolute error
+`4.440892098500626e-16`.
+
+Decision: demote common absolute projected-cell uniformity. The four-modulus
+formula survives, but the next theorem must control its signed weighted
+projection error or prove the raw q286-WBSS witness directly. Goldbach is not
+proved.
+
+## Latest continuation evidence, 2026-09-15
+
 The q286-WBSS route now has an explicit four-modulus projection formula:
 `tools/build_q286_wbss_four_modulus_projection_formula.py` generated
 `evidence/q286-wbss-four-modulus-projection-formula.json`, with explanation

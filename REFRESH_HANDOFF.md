@@ -6,6 +6,35 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS route now has a projected-uniformity obstruction audit.
+
+```text
+tools/build_q286_wbss_projection_uniformity_obstruction_audit.py
+notes/q286-wbss-projection-uniformity-obstruction-audit.md
+evidence/q286-wbss-projection-uniformity-obstruction-audit.json
+```
+
+Result:
+
+```text
+post-discovery rows checked:                    196
+actual signed expectations positive:            196 / 196
+rows inside blunt projection-error budget:        0 / 196
+blunt projection-error budget:                    0.0016192946592982506
+maximum projected cell error range:               0.0054355245292371495..0.03166078595284763
+mean maximum projected cell error:                0.011916198098095038
+error-to-budget ratio range:                      3.356723557399196..19.552207975890227
+projection formula replay max abs error:          4.440892098500626e-16
+```
+
+Decision: common absolute projected-cell uniformity is too strong even after
+the four-modulus coefficient compression. The four-modulus formula remains a
+real compression, but the next theorem target is signed weighted projection
+control, or a direct raw q286-WBSS signed-witness estimate. Goldbach is not
+proved.
+
+## Latest active checkpoint note, 2026-09-15
+
 The q286-WBSS route now has an explicit four-modulus projection formula.
 
 ```text
