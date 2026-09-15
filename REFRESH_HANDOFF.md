@@ -6,6 +6,42 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 three-dominant-support target now has an action-level decomposition
+on selected hard rows.
+
+`tools/build_q286_three_support_action_decomposition.py` generated
+`evidence/q286-three-support-action-decomposition.json`, with explanation in
+`notes/q286-three-support-action-decomposition.md`.
+
+Question: does the coefficient-energy compression to `E_286`, `E_154`, and
+`E_70` also preserve actual hard-row sign decisions?
+
+Result: yes on this selected finite fixture.
+
+```text
+tested targets:                         10
+full-action positive count:              7
+principal+top-three positive count:      7
+tail sign-decision changes:              0
+full nonpositive targets:                14138, 14996, 88346
+top-three nonpositive targets:           14138, 14996, 88346
+tail/principal ratio range:              -0.09817000756761152..0.09363293903366753
+top-three centered/principal range:      -1.9465152681346343..0.288029587486139
+```
+
+Decision: the three-support reduction is action-level useful on the hard-row
+fixture, not merely an energy accounting artifact.  The next theorem target is
+still:
+
+```text
+E_286(N)+E_154(N)+E_70(N)+E_tail(N) > -LocalMain_a(N),
+```
+
+with the tail bounded explicitly.  This is not a proof of the required
+pointwise signed-prime correlation estimate or Goldbach.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 centered-error bridge now has a character-burden audit.
 
 `tools/build_q286_centered_character_burden_audit.py` generated

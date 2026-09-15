@@ -6,6 +6,31 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 three-dominant-support target now has an action-level decomposition
+on selected hard rows:
+`tools/build_q286_three_support_action_decomposition.py` generated
+`evidence/q286-three-support-action-decomposition.json`, with explanation in
+`notes/q286-three-support-action-decomposition.md`.
+
+Question: are the dominant supports `286`, `154`, and `70` only
+coefficient-energy dominant, or do they also preserve raw-action sign decisions
+on actual difficult targets?
+
+Result: on the selected `10`-target hard-row fixture, the tail changes no sign
+decisions.  The full action is positive on `7/10` targets, and
+`Principal+E_286+E_154+E_70` is also positive on `7/10`.  The same three
+targets are nonpositive in both decompositions: `14138`, `14996`, and `88346`.
+The tail/principal ratio ranges from `-0.09817000756761152` to
+`0.09363293903366753`, while the top-three centered/principal ratio ranges
+from `-1.9465152681346343` to `0.288029587486139`.
+
+Decision: preserve the three-dominant-support signed-correlation theorem
+target as action-level useful on the hard-row fixture.  The small tail remains
+an explicit bound, not something to discard.  No pointwise signed-prime
+correlation theorem, q286 threshold theorem, or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 centered-error bridge now has a character-burden audit:
 `tools/build_q286_centered_character_burden_audit.py` generated
 `evidence/q286-centered-character-burden-audit.json`, with explanation in

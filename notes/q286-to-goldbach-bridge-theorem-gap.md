@@ -440,3 +440,25 @@ E_286(N)+E_154(N)+E_70(N)+E_tail(N) > -LocalMain_a(N).
 
 This sharpens the analytic target but does not prove any of the needed
 prime-pair estimates.
+
+## Three-Support Action Decomposition
+
+`tools/build_q286_three_support_action_decomposition.py` generated
+`evidence/q286-three-support-action-decomposition.json`.
+
+Result: on a selected `10`-target hard-row fixture, the three dominant supports
+preserve the full raw-action sign decisions:
+
+```text
+full-action positive count:             7
+principal+E_286+E_154+E_70 positive:    7
+tail sign-decision changes:             0
+nonpositive targets in both versions:   14138, 14996, 88346
+tail/principal ratio range:             -0.09817000756761152..0.09363293903366753
+```
+
+Decision: the lower-modulus compression is action-level useful on the tested
+hard rows.  The tail is small enough on this fixture to be treated as a
+separate explicit bound, but this remains finite evidence.  The theorem still
+requires a pointwise signed-prime correlation estimate for
+`E_286+E_154+E_70+E_tail`.

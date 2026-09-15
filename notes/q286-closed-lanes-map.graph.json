@@ -1942,6 +1942,14 @@
       "status": "open",
       "statement": "Prove the centered q286 error as E_286+E_154+E_70+E_tail stays greater than -LocalMain_a(N) for every sufficiently large even N in each residue modulo 10010, with an explicit tail bound for the remaining lower supports and finite verification below threshold.",
       "goldbach_proved": false
+    },
+    {
+      "id": "receipt.q286_three_support_action_decomposition",
+      "type": "receipt",
+      "label": "q286 three-support action decomposition",
+      "status": "validated_finite_support",
+      "validation": "tools/build_q286_three_support_action_decomposition.py generated evidence/q286-three-support-action-decomposition.json; on 10 selected hard rows, principal plus the three dominant supports has the same 7/10 positive sign decisions as the full raw action, the nonpositive targets are 14138,14996,88346 in both versions, and the tail changes zero sign decisions.",
+      "status_boundary": "finite selected-row action decomposition only; no pointwise signed-prime correlation theorem, no q286 threshold theorem, no strict-central Goldbach theorem, and no Goldbach proof"
     }
   ],
   "edges": [
@@ -4443,6 +4451,16 @@
     {
       "from": "problem.q286_three_dominant_support_signed_correlation",
       "to": "theorem.q286_positive_signed_witness",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_three_support_action_decomposition",
+      "to": "problem.q286_three_dominant_support_signed_correlation",
+      "type": "supports"
+    },
+    {
+      "from": "receipt.q286_three_support_action_decomposition",
+      "to": "receipt.q286_centered_character_burden_audit",
       "type": "refines"
     }
   ]
