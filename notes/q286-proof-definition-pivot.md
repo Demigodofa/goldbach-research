@@ -276,3 +276,25 @@ prove raw_full_signed_witness > 0 directly.
 
 It does not close the normalization gap, because the receipt is computed on
 rows where strict-central pair mass was already observed.
+
+## Edge-minorant obstruction
+
+`tools/build_q286_edge_minorant_obstruction_audit.py` generated
+`evidence/q286-edge-minorant-obstruction-audit.json`.
+
+This tests the easy coefficientwise minorant route.  For the dual edge, write
+the rescue margin as:
+
+```text
+E_mu_N[gap-required].
+```
+
+If `gap-required` were nonnegative on every reflection orbit, ordinary
+nonnegative pair mass would be enough.  It is not: on post-discovery rows the
+pointwise minorant pass count is `0/196`, and the lower-face support itself
+carries negative pointwise rescue coefficients on `196/196` rows.
+
+Actual rows rescue by distributional landing.  Their positive/negative rescue
+ratio is `1.0191444227555964..3.167398344085266`.  Therefore the next
+definition must control signed landing against the negative rescue coefficient
+set; it cannot be only a coefficientwise nonnegative minorant.

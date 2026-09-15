@@ -6,6 +6,29 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 raw-witness route now has an edge-minorant obstruction audit:
+`tools/build_q286_edge_minorant_obstruction_audit.py` generated
+`evidence/q286-edge-minorant-obstruction-audit.json`, with explanation in
+`notes/q286-edge-minorant-obstruction-audit.md`.
+
+Question: can the edge rescue be made coefficientwise nonnegative, so that
+ordinary nonnegative pair mass would imply rescue without a signed
+correlation theorem?
+
+Result: no.  On the `196` post-discovery rows, the pointwise minorant pass
+count is `0`, and the lower-face support orbits carry negative pointwise
+rescue coefficients on `196/196` rows.  Actual rows still rescue because
+their mass distribution beats negative drag: the positive/negative rescue
+ratio ranges from `1.0191444227555964` to `3.167398344085266`, with signed
+part identity error at most `8.881784197001252e-16`.
+
+Decision: demote the easy coefficientwise minorant shortcut.  The remaining
+q286 bridge must prove a distributional anti-landing or signed binary-prime
+correlation theorem for `gap-required`, or else provide an independent
+`T_N>0` theorem.  Goldbach is not proved.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 dual-edge route now has an unnormalized witness audit:
 `tools/build_q286_unnormalized_dual_edge_witness_audit.py` generated
 `evidence/q286-unnormalized-dual-edge-witness-audit.json`, with explanation in

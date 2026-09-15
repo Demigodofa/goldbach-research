@@ -6,6 +6,38 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 raw-witness route now has an edge-minorant obstruction audit.
+
+`tools/build_q286_edge_minorant_obstruction_audit.py` generated
+`evidence/q286-edge-minorant-obstruction-audit.json`, with explanation in
+`notes/q286-edge-minorant-obstruction-audit.md`.
+
+Question: can `gap-required` be pointwise nonnegative on all reflection
+orbits, giving a coefficientwise minorant route around the signed-correlation
+problem?
+
+Result:
+
+```text
+post-discovery rows checked:                 196
+pointwise minorant pass count:               0 / 196
+support orbits negative count:               196 / 196
+negative rescue coefficient orbit count:     224..560
+positive rescue coefficient orbit count:     348..659
+mass on negative rescue coefficients:        0.32730051201285604..0.5711006912377132
+mass on positive rescue coefficients:        0.42889930876228677..0.672699487987144
+positive/negative rescue ratio:              1.0191444227555964..3.167398344085266
+```
+
+Decision: coefficientwise nonnegative minorant is falsified for this edge
+form.  Actual rows win by distributional landing, so the next theorem must
+control signed binary-prime correlation or anti-landing against the negative
+rescue coefficient set.
+
+Goldbach is not proved.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 dual-edge route now has an unnormalized witness audit.
 
 `tools/build_q286_unnormalized_dual_edge_witness_audit.py` generated

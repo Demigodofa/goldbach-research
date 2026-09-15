@@ -751,3 +751,29 @@ strict-central prime pair, since all pair weights vanish when no such pair
 exists.  But this receipt itself still assumes no theorem of that kind; it is
 computed from observed pair weights and therefore cannot be used as the first
 existence step.
+
+## Edge-Minorant Obstruction Audit
+
+`tools/build_q286_edge_minorant_obstruction_audit.py` generated
+`evidence/q286-edge-minorant-obstruction-audit.json`.
+
+This audit tests whether the raw edge witness can be made into a trivial
+coefficientwise nonnegative minorant.  It cannot.  The pointwise coefficient
+
+```text
+gap-required
+```
+
+is negative on the lower-face support itself for every checked
+post-discovery row, and no row passes the pointwise minorant condition.
+
+The bridge gap is therefore not merely algebraic.  The proof must show that
+actual binary-prime mass avoids or underweights the negative part enough that:
+
+```text
+sum_{gap>required} W_N(orbit)(gap-required)
+  >
+sum_{gap<required} W_N(orbit)(required-gap).
+```
+
+This is the current sharp signed-correlation theorem target.

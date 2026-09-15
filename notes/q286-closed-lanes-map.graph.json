@@ -2127,6 +2127,31 @@
       "validation": "tools/build_q286_unnormalized_dual_edge_witness_audit.py generated evidence/q286-unnormalized-dual-edge-witness-audit.json; on 196 post-discovery rows, raw signed witnesses are positive, raw margin after rescue is 490.7620118705381..361940.33348482125, identity error is at most 2.3283064365386963e-10, and the tightest target is 94856.",
       "status_boundary": "finite unnormalized dual-edge witness diagnostic only; computed rows already have observed strict-central pairs, so this is not an existence proof, q286 threshold theorem, signed prime-correlation theorem, or Goldbach proof",
       "goldbach_proved": false
+    },
+    {
+      "id": "lane.q286_coefficientwise_edge_minorant",
+      "type": "closed_lane",
+      "label": "q286 coefficientwise edge minorant",
+      "status": "falsified_as_sufficient_route",
+      "reason": "For the dual edge rescue, gap-required is negative on the lower-face support itself on every checked post-discovery row, so nonnegative pair mass alone cannot prove the raw witness.",
+      "goldbach_proved": false
+    },
+    {
+      "id": "problem.q286_signed_edge_anti_landing",
+      "type": "theorem_target",
+      "label": "q286 signed edge anti-landing",
+      "status": "open",
+      "statement": "Prove actual binary-prime mass on positive pointwise rescue coefficients exceeds weighted mass on negative rescue coefficients for the target-dependent dual edge: sum_{gap>required} W_N(gap-required) > sum_{gap<required} W_N(required-gap).",
+      "goldbach_proved": false
+    },
+    {
+      "id": "receipt.q286_edge_minorant_obstruction_audit",
+      "type": "receipt",
+      "label": "q286 edge-minorant obstruction audit",
+      "status": "validated_falsifier",
+      "validation": "tools/build_q286_edge_minorant_obstruction_audit.py generated evidence/q286-edge-minorant-obstruction-audit.json; on 196 post-discovery rows, pointwise minorant pass count is 0, support orbits are negative on 196/196 rows, positive/negative rescue ratio is 1.0191444227555964..3.167398344085266, and signed-part identity error is at most 8.881784197001252e-16.",
+      "status_boundary": "finite edge-minorant obstruction audit only; no coefficientwise minorant theorem, signed prime-correlation theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof",
+      "goldbach_proved": false
     }
   ],
   "edges": [
@@ -4814,6 +4839,26 @@
       "from": "problem.q286_raw_signed_edge_witness",
       "to": "problem.q286_to_goldbach_bridge_gap",
       "type": "requires"
+    },
+    {
+      "from": "receipt.q286_edge_minorant_obstruction_audit",
+      "to": "lane.q286_coefficientwise_edge_minorant",
+      "type": "falsifies"
+    },
+    {
+      "from": "receipt.q286_edge_minorant_obstruction_audit",
+      "to": "problem.q286_signed_edge_anti_landing",
+      "type": "defines"
+    },
+    {
+      "from": "lane.q286_coefficientwise_edge_minorant",
+      "to": "problem.q286_raw_signed_edge_witness",
+      "type": "scope_guard"
+    },
+    {
+      "from": "problem.q286_signed_edge_anti_landing",
+      "to": "problem.q286_raw_signed_edge_witness",
+      "type": "refines"
     }
   ]
 }
