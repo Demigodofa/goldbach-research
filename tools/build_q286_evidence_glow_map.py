@@ -138,6 +138,9 @@ def main():
         / "q286-centered-3-1-same-residue-fresh-population-audit.json")
     centered_3_1_signed_gap_obligation = load_json(
         EVIDENCE / "q286-centered-3-1-signed-gap-obligation.json")
+    centered_3_1_available_same_residue = load_json(
+        EVIDENCE
+        / "q286-centered-3-1-available-same-residue-population-audit.json")
     centered_3_1_stress_class = load_json(
         EVIDENCE / "q286-centered-3-1-stress-class-audit.json")
     selected_deficit_provenance = load_json(
@@ -1898,6 +1901,60 @@ def main():
         "centered-3-1-signed-gap-obligation",
         2.0,
         "same-residue cancellation narrows the bridge from local AP counts to a signed channel correlation estimate")
+
+    layer(
+        "centered-3-1-available-same-residue-population-audit",
+        "Centered (3,1) survives available same-residue nonselection rows",
+        "finite_available_population_strengthening",
+        "evidence/q286-centered-3-1-available-same-residue-population-audit.json",
+        3.0,
+        "Finite available-population audit only; no signed correlation theorem.")
+    add_hit(
+        mechanism_stacks,
+        "centered-3-1-selected-deficit-separator",
+        "centered-3-1-available-same-residue-population-audit",
+        3.0,
+        "same-residue seed/nonseed/fresh split has zero failures on checked selected references",
+        {
+            "profile_target_count_after_residue_filter":
+                centered_3_1_available_same_residue[
+                    "profile_target_count_after_residue_filter"],
+            "any_available_population_failure":
+                centered_3_1_available_same_residue[
+                    "any_available_population_failure"],
+            "selected_reference_residues_mod_143":
+                centered_3_1_available_same_residue[
+                    "selected_reference_residues_mod_143"],
+            "all_available_scope":
+                next(
+                    row for row in centered_3_1_available_same_residue[
+                        "scope_summaries"]
+                    if row["scope_id"]
+                    == "same_residue_all_available_nonselection_targets"),
+        })
+    add_hit(
+        target_stacks,
+        "164598",
+        "centered-3-1-available-same-residue-population-audit",
+        3.0,
+        "tightest checked available same-residue gate: 164598 versus 8000140",
+        {
+            "comparison_target": 8000140,
+            "weighted_gap": 0.0003925287417802202,
+            "comparison_scope": "same-window nonseed",
+        })
+    add_hit(
+        theorem_stacks,
+        "centered-3-1-stress-class-theorem",
+        "centered-3-1-available-same-residue-population-audit",
+        3.0,
+        "available population strengthens selected-reference route but exposes near-collision at 164598/8000140")
+    add_hit(
+        theorem_stacks,
+        "ap-count-to-17-channel-bridge",
+        "centered-3-1-available-same-residue-population-audit",
+        2.0,
+        "signed channel correlation estimate must explain the thin 164598/8000140 same-residue gap")
 
     layer(
         "centered-3-1-stress-class-audit",

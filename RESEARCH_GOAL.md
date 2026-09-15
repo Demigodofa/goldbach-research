@@ -6,6 +6,34 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The selected `(3,1)` signed-gap obligation now has a broader available
+same-residue population audit:
+`tools/build_q286_centered_3_1_available_same_residue_population_audit.py`
+generated
+`evidence/q286-centered-3-1-available-same-residue-population-audit.json`,
+with explanation in
+`notes/q286-centered-3-1-available-same-residue-population-audit.md`.
+
+Result: after residue-filtering the expensive profile to selected-reference
+residues `5`, `64`, `94`, and `114`, no same-residue nonselection comparison
+falsifies the selected-reference `(3,1)` ordering.  The checked fixture has
+`60` all-available nonselection comparisons across the five selected
+references and `0` failures.
+
+The tightest new gate is reference `164598` at residue `5` against
+same-window nonseed target `8000140`, with weighted centered `(3,1)` gap
+`0.0003925287417802202`.  This is much thinner than the previous
+fresh-window-only minimum `0.007258334506941435`, so future proof work must
+explain a near-collision rather than only the larger fresh-window margins.
+
+Interpretation: `(3,1)` has survived the immediate seed/nonseed/fresh
+selection-bias split for the selected references, but only as finite evidence.
+The broad `full_nonpositive` classifier remains falsified, and the live
+theorem target is still a non-post-hoc selected stress family or a signed
+empirical/correlation gap estimate.
+
+## Previous continuation evidence, 2026-09-15
+
 The selected `(3,1)` same-residue evidence now has an explicit signed-gap
 theorem-obligation receipt:
 `tools/build_q286_centered_3_1_signed_gap_obligation.py` generated

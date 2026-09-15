@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "receipt": "q286-evidence-glow-map",
-  "generated_from_commit": "9d8fc7cc4564ae0343be423f0d87a5b00ff23390",
+  "generated_from_commit": "c1e13c46600eb02d11869ca4269adbb4826f856d",
   "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
   "visual_encoding": {
     "target_shape": "circle",
@@ -338,6 +338,14 @@
       "source": "evidence/q286-centered-3-1-signed-gap-obligation.json",
       "default_weight": 3.0,
       "boundary": "Finite theorem-obligation extraction only; no signed correlation theorem."
+    },
+    {
+      "id": "centered-3-1-available-same-residue-population-audit",
+      "label": "Centered (3,1) survives available same-residue nonselection rows",
+      "kind": "finite_available_population_strengthening",
+      "source": "evidence/q286-centered-3-1-available-same-residue-population-audit.json",
+      "default_weight": 3.0,
+      "boundary": "Finite available-population audit only; no signed correlation theorem."
     },
     {
       "id": "centered-3-1-stress-class-audit",
@@ -1000,7 +1008,7 @@
     },
     {
       "id": "164598",
-      "stack_weight": 51.5,
+      "stack_weight": 54.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1270,10 +1278,20 @@
             "mean": 0.010579423036042625,
             "minimum": 0.007258334506941435
           }
+        },
+        {
+          "layer": "centered-3-1-available-same-residue-population-audit",
+          "weight": 3.0,
+          "reason": "tightest checked available same-residue gate: 164598 versus 8000140",
+          "value": {
+            "comparison_target": 8000140,
+            "weighted_gap": 0.0003925287417802202,
+            "comparison_scope": "same-window nonseed"
+          }
         }
       ],
-      "layer_count": 25,
-      "glow": 0.872881
+      "layer_count": 26,
+      "glow": 0.923729
     },
     {
       "id": "24424",
@@ -5778,7 +5796,7 @@
   "mechanism_stacks": [
     {
       "id": "centered-3-1-selected-deficit-separator",
-      "stack_weight": 15.0,
+      "stack_weight": 18.0,
       "layers": [
         {
           "layer": "centered-channel-scalar-order-audit",
@@ -5867,9 +5885,32 @@
             "tightest_reference_target": 164598,
             "tightest_weighted_gap": 0.007258334506941435
           }
+        },
+        {
+          "layer": "centered-3-1-available-same-residue-population-audit",
+          "weight": 3.0,
+          "reason": "same-residue seed/nonseed/fresh split has zero failures on checked selected references",
+          "value": {
+            "profile_target_count_after_residue_filter": 58,
+            "any_available_population_failure": false,
+            "selected_reference_residues_mod_143": [
+              5,
+              64,
+              94,
+              114
+            ],
+            "all_available_scope": {
+              "all_compared_references_pass": true,
+              "failing_reference_count": 0,
+              "minimum_weighted_gap": 0.0003925287417802202,
+              "reference_count_with_comparisons": 5,
+              "scope_id": "same_residue_all_available_nonselection_targets",
+              "total_comparison_count": 60
+            }
+          }
         }
       ],
-      "layer_count": 5,
+      "layer_count": 6,
       "glow": 1.0
     },
     {
@@ -5896,7 +5937,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.6
+      "glow": 0.5
     },
     {
       "id": "same-stress-singleton-channel-candidates",
@@ -6093,7 +6134,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.533333
+      "glow": 0.444444
     },
     {
       "id": "low-frequency-lp-cap-certificate-survives",
@@ -6127,7 +6168,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.433333
+      "glow": 0.361111
     },
     {
       "id": "zero-local-target-correlation-decomposition",
@@ -6168,7 +6209,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.333333
+      "glow": 0.277778
     },
     {
       "id": "centered-3-1-full-nonpositive-classifier-falsified",
@@ -6187,7 +6228,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.2
+      "glow": 0.166667
     },
     {
       "id": "local-singular-cone-orientation-floor",
@@ -6212,7 +6253,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.2
+      "glow": 0.166667
     },
     {
       "id": "low-frequency-label-lattice-heldout-survives",
@@ -6231,7 +6272,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.2
+      "glow": 0.166667
     },
     {
       "id": "low-frequency-label-lattice-horizon-survives",
@@ -6252,7 +6293,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.2
+      "glow": 0.166667
     },
     {
       "id": "rank1-cap-survives-full-window",
@@ -6273,7 +6314,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.2
+      "glow": 0.166667
     },
     {
       "id": "raw-ap-count-pigeonhole-bridge-falsified",
@@ -6292,7 +6333,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.2
+      "glow": 0.166667
     },
     {
       "id": "small-fixed-channel-certificate-refuted",
@@ -6331,7 +6372,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.2
+      "glow": 0.166667
     },
     {
       "id": "coarse-target-residue-lift-demoted",
@@ -6350,7 +6391,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.166667
+      "glow": 0.138889
     },
     {
       "id": "frobenius-gcd-parity-rank1-shortcut-refuted",
@@ -6371,7 +6412,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.166667
+      "glow": 0.138889
     },
     {
       "id": "near-sharp-rank1-residual-drag-cap",
@@ -6389,7 +6430,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.166667
+      "glow": 0.138889
     },
     {
       "id": "positive-rank1-outside-direction",
@@ -6407,7 +6448,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.166667
+      "glow": 0.138889
     },
     {
       "id": "recurrent-portfolio-versus-residual",
@@ -6426,7 +6467,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.166667
+      "glow": 0.138889
     },
     {
       "id": "simple-label-only-lift-demoted",
@@ -6447,7 +6488,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.166667
+      "glow": 0.138889
     },
     {
       "id": "actual-arithmetic-placement-inside-weak-cone",
@@ -6480,7 +6521,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.133333
+      "glow": 0.111111
     },
     {
       "id": "actual-mass-avoids-extremal-breaker-orbits",
@@ -6508,7 +6549,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.133333
+      "glow": 0.111111
     },
     {
       "id": "clear-side-prefix-versus-deficit-classification",
@@ -6525,7 +6566,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.133333
+      "glow": 0.111111
     },
     {
       "id": "fixed-component-pair-((5,7),(7,11))",
@@ -6538,7 +6579,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.133333
+      "glow": 0.111111
     },
     {
       "id": "low-frequency-label-lattice-partial-signal",
@@ -6551,7 +6592,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.133333
+      "glow": 0.111111
     },
     {
       "id": "mixed-mass-landing-hinge-balance",
@@ -6583,7 +6624,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.133333
+      "glow": 0.111111
     },
     {
       "id": "nonposthoc-above-floor-sign-surplus",
@@ -6611,7 +6652,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.133333
+      "glow": 0.111111
     },
     {
       "id": "prefix-lower-bound-plus-tail-classification",
@@ -6629,7 +6670,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.133333
+      "glow": 0.111111
     },
     {
       "id": "selected-deficit-versus-full-nonpositive-scope-guard",
@@ -6656,7 +6697,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.133333
+      "glow": 0.111111
     },
     {
       "id": "signed-cumulative-portfolio-staircase",
@@ -6680,7 +6721,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.133333
+      "glow": 0.111111
     },
     {
       "id": "simple-near-boundary-selectors-refuted",
@@ -6708,7 +6749,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.133333
+      "glow": 0.111111
     },
     {
       "id": "small-residual-channel-classifier-demoted",
@@ -6725,7 +6766,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.133333
+      "glow": 0.111111
     },
     {
       "id": "tail-package-not-compressed",
@@ -6743,7 +6784,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.133333
+      "glow": 0.111111
     },
     {
       "id": "tail-thinning-after-cycle-232",
@@ -6761,7 +6802,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.133333
+      "glow": 0.111111
     },
     {
       "id": "tiny-positive-hinge-threshold-surplus",
@@ -6784,7 +6825,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.133333
+      "glow": 0.111111
     },
     {
       "id": "weak-geometry-staircase-shortcut-closed",
@@ -6801,7 +6842,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.133333
+      "glow": 0.111111
     },
     {
       "id": "active-selector-rarity",
@@ -6818,7 +6859,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.1
+      "glow": 0.083333
     },
     {
       "id": "sparse-near-boundary-above-floor-margins",
@@ -6862,13 +6903,13 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.1
+      "glow": 0.083333
     }
   ],
   "theorem_gap_stacks": [
     {
       "id": "centered-3-1-stress-class-theorem",
-      "stack_weight": 20.0,
+      "stack_weight": 23.0,
       "layers": [
         {
           "layer": "centered-channel-scalar-order-audit",
@@ -6896,6 +6937,11 @@
           "reason": "selected stress-reference route now requires a non-post-hoc signed empirical/correlation gap"
         },
         {
+          "layer": "centered-3-1-available-same-residue-population-audit",
+          "weight": 3.0,
+          "reason": "available population strengthens selected-reference route but exposes near-collision at 164598/8000140"
+        },
+        {
           "layer": "centered-3-1-stress-class-audit",
           "weight": 3.0,
           "reason": "full_nonpositive classifier version falsified; a different predeclared class or signed estimate is needed"
@@ -6906,7 +6952,7 @@
           "reason": "scope guard: selected-deficit separation cannot be promoted across fixture predicates"
         }
       ],
-      "layer_count": 7,
+      "layer_count": 8,
       "glow": 1.0
     },
     {
@@ -6950,7 +6996,7 @@
         }
       ],
       "layer_count": 7,
-      "glow": 0.875
+      "glow": 0.76087
     },
     {
       "id": "portfolio-residual-lower-bound",
@@ -6998,7 +7044,7 @@
         }
       ],
       "layer_count": 8,
-      "glow": 0.825
+      "glow": 0.717391
     },
     {
       "id": "rank1-residual-drag-bound",
@@ -7031,7 +7077,35 @@
         }
       ],
       "layer_count": 5,
-      "glow": 0.75
+      "glow": 0.652174
+    },
+    {
+      "id": "ap-count-to-17-channel-bridge",
+      "stack_weight": 10.0,
+      "layers": [
+        {
+          "layer": "lp-cone-local-singular-audit",
+          "weight": 3.0,
+          "reason": "BMOR q286 AP-count constants are useful input but do not directly prove the signed 17-channel functional"
+        },
+        {
+          "layer": "centered-3-1-signed-gap-obligation",
+          "weight": 2.0,
+          "reason": "same-residue cancellation narrows the bridge from local AP counts to a signed channel correlation estimate"
+        },
+        {
+          "layer": "centered-3-1-available-same-residue-population-audit",
+          "weight": 2.0,
+          "reason": "signed channel correlation estimate must explain the thin 164598/8000140 same-residue gap"
+        },
+        {
+          "layer": "ap-count-bridge-gap-audit",
+          "weight": 3.0,
+          "reason": "raw AP counts alone are demoted; bridge needs binary convolution or signed character correlation"
+        }
+      ],
+      "layer_count": 4,
+      "glow": 0.434783
     },
     {
       "id": "alternate-stress-channel-reference-gate",
@@ -7054,30 +7128,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.4
-    },
-    {
-      "id": "ap-count-to-17-channel-bridge",
-      "stack_weight": 8.0,
-      "layers": [
-        {
-          "layer": "lp-cone-local-singular-audit",
-          "weight": 3.0,
-          "reason": "BMOR q286 AP-count constants are useful input but do not directly prove the signed 17-channel functional"
-        },
-        {
-          "layer": "centered-3-1-signed-gap-obligation",
-          "weight": 2.0,
-          "reason": "same-residue cancellation narrows the bridge from local AP counts to a signed channel correlation estimate"
-        },
-        {
-          "layer": "ap-count-bridge-gap-audit",
-          "weight": 3.0,
-          "reason": "raw AP counts alone are demoted; bridge needs binary convolution or signed character correlation"
-        }
-      ],
-      "layer_count": 3,
-      "glow": 0.4
+      "glow": 0.347826
     },
     {
       "id": "fixed-modulus-binary-prime-discrepancy",
@@ -7100,7 +7151,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.4
+      "glow": 0.347826
     },
     {
       "id": "active-lane-strict-closure",
@@ -7118,7 +7169,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.25
+      "glow": 0.217391
     },
     {
       "id": "near-boundary-selector-theorem",
@@ -7136,7 +7187,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.175
+      "glow": 0.152174
     },
     {
       "id": "distributed-cone-correlation-theorem",
@@ -7149,7 +7200,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.15
+      "glow": 0.130435
     },
     {
       "id": "alignment-plus-complement-tail",
@@ -7162,7 +7213,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.1
+      "glow": 0.086957
     },
     {
       "id": "dangerous-reflection-orbit-mass-bound",
@@ -7175,7 +7226,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.1
+      "glow": 0.086957
     },
     {
       "id": "dominant-staircase-above-floor-threshold-sign",
@@ -7188,7 +7239,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.1
+      "glow": 0.086957
     },
     {
       "id": "dominant-staircase-hinge-balance",
@@ -7201,7 +7252,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.1
+      "glow": 0.086957
     },
     {
       "id": "dominant-staircase-hinge-threshold-surplus",
@@ -7214,7 +7265,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.1
+      "glow": 0.086957
     },
     {
       "id": "interpolation-or-cone-endpoint-theorem",
@@ -7227,7 +7278,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.1
+      "glow": 0.086957
     },
     {
       "id": "rarity-plus-complement-floor",
@@ -7240,7 +7291,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.1
+      "glow": 0.086957
     },
     {
       "id": "sample-size-cherry-pick-risk",
@@ -7257,7 +7308,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.075
+      "glow": 0.065217
     },
     {
       "id": "alignment-complement-route",
@@ -7270,7 +7321,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.05
+      "glow": 0.043478
     }
   ],
   "goldbach_proved": false,

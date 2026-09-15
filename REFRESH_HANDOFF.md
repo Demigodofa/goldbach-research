@@ -6,6 +6,36 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The selected `(3,1)` signed-gap obligation now has an available same-residue
+population audit.  `tools/build_q286_centered_3_1_available_same_residue_population_audit.py`
+generated
+`evidence/q286-centered-3-1-available-same-residue-population-audit.json`,
+with the human note
+`notes/q286-centered-3-1-available-same-residue-population-audit.md`.
+
+Question: do the fresh same-residue positives survive contact with the
+already available same-window seed and nonseed populations?
+
+Result: yes, finitely.  The residue-filtered profile checked selected
+reference residues `5`, `64`, `94`, and `114`, producing `60`
+all-available same-residue nonselection comparisons across the five selected
+references.  Failure count is `0`.
+
+The tightest new gate is very thin:
+
+```text
+164598 < 8000140, residue 5, same-window nonseed,
+weighted centered (3,1) gap 0.0003925287417802202
+```
+
+Decision: this strengthens the selected `(3,1)` stress-reference evidence
+beyond fresh windows and selected clear controls, but it does not prove a
+stress-class theorem.  The proof target is still a signed
+empirical/correlation gap, now with a near-collision at `164598`/`8000140`
+that any theorem must survive.
+
+## Previous active checkpoint note, 2026-09-15
+
 The selected `(3,1)` same-residue evidence now has an explicit signed-gap
 obligation.  `tools/build_q286_centered_3_1_signed_gap_obligation.py`
 generated `evidence/q286-centered-3-1-signed-gap-obligation.json`, with the
