@@ -6,6 +6,36 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The multichannel rescue now has an alternate selected-reference horizon audit.
+`tools/build_q286_multichannel_selected_reference_horizon_audit.py` generated
+`evidence/q286-multichannel-selected-reference-horizon-audit.json`, with the
+human note `notes/q286-multichannel-selected-reference-horizon-audit.md`.
+
+Question: does the residue-5 multichannel rescue survive all five selected
+deficit references when each receives a mechanically chosen same-residue
+horizon around its tightest available comparison?
+
+Result: yes for Kevin's fixed watchlist, no for scalar `(3,1)`, no for the
+watchlist with `(3,1)` removed, and no for the frozen full 17 LP vector.
+
+```text
+scalar (3,1):                         5 failures, min -0.007338646230
+watchlist (5,5),(3,1),(3,11),(3,7):   0 failures, min  0.010449868156
+watchlist without (3,1):             18 failures, min -0.019656416725
+frozen full 17 LP:                  101 failures, min -0.136747074246
+```
+
+The full 17 LP failures all come from reference `13822`; that same `13822`
+horizon is strongly positive under the watchlist, with minimum margin
+`0.08971939021326615`.
+
+Decision: the next proof route should be the fixed four-channel watchlist as a
+distributed signed-correlation cone.  Preserve `(3,1)` as a stress/reference
+classifier coordinate, not as scalar closure.  Do not promote the full 17 LP
+vector as an alternate-reference theorem route.
+
+## Previous active checkpoint note, 2026-09-15
+
 The scalar `(3,1)` residue-5 near-collision failure now has a multichannel
 rescue audit.  `tools/build_q286_centered_3_1_residue5_multichannel_horizon.py`
 generated

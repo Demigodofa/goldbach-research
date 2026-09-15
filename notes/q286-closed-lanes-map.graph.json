@@ -1504,6 +1504,14 @@
       "status_boundary": "finite multichannel rescue of one horizon only; post-hoc singleton scan is diagnostic, and this proves no selected-stress theorem, signed correlation theorem, pointwise character-sum theorem, or Goldbach proof"
     },
     {
+      "id": "receipt.q286_multichannel_selected_reference_horizon_audit",
+      "type": "receipt",
+      "label": "q286 multichannel selected-reference horizon audit",
+      "status": "finite_watchlist_rescue_full_lp_falsifier",
+      "validation": "tools/build_q286_multichannel_selected_reference_horizon_audit.py generated evidence/q286-multichannel-selected-reference-horizon-audit.json; Kevin's fixed four-channel watchlist passes all 505 selected-reference horizon comparisons with minimum margin 0.010449868155660333, while scalar (3,1) fails 5, the watchlist without (3,1) fails 18, and the frozen full 17-channel LP fails 101, all from the 13822 reference horizon",
+      "status_boundary": "finite selected-reference horizon audit only; no arbitrary stress-reference theorem, signed correlation theorem, pointwise character-sum theorem, or Goldbach proof"
+    },
+    {
       "id": "receipt.q286_centered_3_1_stress_class_audit",
       "type": "receipt",
       "label": "q286 centered (3,1) full-nonpositive stress-class audit",
@@ -1631,6 +1639,21 @@
     },
     {
       "from": "receipt.q286_centered_3_1_residue5_multichannel_horizon",
+      "to": "obligation.centered_3_1_stress_class",
+      "type": "scope_guard"
+    },
+    {
+      "from": "receipt.q286_multichannel_selected_reference_horizon_audit",
+      "to": "receipt.q286_centered_3_1_residue5_multichannel_horizon",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_multichannel_selected_reference_horizon_audit",
+      "to": "obligation.ap_count_to_17_channel_bridge",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_multichannel_selected_reference_horizon_audit",
       "to": "obligation.centered_3_1_stress_class",
       "type": "scope_guard"
     },

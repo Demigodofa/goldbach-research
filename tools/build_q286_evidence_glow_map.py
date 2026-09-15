@@ -145,6 +145,8 @@ def main():
         EVIDENCE / "q286-centered-3-1-residue5-near-collision-horizon.json")
     centered_3_1_residue5_multichannel = load_json(
         EVIDENCE / "q286-centered-3-1-residue5-multichannel-horizon.json")
+    multichannel_selected_reference_horizon = load_json(
+        EVIDENCE / "q286-multichannel-selected-reference-horizon-audit.json")
     centered_3_1_stress_class = load_json(
         EVIDENCE / "q286-centered-3-1-stress-class-audit.json")
     selected_deficit_provenance = load_json(
@@ -2087,6 +2089,90 @@ def main():
         "centered-3-1-residue5-multichannel-horizon",
         2.0,
         "(3,1) remains a possible stress-reference classifier coordinate, not a scalar closure theorem")
+
+    layer(
+        "multichannel-selected-reference-horizon-audit",
+        "Kevin watchlist passes alternate selected-reference horizons",
+        "finite_multichannel_rescue_and_falsifier",
+        "evidence/q286-multichannel-selected-reference-horizon-audit.json",
+        3.5,
+        "Finite selected-reference horizon audit only; no signed correlation theorem.")
+    add_hit(
+        mechanism_stacks,
+        "kevin-watchlist-distributed-cone",
+        "multichannel-selected-reference-horizon-audit",
+        3.5,
+        "four-channel watchlist passes all selected-reference horizons without refitting",
+        {
+            "comparison_row_count":
+                multichannel_selected_reference_horizon[
+                    "comparison_row_count"],
+            "kevin_watchlist_passes_all_horizons":
+                multichannel_selected_reference_horizon[
+                    "kevin_watchlist_4_passes_all_horizons"],
+            "kevin_watchlist_minimum_margin":
+                next(
+                    row for row in multichannel_selected_reference_horizon[
+                        "aggregate_subset_results"]
+                    if row["name"] == "kevin_watchlist_4")[
+                        "weighted_gap_summary"]["minimum"],
+        })
+    add_hit(
+        mechanism_stacks,
+        "full-17-lp-overincluded-for-13822",
+        "multichannel-selected-reference-horizon-audit",
+        3.0,
+        "frozen full 17-channel LP fails every row in the 13822 selected-reference horizon",
+        {
+            "frozen_full_17_lp_passes_all_horizons":
+                multichannel_selected_reference_horizon[
+                    "frozen_full_17_lp_passes_all_horizons"],
+            "frozen_full_17_lp_failure_count":
+                next(
+                    row for row in multichannel_selected_reference_horizon[
+                        "aggregate_subset_results"]
+                    if row["name"] == "frozen_full_17_lp")[
+                        "failing_target_count"],
+            "minimum_full_lp_margin":
+                next(
+                    row for row in multichannel_selected_reference_horizon[
+                        "aggregate_subset_results"]
+                    if row["name"] == "frozen_full_17_lp")[
+                        "weighted_gap_summary"]["minimum"],
+        })
+    add_hit(
+        target_stacks,
+        "13822",
+        "multichannel-selected-reference-horizon-audit",
+        3.5,
+        "strong watchlist reference: full 17 LP fails but watchlist stays positive",
+        {
+            "watchlist_minimum_margin":
+                next(
+                    row for row in multichannel_selected_reference_horizon[
+                        "reference_results"]
+                    if row["reference_target"] == 13822)[
+                        "subset_results"][1]["weighted_gap_summary"][
+                            "minimum"],
+            "full_lp_failing_rows":
+                next(
+                    row for row in multichannel_selected_reference_horizon[
+                        "reference_results"]
+                    if row["reference_target"] == 13822)[
+                        "subset_results"][3]["failing_target_count"],
+        })
+    add_hit(
+        theorem_stacks,
+        "ap-count-to-17-channel-bridge",
+        "multichannel-selected-reference-horizon-audit",
+        3.0,
+        "bridge narrows from full 17 LP to a fixed four-channel watchlist cone")
+    add_hit(
+        theorem_stacks,
+        "centered-3-1-stress-class-theorem",
+        "multichannel-selected-reference-horizon-audit",
+        2.5,
+        "(3,1) helps the selected watchlist but cannot be used as scalar closure")
 
     layer(
         "centered-3-1-stress-class-audit",

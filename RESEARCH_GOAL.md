@@ -6,6 +6,33 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The multichannel rescue now has an alternate selected-reference horizon audit:
+`tools/build_q286_multichannel_selected_reference_horizon_audit.py` generated
+`evidence/q286-multichannel-selected-reference-horizon-audit.json`, with
+explanation in
+`notes/q286-multichannel-selected-reference-horizon-audit.md`.
+
+Mechanism: for each selected deficit reference, take the tightest
+same-residue available comparison as a mechanically chosen horizon center,
+then scan `center + 286*k` for `-50 <= k <= 50`.  The q286 local vector
+cancels within each horizon, and frozen LP-weighted after-local channel gaps
+are aggregated without refitting.
+
+Result: Kevin's pre-existing watchlist `(5,5),(3,1),(3,11),(3,7)` passes all
+`505` selected-reference horizon comparisons, with minimum margin
+`0.010449868155660333`.  Scalar `(3,1)` fails `5` comparisons, the watchlist
+without `(3,1)` fails `18`, and the frozen full 17-channel LP vector fails
+`101` comparisons, all from the `13822` reference horizon.
+
+Interpretation: the live route is now a narrow distributed cone around
+Kevin's watchlist, not scalar `(3,1)` and not the full 17-channel LP vector.
+Reference `13822` is a strong stress-classifier witness because the full LP
+over-includes harmful channels there while the watchlist remains strongly
+positive.  Next work should test this fixed watchlist against fresh unseen
+windows and alternate non-post-hoc stress predicates.
+
+## Previous continuation evidence, 2026-09-15
+
 The scalar `(3,1)` residue-5 near-collision failure now has a multichannel
 horizon audit:
 `tools/build_q286_centered_3_1_residue5_multichannel_horizon.py` generated
