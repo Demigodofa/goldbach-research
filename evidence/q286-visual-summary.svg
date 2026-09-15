@@ -4,7 +4,7 @@
 <rect x="0.00" y="0.00" width="1200.00" height="880.00" fill="#fafafa" stroke="none" opacity="1.0"/>
 <text x="38.00" y="42.00" font-size="24" font-family="Arial, sans-serif" font-weight="500" text-anchor="start" fill="#222">q286 Evidence Glow / Vector / PCA Summary</text>
 <text x="38.00" y="66.00" font-size="13" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">Finite navigation layer only: glow is overlap, not proof. Boundary, endpoint, outer assembly, and signed prime correlation remain open.</text>
-<text x="38.00" y="855.00" font-size="11" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#555">generated from commit fc0101e2bd6502439b45af7bba97778aaaa11d21</text>
+<text x="38.00" y="855.00" font-size="11" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#555">generated from commit c5b689f0f6152789455691de11e5d916b611659d</text>
 <rect x="55.00" y="95.00" width="500.00" height="360.00" fill="#ffffff" stroke="#bbbbbb" opacity="1.0"/>
 <text x="55.00" y="79.00" font-size="17" font-family="Arial, sans-serif" font-weight="500" text-anchor="start" fill="#222">Selected component PCA / SVD</text>
 <text x="55.00" y="487.00" font-size="12" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">PC1: boundary vs late component split</text>
@@ -118,12 +118,12 @@
 <text x="635.00" y="714.00" font-size="12" font-family="Arial, sans-serif" font-weight="600" text-anchor="start" fill="#222">Theorem gaps</text>
 <text x="635.00" y="732.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">centered-3-1-stress-class-theorem</text>
 <rect x="860.00" y="721.00" width="225.00" height="13.00" fill="#eeeeee" stroke="none" opacity="1.0"/>
-<rect x="860.00" y="721.00" width="170.64" height="13.00" fill="#7570b3" stroke="none" opacity="0.78"/>
-<text x="1091.00" y="732.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">60.5</text>
+<rect x="860.00" y="721.00" width="179.10" height="13.00" fill="#7570b3" stroke="none" opacity="0.78"/>
+<text x="1091.00" y="732.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">63.5</text>
 <text x="635.00" y="752.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">ap-count-to-17-channel-bridge</text>
 <rect x="860.00" y="741.00" width="225.00" height="13.00" fill="#eeeeee" stroke="none" opacity="1.0"/>
-<rect x="860.00" y="741.00" width="119.87" height="13.00" fill="#7570b3" stroke="none" opacity="0.78"/>
-<text x="1091.00" y="752.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">42.5</text>
+<rect x="860.00" y="741.00" width="125.51" height="13.00" fill="#7570b3" stroke="none" opacity="0.78"/>
+<text x="1091.00" y="752.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">44.5</text>
 <text x="635.00" y="772.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">rank1-outside-direction-arithmetic-</text>
 <rect x="860.00" y="761.00" width="225.00" height="13.00" fill="#eeeeee" stroke="none" opacity="1.0"/>
 <rect x="860.00" y="761.00" width="49.36" height="13.00" fill="#7570b3" stroke="none" opacity="0.78"/>

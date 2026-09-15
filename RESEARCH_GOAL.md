@@ -6,6 +6,33 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The centered `(3,1)` reference signal now has a reference-sensitivity audit:
+`tools/build_q286_centered_3_1_reference_sensitivity_audit.py` generated
+`evidence/q286-centered-3-1-reference-sensitivity-audit.json`, with explanation
+in `notes/q286-centered-3-1-reference-sensitivity-audit.md`.
+
+Mechanism: compare weighted locally centered `(3,1)` values for several frozen
+reference groups against three target groups kept separate: the `12`
+same-window zero-local seed targets, the `594` same-window nonseed targets, and
+the `606` fresh predeclared targets.
+
+Result: the fresh-predeclared `(3,1)` pass is not a `13822`-only accident.
+The selected deficit five have `0` fresh failures; removing `13822` still has
+`0` fresh failures; `13822` alone has `0` fresh failures.  The scalar-selected
+broad low-33 and strict low-24 groups also have `0` fresh failures, while
+selected clear controls have `1518` failures and broad above-threshold controls
+have `32648` failures.  The same-window target groups must stay separate:
+selected deficits have `0` failures on the `12` zero-local seeds but `2`
+failures on the `594` nonseed targets; the strict broad low-24 group has `0`
+failures on all same-window and fresh target groups.
+
+Interpretation: `(3,1)` is not merely `13822` being unusually low, but the
+passing broad families remain scalar-selected by `(3,1)` itself.  The stress
+theorem still needs an independent arithmetic/correlation-defined family, or it
+should be recast as a signed correlation estimate rather than a classifier.
+
+## Previous continuation evidence, 2026-09-15
+
 The low-`(3,1)` subclass now has an independent stress-feature audit:
 `tools/build_q286_independent_stress_feature_audit.py` generated
 `evidence/q286-independent-stress-feature-audit.json`, with explanation in

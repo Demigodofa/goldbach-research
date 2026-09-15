@@ -168,6 +168,8 @@ def main():
         EVIDENCE / "q286-centered-3-1-threshold-subclass-audit.json")
     independent_stress_feature = load_json(
         EVIDENCE / "q286-independent-stress-feature-audit.json")
+    centered_3_1_reference_sensitivity = load_json(
+        EVIDENCE / "q286-centered-3-1-reference-sensitivity-audit.json")
     centered_3_1_stress_class = load_json(
         EVIDENCE / "q286-centered-3-1-stress-class-audit.json")
     selected_deficit_provenance = load_json(
@@ -2783,6 +2785,65 @@ def main():
         "independent-stress-feature-audit",
         2.5,
         "filter-order features alone do not supply the local-to-channel bridge")
+
+    layer(
+        "centered-3-1-reference-sensitivity-audit",
+        "Centered (3,1) fresh-window signal is not 13822-only",
+        "validated_scope_guard",
+        "evidence/q286-centered-3-1-reference-sensitivity-audit.json",
+        3.0,
+        "Finite reference-sensitivity audit only; no independent stress theorem.")
+    ref_decision = centered_3_1_reference_sensitivity[
+        "reference_specific_decision"]
+    add_hit(
+        mechanism_stacks,
+        "centered-3-1-selected-reference-scalar-order",
+        "centered-3-1-reference-sensitivity-audit",
+        3.0,
+        "removing 13822 from selected deficits still leaves zero fresh-predeclared scalar failures",
+        {
+            "selected_deficit_five_fresh_failures":
+                ref_decision["selected_deficit_five_fresh_failures"],
+            "selected_deficit_excluding_13822_fresh_failures":
+                ref_decision[
+                    "selected_deficit_excluding_13822_fresh_failures"],
+            "reference_13822_required":
+                ref_decision[
+                    "reference_13822_is_required_for_selected_fresh_pass"],
+            "selected_clear_control_fresh_failures":
+                ref_decision["selected_clear_control_fresh_failures"],
+        })
+    add_hit(
+        mechanism_stacks,
+        "centered-3-1-threshold-scalar-subclass",
+        "centered-3-1-reference-sensitivity-audit",
+        2.5,
+        "broad low-33 and strict low-24 groups pass fresh targets but remain scalar-selected",
+        {
+            "broad_low_33_fresh_failures":
+                ref_decision["broad_low_33_fresh_failures"],
+            "broad_above_threshold_control_fresh_failures":
+                ref_decision[
+                    "broad_above_threshold_control_fresh_failures"],
+        })
+    add_hit(
+        mechanism_stacks,
+        "same-window-target-groups-remain-separate",
+        "centered-3-1-reference-sensitivity-audit",
+        2.0,
+        "same-window nonseed targets produce selected-deficit scalar failures, so the fresh-window claim is not an all-target-group theorem")
+    add_hit(
+        theorem_stacks,
+        "centered-3-1-stress-class-theorem",
+        "centered-3-1-reference-sensitivity-audit",
+        3.0,
+        "fresh-window signal is not 13822-only, but scalar-selected reference groups still need an independent arithmetic/correlation family")
+    add_hit(
+        theorem_stacks,
+        "ap-count-to-17-channel-bridge",
+        "centered-3-1-reference-sensitivity-audit",
+        2.0,
+        "bridge must explain reference ordering without selecting by the same scalar")
 
     layer(
         "centered-3-1-stress-class-audit",

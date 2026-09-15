@@ -6,6 +6,46 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The centered `(3,1)` stress/reference hunch now has a reference-sensitivity
+audit.
+
+`tools/build_q286_centered_3_1_reference_sensitivity_audit.py` generated
+`evidence/q286-centered-3-1-reference-sensitivity-audit.json`, with the human
+note `notes/q286-centered-3-1-reference-sensitivity-audit.md`.
+
+Question: is the `(3,1)` signal just the large negative selected witness
+`13822`, or does it persist across alternate q286 references?
+
+Result: not `13822`-only on the fresh-predeclared target group.
+
+```text
+fresh predeclared targets:              606
+same-window zero-local seed targets:     12
+same-window nonseed targets:            594
+
+selected deficit five -> fresh:          0 failures
+selected deficits excluding 13822:       0 failures
+reference 13822 only -> fresh:           0 failures
+broad low-33 scalar-selected -> fresh:   0 failures
+broad strict low-24 -> all groups:       0 failures
+selected clear controls -> fresh:     1518 failures
+broad above-threshold controls:      32648 failures
+```
+
+Same-window groups stay scoped separately.  The selected deficit five have
+`0` failures against the `12` zero-local seed targets but `2` failures against
+the `594` same-window nonseed targets.  Reference `13822` alone passes every
+tested target group, and the strict broad low-24 group also passes every tested
+group, but the latter is selected by centered `(3,1)` itself.
+
+Decision: `(3,1)` is not merely `13822` being low.  It persists after removing
+`13822` from the selected deficit references.  But the broad passing groups are
+still scalar-selected diagnostics, not a non-post-hoc stress definition.  The
+next branch must name an independent arithmetic/correlation family or recast
+the target as a signed correlation estimate.
+
+## Previous active checkpoint note, 2026-09-15
+
 The low-`(3,1)` subclass now has an independent stress-feature audit.
 
 `tools/build_q286_independent_stress_feature_audit.py` generated
