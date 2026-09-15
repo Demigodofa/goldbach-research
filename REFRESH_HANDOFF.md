@@ -6,6 +6,40 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 raw signed-witness threshold candidate now has its first fresh
+full-cycle holdout.
+
+`tools/build_q286_raw_signed_witness_threshold_holdout.py` generated
+`evidence/q286-raw-signed-witness-threshold-holdout.json`, with explanation in
+`notes/q286-raw-signed-witness-threshold-holdout.md`.
+
+Question: after the prior census found a finite positive suffix starting at
+`90080`, does the first fresh block after the prior scanned range break that
+candidate?
+
+Result: no finite break in the fresh block.
+
+```text
+fresh base target:              130120
+fresh end target:               250238
+fresh cycles:                   12
+fresh even targets scanned:     60060
+fresh nonpositive raw actions:  0
+fresh worst target:             194384
+fresh worst centered ratio:     -0.8263994946792758
+combined positive suffix:       90080..250238
+combined suffix even targets:   80080
+```
+
+Decision: the `90080` threshold candidate is supported by finite holdout but
+not proved.  The from-`10000` threshold remains falsified.  Any future
+unchanged full-cycle holdout at or above `90080` with `RawFull(N)<=0`
+falsifies the current candidate.  The needed theorem is still a pointwise
+signed binary-prime correlation estimate or an explicit condition explaining
+why later recurrences cannot happen.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 signed-witness bridge now has a direct raw-action census.
 
 `tools/build_q286_raw_signed_witness_census.py` generated

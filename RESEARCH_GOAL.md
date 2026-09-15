@@ -6,6 +6,34 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The raw q286 signed-witness threshold candidate now has a fresh full-cycle
+holdout:
+`tools/build_q286_raw_signed_witness_threshold_holdout.py` generated
+`evidence/q286-raw-signed-witness-threshold-holdout.json`, with explanation in
+`notes/q286-raw-signed-witness-threshold-holdout.md`.
+
+Question: does the first fresh block after the prior checked positive suffix
+falsify the candidate `RawFull(N)>0 for every even N>=90080`?
+
+Result: no finite falsifier in the fresh block.  The holdout scanned the next
+`12` full `M=10010` cycles, from `130120` through `250238`, covering `60060`
+fresh even targets.  It found `0` nonpositive raw signed q286 actions.  The
+fresh worst target was `194384`, with centered-to-principal ratio
+`-0.8263994946792758`.  Combining this with the prior suffix gives `80080`
+consecutive checked even targets from `90080` through `250238` with positive
+raw signed q286 action.
+
+Decision: the `90080` threshold candidate is finite-supported but unproved.
+The from-`10000` threshold remains directly contradicted.  Any future
+unchanged full-cycle holdout at or above `90080` with `RawFull(N)<=0`
+falsifies the current candidate.  A proof still needs an analytic reason later
+recurrences cannot happen: pointwise signed binary-prime correlation, an
+explicit formula bound for this coefficient, or a non-post-hoc
+residue/correlation selector plus finite complement check.  Goldbach is not
+proved.
+
+## Previous continuation evidence, 2026-09-15
+
 The surviving signed-witness route now has a direct raw-action finite census:
 `tools/build_q286_raw_signed_witness_census.py` generated
 `evidence/q286-raw-signed-witness-census.json`, with explanation in

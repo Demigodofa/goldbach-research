@@ -1894,6 +1894,22 @@
       "status": "falsified",
       "reason": "The twelve-cycle raw-action census found 89 nonpositive raw signed actions from 10000, including two recurrences in cycle 7 after cycles 4..6 were clean.",
       "nuance": "Does not refute a later explicit threshold or residue-conditioned signed correlation theorem."
+    },
+    {
+      "id": "receipt.q286_raw_signed_witness_threshold_holdout",
+      "type": "receipt",
+      "label": "q286 raw signed witness threshold holdout",
+      "status": "validated_finite_support",
+      "validation": "tools/build_q286_raw_signed_witness_threshold_holdout.py generated evidence/q286-raw-signed-witness-threshold-holdout.json; the fresh twelve-cycle holdout from 130120 through 250238 scanned 60060 even targets and found 0 nonpositive raw signed actions, extending the finite checked positive suffix 90080..250238 to 80080 consecutive even targets.",
+      "status_boundary": "finite fresh holdout only; supports but does not prove the 90080 threshold candidate, and gives no pointwise signed prime-correlation theorem or Goldbach proof"
+    },
+    {
+      "id": "candidate.q286_raw_signed_witness_from_90080",
+      "type": "theorem_target",
+      "label": "Raw q286 signed witness positive from 90080",
+      "status": "finite_supported_open",
+      "statement": "Candidate: RawFull(N)>0 for every even N>=90080. Current finite support covers every checked even target from 90080 through 250238, but no analytic reason yet excludes later recurrences.",
+      "goldbach_proved": false
     }
   ],
   "edges": [
@@ -4351,6 +4367,21 @@
       "from": "lane.q286_raw_signed_witness_from_10000",
       "to": "theorem.q286_positive_signed_witness",
       "type": "scope_guard"
+    },
+    {
+      "from": "receipt.q286_raw_signed_witness_threshold_holdout",
+      "to": "candidate.q286_raw_signed_witness_from_90080",
+      "type": "supports"
+    },
+    {
+      "from": "receipt.q286_raw_signed_witness_threshold_holdout",
+      "to": "theorem.q286_positive_signed_witness",
+      "type": "tests"
+    },
+    {
+      "from": "candidate.q286_raw_signed_witness_from_90080",
+      "to": "theorem.q286_positive_signed_witness",
+      "type": "refines"
     }
   ]
 }

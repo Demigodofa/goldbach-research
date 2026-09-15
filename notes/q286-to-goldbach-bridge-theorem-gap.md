@@ -334,3 +334,32 @@ nonpositive targets.  Therefore a finite clean run does not establish a
 monotone threshold.  Any eventual signed-witness theorem must either start
 after the last checked nonpositive target or prove a reason that later
 recurrences cannot happen.
+
+## Raw Signed-Witness Threshold Holdout
+
+`tools/build_q286_raw_signed_witness_threshold_holdout.py` generated
+`evidence/q286-raw-signed-witness-threshold-holdout.json`.
+
+Result: the first fresh holdout after the prior scan preserves the
+`90080` threshold candidate.
+
+```text
+fresh base target:              130120
+fresh end target:               250238
+fresh cycles:                   12
+fresh even targets scanned:     60060
+fresh nonpositive raw actions:  0
+fresh worst target:             194384
+fresh worst centered ratio:     -0.8263994946792758
+```
+
+Combined with the earlier clean suffix, this gives finite evidence:
+
+```text
+RawFull(N)>0 on every checked even N from 90080 through 250238
+checked consecutive even targets: 80080
+```
+
+This supports but does not prove an eventual threshold after `88346`.
+The active falsifier is any future unchanged full-cycle holdout at or above
+`90080` containing `RawFull(N)<=0`.
