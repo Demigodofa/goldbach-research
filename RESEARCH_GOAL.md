@@ -6,6 +6,50 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 component-pair route now has a post-discovery strict-closure stress
+audit and a linked local phase-space viewer:
+`tools/build_q286_active_lane_strict_closure_post_discovery_stress.py`
+generated
+`evidence/q286-active-lane-strict-closure-post-discovery-stress.json`, with
+explanation in
+`notes/q286-active-lane-strict-closure-post-discovery-stress.md`.
+`tools/build_q286_active_lane_strict_closure_phase_space_html.py` generated
+`evidence/q286-active-lane-strict-closure-phase-space.html`.
+
+Question: does the selected-late component-pair strict-closure scalar survive
+one worst unchanged active-lane sample row from every post-discovery block?
+
+Answer: no.  The actual full action stays positive on the selected source
+rows, but the frozen selected-late strict-closure endpoint has six finite
+nonpositive margin rows and therefore cannot be promoted to a universal
+active-lane certificate.
+
+```text
+scanned targets:                 11
+tail targets:                    11
+positive strict margins:          5
+nonpositive strict margins:       6
+minimum strict closure margin:   -1.1917268781786845
+maximum strict closure margin:    0.36289434822899685
+failed endpoint targets:          94856, 194384, 255704, 383486, 480614, 548666
+first passed endpoint target:     594112
+```
+
+Decision: `HOLD_selected_late_strict_closure_endpoint_falsified_by_early_post_discovery_stress`.
+The next theorem-shaped target is no longer "extend the selected-late scalar."
+It must be a genuinely pointwise, unnormalized analytic estimate for adverse
+drag below local main, a proved phase/scale condition explaining the early to
+later transition, or a replacement decomposition with constants not calibrated
+from a selected-late finite fixture.  The linked viewer is a falsifier and
+hypothesis locator only: `x=log(N)`, `y=driver margin`, `z=strict closure
+margin`, color/residue for arithmetic class, brightness for distance from the
+zero boundary, and animation by post-discovery block.  No component-pair
+theorem, fixed-conductor channel theorem, pointwise adverse-drag theorem,
+q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof is
+established.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 route now has a non-circular route-triage audit:
 `tools/build_q286_non_circular_route_triage_audit.py` generated
 `evidence/q286-non-circular-route-triage-audit.json`, with explanation in

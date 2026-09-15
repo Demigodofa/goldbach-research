@@ -6,6 +6,44 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 component-pair route now has a post-discovery strict-closure stress
+audit plus a linked local phase-space viewer.
+
+```text
+tools/build_q286_active_lane_strict_closure_post_discovery_stress.py
+notes/q286-active-lane-strict-closure-post-discovery-stress.md
+evidence/q286-active-lane-strict-closure-post-discovery-stress.json
+tools/build_q286_active_lane_strict_closure_phase_space_html.py
+evidence/q286-active-lane-strict-closure-phase-space.html
+```
+
+Result:
+
+```text
+scanned targets:                 11
+tail targets:                    11
+positive strict margins:          5
+nonpositive strict margins:       6
+minimum strict closure margin:   -1.1917268781786845
+maximum strict closure margin:    0.36289434822899685
+failed endpoint targets:          94856, 194384, 255704, 383486, 480614, 548666
+first passed endpoint target:     594112
+```
+
+Decision:
+`HOLD_selected_late_strict_closure_endpoint_falsified_by_early_post_discovery_stress`.
+The actual full action remains positive on the selected source rows, but the
+selected-late strict-closure endpoint is not a universal active-lane
+certificate.  The next theorem-shaped target must be a pointwise,
+unnormalized adverse-drag estimate below local main, a proved phase/scale
+transition condition, or a replacement decomposition with non-fixture
+constants.  The HTML viewer is a falsifier/hypothesis locator only and proves
+no component-pair theorem, fixed-conductor channel theorem, pointwise
+adverse-drag theorem, q286 threshold theorem, strict-central Goldbach theorem,
+or Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 route now has a non-circular route-triage audit.
 
 ```text
