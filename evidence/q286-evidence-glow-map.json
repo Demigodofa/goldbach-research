@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "receipt": "q286-evidence-glow-map",
-  "generated_from_commit": "eb619f5c8e9d2a2474f1c3cc0cf152d2ad84b930",
+  "generated_from_commit": "9d8fc7cc4564ae0343be423f0d87a5b00ff23390",
   "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
   "visual_encoding": {
     "target_shape": "circle",
@@ -332,6 +332,14 @@
       "boundary": "Finite same-residue fresh-window audit only; no signed correlation theorem."
     },
     {
+      "id": "centered-3-1-signed-gap-obligation",
+      "label": "Centered (3,1) signed-gap obligation is explicit",
+      "kind": "theorem_obligation",
+      "source": "evidence/q286-centered-3-1-signed-gap-obligation.json",
+      "default_weight": 3.0,
+      "boundary": "Finite theorem-obligation extraction only; no signed correlation theorem."
+    },
+    {
       "id": "centered-3-1-stress-class-audit",
       "label": "Centered (3,1) fails the full-nonpositive stress class",
       "kind": "finite_stress_class_falsifier",
@@ -367,7 +375,7 @@
   "target_stacks": [
     {
       "id": "1222142",
-      "stack_weight": 56.5,
+      "stack_weight": 59.0,
       "layers": [
         {
           "layer": "graph-target-roles",
@@ -659,14 +667,25 @@
             "mean": 0.026836020121405665,
             "minimum": 0.021237988715577156
           }
+        },
+        {
+          "layer": "centered-3-1-signed-gap-obligation",
+          "weight": 2.5,
+          "reason": "same-residue signed empirical/correlation gap remains positive on checked fresh targets",
+          "value": {
+            "count": 6,
+            "maximum": 0.03076518212032442,
+            "mean": 0.026836020121405665,
+            "minimum": 0.021237988715577156
+          }
         }
       ],
-      "layer_count": 28,
+      "layer_count": 29,
       "glow": 1.0
     },
     {
       "id": "13822",
-      "stack_weight": 56.5,
+      "stack_weight": 59.0,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -963,14 +982,25 @@
             "mean": 0.01613992556350408,
             "minimum": 0.011427902059564236
           }
+        },
+        {
+          "layer": "centered-3-1-signed-gap-obligation",
+          "weight": 2.5,
+          "reason": "same-residue signed empirical/correlation gap remains positive on checked fresh targets",
+          "value": {
+            "count": 6,
+            "maximum": 0.019084410512325164,
+            "mean": 0.01613992556350408,
+            "minimum": 0.011427902059564236
+          }
         }
       ],
-      "layer_count": 27,
+      "layer_count": 28,
       "glow": 1.0
     },
     {
       "id": "164598",
-      "stack_weight": 49.0,
+      "stack_weight": 51.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1229,14 +1259,25 @@
             "mean": 0.010579423036042625,
             "minimum": 0.007258334506941435
           }
+        },
+        {
+          "layer": "centered-3-1-signed-gap-obligation",
+          "weight": 2.5,
+          "reason": "same-residue signed empirical/correlation gap remains positive on checked fresh targets",
+          "value": {
+            "count": 6,
+            "maximum": 0.013237891244304297,
+            "mean": 0.010579423036042625,
+            "minimum": 0.007258334506941435
+          }
         }
       ],
-      "layer_count": 24,
-      "glow": 0.867257
+      "layer_count": 25,
+      "glow": 0.872881
     },
     {
       "id": "24424",
-      "stack_weight": 49.0,
+      "stack_weight": 51.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1495,14 +1536,25 @@
             "mean": 0.0338396006588902,
             "minimum": 0.032619830704142684
           }
+        },
+        {
+          "layer": "centered-3-1-signed-gap-obligation",
+          "weight": 2.5,
+          "reason": "same-residue signed empirical/correlation gap remains positive on checked fresh targets",
+          "value": {
+            "count": 6,
+            "maximum": 0.035656156579893156,
+            "mean": 0.0338396006588902,
+            "minimum": 0.032619830704142684
+          }
         }
       ],
-      "layer_count": 24,
-      "glow": 0.867257
+      "layer_count": 25,
+      "glow": 0.872881
     },
     {
       "id": "55864",
-      "stack_weight": 49.0,
+      "stack_weight": 51.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1761,10 +1813,21 @@
             "mean": 0.03330735440382218,
             "minimum": 0.028595330899882337
           }
+        },
+        {
+          "layer": "centered-3-1-signed-gap-obligation",
+          "weight": 2.5,
+          "reason": "same-residue signed empirical/correlation gap remains positive on checked fresh targets",
+          "value": {
+            "count": 6,
+            "maximum": 0.03625183935264326,
+            "mean": 0.03330735440382218,
+            "minimum": 0.028595330899882337
+          }
         }
       ],
-      "layer_count": 24,
-      "glow": 0.867257
+      "layer_count": 25,
+      "glow": 0.872881
     },
     {
       "id": "1242118",
@@ -1979,7 +2042,7 @@
         }
       ],
       "layer_count": 18,
-      "glow": 0.699115
+      "glow": 0.669492
     },
     {
       "id": "129706",
@@ -2146,7 +2209,7 @@
         }
       ],
       "layer_count": 15,
-      "glow": 0.539823
+      "glow": 0.516949
     },
     {
       "id": "13556",
@@ -2302,7 +2365,7 @@
         }
       ],
       "layer_count": 14,
-      "glow": 0.504425
+      "glow": 0.483051
     },
     {
       "id": "1240888",
@@ -2425,7 +2488,7 @@
         }
       ],
       "layer_count": 11,
-      "glow": 0.39823
+      "glow": 0.381356
     },
     {
       "id": "40420",
@@ -2548,7 +2611,7 @@
         }
       ],
       "layer_count": 11,
-      "glow": 0.39823
+      "glow": 0.381356
     },
     {
       "id": "1220056",
@@ -2648,7 +2711,7 @@
         }
       ],
       "layer_count": 7,
-      "glow": 0.300885
+      "glow": 0.288136
     },
     {
       "id": "1222048",
@@ -2748,7 +2811,7 @@
         }
       ],
       "layer_count": 7,
-      "glow": 0.300885
+      "glow": 0.288136
     },
     {
       "id": "1200224",
@@ -2817,7 +2880,7 @@
         }
       ],
       "layer_count": 6,
-      "glow": 0.247788
+      "glow": 0.237288
     },
     {
       "id": "1222072",
@@ -2896,7 +2959,7 @@
         }
       ],
       "layer_count": 5,
-      "glow": 0.238938
+      "glow": 0.228814
     },
     {
       "id": "1220124",
@@ -2975,7 +3038,7 @@
         }
       ],
       "layer_count": 5,
-      "glow": 0.221239
+      "glow": 0.211864
     },
     {
       "id": "1221052",
@@ -3055,7 +3118,7 @@
         }
       ],
       "layer_count": 5,
-      "glow": 0.212389
+      "glow": 0.20339
     },
     {
       "id": "1221042",
@@ -3114,7 +3177,7 @@
         }
       ],
       "layer_count": 5,
-      "glow": 0.20354
+      "glow": 0.194915
     },
     {
       "id": "1242070",
@@ -3183,7 +3246,7 @@
         }
       ],
       "layer_count": 4,
-      "glow": 0.19469
+      "glow": 0.186441
     },
     {
       "id": "1240160",
@@ -3262,7 +3325,7 @@
         }
       ],
       "layer_count": 7,
-      "glow": 0.176991
+      "glow": 0.169492
     },
     {
       "id": "1200262",
@@ -3310,7 +3373,7 @@
         }
       ],
       "layer_count": 4,
-      "glow": 0.168142
+      "glow": 0.161017
     },
     {
       "id": "1222018",
@@ -3358,7 +3421,7 @@
         }
       ],
       "layer_count": 4,
-      "glow": 0.168142
+      "glow": 0.161017
     },
     {
       "id": "1200254",
@@ -3417,7 +3480,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.150442
+      "glow": 0.144068
     },
     {
       "id": "1222030",
@@ -3476,7 +3539,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.150442
+      "glow": 0.144068
     },
     {
       "id": "1242162",
@@ -3545,7 +3608,7 @@
         }
       ],
       "layer_count": 6,
-      "glow": 0.132743
+      "glow": 0.127119
     },
     {
       "id": "1240144",
@@ -3583,7 +3646,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.123894
+      "glow": 0.118644
     },
     {
       "id": "1200482",
@@ -3632,7 +3695,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.106195
+      "glow": 0.101695
     },
     {
       "id": "1379072",
@@ -3658,7 +3721,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.106195
+      "glow": 0.101695
     },
     {
       "id": "1426162",
@@ -3688,7 +3751,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.106195
+      "glow": 0.101695
     },
     {
       "id": "1426262",
@@ -3718,7 +3781,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.106195
+      "glow": 0.101695
     },
     {
       "id": "1200362",
@@ -3776,7 +3839,7 @@
         }
       ],
       "layer_count": 5,
-      "glow": 0.097345
+      "glow": 0.09322
     },
     {
       "id": "1221148",
@@ -3804,7 +3867,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.097345
+      "glow": 0.09322
     },
     {
       "id": "10000028",
@@ -3829,7 +3892,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.079646
+      "glow": 0.076271
     },
     {
       "id": "10000054",
@@ -3854,7 +3917,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.079646
+      "glow": 0.076271
     },
     {
       "id": "12000026",
@@ -3879,7 +3942,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.079646
+      "glow": 0.076271
     },
     {
       "id": "12000052",
@@ -3904,7 +3967,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.079646
+      "glow": 0.076271
     },
     {
       "id": "16000022",
@@ -3929,7 +3992,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.079646
+      "glow": 0.076271
     },
     {
       "id": "16000048",
@@ -3954,7 +4017,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.079646
+      "glow": 0.076271
     },
     {
       "id": "20000018",
@@ -3979,7 +4042,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.079646
+      "glow": 0.076271
     },
     {
       "id": "20000044",
@@ -4004,7 +4067,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.079646
+      "glow": 0.076271
     },
     {
       "id": "6000032",
@@ -4029,7 +4092,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.079646
+      "glow": 0.076271
     },
     {
       "id": "6000058",
@@ -4054,7 +4117,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.079646
+      "glow": 0.076271
     },
     {
       "id": "8000030",
@@ -4079,7 +4142,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.079646
+      "glow": 0.076271
     },
     {
       "id": "8000056",
@@ -4104,7 +4167,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.079646
+      "glow": 0.076271
     },
     {
       "id": "1221092",
@@ -4132,7 +4195,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.070796
+      "glow": 0.067797
     },
     {
       "id": "1221118",
@@ -4160,7 +4223,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.070796
+      "glow": 0.067797
     },
     {
       "id": "1222168",
@@ -4188,7 +4251,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.070796
+      "glow": 0.067797
     },
     {
       "id": "1242106",
@@ -4216,7 +4279,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.070796
+      "glow": 0.067797
     },
     {
       "id": "1323632",
@@ -4236,7 +4299,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.070796
+      "glow": 0.067797
     },
     {
       "id": "1200208",
@@ -4265,7 +4328,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.061947
+      "glow": 0.059322
     },
     {
       "id": "1200598",
@@ -4303,7 +4366,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.061947
+      "glow": 0.059322
     },
     {
       "id": "1220098",
@@ -4332,7 +4395,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.061947
+      "glow": 0.059322
     },
     {
       "id": "1242136",
@@ -4361,7 +4424,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.061947
+      "glow": 0.059322
     },
     {
       "id": "6000000",
@@ -4380,7 +4443,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.061947
+      "glow": 0.059322
     },
     {
       "id": "6000002",
@@ -4399,7 +4462,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.061947
+      "glow": 0.059322
     },
     {
       "id": "6000004",
@@ -4418,7 +4481,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.061947
+      "glow": 0.059322
     },
     {
       "id": "6000006",
@@ -4437,7 +4500,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.061947
+      "glow": 0.059322
     },
     {
       "id": "6000008",
@@ -4456,7 +4519,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.061947
+      "glow": 0.059322
     },
     {
       "id": "6000010",
@@ -4475,7 +4538,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.061947
+      "glow": 0.059322
     },
     {
       "id": "6000012",
@@ -4494,7 +4557,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.061947
+      "glow": 0.059322
     },
     {
       "id": "6000014",
@@ -4513,7 +4576,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.061947
+      "glow": 0.059322
     },
     {
       "id": "6000016",
@@ -4532,7 +4595,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.061947
+      "glow": 0.059322
     },
     {
       "id": "6000018",
@@ -4551,7 +4614,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.061947
+      "glow": 0.059322
     },
     {
       "id": "6000020",
@@ -4570,7 +4633,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.061947
+      "glow": 0.059322
     },
     {
       "id": "6000022",
@@ -4589,7 +4652,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.061947
+      "glow": 0.059322
     },
     {
       "id": "1200232",
@@ -4607,7 +4670,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.053097
+      "glow": 0.050847
     },
     {
       "id": "1200392",
@@ -4625,7 +4688,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.053097
+      "glow": 0.050847
     },
     {
       "id": "1200520",
@@ -4643,7 +4706,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.053097
+      "glow": 0.050847
     },
     {
       "id": "1221154",
@@ -4661,7 +4724,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.053097
+      "glow": 0.050847
     },
     {
       "id": "1260058",
@@ -4679,7 +4742,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.053097
+      "glow": 0.050847
     },
     {
       "id": "1261180",
@@ -4697,7 +4760,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.053097
+      "glow": 0.050847
     },
     {
       "id": "1261196",
@@ -4715,7 +4778,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.053097
+      "glow": 0.050847
     },
     {
       "id": "1262014",
@@ -4733,7 +4796,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.053097
+      "glow": 0.050847
     },
     {
       "id": "1262162",
@@ -4751,7 +4814,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.053097
+      "glow": 0.050847
     },
     {
       "id": "1280026",
@@ -4769,7 +4832,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.053097
+      "glow": 0.050847
     },
     {
       "id": "1280086",
@@ -4787,7 +4850,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.053097
+      "glow": 0.050847
     },
     {
       "id": "1281148",
@@ -4805,7 +4868,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.053097
+      "glow": 0.050847
     },
     {
       "id": "1282052",
@@ -4823,7 +4886,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.053097
+      "glow": 0.050847
     },
     {
       "id": "1282108",
@@ -4841,7 +4904,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.053097
+      "glow": 0.050847
     },
     {
       "id": "1282142",
@@ -4859,7 +4922,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.053097
+      "glow": 0.050847
     },
     {
       "id": "1282186",
@@ -4877,7 +4940,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.053097
+      "glow": 0.050847
     },
     {
       "id": "1426164",
@@ -4896,7 +4959,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.053097
+      "glow": 0.050847
     },
     {
       "id": "1426166",
@@ -4915,7 +4978,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.053097
+      "glow": 0.050847
     },
     {
       "id": "1426168",
@@ -4934,7 +4997,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.053097
+      "glow": 0.050847
     },
     {
       "id": "1426170",
@@ -4953,7 +5016,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.053097
+      "glow": 0.050847
     },
     {
       "id": "1426172",
@@ -4972,7 +5035,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.053097
+      "glow": 0.050847
     },
     {
       "id": "1426174",
@@ -4991,7 +5054,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.053097
+      "glow": 0.050847
     },
     {
       "id": "1426176",
@@ -5010,7 +5073,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.053097
+      "glow": 0.050847
     },
     {
       "id": "1426178",
@@ -5029,7 +5092,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.053097
+      "glow": 0.050847
     },
     {
       "id": "1426180",
@@ -5048,7 +5111,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.053097
+      "glow": 0.050847
     },
     {
       "id": "1426182",
@@ -5067,7 +5130,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.053097
+      "glow": 0.050847
     },
     {
       "id": "1426196",
@@ -5086,7 +5149,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.053097
+      "glow": 0.050847
     },
     {
       "id": "1426264",
@@ -5105,7 +5168,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.053097
+      "glow": 0.050847
     },
     {
       "id": "1500044",
@@ -5124,7 +5187,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.053097
+      "glow": 0.050847
     },
     {
       "id": "2200064",
@@ -5143,7 +5206,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.053097
+      "glow": 0.050847
     },
     {
       "id": "2200190",
@@ -5162,7 +5225,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.053097
+      "glow": 0.050847
     },
     {
       "id": "3305164",
@@ -5181,7 +5244,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.053097
+      "glow": 0.050847
     },
     {
       "id": "3305176",
@@ -5200,7 +5263,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.053097
+      "glow": 0.050847
     },
     {
       "id": "3305206",
@@ -5219,7 +5282,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.053097
+      "glow": 0.050847
     },
     {
       "id": "4304280",
@@ -5238,7 +5301,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.053097
+      "glow": 0.050847
     },
     {
       "id": "5000152",
@@ -5257,7 +5320,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.053097
+      "glow": 0.050847
     },
     {
       "id": "1220188",
@@ -5275,7 +5338,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.044248
+      "glow": 0.042373
     },
     {
       "id": "1221002",
@@ -5293,7 +5356,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.044248
+      "glow": 0.042373
     },
     {
       "id": "1221156",
@@ -5311,7 +5374,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.044248
+      "glow": 0.042373
     },
     {
       "id": "1221162",
@@ -5329,7 +5392,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.044248
+      "glow": 0.042373
     },
     {
       "id": "1240138",
@@ -5347,7 +5410,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.044248
+      "glow": 0.042373
     },
     {
       "id": "1242062",
@@ -5365,7 +5428,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.044248
+      "glow": 0.042373
     },
     {
       "id": "1242152",
@@ -5383,7 +5446,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.044248
+      "glow": 0.042373
     },
     {
       "id": "1240116",
@@ -5411,7 +5474,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.035398
+      "glow": 0.033898
     },
     {
       "id": "1200210",
@@ -5429,7 +5492,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.026549
+      "glow": 0.025424
     },
     {
       "id": "1200302",
@@ -5447,7 +5510,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.026549
+      "glow": 0.025424
     },
     {
       "id": "1200328",
@@ -5465,7 +5528,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.026549
+      "glow": 0.025424
     },
     {
       "id": "1200342",
@@ -5483,7 +5546,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.026549
+      "glow": 0.025424
     },
     {
       "id": "1200400",
@@ -5501,7 +5564,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.026549
+      "glow": 0.025424
     },
     {
       "id": "1200432",
@@ -5519,7 +5582,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.026549
+      "glow": 0.025424
     },
     {
       "id": "1200526",
@@ -5537,7 +5600,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.026549
+      "glow": 0.025424
     },
     {
       "id": "1220038",
@@ -5555,7 +5618,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.026549
+      "glow": 0.025424
     },
     {
       "id": "1220076",
@@ -5573,7 +5636,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.026549
+      "glow": 0.025424
     },
     {
       "id": "1221016",
@@ -5591,7 +5654,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.026549
+      "glow": 0.025424
     },
     {
       "id": "1222078",
@@ -5609,7 +5672,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.026549
+      "glow": 0.025424
     },
     {
       "id": "1240046",
@@ -5627,7 +5690,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.026549
+      "glow": 0.025424
     },
     {
       "id": "1240098",
@@ -5645,7 +5708,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.026549
+      "glow": 0.025424
     },
     {
       "id": "1240104",
@@ -5663,7 +5726,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.026549
+      "glow": 0.025424
     },
     {
       "id": "1242044",
@@ -5681,7 +5744,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.026549
+      "glow": 0.025424
     },
     {
       "id": "10664",
@@ -5695,7 +5758,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.017699
+      "glow": 0.016949
     },
     {
       "id": "14138",
@@ -5709,13 +5772,13 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.017699
+      "glow": 0.016949
     }
   ],
   "mechanism_stacks": [
     {
       "id": "centered-3-1-selected-deficit-separator",
-      "stack_weight": 12.0,
+      "stack_weight": 15.0,
       "layers": [
         {
           "layer": "centered-channel-scalar-order-audit",
@@ -5793,9 +5856,20 @@
               "selected_deficit_reference": 5
             }
           }
+        },
+        {
+          "layer": "centered-3-1-signed-gap-obligation",
+          "weight": 3.0,
+          "reason": "same-residue local cancellation reduces the checked separator to an empirical/correlation gap",
+          "value": {
+            "same_residue_fresh_population_all_pass": true,
+            "checked_gap_count": 30,
+            "tightest_reference_target": 164598,
+            "tightest_weighted_gap": 0.007258334506941435
+          }
         }
       ],
-      "layer_count": 4,
+      "layer_count": 5,
       "glow": 1.0
     },
     {
@@ -5822,7 +5896,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.75
+      "glow": 0.6
     },
     {
       "id": "same-stress-singleton-channel-candidates",
@@ -6019,7 +6093,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.666667
+      "glow": 0.533333
     },
     {
       "id": "low-frequency-lp-cap-certificate-survives",
@@ -6053,7 +6127,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.541667
+      "glow": 0.433333
     },
     {
       "id": "zero-local-target-correlation-decomposition",
@@ -6094,7 +6168,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.416667
+      "glow": 0.333333
     },
     {
       "id": "centered-3-1-full-nonpositive-classifier-falsified",
@@ -6113,7 +6187,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.25
+      "glow": 0.2
     },
     {
       "id": "local-singular-cone-orientation-floor",
@@ -6138,7 +6212,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.25
+      "glow": 0.2
     },
     {
       "id": "low-frequency-label-lattice-heldout-survives",
@@ -6157,7 +6231,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.25
+      "glow": 0.2
     },
     {
       "id": "low-frequency-label-lattice-horizon-survives",
@@ -6178,7 +6252,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.25
+      "glow": 0.2
     },
     {
       "id": "rank1-cap-survives-full-window",
@@ -6199,7 +6273,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.25
+      "glow": 0.2
     },
     {
       "id": "raw-ap-count-pigeonhole-bridge-falsified",
@@ -6218,7 +6292,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.25
+      "glow": 0.2
     },
     {
       "id": "small-fixed-channel-certificate-refuted",
@@ -6257,7 +6331,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.25
+      "glow": 0.2
     },
     {
       "id": "coarse-target-residue-lift-demoted",
@@ -6276,7 +6350,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.208333
+      "glow": 0.166667
     },
     {
       "id": "frobenius-gcd-parity-rank1-shortcut-refuted",
@@ -6297,7 +6371,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.208333
+      "glow": 0.166667
     },
     {
       "id": "near-sharp-rank1-residual-drag-cap",
@@ -6315,7 +6389,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.208333
+      "glow": 0.166667
     },
     {
       "id": "positive-rank1-outside-direction",
@@ -6333,7 +6407,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.208333
+      "glow": 0.166667
     },
     {
       "id": "recurrent-portfolio-versus-residual",
@@ -6352,7 +6426,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.208333
+      "glow": 0.166667
     },
     {
       "id": "simple-label-only-lift-demoted",
@@ -6373,7 +6447,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.208333
+      "glow": 0.166667
     },
     {
       "id": "actual-arithmetic-placement-inside-weak-cone",
@@ -6406,7 +6480,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.166667
+      "glow": 0.133333
     },
     {
       "id": "actual-mass-avoids-extremal-breaker-orbits",
@@ -6434,7 +6508,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.166667
+      "glow": 0.133333
     },
     {
       "id": "clear-side-prefix-versus-deficit-classification",
@@ -6451,7 +6525,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.166667
+      "glow": 0.133333
     },
     {
       "id": "fixed-component-pair-((5,7),(7,11))",
@@ -6464,7 +6538,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.166667
+      "glow": 0.133333
     },
     {
       "id": "low-frequency-label-lattice-partial-signal",
@@ -6477,7 +6551,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.166667
+      "glow": 0.133333
     },
     {
       "id": "mixed-mass-landing-hinge-balance",
@@ -6509,7 +6583,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.166667
+      "glow": 0.133333
     },
     {
       "id": "nonposthoc-above-floor-sign-surplus",
@@ -6537,7 +6611,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.166667
+      "glow": 0.133333
     },
     {
       "id": "prefix-lower-bound-plus-tail-classification",
@@ -6555,7 +6629,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.166667
+      "glow": 0.133333
     },
     {
       "id": "selected-deficit-versus-full-nonpositive-scope-guard",
@@ -6582,7 +6656,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.166667
+      "glow": 0.133333
     },
     {
       "id": "signed-cumulative-portfolio-staircase",
@@ -6606,7 +6680,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.166667
+      "glow": 0.133333
     },
     {
       "id": "simple-near-boundary-selectors-refuted",
@@ -6634,7 +6708,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.166667
+      "glow": 0.133333
     },
     {
       "id": "small-residual-channel-classifier-demoted",
@@ -6651,7 +6725,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.166667
+      "glow": 0.133333
     },
     {
       "id": "tail-package-not-compressed",
@@ -6669,7 +6743,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.166667
+      "glow": 0.133333
     },
     {
       "id": "tail-thinning-after-cycle-232",
@@ -6687,7 +6761,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.166667
+      "glow": 0.133333
     },
     {
       "id": "tiny-positive-hinge-threshold-surplus",
@@ -6710,7 +6784,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.166667
+      "glow": 0.133333
     },
     {
       "id": "weak-geometry-staircase-shortcut-closed",
@@ -6727,7 +6801,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.166667
+      "glow": 0.133333
     },
     {
       "id": "active-selector-rarity",
@@ -6744,7 +6818,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.125
+      "glow": 0.1
     },
     {
       "id": "sparse-near-boundary-above-floor-margins",
@@ -6788,10 +6862,53 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.125
+      "glow": 0.1
     }
   ],
   "theorem_gap_stacks": [
+    {
+      "id": "centered-3-1-stress-class-theorem",
+      "stack_weight": 20.0,
+      "layers": [
+        {
+          "layer": "centered-channel-scalar-order-audit",
+          "weight": 3.0,
+          "reason": "next gate is a non-post-hoc stress/deficit class, not selected references"
+        },
+        {
+          "layer": "centered-3-1-reference-lemma-audit",
+          "weight": 3.0,
+          "reason": "supports only selected stress-reference separation; arbitrary-reference and full_nonpositive promotions remain false"
+        },
+        {
+          "layer": "centered-3-1-residue-collision-audit",
+          "weight": 3.0,
+          "reason": "local-residue-only explanation is falsified on checked selected collisions; signed/correlation explanation still open"
+        },
+        {
+          "layer": "centered-3-1-same-residue-fresh-population-audit",
+          "weight": 3.0,
+          "reason": "fresh same-residue population rejects local-residue-only and selected-clear-only explanations"
+        },
+        {
+          "layer": "centered-3-1-signed-gap-obligation",
+          "weight": 3.0,
+          "reason": "selected stress-reference route now requires a non-post-hoc signed empirical/correlation gap"
+        },
+        {
+          "layer": "centered-3-1-stress-class-audit",
+          "weight": 3.0,
+          "reason": "full_nonpositive classifier version falsified; a different predeclared class or signed estimate is needed"
+        },
+        {
+          "layer": "selected-deficit-provenance-audit",
+          "weight": 2.0,
+          "reason": "scope guard: selected-deficit separation cannot be promoted across fixture predicates"
+        }
+      ],
+      "layer_count": 7,
+      "glow": 1.0
+    },
     {
       "id": "rank1-outside-direction-arithmetic-meaning",
       "stack_weight": 17.5,
@@ -6833,45 +6950,7 @@
         }
       ],
       "layer_count": 7,
-      "glow": 1.0
-    },
-    {
-      "id": "centered-3-1-stress-class-theorem",
-      "stack_weight": 17.0,
-      "layers": [
-        {
-          "layer": "centered-channel-scalar-order-audit",
-          "weight": 3.0,
-          "reason": "next gate is a non-post-hoc stress/deficit class, not selected references"
-        },
-        {
-          "layer": "centered-3-1-reference-lemma-audit",
-          "weight": 3.0,
-          "reason": "supports only selected stress-reference separation; arbitrary-reference and full_nonpositive promotions remain false"
-        },
-        {
-          "layer": "centered-3-1-residue-collision-audit",
-          "weight": 3.0,
-          "reason": "local-residue-only explanation is falsified on checked selected collisions; signed/correlation explanation still open"
-        },
-        {
-          "layer": "centered-3-1-same-residue-fresh-population-audit",
-          "weight": 3.0,
-          "reason": "fresh same-residue population rejects local-residue-only and selected-clear-only explanations"
-        },
-        {
-          "layer": "centered-3-1-stress-class-audit",
-          "weight": 3.0,
-          "reason": "full_nonpositive classifier version falsified; a different predeclared class or signed estimate is needed"
-        },
-        {
-          "layer": "selected-deficit-provenance-audit",
-          "weight": 2.0,
-          "reason": "scope guard: selected-deficit separation cannot be promoted across fixture predicates"
-        }
-      ],
-      "layer_count": 6,
-      "glow": 0.971429
+      "glow": 0.875
     },
     {
       "id": "portfolio-residual-lower-bound",
@@ -6919,7 +6998,7 @@
         }
       ],
       "layer_count": 8,
-      "glow": 0.942857
+      "glow": 0.825
     },
     {
       "id": "rank1-residual-drag-bound",
@@ -6952,7 +7031,7 @@
         }
       ],
       "layer_count": 5,
-      "glow": 0.857143
+      "glow": 0.75
     },
     {
       "id": "alternate-stress-channel-reference-gate",
@@ -6975,7 +7054,30 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.457143
+      "glow": 0.4
+    },
+    {
+      "id": "ap-count-to-17-channel-bridge",
+      "stack_weight": 8.0,
+      "layers": [
+        {
+          "layer": "lp-cone-local-singular-audit",
+          "weight": 3.0,
+          "reason": "BMOR q286 AP-count constants are useful input but do not directly prove the signed 17-channel functional"
+        },
+        {
+          "layer": "centered-3-1-signed-gap-obligation",
+          "weight": 2.0,
+          "reason": "same-residue cancellation narrows the bridge from local AP counts to a signed channel correlation estimate"
+        },
+        {
+          "layer": "ap-count-bridge-gap-audit",
+          "weight": 3.0,
+          "reason": "raw AP counts alone are demoted; bridge needs binary convolution or signed character correlation"
+        }
+      ],
+      "layer_count": 3,
+      "glow": 0.4
     },
     {
       "id": "fixed-modulus-binary-prime-discrepancy",
@@ -6998,25 +7100,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.457143
-    },
-    {
-      "id": "ap-count-to-17-channel-bridge",
-      "stack_weight": 6.0,
-      "layers": [
-        {
-          "layer": "lp-cone-local-singular-audit",
-          "weight": 3.0,
-          "reason": "BMOR q286 AP-count constants are useful input but do not directly prove the signed 17-channel functional"
-        },
-        {
-          "layer": "ap-count-bridge-gap-audit",
-          "weight": 3.0,
-          "reason": "raw AP counts alone are demoted; bridge needs binary convolution or signed character correlation"
-        }
-      ],
-      "layer_count": 2,
-      "glow": 0.342857
+      "glow": 0.4
     },
     {
       "id": "active-lane-strict-closure",
@@ -7034,7 +7118,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.285714
+      "glow": 0.25
     },
     {
       "id": "near-boundary-selector-theorem",
@@ -7052,7 +7136,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.2
+      "glow": 0.175
     },
     {
       "id": "distributed-cone-correlation-theorem",
@@ -7065,7 +7149,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.171429
+      "glow": 0.15
     },
     {
       "id": "alignment-plus-complement-tail",
@@ -7078,7 +7162,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.114286
+      "glow": 0.1
     },
     {
       "id": "dangerous-reflection-orbit-mass-bound",
@@ -7091,7 +7175,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.114286
+      "glow": 0.1
     },
     {
       "id": "dominant-staircase-above-floor-threshold-sign",
@@ -7104,7 +7188,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.114286
+      "glow": 0.1
     },
     {
       "id": "dominant-staircase-hinge-balance",
@@ -7117,7 +7201,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.114286
+      "glow": 0.1
     },
     {
       "id": "dominant-staircase-hinge-threshold-surplus",
@@ -7130,7 +7214,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.114286
+      "glow": 0.1
     },
     {
       "id": "interpolation-or-cone-endpoint-theorem",
@@ -7143,7 +7227,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.114286
+      "glow": 0.1
     },
     {
       "id": "rarity-plus-complement-floor",
@@ -7156,7 +7240,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.114286
+      "glow": 0.1
     },
     {
       "id": "sample-size-cherry-pick-risk",
@@ -7173,7 +7257,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.085714
+      "glow": 0.075
     },
     {
       "id": "alignment-complement-route",
@@ -7186,7 +7270,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.057143
+      "glow": 0.05
     }
   ],
   "goldbach_proved": false,

@@ -6,6 +6,32 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The selected `(3,1)` same-residue evidence now has an explicit signed-gap
+obligation.  `tools/build_q286_centered_3_1_signed_gap_obligation.py`
+generated `evidence/q286-centered-3-1-signed-gap-obligation.json`, with the
+human note `notes/q286-centered-3-1-signed-gap-obligation.md`.
+
+Mechanism: in same-residue comparisons modulo `143`, the local q286 channel
+vector is identical.  Therefore:
+
+```text
+centered_3_1(T) - centered_3_1(R)
+  = empirical_3_1(T) - empirical_3_1(R)
+```
+
+Result: all `30` checked same-residue fresh gaps are positive.  The global
+minimum empirical gap is `0.008410526628774508`, the global minimum weighted
+gap is `0.007258334506941435`, and the tightest checked reference is
+`164598` at residue `5`.  Reference `13822` is still a strong witness, but it
+is not the tightest theorem gate.
+
+Decision: `(3,1)` is live as a selected stress-reference separator whose next
+proof target is a signed empirical/correlation gap.  The broad
+`full_nonpositive` stress-classifier reading remains falsified, and Goldbach
+is not proved.
+
+## Previous active checkpoint note, 2026-09-15
+
 The selected `(3,1)` stress-reference signal now has a same-residue
 fresh-population audit.  `tools/build_q286_centered_3_1_same_residue_fresh_population_audit.py`
 generated `evidence/q286-centered-3-1-same-residue-fresh-population-audit.json`,

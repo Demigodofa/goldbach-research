@@ -6,6 +6,37 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The selected `(3,1)` same-residue evidence now has an explicit signed-gap
+theorem-obligation receipt:
+`tools/build_q286_centered_3_1_signed_gap_obligation.py` generated
+`evidence/q286-centered-3-1-signed-gap-obligation.json`, with explanation in
+`notes/q286-centered-3-1-signed-gap-obligation.md`.
+
+For targets `T` and selected references `R` with the same residue modulo
+`143`, the local q286 `(3,1)` value cancels exactly, so the centered gap is
+the empirical/correlation-side gap:
+
+```text
+centered_3_1(T) - centered_3_1(R)
+  = empirical_3_1(T) - empirical_3_1(R)
+```
+
+Result: all `30` checked same-residue fresh gaps are positive.  The global
+minimum empirical gap is `0.008410526628774508`; the global minimum weighted
+gap is `0.007258334506941435`.  The tightest checked gate is reference
+`164598` at residue `5`, while `13822` remains the strong remembered witness
+at residue `94` with minimum weighted same-residue fresh gap
+`0.011427902059564236`.
+
+Interpretation: Kevin's `(3,1)` stress-classifier hunch has become a sharper
+finite stress-reference lemma plus an analytic obligation: prove a
+non-post-hoc signed empirical/correlation gap for the selected stress family,
+or falsify it with a same-residue future target whose centered `(3,1)` value
+is not above the reference.  This is not a Goldbach proof and not a broad
+`full_nonpositive` stress-class theorem.
+
+## Previous continuation evidence, 2026-09-15
+
 The selected `(3,1)` stress-reference signal now has a same-residue
 fresh-population audit:
 `tools/build_q286_centered_3_1_same_residue_fresh_population_audit.py`

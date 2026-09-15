@@ -1,0 +1,231 @@
+{
+  "channel": [
+    3,
+    1
+  ],
+  "channel_key": "3,1",
+  "checked_gap_count": 30,
+  "checked_reference_count": 5,
+  "decision": "The current theorem target is no longer a local-residue claim. It is a signed empirical/correlation gap claim for centered (3,1), with the tightest checked gate at reference 164598 and minimum weighted same-residue fresh gap about 0.00725833450694. The broad full_nonpositive classifier remains falsified.",
+  "falsifier": "Any same-residue fresh or future target T with weighted centered (3,1)(T) <= weighted centered (3,1)(R) for a selected stress reference R falsifies the corresponding finite or proposed uniform signed-gap claim.",
+  "global_empirical_gap_summary": {
+    "count": 30,
+    "maximum": 0.04200647681997524,
+    "mean": 0.027972535775710735,
+    "minimum": 0.008410526628774508
+  },
+  "global_weighted_gap_summary": {
+    "count": 30,
+    "maximum": 0.03625183935264326,
+    "mean": 0.02414046475673295,
+    "minimum": 0.007258334506941435
+  },
+  "goldbach_proved": false,
+  "mechanism": "In same-residue comparisons modulo 143, the local q286 channel vector is identical. Therefore the centered (3,1) gap equals the empirical/correlation-side (3,1) gap, up to the fixed positive LP weight.",
+  "obligation_rows": [
+    {
+      "all_checked_fresh_targets_satisfy": true,
+      "empirical_gap_summary": {
+        "count": 6,
+        "maximum": 0.02211388062300971,
+        "mean": 0.018701986469274852,
+        "minimum": 0.013241973691219901
+      },
+      "finite_inequality_checked": "for checked fresh targets T with T == R mod 143, empirical_3_1(T) - empirical_3_1(R) > 0; equivalently, centered_3_1(T) - centered_3_1(R) > 0 because the local gap is zero",
+      "fresh_same_residue_count": 6,
+      "local_gap_summary": {
+        "count": 6,
+        "maximum": 0.0,
+        "mean": 0.0,
+        "minimum": 0.0
+      },
+      "minimum_gap_row": {
+        "centered_gap_comparison_minus_deficit": 0.013241973691219901,
+        "comparison_above_deficit": true,
+        "comparison_role": "fresh_predeclared_target",
+        "comparison_target": 28000066,
+        "empirical_gap_comparison_minus_deficit": 0.013241973691219901,
+        "local_gap": 0.0,
+        "weighted_gap_comparison_minus_deficit": 0.011427902059564236
+      },
+      "reference_centered_3_1_value": -0.033131699232995936,
+      "reference_empirical_3_1_value": -0.020130036656139837,
+      "reference_mod_143": 94,
+      "reference_mod_286": 94,
+      "reference_target": 13822,
+      "reference_weighted_centered_3_1_value": -0.028592853507378977,
+      "weighted_gap_summary": {
+        "count": 6,
+        "maximum": 0.019084410512325164,
+        "mean": 0.01613992556350408,
+        "minimum": 0.011427902059564236
+      }
+    },
+    {
+      "all_checked_fresh_targets_satisfy": true,
+      "empirical_gap_summary": {
+        "count": 6,
+        "maximum": 0.04131623502721606,
+        "mean": 0.03921131799264812,
+        "minimum": 0.0377979210659052
+      },
+      "finite_inequality_checked": "for checked fresh targets T with T == R mod 143, empirical_3_1(T) - empirical_3_1(R) > 0; equivalently, centered_3_1(T) - centered_3_1(R) > 0 because the local gap is zero",
+      "fresh_same_residue_count": 6,
+      "local_gap_summary": {
+        "count": 6,
+        "maximum": 0.0,
+        "mean": 0.0,
+        "minimum": 0.0
+      },
+      "minimum_gap_row": {
+        "centered_gap_comparison_minus_deficit": 0.0377979210659052,
+        "comparison_above_deficit": true,
+        "comparison_role": "fresh_predeclared_target",
+        "comparison_target": 44000070,
+        "empirical_gap_comparison_minus_deficit": 0.0377979210659052,
+        "local_gap": 0.0,
+        "weighted_gap_comparison_minus_deficit": 0.032619830704142684
+      },
+      "reference_centered_3_1_value": -0.03139771001320905,
+      "reference_empirical_3_1_value": -0.037504058127023746,
+      "reference_mod_143": 114,
+      "reference_mod_286": 114,
+      "reference_target": 24424,
+      "reference_weighted_centered_3_1_value": -0.02709641049683262,
+      "weighted_gap_summary": {
+        "count": 6,
+        "maximum": 0.035656156579893156,
+        "mean": 0.0338396006588902,
+        "minimum": 0.032619830704142684
+      }
+    },
+    {
+      "all_checked_fresh_targets_satisfy": true,
+      "empirical_gap_summary": {
+        "count": 6,
+        "maximum": 0.04200647681997524,
+        "mean": 0.03859458266624039,
+        "minimum": 0.03313456988818544
+      },
+      "finite_inequality_checked": "for checked fresh targets T with T == R mod 143, empirical_3_1(T) - empirical_3_1(R) > 0; equivalently, centered_3_1(T) - centered_3_1(R) > 0 because the local gap is zero",
+      "fresh_same_residue_count": 6,
+      "local_gap_summary": {
+        "count": 6,
+        "maximum": 0.0,
+        "mean": 0.0,
+        "minimum": 0.0
+      },
+      "minimum_gap_row": {
+        "centered_gap_comparison_minus_deficit": 0.03313456988818543,
+        "comparison_above_deficit": true,
+        "comparison_role": "fresh_predeclared_target",
+        "comparison_target": 28000066,
+        "empirical_gap_comparison_minus_deficit": 0.03313456988818544,
+        "local_gap": 0.0,
+        "weighted_gap_comparison_minus_deficit": 0.028595330899882337
+      },
+      "reference_centered_3_1_value": -0.05302429542996147,
+      "reference_empirical_3_1_value": -0.040022632853105373,
+      "reference_mod_143": 94,
+      "reference_mod_286": 94,
+      "reference_target": 55864,
+      "reference_weighted_centered_3_1_value": -0.04576028234769708,
+      "weighted_gap_summary": {
+        "count": 6,
+        "maximum": 0.03625183935264326,
+        "mean": 0.03330735440382218,
+        "minimum": 0.028595330899882337
+      }
+    },
+    {
+      "all_checked_fresh_targets_satisfy": true,
+      "empirical_gap_summary": {
+        "count": 6,
+        "maximum": 0.01533928158209925,
+        "mean": 0.012258806627968612,
+        "minimum": 0.008410526628774508
+      },
+      "finite_inequality_checked": "for checked fresh targets T with T == R mod 143, empirical_3_1(T) - empirical_3_1(R) > 0; equivalently, centered_3_1(T) - centered_3_1(R) > 0 because the local gap is zero",
+      "fresh_same_residue_count": 6,
+      "local_gap_summary": {
+        "count": 6,
+        "maximum": 0.0,
+        "mean": 0.0,
+        "minimum": 0.0
+      },
+      "minimum_gap_row": {
+        "centered_gap_comparison_minus_deficit": 0.008410526628774508,
+        "comparison_above_deficit": true,
+        "comparison_role": "fresh_predeclared_target",
+        "comparison_target": 40000108,
+        "empirical_gap_comparison_minus_deficit": 0.008410526628774508,
+        "local_gap": 0.0,
+        "weighted_gap_comparison_minus_deficit": 0.007258334506941435
+      },
+      "reference_centered_3_1_value": -0.02276775995076508,
+      "reference_empirical_3_1_value": -0.010039744691471161,
+      "reference_mod_143": 5,
+      "reference_mod_286": 148,
+      "reference_target": 164598,
+      "reference_weighted_centered_3_1_value": -0.0196487122614909,
+      "weighted_gap_summary": {
+        "count": 6,
+        "maximum": 0.013237891244304297,
+        "mean": 0.010579423036042625,
+        "minimum": 0.007258334506941435
+      }
+    },
+    {
+      "all_checked_fresh_targets_satisfy": true,
+      "empirical_gap_summary": {
+        "count": 6,
+        "maximum": 0.035648864517697776,
+        "mean": 0.031095985122421694,
+        "minimum": 0.024609319047386172
+      },
+      "finite_inequality_checked": "for checked fresh targets T with T == R mod 143, empirical_3_1(T) - empirical_3_1(R) > 0; equivalently, centered_3_1(T) - centered_3_1(R) > 0 because the local gap is zero",
+      "fresh_same_residue_count": 6,
+      "local_gap_summary": {
+        "count": 6,
+        "maximum": 0.0,
+        "mean": 0.0,
+        "minimum": 0.0
+      },
+      "minimum_gap_row": {
+        "centered_gap_comparison_minus_deficit": 0.024609319047386172,
+        "comparison_above_deficit": true,
+        "comparison_role": "fresh_predeclared_target",
+        "comparison_target": 40000024,
+        "empirical_gap_comparison_minus_deficit": 0.024609319047386172,
+        "local_gap": 0.0,
+        "weighted_gap_comparison_minus_deficit": 0.021237988715577156
+      },
+      "reference_centered_3_1_value": -0.03276868188260557,
+      "reference_empirical_3_1_value": -0.03276868188260557,
+      "reference_mod_143": 64,
+      "reference_mod_286": 64,
+      "reference_target": 1222142,
+      "reference_weighted_centered_3_1_value": -0.028279567374743457,
+      "weighted_gap_summary": {
+        "count": 6,
+        "maximum": 0.03076518212032442,
+        "mean": 0.026836020121405665,
+        "minimum": 0.021237988715577156
+      }
+    }
+  ],
+  "reference_lemma_selected_all_pass": true,
+  "same_residue_collision_all_pairs_pass": true,
+  "same_residue_fresh_population_all_pass": true,
+  "schema_version": 1,
+  "source_commit": "9d8fc7cc4564ae0343be423f0d87a5b00ff23390",
+  "source_reference_lemma_audit": "evidence\\q286-centered-3-1-reference-lemma-audit.json",
+  "source_same_residue_collision_audit": "evidence\\q286-centered-3-1-residue-collision-audit.json",
+  "source_same_residue_fresh_population_audit": "evidence\\q286-centered-3-1-same-residue-fresh-population-audit.json",
+  "status_boundary": "finite signed-gap obligation extraction only; no signed correlation theorem, stress-class theorem, pointwise character-sum theorem, or Goldbach proof.",
+  "theorem_obligation": "For a non-post-hoc selected stress-reference family S and future targets T in the comparison family with T == R mod 143, prove empirical_3_1(T) - empirical_3_1(R) > 0 for every R in S, or prove a stronger residue-uniform lower bound that implies it.",
+  "tightest_empirical_gap": 0.008410526628774508,
+  "tightest_reference_mod_143": 5,
+  "tightest_reference_target": 164598,
+  "tightest_weighted_gap": 0.007258334506941435
+}

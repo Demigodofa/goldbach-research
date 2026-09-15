@@ -136,6 +136,8 @@ def main():
     centered_3_1_same_residue_fresh = load_json(
         EVIDENCE
         / "q286-centered-3-1-same-residue-fresh-population-audit.json")
+    centered_3_1_signed_gap_obligation = load_json(
+        EVIDENCE / "q286-centered-3-1-signed-gap-obligation.json")
     centered_3_1_stress_class = load_json(
         EVIDENCE / "q286-centered-3-1-stress-class-audit.json")
     selected_deficit_provenance = load_json(
@@ -1848,6 +1850,54 @@ def main():
         "centered-3-1-same-residue-fresh-population-audit",
         3.0,
         "fresh same-residue population rejects local-residue-only and selected-clear-only explanations")
+
+    layer(
+        "centered-3-1-signed-gap-obligation",
+        "Centered (3,1) signed-gap obligation is explicit",
+        "theorem_obligation",
+        "evidence/q286-centered-3-1-signed-gap-obligation.json",
+        3.0,
+        "Finite theorem-obligation extraction only; no signed correlation theorem.")
+    add_hit(
+        mechanism_stacks,
+        "centered-3-1-selected-deficit-separator",
+        "centered-3-1-signed-gap-obligation",
+        3.0,
+        "same-residue local cancellation reduces the checked separator to an empirical/correlation gap",
+        {
+            "same_residue_fresh_population_all_pass":
+                centered_3_1_signed_gap_obligation[
+                    "same_residue_fresh_population_all_pass"],
+            "checked_gap_count":
+                centered_3_1_signed_gap_obligation[
+                    "checked_gap_count"],
+            "tightest_reference_target":
+                centered_3_1_signed_gap_obligation[
+                    "tightest_reference_target"],
+            "tightest_weighted_gap":
+                centered_3_1_signed_gap_obligation[
+                    "tightest_weighted_gap"],
+        })
+    for row in centered_3_1_signed_gap_obligation["obligation_rows"]:
+        add_hit(
+            target_stacks,
+            str(row["reference_target"]),
+            "centered-3-1-signed-gap-obligation",
+            2.5,
+            "same-residue signed empirical/correlation gap remains positive on checked fresh targets",
+            row["weighted_gap_summary"])
+    add_hit(
+        theorem_stacks,
+        "centered-3-1-stress-class-theorem",
+        "centered-3-1-signed-gap-obligation",
+        3.0,
+        "selected stress-reference route now requires a non-post-hoc signed empirical/correlation gap")
+    add_hit(
+        theorem_stacks,
+        "ap-count-to-17-channel-bridge",
+        "centered-3-1-signed-gap-obligation",
+        2.0,
+        "same-residue cancellation narrows the bridge from local AP counts to a signed channel correlation estimate")
 
     layer(
         "centered-3-1-stress-class-audit",

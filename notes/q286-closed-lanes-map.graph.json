@@ -1472,6 +1472,14 @@
       "status_boundary": "finite same-residue fresh-window audit only; refutes local-residue-only and selected-clear-only explanations on this fixture, but proves no stress-class theorem, signed correlation theorem, or Goldbach proof"
     },
     {
+      "id": "receipt.q286_centered_3_1_signed_gap_obligation",
+      "type": "receipt",
+      "label": "q286 centered (3,1) signed-gap obligation",
+      "status": "theorem_obligation_formalized",
+      "validation": "tools/build_q286_centered_3_1_signed_gap_obligation.py generated evidence/q286-centered-3-1-signed-gap-obligation.json; same-residue local cancellation makes the centered (3,1) gap exactly the empirical/correlation-side gap, all 30 checked fresh gaps are positive, and the tightest checked gate is 164598 at residue 5 with weighted gap 0.007258334506941435",
+      "status_boundary": "finite theorem-obligation extraction only; no selected-stress theorem, signed correlation theorem, pointwise character-sum theorem, or Goldbach proof"
+    },
+    {
       "id": "receipt.q286_centered_3_1_stress_class_audit",
       "type": "receipt",
       "label": "q286 centered (3,1) full-nonpositive stress-class audit",
@@ -1541,6 +1549,21 @@
       "from": "receipt.q286_centered_3_1_same_residue_fresh_population_audit",
       "to": "obligation.centered_3_1_stress_class",
       "type": "falsifies_simplification"
+    },
+    {
+      "from": "receipt.q286_centered_3_1_signed_gap_obligation",
+      "to": "receipt.q286_centered_3_1_same_residue_fresh_population_audit",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_centered_3_1_signed_gap_obligation",
+      "to": "obligation.centered_3_1_stress_class",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_centered_3_1_signed_gap_obligation",
+      "to": "obligation.ap_count_to_17_channel_bridge",
+      "type": "requires"
     },
     {
       "from": "receipt.q286_centered_3_1_stress_class_audit",
