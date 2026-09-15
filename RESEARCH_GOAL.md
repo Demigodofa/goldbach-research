@@ -6,6 +6,54 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS route now has a multiplicative residual schedule audit:
+`tools/build_q286_wbss_multiplicative_residual_schedule_audit.py` generated
+`evidence/q286-wbss-multiplicative-residual-schedule-audit.json`, with
+explanation in
+`notes/q286-wbss-multiplicative-residual-schedule-audit.md`.
+
+Question: after the multiplicative-character basis compressed the coefficient
+side, can a high-energy finite package plus coefficient-energy residual bound
+close the pointwise adverse-drag target?
+
+Answer: no.  Coefficient-energy truncation alone cannot pay the pointwise
+budget.
+
+```text
+kept chars   energy kept       crude residual bound
+27           0.5055609184      527.674209047654
+45           0.7512348644      375.2778786373645
+60           0.9072346891      221.92337837137575
+65           0.9504309411       90.463345121002
+77           0.9907751703       46.26350760893429
+100          0.9997225349       11.551525290045625
+120          0.9999960134        1.3182746959839886
+122          1.0                 0.0
+minimum local main:              0.6039353780830684
+```
+
+Decision: `HOLD_residual_character_bound_required`.  Even the 99 percent
+energy package leaves a crude residual bound more than `76` times the minimum
+local main, and even keeping `120/122` active characters leaves a crude bound
+above local main.  Finite evidence is no longer the acceptance condition for
+this route.  The theorem target is a universal, pointwise, unnormalized
+estimate:
+
+```text
+AdverseDrag(N) < LocalMain(N)
+```
+
+for every sufficiently large eligible even `N`, with finite computation used
+only for initial-range coverage or falsification/calibration.  The route now
+requires either an explicit residual character theorem strong enough to beat
+`local_main(N)` or the full active nonzero multiplicative-character package.
+No residual character theorem, multiplicative-character theorem,
+fixed-modulus binary-prime discrepancy theorem, pointwise adverse-drag
+theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach
+proof is established.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286-WBSS route now has a multiplicative-character burden audit:
 `tools/build_q286_wbss_multiplicative_character_burden_audit.py` generated
 `evidence/q286-wbss-multiplicative-character-burden-audit.json`, with

@@ -6,6 +6,47 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS route now has a multiplicative residual schedule audit.
+
+```text
+tools/build_q286_wbss_multiplicative_residual_schedule_audit.py
+notes/q286-wbss-multiplicative-residual-schedule-audit.md
+evidence/q286-wbss-multiplicative-residual-schedule-audit.json
+```
+
+Result:
+
+```text
+active nonzero multiplicative characters:      122
+minimum local main:              0.6039353780830684
+kept chars 77 residual bound:   46.26350760893429
+kept chars 120 residual bound:   1.3182746959839886
+kept chars 122 residual bound:   0.0
+```
+
+Decision: `HOLD_residual_character_bound_required`.  Coefficient-energy
+truncation alone cannot close the pointwise adverse-drag target: the 99
+percent energy package leaves a crude residual bound more than `76` times the
+minimum local main, and even keeping `120/122` active characters leaves a
+crude bound above local main.  Finite evidence is no longer the acceptance
+condition for this route.  The required theorem target is a universal,
+pointwise, unnormalized estimate:
+
+```text
+AdverseDrag(N) < LocalMain(N)
+```
+
+for every sufficiently large eligible even `N`, with finite computation used
+only for initial-range coverage or falsification/calibration.  The route now
+requires either an explicit residual character theorem strong enough to beat
+`local_main(N)` or the full active nonzero multiplicative-character package.
+No residual character theorem, multiplicative-character theorem,
+fixed-modulus binary-prime discrepancy theorem, pointwise adverse-drag
+theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach
+proof is established.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286-WBSS route now has a multiplicative-character burden audit.
 
 ```text

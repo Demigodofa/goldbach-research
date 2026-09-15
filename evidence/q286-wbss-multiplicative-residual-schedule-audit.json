@@ -1,0 +1,250 @@
+{
+  "acceptance_condition": {
+    "finite_evidence_is_acceptance_condition": false,
+    "required_acceptance_condition": "a universal pointwise analytic estimate, with a finite initial-range computation only as a separate coverage bridge",
+    "unnormalized_target": "Prove AdverseDrag(N) < LocalMain(N) for every sufficiently large eligible even N, before any finite checked range is allowed to complete the route.",
+    "why_this_receipt_is_not_enough": "This receipt only measures coefficient residual schedules on the finite q286-WBSS fixture; it does not prove a uniform-in-N residual character estimate."
+  },
+  "active_nonzero_character_count": 122,
+  "candidate": {
+    "falsifier": "A residual bound far above local main after high-energy truncation falsifies coefficient-only truncation as a proof route.",
+    "mechanism": "Prove pointwise binary-prime correlation estimates for a top character package, then separately bound the omitted residual character tail.",
+    "name": "multiplicative-character truncation plus residual bound",
+    "novelty_label": "new-to-this-task",
+    "prediction": "If coefficient energy truncation were enough, the crude residual bound after the 99 percent package would be below the local main.  If not, a residual theorem is mandatory.",
+    "smallest_test": "Compare crude residual bounds at 90, 95, 99 percent and near-complete character packages to the minimum local main."
+  },
+  "decision": "Coefficient-energy truncation alone cannot close the q286-WBSS pointwise target.  Keeping the 77-character 99 percent package still leaves a crude residual bound about 46.26, more than 76 times the minimum local main.  Even keeping 120 active characters leaves a crude residual bound about 1.318, still above the minimum local main.  The route requires either an explicit residual character theorem or the full active nonzero multiplicative-character package.",
+  "fixed_modulus_binary_prime_discrepancy_theorem_proved": false,
+  "goldbach_proved": false,
+  "method": {
+    "active_character_filter": "nonprincipal multiplicative characters with energy > 1e-20",
+    "crude_residual_bound": "For a residual coefficient vector c_res on n unit residues and an arbitrary probability-minus-uniform discrepancy delta, Cauchy gives |<c_res,delta>| <= sqrt(n*(n-1)*energy(c_res)).  The schedule sums this crude bound over the four projected moduli.",
+    "interpretation_boundary": "This is deliberately pessimistic.  A real proof may exploit arithmetic cancellation, but coefficient truncation alone does not prove the residual harmless."
+  },
+  "minimum_local_main": 0.6039353780830684,
+  "multiplicative_character_theorem_proved": false,
+  "pointwise_adverse_drag_theorem_proved": false,
+  "residual_character_bound_proved": false,
+  "schedule": [
+    {
+      "coefficient_residual_eliminated": false,
+      "crude_probability_discrepancy_residual_bound_by_modulus": {
+        "130": 8.654862235963053,
+        "154": 100.9091427276541,
+        "286": 388.0136743323724,
+        "70": 30.096529751664484
+      },
+      "crude_probability_discrepancy_residual_bound_sum": 527.674209047654,
+      "crude_residual_to_minimum_local_main_ratio": 873.7262763485185,
+      "kept_character_count": 27,
+      "minimum_local_main": 0.6039353780830684,
+      "residual_energy_by_modulus": {
+        "130": 0.033203298015735544,
+        "154": 2.8764562389915445,
+        "286": 10.543040018831118,
+        "70": 1.6409440273420752
+      },
+      "selected_character_count_by_modulus": {
+        "130": 0,
+        "154": 3,
+        "286": 20,
+        "70": 4
+      },
+      "selected_energy_fraction": 0.5055609184222466
+    },
+    {
+      "coefficient_residual_eliminated": false,
+      "crude_probability_discrepancy_residual_bound_by_modulus": {
+        "130": 8.654862235963053,
+        "154": 86.43931992300107,
+        "286": 260.61211639777514,
+        "70": 19.57158008062524
+      },
+      "crude_probability_discrepancy_residual_bound_sum": 375.2778786373645,
+      "crude_residual_to_minimum_local_main_ratio": 621.387473322927,
+      "kept_character_count": 45,
+      "minimum_local_main": 0.6039353780830684,
+      "residual_energy_by_modulus": {
+        "130": 0.033203298015735544,
+        "154": 2.1106655448448954,
+        "286": 4.756209748832457,
+        "70": 0.6939252660368235
+      },
+      "selected_character_count_by_modulus": {
+        "130": 0,
+        "154": 5,
+        "286": 34,
+        "70": 6
+      },
+      "selected_energy_fraction": 0.7512348643837062
+    },
+    {
+      "coefficient_residual_eliminated": false,
+      "crude_probability_discrepancy_residual_bound_by_modulus": {
+        "130": 8.654862235963053,
+        "154": 71.41903837716313,
+        "286": 137.34960811585657,
+        "70": 4.49986964239299
+      },
+      "crude_probability_discrepancy_residual_bound_sum": 221.92337837137575,
+      "crude_residual_to_minimum_local_main_ratio": 367.46212661986374,
+      "kept_character_count": 60,
+      "minimum_local_main": 0.6039353780830684,
+      "residual_energy_by_modulus": {
+        "130": 0.033203298015735544,
+        "154": 1.4408697860787287,
+        "286": 1.3210724684579394,
+        "70": 0.03668265724371379
+      },
+      "selected_character_count_by_modulus": {
+        "130": 0,
+        "154": 7,
+        "286": 45,
+        "70": 8
+      },
+      "selected_energy_fraction": 0.9072346891245111
+    },
+    {
+      "coefficient_residual_eliminated": false,
+      "crude_probability_discrepancy_residual_bound_by_modulus": {
+        "130": 8.654862235963053,
+        "154": 71.41903837716313,
+        "286": 5.889574865482827,
+        "70": 4.49986964239299
+      },
+      "crude_probability_discrepancy_residual_bound_sum": 90.463345121002,
+      "crude_residual_to_minimum_local_main_ratio": 149.78977619780903,
+      "kept_character_count": 65,
+      "minimum_local_main": 0.6039353780830684,
+      "residual_energy_by_modulus": {
+        "130": 0.033203298015735544,
+        "154": 1.4408697860787287,
+        "286": 0.002429068073958478,
+        "70": 0.03668265724371379
+      },
+      "selected_character_count_by_modulus": {
+        "130": 0,
+        "154": 7,
+        "286": 50,
+        "70": 8
+      },
+      "selected_energy_fraction": 0.950430941124324
+    },
+    {
+      "coefficient_residual_eliminated": false,
+      "crude_probability_discrepancy_residual_bound_by_modulus": {
+        "130": 8.654862235963053,
+        "154": 27.21920086509542,
+        "286": 5.889574865482827,
+        "70": 4.49986964239299
+      },
+      "crude_probability_discrepancy_residual_bound_sum": 46.26350760893429,
+      "crude_residual_to_minimum_local_main_ratio": 76.60340706612979,
+      "kept_character_count": 77,
+      "minimum_local_main": 0.6039353780830684,
+      "residual_energy_by_modulus": {
+        "130": 0.033203298015735544,
+        "154": 0.2092895185690427,
+        "286": 0.002429068073958478,
+        "70": 0.03668265724371379
+      },
+      "selected_character_count_by_modulus": {
+        "130": 0,
+        "154": 19,
+        "286": 50,
+        "70": 8
+      },
+      "selected_energy_fraction": 0.9907751703358406
+    },
+    {
+      "coefficient_residual_eliminated": false,
+      "crude_probability_discrepancy_residual_bound_by_modulus": {
+        "130": 3.04215183083933,
+        "154": 2.6197985937234676,
+        "286": 5.889574865482827,
+        "70": 0.0
+      },
+      "crude_probability_discrepancy_residual_bound_sum": 11.551525290045625,
+      "crude_residual_to_minimum_local_main_ratio": 19.12708827674733,
+      "kept_character_count": 100,
+      "minimum_local_main": 0.6039353780830684,
+      "residual_energy_by_modulus": {
+        "130": 0.004102255213598886,
+        "154": 0.0019387979298518246,
+        "286": 0.002429068073958478,
+        "70": 0.0
+      },
+      "selected_character_count_by_modulus": {
+        "130": 14,
+        "154": 25,
+        "286": 50,
+        "70": 11
+      },
+      "selected_energy_fraction": 0.9997225349245522
+    },
+    {
+      "coefficient_residual_eliminated": false,
+      "crude_probability_discrepancy_residual_bound_by_modulus": {
+        "130": 0.0,
+        "154": 0.0,
+        "286": 1.3182746959839886,
+        "70": 0.0
+      },
+      "crude_probability_discrepancy_residual_bound_sum": 1.3182746959839886,
+      "crude_residual_to_minimum_local_main_ratio": 2.1828075383963785,
+      "kept_character_count": 120,
+      "minimum_local_main": 0.6039353780830684,
+      "residual_energy_by_modulus": {
+        "130": 0.0,
+        "154": 0.0,
+        "286": 0.00012169805140557968,
+        "70": 0.0
+      },
+      "selected_character_count_by_modulus": {
+        "130": 23,
+        "154": 29,
+        "286": 57,
+        "70": 11
+      },
+      "selected_energy_fraction": 0.9999960134030963
+    },
+    {
+      "coefficient_residual_eliminated": true,
+      "crude_probability_discrepancy_residual_bound_by_modulus": {
+        "130": 0.0,
+        "154": 0.0,
+        "286": 0.0,
+        "70": 0.0
+      },
+      "crude_probability_discrepancy_residual_bound_sum": 0.0,
+      "crude_residual_to_minimum_local_main_ratio": 0.0,
+      "kept_character_count": 122,
+      "minimum_local_main": 0.6039353780830684,
+      "residual_energy_by_modulus": {
+        "130": 0.0,
+        "154": 0.0,
+        "286": 0.0,
+        "70": 0.0
+      },
+      "selected_character_count_by_modulus": {
+        "130": 23,
+        "154": 29,
+        "286": 59,
+        "70": 11
+      },
+      "selected_energy_fraction": 0.9999999999999997
+    }
+  ],
+  "schema_version": 1,
+  "source_commit": "27aa6b003f502f8b500c7943f23c2eba6c1f501a",
+  "sources": {
+    "coefficient_discrepancy_budget_hold": "evidence\\q286-wbss-coefficient-discrepancy-budget-hold.json",
+    "coefficient_discrepancy_hold_source_commit": "6ae67b223dcd9444ba3d0f6224fa7b452e5ae7b4",
+    "multiplicative_character_burden_audit": "evidence\\q286-wbss-multiplicative-character-burden-audit.json",
+    "multiplicative_character_burden_status": "HOLD_multiplicative_character_burden_broad"
+  },
+  "status": "HOLD_residual_character_bound_required",
+  "status_boundary": "finite multiplicative-character truncation schedule only; it proves no residual character bound, fixed-modulus binary-prime discrepancy theorem, pointwise adverse-drag theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof",
+  "universal_bound_open": true
+}
