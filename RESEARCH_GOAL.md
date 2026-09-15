@@ -6,6 +6,42 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-14
 
+The q286 LP/cone route now has a local singular/admissible boundary audit:
+`tools/build_q286_lp_cone_local_singular_audit.py` generated
+`evidence/q286-lp-cone-local-singular-audit.json`, with the explanation in
+`notes/q286-lp-cone-local-singular-audit.md`.
+
+Every locally admissible target residue modulo `143` has nonnegative action
+against the frozen LP vector after pushing the local residue measure through
+the `17` outside real-character channels.  Local LP negative count is `0`;
+local zero-action residues are `38,64,79,105`.  The low-frequency vector also
+has no local negatives, while the frozen Octave rank-`1` vector has `4` local
+negative residues.  This makes the LP cone look like a genuine local
+orientation floor.
+
+The hole does not close from local data alone.  On the `606` far stress rows,
+empirical LP delta versus local LP action has Pearson about `0.00227` and
+Spearman about `0.00862`; `12` rows have zero local action but positive
+empirical LP delta.  The remaining theorem is still a quantitative
+fixed-modulus binary-prime discrepancy or signed character-sum bridge.
+
+The AP-count constants are now source-pinned for `q=286`: BMOR gives
+`c_pi=0.0008772`, `x_pi=86,891,851`; `c_psi=0.0008379`,
+`x_psi=85,882,271`; and `c_theta=0.0008411`, `x_theta=85,881,413`.
+BMOR Corollary 1.6 gives a simpler raw `pi(x;q,a)` threshold
+`x >= 50*286^2 = 4,089,800`.  These are not direct Goldbach or `17`-channel
+functional bounds without a convolution/linear-functional bridge.
+
+Kevin's proposed product-quadratic/order-`2` bridge was checked as a candidate
+bridge.  The natural dual pairing with the product quadratic character gives
+`(-1)^(a+b)`, which is all ones on these labels and reduces to the outside-sum
+baseline, not the observed rank-`1` direction.  The folded Legendre sign vector
+is already falsified in the dictionary audit, and the literal `(5,6)` order-`2`
+class indicator is zero on the `17` outside labels unless a different lift is
+defined.
+
+## Previous continuation evidence, 2026-09-14
+
 The q286 low-frequency LP cone has a farther frozen stress holdout.
 `tools/build_q286_low_frequency_lp_cone_stress_holdout.py` generated
 `evidence/q286-low-frequency-lp-cone-stress-holdout.json` by replaying the

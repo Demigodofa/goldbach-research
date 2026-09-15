@@ -6,6 +6,41 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-14
 
+The q286 LP cone now has a local singular/admissible-cone audit and a
+source-backed AP-count threshold lookup.  The audit is
+`evidence/q286-lp-cone-local-singular-audit.json`, built by
+`tools/build_q286_lp_cone_local_singular_audit.py`, with the human note
+`notes/q286-lp-cone-local-singular-audit.md`.
+
+Result: pushing every locally admissible `N mod 143` residue measure through
+the same `17` outside-channel dictionary gives nonnegative action against the
+frozen LP vector on all `143` target residues.  There are no local LP negative
+residues; zero-action residues are `38,64,79,105`.  This supports the LP
+vector as a local orientation-floor candidate.
+
+Boundary: the local layer is not the empirical explanation.  On the `606` far
+stress rows, empirical LP delta versus local LP action has Pearson about
+`0.00227` and Spearman about `0.00862`; `12` rows have zero local LP action
+but positive empirical LP delta.  The remaining bridge is quantitative
+fixed-modulus binary-prime discrepancy, not local admissibility alone.
+
+BMOR constants for `q=286` are now pinned from the actual tables:
+`c_pi=0.0008772`, `x_pi=86,891,851`; `c_psi=0.0008379`,
+`x_psi=85,882,271`; `c_theta=0.0008411`, `x_theta=85,881,413`.  BMOR
+Corollary 1.6 gives the simpler raw AP-count threshold
+`50*286^2 = 4,089,800`.  These bounds concern `pi/psi/theta(x;q,a)`, not the
+binary Goldbach convolution or the signed `17`-channel functional without an
+extra bridge.
+
+Kevin's proposed product-quadratic/order-`2` bridge was triaged in the note.
+Under the natural dual pairing it collapses to `(-1)^(a+b)`, which is all
+ones on the current labels and is only the outside-sum baseline; the folded
+Legendre sign vector was already falsified; and the literal order-`2` class
+indicator restricts to zero because `(5,6)` is not one of the `17` outside
+labels.  A revived bridge needs a new explicit nonzero lift.
+
+## Previous active checkpoint note, 2026-09-14
+
 The q286 low-frequency LP cone route now has a farther no-refit stress
 holdout.  `tools/build_q286_low_frequency_lp_cone_stress_holdout.py` freezes
 the selected vector from `evidence/q286-low-frequency-lp-cone-audit.json` and

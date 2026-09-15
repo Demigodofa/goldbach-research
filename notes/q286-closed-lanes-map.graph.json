@@ -1373,6 +1373,22 @@
       "status": "finite_holdout_diagnostic",
       "validation": "tools/build_q286_low_frequency_lp_cone_stress_holdout.py generated evidence/q286-low-frequency-lp-cone-stress-holdout.json; the frozen LP cone vector replayed without refit on 606 far targets from 6,000,000 through 20,000,000 has zero deficits, zero nonpositive exact/rank1/low-frequency/LP deltas, zero 0.75 cap failures, and zero LP residual drag",
       "status_boundary": "finite far stress holdout only; strengthens the residual-cap certificate candidate but proves no LP theorem, interpolation theorem, rank-1 explanation, signed projection theorem, or Goldbach proof"
+    },
+    {
+      "id": "receipt.q286_lp_cone_local_singular_audit",
+      "type": "receipt",
+      "label": "q286 LP cone local singular/admissible audit",
+      "status": "finite_local_cone_diagnostic",
+      "validation": "tools/build_q286_lp_cone_local_singular_audit.py generated evidence/q286-lp-cone-local-singular-audit.json; locally admissible target residues mod 143 have zero negative LP actions and four numerical zero-action residues 38,64,79,105, but far empirical LP deltas have Pearson about 0.00227 and Spearman about 0.00862 against local LP action",
+      "status_boundary": "finite local orientation and AP-constant lookup only; no singular-series theorem, no AP-count-to-17-channel bridge, no binary Goldbach-in-progressions theorem, no LP theorem, and no Goldbach proof"
+    },
+    {
+      "id": "obligation.ap_count_to_17_channel_bridge",
+      "type": "open_obligation",
+      "label": "AP-count control to signed 17-channel q286 functional",
+      "status": "open_precisely_stated",
+      "statement": "Use explicit AP prime-count or character-sum control for q=286, such as BMOR c_pi=0.0008772 and x_pi=86891851, to bound the actual binary Goldbach convolution after projection through the frozen 17-channel LP/rank-1 functional.",
+      "goldbach_proved": false
     }
   ],
   "edges": [
@@ -3014,6 +3030,26 @@
     {
       "from": "receipt.q286_low_frequency_lp_cone_stress_holdout",
       "to": "theorem.first_three_signed_projection",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_lp_cone_local_singular_audit",
+      "to": "receipt.q286_low_frequency_lp_cone_stress_holdout",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_lp_cone_local_singular_audit",
+      "to": "receipt.q286_low_frequency_lp_cone_audit",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_lp_cone_local_singular_audit",
+      "to": "obligation.fixed_modulus_binary_goldbach_progressions",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_lp_cone_local_singular_audit",
+      "to": "obligation.ap_count_to_17_channel_bridge",
       "type": "requires"
     }
   ]

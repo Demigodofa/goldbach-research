@@ -115,6 +115,8 @@ def main():
         EVIDENCE / "q286-low-frequency-lp-cone-audit.json")
     low_frequency_lp_cone_stress = load_json(
         EVIDENCE / "q286-low-frequency-lp-cone-stress-holdout.json")
+    lp_cone_local_singular = load_json(
+        EVIDENCE / "q286-lp-cone-local-singular-audit.json")
 
     target_stacks = {}
     mechanism_stacks = {}
@@ -1423,6 +1425,52 @@ def main():
         "low-frequency-lp-cone-stress-holdout",
         2.0,
         "Riesz-Thorin/logistic/Laplace analogies remain theorem-shaping until operator and endpoint arithmetic bounds exist")
+
+    layer(
+        "lp-cone-local-singular-audit",
+        "Frozen LP cone has nonnegative local singular orientation",
+        "finite_local_cone_diagnostic",
+        "evidence/q286-lp-cone-local-singular-audit.json",
+        3.0,
+        "Finite local/admissibility audit only; no prime-pair theorem.")
+    for target in lp_cone_local_singular["far_empirical_summary"][
+            "zero_local_action_but_positive_empirical_targets"]:
+        add_hit(
+            target_stacks,
+            str(target),
+            "lp-cone-local-singular-audit",
+            2.0,
+            "positive empirical LP delta despite zero local LP action")
+    add_hit(
+        mechanism_stacks,
+        "local-singular-cone-orientation-floor",
+        "lp-cone-local-singular-audit",
+        3.0,
+        "local admissible residue measures give nonnegative LP action on all target residues mod 143",
+        {
+            "local_lp_negative_count": lp_cone_local_singular[
+                "local_lp_negative_count"],
+            "local_lp_zero_residues": lp_cone_local_singular[
+                "local_lp_zero_residues"],
+            "minimum_local_lp_action": lp_cone_local_singular[
+                "local_lp_delta_action_summary"]["minimum"],
+            "maximum_local_lp_action": lp_cone_local_singular[
+                "local_lp_delta_action_summary"]["maximum"],
+            "local_rank1_negative_count": lp_cone_local_singular[
+                "local_rank1_negative_count"],
+        })
+    add_hit(
+        theorem_stacks,
+        "fixed-modulus-binary-prime-discrepancy",
+        "lp-cone-local-singular-audit",
+        3.0,
+        "local cone orientation survives but empirical/local correlation is flat; quantitative binary-prime discrepancy remains")
+    add_hit(
+        theorem_stacks,
+        "ap-count-to-17-channel-bridge",
+        "lp-cone-local-singular-audit",
+        3.0,
+        "BMOR q286 AP-count constants are useful input but do not directly prove the signed 17-channel functional")
 
     layer(
         "conditional-proof-stack",

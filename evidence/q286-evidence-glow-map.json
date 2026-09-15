@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "receipt": "q286-evidence-glow-map",
-  "generated_from_commit": "54a2cedb7905ceeef9620d6282c7c0ff16b0b94d",
+  "generated_from_commit": "467225d58c9eb9b57bd94a2633f593f248c20ac1",
   "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
   "visual_encoding": {
     "target_shape": "circle",
@@ -250,6 +250,14 @@
       "source": "evidence/q286-low-frequency-lp-cone-stress-holdout.json",
       "default_weight": 3.5,
       "boundary": "Finite far stress holdout only; no LP theorem or Goldbach proof."
+    },
+    {
+      "id": "lp-cone-local-singular-audit",
+      "label": "Frozen LP cone has nonnegative local singular orientation",
+      "kind": "finite_local_cone_diagnostic",
+      "source": "evidence/q286-lp-cone-local-singular-audit.json",
+      "default_weight": 3.0,
+      "boundary": "Finite local/admissibility audit only; no prime-pair theorem."
     },
     {
       "id": "conditional-proof-stack",
@@ -4889,6 +4897,58 @@
       "glow": 0.046296
     },
     {
+      "id": "10000028",
+      "stack_weight": 2.0,
+      "layers": [
+        {
+          "layer": "lp-cone-local-singular-audit",
+          "weight": 2.0,
+          "reason": "positive empirical LP delta despite zero local LP action"
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.037037
+    },
+    {
+      "id": "10000054",
+      "stack_weight": 2.0,
+      "layers": [
+        {
+          "layer": "lp-cone-local-singular-audit",
+          "weight": 2.0,
+          "reason": "positive empirical LP delta despite zero local LP action"
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.037037
+    },
+    {
+      "id": "12000026",
+      "stack_weight": 2.0,
+      "layers": [
+        {
+          "layer": "lp-cone-local-singular-audit",
+          "weight": 2.0,
+          "reason": "positive empirical LP delta despite zero local LP action"
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.037037
+    },
+    {
+      "id": "12000052",
+      "stack_weight": 2.0,
+      "layers": [
+        {
+          "layer": "lp-cone-local-singular-audit",
+          "weight": 2.0,
+          "reason": "positive empirical LP delta despite zero local LP action"
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.037037
+    },
+    {
       "id": "1240116",
       "stack_weight": 2.0,
       "layers": [
@@ -4914,6 +4974,110 @@
         }
       ],
       "layer_count": 2,
+      "glow": 0.037037
+    },
+    {
+      "id": "16000022",
+      "stack_weight": 2.0,
+      "layers": [
+        {
+          "layer": "lp-cone-local-singular-audit",
+          "weight": 2.0,
+          "reason": "positive empirical LP delta despite zero local LP action"
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.037037
+    },
+    {
+      "id": "16000048",
+      "stack_weight": 2.0,
+      "layers": [
+        {
+          "layer": "lp-cone-local-singular-audit",
+          "weight": 2.0,
+          "reason": "positive empirical LP delta despite zero local LP action"
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.037037
+    },
+    {
+      "id": "20000018",
+      "stack_weight": 2.0,
+      "layers": [
+        {
+          "layer": "lp-cone-local-singular-audit",
+          "weight": 2.0,
+          "reason": "positive empirical LP delta despite zero local LP action"
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.037037
+    },
+    {
+      "id": "20000044",
+      "stack_weight": 2.0,
+      "layers": [
+        {
+          "layer": "lp-cone-local-singular-audit",
+          "weight": 2.0,
+          "reason": "positive empirical LP delta despite zero local LP action"
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.037037
+    },
+    {
+      "id": "6000032",
+      "stack_weight": 2.0,
+      "layers": [
+        {
+          "layer": "lp-cone-local-singular-audit",
+          "weight": 2.0,
+          "reason": "positive empirical LP delta despite zero local LP action"
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.037037
+    },
+    {
+      "id": "6000058",
+      "stack_weight": 2.0,
+      "layers": [
+        {
+          "layer": "lp-cone-local-singular-audit",
+          "weight": 2.0,
+          "reason": "positive empirical LP delta despite zero local LP action"
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.037037
+    },
+    {
+      "id": "8000030",
+      "stack_weight": 2.0,
+      "layers": [
+        {
+          "layer": "lp-cone-local-singular-audit",
+          "weight": 2.0,
+          "reason": "positive empirical LP delta despite zero local LP action"
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.037037
+    },
+    {
+      "id": "8000056",
+      "stack_weight": 2.0,
+      "layers": [
+        {
+          "layer": "lp-cone-local-singular-audit",
+          "weight": 2.0,
+          "reason": "positive empirical LP delta despite zero local LP action"
+        }
+      ],
+      "layer_count": 1,
       "glow": 0.037037
     },
     {
@@ -5275,6 +5439,31 @@
       ],
       "layer_count": 2,
       "glow": 0.722222
+    },
+    {
+      "id": "local-singular-cone-orientation-floor",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "lp-cone-local-singular-audit",
+          "weight": 3.0,
+          "reason": "local admissible residue measures give nonnegative LP action on all target residues mod 143",
+          "value": {
+            "local_lp_negative_count": 0,
+            "local_lp_zero_residues": [
+              38,
+              64,
+              79,
+              105
+            ],
+            "minimum_local_lp_action": -5.2740758744160365e-16,
+            "maximum_local_lp_action": 0.09608539725073476,
+            "local_rank1_negative_count": 4
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.333333
     },
     {
       "id": "low-frequency-label-lattice-heldout-survives",
@@ -6041,6 +6230,32 @@
       ],
       "layer_count": 2,
       "glow": 0.2
+    },
+    {
+      "id": "ap-count-to-17-channel-bridge",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "lp-cone-local-singular-audit",
+          "weight": 3.0,
+          "reason": "BMOR q286 AP-count constants are useful input but do not directly prove the signed 17-channel functional"
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.171429
+    },
+    {
+      "id": "fixed-modulus-binary-prime-discrepancy",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "lp-cone-local-singular-audit",
+          "weight": 3.0,
+          "reason": "local cone orientation survives but empirical/local correlation is flat; quantitative binary-prime discrepancy remains"
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.171429
     },
     {
       "id": "alignment-plus-complement-tail",

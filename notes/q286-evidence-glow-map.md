@@ -303,6 +303,38 @@ only.  A proof route would need an actual operator and arithmetic endpoint
 bounds; the finite LP cone is only a measured shadow of that possible
 interpolation/cone argument.
 
+The local singular/admissible cone audit is:
+
+```text
+evidence/q286-lp-cone-local-singular-audit.json
+```
+
+It pushes each locally admissible `N mod 143` residue measure through the same
+`17` outside real-character coordinates and compares it with the stress row.
+The frozen LP vector has nonnegative local action on all `143` target
+residues; the only zero-action residues are `38,64,79,105` modulo `143`.
+This is a useful orientation floor for the LP cone.
+
+It is not the missing theorem.  On the `606` far stress rows, empirical LP
+deltas and local LP actions have Pearson about `0.00227` and Spearman about
+`0.00862`, and `12` rows have zero local action but positive empirical LP
+delta.  The glow map therefore adds a new theorem gap:
+`ap-count-to-17-channel-bridge` / `fixed-modulus-binary-prime-discrepancy`.
+Local admissibility is not enough; the remaining work is quantitative
+binary-prime discrepancy inside the admissible cone.
+
+BMOR source lookup for `q=286` is now recorded with the audit:
+
+```text
+c_pi = 0.0008772, x_pi = 86,891,851
+c_psi = 0.0008379, x_psi = 85,882,271
+c_theta = 0.0008411, x_theta = 85,881,413
+```
+
+The simpler BMOR Corollary 1.6 threshold for raw AP counts is
+`50*286^2 = 4,089,800`.  These are AP prime-count inputs, not direct
+certificates for the signed `17`-channel LP/rank-`1` object.
+
 ## Boundary
 
 This artifact helps navigate hypotheses.  It does not prove rarity, strict
