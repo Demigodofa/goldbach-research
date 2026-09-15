@@ -6,6 +6,34 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The selected `(3,1)` stress-reference hunch now has an independent
+threshold-subclass audit:
+`tools/build_q286_centered_3_1_threshold_subclass_audit.py` generated
+`evidence/q286-centered-3-1-threshold-subclass-audit.json`, with explanation in
+`notes/q286-centered-3-1-threshold-subclass-audit.md`.
+
+Mechanism: freeze the selected five's maximum weighted centered `(3,1)` value
+as a scalar threshold, then apply that exact threshold to the independent
+baseline `full_nonpositive` population.  This fits no new channel coefficient.
+
+Result: the selected five have weighted centered `(3,1)` maximum
+`-0.0196487122614909`; the fresh-window minimum is
+`-0.017835394356714915`.  The independent broad `full_nonpositive` population
+has `89` rows; exactly `33` lie below the fresh minimum and also at or below
+the selected maximum threshold, and those `33` have zero scalar `(3,1)`
+fresh-window failures.  The stricter selected-minimum threshold captures `24`
+independent broad rows, also with zero scalar failures.
+
+Interpretation: `(3,1)` has a real scalar-order extension beyond the five
+selected references, but this is not yet a non-post-hoc stress theorem because
+the subclass is selected by `(3,1)` itself.  It says `(3,1)` is a useful
+stress/reference coordinate; it does not define stress without an independent
+family rule.  Also, `13822` is not globally extreme: independent
+`full_nonpositive` rows such as `37568`, `17702`, and `14852` have much lower
+weighted centered `(3,1)` values.
+
+## Previous continuation evidence, 2026-09-15
+
 Kevin asked whether `(3,1)` might be a stress-classifier lemma, with the large
 negative selected reference `13822` as a witness.  The family boundary now has
 an explicit audit:

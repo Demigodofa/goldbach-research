@@ -164,6 +164,8 @@ def main():
     selected_stable_fixture_family_boundary = load_json(
         EVIDENCE
         / "q286-selected-stable-fixture-family-boundary-audit.json")
+    centered_3_1_threshold_subclass = load_json(
+        EVIDENCE / "q286-centered-3-1-threshold-subclass-audit.json")
     centered_3_1_stress_class = load_json(
         EVIDENCE / "q286-centered-3-1-stress-class-audit.json")
     selected_deficit_provenance = load_json(
@@ -2667,6 +2669,72 @@ def main():
         "selected-stable-fixture-family-boundary-audit",
         3.0,
         "next bridge must explain why selected-stable fixture rows separate while broad full_nonpositive rows do not")
+
+    layer(
+        "centered-3-1-threshold-subclass-audit",
+        "Frozen centered (3,1) threshold selects a broad scalar-order subclass",
+        "validated_threshold_subclass",
+        "evidence/q286-centered-3-1-threshold-subclass-audit.json",
+        3.0,
+        "Finite scalar-threshold subclass only; no non-post-hoc stress theorem.")
+    broad_threshold = next(
+        row for row in centered_3_1_threshold_subclass[
+            "threshold_subclasses"]
+        if row["name"] == "broad_full_nonpositive_at_or_below_selected_max")
+    add_hit(
+        mechanism_stacks,
+        "centered-3-1-threshold-scalar-subclass",
+        "centered-3-1-threshold-subclass-audit",
+        3.0,
+        "frozen selected-reference threshold captures 33 independent broad full_nonpositive rows with zero scalar failures",
+        {
+            "selected_max_threshold":
+                centered_3_1_threshold_subclass[
+                    "selected_max_threshold"],
+            "fresh_min_weighted_centered_3_1":
+                centered_3_1_threshold_subclass[
+                    "fresh_min_weighted_centered_3_1"],
+            "threshold_reference_count":
+                broad_threshold["reference_count"],
+            "threshold_scalar_failures":
+                broad_threshold[
+                    "scalar_3_1_fresh_window_failure_count"],
+            "broad_reference_count":
+                centered_3_1_threshold_subclass[
+                    "broad_full_nonpositive_reference_count"],
+        })
+    add_hit(
+        mechanism_stacks,
+        "centered-3-1-selected-stress-fresh-window-classifier",
+        "centered-3-1-threshold-subclass-audit",
+        2.0,
+        "(3,1) is stronger than a single selected witness but remains scalar-selected")
+    add_hit(
+        mechanism_stacks,
+        "centered-3-1-broad-full-nonpositive-generalization-falsified",
+        "centered-3-1-threshold-subclass-audit",
+        2.0,
+        "full broad class still has many scalar failures outside the low-(3,1) threshold subclass",
+        {
+            "broad_scalar_3_1_failure_count":
+                centered_3_1_threshold_subclass[
+                    "broad_scalar_3_1_failure_count"],
+            "selected_overlap_count":
+                centered_3_1_threshold_subclass[
+                    "selected_reference_overlap_with_broad_full_nonpositive"],
+        })
+    add_hit(
+        theorem_stacks,
+        "centered-3-1-stress-class-theorem",
+        "centered-3-1-threshold-subclass-audit",
+        3.0,
+        "threshold subclass works only because it is selected by centered (3,1); independent stress definition remains open")
+    add_hit(
+        theorem_stacks,
+        "ap-count-to-17-channel-bridge",
+        "centered-3-1-threshold-subclass-audit",
+        2.5,
+        "bridge must explain independent stress rows falling below the scalar threshold")
 
     layer(
         "centered-3-1-stress-class-audit",

@@ -6,6 +6,40 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The selected `(3,1)` stress-reference hunch now has an independent
+threshold-subclass audit.
+
+`tools/build_q286_centered_3_1_threshold_subclass_audit.py` generated
+`evidence/q286-centered-3-1-threshold-subclass-audit.json`, with the human
+note `notes/q286-centered-3-1-threshold-subclass-audit.md`.
+
+Question: if the selected five freeze a `(3,1)` scalar threshold, does that
+threshold find other broad stress/deficit references?
+
+Result: yes, but only as scalar-order evidence.
+
+```text
+selected max weighted centered (3,1):  -0.0196487122614909
+fresh minimum weighted centered (3,1): -0.017835394356714915
+broad full_nonpositive references:      89
+below fresh minimum in (3,1):           33
+at/below selected max threshold:        33
+at/below selected min threshold:        24
+scalar failures inside those subsets:   0
+```
+
+The broad class contains rows much lower than `13822` in weighted centered
+`(3,1)`, including `37568`, `17702`, and `14852`.
+
+Decision: `(3,1)` is stronger than a one-row accident.  It extends to a
+33-reference scalar-order subclass inside the independent broad
+`full_nonpositive` population.  But this is not a non-post-hoc stress theorem,
+because the passing subclass is selected by `(3,1)` itself.  The missing
+theorem must still define stress independently and then prove those rows land
+below the `(3,1)` threshold.
+
+## Previous active checkpoint note, 2026-09-15
+
 Kevin asked whether `(3,1)` could be a stress-classifier lemma, especially
 because `13822` was a large negative selected reference.  The family-boundary
 audit is now explicit.

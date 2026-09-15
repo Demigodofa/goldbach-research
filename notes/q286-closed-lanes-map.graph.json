@@ -1568,6 +1568,14 @@
       "status_boundary": "finite family-boundary audit only; preserves (3,1) as a selected-reference coordinate but proves no selected-stress theorem, broad stress theorem, signed correlation theorem, pointwise character-sum theorem, or Goldbach proof"
     },
     {
+      "id": "receipt.q286_centered_3_1_threshold_subclass_audit",
+      "type": "receipt",
+      "label": "q286 centered (3,1) threshold subclass audit",
+      "status": "validated_threshold_subclass",
+      "validation": "tools/build_q286_centered_3_1_threshold_subclass_audit.py generated evidence/q286-centered-3-1-threshold-subclass-audit.json; the frozen selected-reference maximum weighted centered (3,1) threshold -0.0196487122614909 selects 33 of 89 independent full_nonpositive references, all with zero scalar fresh-window failures, but the subclass is selected by the same scalar being tested",
+      "status_boundary": "finite threshold-subclass audit only; useful scalar-order evidence but no non-post-hoc stress theorem, signed correlation theorem, pointwise character-sum theorem, or Goldbach proof"
+    },
+    {
       "id": "receipt.q286_centered_3_1_stress_class_audit",
       "type": "receipt",
       "label": "q286 centered (3,1) full-nonpositive stress-class audit",
@@ -3595,6 +3603,26 @@
     },
     {
       "from": "receipt.q286_selected_stable_fixture_family_boundary_audit",
+      "to": "obligation.ap_count_to_17_channel_bridge",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_centered_3_1_threshold_subclass_audit",
+      "to": "receipt.q286_selected_stable_fixture_family_boundary_audit",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_centered_3_1_threshold_subclass_audit",
+      "to": "receipt.q286_centered_3_1_stress_class_audit",
+      "type": "compares_with"
+    },
+    {
+      "from": "receipt.q286_centered_3_1_threshold_subclass_audit",
+      "to": "obligation.centered_3_1_stress_class",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_centered_3_1_threshold_subclass_audit",
       "to": "obligation.ap_count_to_17_channel_bridge",
       "type": "requires"
     }
