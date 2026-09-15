@@ -6,6 +6,45 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS route now has a multiplicative character `L2` payment audit.
+
+```text
+tools/build_q286_wbss_multiplicative_character_l2_payment_audit.py
+notes/q286-wbss-multiplicative-character-l2-payment-audit.md
+evidence/q286-wbss-multiplicative-character-l2-payment-audit.json
+```
+
+Result:
+
+```text
+aggregate coefficient L2 square:       30.52680126946419
+aggregate coefficient L2:               5.525106448699807
+minimum local main:                     0.6039353780830684
+aggregate character-moment L2 cap:      0.10930746469603118
+character L_infinity cap:               0.012286599575574883
+residue L_infinity cap:                 0.0016192946592982506
+relaxation vs character L_infinity:     8.89647815277782
+relaxation vs residue L_infinity:      67.50313420004822
+```
+
+Decision: `HOLD_aggregate_character_l2_bound_required`.  The aggregate
+active-character `L2` theorem shape is materially sharper than the equal
+character-moment cap and is the best current theorem-facing formulation of
+the q286-WBSS character route.  It still requires a universal, pointwise,
+unnormalized fixed-modulus twisted binary-prime moment theorem strong enough
+to prove:
+
+```text
+AdverseDrag(N) < LocalMain(N)
+```
+
+for every sufficiently large eligible even `N`, followed by finite
+initial-range verification.  No aggregate character moment theorem,
+pointwise adverse-drag theorem, q286 threshold theorem, strict-central
+Goldbach theorem, or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286-WBSS route now has a multiplicative character-payment audit.
 
 ```text

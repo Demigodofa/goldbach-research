@@ -1,0 +1,54 @@
+{
+  "acceptance_condition": {
+    "finite_evidence_is_acceptance_condition": false,
+    "required_acceptance_condition": "a universal pointwise unnormalized aggregate L2 multiplicative-character moment estimate",
+    "sufficient_statement": "For every sufficiently large eligible even N, prove sqrt(sum_d ||D_d(N)||_2^2) < aggregate_l2_cap, where D_d is the active multiplicative-character moment vector in the same unnormalized residue-mass scale.",
+    "target": "AdverseDrag(N) < LocalMain(N)"
+  },
+  "aggregate_character_l2_bound_proved": false,
+  "candidate": {
+    "falsifier": "If aggregate Cauchy gives little or no relaxation, this theorem shape adds no value over the previous payment audit.",
+    "mechanism": "Use Cauchy in the full active multiplicative-character Hilbert space instead of demanding a uniform bound on every character moment separately.",
+    "name": "aggregate active-character L2 moment theorem",
+    "novelty_label": "new-to-this-task",
+    "prediction": "The aggregate L2 payment cap should be materially looser than the character L-infinity cap.",
+    "smallest_test": "Compute sqrt(sum ||c_hat_d||_2^2) and compare the resulting moment cap to the character L-infinity and residue caps."
+  },
+  "character_l2_budget": {
+    "aggregate_character_l2": 5.525106448699807,
+    "aggregate_character_l2_square": 30.52680126946419,
+    "aggregate_character_moment_l2_cap": 0.10930746469603118,
+    "character_l2_by_modulus": {
+      "130": 0.18221772146455884,
+      "154": 2.205804783828344,
+      "286": 4.628792495952571,
+      "70": 2.0499520132192397
+    },
+    "relaxation_factor_vs_character_linf_cap": 8.89647815277782,
+    "relaxation_factor_vs_residue_linf_cap": 67.50313420004822,
+    "single_modulus_l2_cap_if_paid_alone": {
+      "130": 3.3143613762096855,
+      "154": 0.2737936659267245,
+      "286": 0.1304736340225126,
+      "70": 0.29460951972951294
+    }
+  },
+  "character_moment_bound_proved": false,
+  "decision": "The aggregate active-character L2 theorem shape is materially better than the equal character-moment cap.  The coefficient Hilbert norm is about 5.5251, so an aggregate active-character moment L2 bound below about 0.109307 would pay the minimum local main.  This is about 8.90 times looser than the character L-infinity cap and about 67.5 times looser than the per-residue cap.  The route is now sharper, but still requires a universal pointwise aggregate fixed-modulus twisted binary-prime moment estimate; no such theorem is proved here.",
+  "goldbach_proved": false,
+  "method": {
+    "cauchy_budget": "For each modulus, |E_d(N)| <= ||c_hat_d||_2 ||D_d(N)||_2. Therefore adverse_drag(N) <= sqrt(sum_d ||c_hat_d||_2^2) * sqrt(sum_d ||D_d(N)||_2^2).",
+    "interpretation_boundary": "This replaces an all-character L-infinity moment cap with an aggregate active-character L2 moment theorem.  The analytic theorem is still missing."
+  },
+  "minimum_local_main": 0.6039353780830684,
+  "pointwise_adverse_drag_theorem_proved": false,
+  "schema_version": 1,
+  "source_commit": "61cac49477842200b550135935b6d152e339bb3c",
+  "sources": {
+    "multiplicative_character_payment_audit": "evidence\\q286-wbss-multiplicative-character-payment-audit.json",
+    "multiplicative_character_payment_status": "HOLD_character_moment_payment_bound_required"
+  },
+  "status": "HOLD_aggregate_character_l2_bound_required",
+  "status_boundary": "finite coefficient Hilbert-budget audit only; it proves no aggregate character-moment theorem, pointwise adverse-drag theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof",
+  "universal_bound_open": true
+}

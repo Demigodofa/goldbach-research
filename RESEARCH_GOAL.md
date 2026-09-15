@@ -6,6 +6,49 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS route now has a multiplicative character `L2` payment audit:
+`tools/build_q286_wbss_multiplicative_character_l2_payment_audit.py`
+generated
+`evidence/q286-wbss-multiplicative-character-l2-payment-audit.json`, with
+explanation in
+`notes/q286-wbss-multiplicative-character-l2-payment-audit.md`.
+
+Question: after the character-payment audit, can the missing theorem be
+weakened from an all-character `L_infinity` moment cap to an aggregate active
+character `L2` moment estimate?
+
+Answer: yes, as coefficient algebra.  Cauchy in the active
+multiplicative-character Hilbert space gives:
+
+```text
+aggregate coefficient L2 square:       30.52680126946419
+aggregate coefficient L2:               5.525106448699807
+minimum local main:                     0.6039353780830684
+aggregate character-moment L2 cap:      0.10930746469603118
+character L_infinity cap:               0.012286599575574883
+residue L_infinity cap:                 0.0016192946592982506
+relaxation vs character L_infinity:     8.89647815277782
+relaxation vs residue L_infinity:      67.50313420004822
+```
+
+Decision: `HOLD_aggregate_character_l2_bound_required`.  The aggregate
+active-character `L2` theorem shape is materially sharper than the equal
+character-moment cap and is the best current theorem-facing formulation of
+the q286-WBSS character route.  It still requires a universal, pointwise,
+unnormalized fixed-modulus twisted binary-prime moment theorem strong enough
+to prove
+
+```text
+AdverseDrag(N) < LocalMain(N)
+```
+
+for every sufficiently large eligible even `N`, followed by finite
+initial-range verification.  No aggregate character moment theorem,
+pointwise adverse-drag theorem, q286 threshold theorem, strict-central
+Goldbach theorem, or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286-WBSS route now has a multiplicative character-payment audit:
 `tools/build_q286_wbss_multiplicative_character_payment_audit.py` generated
 `evidence/q286-wbss-multiplicative-character-payment-audit.json`, with
