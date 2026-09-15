@@ -6,6 +6,38 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS four-modulus route now has a budget-trajectory audit.
+
+```text
+tools/build_q286_wbss_four_modulus_budget_trajectory_audit.py
+notes/q286-wbss-four-modulus-budget-trajectory-audit.md
+evidence/q286-wbss-four-modulus-budget-trajectory-audit.json
+```
+
+Result:
+
+```text
+combined rows checked:                      232
+stressed residue trajectories:               29
+rows per trajectory:                          8
+monotone nondecreasing trajectories:          0
+trajectories with positive ratios:           28
+trajectories with negative ratios:           29
+trajectories with sign changes:              28
+worst-lift index counts: 0:5,1:3,2:5,3:4,4:6,5:2,6:1,7:3
+worst trajectory residue/source:           1478 / 251728
+worst target:                           1002478
+maximum signed budget ratio:     0.29444884696114
+```
+
+Decision: the finite evidence does not support a simple monotone
+residue-class drift theorem. The next theorem target should remain rowwise
+signed concentration or a residue-class supremum bound for `lambda_phi < 1`,
+not a monotone recurrence. No universal bound or Goldbach proof is
+established.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286-WBSS four-modulus route now has a positivity-budget audit.
 
 ```text

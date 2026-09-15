@@ -6,6 +6,33 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS four-modulus route now has a budget-trajectory audit:
+`tools/build_q286_wbss_four_modulus_budget_trajectory_audit.py` generated
+`evidence/q286-wbss-four-modulus-budget-trajectory-audit.json`, with
+explanation in
+`notes/q286-wbss-four-modulus-budget-trajectory-audit.md`.
+
+Question: after the positivity-budget audit identifies `lambda_phi < 1` as
+the live target, is the stress a monotone residue-class trajectory across
+period lifts, or row-local signed fluctuation?
+
+Result: the `232` checked rows group into `29` stressed source-residue
+trajectories with `8` lifts each. No trajectory is monotone nondecreasing.
+Worst-lift positions are distributed across all checked indexes, with counts
+`0:5, 1:3, 2:5, 3:4, 4:6, 5:2, 6:1, 7:3`. `28/29` trajectories have at least
+one positive signed budget ratio, all `29` have at least one negative ratio,
+and `28/29` have a sign change. The worst trajectory is residue `1478` from
+source target `251728`, with maximum signed budget ratio
+`0.29444884696114` at target `1002478`, lift index `4`.
+
+Decision: demote a simple monotone residue-recurrence theorem as the next
+shortcut. The live theorem target remains rowwise signed concentration or a
+residue-class supremum bound for `lambda_phi < 1`. This is finite trajectory
+evidence only; no recurrence theorem, universal bound, or Goldbach proof is
+established.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286-WBSS four-modulus route now has a positivity-budget audit:
 `tools/build_q286_wbss_four_modulus_positivity_budget_audit.py` generated
 `evidence/q286-wbss-four-modulus-positivity-budget-audit.json`, with
