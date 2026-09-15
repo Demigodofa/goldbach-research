@@ -57,10 +57,11 @@ not theorem slack.
 
 ## Decision
 
-Retire the exact `1/8` cap for this q286-WBSS fixture. Preserve `.13` as the
-current finite working cap and stress target. For any proof attempt, keep the
-statement symbolic as `theta < 1` until a uniform signed residual estimate or a
-fresh holdout justifies a sharper constant.
+Retire the exact `1/8` cap for this q286-WBSS fixture. Preserve `.126` and
+`.13` only as constants that fit the current finite data. The universal
+residual absorption bound is open. For any proof attempt, keep the statement
+symbolic as `theta < 1` until a uniform signed residual estimate justifies a
+specific constant.
 
 ## Boundary
 

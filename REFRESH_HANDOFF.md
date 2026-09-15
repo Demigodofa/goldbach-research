@@ -30,10 +30,11 @@ theta = 0.13 passes:                             yes, slack 0.004333222961469124
 Decision: Fourier sparsification was a useful diagnostic but failed to produce
 a smaller theorem. The `1/8` residual absorption cap is refuted on the current
 fixture. The three-decimal ceiling is `.126`, and `.13` remains a finite stress
-cap with modest slack. None of these decimals is a theorem constant. The live
-target should stay symbolic, `positive_residual_pushback <= theta * top20_drag`
-for some proved `theta < 1`, unless the q286-WBSS split is replaced by a direct
-raw signed-witness estimate. Goldbach is not proved.
+cap with modest slack. Residual absorption constants fit finite data only; the
+universal bound is open. The live target should stay symbolic,
+`positive_residual_pushback <= theta * top20_drag` for some proved
+`theta < 1`, unless the q286-WBSS split is replaced by a direct raw
+signed-witness estimate. Goldbach is not proved.
 
 ## Previous active checkpoint note, 2026-09-15
 

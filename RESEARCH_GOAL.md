@@ -24,7 +24,8 @@ with `0.004333222961469124` slack.
 
 Decision: Fourier sparsification was useful as a diagnostic, but it failed to
 produce a smaller theorem. The exact `1/8` residual absorption cap is demoted
-for this fixture. The live theorem target remains symbolic:
+for this fixture. Residual absorption constants fit finite data only; the
+universal bound is open. The live theorem target remains symbolic:
 `positive_residual_pushback <= theta * top20_drag` for a proved `theta < 1`,
 or a replacement direct q286-WBSS signed-witness estimate. Goldbach is not
 proved.
