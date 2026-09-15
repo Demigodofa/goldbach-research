@@ -6,6 +6,30 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-14
 
+The singleton-channel route now has an alternate-reference audit:
+`tools/build_q286_alternate_reference_channel_audit.py` generated
+`evidence/q286-alternate-reference-channel-audit.json`, with explanation in
+`notes/q286-alternate-reference-channel-audit.md`.
+
+The audit replays the `606` fresh predeclared targets and changes the reference
+row.  Local subtraction is rebased correctly as
+`local(target residue) - local(reference residue)`.  Selected deficit
+references are `24424,13822,55864,164598,1222142`; selected clear controls are
+`13556,40420,129706,1242118,1240888`.
+
+Result: `(3,1)` remains positive on all `606` fresh targets for all five
+selected deficit references.  `(5,5)` does not: it fails for deficit
+references `13822`, `55864`, and `164598`.  Clear-control references are not
+stable for the live candidates, so the positive-channel claim is not an
+arbitrary-reference fact.
+
+Interpretation: the two-channel reference-independent version is falsified.
+The current strongest finite candidate is the `(3,1)` singleton against
+selected deficit references after local subtraction.  This still proves no
+stress-class theorem or Goldbach theorem.
+
+## Previous continuation evidence, 2026-09-14
+
 The singleton-channel route now has seed, non-seed, and fresh-window checks.
 `tools/build_q286_far_singleton_channel_stability_audit.py` generated
 `evidence/q286-far-singleton-channel-stability-audit.json`, with explanation

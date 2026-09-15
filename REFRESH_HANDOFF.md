@@ -6,6 +6,33 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-14
 
+The alternate stress/reference gate is now checked.  `tools/build_q286_alternate_reference_channel_audit.py`
+generated `evidence/q286-alternate-reference-channel-audit.json`, with the
+human note `notes/q286-alternate-reference-channel-audit.md`.
+
+Fixture: the same `606` fresh targets from predeclared windows
+`24M,28M,32M,36M,40M,44M`.  For each reference `R`, the empirical delta is
+`target - R` and the local subtraction is rebased as
+`local(target residue) - local(R residue)`.
+
+Selected deficit references: `24424,13822,55864,164598,1222142`.
+Selected clear-control references: `13556,40420,129706,1242118,1240888`.
+
+Result: `(3,1)` passes all five selected deficit references on all `606`
+fresh targets.  `(5,5)` fails for deficit references `13822`, `55864`, and
+`164598`.  Against clear-control references, the live candidates are not
+stable: `(3,1)` fails for all five clear controls, and `(5,5)` passes only for
+clear control `40420`.
+
+Decision: the broad two-channel reference-independent reading is falsified.
+`(3,1)` is the stronger selected-deficit-reference singleton candidate;
+`(5,5)` is same-base-reference stable but reference-sensitive.  The next
+theorem-shaped target is to explain why `(3,1)` stays positive relative to
+selected deficit rows after local subtraction, while preserving that this is
+finite evidence and not a universal stress-class theorem.
+
+## Previous active checkpoint note, 2026-09-14
+
 The singleton-channel question now has same-window and fresh-window scope
 separation.  `tools/build_q286_far_singleton_channel_stability_audit.py`
 generated `evidence/q286-far-singleton-channel-stability-audit.json`, and

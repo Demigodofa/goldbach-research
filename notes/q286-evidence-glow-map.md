@@ -384,6 +384,21 @@ It replays the watchlist on `606` fresh predeclared targets from starts
 `28000004`.  The remaining glow-map obligation is an alternate-stress or
 alternate-deficit reference audit.
 
+The alternate-reference channel audit is:
+
+```text
+evidence/q286-alternate-reference-channel-audit.json
+```
+
+It replays those `606` fresh targets against selected deficit references
+`24424,13822,55864,164598,1222142` and clear-control references
+`13556,40420,129706,1242118,1240888`, rebasing the local subtraction for each
+reference.  `(3,1)` passes all selected deficit references.  `(5,5)` fails for
+deficit references `13822`, `55864`, and `164598`.  Clear controls do not
+preserve the live candidates.  The glow map should therefore treat `(3,1)` as
+the stronger selected-deficit-reference singleton candidate and demote the
+two-channel reference-independent reading.
+
 The AP-count bridge-gap audit is:
 
 ```text

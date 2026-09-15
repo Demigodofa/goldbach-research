@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "receipt": "q286-evidence-glow-map",
-  "generated_from_commit": "294570e4ebe62c0f4e4d0ef62d6121439c8658ee",
+  "generated_from_commit": "0cd1a6d150c0d6605d9da5b468fa58545fba4461",
   "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
   "visual_encoding": {
     "target_shape": "circle",
@@ -290,6 +290,14 @@
       "source": "evidence/q286-fresh-window-channel-watchlist-audit.json",
       "default_weight": 3.0,
       "boundary": "Finite fresh-window same-stress audit only; no stress-independent theorem."
+    },
+    {
+      "id": "alternate-reference-channel-audit",
+      "label": "Alternate reference channel stability audit",
+      "kind": "finite_reference_sensitivity_gate",
+      "source": "evidence/q286-alternate-reference-channel-audit.json",
+      "default_weight": 3.0,
+      "boundary": "Finite selected-reference audit only; no reference-independent theorem."
     },
     {
       "id": "ap-count-bridge-gap-audit",
@@ -5591,42 +5599,8 @@
       "glow": 1.0
     },
     {
-      "id": "low-frequency-lp-cap-certificate-survives",
-      "stack_weight": 6.5,
-      "layers": [
-        {
-          "layer": "low-frequency-lp-cone-audit",
-          "weight": 3.0,
-          "reason": "bounded LP in the same low-frequency C10 x C12 Fourier band has zero positivity/cap failures on training plus two heldouts",
-          "value": {
-            "selected_l1_multiplier": 1.0,
-            "training_slack": 0.0796483772796952,
-            "rank1_cosine": 0.6019078700529527,
-            "training_max_ratio": 0.5000000000000002,
-            "heldout_max_ratio": 0.33946759079383754,
-            "horizon_max_ratio": 0.42590751493414414
-          }
-        },
-        {
-          "layer": "low-frequency-lp-cone-stress-holdout",
-          "weight": 3.5,
-          "reason": "same frozen LP vector has zero positivity/cap failures and zero residual drag on six far stress windows",
-          "value": {
-            "far_stress_clear_count": 606,
-            "lp_max_ratio": 0.0,
-            "minimum_lp_delta": 0.1128245766951522,
-            "minimum_lp_delta_target": 8000116,
-            "maximum_rank1_ratio": 0.086045031830256,
-            "maximum_low_frequency_ratio": 0.1578325865611584
-          }
-        }
-      ],
-      "layer_count": 2,
-      "glow": 0.722222
-    },
-    {
       "id": "same-stress-singleton-channel-candidates",
-      "stack_weight": 6.0,
+      "stack_weight": 8.0,
       "layers": [
         {
           "layer": "far-singleton-channel-stability",
@@ -5716,10 +5690,144 @@
               ]
             ]
           }
+        },
+        {
+          "layer": "alternate-reference-channel-audit",
+          "weight": 2.0,
+          "reason": "alternate references falsify the two-channel reference-independent reading",
+          "value": {
+            "deficit_reference_all_live_candidates_pass": false,
+            "deficit_reference_failures": [
+              {
+                "failing_live_singleton_candidates": [
+                  [
+                    5,
+                    5
+                  ]
+                ],
+                "reference": 13822
+              },
+              {
+                "failing_live_singleton_candidates": [
+                  [
+                    5,
+                    5
+                  ]
+                ],
+                "reference": 55864
+              },
+              {
+                "failing_live_singleton_candidates": [
+                  [
+                    5,
+                    5
+                  ]
+                ],
+                "reference": 164598
+              }
+            ],
+            "clear_control_reference_failures": [
+              {
+                "failing_live_singleton_candidates": [
+                  [
+                    5,
+                    5
+                  ],
+                  [
+                    3,
+                    1
+                  ]
+                ],
+                "reference": 13556
+              },
+              {
+                "failing_live_singleton_candidates": [
+                  [
+                    3,
+                    1
+                  ]
+                ],
+                "reference": 40420
+              },
+              {
+                "failing_live_singleton_candidates": [
+                  [
+                    5,
+                    5
+                  ],
+                  [
+                    3,
+                    1
+                  ]
+                ],
+                "reference": 129706
+              },
+              {
+                "failing_live_singleton_candidates": [
+                  [
+                    5,
+                    5
+                  ],
+                  [
+                    3,
+                    1
+                  ]
+                ],
+                "reference": 1242118
+              },
+              {
+                "failing_live_singleton_candidates": [
+                  [
+                    5,
+                    5
+                  ],
+                  [
+                    3,
+                    1
+                  ]
+                ],
+                "reference": 1240888
+              }
+            ]
+          }
+        }
+      ],
+      "layer_count": 3,
+      "glow": 0.888889
+    },
+    {
+      "id": "low-frequency-lp-cap-certificate-survives",
+      "stack_weight": 6.5,
+      "layers": [
+        {
+          "layer": "low-frequency-lp-cone-audit",
+          "weight": 3.0,
+          "reason": "bounded LP in the same low-frequency C10 x C12 Fourier band has zero positivity/cap failures on training plus two heldouts",
+          "value": {
+            "selected_l1_multiplier": 1.0,
+            "training_slack": 0.0796483772796952,
+            "rank1_cosine": 0.6019078700529527,
+            "training_max_ratio": 0.5000000000000002,
+            "heldout_max_ratio": 0.33946759079383754,
+            "horizon_max_ratio": 0.42590751493414414
+          }
+        },
+        {
+          "layer": "low-frequency-lp-cone-stress-holdout",
+          "weight": 3.5,
+          "reason": "same frozen LP vector has zero positivity/cap failures and zero residual drag on six far stress windows",
+          "value": {
+            "far_stress_clear_count": 606,
+            "lp_max_ratio": 0.0,
+            "minimum_lp_delta": 0.1128245766951522,
+            "minimum_lp_delta_target": 8000116,
+            "maximum_rank1_ratio": 0.086045031830256,
+            "maximum_low_frequency_ratio": 0.1578325865611584
+          }
         }
       ],
       "layer_count": 2,
-      "glow": 0.666667
+      "glow": 0.722222
     },
     {
       "id": "zero-local-target-correlation-decomposition",
@@ -6537,6 +6645,29 @@
       "glow": 0.857143
     },
     {
+      "id": "alternate-stress-channel-reference-gate",
+      "stack_weight": 8.0,
+      "layers": [
+        {
+          "layer": "far-singleton-channel-stability",
+          "weight": 2.0,
+          "reason": "same stress reference can make channels look positive if the reference row is unusually low"
+        },
+        {
+          "layer": "fresh-window-channel-watchlist",
+          "weight": 3.0,
+          "reason": "fresh-window selection-bias gate passes under same stress but alternate stress references remain required"
+        },
+        {
+          "layer": "alternate-reference-channel-audit",
+          "weight": 3.0,
+          "reason": "(3,1) survives selected deficit references; (5,5) is reference-sensitive"
+        }
+      ],
+      "layer_count": 3,
+      "glow": 0.457143
+    },
+    {
       "id": "fixed-modulus-binary-prime-discrepancy",
       "stack_weight": 8.0,
       "layers": [
@@ -6590,24 +6721,6 @@
           "layer": "conditional-proof-stack",
           "weight": 2.0,
           "reason": "named conditional branch"
-        }
-      ],
-      "layer_count": 2,
-      "glow": 0.285714
-    },
-    {
-      "id": "alternate-stress-channel-reference-gate",
-      "stack_weight": 5.0,
-      "layers": [
-        {
-          "layer": "far-singleton-channel-stability",
-          "weight": 2.0,
-          "reason": "same stress reference can make channels look positive if the reference row is unusually low"
-        },
-        {
-          "layer": "fresh-window-channel-watchlist",
-          "weight": 3.0,
-          "reason": "fresh-window selection-bias gate passes under same stress but alternate stress references remain required"
         }
       ],
       "layer_count": 2,

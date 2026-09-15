@@ -125,6 +125,8 @@ def main():
         EVIDENCE / "q286-far-singleton-channel-stability-audit.json")
     fresh_window_channel_watchlist = load_json(
         EVIDENCE / "q286-fresh-window-channel-watchlist-audit.json")
+    alternate_reference_channel = load_json(
+        EVIDENCE / "q286-alternate-reference-channel-audit.json")
     ap_count_bridge_gap = load_json(
         EVIDENCE / "q286-ap-count-bridge-gap-audit.json")
 
@@ -1631,6 +1633,36 @@ def main():
         "fresh-window-channel-watchlist",
         3.0,
         "fresh-window selection-bias gate passes under same stress but alternate stress references remain required")
+
+    layer(
+        "alternate-reference-channel-audit",
+        "Alternate reference channel stability audit",
+        "finite_reference_sensitivity_gate",
+        "evidence/q286-alternate-reference-channel-audit.json",
+        3.0,
+        "Finite selected-reference audit only; no reference-independent theorem.")
+    add_hit(
+        mechanism_stacks,
+        "same-stress-singleton-channel-candidates",
+        "alternate-reference-channel-audit",
+        2.0,
+        "alternate references falsify the two-channel reference-independent reading",
+        {
+            "deficit_reference_all_live_candidates_pass":
+                alternate_reference_channel[
+                    "deficit_reference_all_live_candidates_pass"],
+            "deficit_reference_failures":
+                alternate_reference_channel["deficit_reference_failures"],
+            "clear_control_reference_failures":
+                alternate_reference_channel[
+                    "clear_control_reference_failures"],
+        })
+    add_hit(
+        theorem_stacks,
+        "alternate-stress-channel-reference-gate",
+        "alternate-reference-channel-audit",
+        3.0,
+        "(3,1) survives selected deficit references; (5,5) is reference-sensitive")
 
     layer(
         "ap-count-bridge-gap-audit",

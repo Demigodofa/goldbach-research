@@ -1429,9 +1429,27 @@
       "status": "finite_selection_bias_gate",
       "validation": "tools/build_q286_fresh_window_channel_watchlist_audit.py generated evidence/q286-fresh-window-channel-watchlist-audit.json; on 606 fresh predeclared targets from starts 24M,28M,32M,36M,40M,44M, channels (5,5),(3,1),(3,7) remain positive singleton channels and (3,11) fails once at 28000004",
       "status_boundary": "finite fresh-window same-stress audit only; alternate stress/deficit references remain required before any stress-independent channel theorem"
+    },
+    {
+      "id": "receipt.q286_alternate_reference_channel_audit",
+      "type": "receipt",
+      "label": "q286 alternate-reference channel audit",
+      "status": "finite_reference_sensitivity_gate",
+      "validation": "tools/build_q286_alternate_reference_channel_audit.py generated evidence/q286-alternate-reference-channel-audit.json; on the 606 fresh targets, (3,1) passes all five selected deficit references while (5,5) fails for deficit references 13822,55864,164598; clear-control references do not preserve the live candidates",
+      "status_boundary": "finite selected-reference audit only; no reference-independent channel theorem, binary-prime correlation theorem, signed projection theorem, or Goldbach proof"
     }
   ],
   "edges": [
+    {
+      "from": "receipt.q286_alternate_reference_channel_audit",
+      "to": "receipt.q286_fresh_window_channel_watchlist_audit",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_alternate_reference_channel_audit",
+      "to": "obligation.ap_count_to_17_channel_bridge",
+      "type": "narrows"
+    },
     {
       "from": "receipt.q286_fresh_window_channel_watchlist_audit",
       "to": "receipt.q286_far_singleton_channel_stability_audit",
