@@ -22334,6 +22334,31 @@ interpolation route between crude `L1`/triangle control and measured
 `L2`/Fourier control, but that remains a theorem-shaping analogy until the
 operator and endpoint bounds are defined from actual prime-pair arithmetic.
 
+Complement-rescue suffix sampled holdout:
+
+- `tools/build_q286_complement_rescue_suffix_holdout.py`
+- `notes/q286-complement-rescue-suffix-holdout.md`
+- `evidence/q286-complement-rescue-suffix-holdout.json`
+
+This receipt freezes the prior `block_index_after_discovery >= 1`
+post-discovery candidate and tests six later q286 block-start windows beyond
+start `410400`.  The first sampled cohort uses the first `101` even targets at
+each later start.  The second support-seeking cohort replays `12` prior tail
+offsets from the checked schedule into those same later starts before seeing
+new row values.
+
+Result: both sampled cohorts are support-starved.  The `606` first-101 targets
+have `0` first-three-tail rows, the `72` replayed prior-tail-offset targets
+also have `0` first-three-tail rows, and there are `0` full-nonpositive rows.
+The candidate status is `untested_no_tail_support`, not a rescue pass and not a
+falsifier.
+
+Decision: the later sampled starts show tail pressure disappearing before
+complement rescue is needed.  Preserve this as sampled finite evidence only.
+It does not verify full later blocks.  The next verification fork is an
+optimized full-block/convolution verifier for later starts or a theorem route
+that proves a non-circular tail-rarity/complement lower-bound condition.
+
 Complement-rescue threshold candidate audit:
 
 - `tools/build_q286_complement_rescue_threshold_candidate_audit.py`

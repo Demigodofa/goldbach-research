@@ -180,6 +180,8 @@ def main():
         EVIDENCE / "q286-complement-rescue-margin-schedule.json")
     complement_rescue_threshold_candidate = load_json(
         EVIDENCE / "q286-complement-rescue-threshold-candidate-audit.json")
+    complement_rescue_suffix_holdout = load_json(
+        EVIDENCE / "q286-complement-rescue-suffix-holdout.json")
     centered_3_1_stress_class = load_json(
         EVIDENCE / "q286-centered-3-1-stress-class-audit.json")
     selected_deficit_provenance = load_json(
@@ -3129,6 +3131,51 @@ def main():
         "complement-rescue-threshold-candidate-audit",
         2.0,
         "cycle>=4 fails and complement_to_required_ratio>1 is tautological")
+
+    layer(
+        "complement-rescue-suffix-holdout",
+        "Later sampled starts have no first-three-tail support",
+        "validated_no_tail_support",
+        "evidence/q286-complement-rescue-suffix-holdout.json",
+        2.5,
+        "Finite sampled holdout only; no full-block threshold theorem.")
+    suffix_holdout_metrics = complement_rescue_suffix_holdout[
+        "decision_metrics"]
+    add_hit(
+        mechanism_stacks,
+        "later-sampled-tail-pressure-disappears",
+        "complement-rescue-suffix-holdout",
+        2.5,
+        "block-start and prior-tail-offset samples contain no first-three-tail rows",
+        {
+            "block_start_window_targets": (
+                complement_rescue_suffix_holdout["holdout_schedule"][
+                    "tested_target_count"]),
+            "block_start_window_tail_count": (
+                suffix_holdout_metrics[
+                    "block_start_window_first_three_tail_count"]),
+            "offset_replay_tested_target_count": (
+                suffix_holdout_metrics[
+                    "offset_replay_tested_target_count"]),
+            "offset_replay_tail_count": (
+                suffix_holdout_metrics[
+                    "offset_replay_first_three_tail_count"]),
+            "status": (
+                suffix_holdout_metrics[
+                    "offset_replay_candidate_status"]),
+        })
+    add_hit(
+        theorem_stacks,
+        "first-three-complement-rescue-correlation",
+        "complement-rescue-suffix-holdout",
+        2.0,
+        "sampled later starts are support-starved, so rescue needs full-block or theorem-level support")
+    add_hit(
+        theorem_stacks,
+        "optimized-full-block-verifier-needed",
+        "complement-rescue-suffix-holdout",
+        2.5,
+        "direct prime-pair looping is too opaque for later full-block scans")
 
     layer(
         "centered-3-1-stress-class-audit",

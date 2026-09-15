@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "receipt": "q286-evidence-glow-map",
-  "generated_from_commit": "e259132ba2370300357dd13d92e3483e78f80d6e",
+  "generated_from_commit": "a08b1ecbb4c531c977b619f35b045feae959c4ca",
   "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
   "visual_encoding": {
     "target_shape": "circle",
@@ -490,6 +490,14 @@
       "source": "evidence/q286-complement-rescue-threshold-candidate-audit.json",
       "default_weight": 3.0,
       "boundary": "Finite derived threshold-candidate audit only; no threshold theorem."
+    },
+    {
+      "id": "complement-rescue-suffix-holdout",
+      "label": "Later sampled starts have no first-three-tail support",
+      "kind": "validated_no_tail_support",
+      "source": "evidence/q286-complement-rescue-suffix-holdout.json",
+      "default_weight": 2.5,
+      "boundary": "Finite sampled holdout only; no full-block threshold theorem."
     },
     {
       "id": "centered-3-1-stress-class-audit",
@@ -7563,6 +7571,26 @@
       "glow": 0.086207
     },
     {
+      "id": "later-sampled-tail-pressure-disappears",
+      "stack_weight": 2.5,
+      "layers": [
+        {
+          "layer": "complement-rescue-suffix-holdout",
+          "weight": 2.5,
+          "reason": "block-start and prior-tail-offset samples contain no first-three-tail rows",
+          "value": {
+            "block_start_window_targets": 606,
+            "block_start_window_tail_count": 0,
+            "offset_replay_tested_target_count": 72,
+            "offset_replay_tail_count": 0,
+            "status": "untested_no_tail_support"
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.086207
+    },
+    {
       "id": "near-sharp-rank1-residual-drag-cap",
       "stack_weight": 2.5,
       "layers": [
@@ -8456,7 +8484,7 @@
     },
     {
       "id": "first-three-complement-rescue-correlation",
-      "stack_weight": 10.5,
+      "stack_weight": 12.5,
       "layers": [
         {
           "layer": "mod13-4-support-schedule-audit",
@@ -8472,10 +8500,15 @@
           "layer": "complement-rescue-threshold-candidate-audit",
           "weight": 4.0,
           "reason": "freeze block>=1 on future q286 blocks and replace it with a non-circular complement lower bound"
+        },
+        {
+          "layer": "complement-rescue-suffix-holdout",
+          "weight": 2.0,
+          "reason": "sampled later starts are support-starved, so rescue needs full-block or theorem-level support"
         }
       ],
-      "layer_count": 3,
-      "glow": 0.144828
+      "layer_count": 4,
+      "glow": 0.172414
     },
     {
       "id": "alternate-stress-channel-reference-gate",
@@ -8571,6 +8604,19 @@
       ],
       "layer_count": 1,
       "glow": 0.041379
+    },
+    {
+      "id": "optimized-full-block-verifier-needed",
+      "stack_weight": 2.5,
+      "layers": [
+        {
+          "layer": "complement-rescue-suffix-holdout",
+          "weight": 2.5,
+          "reason": "direct prime-pair looping is too opaque for later full-block scans"
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.034483
     },
     {
       "id": "alignment-plus-complement-tail",

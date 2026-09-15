@@ -6,6 +6,33 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The frozen q286 post-discovery suffix now has a sampled later-start holdout:
+`tools/build_q286_complement_rescue_suffix_holdout.py` generated
+`evidence/q286-complement-rescue-suffix-holdout.json`, with explanation in
+`notes/q286-complement-rescue-suffix-holdout.md`.
+
+Mechanism: freeze the prior candidate
+`block_index_after_discovery >= 1`, then test six later q286 block-start
+windows beyond start `410400`.  Because the first `101` targets at each start
+could be support-starved, the receipt also replays `12` prior tail offsets from
+the checked schedule into those later starts before seeing the new row values.
+
+Result: both sampled cohorts are support-starved.  The `606` first-101
+block-start targets contain `0` first-three-tail rows, and the `72` replayed
+prior-tail-offset targets also contain `0` first-three-tail rows.  There are
+`0` full-nonpositive rows.  The candidate status is
+`untested_no_tail_support`, not a rescue pass and not a falsifier.
+
+Interpretation: the later sampled starts show tail pressure disappearing
+before complement rescue is needed.  This does not contradict the earlier
+post-discovery full-block schedule, where tail rows persisted and were all
+rescued.  The next verification fork is now explicit: either build an
+optimized full-block/convolution verifier for later starts, or move from
+sampled threshold tests to a proof of a non-circular tail-rarity or complement
+lower-bound condition.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 complement-rescue lane now has a derived threshold-candidate audit:
 `tools/build_q286_complement_rescue_threshold_candidate_audit.py` generated
 `evidence/q286-complement-rescue-threshold-candidate-audit.json`, with

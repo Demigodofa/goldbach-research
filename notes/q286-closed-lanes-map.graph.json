@@ -1632,6 +1632,14 @@
       "status_boundary": "finite derived threshold-candidate audit only; flags tautological rescue-ratio restatements and proves no threshold theorem, signed correlation theorem, pointwise character-sum theorem, or Goldbach proof"
     },
     {
+      "id": "receipt.q286_complement_rescue_suffix_holdout",
+      "type": "receipt",
+      "label": "q286 complement rescue suffix sampled holdout",
+      "status": "validated_no_tail_support",
+      "validation": "tools/build_q286_complement_rescue_suffix_holdout.py generated evidence/q286-complement-rescue-suffix-holdout.json; six later block-start windows 490480, 570560, 650640, 730720, 810800, and 890880 had 0 first-three-tail rows in the 606 first-101 sampled targets and 0 first-three-tail rows in 72 replayed prior-tail-offset targets, with 0 full_nonpositive rows",
+      "status_boundary": "finite sampled holdout only; support-starves the rescue falsifier and proves no full-block threshold theorem, signed correlation theorem, pointwise character-sum theorem, or Goldbach proof"
+    },
+    {
       "id": "receipt.q286_centered_3_1_stress_class_audit",
       "type": "receipt",
       "label": "q286 centered (3,1) full-nonpositive stress-class audit",
@@ -3824,6 +3832,21 @@
       "from": "receipt.q286_complement_rescue_threshold_candidate_audit",
       "to": "receipt.q286_mod13_4_support_schedule_audit",
       "type": "refines"
+    },
+    {
+      "from": "receipt.q286_complement_rescue_suffix_holdout",
+      "to": "receipt.q286_complement_rescue_threshold_candidate_audit",
+      "type": "sampled_holdout"
+    },
+    {
+      "from": "receipt.q286_complement_rescue_suffix_holdout",
+      "to": "obligation.first_three_complement_rescue_correlation",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_complement_rescue_suffix_holdout",
+      "to": "obligation.ap_count_to_17_channel_bridge",
+      "type": "requires"
     }
   ]
 }
