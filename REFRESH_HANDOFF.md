@@ -22334,6 +22334,30 @@ interpolation route between crude `L1`/triangle control and measured
 `L2`/Fourier control, but that remains a theorem-shaping analogy until the
 operator and endpoint bounds are defined from actual prime-pair arithmetic.
 
+Prime-indexed q286 later full-block scan:
+
+- `tools/build_q286_prime_indexed_later_full_block_scan.py`
+- `notes/q286-prime-indexed-later-full-block-scan.md`
+- `evidence/q286-prime-indexed-later-full-block-scan.json`
+
+This receipt uses the validated row-level prime-indexed verifier to scan the
+six predeclared later q286 full blocks beyond start `410400`: starts `490480`,
+`570560`, `650640`, `730720`, `810800`, and `890880`.
+
+Result: scanned `240240` targets.  The full blocks were not support-starved:
+they contained `73` first-three-tail rows, all also active-selector rows.  All
+`73` were rescued, with `0` full-nonpositive tail rows and `0`
+full-nonpositive predicate rows across the six blocks.  Per-block tail counts
+were `46`, `17`, `1`, `5`, `3`, and `1`.  Minimum rescue margin was
+`0.343350240861549`; minimum complement/required ratio was
+`1.99072616313582`; maximum identity error was `1.11022302462516e-16`.  Runtime
+was `342.040064200002` seconds.
+
+Decision: the frozen later-block rescue candidate survived this finite
+predeclared full scan with actual tail support.  This is not an eventual
+threshold theorem; the next proof target is still a non-circular
+complement-rescue or signed prime-pair correlation estimate.
+
 Prime-indexed q286 row filter-order audit:
 
 - `tools/build_q286_prime_indexed_row_filter_order_audit.py`

@@ -6,6 +6,34 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 post-discovery threshold candidate now has a full later-block scan
+using the validated prime-indexed row verifier:
+`tools/build_q286_prime_indexed_later_full_block_scan.py` generated
+`evidence/q286-prime-indexed-later-full-block-scan.json`, with explanation in
+`notes/q286-prime-indexed-later-full-block-scan.md`.
+
+Mechanism: use the row-level equivalent prime-indexed verifier to scan the six
+predeclared later q286 block starts `490480`, `570560`, `650640`, `730720`,
+`810800`, and `890880`.  Each block has `8` q286 cycles and `5005` even targets
+per cycle, for `240240` tested targets total.
+
+Result: the sampled holdout was support-starved, but the full later blocks were
+not.  The scan found `73` first-three-tail rows, all also active-selector rows,
+and `0` first-three-tail/full-nonpositive failures.  Every block had real tail
+support and status `rescued_with_tail_support`: block tail counts were `46`,
+`17`, `1`, `5`, `3`, and `1`.  The minimum rescue margin was
+`0.343350240861549`, the minimum complement/required ratio was
+`1.99072616313582`, maximum identity error was `1.11022302462516e-16`, and
+there were `0` full-nonpositive predicate rows anywhere in the six blocks.
+
+Interpretation: this upgrades the later-block finite evidence from
+`untested_no_tail_support` to `rescued_with_tail_support`.  It still does not
+prove an eventual threshold theorem.  The theorem obligation remains a
+non-circular complement-rescue or signed prime-pair correlation estimate
+explaining why the complement stays above the negative first-three tail.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 full-block verification route now has a validated row-level
 prime-indexed verifier:
 `tools/build_q286_prime_indexed_row_filter_order_audit.py` generated

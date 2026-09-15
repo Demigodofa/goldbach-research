@@ -186,6 +186,8 @@ def main():
         EVIDENCE / "q286-prime-indexed-kernel-route-audit.json")
     prime_indexed_row_filter_order = load_json(
         EVIDENCE / "q286-prime-indexed-row-filter-order-audit.json")
+    prime_indexed_later_full_block_scan = load_json(
+        EVIDENCE / "q286-prime-indexed-later-full-block-scan.json")
     centered_3_1_stress_class = load_json(
         EVIDENCE / "q286-centered-3-1-stress-class-audit.json")
     selected_deficit_provenance = load_json(
@@ -3259,6 +3261,48 @@ def main():
         "prime-indexed-row-filter-order-audit",
         2.0,
         "validated verifier can test whether later blocks are falsified, rescued, or support-starved")
+
+    layer(
+        "prime-indexed-later-full-block-scan",
+        "Later q286 full blocks are rescued with tail support",
+        "finite_full_block_rescue_scan",
+        "evidence/q286-prime-indexed-later-full-block-scan.json",
+        5.0,
+        "Finite predeclared later full-block scan only; no eventual theorem.")
+    later_metrics = prime_indexed_later_full_block_scan["decision_metrics"]
+    add_hit(
+        mechanism_stacks,
+        "later-full-block-rescue-with-tail-support",
+        "prime-indexed-later-full-block-scan",
+        5.0,
+        "six later full q286 blocks have tail support and zero tail failures",
+        {
+            "tested_target_count": later_metrics["tested_target_count"],
+            "first_three_tail_count": (
+                later_metrics["first_three_tail_count"]),
+            "active_selector_count": (
+                later_metrics["active_selector_count"]),
+            "first_three_tail_full_nonpositive_count": (
+                later_metrics[
+                    "first_three_tail_full_nonpositive_count"]),
+            "minimum_rescue_margin": (
+                later_metrics["minimum_rescue_margin"]),
+            "minimum_complement_to_required_ratio": (
+                later_metrics[
+                    "minimum_complement_to_required_ratio"]),
+        })
+    add_hit(
+        theorem_stacks,
+        "first-three-complement-rescue-correlation",
+        "prime-indexed-later-full-block-scan",
+        5.0,
+        "finite later full blocks upgrade from sampled support-starvation to rescued tail support")
+    add_hit(
+        theorem_stacks,
+        "eventual-threshold-theorem-still-open",
+        "prime-indexed-later-full-block-scan",
+        3.0,
+        "rescued finite window still needs a non-circular complement lower bound")
 
     layer(
         "centered-3-1-stress-class-audit",

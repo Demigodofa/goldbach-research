@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "receipt": "q286-evidence-glow-map",
-  "generated_from_commit": "536f1b9efc6bcc8314c1840d73b48c314efcb480",
+  "generated_from_commit": "9e3f8e42758fb2ba667916f38d772a6e066af711",
   "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
   "visual_encoding": {
     "target_shape": "circle",
@@ -514,6 +514,14 @@
       "source": "evidence/q286-prime-indexed-row-filter-order-audit.json",
       "default_weight": 4.0,
       "boundary": "Finite row-level verifier integration audit only; no full-block scan or theorem."
+    },
+    {
+      "id": "prime-indexed-later-full-block-scan",
+      "label": "Later q286 full blocks are rescued with tail support",
+      "kind": "finite_full_block_rescue_scan",
+      "source": "evidence/q286-prime-indexed-later-full-block-scan.json",
+      "default_weight": 5.0,
+      "boundary": "Finite predeclared later full-block scan only; no eventual theorem."
     },
     {
       "id": "centered-3-1-stress-class-audit",
@@ -6959,6 +6967,27 @@
       "glow": 0.189655
     },
     {
+      "id": "later-full-block-rescue-with-tail-support",
+      "stack_weight": 5.0,
+      "layers": [
+        {
+          "layer": "prime-indexed-later-full-block-scan",
+          "weight": 5.0,
+          "reason": "six later full q286 blocks have tail support and zero tail failures",
+          "value": {
+            "tested_target_count": 240240,
+            "first_three_tail_count": 73,
+            "active_selector_count": 73,
+            "first_three_tail_full_nonpositive_count": 0,
+            "minimum_rescue_margin": 0.3433502408615494,
+            "minimum_complement_to_required_ratio": 1.9907261631358215
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.172414
+    },
+    {
       "id": "post-discovery-full-nonpositive-hole-closes-finitely",
       "stack_weight": 5.0,
       "layers": [
@@ -8417,6 +8446,49 @@
       "glow": 0.641379
     },
     {
+      "id": "first-three-complement-rescue-correlation",
+      "stack_weight": 21.0,
+      "layers": [
+        {
+          "layer": "mod13-4-support-schedule-audit",
+          "weight": 2.5,
+          "reason": "predeclared future blocks suggest the next theorem target is complement rescue rather than a single channel classifier"
+        },
+        {
+          "layer": "complement-rescue-margin-schedule",
+          "weight": 4.0,
+          "reason": "prove a non-circular lower bound complement_to_principal_ratio > -first_three_modes_to_principal_ratio on the rescued q286 class"
+        },
+        {
+          "layer": "complement-rescue-threshold-candidate-audit",
+          "weight": 4.0,
+          "reason": "freeze block>=1 on future q286 blocks and replace it with a non-circular complement lower bound"
+        },
+        {
+          "layer": "complement-rescue-suffix-holdout",
+          "weight": 2.0,
+          "reason": "sampled later starts are support-starved, so rescue needs full-block or theorem-level support"
+        },
+        {
+          "layer": "prime-indexed-kernel-route-audit",
+          "weight": 1.5,
+          "reason": "faster exact finite verification route supports later falsifier searches"
+        },
+        {
+          "layer": "prime-indexed-row-filter-order-audit",
+          "weight": 2.0,
+          "reason": "validated verifier can test whether later blocks are falsified, rescued, or support-starved"
+        },
+        {
+          "layer": "prime-indexed-later-full-block-scan",
+          "weight": 5.0,
+          "reason": "finite later full blocks upgrade from sampled support-starvation to rescued tail support"
+        }
+      ],
+      "layer_count": 7,
+      "glow": 0.289655
+    },
+    {
       "id": "rank1-outside-direction-arithmetic-meaning",
       "stack_weight": 17.5,
       "layers": [
@@ -8506,44 +8578,6 @@
       ],
       "layer_count": 8,
       "glow": 0.227586
-    },
-    {
-      "id": "first-three-complement-rescue-correlation",
-      "stack_weight": 16.0,
-      "layers": [
-        {
-          "layer": "mod13-4-support-schedule-audit",
-          "weight": 2.5,
-          "reason": "predeclared future blocks suggest the next theorem target is complement rescue rather than a single channel classifier"
-        },
-        {
-          "layer": "complement-rescue-margin-schedule",
-          "weight": 4.0,
-          "reason": "prove a non-circular lower bound complement_to_principal_ratio > -first_three_modes_to_principal_ratio on the rescued q286 class"
-        },
-        {
-          "layer": "complement-rescue-threshold-candidate-audit",
-          "weight": 4.0,
-          "reason": "freeze block>=1 on future q286 blocks and replace it with a non-circular complement lower bound"
-        },
-        {
-          "layer": "complement-rescue-suffix-holdout",
-          "weight": 2.0,
-          "reason": "sampled later starts are support-starved, so rescue needs full-block or theorem-level support"
-        },
-        {
-          "layer": "prime-indexed-kernel-route-audit",
-          "weight": 1.5,
-          "reason": "faster exact finite verification route supports later falsifier searches"
-        },
-        {
-          "layer": "prime-indexed-row-filter-order-audit",
-          "weight": 2.0,
-          "reason": "validated verifier can test whether later blocks are falsified, rescued, or support-starved"
-        }
-      ],
-      "layer_count": 6,
-      "glow": 0.22069
     },
     {
       "id": "rank1-residual-drag-bound",
@@ -8691,6 +8725,19 @@
           "layer": "zero-local-channel-margin-audit",
           "weight": 3.0,
           "reason": "smallest-subset test rejects the claim that these 12 LP-positive rows require a distributed fixed channel subset"
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.041379
+    },
+    {
+      "id": "eventual-threshold-theorem-still-open",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "prime-indexed-later-full-block-scan",
+          "weight": 3.0,
+          "reason": "rescued finite window still needs a non-circular complement lower bound"
         }
       ],
       "layer_count": 1,
