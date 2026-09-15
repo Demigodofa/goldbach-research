@@ -6,6 +6,32 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The frozen `target_mod_13 == 4` low-`(3,1)` pocket now has a broader
+predeclared support-schedule audit:
+`tools/build_q286_mod13_4_support_schedule_audit.py` generated
+`evidence/q286-mod13-4-support-schedule-audit.json`, with explanation in
+`notes/q286-mod13-4-support-schedule-audit.md`.
+
+Mechanism: after the immediate prospective no-support block, freeze the same
+independent descriptor and scan four future 8-cycle q286 blocks before any
+centered `(3,1)` scoring.  The scheduled starts were `170160`, `250240`,
+`330320`, and `410400`, covering `160160` targets.
+
+Result: all four scheduled blocks again had `0` `full_nonpositive` rows.
+Their active-selector counts were `529`, `139`, `63`, and `49`, and every one
+was rescued by the complement.  The scheduled `mod13 == 4` support count was
+therefore `0`, with status
+`untested_no_scheduled_mod13_4_full_nonpositive_support`.
+
+Interpretation: this does not confirm or falsify the `mod13 == 4` pocket, but
+it shows the post-discovery q286 hole closes locally across the immediate
+block and four more predeclared future blocks.  The single-residue classifier
+lane is support-starved; the next theorem branch should move toward a
+distributed cone/correlation estimate unless a larger support-search schedule
+is explicitly frozen first.
+
+## Previous continuation evidence, 2026-09-15
+
 The frozen `target_mod_13 == 4` low-`(3,1)` pocket now has a prospective
 no-support audit:
 `tools/build_q286_mod13_4_prospective_descriptor_audit.py` generated

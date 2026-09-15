@@ -174,6 +174,8 @@ def main():
         EVIDENCE / "q286-low-3-1-independent-descriptor-audit.json")
     mod13_4_prospective_descriptor = load_json(
         EVIDENCE / "q286-mod13-4-prospective-descriptor-audit.json")
+    mod13_4_support_schedule = load_json(
+        EVIDENCE / "q286-mod13-4-support-schedule-audit.json")
     centered_3_1_stress_class = load_json(
         EVIDENCE / "q286-centered-3-1-stress-class-audit.json")
     selected_deficit_provenance = load_json(
@@ -2947,6 +2949,65 @@ def main():
         "mod13-4-prospective-descriptor-audit",
         2.0,
         "immediate prospective no-support result leaves the mod-13 pocket unconfirmed")
+
+    layer(
+        "mod13-4-support-schedule-audit",
+        "Frozen mod-13 pocket remains support-starved on scheduled blocks",
+        "validated_no_support",
+        "evidence/q286-mod13-4-support-schedule-audit.json",
+        2.0,
+        "Finite support-schedule audit only; no infinite closure theorem.")
+    schedule_metrics = mod13_4_support_schedule["decision_metrics"]
+    add_hit(
+        mechanism_stacks,
+        "mod-13-4-low-3-1-candidate-pocket",
+        "mod13-4-support-schedule-audit",
+        1.5,
+        "four predeclared future blocks had no full_nonpositive support for the frozen descriptor",
+        {
+            "future_starts": (
+                mod13_4_support_schedule["schedule"]["future_starts"]),
+            "scheduled_target_count": (
+                schedule_metrics["scheduled_target_count"]),
+            "scheduled_full_nonpositive_count": (
+                schedule_metrics["scheduled_full_nonpositive_count"]),
+            "scheduled_mod13_4_support_count": (
+                schedule_metrics["scheduled_mod13_4_support_count"]),
+            "scheduled_test_status": (
+                schedule_metrics["scheduled_test_status"]),
+        })
+    add_hit(
+        mechanism_stacks,
+        "post-discovery-full-nonpositive-hole-closes-finitely",
+        "mod13-4-support-schedule-audit",
+        2.0,
+        "active tail rows persist on scheduled blocks but all are rescued by the complement",
+        {
+            "block_results": tuple(
+                {
+                    "start": block["start"],
+                    "active_selector": (
+                        block["predicate_counts"]["active_selector"]),
+                    "rescued_first_three_tail": (
+                        block["predicate_counts"][
+                            "rescued_first_three_tail"]),
+                    "full_nonpositive": (
+                        block["predicate_counts"]["full_nonpositive"]),
+                }
+                for block in mod13_4_support_schedule["block_results"]),
+        })
+    add_hit(
+        theorem_stacks,
+        "centered-3-1-stress-class-theorem",
+        "mod13-4-support-schedule-audit",
+        2.0,
+        "single-residue classifier route is support-starved after discovery")
+    add_hit(
+        theorem_stacks,
+        "first-three-complement-rescue-correlation",
+        "mod13-4-support-schedule-audit",
+        2.5,
+        "predeclared future blocks suggest the next theorem target is complement rescue rather than a single channel classifier")
 
     layer(
         "centered-3-1-stress-class-audit",

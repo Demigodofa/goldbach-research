@@ -6,6 +6,38 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The frozen q286 `target_mod_13 == 4` low-`(3,1)` pocket now has a broader
+predeclared support-schedule audit.
+
+`tools/build_q286_mod13_4_support_schedule_audit.py` generated
+`evidence/q286-mod13-4-support-schedule-audit.json`, with the human note
+`notes/q286-mod13-4-support-schedule-audit.md`.
+
+Question: after the immediate no-support block, does the frozen descriptor
+encounter `full_nonpositive` support in the next four predeclared q286 blocks?
+
+Result: no.  The scheduled starts were `170160`, `250240`, `330320`, and
+`410400`, covering `160160` targets.
+
+```text
+start 170160: active_selector 529, rescued 529, full_nonpositive 0
+start 250240: active_selector 139, rescued 139, full_nonpositive 0
+start 330320: active_selector  63, rescued  63, full_nonpositive 0
+start 410400: active_selector  49, rescued  49, full_nonpositive 0
+
+scheduled full_nonpositive: 0
+scheduled mod13-4 support: 0
+status: untested_no_scheduled_mod13_4_full_nonpositive_support
+```
+
+Decision: this still does not confirm or falsify the `mod13 == 4` pocket, but
+the post-discovery q286 `full_nonpositive` hole closes across the immediate
+block and four more scheduled future blocks.  The single-residue classifier
+lane is now support-starved; prefer a distributed cone/correlation estimate
+unless a larger support-search schedule is explicitly frozen first.
+
+## Previous active checkpoint note, 2026-09-15
+
 The frozen q286 `target_mod_13 == 4` low-`(3,1)` pocket now has an immediate
 prospective no-support audit.
 

@@ -1608,6 +1608,14 @@
       "status_boundary": "finite no-support prospective audit only; neither confirms nor falsifies the mod-13 pocket and proves no stress theorem, signed correlation theorem, pointwise character-sum theorem, or Goldbach proof"
     },
     {
+      "id": "receipt.q286_mod13_4_support_schedule_audit",
+      "type": "receipt",
+      "label": "q286 mod-13-4 support schedule audit",
+      "status": "validated_no_support",
+      "validation": "tools/build_q286_mod13_4_support_schedule_audit.py generated evidence/q286-mod13-4-support-schedule-audit.json; four predeclared future q286 blocks starting 170160, 250240, 330320, and 410400 covered 160160 targets, but all had 0 full_nonpositive rows, so scheduled mod13-4 support was 0 and the status is untested_no_scheduled_mod13_4_full_nonpositive_support",
+      "status_boundary": "finite predeclared no-support schedule only; support-starves the single-residue classifier lane but proves no infinite closure, stress theorem, signed correlation theorem, pointwise character-sum theorem, or Goldbach proof"
+    },
+    {
       "id": "receipt.q286_centered_3_1_stress_class_audit",
       "type": "receipt",
       "label": "q286 centered (3,1) full-nonpositive stress-class audit",
@@ -3730,6 +3738,26 @@
     },
     {
       "from": "receipt.q286_mod13_4_prospective_descriptor_audit",
+      "to": "obligation.ap_count_to_17_channel_bridge",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_mod13_4_support_schedule_audit",
+      "to": "receipt.q286_mod13_4_prospective_descriptor_audit",
+      "type": "extends_no_support"
+    },
+    {
+      "from": "receipt.q286_mod13_4_support_schedule_audit",
+      "to": "receipt.q286_low_3_1_independent_descriptor_audit",
+      "type": "support_starves_candidate"
+    },
+    {
+      "from": "receipt.q286_mod13_4_support_schedule_audit",
+      "to": "obligation.centered_3_1_stress_class",
+      "type": "requires_correlation_reframe"
+    },
+    {
+      "from": "receipt.q286_mod13_4_support_schedule_audit",
       "to": "obligation.ap_count_to_17_channel_bridge",
       "type": "requires"
     }
