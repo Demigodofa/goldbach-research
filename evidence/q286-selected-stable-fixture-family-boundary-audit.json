@@ -1,0 +1,427 @@
+{
+  "broad_full_nonpositive_falsifier": {
+    "additional_reference_count": 89,
+    "comparison_row_count": 53934,
+    "scalar_3_1_failure_count": 32661,
+    "selected_reference_overlap_count": 0,
+    "watchlist_failure_count": 11634
+  },
+  "candidate_family_boundaries": [
+    {
+      "broad_support_evidence": "scope fork overlap with broad full_nonpositive fixture is 0",
+      "captured_selected_targets": [
+        24424,
+        13822,
+        55864,
+        164598,
+        1222142
+      ],
+      "captures_selected_count": 5,
+      "excludes_broad_full_nonpositive": true,
+      "finite_status": "supported_fixture_boundary",
+      "missed_selected_targets": [],
+      "name": "selected_fixture_dominant_floor_failure",
+      "pre_existing_source_feature": true,
+      "theorem_boundary": "fixture-bound; circular until converted into a prospective reference-generation rule and holdout-tested",
+      "threshold_or_predicate": "dominant_floor_passes == false in the selected stable-core classification fixture"
+    },
+    {
+      "broad_comparison_failures": 32661,
+      "captured_selected_targets": [
+        24424,
+        13822,
+        55864,
+        164598,
+        1222142
+      ],
+      "captures_selected_count": 5,
+      "finite_status": "supported_selected_reference_lemma",
+      "missed_selected_targets": [],
+      "name": "centered_3_1_selected_reference_classifier",
+      "pre_existing_source_feature": true,
+      "selected_comparison_count": 3030,
+      "selected_comparison_failures": 0,
+      "theorem_boundary": "not a broad stress theorem; broad full_nonpositive promotion is already falsified",
+      "threshold_or_predicate": "fresh unseen target-reference weighted centered (3,1) gap > 0 for the selected references"
+    },
+    {
+      "captured_selected_targets": [
+        13822,
+        164598,
+        1222142
+      ],
+      "captures_selected_count": 3,
+      "finite_status": "falsified_as_whole_selected_family",
+      "missed_selected_targets": [
+        24424,
+        55864
+      ],
+      "name": "volatile_overturn",
+      "pre_existing_source_feature": true,
+      "theorem_boundary": "valid subclass only; misses stable-core deficits",
+      "threshold_or_predicate": "stable core passes but volatile rim restores the deficit"
+    },
+    {
+      "captured_selected_targets": [
+        24424,
+        55864
+      ],
+      "captures_selected_count": 2,
+      "finite_status": "falsified_as_whole_selected_family",
+      "missed_selected_targets": [
+        13822,
+        164598,
+        1222142
+      ],
+      "name": "stable_core_deficit",
+      "pre_existing_source_feature": true,
+      "theorem_boundary": "valid subclass only; misses volatile-overturn deficits",
+      "threshold_or_predicate": "stable_core_floor_passes == false"
+    },
+    {
+      "captured_selected_targets": [
+        24424,
+        13822,
+        55864,
+        164598,
+        1222142
+      ],
+      "captures_selected_count": 5,
+      "finite_status": "post_hoc_candidate",
+      "missed_selected_targets": [],
+      "name": "centered_3_1_bottom_7_in_selected_fixture",
+      "pre_existing_source_feature": false,
+      "theorem_boundary": "interesting rank feature only; must be frozen before any new windows or references are used",
+      "threshold_or_predicate": "centered_3_1_rank_low_to_high <= 7 inside the selected stable/volatile fixture"
+    },
+    {
+      "captured_selected_targets": [],
+      "captures_selected_count": 2,
+      "finite_status": "no_simple_single_residue_family",
+      "missed_selected_targets": [
+        24424,
+        13822,
+        55864,
+        164598,
+        1222142
+      ],
+      "name": "target_residue_single_class",
+      "pre_existing_source_feature": true,
+      "theorem_boundary": "selected targets occupy multiple residues; residue alone is not the family boundary",
+      "threshold_or_predicate": "one target residue modulo 143 or 286"
+    },
+    {
+      "captured_selected_targets": [],
+      "captures_selected_count": 0,
+      "finite_status": "falsified_broad_promotion",
+      "missed_selected_targets": [
+        24424,
+        13822,
+        55864,
+        164598,
+        1222142
+      ],
+      "name": "baseline_full_nonpositive",
+      "pre_existing_source_feature": true,
+      "theorem_boundary": "does not contain the selected five and does not preserve the scalar/watchlist margins",
+      "threshold_or_predicate": "full_action_to_principal_ratio <= 0 in the baseline filter-order fixture"
+    }
+  ],
+  "decision": "Centered (3,1) is supported as a finite selected-reference stress-classifier coordinate: it has zero failures across the 3,030 checked selected-reference fresh-unseen comparisons and removing it from Kevin's watchlist creates selected-fixture failures.  Reference 13822 is a volatile-overturn witness with centered (3,1) rank 2 and weighted value -0.028592853507378977.  The result is not a broad stress lemma: the 89 additional full_nonpositive references produce 32,661 scalar (3,1) failures and have zero overlap with the selected five.",
+  "focus_reference_13822": {
+    "centered_3_1_rank_low_to_high": 2,
+    "centered_3_1_weighted_value": -0.028592853507378977,
+    "selected_fixture_dominant_floor_passes": false,
+    "selected_fixture_dominant_margin_to_floor": -0.03674434602428933,
+    "stable_core_floor_passes": true,
+    "stable_core_margin_to_floor": 0.3023670686383121,
+    "subclass": "volatile_overturn",
+    "target": 13822,
+    "target_mod_143": 94,
+    "target_mod_286": 94,
+    "volatile_clause_count": 2,
+    "volatile_minimum_clause_size": 6,
+    "volatile_necessary_channels": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "volatile_rim_sum_to_principal": -0.3391114146626045
+  },
+  "fresh_unseen_scope_rows": [
+    {
+      "comparison_count": 25,
+      "scalar_3_1_mean": 0.02956699037689329,
+      "scalar_3_1_minimum": 0.016897243683032873,
+      "scalar_3_1_negative_count": 0,
+      "scalar_3_1_positive_count": 25,
+      "scalar_3_1_positive_margin_share": 0.12189952309585224,
+      "scope_id": "fresh_unseen_prior_seed_residue_targets",
+      "target_count": 5
+    },
+    {
+      "comparison_count": 0,
+      "scalar_3_1_mean": null,
+      "scalar_3_1_minimum": null,
+      "scalar_3_1_negative_count": 0,
+      "scalar_3_1_positive_count": 0,
+      "scalar_3_1_positive_margin_share": null,
+      "scope_id": "fresh_unseen_seed_residue_38",
+      "target_count": 0
+    },
+    {
+      "comparison_count": 25,
+      "scalar_3_1_mean": 0.02956699037689329,
+      "scalar_3_1_minimum": 0.016897243683032873,
+      "scalar_3_1_negative_count": 0,
+      "scalar_3_1_positive_count": 25,
+      "scalar_3_1_positive_margin_share": 0.12189952309585224,
+      "scope_id": "fresh_unseen_seed_residue_64",
+      "target_count": 5
+    },
+    {
+      "comparison_count": 3005,
+      "scalar_3_1_mean": 0.02700857455564706,
+      "scalar_3_1_minimum": 0.0035109555591320892,
+      "scalar_3_1_negative_count": 0,
+      "scalar_3_1_positive_count": 3005,
+      "scalar_3_1_positive_margin_share": 0.12206413107909649,
+      "scope_id": "fresh_unseen_nonseed_targets",
+      "target_count": 601
+    }
+  ],
+  "goldbach_proved": false,
+  "mechanism": "Compare source predicates already present in checked q286 receipts.  Preserve the selected-stable fixture, its two selected-stress subclasses, and the broad full_nonpositive fixture as separate populations.",
+  "next_obligation": "Freeze a prospective selected-stable reference-generation rule or bottom-rank candidate before seeing new rows; otherwise move from classifier language to a signed correlation estimate.",
+  "question": "Can centered (3,1), including the strong selected witness 13822, be treated as a stress-classifier lemma?",
+  "schema_version": 1,
+  "selected_reference_rows": [
+    {
+      "centered_3_1_rank_low_to_high": 4,
+      "centered_3_1_weighted_value": -0.02709641049683262,
+      "selected_fixture_dominant_floor_passes": false,
+      "selected_fixture_dominant_margin_to_floor": -0.01345867269417178,
+      "stable_core_floor_passes": false,
+      "stable_core_margin_to_floor": -0.0008784786089613417,
+      "subclass": "stable_core_deficit",
+      "target": 24424,
+      "target_mod_143": 114,
+      "target_mod_286": 114,
+      "volatile_clause_count": 1,
+      "volatile_minimum_clause_size": 0,
+      "volatile_necessary_channels": [],
+      "volatile_rim_sum_to_principal": -0.012580194085217872
+    },
+    {
+      "centered_3_1_rank_low_to_high": 2,
+      "centered_3_1_weighted_value": -0.028592853507378977,
+      "selected_fixture_dominant_floor_passes": false,
+      "selected_fixture_dominant_margin_to_floor": -0.03674434602428933,
+      "stable_core_floor_passes": true,
+      "stable_core_margin_to_floor": 0.3023670686383121,
+      "subclass": "volatile_overturn",
+      "target": 13822,
+      "target_mod_143": 94,
+      "target_mod_286": 94,
+      "volatile_clause_count": 2,
+      "volatile_minimum_clause_size": 6,
+      "volatile_necessary_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "volatile_rim_sum_to_principal": -0.3391114146626045
+    },
+    {
+      "centered_3_1_rank_low_to_high": 1,
+      "centered_3_1_weighted_value": -0.04576028234769708,
+      "selected_fixture_dominant_floor_passes": false,
+      "selected_fixture_dominant_margin_to_floor": -0.09922857579168887,
+      "stable_core_floor_passes": false,
+      "stable_core_margin_to_floor": -0.16996298157625772,
+      "subclass": "stable_core_deficit",
+      "target": 55864,
+      "target_mod_143": 94,
+      "target_mod_286": 94,
+      "volatile_clause_count": 1,
+      "volatile_minimum_clause_size": 0,
+      "volatile_necessary_channels": [],
+      "volatile_rim_sum_to_principal": 0.07073440578456863
+    },
+    {
+      "centered_3_1_rank_low_to_high": 7,
+      "centered_3_1_weighted_value": -0.0196487122614909,
+      "selected_fixture_dominant_floor_passes": false,
+      "selected_fixture_dominant_margin_to_floor": -0.019151792455176064,
+      "stable_core_floor_passes": true,
+      "stable_core_margin_to_floor": 0.07568600519654217,
+      "subclass": "volatile_overturn",
+      "target": 164598,
+      "target_mod_143": 5,
+      "target_mod_286": 148,
+      "volatile_clause_count": 2,
+      "volatile_minimum_clause_size": 3,
+      "volatile_necessary_channels": [
+        [
+          1,
+          5
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "volatile_rim_sum_to_principal": -0.09483779765171797
+    },
+    {
+      "centered_3_1_rank_low_to_high": 3,
+      "centered_3_1_weighted_value": -0.028279567374743457,
+      "selected_fixture_dominant_floor_passes": false,
+      "selected_fixture_dominant_margin_to_floor": -0.008833179560527815,
+      "stable_core_floor_passes": true,
+      "stable_core_margin_to_floor": 0.05657371169798747,
+      "subclass": "volatile_overturn",
+      "target": 1222142,
+      "target_mod_143": 64,
+      "target_mod_286": 64,
+      "volatile_clause_count": 10,
+      "volatile_minimum_clause_size": 4,
+      "volatile_necessary_channels": [],
+      "volatile_rim_sum_to_principal": -0.06540689125851765
+    }
+  ],
+  "source_commit": "b46c4255424788f20df98e1114dc834f8db56285",
+  "sources": {
+    "additional_stress_reference_generalization": "evidence\\q286-additional-stress-reference-generalization-audit.json",
+    "selected_deficit_provenance": "evidence\\q286-selected-deficit-provenance-audit.json",
+    "selected_reference_scope_fork": "evidence\\q286-selected-reference-scope-fork-audit.json",
+    "selected_stress_subclass": "evidence\\q286-selected-stress-subclass-audit.json",
+    "selected_stress_subclass_channel_decomposition": "evidence\\q286-selected-stress-subclass-channel-decomposition.json"
+  },
+  "status_boundary": "finite family-boundary audit only; no selected-stress theorem, broad stress theorem, signed correlation theorem, pointwise character-sum theorem, or Goldbach proof.",
+  "subclass_boundary_rows": [
+    {
+      "best_singletons": [
+        {
+          "average_target_margin": 0.0525005183018891,
+          "label_keys": [
+            "4,6"
+          ],
+          "minimum_target_margin": 0.019004585558514857
+        },
+        {
+          "average_target_margin": 0.03358246482171273,
+          "label_keys": [
+            "3,1"
+          ],
+          "minimum_target_margin": 0.010958653794473812
+        },
+        {
+          "average_target_margin": 0.01463259494470192,
+          "label_keys": [
+            "2,10"
+          ],
+          "minimum_target_margin": 0.005702751346006679
+        },
+        {
+          "average_target_margin": 0.01437258731276763,
+          "label_keys": [
+            "4,2"
+          ],
+          "minimum_target_margin": 0.00022080316989379976
+        }
+      ],
+      "channel_3_1_negative_count": 0,
+      "channel_3_1_positive_count": 1212,
+      "channel_3_1_positive_margin_share": 0.1487387165112177,
+      "comparison_count": 1212,
+      "frozen_full_17_lp_failures": 5,
+      "frozen_full_17_lp_minimum": -0.0047802350843684175,
+      "kevin_watchlist_failures": 0,
+      "kevin_watchlist_minimum": 0.0050335385945745326,
+      "passing_singleton_count": 4,
+      "references": [
+        24424,
+        55864
+      ],
+      "scalar_3_1_failures": 0,
+      "scalar_3_1_mean": 0.03358246482171273,
+      "scalar_3_1_minimum": 0.010958653794473812,
+      "subclass": "stable_core_deficit",
+      "watchlist_without_3_1_failures": 62,
+      "watchlist_without_3_1_minimum": -0.018376824957962043
+    },
+    {
+      "best_singletons": [
+        {
+          "average_target_margin": 0.022661162780652323,
+          "label_keys": [
+            "3,1"
+          ],
+          "minimum_target_margin": 0.0035109555591320892
+        },
+        {
+          "average_target_margin": 0.09912808974704529,
+          "label_keys": [
+            "3,11"
+          ],
+          "minimum_target_margin": 0.0009724743900470321
+        }
+      ],
+      "channel_3_1_negative_count": 0,
+      "channel_3_1_positive_count": 1818,
+      "channel_3_1_positive_margin_share": 0.1036899203916108,
+      "comparison_count": 1818,
+      "frozen_full_17_lp_failures": 606,
+      "frozen_full_17_lp_minimum": -0.14321442782269148,
+      "kevin_watchlist_failures": 0,
+      "kevin_watchlist_minimum": 0.0020345565333929026,
+      "passing_singleton_count": 2,
+      "references": [
+        13822,
+        164598,
+        1222142
+      ],
+      "scalar_3_1_failures": 0,
+      "scalar_3_1_mean": 0.022661162780652323,
+      "scalar_3_1_minimum": 0.0035109555591320892,
+      "subclass": "volatile_overturn",
+      "watchlist_without_3_1_failures": 5,
+      "watchlist_without_3_1_minimum": -0.008154792325983845
+    }
+  ]
+}

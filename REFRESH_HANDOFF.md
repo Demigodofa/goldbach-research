@@ -6,6 +6,48 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+Kevin asked whether `(3,1)` could be a stress-classifier lemma, especially
+because `13822` was a large negative selected reference.  The family-boundary
+audit is now explicit.
+
+`tools/build_q286_selected_stable_fixture_family_boundary_audit.py` generated
+`evidence/q286-selected-stable-fixture-family-boundary-audit.json`, with the
+human note `notes/q286-selected-stable-fixture-family-boundary-audit.md`.
+
+Question: is `(3,1)` a stress classifier?
+
+Result: yes for the selected-reference fixture; no for the broad
+`full_nonpositive` stress fixture.
+
+```text
+selected references:                 5
+fresh-unseen comparisons:            3,030
+scalar (3,1) selected failures:      0
+watchlist without (3,1) failures:    67
+additional full_nonpositive refs:    89
+scalar (3,1) broad failures:         32,661
+selected/broad overlap:              0
+```
+
+Focus witness:
+
+```text
+target 13822:
+  subclass:                         volatile_overturn
+  centered (3,1) rank low-to-high:  2
+  centered (3,1) weighted value:    -0.028592853507378977
+  stable-core margin to floor:       0.3023670686383121
+  volatile rim sum to principal:    -0.3391114146626045
+```
+
+Decision: preserve `(3,1)` as a finite selected-reference
+stress-classifier coordinate.  Do not promote it to a broad stress theorem.
+The next branch must freeze a prospective selected-stable family rule before
+seeing new rows, or switch from classifier language to a signed correlation
+estimate.
+
+## Previous active checkpoint note, 2026-09-15
+
 The selected-reference `(3,1)` result and the broad `full_nonpositive`
 falsifier now have an explicit scope-fork audit.
 

@@ -6,6 +6,35 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+Kevin asked whether `(3,1)` might be a stress-classifier lemma, with the large
+negative selected reference `13822` as a witness.  The family boundary now has
+an explicit audit:
+`tools/build_q286_selected_stable_fixture_family_boundary_audit.py` generated
+`evidence/q286-selected-stable-fixture-family-boundary-audit.json`, with
+explanation in
+`notes/q286-selected-stable-fixture-family-boundary-audit.md`.
+
+Mechanism: compare only already checked receipts and source predicates.  Keep
+the selected-stable dominant-floor failure fixture, its two selected-stress
+subclasses, and the broad `full_nonpositive` fixture as separate populations.
+
+Result: centered `(3,1)` is supported as a finite selected-reference
+stress-classifier coordinate.  It has `0` failures across the `3,030` checked
+selected-reference fresh-unseen comparisons, and removing `(3,1)` from Kevin's
+watchlist creates `67` selected-fixture failures.  Reference `13822` is a
+volatile-overturn witness with centered `(3,1)` rank `2`, weighted value
+`-0.028592853507378977`, stable-core margin `0.3023670686383121`, and volatile
+rim sum `-0.3391114146626045`.
+
+Interpretation: say yes to the narrow lemma and no to the broad theorem.
+`(3,1)` is live as a selected-reference classifier coordinate, but the `89`
+additional broad `full_nonpositive` references still give `32,661` scalar
+`(3,1)` failures and have zero overlap with the selected five.  The next branch
+must freeze a prospective selected-stable reference-generation rule or move to
+a signed correlation estimate.
+
+## Previous continuation evidence, 2026-09-15
+
 The `(3,1)` selected-reference result and the broad stress-reference falsifier
 now have an explicit scope-fork audit:
 `tools/build_q286_selected_reference_scope_fork_audit.py` generated

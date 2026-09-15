@@ -161,6 +161,9 @@ def main():
         / "q286-additional-stress-reference-generalization-audit.json")
     selected_reference_scope_fork = load_json(
         EVIDENCE / "q286-selected-reference-scope-fork-audit.json")
+    selected_stable_fixture_family_boundary = load_json(
+        EVIDENCE
+        / "q286-selected-stable-fixture-family-boundary-audit.json")
     centered_3_1_stress_class = load_json(
         EVIDENCE / "q286-centered-3-1-stress-class-audit.json")
     selected_deficit_provenance = load_json(
@@ -2609,6 +2612,61 @@ def main():
         "selected-reference-scope-fork-audit",
         3.0,
         "local-to-channel bridge must preserve selected/broad fixture distinction")
+
+    layer(
+        "selected-stable-fixture-family-boundary-audit",
+        "Selected-stable fixture boundary preserves the narrow (3,1) lemma",
+        "validated_scope_guard",
+        "evidence/q286-selected-stable-fixture-family-boundary-audit.json",
+        3.5,
+        "Finite family-boundary audit only; no selected-stress theorem.")
+    add_hit(
+        mechanism_stacks,
+        "selected-stable-fixture-boundary",
+        "selected-stable-fixture-family-boundary-audit",
+        3.5,
+        "selected-stable dominant-floor failure is the current exact fixture boundary",
+        {
+            "candidate_boundaries":
+                selected_stable_fixture_family_boundary[
+                    "candidate_family_boundaries"],
+            "focus_reference_13822":
+                selected_stable_fixture_family_boundary[
+                    "focus_reference_13822"],
+        })
+    add_hit(
+        mechanism_stacks,
+        "centered-3-1-selected-stress-fresh-window-classifier",
+        "selected-stable-fixture-family-boundary-audit",
+        3.0,
+        "(3,1) is supported only as a selected-reference classifier coordinate",
+        selected_stable_fixture_family_boundary[
+            "broad_full_nonpositive_falsifier"])
+    add_hit(
+        mechanism_stacks,
+        "centered-3-1-bottom-rank-prospective-candidate",
+        "selected-stable-fixture-family-boundary-audit",
+        2.0,
+        "bottom-7 centered (3,1) rank captures the selected five but is post-hoc until frozen prospectively")
+    add_hit(
+        target_stacks,
+        "13822",
+        "selected-stable-fixture-family-boundary-audit",
+        3.0,
+        "volatile-overturn witness for the selected-reference (3,1) lemma",
+        selected_stable_fixture_family_boundary["focus_reference_13822"])
+    add_hit(
+        theorem_stacks,
+        "centered-3-1-stress-class-theorem",
+        "selected-stable-fixture-family-boundary-audit",
+        3.5,
+        "preserve the selected-reference lemma but do not promote it to broad stress without a prospective family rule")
+    add_hit(
+        theorem_stacks,
+        "ap-count-to-17-channel-bridge",
+        "selected-stable-fixture-family-boundary-audit",
+        3.0,
+        "next bridge must explain why selected-stable fixture rows separate while broad full_nonpositive rows do not")
 
     layer(
         "centered-3-1-stress-class-audit",

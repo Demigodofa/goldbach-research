@@ -1560,6 +1560,14 @@
       "status_boundary": "finite scope-fork audit only; preserves the selected-reference lemma and falsifies broad promotion but proves no selected-stress theorem, broad stress theorem, signed correlation theorem, pointwise character-sum theorem, or Goldbach proof"
     },
     {
+      "id": "receipt.q286_selected_stable_fixture_family_boundary_audit",
+      "type": "receipt",
+      "label": "q286 selected-stable fixture family boundary audit",
+      "status": "validated_scope_guard",
+      "validation": "tools/build_q286_selected_stable_fixture_family_boundary_audit.py generated evidence/q286-selected-stable-fixture-family-boundary-audit.json; centered (3,1) is supported as a finite selected-reference stress-classifier coordinate with 0 failures across 3,030 selected-reference fresh-unseen comparisons, while reference 13822 is identified as a volatile-overturn witness and broad full_nonpositive promotion remains falsified by 32,661 scalar failures",
+      "status_boundary": "finite family-boundary audit only; preserves (3,1) as a selected-reference coordinate but proves no selected-stress theorem, broad stress theorem, signed correlation theorem, pointwise character-sum theorem, or Goldbach proof"
+    },
+    {
       "id": "receipt.q286_centered_3_1_stress_class_audit",
       "type": "receipt",
       "label": "q286 centered (3,1) full-nonpositive stress-class audit",
@@ -3563,6 +3571,31 @@
     {
       "from": "receipt.q286_zero_local_target_channel_decomposition",
       "to": "obligation.fixed_modulus_binary_goldbach_progressions",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_selected_stable_fixture_family_boundary_audit",
+      "to": "receipt.q286_selected_reference_scope_fork_audit",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_selected_stable_fixture_family_boundary_audit",
+      "to": "receipt.q286_selected_stress_subclass_channel_decomposition",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_selected_stable_fixture_family_boundary_audit",
+      "to": "receipt.q286_additional_stress_reference_generalization_audit",
+      "type": "compares_with"
+    },
+    {
+      "from": "receipt.q286_selected_stable_fixture_family_boundary_audit",
+      "to": "obligation.centered_3_1_stress_class",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_selected_stable_fixture_family_boundary_audit",
+      "to": "obligation.ap_count_to_17_channel_bridge",
       "type": "requires"
     }
   ]
