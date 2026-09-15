@@ -6,6 +6,34 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The selected `(3,1)` residue-5 near-collision route now has a finite
+falsifier:
+`tools/build_q286_centered_3_1_residue5_near_collision_horizon.py`
+generated `evidence/q286-centered-3-1-residue5-near-collision-horizon.json`,
+with explanation in
+`notes/q286-centered-3-1-residue5-near-collision-horizon.md`.
+
+Mechanism: the previous tightest available-population gate was
+`164598 < 8000140` at residue `5`, with weighted centered `(3,1)` gap only
+`0.0003925287417802202`.  This audit predeclared the same-residue horizon
+`8000140 + 286*k` for `-50 <= k <= 50`; local `(3,1)` action cancels exactly
+throughout the horizon.
+
+Result: the residue-5 micro-horizon version fails.  Of `101` checked
+same-residue horizon targets, `5` fall below reference `164598` in weighted
+centered `(3,1)`.  The worst is target `7988986` at offset `-39`, with
+weighted gap `-0.0073386462295386805` and empirical gap
+`-0.008503587079606707`.
+
+Interpretation: `(3,1)` remains useful as a diagnostic and as finite evidence
+on the previously checked fixtures, but it cannot be promoted to a scalar
+residue-5 neighborhood theorem.  Future proof work must either define a
+narrower non-post-hoc selected family that excludes the five failures for an
+arithmetic reason, or move from a scalar `(3,1)` theorem to a
+higher-dimensional signed-correlation model.
+
+## Previous continuation evidence, 2026-09-15
+
 The selected `(3,1)` signed-gap obligation now has a broader available
 same-residue population audit:
 `tools/build_q286_centered_3_1_available_same_residue_population_audit.py`

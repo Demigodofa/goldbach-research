@@ -1488,6 +1488,14 @@
       "status_boundary": "finite available-population same-residue audit only; no selected-stress theorem, signed correlation theorem, pointwise character-sum theorem, or Goldbach proof"
     },
     {
+      "id": "receipt.q286_centered_3_1_residue5_near_collision_horizon",
+      "type": "receipt",
+      "label": "q286 centered (3,1) residue-5 near-collision horizon",
+      "status": "validated_falsifier",
+      "validation": "tools/build_q286_centered_3_1_residue5_near_collision_horizon.py generated evidence/q286-centered-3-1-residue5-near-collision-horizon.json; the predeclared horizon 8000140+286*k for -50<=k<=50 has zero local (3,1) gap but 5 of 101 targets fall below reference 164598, with worst target 7988986 and weighted gap -0.0073386462295386805",
+      "status_boundary": "finite falsifier of the residue-5 micro-horizon version only; no selected-stress theorem, signed correlation theorem, pointwise character-sum theorem, or Goldbach proof"
+    },
+    {
       "id": "receipt.q286_centered_3_1_stress_class_audit",
       "type": "receipt",
       "label": "q286 centered (3,1) full-nonpositive stress-class audit",
@@ -1585,6 +1593,21 @@
     },
     {
       "from": "receipt.q286_centered_3_1_available_same_residue_population_audit",
+      "to": "obligation.ap_count_to_17_channel_bridge",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_centered_3_1_residue5_near_collision_horizon",
+      "to": "receipt.q286_centered_3_1_available_same_residue_population_audit",
+      "type": "falsifies_simplification"
+    },
+    {
+      "from": "receipt.q286_centered_3_1_residue5_near_collision_horizon",
+      "to": "obligation.centered_3_1_stress_class",
+      "type": "falsifies_simplification"
+    },
+    {
+      "from": "receipt.q286_centered_3_1_residue5_near_collision_horizon",
       "to": "obligation.ap_count_to_17_channel_bridge",
       "type": "requires"
     },

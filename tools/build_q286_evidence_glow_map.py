@@ -141,6 +141,8 @@ def main():
     centered_3_1_available_same_residue = load_json(
         EVIDENCE
         / "q286-centered-3-1-available-same-residue-population-audit.json")
+    centered_3_1_residue5_horizon = load_json(
+        EVIDENCE / "q286-centered-3-1-residue5-near-collision-horizon.json")
     centered_3_1_stress_class = load_json(
         EVIDENCE / "q286-centered-3-1-stress-class-audit.json")
     selected_deficit_provenance = load_json(
@@ -1955,6 +1957,67 @@ def main():
         "centered-3-1-available-same-residue-population-audit",
         2.0,
         "signed channel correlation estimate must explain the thin 164598/8000140 same-residue gap")
+
+    layer(
+        "centered-3-1-residue5-near-collision-horizon",
+        "Centered (3,1) residue-5 micro-horizon falsifies scalar promotion",
+        "finite_falsifier",
+        "evidence/q286-centered-3-1-residue5-near-collision-horizon.json",
+        3.0,
+        "Finite residue-5 horizon falsifier only; no signed correlation theorem.")
+    add_hit(
+        mechanism_stacks,
+        "centered-3-1-selected-deficit-separator-clipped",
+        "centered-3-1-residue5-near-collision-horizon",
+        3.0,
+        "predeclared same-residue horizon has zero local gap but crosses below reference 164598",
+        {
+            "reference_target":
+                centered_3_1_residue5_horizon["reference_target"],
+            "center_target":
+                centered_3_1_residue5_horizon["center_target"],
+            "target_count":
+                centered_3_1_residue5_horizon["target_count"],
+            "failing_target_count":
+                centered_3_1_residue5_horizon["failing_target_count"],
+            "minimum_weighted_gap":
+                centered_3_1_residue5_horizon[
+                    "weighted_gap_summary"]["minimum"],
+        })
+    add_hit(
+        target_stacks,
+        "7988986",
+        "centered-3-1-residue5-near-collision-horizon",
+        3.0,
+        "worst residue-5 horizon falsifier below selected reference 164598",
+        centered_3_1_residue5_horizon["tightest_rows"][0])
+    add_hit(
+        target_stacks,
+        "164598",
+        "centered-3-1-residue5-near-collision-horizon",
+        2.5,
+        "selected reference no longer below all local residue-5 horizon targets",
+        {
+            "failing_target_count":
+                centered_3_1_residue5_horizon["failing_target_count"],
+            "worst_failing_target":
+                centered_3_1_residue5_horizon["tightest_rows"][0]["target"],
+            "worst_weighted_gap":
+                centered_3_1_residue5_horizon[
+                    "weighted_gap_summary"]["minimum"],
+        })
+    add_hit(
+        theorem_stacks,
+        "centered-3-1-stress-class-theorem",
+        "centered-3-1-residue5-near-collision-horizon",
+        3.0,
+        "scalar residue-5 neighborhood promotion is falsified by five same-residue crossings")
+    add_hit(
+        theorem_stacks,
+        "ap-count-to-17-channel-bridge",
+        "centered-3-1-residue5-near-collision-horizon",
+        2.0,
+        "future bridge must use higher-dimensional signed correlation or a narrower non-post-hoc family")
 
     layer(
         "centered-3-1-stress-class-audit",

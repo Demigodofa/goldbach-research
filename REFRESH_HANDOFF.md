@@ -6,6 +6,39 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The selected `(3,1)` near-collision route now has a finite residue-5
+falsifier.  `tools/build_q286_centered_3_1_residue5_near_collision_horizon.py`
+generated `evidence/q286-centered-3-1-residue5-near-collision-horizon.json`,
+with the human note
+`notes/q286-centered-3-1-residue5-near-collision-horizon.md`.
+
+Question: was the thin `164598 < 8000140` same-residue gate stable in a small
+predeclared residue-5 neighborhood?
+
+Result: no.  The checked horizon was:
+
+```text
+8000140 + 286*k, -50 <= k <= 50
+```
+
+All `101` targets share residue `5` modulo `143`, so the local q286 `(3,1)`
+gap is exactly `0.0`.  Five targets fall below reference `164598` anyway:
+
+```text
+7988986: weighted gap -0.0073386462295386805
+8008720: weighted gap -0.0037345170790717003
+7997852: weighted gap -0.0034542494188199054
+8010722: weighted gap -0.001712648752328301
+8000998: weighted gap -0.00023725645427019604
+```
+
+Decision: `(3,1)` should not be promoted as a scalar residue-5 neighborhood
+theorem.  Preserve it as a diagnostic coordinate and finite selected-fixture
+evidence, but the next theorem route needs either a narrower non-post-hoc
+target family or a higher-dimensional signed-correlation model.
+
+## Previous active checkpoint note, 2026-09-15
+
 The selected `(3,1)` signed-gap obligation now has an available same-residue
 population audit.  `tools/build_q286_centered_3_1_available_same_residue_population_audit.py`
 generated

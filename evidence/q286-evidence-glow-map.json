@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "receipt": "q286-evidence-glow-map",
-  "generated_from_commit": "c1e13c46600eb02d11869ca4269adbb4826f856d",
+  "generated_from_commit": "6844830fa0f14ada80d863271184b377d67ae809",
   "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
   "visual_encoding": {
     "target_shape": "circle",
@@ -346,6 +346,14 @@
       "source": "evidence/q286-centered-3-1-available-same-residue-population-audit.json",
       "default_weight": 3.0,
       "boundary": "Finite available-population audit only; no signed correlation theorem."
+    },
+    {
+      "id": "centered-3-1-residue5-near-collision-horizon",
+      "label": "Centered (3,1) residue-5 micro-horizon falsifies scalar promotion",
+      "kind": "finite_falsifier",
+      "source": "evidence/q286-centered-3-1-residue5-near-collision-horizon.json",
+      "default_weight": 3.0,
+      "boundary": "Finite residue-5 horizon falsifier only; no signed correlation theorem."
     },
     {
       "id": "centered-3-1-stress-class-audit",
@@ -1008,7 +1016,7 @@
     },
     {
       "id": "164598",
-      "stack_weight": 54.5,
+      "stack_weight": 57.0,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1288,10 +1296,20 @@
             "weighted_gap": 0.0003925287417802202,
             "comparison_scope": "same-window nonseed"
           }
+        },
+        {
+          "layer": "centered-3-1-residue5-near-collision-horizon",
+          "weight": 2.5,
+          "reason": "selected reference no longer below all local residue-5 horizon targets",
+          "value": {
+            "failing_target_count": 5,
+            "worst_failing_target": 7988986,
+            "worst_weighted_gap": -0.0073386462295386805
+          }
         }
       ],
-      "layer_count": 26,
-      "glow": 0.923729
+      "layer_count": 27,
+      "glow": 0.966102
     },
     {
       "id": "24424",
@@ -5341,6 +5359,36 @@
       "glow": 0.050847
     },
     {
+      "id": "7988986",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "centered-3-1-residue5-near-collision-horizon",
+          "weight": 3.0,
+          "reason": "worst residue-5 horizon falsifier below selected reference 164598",
+          "value": {
+            "centered_channel_value": -0.031271347030371786,
+            "centered_gap_above_reference": -0.008503587079606707,
+            "empirical_channel_value": -0.018543331771077868,
+            "empirical_gap_above_reference": -0.008503587079606707,
+            "local_channel_delta_relative_to_base": 0.012728015259293918,
+            "local_gap": 0.0,
+            "lp_weight": 0.8630059480590506,
+            "offset_from_center_in_286_steps": -39,
+            "passes_reference_gate": false,
+            "role": "residue5_near_collision_horizon_target",
+            "target": 7988986,
+            "target_mod_143": 5,
+            "target_mod_286": 148,
+            "weighted_centered_channel_value": -0.02698735849102958,
+            "weighted_gap_above_reference": -0.0073386462295386805
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.050847
+    },
+    {
       "id": "1220188",
       "stack_weight": 2.5,
       "layers": [
@@ -6231,6 +6279,26 @@
       "glow": 0.166667
     },
     {
+      "id": "centered-3-1-selected-deficit-separator-clipped",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "centered-3-1-residue5-near-collision-horizon",
+          "weight": 3.0,
+          "reason": "predeclared same-residue horizon has zero local gap but crosses below reference 164598",
+          "value": {
+            "reference_target": 164598,
+            "center_target": 8000140,
+            "target_count": 101,
+            "failing_target_count": 5,
+            "minimum_weighted_gap": -0.0073386462295386805
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.166667
+    },
+    {
       "id": "local-singular-cone-orientation-floor",
       "stack_weight": 3.0,
       "layers": [
@@ -6909,7 +6977,7 @@
   "theorem_gap_stacks": [
     {
       "id": "centered-3-1-stress-class-theorem",
-      "stack_weight": 23.0,
+      "stack_weight": 26.0,
       "layers": [
         {
           "layer": "centered-channel-scalar-order-audit",
@@ -6942,6 +7010,11 @@
           "reason": "available population strengthens selected-reference route but exposes near-collision at 164598/8000140"
         },
         {
+          "layer": "centered-3-1-residue5-near-collision-horizon",
+          "weight": 3.0,
+          "reason": "scalar residue-5 neighborhood promotion is falsified by five same-residue crossings"
+        },
+        {
           "layer": "centered-3-1-stress-class-audit",
           "weight": 3.0,
           "reason": "full_nonpositive classifier version falsified; a different predeclared class or signed estimate is needed"
@@ -6952,7 +7025,7 @@
           "reason": "scope guard: selected-deficit separation cannot be promoted across fixture predicates"
         }
       ],
-      "layer_count": 8,
+      "layer_count": 9,
       "glow": 1.0
     },
     {
@@ -6996,7 +7069,7 @@
         }
       ],
       "layer_count": 7,
-      "glow": 0.76087
+      "glow": 0.673077
     },
     {
       "id": "portfolio-residual-lower-bound",
@@ -7044,7 +7117,7 @@
         }
       ],
       "layer_count": 8,
-      "glow": 0.717391
+      "glow": 0.634615
     },
     {
       "id": "rank1-residual-drag-bound",
@@ -7077,11 +7150,11 @@
         }
       ],
       "layer_count": 5,
-      "glow": 0.652174
+      "glow": 0.576923
     },
     {
       "id": "ap-count-to-17-channel-bridge",
-      "stack_weight": 10.0,
+      "stack_weight": 12.0,
       "layers": [
         {
           "layer": "lp-cone-local-singular-audit",
@@ -7099,13 +7172,18 @@
           "reason": "signed channel correlation estimate must explain the thin 164598/8000140 same-residue gap"
         },
         {
+          "layer": "centered-3-1-residue5-near-collision-horizon",
+          "weight": 2.0,
+          "reason": "future bridge must use higher-dimensional signed correlation or a narrower non-post-hoc family"
+        },
+        {
           "layer": "ap-count-bridge-gap-audit",
           "weight": 3.0,
           "reason": "raw AP counts alone are demoted; bridge needs binary convolution or signed character correlation"
         }
       ],
-      "layer_count": 4,
-      "glow": 0.434783
+      "layer_count": 5,
+      "glow": 0.461538
     },
     {
       "id": "alternate-stress-channel-reference-gate",
@@ -7128,7 +7206,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.347826
+      "glow": 0.307692
     },
     {
       "id": "fixed-modulus-binary-prime-discrepancy",
@@ -7151,7 +7229,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.347826
+      "glow": 0.307692
     },
     {
       "id": "active-lane-strict-closure",
@@ -7169,7 +7247,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.217391
+      "glow": 0.192308
     },
     {
       "id": "near-boundary-selector-theorem",
@@ -7187,7 +7265,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.152174
+      "glow": 0.134615
     },
     {
       "id": "distributed-cone-correlation-theorem",
@@ -7200,7 +7278,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.130435
+      "glow": 0.115385
     },
     {
       "id": "alignment-plus-complement-tail",
@@ -7213,7 +7291,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.086957
+      "glow": 0.076923
     },
     {
       "id": "dangerous-reflection-orbit-mass-bound",
@@ -7226,7 +7304,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.086957
+      "glow": 0.076923
     },
     {
       "id": "dominant-staircase-above-floor-threshold-sign",
@@ -7239,7 +7317,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.086957
+      "glow": 0.076923
     },
     {
       "id": "dominant-staircase-hinge-balance",
@@ -7252,7 +7330,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.086957
+      "glow": 0.076923
     },
     {
       "id": "dominant-staircase-hinge-threshold-surplus",
@@ -7265,7 +7343,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.086957
+      "glow": 0.076923
     },
     {
       "id": "interpolation-or-cone-endpoint-theorem",
@@ -7278,7 +7356,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.086957
+      "glow": 0.076923
     },
     {
       "id": "rarity-plus-complement-floor",
@@ -7291,7 +7369,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.086957
+      "glow": 0.076923
     },
     {
       "id": "sample-size-cherry-pick-risk",
@@ -7308,7 +7386,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.065217
+      "glow": 0.057692
     },
     {
       "id": "alignment-complement-route",
@@ -7321,7 +7399,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.043478
+      "glow": 0.038462
     }
   ],
   "goldbach_proved": false,
