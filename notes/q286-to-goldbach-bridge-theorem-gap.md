@@ -1,0 +1,268 @@
+# q286 to Goldbach bridge theorem gap
+
+Status: theorem-shaped pivot and implication-gap certificate.  This is not a
+q286 threshold theorem, signed prime-correlation theorem, strict-central
+Goldbach theorem, or proof of Goldbach.
+
+## Purpose
+
+The q286 work has produced strong finite structure, but the current loop can
+become endless if we keep auditing normalized rows.  A Goldbach proof needs a
+bridge from the q286 action to existence of a prime pair for every even target,
+not just positivity on checked q286 rows or selected residue classes.
+
+This note states the candidate theorem that would be enough, identifies the
+objects that must be proved about, and names the precise implication gaps left
+by the current q286 evidence.
+
+Novelty label: `new-to-this-task`.
+
+Creative-tools status: `aha-candidate`.  The useful pivot is to move the live
+question from normalized residue geometry to an unnormalized minorant/action
+whose positivity itself creates a strict-central prime pair.
+
+## Objects
+
+Let
+
+```text
+M = 10010
+a = N mod M
+U = (Z/MZ)^*
+A_a = {r in U : gcd(a-r,M)=1}
+```
+
+For an even target `N`, define the strict-central weighted binary-prime residue
+mass
+
+```text
+W_N(r) =
+  sum log(p)log(N-p)
+```
+
+over primes satisfying
+
+```text
+N/3 < p < 2N/3
+p == r mod M
+N-p is prime.
+```
+
+Let
+
+```text
+T_N = sum_{r in A_a} W_N(r).
+```
+
+If `T_N>0`, then `N` has a strict-central Goldbach representation, hence a
+Goldbach representation.  The normalized measure
+
+```text
+mu_N(r) = W_N(r)/T_N
+nu_N    = mu_N-u_a
+```
+
+is therefore downstream of existence.  Any theorem that starts by assuming
+`mu_N` is defined cannot by itself prove Goldbach unless a separate positive
+lower bound for `T_N` has already been proved.
+
+## Candidate Bridge Theorem
+
+Candidate, not proved:
+
+There are explicit finite data `N0` and a finite exceptional set `E`, and for
+each even residue `a mod M` there are q286 coefficient functions
+`gamma_F3_a`, `gamma_full_a`, and an orthogonal residual `h_a` such that every
+even `N>=N0` with `N mod M=a` satisfies an unnormalized lower-bound identity or
+minorant
+
+```text
+L_N =
+  T_N * (
+    uniform_full_a
+    + alpha_a * <nu_N,gamma_F3_a>
+    + <nu_N,h_a>
+  )
+```
+
+and
+
+```text
+0 < L_N <= T_N
+```
+
+or, more generally, `L_N` is a nonnegative-weight lower-bound certificate whose
+positivity implies `T_N>0`.
+
+Then, after checking every even `N<N0` and every `N in E`, Goldbach follows.
+
+## Required Complement Rescue Inequality
+
+For every covered even target in the q286 tail lane, the current orthogonal
+decomposition gives
+
+```text
+full(N) =
+  uniform_full_a
+  + alpha_a * first_three(N)
+  + <nu_N,h_a>.
+```
+
+The exact rescue inequality is therefore
+
+```text
+<nu_N,h_a>
+  > -uniform_full_a - alpha_a * first_three(N).
+```
+
+Equivalently, in the earlier complement notation
+
+```text
+A(N) = F3(N) + C(N)
+S(N) = 1 + F3(N)
+D(N) = max(0, 1-C(N)),
+```
+
+full positivity is
+
+```text
+S(N) > D(N)
+```
+
+whenever `C(N)<=1`; if `C(N)>1`, complement already supplies positive surplus.
+
+In sign/landing form for the residual coefficient `h_a`, split its orbit
+support into positive and negative parts:
+
+```text
+P_h = {orbit : h_a(orbit)>0}
+N_h = {orbit : h_a(orbit)<0}.
+```
+
+Let the actual prime-pair mass on those parts have masses and average landings
+
+```text
+m_plus,  ell_plus
+m_minus, ell_minus.
+```
+
+Then
+
+```text
+<nu_N,h_a> = m_plus*ell_plus - m_minus*ell_minus
+```
+
+up to the already-accounted uniform centering, and the complement rescue
+obligation is
+
+```text
+m_plus*ell_plus
+  + uniform_full_a
+  + alpha_a * first_three(N)
+> m_minus*ell_minus.
+```
+
+This is the current finite-dimensional theorem target.  A proof must control
+the signed landing of actual binary prime-pair mass, not just the size of
+`nu_N`.
+
+## What The q286 Evidence Does Prove
+
+The current receipts prove finite identities and finite measurements:
+
+- the q286 coefficients induce exact centered functionals on the strict-central
+  residue measure;
+- on the seven frozen selected targets,
+  `gamma_full_centered = alpha_a*gamma_F3_a + h_a` with numerical
+  orthogonality error at floating precision;
+- the aligned-only term is positive on those seven selected targets;
+- the two bad selected targets fail because the orthogonal residual is too
+  negative;
+- generic L1, variance, chi-square, small-channel, and simple label-dictionary
+  routes are too blunt for the observed rows.
+
+These are proof-shaping facts, not a universal theorem.
+
+## Gap From q286 To Every Even Integer
+
+The implication from the q286 result to Goldbach is currently open at these
+places:
+
+1. Coverage gap.  The checked q286 rows and selected residues do not cover
+   every even integer.  A theorem must quantify over every even residue
+   `a mod M`, or provide a disjoint covering of all even targets by other
+   proved lanes.
+2. Boundary gap.  Early failures such as `14138` and `14996` show that the
+   residual-overturn phenomenon is real.  A proof must either include them in
+   a finite checked exceptional set or prove a condition excluding their
+   behavior after an explicit threshold.
+3. Normalization gap.  `mu_N` and `nu_N` are only defined when `T_N>0`.
+   Positivity of a normalized q286 action cannot be the first existence
+   theorem.  The bridge must be unnormalized, or must be paired with an
+   independent lower bound for `T_N`.
+4. Minorant gap.  It is not yet proved that positive q286 full action is a
+   rigorous lower bound for the actual Goldbach count or weighted count.  The
+   action may be an exact diagnostic of existing prime pairs rather than a
+   positive-count certificate.
+5. Analytic gap.  The required lower-tail estimate
+   `<nu_N,h_a> > -uniform_full_a-alpha_a*first_three(N)` is a pointwise signed
+   binary-prime correlation theorem.  Existing AP upper bounds, marginal lower
+   bounds, and broad uniformity estimates do not imply it at the needed
+   strength.
+6. Assembly gap.  Even a successful strict-central theorem for large `N` needs
+   a finite verification below `N0` and a written endpoint/noncentral assembly
+   showing the strict-central lane really implies the original Goldbach
+   statement.
+
+## Smallest Useful New Mathematical Problem
+
+Define the q286 Complement Rescue Inequality Problem:
+
+For fixed `M=10010` and every even residue `a mod M`, find explicit
+`N0(a)` and `eta_a(N)>0` such that every even `N>=N0(a)` with `N mod M=a`
+and `first_three(N)<-0.3` satisfies
+
+```text
+<nu_N,h_a>
+  >= -uniform_full_a - alpha_a*first_three(N) + eta_a(N).
+```
+
+If this is proved only after proving `T_N>0`, it is a rescue theorem inside an
+already-proved Goldbach-strength statement.  To act as a bridge toward
+Goldbach, it must be reformulated as an unnormalized inequality, for example
+
+```text
+sum_{r in A_a} W_N(r) * h_a(r)
+  >= -T_N*(uniform_full_a + alpha_a*first_three(N)) + eta'_a(N),
+```
+
+together with a lower-bound/minorant step proving the resulting positive action
+forces `T_N>0`.
+
+## Falsifier
+
+The candidate bridge fails in its current q286-only form if any of the
+following happens:
+
+- a synthetic or actual admissible row satisfies the q286 rescue inequality but
+  the proposed unnormalized minorant is not positive;
+- the rescue inequality holds only after assuming `T_N>0` with no independent
+  existence input;
+- a fresh predeclared residue class outside the selected q286 lane produces
+  full-action failure after the same threshold;
+- no sourced pointwise binary-prime correlation theorem can control the exact
+  residual statistic, leaving the route equivalent to Goldbach-in-progressions.
+
+## Decision
+
+The next strategy should not be another broad q286 audit.  The next useful
+step is to build or reject an unnormalized q286 minorant:
+
+```text
+positive q286 lower-bound action => T_N>0.
+```
+
+If that minorant cannot be proved, then q286 remains a diagnostic and theorem
+generator, not a direct Goldbach bridge.  The surviving mathematical target is
+the complement rescue inequality above, explicitly understood as a pointwise
+signed binary-prime correlation theorem.

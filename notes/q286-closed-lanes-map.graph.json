@@ -1838,6 +1838,22 @@
       "status": "open",
       "statement": "After finite boundary split, prove <nu_N,h_a> > -aligned_only(N) for the q286 first-three tail lane, using sign/landing decomposition, residual-specific mass/landing, explicit formula control, or a binary in-progressions theorem for this character combination.",
       "goldbach_proved": false
+    },
+    {
+      "id": "theorem.q286_to_goldbach_unnormalized_bridge",
+      "type": "theorem_target",
+      "label": "Unnormalized q286 bridge from action positivity to Goldbach",
+      "status": "open",
+      "statement": "For every even residue modulo M=10010 after explicit finite boundary exceptions, prove an unnormalized q286 minorant or lower-bound action L_N with 0 < L_N <= T_N, where T_N is the strict-central weighted binary-prime mass. Then T_N>0 gives a strict-central Goldbach representation.",
+      "goldbach_proved": false
+    },
+    {
+      "id": "gap.q286_normalized_measure_downstream_of_existence",
+      "type": "open_obligation",
+      "label": "Normalization gap for mu_N=W_N/T_N",
+      "status": "open",
+      "statement": "The normalized strict-central measure mu_N and discrepancy nu_N are defined only when T_N>0, so normalized q286 row positivity cannot by itself be the first existence theorem. A proof must use an unnormalized minorant or an independent lower bound for T_N.",
+      "goldbach_proved": false
     }
   ],
   "edges": [
@@ -4245,6 +4261,21 @@
       "from": "theorem.q286_residual_signed_lower_tail",
       "to": "theorem.q286_orthogonal_residual_lower_bound",
       "type": "refines"
+    },
+    {
+      "from": "theorem.q286_to_goldbach_unnormalized_bridge",
+      "to": "theorem.q286_residual_signed_lower_tail",
+      "type": "requires"
+    },
+    {
+      "from": "gap.q286_normalized_measure_downstream_of_existence",
+      "to": "theorem.q286_to_goldbach_unnormalized_bridge",
+      "type": "requires"
+    },
+    {
+      "from": "theorem.q286_to_goldbach_unnormalized_bridge",
+      "to": "theorem.first_three_signed_projection",
+      "type": "requires"
     }
   ]
 }

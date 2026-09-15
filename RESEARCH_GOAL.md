@@ -6,6 +6,41 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-to-Goldbach implication has been reframed as an explicit bridge
+theorem gap:
+`notes/q286-to-goldbach-bridge-theorem-gap.md`.
+
+Mechanism: stop treating normalized q286 row positivity as a direct Goldbach
+bridge.  The normalized strict-central measure `mu_N=W_N/T_N` is only defined
+after the strict-central weighted pair mass `T_N` is positive, so any proof
+that begins with `mu_N` is downstream of existence.  A Goldbach-useful bridge
+must instead prove an unnormalized minorant or lower-bound action whose
+positivity forces `T_N>0`.
+
+Candidate theorem: for every even residue modulo `M=10010`, after an explicit
+finite boundary split, prove a q286 lower-bound action `L_N` with
+`0 < L_N <= T_N`, or an equivalent nonnegative-weight certificate.  Then
+`T_N>0` gives a strict-central Goldbach representation, and finite checking
+below the threshold plus exceptions would assemble the original Goldbach
+statement.
+
+Required complement rescue inequality:
+`<nu_N,h_a> > -uniform_full_a - alpha_a*first_three(N)`, equivalently in
+sign/landing form
+`m_plus*ell_plus + uniform_full_a + alpha_a*first_three(N) >
+m_minus*ell_minus`.  This is a pointwise signed binary-prime correlation
+obligation unless it is promoted into an unnormalized minorant.
+
+Gap identified: current q286 receipts are finite diagnostics and exact
+decompositions.  They do not cover every even integer, do not handle early
+boundary failures without a finite split, do not solve the normalization gap,
+do not prove that positive q286 action is a lower bound for the actual
+Goldbach count, and do not supply the required pointwise signed correlation
+estimate.  The next useful step is to build or reject the unnormalized q286
+minorant, not another broad q286 audit.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 orthogonal-rescue target now has a coefficient-sensitive norm
 certificate test:
 `tools/build_q286_orthogonal_residual_norm_certificate.py` generated

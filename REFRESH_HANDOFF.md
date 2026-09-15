@@ -6,6 +6,46 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 work has been pivoted from more normalized audits to an explicit
+Goldbach-bridge theorem gap.
+
+`notes/q286-to-goldbach-bridge-theorem-gap.md` records the current theorem
+shape and the gap.
+
+Key point: the normalized strict-central measure `mu_N=W_N/T_N` cannot be the
+first existence input, because it is defined only when the strict-central
+weighted prime-pair mass `T_N` is positive.  A Goldbach-useful q286 theorem
+must instead prove an unnormalized minorant/lower-bound action:
+
+```text
+0 < L_N <= T_N
+```
+
+for every even residue modulo `M=10010` after an explicit finite boundary
+split.  Then `T_N>0` gives a strict-central Goldbach pair, and the remaining
+finite/endpoint assembly would give the original statement.
+
+The required complement rescue inequality is:
+
+```text
+<nu_N,h_a> > -uniform_full_a - alpha_a*first_three(N)
+```
+
+or, in residual sign/landing form:
+
+```text
+m_plus*ell_plus + uniform_full_a + alpha_a*first_three(N)
+  > m_minus*ell_minus.
+```
+
+Decision: q286 remains a strong diagnostic and theorem generator, but current
+q286 row positivity does not imply Goldbach for every even integer.  The next
+useful move is to build or reject the unnormalized q286 minorant.  If that
+minorant cannot be proved, the route reduces to the named hard input:
+pointwise signed binary-prime correlation for the residual statistic.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 orthogonal-rescue target now has a norm-certificate falsifier.
 
 `tools/build_q286_orthogonal_residual_norm_certificate.py` generated
