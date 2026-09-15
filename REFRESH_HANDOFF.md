@@ -6,6 +6,37 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS four-modulus route now has a positivity-budget audit.
+
+```text
+tools/build_q286_wbss_four_modulus_positivity_budget_audit.py
+notes/q286-wbss-four-modulus-positivity-budget-audit.md
+evidence/q286-wbss-four-modulus-positivity-budget-audit.json
+```
+
+Result:
+
+```text
+combined rows checked:                       232
+direct witness positive rows:                232 / 232
+fixed adverse z < 3 failures:                  1
+budget failures:                               0
+signed ratio >= 1 failures:                    0
+maximum signed budget ratio:      0.29444884696114
+largest signed-ratio target:              1002478
+tightest sigma-margin target:             1001554
+minimum positivity margin sigma:  7.70139505907474
+lambda/budget maximum error:      2.78e-17
+```
+
+Decision: the useful theorem target is not a fixed adverse-z cap. It is the
+exact budget-ratio condition `lambda_phi < 1`, equivalently adverse z below
+the row's local main-term sigma budget. Residual absorption constants still
+fit finite data only; no universal lambda bound or Goldbach proof is
+established.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286-WBSS four-modulus variance-scale route now has a farther targeted
 residue-lift holdout.
 

@@ -6,6 +6,33 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS four-modulus route now has a positivity-budget audit:
+`tools/build_q286_wbss_four_modulus_positivity_budget_audit.py` generated
+`evidence/q286-wbss-four-modulus-positivity-budget-audit.json`, with
+explanation in
+`notes/q286-wbss-four-modulus-positivity-budget-audit.md`.
+
+Question: after the farther lift falsifies the finite shortcut
+`adverse iid-scale z < 3`, what normalization survives and remains
+theorem-shaped?
+
+Result: combining the initial and farther variance-scale holdouts gives
+`232` checked rows, all direct-witness positive. The fixed `z < 3` cap has
+`1` failure, but the row-specific positivity budget has `0` failures and
+`0` signed-ratio failures. The maximum signed budget ratio is
+`0.29444884696114` at target `1002478`; the tightest sigma-margin row is
+`1001554`, with minimum positivity margin `7.70139505907474` sigma units. The
+computed budget ratio equals `lambda_phi` with maximum error
+`2.78e-17`.
+
+Decision: the live theorem target is exactly `lambda_phi < 1`, equivalently
+adverse z below the row's local main-term sigma budget. Do not revive a fixed
+adverse-z cap, and do not promote residual absorption constants. This is
+finite algebraic evidence only; no universal bound or Goldbach proof is
+established.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286-WBSS four-modulus variance-scale route now has a farther targeted
 residue-lift holdout:
 `tools/build_q286_wbss_four_modulus_variance_scale_far_lift_holdout.py`
