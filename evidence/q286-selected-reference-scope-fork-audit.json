@@ -1,0 +1,113 @@
+{
+  "broad_full_nonpositive_fixture": {
+    "active_nonrescued_reference_pass_counts": {
+      "frozen_full_17_lp": 58,
+      "kevin_watchlist_4": 56,
+      "kevin_watchlist_without_3_1": 68,
+      "scalar_3_1": 32
+    },
+    "comparison_count": 53934,
+    "fresh_target_count": 606,
+    "reference_count": 89,
+    "reference_pass_counts": {
+      "frozen_full_17_lp": 58,
+      "kevin_watchlist_4": 57,
+      "kevin_watchlist_without_3_1": 71,
+      "scalar_3_1": 33
+    },
+    "scalar_3_1_failures": 32661,
+    "scalar_3_1_minimum": -0.24630701569141283,
+    "scalar_order_full_nonpositive_at_or_above_fresh_min_count": 56,
+    "scalar_order_full_nonpositive_separator_passes": false,
+    "selected_reference_overlap": [],
+    "source_predicate": "baseline full_nonpositive filter-order fixture",
+    "watchlist_failures": 11634,
+    "watchlist_minimum": -0.40305159447199645
+  },
+  "decision": "The selected-five result and the broad full_nonpositive result are different finite statements.  The selected five have zero scalar (3,1) and watchlist failures across 3,030 fresh-unseen comparisons, and removing (3,1) from the watchlist fails the selected fixture.  The 89 additional broad references have 32,661 scalar (3,1) failures and 11,634 watchlist failures.  Therefore the selected-reference lemma survives only as a narrow fixture statement; the broad stress-reference promotion is falsified.",
+  "falsifier": "The selected-reference-to-broad-stress promotion is falsified when the selected five have zero scalar/watchlist failures but additional broad references have nonpositive fresh-unseen margins under the same frozen subsets.",
+  "goldbach_proved": false,
+  "mechanism": "Keep the selected-stable fixture and the baseline full_nonpositive fixture as separate source predicates. Compare their checked scalar/watchlist outcomes and overlap before trying to promote a stress-reference lemma.",
+  "next_obligation": "Define a sharper non-post-hoc selected-stress family from the selected-stable fixture itself, or replace classifier language with a signed empirical/correlation estimate that explains the selected five without claiming the broad full_nonpositive class.",
+  "prediction": "If the selected five are merely examples of the broad full_nonpositive stress population, scalar (3,1) and Kevin's watchlist should not separate the selected five while failing many additional broad references.",
+  "schema_version": 1,
+  "scope_comparison": {
+    "broad_scalar_3_1_failures": 32661,
+    "broad_watchlist_failures": 11634,
+    "broad_watchlist_without_3_1_reference_pass_count": 71,
+    "selected_reference_overlap_count": 0,
+    "selected_references_are_subset_of_broad_full_nonpositive": false,
+    "selected_scalar_3_1_failures": 0,
+    "selected_watchlist_failures": 0,
+    "selected_watchlist_without_3_1_failures": 67
+  },
+  "selected_reference_fixture": {
+    "centered_3_1_rank_low_to_high": [
+      4,
+      2,
+      1,
+      7,
+      3
+    ],
+    "centered_3_1_weighted_values": [
+      -0.02709641049683262,
+      -0.028592853507378977,
+      -0.04576028234769708,
+      -0.0196487122614909,
+      -0.028279567374743457
+    ],
+    "dominant_floor_failures_in_selected_fixture": 5,
+    "in_baseline_filter_window_count": 3,
+    "in_selected_stable_fixture_count": 5,
+    "reference_count": 5,
+    "references": [
+      24424,
+      13822,
+      55864,
+      164598,
+      1222142
+    ],
+    "source_predicate": "dominant_floor_passes == false in the selected stable-core classification fixture",
+    "subclass_facts": {
+      "stable_core_deficit": {
+        "comparison_count": 1212,
+        "passing_singletons": 4,
+        "references": [
+          24424,
+          55864
+        ],
+        "scalar_3_1_failures": 0,
+        "scalar_3_1_minimum": 0.010958653794473812,
+        "watchlist_failures": 0,
+        "watchlist_minimum": 0.0050335385945745326,
+        "watchlist_without_3_1_failures": 62
+      },
+      "volatile_overturn": {
+        "comparison_count": 1818,
+        "passing_singletons": 2,
+        "references": [
+          13822,
+          164598,
+          1222142
+        ],
+        "scalar_3_1_failures": 0,
+        "scalar_3_1_minimum": 0.0035109555591320892,
+        "watchlist_failures": 0,
+        "watchlist_minimum": 0.0020345565333929026,
+        "watchlist_without_3_1_failures": 5
+      }
+    },
+    "total_scalar_3_1_failures": 0,
+    "total_subclass_comparison_count": 3030,
+    "total_watchlist_failures": 0,
+    "total_watchlist_without_3_1_failures": 67
+  },
+  "source_commit": "3a644194d334b3853db3ff6bed604da65d4b49c7",
+  "sources": {
+    "additional_stress_reference_generalization": "evidence\\q286-additional-stress-reference-generalization-audit.json",
+    "centered_3_1_stress_class": "evidence\\q286-centered-3-1-stress-class-audit.json",
+    "selected_deficit_provenance": "evidence\\q286-selected-deficit-provenance-audit.json",
+    "selected_stress_subclass_channel_decomposition": "evidence\\q286-selected-stress-subclass-channel-decomposition.json"
+  },
+  "status_boundary": "finite scope-fork audit only; this compares already checked receipts and fits no new classifier. It proves no selected-stress theorem, broad stress theorem, signed correlation theorem, pointwise character-sum theorem, or Goldbach proof."
+}

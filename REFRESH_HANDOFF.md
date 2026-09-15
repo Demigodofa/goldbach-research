@@ -6,6 +6,44 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The selected-reference `(3,1)` result and the broad `full_nonpositive`
+falsifier now have an explicit scope-fork audit.
+
+`tools/build_q286_selected_reference_scope_fork_audit.py` generated
+`evidence/q286-selected-reference-scope-fork-audit.json`, with the human note
+`notes/q286-selected-reference-scope-fork-audit.md`.
+
+Question: are the selected five merely examples of the broad
+`full_nonpositive` stress population?
+
+Result: no, not in the checked source predicates, and the channel behavior
+differs sharply.
+
+```text
+selected-five fixture:
+  references:                 5
+  fresh-unseen comparisons:   3,030
+  scalar (3,1) failures:      0
+  Kevin watchlist failures:   0
+  watchlist no (3,1):         67 failures
+
+broad full_nonpositive fixture:
+  additional references:      89
+  fresh-unseen comparisons:   53,934
+  scalar (3,1) failures:      32,661
+  Kevin watchlist failures:   11,634
+  watchlist no (3,1) pass:    71 / 89 references
+
+selected overlap with broad full_nonpositive: 0
+```
+
+Decision: keep `(3,1)` as a finite load-bearing selected-reference coordinate,
+but treat the broad stress-reference promotion as falsified.  The next theorem
+branch needs a sharper non-post-hoc selected-stress family from the
+selected-stable fixture itself, or a signed empirical/correlation estimate.
+
+## Previous active checkpoint note, 2026-09-15
+
 Kevin asked whether `(3,1)` could be a stress-classifier lemma, and whether
 the large negative selected reference `13822` was making the result look
 stronger than it is.  The broad additional-reference generalization has now

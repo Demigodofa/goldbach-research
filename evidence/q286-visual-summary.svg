@@ -4,7 +4,7 @@
 <rect x="0.00" y="0.00" width="1200.00" height="880.00" fill="#fafafa" stroke="none" opacity="1.0"/>
 <text x="38.00" y="42.00" font-size="24" font-family="Arial, sans-serif" font-weight="500" text-anchor="start" fill="#222">q286 Evidence Glow / Vector / PCA Summary</text>
 <text x="38.00" y="66.00" font-size="13" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">Finite navigation layer only: glow is overlap, not proof. Boundary, endpoint, outer assembly, and signed prime correlation remain open.</text>
-<text x="38.00" y="855.00" font-size="11" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#555">generated from commit dfada18e03142ceac6bd893e5f07ec59ddf26e9c</text>
+<text x="38.00" y="855.00" font-size="11" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#555">generated from commit 3a644194d334b3853db3ff6bed604da65d4b49c7</text>
 <rect x="55.00" y="95.00" width="500.00" height="360.00" fill="#ffffff" stroke="#bbbbbb" opacity="1.0"/>
 <text x="55.00" y="79.00" font-size="17" font-family="Arial, sans-serif" font-weight="500" text-anchor="start" fill="#222">Selected component PCA / SVD</text>
 <text x="55.00" y="487.00" font-size="12" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">PC1: boundary vs late component split</text>
@@ -97,33 +97,33 @@
 <text x="635.00" y="589.00" font-size="12" font-family="Arial, sans-serif" font-weight="600" text-anchor="start" fill="#222">Mechanisms</text>
 <text x="635.00" y="607.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">centered-3-1-selected-stress-fresh-</text>
 <rect x="860.00" y="596.00" width="225.00" height="13.00" fill="#eeeeee" stroke="none" opacity="1.0"/>
-<rect x="860.00" y="596.00" width="55.73" height="13.00" fill="#1b9e77" stroke="none" opacity="0.78"/>
-<text x="1091.00" y="607.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">19.0</text>
+<rect x="860.00" y="596.00" width="63.07" height="13.00" fill="#1b9e77" stroke="none" opacity="0.78"/>
+<text x="1091.00" y="607.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">21.5</text>
 <text x="635.00" y="627.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">centered-3-1-selected-deficit-separ</text>
 <rect x="860.00" y="616.00" width="225.00" height="13.00" fill="#eeeeee" stroke="none" opacity="1.0"/>
 <rect x="860.00" y="616.00" width="52.80" height="13.00" fill="#1b9e77" stroke="none" opacity="0.78"/>
 <text x="1091.00" y="627.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">18.0</text>
-<text x="635.00" y="647.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">channel-carried-strict-slack</text>
+<text x="635.00" y="647.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">kevin-watchlist-distributed-cone</text>
 <rect x="860.00" y="636.00" width="225.00" height="13.00" fill="#eeeeee" stroke="none" opacity="1.0"/>
-<rect x="860.00" y="636.00" width="26.40" height="13.00" fill="#1b9e77" stroke="none" opacity="0.78"/>
-<text x="1091.00" y="647.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">9.0</text>
-<text x="635.00" y="667.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">full-17-lp-overincluded-for-13822</text>
+<rect x="860.00" y="636.00" width="27.87" height="13.00" fill="#1b9e77" stroke="none" opacity="0.78"/>
+<text x="1091.00" y="647.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">9.5</text>
+<text x="635.00" y="667.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">channel-carried-strict-slack</text>
 <rect x="860.00" y="656.00" width="225.00" height="13.00" fill="#eeeeee" stroke="none" opacity="1.0"/>
 <rect x="860.00" y="656.00" width="26.40" height="13.00" fill="#1b9e77" stroke="none" opacity="0.78"/>
 <text x="1091.00" y="667.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">9.0</text>
-<text x="635.00" y="687.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">same-stress-singleton-channel-candi</text>
+<text x="635.00" y="687.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">full-17-lp-overincluded-for-13822</text>
 <rect x="860.00" y="676.00" width="225.00" height="13.00" fill="#eeeeee" stroke="none" opacity="1.0"/>
-<rect x="860.00" y="676.00" width="23.47" height="13.00" fill="#1b9e77" stroke="none" opacity="0.78"/>
-<text x="1091.00" y="687.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">8.0</text>
+<rect x="860.00" y="676.00" width="26.40" height="13.00" fill="#1b9e77" stroke="none" opacity="0.78"/>
+<text x="1091.00" y="687.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">9.0</text>
 <text x="635.00" y="714.00" font-size="12" font-family="Arial, sans-serif" font-weight="600" text-anchor="start" fill="#222">Theorem gaps</text>
 <text x="635.00" y="732.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">centered-3-1-stress-class-theorem</text>
 <rect x="860.00" y="721.00" width="225.00" height="13.00" fill="#eeeeee" stroke="none" opacity="1.0"/>
-<rect x="860.00" y="721.00" width="129.07" height="13.00" fill="#7570b3" stroke="none" opacity="0.78"/>
-<text x="1091.00" y="732.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">44.0</text>
+<rect x="860.00" y="721.00" width="139.33" height="13.00" fill="#7570b3" stroke="none" opacity="0.78"/>
+<text x="1091.00" y="732.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">47.5</text>
 <text x="635.00" y="752.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">ap-count-to-17-channel-bridge</text>
 <rect x="860.00" y="741.00" width="225.00" height="13.00" fill="#eeeeee" stroke="none" opacity="1.0"/>
-<rect x="860.00" y="741.00" width="83.60" height="13.00" fill="#7570b3" stroke="none" opacity="0.78"/>
-<text x="1091.00" y="752.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">28.5</text>
+<rect x="860.00" y="741.00" width="92.40" height="13.00" fill="#7570b3" stroke="none" opacity="0.78"/>
+<text x="1091.00" y="752.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">31.5</text>
 <text x="635.00" y="772.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">rank1-outside-direction-arithmetic-</text>
 <rect x="860.00" y="761.00" width="225.00" height="13.00" fill="#eeeeee" stroke="none" opacity="1.0"/>
 <rect x="860.00" y="761.00" width="51.33" height="13.00" fill="#7570b3" stroke="none" opacity="0.78"/>

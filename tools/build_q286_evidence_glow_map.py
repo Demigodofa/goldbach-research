@@ -159,6 +159,8 @@ def main():
     additional_stress_reference_generalization = load_json(
         EVIDENCE
         / "q286-additional-stress-reference-generalization-audit.json")
+    selected_reference_scope_fork = load_json(
+        EVIDENCE / "q286-selected-reference-scope-fork-audit.json")
     centered_3_1_stress_class = load_json(
         EVIDENCE / "q286-centered-3-1-stress-class-audit.json")
     selected_deficit_provenance = load_json(
@@ -2555,6 +2557,58 @@ def main():
         "additional-stress-reference-generalization-audit",
         3.0,
         "bridge must distinguish selected deficits from broad full_nonpositive references")
+
+    layer(
+        "selected-reference-scope-fork-audit",
+        "Selected-reference signal and broad stress falsifier are separated",
+        "validated_scope_guard",
+        "evidence/q286-selected-reference-scope-fork-audit.json",
+        3.5,
+        "Finite scope-fork audit only; no selected-stress theorem.")
+    add_hit(
+        mechanism_stacks,
+        "selected-reference-scope-fork",
+        "selected-reference-scope-fork-audit",
+        3.5,
+        "selected five have zero failures while broad full_nonpositive references fail heavily",
+        selected_reference_scope_fork["scope_comparison"])
+    add_hit(
+        mechanism_stacks,
+        "centered-3-1-selected-stress-fresh-window-classifier",
+        "selected-reference-scope-fork-audit",
+        2.5,
+        "(3,1) remains a selected-reference coordinate, not a broad stress classifier",
+        {
+            "selected_failures":
+                selected_reference_scope_fork["scope_comparison"][
+                    "selected_scalar_3_1_failures"],
+            "broad_failures":
+                selected_reference_scope_fork["scope_comparison"][
+                    "broad_scalar_3_1_failures"],
+            "selected_overlap_count":
+                selected_reference_scope_fork["scope_comparison"][
+                    "selected_reference_overlap_count"],
+        })
+    add_hit(
+        mechanism_stacks,
+        "centered-3-1-broad-full-nonpositive-generalization-falsified",
+        "selected-reference-scope-fork-audit",
+        3.5,
+        "scope fork blocks promotion from selected references to broad full_nonpositive population",
+        selected_reference_scope_fork["broad_full_nonpositive_fixture"][
+            "reference_pass_counts"])
+    add_hit(
+        theorem_stacks,
+        "centered-3-1-stress-class-theorem",
+        "selected-reference-scope-fork-audit",
+        3.5,
+        "next theorem must define a sharper selected-stress family or signed correlation estimate")
+    add_hit(
+        theorem_stacks,
+        "ap-count-to-17-channel-bridge",
+        "selected-reference-scope-fork-audit",
+        3.0,
+        "local-to-channel bridge must preserve selected/broad fixture distinction")
 
     layer(
         "centered-3-1-stress-class-audit",

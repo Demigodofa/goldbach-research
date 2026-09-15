@@ -1552,6 +1552,14 @@
       "status_boundary": "finite additional-stress-reference audit only; preserves (3,1) as a selected-reference coordinate but proves no broad stress theorem, signed correlation theorem, pointwise character-sum theorem, or Goldbach proof"
     },
     {
+      "id": "receipt.q286_selected_reference_scope_fork_audit",
+      "type": "receipt",
+      "label": "q286 selected-reference scope fork audit",
+      "status": "validated_scope_guard",
+      "validation": "tools/build_q286_selected_reference_scope_fork_audit.py generated evidence/q286-selected-reference-scope-fork-audit.json; selected five have 0 scalar (3,1) and 0 watchlist failures across 3,030 fresh-unseen comparisons while 89 additional full_nonpositive references have 32,661 scalar failures and 11,634 watchlist failures across 53,934 comparisons, with zero overlap between selected five and broad full_nonpositive fixture",
+      "status_boundary": "finite scope-fork audit only; preserves the selected-reference lemma and falsifies broad promotion but proves no selected-stress theorem, broad stress theorem, signed correlation theorem, pointwise character-sum theorem, or Goldbach proof"
+    },
+    {
       "id": "receipt.q286_centered_3_1_stress_class_audit",
       "type": "receipt",
       "label": "q286 centered (3,1) full-nonpositive stress-class audit",
@@ -1789,6 +1797,26 @@
     },
     {
       "from": "receipt.q286_additional_stress_reference_generalization_audit",
+      "to": "obligation.ap_count_to_17_channel_bridge",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_selected_reference_scope_fork_audit",
+      "to": "receipt.q286_additional_stress_reference_generalization_audit",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_selected_reference_scope_fork_audit",
+      "to": "receipt.q286_selected_stress_subclass_channel_decomposition",
+      "type": "scope_guard"
+    },
+    {
+      "from": "receipt.q286_selected_reference_scope_fork_audit",
+      "to": "obligation.centered_3_1_stress_class",
+      "type": "falsifies_simplification"
+    },
+    {
+      "from": "receipt.q286_selected_reference_scope_fork_audit",
       "to": "obligation.ap_count_to_17_channel_bridge",
       "type": "requires"
     },

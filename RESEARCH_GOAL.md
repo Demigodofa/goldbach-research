@@ -6,6 +6,34 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The `(3,1)` selected-reference result and the broad stress-reference falsifier
+now have an explicit scope-fork audit:
+`tools/build_q286_selected_reference_scope_fork_audit.py` generated
+`evidence/q286-selected-reference-scope-fork-audit.json`, with explanation in
+`notes/q286-selected-reference-scope-fork-audit.md`.
+
+Mechanism: compare already checked receipts without fitting a new classifier.
+Keep the selected-stable fixture and the baseline `full_nonpositive` fixture as
+separate source predicates, then compare their scalar `(3,1)` and watchlist
+outcomes and overlap.
+
+Result: the selected five and broad `full_nonpositive` references are different
+finite statements.  The selected five have `0` scalar `(3,1)` failures and `0`
+watchlist failures across `3,030` fresh-unseen comparisons; removing `(3,1)`
+from the watchlist fails `67`.  The `89` additional broad references have
+`32,661` scalar `(3,1)` failures and `11,634` watchlist failures across
+`53,934` comparisons.  The selected-five overlap with the broad
+`full_nonpositive` fixture is `0`.
+
+Interpretation: preserve `(3,1)` as a finite load-bearing selected-reference
+coordinate, but treat the broad stress-reference promotion as falsified.  The
+next theorem branch needs either a sharper non-post-hoc selected-stress family
+from the selected-stable fixture itself or a signed empirical/correlation
+estimate; do not try to close the hole with one broad `full_nonpositive`
+predicate.
+
+## Previous continuation evidence, 2026-09-15
+
 The selected-reference `(3,1)` result now has an additional-stress-reference
 generalization audit:
 `tools/build_q286_additional_stress_reference_generalization_audit.py`
