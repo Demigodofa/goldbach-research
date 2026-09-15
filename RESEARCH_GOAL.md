@@ -6,6 +6,34 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS route now has a direct-witness replay on the same targeted fresh
+residue-lift holdout that broke the top-20/residual split:
+`tools/build_q286_wbss_direct_witness_residue_lift_holdout.py` generated
+`evidence/q286-wbss-direct-witness-residue-lift-holdout.json`, with
+explanation in
+`notes/q286-wbss-direct-witness-residue-lift-holdout.md`.
+
+Question: after the `.126` and `.13` residual absorption constants fail on
+fresh lifted rows, does the unsplit raw q286-WBSS signed witness itself also
+fail on those same rows?
+
+Result: no. The receipt tests the same `116` lifted rows. The raw full
+q286-WBSS action is positive on `116/116` rows, including all `70` rows where
+the top-20 Fourier component is nonnegative. The minimum raw full action is
+`0.674072332014227`, at target `965362`, and the maximum signed
+anti-alignment load is `lambda_phi = 0.213151501463301`. Reconstruction
+against the optimized q286 row verifier is below `1e-12`.
+
+Decision: the residue-lift failure is a decomposition failure, not a finite
+failure of the unsplit direct witness on this holdout. Demote pointwise
+top-20 sign stability and residual absorption constants, but preserve direct
+q286-WBSS signed anti-alignment as the live theorem target. The next useful
+proof route is a direct coefficient-aligned signed estimate, aggregate
+projection inequality, or source-backed fixed-modulus binary-prime correlation
+theorem. Goldbach is not proved.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286-WBSS route now has a targeted fresh residue-lift residual absorption
 holdout:
 `tools/build_q286_wbss_residual_absorption_residue_lift_holdout.py` generated

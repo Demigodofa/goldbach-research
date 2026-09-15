@@ -6,6 +6,39 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS route now has a direct-witness replay on the same targeted fresh
+residue-lift holdout that demoted the top-20/residual split.
+
+```text
+tools/build_q286_wbss_direct_witness_residue_lift_holdout.py
+notes/q286-wbss-direct-witness-residue-lift-holdout.md
+evidence/q286-wbss-direct-witness-residue-lift-holdout.json
+```
+
+Result:
+
+```text
+fresh lifted targets tested:                   116
+raw q286-WBSS positive rows:                   116 / 116
+raw q286-WBSS nonpositive rows:                  0 / 116
+top-20 nonnegative rows from failed split:       70 / 116
+top-20 nonnegative but raw-positive rows:        70 / 116
+minimum raw full action:          0.674072332014227
+mean raw full action:             0.916312249457879
+maximum lambda_phi:               0.213151501463301
+tightest row:                                  965362
+```
+
+Decision: the fresh residue-lift holdout broke pointwise top-20 sign stability
+and the fitted residual absorption constants, but it did not break the
+unsplit raw q286-WBSS signed witness. Treat the prior failure as a
+decomposition failure, not as a finite direct-witness failure. The live theorem
+target is now direct coefficient-aligned signed anti-alignment, an aggregate
+projection inequality, or a source-backed fixed-modulus binary-prime
+correlation theorem. Goldbach is not proved.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286-WBSS route now has a targeted fresh residue-lift residual absorption
 holdout.
 
