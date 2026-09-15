@@ -22549,6 +22549,35 @@ unseen q286 blocks beyond start `410400`; the next proof obligation is still a
 non-circular arithmetic or signed-correlation condition implying
 `complement_to_principal_ratio > -first_three_modes_to_principal_ratio`.
 
+Cone-duality proof-route pivot:
+
+- `notes/q286-cone-duality-proof-route.md`
+
+Kevin flagged that repeated q286 audits were starting to look endless.  The
+new strategic route defines the finite-dimensional theorem object instead of
+extending the scan table.  Work over the normalized strict-central binary-prime
+residue measure `mu_N` on admissible units modulo the assembled period
+`M=10010`.  For each target residue, the q286 first-three pressure `F3`, the
+complement `C`, and the full normalized action are fixed affine functionals of
+`mu_N`.
+
+The bad branch is now explicit and linear:
+
+```text
+F3(mu) < -0.3
+C(mu) <= -F3(mu)
+```
+
+which means first-three tail plus failed complement rescue.  The next proof
+attempt should define an arithmetic cone `K_a` for actual prime-pair residue
+measures and use LP/Farkas duality to either prove
+`K_a` avoids that bad branch or emit a synthetic bad measure.  Support,
+nonnegativity, total mass, pair reflection, simple label dictionaries, and
+small fixed residual-channel sets are already too weak as standalone cones.
+Only after a cone survives this theorem-form test should another fresh q286
+scan be treated as progress.  No cone theorem, signed prime-correlation
+theorem, threshold theorem, or Goldbach proof is established.
+
 ## Temporary wake note - continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

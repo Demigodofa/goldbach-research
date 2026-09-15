@@ -6,6 +6,32 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 lane has been pivoted from scan expansion to a cone-duality proof
+route:
+`notes/q286-cone-duality-proof-route.md`.
+
+Mechanism: define the actual finite-dimensional object behind the current
+receipts.  The base space is the normalized strict-central binary-prime
+residue measure `mu_N` on admissible units modulo the assembled period
+`M=10010`, not just the 17 outside q286 channels.  The q286 first-three
+functional, the complement functional, and the full normalized action are
+fixed affine functionals of this measure for each target residue.  The bad
+branch is the linear region `F3<-0.3` and `C<=-F3`, i.e. first-three tail with
+failed complement rescue.
+
+Decision: further q286 rows are low-value unless they test a frozen theorem
+definition.  The next proof attempt should define an arithmetic cone `K_a`
+for actual prime-pair residue measures, then use LP/Farkas duality to prove
+that `K_a` has empty intersection with the bad branch, or return a synthetic
+bad measure showing the cone is too weak.  The support/reflection-only cone is
+already known to be too weak; a surviving cone must use genuine arithmetic
+distribution information such as fixed-character estimates, binary
+Goldbach-in-progressions bounds, covariance/moment inequalities, or
+mass/landing control.  This is theorem-shaping only; no cone theorem, signed
+correlation theorem, threshold theorem, or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 later-tail complement rescue now has a component-source
 decomposition:
 `tools/build_q286_later_tail_complement_source_decomposition.py` generated
