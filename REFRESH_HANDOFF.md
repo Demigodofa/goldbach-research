@@ -6,6 +6,49 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS route now has an explicit pointwise adverse-drag theorem target.
+
+```text
+tools/build_q286_wbss_pointwise_adverse_drag_theorem_target.py
+notes/q286-wbss-pointwise-adverse-drag-theorem-target.md
+evidence/q286-wbss-pointwise-adverse-drag-theorem-target.json
+```
+
+Acceptance target:
+
+```text
+adverse_drag(N) < local_main(N)
+```
+
+for every sufficiently large covered even target `N`, followed by independent
+finite verification below the threshold.  In the receipt,
+`adverse_drag(N)=sum_d max(0,-E_d(N))` for
+`d in {70,130,154,286}`.
+
+Finite calibration:
+
+```text
+checked rows:                         348
+actual positive rows:                 348 / 348
+adverse_drag < local_main rows:       348 / 348
+lambda_phi < 1 rows:                  348 / 348
+tightest known adverse-drag target:   1124642
+tightest adverse-drag ratio:          0.23148438379145228
+tightest adverse-only expectation:    0.6835668462365216
+```
+
+Decision: finite evidence is calibration/falsifier material only.  Do not
+accept another finite horizon pass, fitted decimal constant, fixed copied
+per-modulus constants, or checked-row `lambda_phi < 1` as a proof substitute.
+The remaining bridge is a source-backed pointwise binary-prime correlation or
+signed-discrepancy estimate strong enough to prove
+`adverse_drag(N) < local_main(N)` for all sufficiently large covered even `N`,
+plus finite remainder verification.  No pointwise adverse-drag theorem, q286
+threshold theorem, strict-central Goldbach theorem, or Goldbach proof is
+established.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286-WBSS route now has a fresh holdout for the frozen componentwise
 envelope.
 

@@ -6,6 +6,42 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS route now has an explicit pointwise adverse-drag theorem target:
+`tools/build_q286_wbss_pointwise_adverse_drag_theorem_target.py` generated
+`evidence/q286-wbss-pointwise-adverse-drag-theorem-target.json`, with
+explanation in
+`notes/q286-wbss-pointwise-adverse-drag-theorem-target.md`.
+
+Question: finite evidence is no longer the acceptance condition.  What
+universal analytic statement would actually count as progress toward the
+q286-WBSS bridge?
+
+Answer: the active acceptance target is the unnormalized pointwise inequality
+`adverse_drag(N) < local_main(N)` for every sufficiently large covered even
+`N`, followed by independent finite verification below the proved threshold.
+Here `adverse_drag(N)=sum_d max(0,-E_d(N))` for
+`d in {70,130,154,286}`.  This pointwise inequality implies the raw
+q286-WBSS signed witness is positive for that target.
+
+Finite calibration now combines the `232` adverse-drag horizon rows and the
+`116` fresh component-envelope holdout rows.  All `348/348` checked rows have
+positive actual witness, `adverse_drag < local_main`, and `lambda_phi < 1`.
+The tightest known adverse-drag row is the fresh target `1124642`, with
+adverse-drag ratio `0.23148438379145228` and adverse-only expectation
+`0.6835668462365216`.  This finite population is calibration and falsifier
+evidence only, not an acceptance condition.
+
+Decision: do not accept another finite horizon pass, fitted decimal constant,
+fixed copied per-modulus constants, or checked-row `lambda_phi < 1` as a
+proof substitute.  The remaining bridge is a source-backed pointwise
+binary-prime correlation or signed-discrepancy estimate strong enough to
+prove `adverse_drag(N) < local_main(N)` for all sufficiently large covered
+even `N`, plus finite remainder verification.  No pointwise adverse-drag
+theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach
+proof is established.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286-WBSS route now has a fresh holdout for the frozen componentwise
 envelope:
 `tools/build_q286_wbss_four_modulus_component_envelope_fresh_holdout.py`
