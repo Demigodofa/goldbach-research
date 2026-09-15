@@ -14184,3 +14184,35 @@ certificate still reduces to the hard pointwise signed prime-correlation
 estimate.  Riesz-Thorin-style interpolation is a plausible theorem-shaping
 analogy only after the actual operator and arithmetic endpoint bounds are
 defined; it is not used as a proved estimate here.
+
+### 2026-09-15 continuation: principal-rescue obstruction audit
+
+The checked q286 blocks were rerun with the validated optimized row verifier:
+
+```text
+tools/build_q286_principal_rescue_obstruction_audit.py
+notes/q286-principal-rescue-obstruction-audit.md
+evidence/q286-principal-rescue-obstruction-audit.json
+```
+
+The receipt scanned `480480` targets across checked blocks `0..11` and stored
+all `6150` first-three-tail rows.  It validates against the earlier margin
+schedule and later full-block scan: discovery has `4406` tail rows and `86`
+full-nonpositive tail rows; post-discovery blocks `1..5` have `1671` tail rows
+and `0` full-nonpositive rows; later blocks `6..11` have `73` tail rows and
+`0` full-nonpositive rows.
+
+Result: the post-discovery hole is still closing in the checked finite
+schedule.  Across blocks `1..11`, all `1744` tail rows have positive
+principal-only margin, with minimum `0.28517743655685746`, and zero full
+failures.  In later blocks `6..11`, the minimum principal-only margin is
+`0.5574443165171574`.
+
+Important correction: the discovery failures are not explained by
+`first_three < -1` alone.  Across all blocks there are only `5`
+first-three-below-`-1` tail rows, while `84` full-nonpositive rows have
+positive principal-only margin and are overturned by nonprincipal drag.  The
+next theorem target is therefore a two-part statement: post-discovery
+`first_three > -1` plus a nonprincipal-drag bound below the remaining
+principal-only surplus.  This is finite evidence only and does not prove
+Goldbach.

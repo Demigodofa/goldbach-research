@@ -22356,6 +22356,31 @@ nonprincipal drag on the later q286 class.  The nonprincipal correction still
 needs a signed correlation or cone estimate, but it is not the primary source
 of later-block positivity in this finite window.
 
+Principal-rescue obstruction audit:
+
+- `tools/build_q286_principal_rescue_obstruction_audit.py`
+- `notes/q286-principal-rescue-obstruction-audit.md`
+- `evidence/q286-principal-rescue-obstruction-audit.json`
+
+This receipt reruns the validated optimized row verifier across checked q286
+blocks `0..11`, scanning `480480` targets and storing all `6150`
+first-three-tail rows.  Source-count validation matches the earlier schedule:
+discovery has `4406` tail rows and `86` full-nonpositive rows; post-discovery
+blocks `1..5` have `1671` tail rows and `0` failures; later blocks `6..11`
+have `73` tail rows and `0` failures.
+
+Result: blocks `1..11` have `1744` tail rows, all principal-only positive, all
+full positive, and zero first-three-below-`-1` rows.  Minimum post-discovery
+principal-only margin is `0.28517743655685746`; minimum later principal-only
+margin is `0.5574443165171574`.
+
+Correction: the discovery block has only `5` first-three-below-`-1` rows, but
+`84` of its `86` full-nonpositive tail rows have positive principal-only
+margin and are overturned by nonprincipal drag.  Do not state that the checked
+failure mechanism is only `first_three < -1`; state the narrower checked
+suffix result and keep nonprincipal-drag control as a separate theorem
+obligation.
+
 Prime-indexed q286 later full-block scan:
 
 - `tools/build_q286_prime_indexed_later_full_block_scan.py`

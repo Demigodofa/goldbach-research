@@ -190,6 +190,8 @@ def main():
         EVIDENCE / "q286-prime-indexed-later-full-block-scan.json")
     later_tail_complement_source = load_json(
         EVIDENCE / "q286-later-tail-complement-source-decomposition.json")
+    principal_rescue_obstruction = load_json(
+        EVIDENCE / "q286-principal-rescue-obstruction-audit.json")
     centered_3_1_stress_class = load_json(
         EVIDENCE / "q286-centered-3-1-stress-class-audit.json")
     selected_deficit_provenance = load_json(
@@ -3345,6 +3347,55 @@ def main():
         "later-tail-complement-source-decomposition",
         4.0,
         "nonprincipal components can erase principal surplus and need signed-correlation control")
+
+    layer(
+        "principal-rescue-obstruction-audit",
+        "q286 checked suffix has principal margin; discovery has drag overturns",
+        "finite_obstruction_decomposition",
+        "evidence/q286-principal-rescue-obstruction-audit.json",
+        5.0,
+        "Finite checked-block obstruction audit only; no eventual theorem.")
+    obstruction_metrics = principal_rescue_obstruction["decision_metrics"]
+    add_hit(
+        mechanism_stacks,
+        "post-discovery-principal-margin-survives-drag",
+        "principal-rescue-obstruction-audit",
+        5.0,
+        "post-discovery tail rows have positive principal-only margins and zero full failures",
+        {
+            "post_discovery_tail_count": (
+                obstruction_metrics["post_discovery_tail_count"]),
+            "post_discovery_full_nonpositive_tail_count": (
+                obstruction_metrics[
+                    "post_discovery_full_nonpositive_tail_count"]),
+            "post_discovery_principal_only_minimum_margin": (
+                obstruction_metrics[
+                    "post_discovery_principal_only_minimum_margin"]),
+            "later_principal_only_minimum_margin": (
+                obstruction_metrics["later_principal_only_minimum_margin"]),
+        })
+    add_hit(
+        theorem_stacks,
+        "nonprincipal-drag-control",
+        "principal-rescue-obstruction-audit",
+        5.0,
+        "discovery has 84 principal-positive full failures overturned by nonprincipal drag",
+        {
+            "full_nonpositive_tail_count": (
+                obstruction_metrics["full_nonpositive_tail_count"]),
+            "principal_positive_full_nonpositive_tail_count": (
+                obstruction_metrics[
+                    "principal_positive_full_nonpositive_tail_count"]),
+            "first_three_below_minus_one_tail_count": (
+                obstruction_metrics[
+                    "first_three_below_minus_one_tail_count"]),
+        })
+    add_hit(
+        theorem_stacks,
+        "first-three-greater-than-negative-one",
+        "principal-rescue-obstruction-audit",
+        4.0,
+        "blocks 1..11 have no first-three-below-minus-one tail rows")
 
     layer(
         "centered-3-1-stress-class-audit",

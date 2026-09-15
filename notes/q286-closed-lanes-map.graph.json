@@ -1672,6 +1672,14 @@
       "status_boundary": "finite later-tail component diagnostic only; reframes the later-window theorem route but proves no first_three > -1 theorem, nonprincipal drag bound, signed correlation theorem, pointwise character-sum theorem, or Goldbach proof"
     },
     {
+      "id": "receipt.q286_principal_rescue_obstruction_audit",
+      "type": "receipt",
+      "label": "q286 principal-rescue obstruction audit",
+      "status": "finite_checked_suffix_decomposition",
+      "validation": "tools/build_q286_principal_rescue_obstruction_audit.py generated evidence/q286-principal-rescue-obstruction-audit.json; scanned 480480 targets across blocks 0..11, matched source counts, found 6150 first-three-tail rows, 86 full-nonpositive rows, 5 first-three-below-minus-one rows, 84 principal-positive full failures overturned by nonprincipal drag, and zero post-discovery full failures with post-discovery principal-only minimum margin 0.28517743655685746",
+      "status_boundary": "finite checked-block obstruction audit only; no eventual first_three > -1 theorem, nonprincipal drag theorem, signed correlation theorem, or Goldbach proof"
+    },
+    {
       "id": "receipt.q286_centered_3_1_stress_class_audit",
       "type": "receipt",
       "label": "q286 centered (3,1) full-nonpositive stress-class audit",
@@ -3942,6 +3950,21 @@
     },
     {
       "from": "receipt.q286_later_tail_complement_source_decomposition",
+      "to": "obligation.ap_count_to_17_channel_bridge",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_principal_rescue_obstruction_audit",
+      "to": "receipt.q286_later_tail_complement_source_decomposition",
+      "type": "extends_checked_blocks"
+    },
+    {
+      "from": "receipt.q286_principal_rescue_obstruction_audit",
+      "to": "obligation.first_three_complement_rescue_correlation",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_principal_rescue_obstruction_audit",
       "to": "obligation.ap_count_to_17_channel_bridge",
       "type": "requires"
     }
