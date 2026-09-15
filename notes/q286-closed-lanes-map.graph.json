@@ -1640,6 +1640,14 @@
       "status_boundary": "finite sampled holdout only; support-starves the rescue falsifier and proves no full-block threshold theorem, signed correlation theorem, pointwise character-sum theorem, or Goldbach proof"
     },
     {
+      "id": "receipt.q286_prime_indexed_kernel_route_audit",
+      "type": "receipt",
+      "label": "q286 prime-indexed kernel route audit",
+      "status": "validated_input_kernel",
+      "validation": "tools/build_q286_prime_indexed_kernel_route_audit.py generated evidence/q286-prime-indexed-kernel-route-audit.json; on 34 validation targets the prime-indexed strict-central residue kernel exactly matched the direct integer-loop kernel for moduli 286 and 10010, with pair-count, total-weight, and residue-weight deltas all 0; a 101-target later-window benchmark gave speedup about 17.31x",
+      "status_boundary": "finite optimized-kernel route audit only; validates residue-weight input equivalence but not the full q286 row-level verifier, full-block threshold theorem, signed correlation theorem, pointwise character-sum theorem, or Goldbach proof"
+    },
+    {
       "id": "receipt.q286_centered_3_1_stress_class_audit",
       "type": "receipt",
       "label": "q286 centered (3,1) full-nonpositive stress-class audit",
@@ -3847,6 +3855,21 @@
       "from": "receipt.q286_complement_rescue_suffix_holdout",
       "to": "obligation.ap_count_to_17_channel_bridge",
       "type": "requires"
+    },
+    {
+      "from": "receipt.q286_prime_indexed_kernel_route_audit",
+      "to": "receipt.q286_complement_rescue_suffix_holdout",
+      "type": "responds_to"
+    },
+    {
+      "from": "receipt.q286_prime_indexed_kernel_route_audit",
+      "to": "obligation.first_three_complement_rescue_correlation",
+      "type": "supports_verification_route"
+    },
+    {
+      "from": "receipt.q286_prime_indexed_kernel_route_audit",
+      "to": "obligation.ap_count_to_17_channel_bridge",
+      "type": "supports_verification_route"
     }
   ]
 }

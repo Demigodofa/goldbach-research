@@ -182,6 +182,8 @@ def main():
         EVIDENCE / "q286-complement-rescue-threshold-candidate-audit.json")
     complement_rescue_suffix_holdout = load_json(
         EVIDENCE / "q286-complement-rescue-suffix-holdout.json")
+    prime_indexed_kernel_route = load_json(
+        EVIDENCE / "q286-prime-indexed-kernel-route-audit.json")
     centered_3_1_stress_class = load_json(
         EVIDENCE / "q286-centered-3-1-stress-class-audit.json")
     selected_deficit_provenance = load_json(
@@ -3176,6 +3178,43 @@ def main():
         "complement-rescue-suffix-holdout",
         2.5,
         "direct prime-pair looping is too opaque for later full-block scans")
+
+    layer(
+        "prime-indexed-kernel-route-audit",
+        "Prime-indexed strict-central residue kernel matches direct loop",
+        "validated_input_kernel",
+        "evidence/q286-prime-indexed-kernel-route-audit.json",
+        3.0,
+        "Finite optimized-kernel route audit only; no full q286 verifier yet.")
+    kernel_metrics = prime_indexed_kernel_route["decision_metrics"]
+    add_hit(
+        mechanism_stacks,
+        "prime-indexed-residue-kernel-validated",
+        "prime-indexed-kernel-route-audit",
+        3.0,
+        "direct and prime-indexed residue weights match for moduli 286 and 10010",
+        {
+            "validation_target_count": (
+                kernel_metrics["validation_target_count"]),
+            "maximum_count_delta": kernel_metrics["maximum_count_delta"],
+            "maximum_total_weight_abs_delta": (
+                kernel_metrics["maximum_total_weight_abs_delta"]),
+            "maximum_residue_weight_abs_delta": (
+                kernel_metrics["maximum_residue_weight_abs_delta"]),
+            "benchmark_speedup": kernel_metrics["benchmark_speedup"],
+        })
+    add_hit(
+        theorem_stacks,
+        "optimized-full-block-verifier-needed",
+        "prime-indexed-kernel-route-audit",
+        3.0,
+        "validated input kernel still needs row-level q286 filter-order integration")
+    add_hit(
+        theorem_stacks,
+        "first-three-complement-rescue-correlation",
+        "prime-indexed-kernel-route-audit",
+        1.5,
+        "faster exact finite verification route supports later falsifier searches")
 
     layer(
         "centered-3-1-stress-class-audit",

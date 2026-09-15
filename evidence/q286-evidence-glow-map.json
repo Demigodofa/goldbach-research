@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "receipt": "q286-evidence-glow-map",
-  "generated_from_commit": "a08b1ecbb4c531c977b619f35b045feae959c4ca",
+  "generated_from_commit": "db10e12fc018e3fb1c4e375d7480cff064ddecbe",
   "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
   "visual_encoding": {
     "target_shape": "circle",
@@ -498,6 +498,14 @@
       "source": "evidence/q286-complement-rescue-suffix-holdout.json",
       "default_weight": 2.5,
       "boundary": "Finite sampled holdout only; no full-block threshold theorem."
+    },
+    {
+      "id": "prime-indexed-kernel-route-audit",
+      "label": "Prime-indexed strict-central residue kernel matches direct loop",
+      "kind": "validated_input_kernel",
+      "source": "evidence/q286-prime-indexed-kernel-route-audit.json",
+      "default_weight": 3.0,
+      "boundary": "Finite optimized-kernel route audit only; no full q286 verifier yet."
     },
     {
       "id": "centered-3-1-stress-class-audit",
@@ -7452,6 +7460,26 @@
       "glow": 0.103448
     },
     {
+      "id": "prime-indexed-residue-kernel-validated",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "prime-indexed-kernel-route-audit",
+          "weight": 3.0,
+          "reason": "direct and prime-indexed residue weights match for moduli 286 and 10010",
+          "value": {
+            "validation_target_count": 34,
+            "maximum_count_delta": 0,
+            "maximum_total_weight_abs_delta": 0.0,
+            "maximum_residue_weight_abs_delta": 0.0,
+            "benchmark_speedup": 17.312807482182013
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.103448
+    },
+    {
       "id": "rank1-cap-survives-full-window",
       "stack_weight": 3.0,
       "layers": [
@@ -8484,7 +8512,7 @@
     },
     {
       "id": "first-three-complement-rescue-correlation",
-      "stack_weight": 12.5,
+      "stack_weight": 14.0,
       "layers": [
         {
           "layer": "mod13-4-support-schedule-audit",
@@ -8505,10 +8533,15 @@
           "layer": "complement-rescue-suffix-holdout",
           "weight": 2.0,
           "reason": "sampled later starts are support-starved, so rescue needs full-block or theorem-level support"
+        },
+        {
+          "layer": "prime-indexed-kernel-route-audit",
+          "weight": 1.5,
+          "reason": "faster exact finite verification route supports later falsifier searches"
         }
       ],
-      "layer_count": 4,
-      "glow": 0.172414
+      "layer_count": 5,
+      "glow": 0.193103
     },
     {
       "id": "alternate-stress-channel-reference-gate",
@@ -8555,6 +8588,24 @@
       ],
       "layer_count": 3,
       "glow": 0.110345
+    },
+    {
+      "id": "optimized-full-block-verifier-needed",
+      "stack_weight": 5.5,
+      "layers": [
+        {
+          "layer": "complement-rescue-suffix-holdout",
+          "weight": 2.5,
+          "reason": "direct prime-pair looping is too opaque for later full-block scans"
+        },
+        {
+          "layer": "prime-indexed-kernel-route-audit",
+          "weight": 3.0,
+          "reason": "validated input kernel still needs row-level q286 filter-order integration"
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.075862
     },
     {
       "id": "active-lane-strict-closure",
@@ -8604,19 +8655,6 @@
       ],
       "layer_count": 1,
       "glow": 0.041379
-    },
-    {
-      "id": "optimized-full-block-verifier-needed",
-      "stack_weight": 2.5,
-      "layers": [
-        {
-          "layer": "complement-rescue-suffix-holdout",
-          "weight": 2.5,
-          "reason": "direct prime-pair looping is too opaque for later full-block scans"
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.034483
     },
     {
       "id": "alignment-plus-complement-tail",

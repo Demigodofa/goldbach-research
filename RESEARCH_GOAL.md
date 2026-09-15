@@ -6,6 +6,34 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 full-block verification route now has a validated optimized input
+kernel audit:
+`tools/build_q286_prime_indexed_kernel_route_audit.py` generated
+`evidence/q286-prime-indexed-kernel-route-audit.json`, with explanation in
+`notes/q286-prime-indexed-kernel-route-audit.md`.
+
+Mechanism: replace the direct per-target scan over every integer in the
+strict-central interval with a precomputed-prime kernel that sums only central
+prime pairs, while preserving residue-weight totals modulo `286` and `10010`.
+The q286 action and support decomposition are linear in those residue weights,
+so this validates the arithmetic input layer for a later optimized verifier.
+
+Result: on `34` validation targets across discovery rows, later block-start
+samples, and replayed prior-tail offsets, the prime-indexed kernel exactly
+matched the direct integer-loop kernel for moduli `286` and `10010`: pair-count
+delta `0`, total-weight delta `0`, and residue-weight delta `0`.  On a
+`101`-target later-window benchmark modulo `10010`, runtime fell from
+`0.5489822000090498` seconds to `0.03170959999260958` seconds, a `17.31x`
+speedup.
+
+Interpretation: this is a safe first optimization layer, not yet a full
+q286 row-level verifier.  The next implementation obligation is to plug the
+validated residue kernel into a drop-in q286 filter-order receipt and compare
+row-level first-two, first-three, complement, and full ratios against the
+existing direct receipt before running exhaustive later full blocks.
+
+## Previous continuation evidence, 2026-09-15
+
 The frozen q286 post-discovery suffix now has a sampled later-start holdout:
 `tools/build_q286_complement_rescue_suffix_holdout.py` generated
 `evidence/q286-complement-rescue-suffix-holdout.json`, with explanation in

@@ -1,0 +1,774 @@
+{
+  "benchmark": {
+    "direct_seconds": 0.5489822000090498,
+    "first_target": 490480,
+    "last_target": 490680,
+    "maximum_total_weight_abs_delta": 0.0,
+    "mean_prime_pair_count": 2135.5247524752476,
+    "modulus": 10010,
+    "prime_indexed_seconds": 0.03170959999260958,
+    "speedup": 17.312807482182013,
+    "target_count": 101
+  },
+  "decision": "The prime-indexed residue kernel is validated if prime_indexed_kernel_validated is true. It is a safe input optimization, but it is not yet the full optimized verifier: later full-block verification still needs this kernel integrated into the q286 support/mode action or replaced by a true window-convolution implementation.",
+  "decision_metrics": {
+    "benchmark_prime_indexed_seconds": 0.03170959999260958,
+    "benchmark_speedup": 17.312807482182013,
+    "full_block_verifier_ready": false,
+    "goldbach_proved": false,
+    "maximum_count_delta": 0,
+    "maximum_residue_weight_abs_delta": 0.0,
+    "maximum_total_weight_abs_delta": 0.0,
+    "prime_indexed_kernel_validated": true,
+    "projected_full_later_block_minutes": 1.2570815680238492,
+    "validated_moduli": [
+      286,
+      10010
+    ],
+    "validation_target_count": 34
+  },
+  "falsifier": "Any nonzero pair-count delta or residue-weight delta above 1e-07 on the validation targets falsifies this optimized kernel route.",
+  "full_later_block_projection": {
+    "projected_prime_indexed_minutes_from_benchmark": 1.2570815680238492,
+    "projected_prime_indexed_seconds_from_benchmark": 75.42489408143095,
+    "projection_boundary": "Linear projection from a 101-target microbenchmark; it is a routing estimate, not a completed full-block verification.",
+    "target_count": 240240
+  },
+  "goldbach_proved": false,
+  "mechanism": "Both kernels compute the same sums of log(p)log(N-p) by residue class for strict-central prime pairs. Since the q286 action and support decomposition are linear in those residue weights, exact agreement validates this as a safe first optimization layer.",
+  "next_obligation": "Integrate the validated prime-indexed residue weights into a drop-in q286 filter-order receipt and validate row-level ratios against the existing direct receipt before running exhaustive later full blocks.",
+  "prediction": "Prime-indexed residue weights should match direct integer-loop residue weights target-by-target and modulus-by-modulus, while running faster on later q286 windows.",
+  "question": "Can the direct integer scan in the q286 verifier be replaced by a prime-indexed strict-central residue-weight kernel without changing the arithmetic inputs?",
+  "schema_version": 1,
+  "source_commit": "db10e12fc018e3fb1c4e375d7480cff064ddecbe",
+  "sources": {
+    "prime_table": "lcm_sawtooth_goldbach_transfer._prime_table",
+    "suffix_sampled_holdout": "evidence\\q286-complement-rescue-suffix-holdout.json",
+    "threshold_candidate": "evidence\\q286-complement-rescue-threshold-candidate-audit.json"
+  },
+  "status_boundary": "finite kernel-route audit only; validates residue-weight input equivalence for sampled targets and records the remaining full-block verifier blocker. It proves no full-block threshold theorem, signed correlation theorem, pointwise character-sum theorem, or Goldbach proof.",
+  "validation": {
+    "matches_within_tolerance": true,
+    "maximum_count_delta": 0,
+    "maximum_residue_weight_abs_delta": 0.0,
+    "maximum_total_weight_abs_delta": 0.0,
+    "rows": [
+      {
+        "count_delta": 0,
+        "direct_total_weight": 4394.364484397093,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 286,
+        "ordered_central_prime_pair_count": 60,
+        "prime_indexed_total_weight": 4394.364484397093,
+        "target": 10664,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 4394.364484397093,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 10010,
+        "ordered_central_prime_pair_count": 60,
+        "prime_indexed_total_weight": 4394.364484397093,
+        "target": 10664,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 5862.857784907672,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 286,
+        "ordered_central_prime_pair_count": 75,
+        "prime_indexed_total_weight": 5862.857784907672,
+        "target": 14138,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 5862.857784907672,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 10010,
+        "ordered_central_prime_pair_count": 75,
+        "prime_indexed_total_weight": 5862.857784907672,
+        "target": 14138,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 9320.216763448925,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 286,
+        "ordered_central_prime_pair_count": 106,
+        "prime_indexed_total_weight": 9320.216763448925,
+        "target": 24148,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 9320.216763448925,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 10010,
+        "ordered_central_prime_pair_count": 106,
+        "prime_indexed_total_weight": 9320.216763448925,
+        "target": 24148,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 39022.250002965484,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 286,
+        "ordered_central_prime_pair_count": 338,
+        "prime_indexed_total_weight": 39022.250002965484,
+        "target": 94856,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 39022.250002965484,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 10010,
+        "ordered_central_prime_pair_count": 338,
+        "prime_indexed_total_weight": 39022.250002965484,
+        "target": 94856,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 296552.2892434644,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 286,
+        "ordered_central_prime_pair_count": 1932,
+        "prime_indexed_total_weight": 296552.2892434644,
+        "target": 490480,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 296552.2892434644,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 10010,
+        "ordered_central_prime_pair_count": 1932,
+        "prime_indexed_total_weight": 296552.2892434644,
+        "target": 490480,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 309143.51256584434,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 286,
+        "ordered_central_prime_pair_count": 2014,
+        "prime_indexed_total_weight": 309143.51256584434,
+        "target": 490580,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 309143.51256584434,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 10010,
+        "ordered_central_prime_pair_count": 2014,
+        "prime_indexed_total_weight": 309143.51256584434,
+        "target": 490580,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 608158.6163918254,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 286,
+        "ordered_central_prime_pair_count": 3962,
+        "prime_indexed_total_weight": 608158.6163918254,
+        "target": 490680,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 608158.6163918254,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 10010,
+        "ordered_central_prime_pair_count": 3962,
+        "prime_indexed_total_weight": 608158.6163918254,
+        "target": 490680,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 327743.1374315919,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 286,
+        "ordered_central_prime_pair_count": 2084,
+        "prime_indexed_total_weight": 327743.1374315919,
+        "target": 570560,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 327743.1374315919,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 10010,
+        "ordered_central_prime_pair_count": 2084,
+        "prime_indexed_total_weight": 327743.1374315919,
+        "target": 570560,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 660830.8437356156,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 286,
+        "ordered_central_prime_pair_count": 4202,
+        "prime_indexed_total_weight": 660830.8437356156,
+        "target": 570660,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 660830.8437356156,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 10010,
+        "ordered_central_prime_pair_count": 4202,
+        "prime_indexed_total_weight": 660830.8437356156,
+        "target": 570660,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 352912.80545655807,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 286,
+        "ordered_central_prime_pair_count": 2244,
+        "prime_indexed_total_weight": 352912.80545655807,
+        "target": 570760,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 352912.80545655807,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 10010,
+        "ordered_central_prime_pair_count": 2244,
+        "prime_indexed_total_weight": 352912.80545655807,
+        "target": 570760,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 745681.3387813449,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 286,
+        "ordered_central_prime_pair_count": 4644,
+        "prime_indexed_total_weight": 745681.3387813449,
+        "target": 650640,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 745681.3387813449,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 10010,
+        "ordered_central_prime_pair_count": 4644,
+        "prime_indexed_total_weight": 745681.3387813449,
+        "target": 650640,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 382143.1611792049,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 286,
+        "ordered_central_prime_pair_count": 2380,
+        "prime_indexed_total_weight": 382143.1611792049,
+        "target": 650740,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 382143.1611792049,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 10010,
+        "ordered_central_prime_pair_count": 2380,
+        "prime_indexed_total_weight": 382143.1611792049,
+        "target": 650740,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 379288.48667642876,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 286,
+        "ordered_central_prime_pair_count": 2362,
+        "prime_indexed_total_weight": 379288.48667642876,
+        "target": 650840,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 379288.48667642876,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 10010,
+        "ordered_central_prime_pair_count": 2362,
+        "prime_indexed_total_weight": 379288.48667642876,
+        "target": 650840,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 430762.3376885272,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 286,
+        "ordered_central_prime_pair_count": 2634,
+        "prime_indexed_total_weight": 430762.3376885272,
+        "target": 730720,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 430762.3376885272,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 10010,
+        "ordered_central_prime_pair_count": 2634,
+        "prime_indexed_total_weight": 430762.3376885272,
+        "target": 730720,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 424495.2505795446,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 286,
+        "ordered_central_prime_pair_count": 2596,
+        "prime_indexed_total_weight": 424495.2505795446,
+        "target": 730820,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 424495.2505795446,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 10010,
+        "ordered_central_prime_pair_count": 2596,
+        "prime_indexed_total_weight": 424495.2505795446,
+        "target": 730820,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 842244.1371552774,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 286,
+        "ordered_central_prime_pair_count": 5150,
+        "prime_indexed_total_weight": 842244.1371552774,
+        "target": 730920,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 842244.1371552774,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 10010,
+        "ordered_central_prime_pair_count": 5150,
+        "prime_indexed_total_weight": 842244.1371552774,
+        "target": 730920,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 476685.0998114369,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 286,
+        "ordered_central_prime_pair_count": 2868,
+        "prime_indexed_total_weight": 476685.0998114369,
+        "target": 810800,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 476685.09981143684,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 10010,
+        "ordered_central_prime_pair_count": 2868,
+        "prime_indexed_total_weight": 476685.09981143684,
+        "target": 810800,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 1040393.8019338977,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 286,
+        "ordered_central_prime_pair_count": 6260,
+        "prime_indexed_total_weight": 1040393.8019338977,
+        "target": 810900,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 1040393.8019338977,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 10010,
+        "ordered_central_prime_pair_count": 6260,
+        "prime_indexed_total_weight": 1040393.8019338977,
+        "target": 810900,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 483642.2425411233,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 286,
+        "ordered_central_prime_pair_count": 2910,
+        "prime_indexed_total_weight": 483642.2425411233,
+        "target": 811000,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 483642.2425411233,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 10010,
+        "ordered_central_prime_pair_count": 2910,
+        "prime_indexed_total_weight": 483642.2425411233,
+        "target": 811000,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 1072574.2626592196,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 286,
+        "ordered_central_prime_pair_count": 6360,
+        "prime_indexed_total_weight": 1072574.2626592196,
+        "target": 890880,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 1072574.2626592196,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 10010,
+        "ordered_central_prime_pair_count": 6360,
+        "prime_indexed_total_weight": 1072574.2626592196,
+        "target": 890880,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 521776.867146159,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 286,
+        "ordered_central_prime_pair_count": 3094,
+        "prime_indexed_total_weight": 521776.867146159,
+        "target": 890980,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 521776.867146159,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 10010,
+        "ordered_central_prime_pair_count": 3094,
+        "prime_indexed_total_weight": 521776.867146159,
+        "target": 890980,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 534231.8257353101,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 286,
+        "ordered_central_prime_pair_count": 3168,
+        "prime_indexed_total_weight": 534231.8257353101,
+        "target": 891080,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 534231.8257353102,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 10010,
+        "ordered_central_prime_pair_count": 3168,
+        "prime_indexed_total_weight": 534231.8257353102,
+        "target": 891080,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 223777.2979961078,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 286,
+        "ordered_central_prime_pair_count": 1458,
+        "prime_indexed_total_weight": 223777.2979961078,
+        "target": 490636,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 223777.2979961078,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 10010,
+        "ordered_central_prime_pair_count": 1458,
+        "prime_indexed_total_weight": 223777.2979961078,
+        "target": 490636,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 220185.3932964476,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 286,
+        "ordered_central_prime_pair_count": 1434,
+        "prime_indexed_total_weight": 220185.3932964476,
+        "target": 491044,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 220185.3932964476,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 10010,
+        "ordered_central_prime_pair_count": 1434,
+        "prime_indexed_total_weight": 220185.3932964476,
+        "target": 491044,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 235251.2173655619,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 286,
+        "ordered_central_prime_pair_count": 1532,
+        "prime_indexed_total_weight": 235251.2173655619,
+        "target": 491686,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 235251.21736556187,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 10010,
+        "ordered_central_prime_pair_count": 1532,
+        "prime_indexed_total_weight": 235251.21736556187,
+        "target": 491686,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 213633.391634247,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 286,
+        "ordered_central_prime_pair_count": 1390,
+        "prime_indexed_total_weight": 213633.391634247,
+        "target": 494332,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 213633.391634247,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 10010,
+        "ordered_central_prime_pair_count": 1390,
+        "prime_indexed_total_weight": 213633.391634247,
+        "target": 494332,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 224154.68657646351,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 286,
+        "ordered_central_prime_pair_count": 1458,
+        "prime_indexed_total_weight": 224154.68657646351,
+        "target": 495256,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 224154.68657646351,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 10010,
+        "ordered_central_prime_pair_count": 1458,
+        "prime_indexed_total_weight": 224154.68657646351,
+        "target": 495256,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 227485.06855809255,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 286,
+        "ordered_central_prime_pair_count": 1478,
+        "prime_indexed_total_weight": 227485.06855809255,
+        "target": 498616,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 227485.06855809255,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 10010,
+        "ordered_central_prime_pair_count": 1478,
+        "prime_indexed_total_weight": 227485.06855809255,
+        "target": 498616,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 236591.75491087,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 286,
+        "ordered_central_prime_pair_count": 1532,
+        "prime_indexed_total_weight": 236591.75491087,
+        "target": 509578,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 236591.75491087,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 10010,
+        "ordered_central_prime_pair_count": 1532,
+        "prime_indexed_total_weight": 236591.75491087,
+        "target": 509578,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 240725.61381809574,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 286,
+        "ordered_central_prime_pair_count": 1558,
+        "prime_indexed_total_weight": 240725.61381809574,
+        "target": 510922,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 240725.61381809574,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 10010,
+        "ordered_central_prime_pair_count": 1558,
+        "prime_indexed_total_weight": 240725.61381809574,
+        "target": 510922,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 229988.16234106358,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 286,
+        "ordered_central_prime_pair_count": 1487,
+        "prime_indexed_total_weight": 229988.16234106358,
+        "target": 514354,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 229988.16234106358,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 10010,
+        "ordered_central_prime_pair_count": 1487,
+        "prime_indexed_total_weight": 229988.16234106358,
+        "target": 514354,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 455053.25290432444,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 286,
+        "ordered_central_prime_pair_count": 2942,
+        "prime_indexed_total_weight": 455053.25290432444,
+        "target": 514704,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 455053.25290432444,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 10010,
+        "ordered_central_prime_pair_count": 2942,
+        "prime_indexed_total_weight": 455053.25290432444,
+        "target": 514704,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 244926.596733208,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 286,
+        "ordered_central_prime_pair_count": 1578,
+        "prime_indexed_total_weight": 244926.596733208,
+        "target": 525694,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 244926.596733208,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 10010,
+        "ordered_central_prime_pair_count": 1578,
+        "prime_indexed_total_weight": 244926.596733208,
+        "target": 525694,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 232235.38547683816,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 286,
+        "ordered_central_prime_pair_count": 1496,
+        "prime_indexed_total_weight": 232235.38547683816,
+        "target": 525904,
+        "total_weight_abs_delta": 0.0
+      },
+      {
+        "count_delta": 0,
+        "direct_total_weight": 232235.38547683816,
+        "maximum_residue_weight_abs_delta": 0.0,
+        "modulus": 10010,
+        "ordered_central_prime_pair_count": 1496,
+        "prime_indexed_total_weight": 232235.38547683816,
+        "target": 525904,
+        "total_weight_abs_delta": 0.0
+      }
+    ]
+  },
+  "validation_targets": [
+    10664,
+    14138,
+    24148,
+    94856,
+    490480,
+    490580,
+    490680,
+    570560,
+    570660,
+    570760,
+    650640,
+    650740,
+    650840,
+    730720,
+    730820,
+    730920,
+    810800,
+    810900,
+    811000,
+    890880,
+    890980,
+    891080,
+    490636,
+    491044,
+    491686,
+    494332,
+    495256,
+    498616,
+    509578,
+    510922,
+    514354,
+    514704,
+    525694,
+    525904
+  ]
+}
