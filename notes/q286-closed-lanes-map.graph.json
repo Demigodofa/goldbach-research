@@ -1814,6 +1814,30 @@
       "status": "demoted_by_decomposition",
       "reason": "On the seven frozen selected targets, uniform_full+alpha*first_three is positive for every row, including the actual failures; failures occur only when the orthogonal residual erases that aligned margin.",
       "nuance": "First-three pressure still opens the lane; it is not by itself the full-action failure mechanism on these selected rows."
+    },
+    {
+      "id": "receipt.q286_orthogonal_residual_norm_certificate",
+      "type": "receipt",
+      "label": "q286 orthogonal residual norm certificate",
+      "status": "validated_demoted_sufficient_condition",
+      "validation": "tools/build_q286_orthogonal_residual_norm_certificate.py generated evidence/q286-orthogonal-residual-norm-certificate.json; Cauchy chi-square certificate certifies 0/7 selected targets and 0/5 actual full-positive targets, with actual/required ratios 1.666..144.834 and reconstruction error 0",
+      "status_boundary": "coefficient-sensitive norm diagnostic only; no orthogonal residual bound, no signed pair-correlation theorem, no q286 threshold theorem, and no Goldbach proof"
+    },
+    {
+      "id": "lane.orthogonal_residual_global_norm_cone",
+      "type": "demoted_lane",
+      "label": "Orthogonal residual controlled by global chi-square norm",
+      "status": "demoted_as_too_blunt_at_measured_scale",
+      "reason": "The Cauchy/chi-square certificate is sufficient but certifies none of the selected rows, including all five measured full-positive rows; successful rows survive by signed residual landing, not small total norm.",
+      "nuance": "A future large-sieve or variance theorem remains relevant only if it controls the specific residual statistic <nu_N,h_a>, not merely total norm."
+    },
+    {
+      "id": "theorem.q286_residual_signed_lower_tail",
+      "type": "theorem_target",
+      "label": "Signed lower-tail bound for q286 orthogonal residual",
+      "status": "open",
+      "statement": "After finite boundary split, prove <nu_N,h_a> > -aligned_only(N) for the q286 first-three tail lane, using sign/landing decomposition, residual-specific mass/landing, explicit formula control, or a binary in-progressions theorem for this character combination.",
+      "goldbach_proved": false
     }
   ],
   "edges": [
@@ -4201,6 +4225,26 @@
       "from": "lane.generic_variance_cone",
       "to": "theorem.q286_orthogonal_residual_lower_bound",
       "type": "scope_guard"
+    },
+    {
+      "from": "receipt.q286_orthogonal_residual_norm_certificate",
+      "to": "receipt.q286_orthogonal_rescue_decomposition",
+      "type": "tests"
+    },
+    {
+      "from": "receipt.q286_orthogonal_residual_norm_certificate",
+      "to": "lane.orthogonal_residual_global_norm_cone",
+      "type": "demotes"
+    },
+    {
+      "from": "lane.orthogonal_residual_global_norm_cone",
+      "to": "theorem.q286_residual_signed_lower_tail",
+      "type": "requires"
+    },
+    {
+      "from": "theorem.q286_residual_signed_lower_tail",
+      "to": "theorem.q286_orthogonal_residual_lower_bound",
+      "type": "refines"
     }
   ]
 }

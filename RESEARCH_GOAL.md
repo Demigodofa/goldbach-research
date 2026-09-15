@@ -6,6 +6,35 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 orthogonal-rescue target now has a coefficient-sensitive norm
+certificate test:
+`tools/build_q286_orthogonal_residual_norm_certificate.py` generated
+`evidence/q286-orthogonal-residual-norm-certificate.json`, with explanation in
+`notes/q286-orthogonal-residual-norm-certificate.md`.
+
+Mechanism: use Cauchy-Schwarz on the orthogonal residual:
+`|<nu,h_a>| <= ||nu||_{u^-1} ||h_a||_u`.  Since
+`full = aligned_only + <nu,h_a>`, the sufficient norm certificate is
+`||nu||_{u^-1} < aligned_only/||h_a||_u`.
+
+Result: the certificate is valid but too strong for the actual rows.  It
+certifies `0/7` selected targets, including `0/5` actual full-positive
+targets.  Actual chi-square norms are `0.6060646213177469..4.335942226316056`,
+while required radii are only
+`0.026560344128917553..0.3787851289964279`.  The actual/required ratio is
+`1.6660773272322653..144.83391860419633`.
+
+Decision: unchanged global norm cones are demoted.  The surviving theorem is
+not total L1, variance, or chi-square control of the whole measure.  It is a
+signed lower-tail bound for the single residual statistic `<nu_N,h_a>`, likely
+through sign/landing decomposition, residual-specific mass/landing
+inequalities, an explicit formula estimate for the character combination, or a
+finite boundary split plus eventual signed lower-tail estimate.  No residual
+bound, signed pair-correlation theorem, threshold theorem, or Goldbach proof is
+established.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 signed pair-correlation object now has an orthogonal-rescue
 decomposition:
 `tools/build_q286_orthogonal_rescue_decomposition.py` generated

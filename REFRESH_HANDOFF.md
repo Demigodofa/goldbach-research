@@ -6,6 +6,47 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 orthogonal-rescue target now has a norm-certificate falsifier.
+
+`tools/build_q286_orthogonal_residual_norm_certificate.py` generated
+`evidence/q286-orthogonal-residual-norm-certificate.json`, with the human note
+`notes/q286-orthogonal-residual-norm-certificate.md`.
+
+Question: can Cauchy/chi-square control of the centered measure prove the
+orthogonal residual cannot erase the aligned-only margin?
+
+Result: the certificate is valid but too blunt.
+
+```text
+certified targets:                         0 / 7
+actual full-positive targets:              5 / 7
+actual full-positive not norm-certified:   5 / 5
+
+actual chi-square norm:
+  0.6060646213177469 .. 4.335942226316056
+
+required certificate radius:
+  0.026560344128917553 .. 0.3787851289964279
+
+actual/required ratio:
+  1.6660773272322653 .. 144.83391860419633
+```
+
+Decision: do not chase unchanged generic L1, variance, or chi-square cones.
+The live route is a signed lower-tail theorem for the single residual
+statistic:
+
+```text
+<nu_N,h_a> > -aligned_only(N)
+```
+
+Possible next mechanisms: sign/landing decomposition of `h_a`,
+residual-specific mass/landing inequality, explicit-formula estimate for this
+character combination, or finite boundary split plus eventual lower-tail
+bound.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 signed pair-correlation target now has an orthogonal-rescue
 decomposition.
 
