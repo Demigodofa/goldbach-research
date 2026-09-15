@@ -6,6 +6,39 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 signed tail-control target now has a post-boundary stability audit:
+`tools/build_q286_support_tail_stability_window_audit.py` generated
+`evidence/q286-support-tail-stability-window-audit.json`, with explanation in
+`notes/q286-support-tail-stability-window-audit.md`.
+
+Question: after the last observed raw q286 failure at `88346`, do support-tail
+sign flips recur, and are they negative kills or positive rescues?
+
+Result: across the checked positive suffix `90080..250238` and one fresh full
+arithmetic cycle `250240..260248`, the audit scanned `85085` even targets.
+It found:
+
+```text
+full-action nonpositive count:          0
+principal+dominant nonpositive count:   0
+tail sign-change count:                 0
+negative-tail kill count:               0
+positive-tail rescue count:             0
+```
+
+The optimized support split matches the prior direct 10-row decomposition to
+floating precision, with maximum full-ratio delta
+`1.5543122344752192e-15`.
+
+Decision: preserve a finite later tail-stability candidate.  The tail erodes
+many positive partial margins, but after `90080` it does not erase any in this
+predeclared scan.  This supports the theorem split
+`early/boundary finite or special tail-control` plus `later signed
+tail-control threshold`.  It does not prove that threshold, the signed
+tail-control theorem, or Goldbach.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 bridge now has a precise signed support-tail control definition:
 `tools/build_q286_signed_support_tail_control_definition.py` generated
 `evidence/q286-signed-support-tail-control-definition.json`, with explanation

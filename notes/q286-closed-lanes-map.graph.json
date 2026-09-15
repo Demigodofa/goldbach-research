@@ -1975,6 +1975,15 @@
       "validation": "tools/build_q286_signed_support_tail_control_definition.py generated evidence/q286-signed-support-tail-control-definition.json; it defines A_N=P_N+D_N+R_N with D_N=E_286+E_154+E_70 and R_N on supports 14,26,130,10,22, and records that all 16 known-extremal tail flips are negative-tail kills, not positive-tail rescues.",
       "status_boundary": "theorem-definition and evidence-synthesis receipt only; no signed tail-control theorem, no q286 threshold theorem, no strict-central Goldbach theorem, and no Goldbach proof",
       "goldbach_proved": false
+    },
+    {
+      "id": "receipt.q286_support_tail_stability_window_audit",
+      "type": "receipt",
+      "label": "q286 support-tail stability window audit",
+      "status": "validated_finite_support",
+      "validation": "tools/build_q286_support_tail_stability_window_audit.py generated evidence/q286-support-tail-stability-window-audit.json; across 85085 post-boundary targets from 90080..250238 plus fresh cycle 250240..260248 there are zero tail sign changes, zero negative-tail kills, zero positive-tail rescues, zero full nonpositive rows, and zero principal-plus-dominant nonpositive rows.",
+      "status_boundary": "finite support-tail stability window audit only; no signed tail-control theorem, no q286 threshold theorem, no strict-central Goldbach theorem, and no Goldbach proof",
+      "goldbach_proved": false
     }
   ],
   "edges": [
@@ -4512,6 +4521,16 @@
       "from": "receipt.q286_signed_support_tail_control_definition",
       "to": "theorem.q286_positive_signed_witness",
       "type": "refines"
+    },
+    {
+      "from": "receipt.q286_support_tail_stability_window_audit",
+      "to": "problem.q286_signed_support_tail_control",
+      "type": "supports"
+    },
+    {
+      "from": "receipt.q286_support_tail_stability_window_audit",
+      "to": "candidate.q286_raw_signed_witness_from_90080",
+      "type": "supports"
     }
   ]
 }

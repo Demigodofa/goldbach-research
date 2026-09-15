@@ -6,6 +6,40 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 signed tail-control target now has a post-boundary stability audit.
+
+`tools/build_q286_support_tail_stability_window_audit.py` generated
+`evidence/q286-support-tail-stability-window-audit.json`, with explanation in
+`notes/q286-support-tail-stability-window-audit.md`.
+
+The predeclared windows were:
+
+```text
+checked positive suffix:      90080..250238   (80080 even targets)
+fresh next arithmetic cycle:  250240..260248  (5005 even targets)
+```
+
+Across all `85085` targets:
+
+```text
+full-action nonpositive count:                 0
+principal+dominant nonpositive count:          0
+tail sign-change count:                        0
+negative-tail kill count:                      0
+positive-tail rescue count:                    0
+```
+
+The tail still erodes positive partial margins often, but not enough to flip
+sign in these later windows.  The checked suffix minimum full-action ratio is
+`0.012576466293799578`; the fresh cycle minimum full-action ratio is
+`0.23608103140993492`.
+
+Decision: preserve a finite later tail-stability candidate.  The next proof
+target remains non-circular: prove a signed tail lower-control inequality, or
+freeze a larger later holdout before scanning.  Goldbach is not proved.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 bridge now has a precise signed support-tail control definition.
 
 `tools/build_q286_signed_support_tail_control_definition.py` generated

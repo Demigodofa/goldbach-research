@@ -513,3 +513,23 @@ boundary failures: all `16` observed support-tail flips are negative-tail
 kills of positive principal-plus-top-three partial sums, not positive-tail
 rescues.  Therefore the next theorem is tail lower-control, not tail
 discarding.
+
+## Support-Tail Stability Window Audit
+
+`tools/build_q286_support_tail_stability_window_audit.py` generated
+`evidence/q286-support-tail-stability-window-audit.json`.
+
+Result: in the checked post-boundary window `90080..250238` and the fresh next
+arithmetic cycle `250240..260248`, the support-tail split has no sign flips:
+
+```text
+targets checked:                         85085
+full-action nonpositive count:           0
+principal+dominant nonpositive count:    0
+negative-tail kill count:                0
+positive-tail rescue count:              0
+```
+
+The tail still frequently erodes positive partial margins, but not enough to
+erase them in this finite later fixture.  This supports, but does not prove,
+a boundary/later split for the signed support-tail control theorem.
