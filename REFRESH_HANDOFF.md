@@ -6,6 +6,46 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS route now has a disconnected componentwise-envelope audit on
+the aggregate lambda horizon.
+
+```text
+tools/build_q286_wbss_four_modulus_component_envelope_horizon_audit.py
+notes/q286-wbss-four-modulus-component-envelope-horizon-audit.md
+evidence/q286-wbss-four-modulus-component-envelope-horizon-audit.json
+```
+
+Result:
+
+```text
+horizon targets:                             232
+target range:                    1036248..1115822
+component-envelope positive rows:            232 / 232
+component-envelope nonpositive rows:           0 / 232
+A_70:                         0.11808088288936758
+A_130:                       0.00932108976691037
+A_154:                       0.08239931832908774
+A_286:                       0.12228599640255161
+component adverse supremum sum: 0.3320872873879173
+tightest target:                         1038176
+tightest local main:          0.717245423802844
+tightest component envelope:  0.38515813641492663
+largest envelope ratio:       0.4630037032891566
+```
+
+Decision: the componentwise finite envelope survives even when the separately
+worst observed adverse terms for moduli `70`, `130`, `154`, and `286` are
+combined.  This strengthens the theorem-shaped direction from rowwise
+adverse drag to per-modulus adverse supremum control.  It is still finite
+horizon evidence only: the component suprema are fitted to the checked rows,
+and the residual absorption constants `.125`, `.126`, and `.13` remain finite
+fixture fits only, not universal bounds.  No per-modulus supremum theorem,
+one-sided signed concentration theorem, fixed-modulus equidistribution
+theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach
+proof is established.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286-WBSS route now has a one-sided adverse-drag audit on the aggregate
 lambda horizon.
 

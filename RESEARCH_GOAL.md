@@ -6,6 +6,40 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS route now has a stricter disconnected componentwise-envelope
+audit on the aggregate lambda horizon:
+`tools/build_q286_wbss_four_modulus_component_envelope_horizon_audit.py`
+generated
+`evidence/q286-wbss-four-modulus-component-envelope-horizon-audit.json`, with
+explanation in
+`notes/q286-wbss-four-modulus-component-envelope-horizon-audit.md`.
+
+Question: if each projected modulus contributes its own worst observed
+adverse value anywhere in the `232`-row horizon, does the sum of those four
+separately fitted component suprema still stay below every row's local main
+term?
+
+Result: the disconnected component-envelope certificate stays positive on
+all `232/232` horizon rows.  The component adverse suprema are
+`70 -> 0.11808088288936758`, `130 -> 0.00932108976691037`,
+`154 -> 0.08239931832908774`, and `286 -> 0.12228599640255161`, with sum
+`0.3320872873879173`.  The tightest row is target `1038176`, where the local
+main is `0.717245423802844`, the component-envelope expectation is
+`0.38515813641492663`, and the envelope ratio is `0.4630037032891566`.
+
+Decision: the finite route is stronger than a same-row adverse-drag pass; the
+four separately worst observed adverse components can be combined and still
+do not erase the checked local main.  The live theorem-shaped target becomes
+per-modulus adverse supremum control whose sum stays below local main.  This
+is finite horizon evidence only.  The component suprema are fitted to the
+checked rows, and the residual absorption constants `.125`, `.126`, and `.13`
+remain finite fixture fits only, not universal bounds.  This proves no
+per-modulus supremum theorem, one-sided signed concentration theorem,
+fixed-modulus equidistribution theorem, q286 threshold theorem,
+strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286-WBSS route now has a one-sided adverse-drag audit on the aggregate
 lambda horizon:
 `tools/build_q286_wbss_four_modulus_adverse_drag_horizon_audit.py` generated
