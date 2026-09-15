@@ -6,6 +6,29 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS route now has a full dual-edge residual absorption population
+audit: `tools/build_q286_wbss_residual_absorption_population_audit.py`
+generated `evidence/q286-wbss-residual-absorption-population-audit.json`,
+with explanation in
+`notes/q286-wbss-residual-absorption-population-audit.md`.
+
+Question: did the `.126` and `.13` finite residual absorption fits depend on
+excluding the `34` discovery rows from the same lower-face dual-edge source?
+
+Result: no. Replaying all `230` edge-success rows gives `29` positive
+pushback rows and `0` rows where the top-20 component loses negative sign. The
+maximum pushback/top20-drag ratio remains `0.12566677703853088` at target
+`365578`, still in the post-discovery bucket. The discovery-row maximum is
+`0.1187884461709314` at target `10564`. Thus `1/8` remains refuted, while
+`.126` and `.13` pass the full available dual-edge population.
+
+Decision: the decimal fit is not merely an artifact of excluding discovery
+rows. This is broader finite evidence, not fresh asymptotic evidence.
+Residual absorption constants fit finite data only; the universal bound is
+open. Goldbach is not proved.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286-WBSS route now has a residual absorption threshold audit:
 `tools/build_q286_wbss_residual_absorption_threshold_audit.py` generated
 `evidence/q286-wbss-residual-absorption-threshold-audit.json`, with

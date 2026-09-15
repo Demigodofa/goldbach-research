@@ -6,6 +6,38 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS route now has a full dual-edge residual absorption population
+audit.
+
+```text
+tools/build_q286_wbss_residual_absorption_population_audit.py
+notes/q286-wbss-residual-absorption-population-audit.md
+evidence/q286-wbss-residual-absorption-population-audit.json
+```
+
+Result:
+
+```text
+all lower-face dual-edge rows checked:           230
+discovery rows added to prior fixture:            34
+post-discovery rows:                             196
+positive pushback rows, full population:          29 / 230
+top-20 nonnegative rows:                           0 / 230
+full-population max pushback/top20-drag ratio:     0.12566677703853088
+discovery-row max pushback/top20-drag ratio:       0.1187884461709314
+theta = 1/8 = 0.125 passes:                       no
+theta = 0.126 passes full population:            yes
+theta = 0.13 passes full population:             yes
+```
+
+Decision: the finite decimal fit is not caused merely by excluding discovery
+rows; adding the `34` discovery rows preserves the same worst ratio from the
+post-discovery bucket. This is broader existing-population evidence, not fresh
+asymptotic evidence. Residual absorption constants still fit finite data only;
+the universal bound is open. Goldbach is not proved.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286-WBSS route now has a residual absorption threshold audit.
 
 ```text

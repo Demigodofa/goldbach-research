@@ -1,0 +1,332 @@
+{
+  "candidate": {
+    "falsifier": "A discovery row with pushback/top20-drag ratio above .126 or .13 would clip the corresponding finite cap to the post-discovery-only fixture.",
+    "mechanism": "Use the same top-20/residual Fourier split, but include all available lower-face dual-edge rows instead of only the post-discovery rows.",
+    "name": "full dual-edge residual absorption population check",
+    "novelty_label": "new-to-this-task",
+    "prediction": "If the finite decimal caps are not an artifact of excluding the discovery rows, the added discovery rows should have smaller or comparable pushback ratios.",
+    "smallest_test": "Replay all 230 edge-success rows from the lower-face dual-edge audit and compare threshold failures by bucket."
+  },
+  "decision": "Adding the 34 discovery rows does not change the finite threshold picture: .125 remains falsified by the same later row, while .126 and .13 pass all 230 available dual-edge rows.  The new evidence says the decimal fit is not caused merely by excluding discovery rows.  It still fits finite data only; the universal residual absorption bound remains open.",
+  "fresh_holdout_claimed": false,
+  "goldbach_proved": false,
+  "one_eighth_cap_falsified": true,
+  "point_126_cap_survives_full_dual_edge_population": true,
+  "point_13_cap_survives_full_dual_edge_population": true,
+  "residual_absorption_theorem_proved": false,
+  "schema_version": 1,
+  "source_commit": "3c7f3ab312c41192b61392acaf7dbe6534dd61bc",
+  "sources": {
+    "bandlimited_residual_audit": "evidence\\q286-wbss-mod286-bandlimited-residual-audit.json",
+    "threshold_audit": "evidence/q286-wbss-residual-absorption-threshold-audit.json"
+  },
+  "status_boundary": "finite q286-WBSS full dual-edge population diagnostic only; the added rows are discovery rows from the same dual-edge source, not fresh asymptotic evidence; no residual absorption theorem, signed projection theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof",
+  "summaries": {
+    "all_dual_edge_rows": {
+      "name": "all_dual_edge_rows",
+      "observed_minimum_passing_constant": 0.12566677703853088,
+      "positive_pushback_row_count": 29,
+      "pushback_to_main_drag_ratio_summary": {
+        "count": 230,
+        "maximum": 0.12566677703853088,
+        "mean": 0.006188370039229079,
+        "minimum": 0.0
+      },
+      "row_count": 230,
+      "threshold_profiles": [
+        {
+          "absolute_slack_against_observed_maximum": -0.0006667770385308802,
+          "failing_row_count": 1,
+          "failing_rows": [
+            {
+              "bandlimited_top20_component": -0.3420907424756105,
+              "block_index_after_discovery": 4,
+              "main_drag": 0.3420907424756105,
+              "pair_count": 1111,
+              "positive_residual_pushback": 0.04298944106162803,
+              "pushback_to_main_drag_ratio": 0.12566677703853088,
+              "residual_five_group_component": 0.04298944106162803,
+              "target": 365578,
+              "target_mod_286": 70,
+              "target_residue": 5218
+            }
+          ],
+          "name": "one_eighth",
+          "non_strict_pass_count": 229,
+          "passes_all_rows": false,
+          "relative_slack_against_observed_maximum": -0.005305913418360676,
+          "strict_pass_count": 229,
+          "threshold": 0.125
+        },
+        {
+          "absolute_slack_against_observed_maximum": 0.00033322296146912067,
+          "failing_row_count": 0,
+          "failing_rows": [],
+          "name": "decimal_0_126",
+          "non_strict_pass_count": 230,
+          "passes_all_rows": true,
+          "relative_slack_against_observed_maximum": 0.0026516392742924463,
+          "strict_pass_count": 230,
+          "threshold": 0.126
+        },
+        {
+          "absolute_slack_against_observed_maximum": 0.0013332229614691216,
+          "failing_row_count": 0,
+          "failing_rows": [],
+          "name": "decimal_0_127",
+          "non_strict_pass_count": 230,
+          "passes_all_rows": true,
+          "relative_slack_against_observed_maximum": 0.010609191966945567,
+          "strict_pass_count": 230,
+          "threshold": 0.127
+        },
+        {
+          "absolute_slack_against_observed_maximum": 0.004333222961469124,
+          "failing_row_count": 0,
+          "failing_rows": [],
+          "name": "decimal_0_13",
+          "non_strict_pass_count": 230,
+          "passes_all_rows": true,
+          "relative_slack_against_observed_maximum": 0.034481850044904935,
+          "strict_pass_count": 230,
+          "threshold": 0.13
+        },
+        {
+          "absolute_slack_against_observed_maximum": 0.007666556294802451,
+          "failing_row_count": 0,
+          "failing_rows": [],
+          "name": "two_fifteenths",
+          "non_strict_pass_count": 230,
+          "passes_all_rows": true,
+          "relative_slack_against_observed_maximum": 0.06100702568708193,
+          "strict_pass_count": 230,
+          "threshold": 0.13333333333333333
+        },
+        {
+          "absolute_slack_against_observed_maximum": 0.01719036581861197,
+          "failing_row_count": 0,
+          "failing_rows": [],
+          "name": "one_seventh",
+          "non_strict_pass_count": 230,
+          "passes_all_rows": true,
+          "relative_slack_against_observed_maximum": 0.13679324180758773,
+          "strict_pass_count": 230,
+          "threshold": 0.14285714285714285
+        }
+      ],
+      "top20_nonnegative_count": 0,
+      "worst_row": {
+        "bandlimited_top20_component": -0.3420907424756105,
+        "block_index_after_discovery": 4,
+        "main_drag": 0.3420907424756105,
+        "pair_count": 1111,
+        "positive_residual_pushback": 0.04298944106162803,
+        "pushback_to_main_drag_ratio": 0.12566677703853088,
+        "residual_five_group_component": 0.04298944106162803,
+        "target": 365578,
+        "target_mod_286": 70,
+        "target_residue": 5218
+      }
+    },
+    "discovery_rows": {
+      "name": "discovery_rows",
+      "observed_minimum_passing_constant": 0.1187884461709314,
+      "positive_pushback_row_count": 5,
+      "pushback_to_main_drag_ratio_summary": {
+        "count": 34,
+        "maximum": 0.1187884461709314,
+        "mean": 0.007930237288665366,
+        "minimum": 0.0
+      },
+      "row_count": 34,
+      "threshold_profiles": [
+        {
+          "absolute_slack_against_observed_maximum": 0.0062115538290686,
+          "failing_row_count": 0,
+          "failing_rows": [],
+          "name": "one_eighth",
+          "non_strict_pass_count": 34,
+          "passes_all_rows": true,
+          "relative_slack_against_observed_maximum": 0.05229089216412886,
+          "strict_pass_count": 34,
+          "threshold": 0.125
+        },
+        {
+          "absolute_slack_against_observed_maximum": 0.007211553829068601,
+          "failing_row_count": 0,
+          "failing_rows": [],
+          "name": "decimal_0_126",
+          "non_strict_pass_count": 34,
+          "passes_all_rows": true,
+          "relative_slack_against_observed_maximum": 0.0607092193014419,
+          "strict_pass_count": 34,
+          "threshold": 0.126
+        },
+        {
+          "absolute_slack_against_observed_maximum": 0.008211553829068602,
+          "failing_row_count": 0,
+          "failing_rows": [],
+          "name": "decimal_0_127",
+          "non_strict_pass_count": 34,
+          "passes_all_rows": true,
+          "relative_slack_against_observed_maximum": 0.06912754643875495,
+          "strict_pass_count": 34,
+          "threshold": 0.127
+        },
+        {
+          "absolute_slack_against_observed_maximum": 0.011211553829068605,
+          "failing_row_count": 0,
+          "failing_rows": [],
+          "name": "decimal_0_13",
+          "non_strict_pass_count": 34,
+          "passes_all_rows": true,
+          "relative_slack_against_observed_maximum": 0.09438252785069405,
+          "strict_pass_count": 34,
+          "threshold": 0.13
+        },
+        {
+          "absolute_slack_against_observed_maximum": 0.014544887162401932,
+          "failing_row_count": 0,
+          "failing_rows": [],
+          "name": "two_fifteenths",
+          "non_strict_pass_count": 34,
+          "passes_all_rows": true,
+          "relative_slack_against_observed_maximum": 0.12244361830840411,
+          "strict_pass_count": 34,
+          "threshold": 0.13333333333333333
+        },
+        {
+          "absolute_slack_against_observed_maximum": 0.02406869668621145,
+          "failing_row_count": 0,
+          "failing_rows": [],
+          "name": "one_seventh",
+          "non_strict_pass_count": 34,
+          "passes_all_rows": true,
+          "relative_slack_against_observed_maximum": 0.20261816247329006,
+          "strict_pass_count": 34,
+          "threshold": 0.14285714285714285
+        }
+      ],
+      "top20_nonnegative_count": 0,
+      "worst_row": {
+        "bandlimited_top20_component": -0.6227598977899091,
+        "block_index_after_discovery": 0,
+        "main_drag": 0.6227598977899091,
+        "pair_count": 66,
+        "positive_residual_pushback": 0.07397668059603137,
+        "pushback_to_main_drag_ratio": 0.1187884461709314,
+        "residual_five_group_component": 0.07397668059603137,
+        "target": 10564,
+        "target_mod_286": 268,
+        "target_residue": 554
+      }
+    },
+    "post_discovery_rows": {
+      "name": "post_discovery_rows",
+      "observed_minimum_passing_constant": 0.12566677703853088,
+      "positive_pushback_row_count": 24,
+      "pushback_to_main_drag_ratio_summary": {
+        "count": 196,
+        "maximum": 0.12566677703853088,
+        "mean": 0.005886209393918703,
+        "minimum": 0.0
+      },
+      "row_count": 196,
+      "threshold_profiles": [
+        {
+          "absolute_slack_against_observed_maximum": -0.0006667770385308802,
+          "failing_row_count": 1,
+          "failing_rows": [
+            {
+              "bandlimited_top20_component": -0.3420907424756105,
+              "block_index_after_discovery": 4,
+              "main_drag": 0.3420907424756105,
+              "pair_count": 1111,
+              "positive_residual_pushback": 0.04298944106162803,
+              "pushback_to_main_drag_ratio": 0.12566677703853088,
+              "residual_five_group_component": 0.04298944106162803,
+              "target": 365578,
+              "target_mod_286": 70,
+              "target_residue": 5218
+            }
+          ],
+          "name": "one_eighth",
+          "non_strict_pass_count": 195,
+          "passes_all_rows": false,
+          "relative_slack_against_observed_maximum": -0.005305913418360676,
+          "strict_pass_count": 195,
+          "threshold": 0.125
+        },
+        {
+          "absolute_slack_against_observed_maximum": 0.00033322296146912067,
+          "failing_row_count": 0,
+          "failing_rows": [],
+          "name": "decimal_0_126",
+          "non_strict_pass_count": 196,
+          "passes_all_rows": true,
+          "relative_slack_against_observed_maximum": 0.0026516392742924463,
+          "strict_pass_count": 196,
+          "threshold": 0.126
+        },
+        {
+          "absolute_slack_against_observed_maximum": 0.0013332229614691216,
+          "failing_row_count": 0,
+          "failing_rows": [],
+          "name": "decimal_0_127",
+          "non_strict_pass_count": 196,
+          "passes_all_rows": true,
+          "relative_slack_against_observed_maximum": 0.010609191966945567,
+          "strict_pass_count": 196,
+          "threshold": 0.127
+        },
+        {
+          "absolute_slack_against_observed_maximum": 0.004333222961469124,
+          "failing_row_count": 0,
+          "failing_rows": [],
+          "name": "decimal_0_13",
+          "non_strict_pass_count": 196,
+          "passes_all_rows": true,
+          "relative_slack_against_observed_maximum": 0.034481850044904935,
+          "strict_pass_count": 196,
+          "threshold": 0.13
+        },
+        {
+          "absolute_slack_against_observed_maximum": 0.007666556294802451,
+          "failing_row_count": 0,
+          "failing_rows": [],
+          "name": "two_fifteenths",
+          "non_strict_pass_count": 196,
+          "passes_all_rows": true,
+          "relative_slack_against_observed_maximum": 0.06100702568708193,
+          "strict_pass_count": 196,
+          "threshold": 0.13333333333333333
+        },
+        {
+          "absolute_slack_against_observed_maximum": 0.01719036581861197,
+          "failing_row_count": 0,
+          "failing_rows": [],
+          "name": "one_seventh",
+          "non_strict_pass_count": 196,
+          "passes_all_rows": true,
+          "relative_slack_against_observed_maximum": 0.13679324180758773,
+          "strict_pass_count": 196,
+          "threshold": 0.14285714285714285
+        }
+      ],
+      "top20_nonnegative_count": 0,
+      "worst_row": {
+        "bandlimited_top20_component": -0.3420907424756105,
+        "block_index_after_discovery": 4,
+        "main_drag": 0.3420907424756105,
+        "pair_count": 1111,
+        "positive_residual_pushback": 0.04298944106162803,
+        "pushback_to_main_drag_ratio": 0.12566677703853088,
+        "residual_five_group_component": 0.04298944106162803,
+        "target": 365578,
+        "target_mod_286": 70,
+        "target_residue": 5218
+      }
+    }
+  },
+  "universal_bound_open": true
+}

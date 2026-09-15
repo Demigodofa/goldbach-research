@@ -76,7 +76,7 @@ def source_payload():
     return json.loads(BANDLIMITED_SOURCE.read_text(encoding="utf-8"))
 
 
-def post_discovery_rows():
+def absorption_rows(include_discovery=False):
     formula = load_json(FORMULA_SOURCE)
     dual = load_json(DUAL_SOURCE)
     _, by_modulus = coefficient_lookup(formula)
@@ -91,10 +91,12 @@ def post_discovery_rows():
     context["coefficient"] = combined_fixed_strict_central_coefficient_receipt()
     full_coefficients = period_full_unit_coefficients(context)
     first_three_coefficients = q286_first_three_unit_coefficients(context)
-    edge_rows = [
-        row for row in dual["target_rows"]
-        if row["edge_success"] and row["block_index_after_discovery"] >= 1
-    ]
+    edge_rows = [row for row in dual["target_rows"] if row["edge_success"]]
+    if not include_discovery:
+        edge_rows = [
+            row for row in edge_rows
+            if row["block_index_after_discovery"] >= 1
+        ]
     maximum_target = max(row["target"] for row in edge_rows)
     primes = np.asarray(_prime_table(maximum_target), dtype=bool)
     prime_values = np.flatnonzero(primes)
@@ -132,6 +134,10 @@ def post_discovery_rows():
             "pushback_to_main_drag_ratio": float(pushback / main_drag),
         })
     return rows
+
+
+def post_discovery_rows():
+    return absorption_rows(include_discovery=False)
 
 
 def threshold_profile(name, threshold, rows):
