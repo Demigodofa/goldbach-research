@@ -6,6 +6,42 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 orthogonal-residual route now has a residual sign-split source-budget
+audit:
+`tools/build_q286_orthogonal_residual_sign_split_budget_audit.py` generated
+`evidence/q286-orthogonal-residual-sign-split-budget-audit.json`, with
+explanation in
+`notes/q286-orthogonal-residual-sign-split-budget-audit.md`.
+
+Question: after projection uniformity and generic norm control were demoted,
+does splitting only the orthogonal residual coefficient give a materially
+looser theorem bridge?
+
+Answer: it is sharper, but still near-sharp.  On the seven frozen signed-pair
+operator targets:
+
+```text
+actual full-positive rows:                       5 / 7
+actual full-nonpositive rows:                    2 / 7
+rows needing sub-1% symmetric residual control:  1
+rows needing sub-5% symmetric residual control:  1
+tight target:                                94856
+tight symmetric residual budget: 0.009396193466872777
+raw full sign-split tight budget: 0.007201983503733535
+```
+
+Decision:
+`HOLD_residual_sign_split_is_sharper_but_still_near_sharp`.  Treating the
+aligned component as exact slightly relaxes the tight row, but still requires
+sub-percent source control.  The next proof object is a coefficient-specific
+signed lower-tail estimate for `<nu_N,h_a>`, not broad AP counts, plain
+projection uniformity, global norm bounds, or raw residual sign landing.  This
+proves no orthogonal residual lower-tail theorem, signed binary-prime
+correlation theorem, q286 threshold theorem, strict-central Goldbach theorem,
+or Goldbach proof.
+
+## Latest continuation evidence, 2026-09-15
+
 The q286 signed-pair route now has a projection-cone budget audit:
 `tools/build_q286_projection_cone_budget_audit.py` generated
 `evidence/q286-projection-cone-budget-audit.json`, with explanation in

@@ -6,6 +6,39 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 orthogonal-residual route now has a residual sign-split budget audit:
+
+```text
+tools/build_q286_orthogonal_residual_sign_split_budget_audit.py
+notes/q286-orthogonal-residual-sign-split-budget-audit.md
+evidence/q286-orthogonal-residual-sign-split-budget-audit.json
+```
+
+Result on the seven frozen signed-pair operator targets:
+
+```text
+actual full-positive rows:                       5 / 7
+actual full-nonpositive rows:                    2 / 7
+rows needing sub-1% symmetric residual control:  1
+rows needing sub-5% symmetric residual control:  1
+tight target:                                94856
+tight symmetric residual budget: 0.009396193466872777
+raw full sign-split tight budget: 0.007201983503733535
+```
+
+Decision:
+`HOLD_residual_sign_split_is_sharper_but_still_near_sharp`.  The
+orthogonal-residual split is a better-shaped theorem object than raw
+full-coefficient landing, but it is not an escape hatch.  Treating the aligned
+component as exact only relaxes the tight row to a still-sub-percent budget.
+The next proof object is a coefficient-specific signed lower-tail estimate for
+`<nu_N,h_a>`, not broad AP counts, plain projection uniformity, global norm
+bounds, or raw residual sign landing.  This proves no orthogonal residual
+lower-tail theorem, signed binary-prime correlation theorem, q286 threshold
+theorem, strict-central Goldbach theorem, or Goldbach proof.
+
+## Latest active checkpoint note, 2026-09-15
+
 The q286 signed-pair route now has a projection-cone budget audit:
 
 ```text
