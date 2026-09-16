@@ -1,0 +1,174 @@
+{
+  "answer": "No.  The exact Q=46189 contribution is adverse but tiny compared with its half-full scale, while both active and full cross terms are essentially negative Cauchy saturating.  A Cauchy-only adverse budget is hundreds of times larger than the actual adverse margin, so the next proof target must be a phase-defect or cancellation estimate, not a generic magnitude bound.",
+  "candidate_next_action": {
+    "falsifier": "If aligned negative denominators can make |active_Q| exceed |full_Q|/2 by an amount not uniformly paid elsewhere, this clearance proof route fails.",
+    "mechanism": "Exploit the small gap between |active_Q| and |full_Q|/2 for the negative aligned cross term, rather than bounding active_Q by magnitude alone.",
+    "name": "q46189 phase-defect bound",
+    "novelty_label": "new-to-this-task",
+    "prediction": "A useful theorem will prove a positive lower bound for |full_Q|/2-|active_Q| or show this adverse aligned case is paid uniformly by neighboring middle/far denominators.",
+    "smallest_next_test": "Derive a symbolic expression for the active/full saturation defect of Q=46189 and test whether it factors through the missing small primes 2,3,5,7 or through row-window endpoint phases."
+  },
+  "classification": {
+    "active_cross_term_cauchy_saturated_negative": true,
+    "finite_exact_exception_analyzed": true,
+    "full_cross_term_cauchy_saturated_negative": true,
+    "phase_defect_estimate_required": true,
+    "simple_cauchy_bound_proves_nonadverse": false
+  },
+  "clearance_context": {
+    "far_positive_margin_sum": 11771040850805.861,
+    "middle_far_positive_margin_sum": 23665388500186.68,
+    "middle_far_total_margin_sum": 23656943778957.203,
+    "middle_negative_margin_sum": -8444721229.472412,
+    "middle_positive_margin_sum": 11894347649380.816,
+    "middle_total_margin": 11885902928151.344,
+    "near_negative_abs": 15989843515.265388,
+    "q46189_middle_adverse_over_all_negative_margin": 0.34560555171301166,
+    "q46189_middle_adverse_over_middle_far_positive": 0.00035683847866709636
+  },
+  "clearance_family_theorem_proved": false,
+  "component_cauchy_rows": [
+    {
+      "active_cauchy_bound": 1560644479591.6309,
+      "active_contribution": -1560644479591.6313,
+      "active_minus_half_full_magnitude_gap": -8444721229.472412,
+      "active_over_cauchy": -1.0000000000000002,
+      "adverse_margin": 8444721229.472412,
+      "adverse_over_abs_half_full": 0.0053819255304627,
+      "cauchy_adverse_budget": 3129733680412.7344,
+      "cauchy_bound_proves_nonadverse": false,
+      "cauchy_budget_over_actual_adverse": 370.61420920442464,
+      "full_cauchy_bound": 3138178401642.195,
+      "full_contribution": -3138178401642.2075,
+      "full_over_cauchy": -1.000000000000004,
+      "label": "00,12",
+      "lower_bound_using_exact_full_and_active_cauchy": -3129733680412.7344,
+      "margin_full_over_2_minus_active": -8444721229.472412
+    },
+    {
+      "active_cauchy_bound": 3144908970814.3066,
+      "active_contribution": -3144765862159.443,
+      "active_minus_half_full_magnitude_gap": -10857070811.54541,
+      "active_over_cauchy": -0.9999544951360463,
+      "adverse_margin": 10857070811.54541,
+      "adverse_over_abs_half_full": 0.0034405475692634744,
+      "cauchy_adverse_budget": 6300531903785.295,
+      "cauchy_bound_proves_nonadverse": false,
+      "cauchy_budget_over_actual_adverse": 580.3159998814145,
+      "full_cauchy_bound": 6311353788671.468,
+      "full_contribution": -6311245865941.977,
+      "full_over_cauchy": -0.9999829002250381,
+      "label": "01,02",
+      "lower_bound_using_exact_full_and_active_cauchy": -6300531903785.295,
+      "margin_full_over_2_minus_active": -10857070811.54541
+    },
+    {
+      "active_cauchy_bound": 6259914669185.064,
+      "active_contribution": -6259842774269.451,
+      "active_minus_half_full_magnitude_gap": -40031712153.0332,
+      "active_over_cauchy": -0.9999885150326462,
+      "adverse_margin": 40031712153.0332,
+      "adverse_over_abs_half_full": 0.006354366621003278,
+      "cauchy_adverse_budget": 12559789155607.549,
+      "cauchy_bound_proves_nonadverse": false,
+      "cauchy_budget_over_actual_adverse": 313.74598986908165,
+      "full_cauchy_bound": 12599803031957.232,
+      "full_contribution": -12599748972844.969,
+      "full_over_cauchy": -0.9999957095271945,
+      "label": "01,11",
+      "lower_bound_using_exact_full_and_active_cauchy": -12559789155607.549,
+      "margin_full_over_2_minus_active": -40031712153.0332
+    }
+  ],
+  "decision": "HOLD_q46189_simple_cauchy_bound_insufficient.  The denominator exception is localized and small in the finite ledger, but generic Cauchy/triangle control is much too weak.  Future work should seek a phase-defect or neighboring-denominator payment estimate before promoting the clearance route.",
+  "exact_denominator_rows": {
+    "00,12": {
+      "active_contribution": -1560644479591.6313,
+      "full_contribution": -3138178401642.2075,
+      "half_frame_contribution": 8444721229.472412,
+      "label": "00,12",
+      "reduced_denominator": 46189,
+      "residue_cell_count": 34560,
+      "unnormalized_margin_full_over_2_minus_active": -8444721229.472412
+    },
+    "01,02": {
+      "active_contribution": -3144765862159.443,
+      "full_contribution": -6311245865941.977,
+      "half_frame_contribution": 10857070811.54541,
+      "label": "01,02",
+      "reduced_denominator": 46189,
+      "residue_cell_count": 34560,
+      "unnormalized_margin_full_over_2_minus_active": -10857070811.54541
+    },
+    "01,11": {
+      "active_contribution": -6259842774269.451,
+      "full_contribution": -12599748972844.969,
+      "half_frame_contribution": 40031712153.0332,
+      "label": "01,11",
+      "reduced_denominator": 46189,
+      "residue_cell_count": 34560,
+      "unnormalized_margin_full_over_2_minus_active": -40031712153.0332
+    },
+    "TOTAL": {
+      "active_contribution": -10965253116020.525,
+      "full_contribution": -22049173240429.152,
+      "half_frame_contribution": 59333504194.051025,
+      "label": "TOTAL",
+      "reduced_denominator": 46189,
+      "residue_cell_count": 34560,
+      "unnormalized_margin_full_over_2_minus_active": -59333504194.051025
+    }
+  },
+  "finite_diagnostic_only": true,
+  "finite_q46189_exception_audit_only": true,
+  "fixture": {
+    "clearance_ratio_q_over_pA": 2.8342026139780327,
+    "divisor_range": [
+      3,
+      19
+    ],
+    "ell_freeze": 64,
+    "prime_modulus": 379,
+    "reduced_denominator": 46189,
+    "reduced_denominator_factorization": {
+      "11": 1,
+      "13": 1,
+      "17": 1,
+      "19": 1
+    },
+    "residue_cell_count": 34560,
+    "row_count_A": 43,
+    "scale_modulus": 229,
+    "target_label": "00,12",
+    "threshold_p_times_A": 16297
+  },
+  "goldbach_proved": false,
+  "middle_far_lower_bound_proved": false,
+  "near_adverse_upper_bound_proved": false,
+  "phase_defect_theorem_proved": false,
+  "question": "For the M=229, p=379, Q=46189 middle-family exception, can a simple row-independent Cauchy/triangle estimate provide the needed independent bound?",
+  "schema_version": 1,
+  "simple_cauchy_theorem_proved": false,
+  "source_clearance_family_audit": "evidence\\mobius-moment-square-degree5-source-margin-clearance-family-audit.json",
+  "source_commit": "a6c36aeb97169d310904cc36fd2ada60949e33a8",
+  "source_start_theorem_proved": false,
+  "status": "HOLD_q46189_simple_cauchy_bound_insufficient",
+  "strict_central_goldbach_theorem_proved": false,
+  "target_component": {
+    "active_cauchy_bound": 1560644479591.6309,
+    "active_contribution": -1560644479591.6313,
+    "active_minus_half_full_magnitude_gap": -8444721229.472412,
+    "active_over_cauchy": -1.0000000000000002,
+    "adverse_margin": 8444721229.472412,
+    "adverse_over_abs_half_full": 0.0053819255304627,
+    "cauchy_adverse_budget": 3129733680412.7344,
+    "cauchy_bound_proves_nonadverse": false,
+    "cauchy_budget_over_actual_adverse": 370.61420920442464,
+    "full_cauchy_bound": 3138178401642.195,
+    "full_contribution": -3138178401642.2075,
+    "full_over_cauchy": -1.000000000000004,
+    "label": "00,12",
+    "lower_bound_using_exact_full_and_active_cauchy": -3129733680412.7344,
+    "margin_full_over_2_minus_active": -8444721229.472412
+  }
+}

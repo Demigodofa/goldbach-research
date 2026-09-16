@@ -6,6 +6,39 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The source-start moving-prime lane now has a bound audit for the named
+`M=229`, `p=379`, `Q=46189` middle-family exception:
+`tools/build_mobius_moment_square_degree5_q46189_exception_bound_audit.py`
+generated
+`evidence/mobius-moment-square-degree5-q46189-exception-bound-audit.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-q46189-exception-bound-audit.md`.
+
+Question: can a simple row-independent Cauchy/triangle estimate control the
+`Q=46189` adverse denominator and provide the missing independent clearance
+bound?
+
+Answer: no.  The exact target contribution is adverse by
+`8444721229.472412`, only `0.0053819255304627` of `|full/2|`, but both the
+active and full cross terms are essentially negative Cauchy-saturating:
+`active/active_cauchy=-1.0000000000000002` and
+`full/full_cauchy=-1.000000000000004`.  A Cauchy-only adverse budget is
+`370.61420920442464` times the actual adverse margin.  The denominator is
+localized and small relative to available middle/far positive mass
+(`0.00035683847866709636`), but generic magnitude control is too weak.
+
+Decision: the clearance route should not spend effort on plain Cauchy or
+triangle bounds for this exception.  The next theorem-shaped test should be a
+phase-defect or neighboring-denominator payment estimate: derive a symbolic
+expression for the active/full saturation defect of `Q=46189=11*13*17*19`
+and test whether it factors through the missing small primes `2,3,5,7` or
+through row-window endpoint phases.  This proves no simple Cauchy theorem,
+phase-defect theorem, near-adverse upper bound, middle/far lower bound,
+clearance-family theorem, source-start theorem, strict-central Goldbach
+theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The source-start moving-prime lane now has a clearance logical-bridge audit:
 `tools/build_mobius_moment_square_degree5_clearance_logical_bridge_audit.py`
 generated

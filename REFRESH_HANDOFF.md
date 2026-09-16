@@ -6,6 +6,42 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The source-start moving-prime lane now has a bound audit for the named
+`M=229`, `p=379`, `Q=46189` middle-family exception:
+
+```text
+tools/build_mobius_moment_square_degree5_q46189_exception_bound_audit.py
+notes/mobius-moment-square-degree5-q46189-exception-bound-audit.md
+evidence/mobius-moment-square-degree5-q46189-exception-bound-audit.json
+```
+
+Result:
+
+```text
+Q factorization:                    11*13*17*19
+Q/(p*A):                            2.8342026139780327
+target label:                       00,12
+actual adverse margin:              8444721229.472412
+adverse / |full/2|:                 0.0053819255304627
+active / active Cauchy bound:       -1.0000000000000002
+full / full Cauchy bound:           -1.000000000000004
+Cauchy adverse budget / actual:     370.61420920442464
+simple Cauchy proves nonadverse:    false
+```
+
+Decision: `HOLD_q46189_simple_cauchy_bound_insufficient`.  The denominator
+exception is localized and small in the finite ledger, but generic
+Cauchy/triangle control is much too weak.  Future work should seek a
+phase-defect or neighboring-denominator payment estimate.  The smallest next
+test is to derive a symbolic expression for the active/full saturation defect
+of `Q=46189=11*13*17*19` and test whether it factors through the missing small
+primes `2,3,5,7` or through row-window endpoint phases.  This proves no simple
+Cauchy theorem, phase-defect theorem, near-adverse upper bound, middle/far
+lower bound, clearance-family theorem, source-start theorem, strict-central
+Goldbach theorem, or Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The source-start moving-prime lane now has a clearance logical-bridge audit:
 
 ```text
