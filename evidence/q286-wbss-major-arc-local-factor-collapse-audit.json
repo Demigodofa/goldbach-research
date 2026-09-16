@@ -1,0 +1,103 @@
+{
+  "candidate": {
+    "falsifier": "A centered component or tail with unavoidable pointwise negative contribution below -m_a for infinitely many covered N would kill this coefficient as a proof engine.",
+    "mechanism": "Split the signed weight into its positive admissible local mean and a centered lower-modulus character burden.",
+    "name": "q286 local-factor centered-error bridge",
+    "novelty_label": "new-to-this-task",
+    "prediction": "If this route can work, the dominant centered supports 286, 154, and 70 admit pointwise signed binary-prime correlation bounds below the weakest local factor ratio 0.6039353780830684 after the tail is included.",
+    "smallest_next_test": "Build a symbolic centered-support inequality ledger: per modulus 286, 154, 70, and tail, state the exact pointwise correlation bound needed to keep the sum above -m_a."
+  },
+  "centered_error_burden": {
+    "all_nonzero_supports_descend_to_lower_moduli": true,
+    "dominant_99_percent_energy_fraction": 0.9960328792226287,
+    "dominant_supports": [
+      {
+        "character_count": 99,
+        "energy_fraction": 0.70082890257693,
+        "natural_modulus": 286,
+        "support_label": "11x13"
+      },
+      {
+        "character_count": 45,
+        "energy_fraction": 0.15893232135172436,
+        "natural_modulus": 154,
+        "support_label": "7x11"
+      },
+      {
+        "character_count": 15,
+        "energy_fraction": 0.13627165529397434,
+        "natural_modulus": 70,
+        "support_label": "5x7"
+      }
+    ],
+    "full_modulus_10010_support_present": false,
+    "nonzero_natural_moduli": [
+      10,
+      14,
+      22,
+      26,
+      70,
+      130,
+      154,
+      286
+    ],
+    "top_three_support_energy_fraction": 0.9960328792226287
+  },
+  "decision": "LOCAL_FACTOR_principal_term_is_T_N_dependent_centered_error_open.  The local factor audit confirms positive coefficient means on all 5005 even target residues, with ratios 0.6039353780830684..1.5716524655081636.  But the principal term is m_a times ordinary strict-central binary-prime mass, not an independent q286 source term.  Because the coefficient is sign-indefinite on every target support, the route needs a raw pointwise centered-error/correlation theorem; otherwise it collapses to ordinary T_N>0 plus conditional q286 decoration.",
+  "exact_local_factor_decomposition": {
+    "admissible_support": "A_a={u in U_10010: gcd(a-u,10010)=1}, a=N mod 10010.",
+    "centered_weight": "Phi_a^0(u)=Phi_a(u)-m_a.",
+    "identity": "W_phi(N)=m_a*T_N + sum_{u in A_a}(W_N(u)-T_N/|A_a|)*Phi_a^0(u).",
+    "local_mean": "m_a=|A_a|^-1 sum_{u in A_a} Phi_a(u).",
+    "raw_residue_weights": "W_N(u)=sum_{p in I_N, p==u mod 10010, N-p prime} log(p)log(N-p).",
+    "total_mass": "T_N=sum_{u in A_a} W_N(u).",
+    "zero_mass_behavior": "If T_N=0, both the principal term and centered term vanish, so W_phi(N)=0."
+  },
+  "goldbach_proved": false,
+  "local_factor_evidence": {
+    "all_local_means_positive": true,
+    "even_target_residue_count": 5005,
+    "local_mean_ratio_maximum": 1.5716524655081636,
+    "local_mean_ratio_mean": 1.0,
+    "local_mean_ratio_minimum": 0.6039353780830684,
+    "nonpositive_local_main_term_count": 0,
+    "strongest_target_residue": 8856,
+    "weakest_target_residue": 4124
+  },
+  "major_arc_classifier": {
+    "collapses_if": "The proof first imports or assumes T_N>0 or an ordinary strict-central Goldbach theorem, then uses q286 only to control conditional landing or normalized discrepancy.",
+    "independent_q286_source_term_found": false,
+    "principal_term_shape": "q286 principal local factor = m_a times the ordinary strict-central binary-prime principal mass for the same target residue.",
+    "survives_if": "A raw major/minor arc proof establishes m_a*Main_0(N)+CenteredMain_a(N)+Error_a(N)>0 pointwise for every sufficiently large covered N, with the ordinary binary-prime main term and centered-error bound proved inside that same argument.",
+    "what_changed": "The next bridge is no longer 'find a q286 positive main term'.  It is 'prove the centered lower-modulus signed correlations are smaller than the positive local factor in a raw pointwise circle-method estimate'."
+  },
+  "major_minor_arc_estimate_proved": false,
+  "pointwise_centered_error_estimate_proved": false,
+  "positive_mass_theorem_proved": false,
+  "q286_threshold_theorem_proved": false,
+  "question": "Does the q286 signed weight produce an independent raw major-arc surplus, or does its principal local factor depend on ordinary strict-central binary-prime mass?",
+  "receipt": "q286-wbss-major-arc-local-factor-collapse-audit",
+  "schema_version": 1,
+  "short_answer": "No independent q286 source term was found in the symbolic local factor.  The coefficient-side principal term is a positive local factor m_a times the ordinary strict-central raw mass T_N, plus a centered signed-correlation error.  This keeps a raw circle-method route alive only if the same proof also creates the ordinary binary-prime main term and bounds the centered error pointwise.",
+  "sign_indefiniteness_guard": {
+    "meaning": "The positive local factor is not a coefficientwise minorant.  It cannot turn arbitrary support or arbitrary nonnegative residue mass into W_phi(N)>0.",
+    "negative_weight_fraction_maximum": 0.47205387205387206,
+    "rows_with_negative_admissible_weight": 5005,
+    "rows_with_pointwise_positive_floor": 0,
+    "single_weight_floor_status": "FALSIFIER_pointwise_positive_single_weight_floor"
+  },
+  "signed_prime_correlation_estimate_proved": false,
+  "source_commit": "b1514f1ffeff078cbad77a8332397c02a56ad4bf",
+  "sources": {
+    "centered_character_burden_audit": "evidence\\q286-centered-character-burden-audit.json",
+    "local_main_term_positivity_audit": "evidence\\q286-local-main-term-positivity-audit.json",
+    "signed_weight_circle_status": "TARGET_bespoke_signed_weight_circle_method_or_collapse",
+    "signed_weight_circle_target": "evidence\\q286-wbss-signed-weight-circle-target.json",
+    "single_weight_floor_status": "FALSIFIER_pointwise_positive_single_weight_floor",
+    "single_weight_major_arc_floor_audit": "evidence\\q286-wbss-single-weight-major-arc-floor-audit.json"
+  },
+  "status": "LOCAL_FACTOR_principal_term_is_T_N_dependent_centered_error_open",
+  "status_boundary": "Symbolic local-factor decomposition and collapse classifier only; this is not a theorem.  No major/minor arc estimate, pointwise centered-error estimate, signed prime-correlation theorem, positive-mass theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof is established.",
+  "strict_central_goldbach_theorem_proved": false,
+  "universal_pointwise_bound_proved": false
+}

@@ -6,6 +6,55 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The q286-WBSS route now has a major-arc local-factor collapse audit:
+
+```text
+tools/build_q286_wbss_major_arc_local_factor_collapse_audit.py
+notes/q286-wbss-major-arc-local-factor-collapse-audit.md
+evidence/q286-wbss-major-arc-local-factor-collapse-audit.json
+```
+
+Question: does the signed q286 weight produce an independent raw major-arc
+surplus, or does its principal local factor depend on ordinary strict-central
+binary-prime mass?
+
+Answer: no independent q286 source term was found in the symbolic local
+factor.  For `a=N mod 10010`, the exact coefficient-side split is
+
+```text
+A_a={u in U_10010: gcd(a-u,10010)=1}
+T_N=sum_{u in A_a} W_N(u)
+m_a=|A_a|^-1 sum_{u in A_a} Phi_a(u)
+Phi_a^0(u)=Phi_a(u)-m_a
+
+W_phi(N)=m_a*T_N
+  + sum_{u in A_a}(W_N(u)-T_N/|A_a|)*Phi_a^0(u)
+```
+
+Result:
+
+```text
+even target residues:                  5005
+local means positive:                  5005 / 5005
+local mean ratio range:                0.6039353780830684..1.5716524655081636
+weakest target residue:                4124
+rows with negative admissible weight:  5005 / 5005
+rows with pointwise positive floor:    0 / 5005
+dominant centered energy supports:     286, 154, 70
+dominant centered energy fraction:     0.9960328792226287
+```
+
+Decision: `LOCAL_FACTOR_principal_term_is_T_N_dependent_centered_error_open`.
+The q286 route survives only as a raw centered-error theorem target: prove the
+positive local factor beats the lower-modulus centered signed correlations in a
+pointwise, unnormalized major/minor arc estimate.  If a proof first imports
+`T_N>0`, q286 has collapsed to conditional distribution control.  This proves
+no major/minor arc estimate, pointwise centered-error estimate, signed
+prime-correlation theorem, positive-mass theorem, q286 threshold theorem,
+strict-central Goldbach theorem, or Goldbach proof.
+
+## Latest active checkpoint note, 2026-09-16
+
 The q286-WBSS route now has a signed-weight circle-method theorem target and
 collapse classifier:
 
