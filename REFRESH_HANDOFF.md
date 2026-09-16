@@ -6,6 +6,40 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The post-q286 Mobius frontier has been reconciled with the existing
+incomplete-boundary operator chain:
+
+```text
+tools/build_post_q286_mobius_frontier_reconciliation.py
+notes/post-q286-mobius-frontier-reconciliation.md
+evidence/post-q286-mobius-frontier-reconciliation.json
+```
+
+Result:
+
+```text
+status: TARGET_mobius_six_coordinate_active_full_lower_frame
+operator actual row-varying ratio:        1.3185678242920014
+operator sharp structured ratio:          1.4913014000886855
+M=127 Gershgorin lower-frame bound:       0.7454313024194685
+M=127 exact smallest generalized eigen:   0.8768802946823543
+determinant axial distance:               0.0128246653667984
+moment-curve projective distance:         4.166667001461609e-05
+```
+
+Decision: do not rewind to "derive the boundary operator"; that step is
+already represented by `lcm_sawtooth_incomplete_frequency.py` and its tests.
+The active Mobius theorem target is the six-coordinate active/full lower-frame
+estimate for the incomplete-row boundary, with the axial Schur-response
+pattern as a candidate compression.  Next tests: uniform entrywise estimates
+for the whitened aggregate matrix, an explicit effective-log formula for the
+axial moment parameter, or determinant/norm and nonaxial-energy estimates that
+preserve the Schur margin.  No uniform active/full lower frame, Mobius
+covariance theorem, signed prime-correlation estimate, q286 theorem,
+strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-16
+
 The active proof-engine slot has moved from q286 finite evidence to the Mobius
 incomplete prime-row covariance target:
 

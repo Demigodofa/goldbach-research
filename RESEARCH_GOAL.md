@@ -6,6 +6,43 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The post-q286 Mobius frontier has been reconciled with the older incomplete
+boundary-operator chain:
+`tools/build_post_q286_mobius_frontier_reconciliation.py` generated
+`evidence/post-q286-mobius-frontier-reconciliation.json`, with explanation in
+`notes/post-q286-mobius-frontier-reconciliation.md`.
+
+Question: after selecting the Mobius incomplete prime-row covariance route,
+should the next step still be to derive the incomplete-row boundary operator,
+or has the existing repository already passed that point?
+
+Answer: the boundary-operator derivation is already present.  The checked
+operator fixture has exact conductor packet identity and rank-three
+quadratic-log structure, with actual row-varying energy ratio
+`1.3185678242920014` and sharp structured ratio `1.4913014000886855`.  The
+active frontier is now the six-coordinate active/full lower-frame theorem for
+the Mobius incomplete-row boundary, with the axial Schur-response pattern as a
+candidate compression.
+
+On the `M=127` aggregate fixture, whitened Gershgorin certifies the candidate
+one-half lower frame with bound `0.7454313024194685`; the exact smallest
+generalized eigenvalue is `0.8768802946823543`.  The axial response has
+determinant axial distance `0.0128246653667984` and moment-curve projective
+distance `4.166667001461609e-05`, but no uniform determinant/norm bound or
+effective-log formula is proved.
+
+Decision: `TARGET_mobius_six_coordinate_active_full_lower_frame`.  Do not
+repeat the stale post-q286 next-step wording as if the boundary operator still
+needs derivation.  The next evidence-bearing tests are uniform entrywise
+estimates for the whitened aggregate active/full matrix, an explicit
+effective-log formula for the axial moment parameter, or determinant/norm and
+nonaxial-energy estimates preserving the Schur margin.  No uniform active/full
+lower frame, Mobius covariance theorem, signed prime-correlation estimate,
+q286 theorem, strict-central Goldbach theorem, or Goldbach proof is
+established.
+
+## Previous continuation evidence, 2026-09-16
+
 The post-q286 proof-engine triage now selects the next analytical target:
 `tools/build_post_q286_proof_engine_triage.py` generated
 `evidence/post-q286-proof-engine-triage.json`, with explanation in

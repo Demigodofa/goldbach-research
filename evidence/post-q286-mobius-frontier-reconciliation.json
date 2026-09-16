@@ -1,0 +1,70 @@
+{
+  "axial_schur_response_evidence": {
+    "actual_selector_angle_degrees": 60.912673267452014,
+    "best_moment_curve_parameter": 0.2795716513419446,
+    "determinant_axial_distance": 0.0128246653667984,
+    "effective_log_parameter_formula_proved": false,
+    "nonaxial_energy_error": 0.005427450063227916,
+    "nonaxial_error_over_schur_margin": 0.9364565402210663,
+    "normalized_absolute_determinant": 0.9992599265347035,
+    "projective_moment_curve_distance": 4.166667001461609e-05,
+    "schur_margin": 0.005795730853614067,
+    "uniform_determinant_lower_bound_proved": false
+  },
+  "boundary_operator_step_already_satisfied": {
+    "actual_row_varying_energy_ratio": 1.3185678242920014,
+    "decision": "Do not repeat the post-q286 wording as if the boundary operator remains to be derived.  The exact primitive frequency/operator reduction is already present; the unproved task is its uniform arithmetic bound.",
+    "exact_conductor_packet_identity_proved": true,
+    "quadratic_log_conductor_span_rank": 3,
+    "sharp_row_varying_quadratic_span_ratio": 1.4913014000886855,
+    "uniform_conductor_operator_subpower_bound_proved": false
+  },
+  "goldbach_proved": false,
+  "mobius_covariance_theorem_proved": false,
+  "prime_block_quadratic_span_evidence": {
+    "aggregate_prime_block_actual_varying_ratio": 0.9350099615109325,
+    "aggregate_prime_block_sharp_varying_span_ratio": 1.0527745003080522,
+    "maximum_sharp_varying_span_ratio": 1.688504158476445,
+    "prime_count": 21,
+    "row_varying_quadratic_span_bound_proved": false,
+    "scale_modulus": 101
+  },
+  "q286_reactivated": false,
+  "route_decision": {
+    "active_frontier": "six-coordinate active/full lower-frame theorem for the Mobius incomplete-row boundary, with the axial Schur-response pattern as the candidate compression",
+    "sleep_or_reservoir": [
+      "post-q286 wording that says the boundary operator still needs derivation",
+      "arbitrary-conductor-vector subpower route",
+      "raw-coordinate Gershgorin",
+      "fixed dyadic-centered raw-coordinate basis",
+      "simple positive centroid formula for the effective log parameter"
+    ],
+    "smallest_next_tests": [
+      "prove or falsify uniform entrywise estimates for the whitened aggregate active/full Gershgorin matrix",
+      "derive or falsify an explicit effective-log formula for the moment-curve parameter in the axial Schur response",
+      "prove or falsify determinant/norm lower bounds and nonaxial-energy upper bounds strong enough to preserve the Schur margin"
+    ],
+    "why_this_changes_next_action": "The first Mobius operator step is already present in the repository.  Continuing from the actual frontier means attacking the six-coordinate lower-frame/axial-response bounds, not rebuilding the boundary operator."
+  },
+  "schema_version": 1,
+  "signed_prime_correlation_proved": false,
+  "six_coordinate_lower_frame_evidence": {
+    "exact_smallest_generalized_eigenvalue": 0.8768802946823543,
+    "gershgorin_lower_frame_bound": 0.7454313024194685,
+    "one_half_lower_frame_certified": true,
+    "prime_count": 24,
+    "scale_modulus": 127,
+    "uniform_active_full_lower_frame_proved": false
+  },
+  "source_commit": "c3b6b5adeaf75c273fa6f845399ecb2698cce5bb",
+  "sources": {
+    "active_full_gershgorin": "lcm_sawtooth_active_full_gershgorin.py",
+    "axial_invariant": "lcm_sawtooth_axial_invariant.py",
+    "axial_moment_curve": "lcm_sawtooth_axial_moment_curve.py",
+    "axial_schur_energy": "lcm_sawtooth_axial_schur_energy.py",
+    "post_q286_triage": "evidence/post-q286-proof-engine-triage.json",
+    "primitive_operator": "lcm_sawtooth_incomplete_frequency.py"
+  },
+  "status": "TARGET_mobius_six_coordinate_active_full_lower_frame",
+  "status_boundary": "frontier reconciliation only; it proves no uniform active/full lower frame, Mobius covariance theorem, signed prime-correlation estimate, q286 theorem, strict-central Goldbach theorem, or Goldbach proof"
+}
