@@ -4,6 +4,31 @@ Owner: Rill. Purpose: preserve the reasoning and validation that support claimed
 results, including corrections that change future execution. No raw model
 reasoning is retained. Model agreement is not a proof by itself.
 
+## Independent local density and the missing mass direction, 2026-09-16
+
+A separate read-only Sol review (`01a0ac24-41e4-7bf2-b6b4-8b6b09414af1`)
+checked the supplied proof in
+`notes/q286-independent-local-density-and-mass-direction.md`, the exact
+fixtures in `periodic_pair_local_density.py`, and their ten passing tests.
+This was a fresh reviewer context given the draft, not a blind independent
+discovery. It confirmed the CRT normalization, uniform pushforward to all
+four q286 moduli, centering kernel, and adverse-gap comparison.
+
+The reviewer caught a substantive domain omission: the limiting singular
+series claim requires positive even `N`; `N=0` is valid only for the finite
+CRT fixtures. It also requested a distinction between orthogonal centering
+in uniform residue coordinates and oblique centering in unequal orbit
+coordinates, and a local definition of `A_raw_-`. Rill incorporated these
+corrections and retained the prior exact decomposition as valid. The older
+audit is clarified, not algebraically refuted.
+
+The proof consists of CRT lift counting, a convergent telescoping-product
+comparison, and direct linear algebra. The tests check implementation; model
+agreement is not the proof. No prime-pair asymptotic, major/minor arc bound,
+rigorous interval certificate for the floating q286 coefficients, or Goldbach
+proof follows. A q286/Q46189 combination still needs an actual arithmetic
+mapping that controls the missing total-mass error or the full signed error.
+
 ## Finite-radius theorem
 
 Sol `finite_radius_review` independently reconstructed a CRT/Dirichlet family

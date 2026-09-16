@@ -6,6 +6,31 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The local-density calculation now distinguishes an independent candidate
+main term from the exact observed-mass decomposition. See
+`notes/q286-independent-local-density-and-mass-direction.md`,
+`periodic_pair_local_density.py`, and `test_periodic_pair_local_density.py`.
+
+CRT gives the exact finite identity `D_L(w;N)=mean_A(w)*product beta_p(N)`.
+For every fixed positive even `N`, the product converges to `S(N)>=1`. Thus
+`H(N)=S(N)*N/3` is positive independently of prime pairs. This corrects an
+overbroad reading of the old principal-factor audit: `M(a)*T_N` is an exact
+decomposition term, not the only possible circle-method main-term candidate.
+No prime-sum asymptotic or major/minor arc error estimate follows from CRT.
+
+The missing direction is explicit: for `e=R-H*u`,
+`(I-u*1^t)e=R-T_N*u` and the projection kernel is `span(u)`.
+All centered channels vanish on every `R=t*u`, including zero support.
+The full remainder is `M(a)*(T_N-H)+sum_d U_d`; a q286/Q46189 transfer must
+control this remainder or its missing scalar term, not just add centered
+constraints. The new affine adverse gate is no weaker than the old raw gate.
+Ten exact-arithmetic tests and eleven adjacent regression tests pass. A
+separate Sol review checked the deductions; its domain and coordinate
+clarifications were incorporated. The mathematical note states the proofs
+and retains the open analytic boundary. Goldbach remains unproved.
+
+## Previous continuation evidence, 2026-09-16
+
 The q286 route now has a cap homogeneity boundary audit:
 `tools/build_q286_cap_homogeneity_boundary_audit.py` generated
 `evidence/q286-cap-homogeneity-boundary-audit.json`, with explanation in

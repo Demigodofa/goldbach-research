@@ -1,5 +1,12 @@
 # q286-WBSS major-arc local-factor collapse audit
 
+Clarification, 2026-09-16: the decomposition below is exact centering around
+observed mass `T_N`; it is not an evaluation of a major-arc integral. An
+independent local-density candidate `M(a)*S(N)*N/3` exists. See
+[the CRT derivation and missing mass direction](q286-independent-local-density-and-mass-direction.md).
+The historical receipt does not rule that candidate out. Its missing error
+estimate and zero-support warning remain valid.
+
 ## Question
 
 Does the signed q286 weight produce an independent raw major-arc surplus, or

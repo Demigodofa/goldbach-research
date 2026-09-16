@@ -6,6 +6,43 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+An exact CRT calculation and mass-direction obstruction are now recorded in
+`notes/q286-independent-local-density-and-mass-direction.md`, with reusable
+exact-arithmetic fixtures in `periodic_pair_local_density.py` and ten tests
+in `test_periodic_pair_local_density.py`.
+
+Key correction: `M(a)*T_N` is an observed-mass decomposition term. A separate
+local-density main-term candidate `M(a)*H(N)`, `H(N)=S(N)*N/3`, is defined
+without assuming a prime pair. The exact finite CRT formula is
+`D_L(w;N)=mean_A(w)*product_{p|L}beta_p(N)`; its limiting product satisfies
+`S(N)>=1` for positive even `N`. This is local-model algebra, not a prime-correlation
+asymptotic or major/minor arc bound. Older principal/local-factor/sleep notes
+now point to this clarification; historical numerical receipts are retained.
+
+For `e=R-H*u`, the centering operator `C=I-u*1^t` has kernel `span(u)`.
+Every `R=t*u` has perfect centered channels, including `t=0`. The full raw
+identity is `W_phi=M(a)*H+M(a)*(T_N-H)+sum_d U_d`. A proposed Q46189 bridge
+must constrain the scalar mass error or the full signed remainder. No such
+mapping is currently supplied. The reformulated adverse bound is at least
+as strong as the old one; this is no smaller theorem or Goldbach proof.
+
+Validation: `py -3 -m unittest test_periodic_pair_local_density -v` passes
+ten tests, including direct enumeration modulo `10010*3*17`, signed weights,
+the four q286 modulus pushforwards, nonuniform orbit references, zero support,
+and the exact adverse-gap relation.
+Eleven adjacent regressions also pass. A separate Sol reviewer confirmed the
+elementary deductions and caught the missing positive-`N` restriction plus
+coordinate/notation clarifications, all incorporated. The review receipt is
+in `notes/review-receipts.md`; it certifies no prime-correlation estimate.
+Next proof attempt: inspect the original arithmetic construction for a
+term controlling `T_N-H` or the full signed remainder, and state its exact
+mapping to `N` before spending compute. Do not resume fitted-constant scans.
+The previous goal turn was progress (cap homogeneity obstruction); this turn
+adds a local-density derivation and corrects its interpretation, while the
+full Goldbach objective remains active and unresolved.
+
+## Previous active checkpoint note, 2026-09-16
+
 The q286 route now has a cap homogeneity boundary audit:
 
 ```text

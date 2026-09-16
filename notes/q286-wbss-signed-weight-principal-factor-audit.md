@@ -1,5 +1,12 @@
 # q286-WBSS signed-weight principal-factor audit
 
+Clarification, 2026-09-16: `T_N*M(a)` below is the principal term of an exact
+observed-mass decomposition, not the independently defined circle-method
+main-term candidate. The distinction and exact CRT normalization are now in
+[independent local density and the mass direction](q286-independent-local-density-and-mass-direction.md).
+Local positivity still supplies no prime-pair lower bound without an error
+estimate; the historical finite receipt is preserved.
+
 ## Question
 
 Does the q286 signed-weight major-arc local factor give an independent raw

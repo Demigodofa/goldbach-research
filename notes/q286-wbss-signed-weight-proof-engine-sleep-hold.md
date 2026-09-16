@@ -1,5 +1,12 @@
 # q286-WBSS signed-weight proof-engine sleep/HOLD
 
+Clarification, 2026-09-16: the independent candidate `M(a)*S(N)*N/3` is not
+excluded by the `T_N`-dependent decomposition. See
+[independent local density and the mass direction](q286-independent-local-density-and-mass-direction.md).
+This corrects that interpretation, without supplying the pointwise remainder
+bound needed to reactivate the proof engine. The centered-only route remains
+unable to control the missing total-mass direction.
+
 ## Question
 
 After the support-floor, aggregate-`L2`, principal-factor, and source-fit
