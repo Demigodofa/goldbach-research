@@ -6,6 +6,44 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The translated puncture now has an endpoint-swap audit:
+
+```text
+tools/build_mobius_moment_square_degree5_puncture_endpoint_swap_audit.py
+notes/mobius-moment-square-degree5-puncture-endpoint-swap-audit.md
+evidence/mobius-moment-square-degree5-puncture-endpoint-swap-audit.json
+```
+
+Result:
+
+```text
+status:                         AUDIT_degree5_puncture_endpoint_swap
+puncture:                       M=149, p=163, (00,12), start 1
+row count:                      32
+start1 - start0 swap:           row32 - row0
+start1 - start0 delta:          26772898181.83592
+dominant q there:               30030
+q=30030 swap delta:             19921005797.544834
+start1 - start2 swap:           row1 - row33
+start1 - start2 delta:          5659356386.238037
+dominant q there:               10010
+q=10010 swap delta:             4244153577.4195795
+q=6006 swap delta:              2575530739.718102
+q=30030 swap delta:             -1099884470.8255944
+```
+
+Decision: the adjacent translated-window failure is accounted for by explicit
+incoming/outgoing endpoint rows inside the reduced-denominator phase ledger.
+This sharpens the source-window target from whole-window phase behavior to an
+endpoint-swap/denominator-phase admissibility target for adjacent translated
+windows.  It blocks a purely bulk-window explanation.  This is finite
+diagnostic evidence only.  No endpoint-swap theorem, denominator-phase
+theorem, source-window implication theorem, source-admissible window theorem,
+phase-curve theorem, q286 theorem, strict-central Goldbach theorem, or
+Goldbach proof is established.
+
+## Latest active checkpoint note, 2026-09-16
+
 The translated puncture now has a reduced-denominator cause audit:
 
 ```text

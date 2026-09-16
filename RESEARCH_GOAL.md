@@ -6,6 +6,36 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The translated puncture now has an endpoint-swap audit:
+`tools/build_mobius_moment_square_degree5_puncture_endpoint_swap_audit.py`
+generated
+`evidence/mobius-moment-square-degree5-puncture-endpoint-swap-audit.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-puncture-endpoint-swap-audit.md`.
+
+Question: is the isolated translated puncture explained by the single-row
+endpoint swaps between adjacent active windows?
+
+Answer: yes, for the adjacent comparisons.  With row count `32`, start `1`
+minus start `0` is the incoming row `32` minus outgoing row `0`; that swap has
+half-frame delta `26772898181.83592` and is dominated by `q=30030`, whose
+swap delta is `19921005797.544834`.  Start `1` minus start `2` is incoming row
+`1` minus outgoing row `33`; that swap has half-frame delta
+`5659356386.238037` and is dominated by `q=10010` and `q=6006`, with deltas
+`4244153577.4195795` and `2575530739.718102`; `q=30030` partly offsets it by
+`-1099884470.8255944`.
+
+Decision: the next source-admissibility target can be sharpened from a whole
+window phase statement to an endpoint-swap/denominator-phase statement for
+adjacent translated windows.  This blocks a purely bulk-window explanation.
+It remains finite diagnostic evidence only.  No endpoint-swap theorem,
+denominator-phase theorem, source-window implication theorem,
+source-admissible window theorem, phase-curve theorem, pointwise universal
+adverse-drag estimate, q286 threshold theorem, strict-central Goldbach
+theorem, or Goldbach proof is established.
+
+## Latest continuation evidence, 2026-09-16
+
 The translated puncture now has a reduced-denominator cause audit:
 `tools/build_mobius_moment_square_degree5_puncture_denominator_cause_audit.py`
 generated

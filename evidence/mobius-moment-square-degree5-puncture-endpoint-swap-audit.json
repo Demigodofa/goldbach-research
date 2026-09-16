@@ -1,0 +1,187 @@
+{
+  "answer": "Yes, for the adjacent comparisons.  Start 1 minus start 0 is the incoming row 32 minus outgoing row 0; that swap is dominated by q=30030.  Start 1 minus start 2 is incoming row 1 minus outgoing row 33; that swap is dominated by q=10010 and q=6006, with q=30030 partly offsetting the failure.",
+  "candidate": {
+    "falsifier": "A future adjacent puncture whose failure delta cannot be accounted for by the endpoint swap, or whose endpoint swap is diffuse across many denominators, falsifies this mechanism.",
+    "mechanism": "Adjacent translated window failures may be governed by a small number of incoming/outgoing row phase swaps inside the reduced-denominator ledger.",
+    "name": "endpoint-swap denominator-phase admissibility",
+    "novelty_label": "new-to-this-task",
+    "prediction": "Any future singleton translated puncture should have adjacent failure deltas equal to explicit endpoint swaps and should localize to a small denominator set."
+  },
+  "decision": "The next source-admissibility target can be sharpened from a whole window phase statement to an endpoint-swap/denominator-phase statement for adjacent translated windows.  This blocks a purely bulk-window explanation.  It remains finite: no endpoint-swap theorem or source-window implication theorem is proved.",
+  "denominator_phase_theorem_proved": false,
+  "endpoint_swap_theorem_proved": false,
+  "finite_diagnostic_only": true,
+  "finite_endpoint_swap_audit_only": true,
+  "goldbach_proved": false,
+  "left_neighbor_swap_dominant_denominator": 30030,
+  "phase_curve_theorem_proved": false,
+  "pointwise_universal_adverse_drag_estimate_proved": false,
+  "puncture_count": 1,
+  "puncture_summaries": [
+    {
+      "failure_start": 1,
+      "label": "00,12",
+      "left_neighbor_start": 0,
+      "left_neighbor_to_failure_swap": {
+        "denominator_rows": [
+          {
+            "incoming_minus_outgoing": 19921005797.544834,
+            "incoming_row": 32,
+            "incoming_row_contribution": -131285632.91917758,
+            "outgoing_row": 0,
+            "outgoing_row_contribution": -20052291430.464012,
+            "reduced_denominator": 30030,
+            "residue_cell_count": 5760,
+            "signed_share_of_total_delta": 0.7440735650748579
+          },
+          {
+            "incoming_minus_outgoing": 3848680836.1983643,
+            "incoming_row": 32,
+            "incoming_row_contribution": -8332147.336485789,
+            "outgoing_row": 0,
+            "outgoing_row_contribution": -3857012983.53485,
+            "reduced_denominator": 15015,
+            "residue_cell_count": 5760,
+            "signed_share_of_total_delta": 0.14375286568002202
+          },
+          {
+            "incoming_minus_outgoing": 3692149301.30762,
+            "incoming_row": 32,
+            "incoming_row_contribution": -30346402.80048116,
+            "outgoing_row": 0,
+            "outgoing_row_contribution": -3722495704.1081014,
+            "reduced_denominator": 6006,
+            "residue_cell_count": 1440,
+            "signed_share_of_total_delta": 0.13790622428066304
+          },
+          {
+            "incoming_minus_outgoing": -688937753.2149014,
+            "incoming_row": 32,
+            "incoming_row_contribution": -439473192.0246421,
+            "outgoing_row": 0,
+            "outgoing_row_contribution": 249464561.1902594,
+            "reduced_denominator": 10010,
+            "residue_cell_count": 2880,
+            "signed_share_of_total_delta": -0.02573265503554305
+          }
+        ],
+        "dominant_denominator": 30030,
+        "incoming_row": 32,
+        "outgoing_row": 0,
+        "total_delta": 26772898181.83592,
+        "window_delta": "start1 - start0"
+      },
+      "prime_modulus": 163,
+      "right_neighbor_start": 2,
+      "right_neighbor_to_failure_swap": {
+        "denominator_rows": [
+          {
+            "incoming_minus_outgoing": 4244153577.4195795,
+            "incoming_row": 1,
+            "incoming_row_contribution": -180750672.36158195,
+            "outgoing_row": 33,
+            "outgoing_row_contribution": -4424904249.781161,
+            "reduced_denominator": 10010,
+            "residue_cell_count": 2880,
+            "signed_share_of_total_delta": 0.749935732575557
+          },
+          {
+            "incoming_minus_outgoing": 2575530739.718102,
+            "incoming_row": 1,
+            "incoming_row_contribution": -80939992.2878642,
+            "outgoing_row": 33,
+            "outgoing_row_contribution": -2656470732.005966,
+            "reduced_denominator": 6006,
+            "residue_cell_count": 1440,
+            "signed_share_of_total_delta": 0.4550925165237991
+          },
+          {
+            "incoming_minus_outgoing": -1099884470.8255944,
+            "incoming_row": 1,
+            "incoming_row_contribution": -1117735027.2013187,
+            "outgoing_row": 33,
+            "outgoing_row_contribution": -17850556.375724353,
+            "reduced_denominator": 30030,
+            "residue_cell_count": 5760,
+            "signed_share_of_total_delta": -0.19434797806694135
+          },
+          {
+            "incoming_minus_outgoing": -60443460.074049965,
+            "incoming_row": 1,
+            "incoming_row_contribution": -140989828.36117074,
+            "outgoing_row": 33,
+            "outgoing_row_contribution": -80546368.28712077,
+            "reduced_denominator": 15015,
+            "residue_cell_count": 5760,
+            "signed_share_of_total_delta": -0.010680271032414828
+          }
+        ],
+        "dominant_denominator": 10010,
+        "incoming_row": 1,
+        "outgoing_row": 33,
+        "total_delta": 5659356386.238037,
+        "window_delta": "start1 - start2"
+      },
+      "row_count": 32,
+      "scale_modulus": 149,
+      "source_active_row_start": 32,
+      "source_to_failure_endpoint_probe": {
+        "denominator_rows": [
+          {
+            "incoming_minus_outgoing": -986449394.2821412,
+            "incoming_row": 1,
+            "incoming_row_contribution": -1117735027.2013187,
+            "outgoing_row": 32,
+            "outgoing_row_contribution": -131285632.91917758,
+            "reduced_denominator": 30030,
+            "residue_cell_count": 5760,
+            "signed_share_of_total_delta": 1.0828463883072925
+          },
+          {
+            "incoming_minus_outgoing": 258722519.66306016,
+            "incoming_row": 1,
+            "incoming_row_contribution": -180750672.36158195,
+            "outgoing_row": 32,
+            "outgoing_row_contribution": -439473192.0246421,
+            "reduced_denominator": 10010,
+            "residue_cell_count": 2880,
+            "signed_share_of_total_delta": -0.284005188319653
+          },
+          {
+            "incoming_minus_outgoing": -132657681.02468495,
+            "incoming_row": 1,
+            "incoming_row_contribution": -140989828.36117074,
+            "outgoing_row": 32,
+            "outgoing_row_contribution": -8332147.336485789,
+            "reduced_denominator": 15015,
+            "residue_cell_count": 5760,
+            "signed_share_of_total_delta": 0.14562114550573205
+          },
+          {
+            "incoming_minus_outgoing": -50593589.48738304,
+            "incoming_row": 1,
+            "incoming_row_contribution": -80939992.2878642,
+            "outgoing_row": 32,
+            "outgoing_row_contribution": -30346402.80048116,
+            "reduced_denominator": 6006,
+            "residue_cell_count": 1440,
+            "signed_share_of_total_delta": 0.05553765450662851
+          }
+        ],
+        "dominant_denominator": 30030,
+        "incoming_row": 1,
+        "not_a_window_swap": true,
+        "outgoing_row": 32,
+        "total_delta": -910978145.131149
+      }
+    }
+  ],
+  "q286_threshold_theorem_proved": false,
+  "question": "Is the isolated translated puncture explained by the single-row endpoint swaps between adjacent active windows?",
+  "right_neighbor_swap_dominant_denominator": 10010,
+  "source_admissible_window_theorem_proved": false,
+  "source_denominator_cause_audit": "evidence\\mobius-moment-square-degree5-puncture-denominator-cause-audit.json",
+  "source_window_implication_theorem_proved": false,
+  "status": "AUDIT_degree5_puncture_endpoint_swap",
+  "strict_central_goldbach_theorem_proved": false
+}
