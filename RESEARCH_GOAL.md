@@ -7,6 +7,38 @@ expired deadline after a session boundary.
 ## Latest continuation evidence, 2026-09-16
 
 The metric-soft moment-square route now has a weak-block primewise
+degree-`5` active/full dominance audit:
+`tools/build_mobius_moment_square_degree5_primewise_dominance_audit.py`
+generated
+`evidence/mobius-moment-square-degree5-primewise-dominance-audit.json`, with
+explanation in
+`notes/mobius-moment-square-degree5-primewise-dominance-audit.md`.
+
+Question: after the primewise sign-localization pass, how far above the
+signed `1/2` full-energy threshold do the active/full ratios stay?
+
+Answer: all `87/87` component dominance slacks are positive, and all `29/29`
+degree-`5` total dominance slacks are positive.  The weakest component row is
+prime `181`, component `(00,12)`, where `active/full =
+0.5563677490893767`, leaving slack `0.056367749089376695` above `1/2`.  The
+weakest degree-`5` total row is also prime `181`, where `active/full =
+0.5696364991895461`, leaving slack `0.06963649918954606`.
+
+Decision: `MEASURE_degree5_primewise_dominance_slack`.  The finite
+primewise sign pass can now be restated as a quantitative local dominance
+target: prove, under the weak-block parameter rules, that the local one-prime
+degree-`5` active/full component ratios for `(00,12)`, `(01,02)`, and
+`(01,11)` stay above `1/2`, preferably with a structural margin.  This is
+finite weak-block dominance evidence only.  No primewise dominance theorem,
+primewise sign theorem, degree-`5` coefficient theorem, robust-margin
+universal theorem, coefficient-family theorem, universal Sturm-certificate
+theorem, half-frame curve-positivity theorem, uniform active/full lower-frame
+theorem, Mobius covariance theorem, signed prime-correlation estimate, q286
+theorem, strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-16
+
+The metric-soft moment-square route now has a weak-block primewise
 degree-`5` sign-localization audit:
 `tools/build_mobius_moment_square_degree5_primewise_sign_audit.py` generated
 `evidence/mobius-moment-square-degree5-primewise-sign-audit.json`, with
