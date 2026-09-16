@@ -6,6 +6,48 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 residual support-order route now has a positive low-order obligation
+classifier:
+
+```text
+tools/build_q286_residual_support_order_positive_low_order_obligation.py
+notes/q286-residual-support-order-positive-low-order-obligation.md
+evidence/q286-residual-support-order-positive-low-order-obligation.json
+```
+
+Identity:
+
+```text
+B_low_raw(N)
+  = b_low_norm(N) * principal_mean * strict_central_total_weight(N)
+```
+
+Result:
+
+```text
+checked rows:                              224
+positive raw low-order rows:               224
+nonpositive raw low-order targets:           0
+positive normalized low-order rows:        224
+nonpositive normalized low-order targets:    0
+smallest raw-low target:                 24148
+smallest raw low:           494408133.6057817
+smallest normalized-low target:         255016
+smallest normalized low:   0.2943409774960611
+smallest total-weight target:            24148
+```
+
+Decision: `TARGET_positive_low_order_is_support_strength`.  Normalized
+low-order positivity still needs positive strict-central mass; direct raw
+low-order positivity already implies nonempty support for this witness family.
+So the split adverse-ratio route has two theorem-strength inputs, and the
+clean route remains a single direct raw lower-bound theorem `R_raw(N)>0`.
+No positive low-order theorem, positive-mass theorem, raw adverse-ratio
+theorem, raw lower-bound theorem, q286 threshold theorem, strict-central
+Goldbach theorem, or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 residual support-order route now has a raw adverse-ratio theorem
 target classifier:
 

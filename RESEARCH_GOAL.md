@@ -6,6 +6,61 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 residual support-order route now has a positive low-order obligation
+classifier:
+`tools/build_q286_residual_support_order_positive_low_order_obligation.py`
+generated
+`evidence/q286-residual-support-order-positive-low-order-obligation.json`,
+with explanation in
+`notes/q286-residual-support-order-positive-low-order-obligation.md`.
+
+Question: the raw adverse-ratio route needs `B_low_raw(N)>0`; is that a
+harmless low-order side condition?
+
+Answer: no.  In the current raw-scale bridge,
+
+```text
+B_low_raw(N)
+  = b_low_norm(N) * principal_mean * strict_central_total_weight(N).
+```
+
+Thus a normalized low-order theorem `b_low_norm(N)>0` still needs positive
+strict-central mass.  If strict-central support is empty, then
+`strict_central_total_weight(N)=0` and `B_low_raw(N)=0`.  A direct theorem
+`B_low_raw(N)>0` already forces nonempty support for this witness family.
+
+Finite calibration:
+
+```text
+checked rows:                              224
+positive raw low-order rows:               224
+nonpositive raw low-order targets:           0
+positive normalized low-order rows:        224
+nonpositive normalized low-order targets:    0
+smallest raw-low target:                 24148
+smallest raw low:           494408133.6057817
+smallest normalized-low target:         255016
+smallest normalized low:   0.2943409774960611
+smallest total-weight target:            24148
+```
+
+Decision: `TARGET_positive_low_order_is_support_strength`.  Positive
+low-order cannot replace positive mass unless it is proved directly in raw
+scale, in which case it already implies nonempty support.  The split route
+therefore has two theorem-strength inputs:
+
+```text
+B_low_raw(N)>0
+D_high_minus_raw(N)/B_low_raw(N) < 1.
+```
+
+The cleaner target remains one direct raw lower-bound theorem
+`R_raw(N)>0`.  This proves no positive low-order theorem, positive-mass
+theorem, raw adverse-ratio theorem, raw lower-bound theorem, q286 threshold
+theorem, strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 residual support-order route now has a raw adverse-ratio theorem
 target classifier:
 `tools/build_q286_residual_support_order_raw_adverse_ratio_target.py`

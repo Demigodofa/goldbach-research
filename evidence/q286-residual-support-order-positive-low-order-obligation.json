@@ -1,0 +1,108 @@
+{
+  "decision": "The positive low-order requirement is now classified.  The checked rows all have B_low_raw(N)>0, and all have positive normalized low-order base, but the identity B_low_raw=b_low_norm*principal_mean*total_weight shows why this does not evade the support problem.  Normalized low-order positivity still needs positive strict-central mass; direct raw low-order positivity already implies nonempty support.  The split adverse-ratio route therefore has two theorem-strength inputs, so the single raw lower-bound theorem remains cleaner.",
+  "finite_calibration": {
+    "finite_evidence_is_acceptance_condition": false,
+    "nonpositive_normalized_low_order_targets": [],
+    "nonpositive_raw_low_order_targets": [],
+    "normalized_low_order_summary": {
+      "count": 224,
+      "maximum": 1.4317862374434804,
+      "mean": 1.0685916710606997,
+      "minimum": 0.2943409774960611
+    },
+    "positive_normalized_low_order_rows": 224,
+    "positive_raw_low_order_rows": 224,
+    "raw_low_order_summary": {
+      "count": 224,
+      "maximum": 83723988822.91843,
+      "mean": 27949124336.513668,
+      "minimum": 494408133.6057817
+    },
+    "row_count": 224,
+    "smallest_normalized_low_order_row": {
+      "lift_index": 16,
+      "normalized_low_order_base": 0.2943409774960611,
+      "ordered_central_prime_pair_count": 804,
+      "principal_scale": 4872287154.849444,
+      "raw_adverse_drag": 85771401.96690296,
+      "raw_low_order_base": 1434113763.799888,
+      "raw_pointwise_margin": 1348342361.832985,
+      "strict_central_total_weight": 110727.47618330974,
+      "target": 255016,
+      "target_mod_286": 190,
+      "target_mod_period": 4766
+    },
+    "smallest_raw_low_order_row": {
+      "lift_index": 1,
+      "normalized_low_order_base": 1.2055413710209697,
+      "ordered_central_prime_pair_count": 106,
+      "principal_scale": 410112954.6363629,
+      "raw_adverse_drag": 0.0,
+      "raw_low_order_base": 494408133.6057817,
+      "raw_pointwise_margin": 494408133.6057817,
+      "strict_central_total_weight": 9320.216763448925,
+      "target": 24148,
+      "target_mod_286": 124,
+      "target_mod_period": 4128
+    },
+    "smallest_total_weight_row": {
+      "lift_index": 1,
+      "normalized_low_order_base": 1.2055413710209697,
+      "ordered_central_prime_pair_count": 106,
+      "principal_scale": 410112954.6363629,
+      "raw_adverse_drag": 0.0,
+      "raw_low_order_base": 494408133.6057817,
+      "raw_pointwise_margin": 494408133.6057817,
+      "strict_central_total_weight": 9320.216763448925,
+      "target": 24148,
+      "target_mod_286": 124,
+      "target_mod_period": 4128
+    },
+    "strict_central_total_weight_summary": {
+      "count": 224,
+      "maximum": 1599148.4931985384,
+      "mean": 561061.8659585209,
+      "minimum": 9320.216763448925
+    }
+  },
+  "goldbach_proved": false,
+  "identity": {
+    "principal_mean_positive_on_current_context": true,
+    "principal_mean_real": 44002.512499999146,
+    "raw_low_order_base": "B_low_raw(N)=b_low_norm(N)*principal_mean*strict_central_total_weight(N)",
+    "zero_support_implication": "If strict-central support is empty, strict_central_total_weight(N)=0, so B_low_raw(N)=0."
+  },
+  "normalized_low_order_theorem_proved": false,
+  "positive_low_order_theorem_proved": false,
+  "positive_mass_theorem_proved": false,
+  "q286_threshold_theorem_proved": false,
+  "raw_adverse_ratio_theorem_proved": false,
+  "raw_lower_bound_theorem_proved": false,
+  "route_decision": {
+    "direct_raw_low_order_positive_subsumes_support": true,
+    "normalized_low_order_positive_still_needs_positive_mass": true,
+    "positive_low_order_can_replace_positive_mass": false,
+    "recommended_next": "Do not split the proof into ratio plus positive low-order unless there is an actual analytic lower bound for B_low_raw(N)>0 or for total_weight(N)>0.  The cleaner target remains the direct raw inequality R_raw(N)>0.",
+    "single_raw_lower_bound_remains_preferred": true,
+    "split_ratio_route_has_two_goldbach_strength_inputs": true
+  },
+  "schema_version": 1,
+  "source_commit": "c1fa415f7bf235fc63e568db6e8c62310ef04245",
+  "sources": {
+    "raw_adverse_ratio_target": "evidence\\q286-residual-support-order-raw-adverse-ratio-target.json",
+    "raw_scale_bridge": "evidence\\q286-residual-support-order-raw-scale-bridge.json"
+  },
+  "status": "TARGET_positive_low_order_is_support_strength",
+  "status_boundary": "logical positive-low-order obligation classifier only; no positive low-order theorem, positive-mass theorem, raw adverse-ratio theorem, raw lower-bound theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof",
+  "theorem_obligation": {
+    "direct_raw_statement": "Prove B_low_raw(N)>0 for every sufficiently large eligible N in the named q286 support-order period classes.",
+    "factored_route_requirements": [
+      "prove b_low_norm(N)>0 uniformly on the eligible classes",
+      "prove strict_central_total_weight(N)>0 on the eligible classes",
+      "prove principal_mean>0 in the relevant fixed context"
+    ],
+    "relationship_to_ratio_route": "Try to prove a raw positive low-order lower bound and a same-scale adverse-ratio upper bound only if both can be stated without dividing by an unproved mass.  Otherwise keep the single raw lower-bound target as the cleaner theorem.",
+    "why_normalized_low_is_not_enough": "Even a uniform theorem b_low_norm(N)>0 does not create prime-pair mass.  Multiplication by total_weight(N) still vanishes when strict-central support is empty.",
+    "why_raw_low_positive_is_support_strength": "A direct theorem B_low_raw(N)>0 forces at least one raw prime-pair contribution in this witness family, hence nonempty strict-central support."
+  }
+}
