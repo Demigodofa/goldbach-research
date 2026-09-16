@@ -1,0 +1,84 @@
+{
+  "adverse_alignment_theorem_proved": false,
+  "answer": "Yes as a shared theorem schema and research language; not yet as a proved theorem or a merged numeric formula.",
+  "atlas_rill_read": "The strongest shape across the record is not a pretty point cloud.  It is a narrowing of theorem type: finite data keeps killing scalar or normalized shortcuts, while the live routes ask for raw pointwise inequalities or exact input-side matrix invariants.  A linked plot/table may help inspect anomalies, but only if it is indexed by theorem obligation and falsifier, not by residue labels masquerading as geometry.",
+  "candidate_next_action": {
+    "falsifier": "If the adverse envelope cannot be stated without hidden normalization or unknown support, the combined story remains conditional and should not be called a proof route.",
+    "mechanism": "Translate the shared adverse-alignment schema back into the stronger q286 raw setting: identify which quantities are actually raw, which depend on T_N or mu_N, and what universal estimate would make A_D(N)<B_D(N) a bridge.",
+    "name": "q286 raw adverse-envelope definition audit",
+    "novelty_label": "new-to-this-task",
+    "prediction": "If the combination is useful, the raw q286 definition audit should isolate a non-circular theorem statement and expose exactly where current finite receipts are only calibration.",
+    "smallest_next_test": "Build a q286 raw adverse-envelope definition audit from the raw-adverse-drag target and zero-mass/rawization receipts."
+  },
+  "combined_as_shared_language_only": true,
+  "combined_read": {
+    "rill_intuition": "The common story is real enough to guide search: a hard counterexample would need coherent adverse alignment across independent channels.  But the only presently theorem-shaped combined path is to formalize the q286 raw envelope and use Q46189 as a falsifier/analogy source, not as proof.",
+    "what_does_not_match": [
+      "q286 has a clearer raw inequality target; Q46189 currently has only diagnostic source-matrix evidence.",
+      "The fixtures live in different coordinate systems, so their numeric constants should not be merged.",
+      "Q46189 simple input-side matrix features are weak, so it cannot currently supply the missing q286 theorem."
+    ],
+    "what_matches": [
+      "Both lanes separate harmful signed mass from a budget that must remain positive.",
+      "Both lanes punish scalar shortcuts: one bad channel cannot be treated as the whole object.",
+      "Both lanes point toward one-sided adverse envelopes rather than delicate cancellation as the proof object."
+    ]
+  },
+  "decision": "q286 and Q46189 can be combined as a shared adverse-alignment schema: harmful signed mass should not coherently align across all available channels strongly enough to beat the relevant budget.  This is currently a useful research language, not a theorem.  q286 is the stronger proof-shaped instantiation; Q46189 supplies diagnostics and failed shortcut baselines.",
+  "goldbach_proved": false,
+  "merged_numeric_formula_established": false,
+  "q286_instantiation": {
+    "adverse_object": "A_raw_-(N)=sum_d max(0,-U_d(N))",
+    "budget": "L_raw(N), or normalized local main only as calibration",
+    "channels": [
+      "70",
+      "130",
+      "154",
+      "286"
+    ],
+    "current_strength": "Strong finite theorem shape: raw sufficient inequality is non-circular in form, and the finite component envelope survives the checked horizon.",
+    "key_evidence": [
+      "The q286-WBSS route now has a non-circular raw sufficient inequality target: A_raw_-(N)<L_raw(N).  The checked rows satisfy it, but this is finite calibration only.  A Goldbach-yielding bridge still needs a universal pointwise raw adverse-drag theorem or another direct raw witness lower bound.",
+      "The disconnected componentwise finite envelope survives the 232-row horizon: the sum of separately worst observed adverse modulus contributions stays below every checked local main term.  This sharpens the next theorem target from rowwise adverse drag to per-modulus adverse supremum control, while preserving the boundary that all constants here are finite-data evidence only.  Goldbach remains open."
+    ],
+    "open_gap": "A universal pointwise raw adverse-drag theorem is still unproved.  The finite component suprema are calibration, not theorem constants."
+  },
+  "q46189_instantiation": {
+    "adverse_object": "middle-band/source-block harmful mass and its surrounding non-middle compensation",
+    "best_input_feature": {
+      "feature": "missing_count",
+      "pearson": 0.32654799306706145
+    },
+    "best_matrix_feature": {
+      "feature": "tension_sum",
+      "pearson": -0.2169202637521853
+    },
+    "budget": "row margin above the -1 failure boundary",
+    "channels": "source-block and bucket interactions in the replacement packet matrix",
+    "current_strength": "Useful diagnostic/falsifier language, but not theorem-ready after simple sign, curvature, and matrix-margin features failed or stayed weak.",
+    "key_evidence": [
+      "The all-row audit does not establish an input-side sign rule.  The earlier 3x3 assumption fails on the checked landscape: 32 rows have three source blocks, but rows 17290 and 22610 have five.  The failed source-gap curvature baseline remains failed with 13 matches and 19 mismatches on the 32 three-block rows.  The best single-feature input-side threshold reaches only 23/32 matches, so it is a weak finite classifier, not a theorem target.  The source-block matrix remains useful as a diagnostic object, but the first-off-diagonal sign invariant should not be promoted without a stronger variable-size matrix theorem.",
+      "The variable-size source-matrix scan does not earn a theorem target.  The strongest simple input feature correlation with row margin is only 0.32654799306706145, from missing_count; the strongest genuine matrix-shape feature correlation with row margin is only -0.2169202637521853, from tension_sum. This demotes the Q46189 source-matrix lane from theorem target to diagnostic/falsifier status until a changed invariant is predeclared."
+    ],
+    "open_gap": "No pre-output input-side source-matrix invariant currently predicts row margin strongly enough to be promoted."
+  },
+  "question": "Can q286 and Q46189 be combined as versions of the same bad-mass-cannot-coherently-align principle?",
+  "schema_version": 1,
+  "shared_schema": {
+    "formula_template": "Given a decomposition into channels C_N, define A_D(N)=sum_{c in C_N} max(0,-E_c(N)).  A sufficient bridge has the shape A_D(N) < B_D(N), where B_D(N) is a raw or local structural budget independent of already assuming the desired prime-pair support.",
+    "interpretation": "A counterexample-shaped obstruction would need harmful mass to align across all available channels strongly enough to beat the structural budget.  A proof would show that such coherent adverse alignment is impossible in the covered class.",
+    "name": "adverse alignment envelope",
+    "required_non_circularity": "B_D and E_c must be raw, or the route must separately prove the positive mass it conditions on.  A normalized channel statement alone is not a Goldbach bridge."
+  },
+  "source_commit": "4e918dcbc027cffb50066e2cf162582423692257",
+  "source_receipts": {
+    "q286_component_envelope": "evidence\\q286-wbss-four-modulus-component-envelope-horizon-audit.json",
+    "q286_raw_adverse_drag": "evidence\\q286-wbss-raw-adverse-drag-theorem-target.json",
+    "q46189_source_block_sign": "evidence\\mobius-moment-square-degree5-q46189-source-block-sign-audit.json",
+    "q46189_source_matrix_margin": "evidence\\mobius-moment-square-degree5-q46189-source-matrix-margin-audit.json",
+    "route_pattern_atlas": "evidence\\goldbach-route-pattern-atlas.json"
+  },
+  "status": "AUDIT_goldbach_adverse_alignment_unification",
+  "strict_central_goldbach_theorem_proved": false,
+  "universal_raw_pointwise_theorem_proved": false
+}

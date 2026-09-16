@@ -6,6 +6,43 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The research record now has an adverse-alignment unification audit plus the
+Q46189 source-matrix margin demotion audit:
+`tools/build_goldbach_adverse_alignment_unification_audit.py` generated
+`evidence/goldbach-adverse-alignment-unification-audit.json`, and
+`tools/build_mobius_moment_square_degree5_q46189_source_matrix_margin_audit.py`
+generated
+`evidence/mobius-moment-square-degree5-q46189-source-matrix-margin-audit.json`,
+with notes in `notes/goldbach-adverse-alignment-unification-audit.md` and
+`notes/mobius-moment-square-degree5-q46189-source-matrix-margin-audit.md`.
+
+Question: can q286 and Q46189 be combined as versions of the same
+bad-mass-cannot-coherently-align principle?
+
+Answer: yes as a shared theorem schema and research language; not yet as a
+proved theorem or merged numeric formula.  The shared template is: given a
+decomposition into channels `C_N`, define
+`A_D(N)=sum_{c in C_N} max(0,-E_c(N))` and seek a sufficient bridge
+`A_D(N) < B_D(N)`, where `B_D(N)` is a raw or local structural budget that
+does not already assume the desired prime-pair support.  In q286, the
+channels are the four projected moduli `70`, `130`, `154`, and `286`, and the
+live object is `A_raw_-(N)<L_raw(N)`.  In Q46189, the channels are
+source-block and bucket interactions, but the current input-side matrix
+features are weak: the best row-margin feature is `missing_count` with
+Pearson `0.32654799306706145`, and the best genuine matrix feature is
+`tension_sum` with Pearson `-0.2169202637521853`.
+
+Decision: combine the lanes as adverse-alignment language, not as proof.
+q286 is the stronger proof-shaped instantiation; Q46189 currently supplies
+diagnostics, analogy, and failed shortcut baselines.  The next theorem-shaped
+move should return to the q286 raw adverse-envelope definition audit: identify
+which quantities are actually raw, which still depend on `T_N` or `mu_N`, and
+what universal estimate would make `A_D(N)<B_D(N)` a non-circular bridge.
+This proves no adverse-alignment theorem, universal raw pointwise theorem,
+strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The `Q=46189` replacement-family lane now has an all-row source-block sign
 audit:
 `tools/build_mobius_moment_square_degree5_q46189_source_block_sign_audit.py`

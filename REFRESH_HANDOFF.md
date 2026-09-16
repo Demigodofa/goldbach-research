@@ -6,6 +6,43 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The research record now has an adverse-alignment unification audit plus the
+Q46189 source-matrix margin demotion audit:
+
+```text
+tools/build_goldbach_adverse_alignment_unification_audit.py
+notes/goldbach-adverse-alignment-unification-audit.md
+evidence/goldbach-adverse-alignment-unification-audit.json
+tools/build_mobius_moment_square_degree5_q46189_source_matrix_margin_audit.py
+notes/mobius-moment-square-degree5-q46189-source-matrix-margin-audit.md
+evidence/mobius-moment-square-degree5-q46189-source-matrix-margin-audit.json
+```
+
+Result:
+
+```text
+combined answer:                          shared schema only, not proof
+schema template:                          A_D(N)=sum_c max(0,-E_c(N)) < B_D(N)
+q286 channels:                            70, 130, 154, 286
+q286 live object:                         A_raw_-(N)<L_raw(N)
+Q46189 best row-margin feature:           missing_count
+Q46189 best row-margin Pearson:           0.32654799306706145
+Q46189 best matrix feature:               tension_sum
+Q46189 best matrix Pearson:               -0.2169202637521853
+```
+
+Decision: q286 and Q46189 can be combined as a shared adverse-alignment
+schema: harmful signed mass should not coherently align across all available
+channels strongly enough to beat the relevant budget.  This is currently a
+useful research language, not a theorem.  q286 is the stronger proof-shaped
+instantiation; Q46189 supplies diagnostics and failed shortcut baselines.  The
+next theorem-shaped move should return to a q286 raw adverse-envelope
+definition audit, separating actually raw quantities from hidden dependence on
+`T_N` or `mu_N`.  This proves no adverse-alignment theorem, universal raw
+pointwise theorem, strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The `Q=46189` replacement-family lane now has an all-row source-block sign
 audit:
 
