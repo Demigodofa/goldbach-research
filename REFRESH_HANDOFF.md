@@ -6,6 +6,43 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The source-start moving-prime lane now has a clearance scope-extension audit
+attaching the fresh `M=383` holdout to the replacement-family boundary:
+
+```text
+tools/build_mobius_moment_square_degree5_clearance_scope_extension_audit.py
+notes/mobius-moment-square-degree5-clearance-scope-extension-audit.md
+evidence/mobius-moment-square-degree5-clearance-scope-extension-audit.json
+```
+
+Result:
+
+```text
+prior source checked blocks:        6
+prior source near negatives:        17
+prior source middle/far negatives:  1
+M383 near negatives:                3
+M383 middle/far negatives:          0
+extended checked blocks:            7
+extended near negatives:            20
+extended middle/far negatives:      1
+M383 near/middle-far positive ratio:0.0007470818732461599
+```
+
+Decision: the fresh `M=383`, `p=599`, `label=00,12` holdout extends the
+checked source-start clearance scope but adds no middle/far adverse
+denominator.  The single current middle/far adverse exemplar remains
+`M=229`, `p=379`, `Q=46189`; nearby tight-block extension is currently adding
+near-threshold adverse rows, not new replacement-family examples.  Do not keep
+extending adjacent tight blocks by inertia.  The next useful route is either a
+symbolic `Q=46189` replacement-family inequality or a targeted search over
+selected weak prime rows for additional middle/far adverse denominators.  This
+proves no replacement-family payment theorem, phase-defect payment theorem,
+near-adverse upper bound, middle/far lower bound, clearance-family theorem,
+source-start theorem, strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The source-start moving-prime lane now has a replacement-family scope-boundary
 audit:
 

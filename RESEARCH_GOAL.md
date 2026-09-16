@@ -6,6 +6,38 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The source-start moving-prime lane now has a clearance scope-extension audit
+attaching the fresh `M=383` holdout to the replacement-family boundary:
+`tools/build_mobius_moment_square_degree5_clearance_scope_extension_audit.py`
+generated
+`evidence/mobius-moment-square-degree5-clearance-scope-extension-audit.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-clearance-scope-extension-audit.md`.
+
+Question: when the fresh `M=383` clearance holdout is attached to the
+replacement-family scope boundary, does it add another middle/far adverse
+denominator example?
+
+Answer: no.  Before this extension, the six source-start clearance blocks had
+`17` near negative denominators and `1` middle/far negative row.  The fresh
+`M=383`, `p=599`, `label=00,12` holdout adds `3` near-threshold adverse
+denominators and `0` middle/far adverse denominators.  The extended
+source-start clearance scope is now `7` checked blocks with `20` near
+negative denominators and still only `1` middle/far negative row: the original
+`M=229`, `p=379`, `Q=46189` exception.
+
+Decision: nearby tight-block extension is currently adding near-threshold
+adverse rows, not new replacement-family examples.  Do not keep extending
+adjacent tight blocks by inertia.  The next useful route is either a symbolic
+`Q=46189` replacement-family inequality or a targeted search over selected
+weak prime rows for additional middle/far adverse denominators.  This is
+finite scope-extension evidence only.  It proves no replacement-family payment
+theorem, phase-defect payment theorem, near-adverse upper bound, middle/far
+lower bound, clearance-family theorem, source-start theorem, strict-central
+Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The source-start moving-prime lane now has a replacement-family scope-boundary
 audit:
 `tools/build_mobius_moment_square_degree5_replacement_family_scope_boundary_audit.py`
