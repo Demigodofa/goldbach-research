@@ -6,6 +6,37 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The q286 route now has a one-sided per-modulus cap sensitivity audit:
+`tools/build_q286_one_sided_cap_sensitivity_audit.py` generated
+`evidence/q286-one-sided-cap-sensitivity-audit.json`, with explanation in
+`notes/q286-one-sided-cap-sensitivity-audit.md`.
+
+Question: for the one-sided q286 route, which uniform per-modulus adverse caps
+fit the checked component envelope, and which would be sufficient theorem
+targets if proved universally?
+
+Answer: on the `232`-row component horizon, the largest observed component
+adverse supremum is `0.12228599640255161` from modulus `286`, while the strict
+equal-cap theorem ceiling from the minimum checked local main is
+`0.179311355950711`.  Thus the finite window
+`0.12228599640255161 <= k < 0.179311355950711` is nonempty.  For an upper
+bound, smaller constants are stricter: `.125` is stricter than `.126`, and
+both are stricter than `.13`.  The constants `.125`, `.126`, and `.13` all
+fit the finite horizon and would be sufficient equal caps if a universal
+per-modulus theorem actually proved them.  `.12` and `.122` are too strict for
+the observed horizon; `.18` fits the observed suprema but is not sufficient as
+an equal cap because `4*.18` exceeds the minimum checked local main.
+
+Decision: the one-sided per-modulus cap route survives as a sharply stated
+theorem target, but all displayed constants remain finite-fit candidates only.
+The next proof obligation is a universal one-sided per-modulus adverse cap, or
+an asymmetric component bound whose sum stays below the local main, plus an
+explicit finite remainder.  This proves no per-modulus supremum theorem,
+one-sided signed concentration theorem, raw adverse-envelope theorem,
+strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The q286 route now has an L2-versus-one-sided-adverse separation audit:
 `tools/build_q286_l2_vs_one_sided_adverse_separation_audit.py` generated
 `evidence/q286-l2-vs-one-sided-adverse-separation-audit.json`, with

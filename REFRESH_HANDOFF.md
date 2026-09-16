@@ -6,6 +6,46 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The q286 route now has a one-sided per-modulus cap sensitivity audit:
+
+```text
+tools/build_q286_one_sided_cap_sensitivity_audit.py
+notes/q286-one-sided-cap-sensitivity-audit.md
+evidence/q286-one-sided-cap-sensitivity-audit.json
+```
+
+Result:
+
+```text
+component horizon rows:                  232
+A_70 observed supremum:                  0.11808088288936758
+A_130 observed supremum:                 0.00932108976691037
+A_154 observed supremum:                 0.08239931832908774
+A_286 observed supremum:                 0.12228599640255161
+observed supremum sum:                   0.3320872873879173
+minimum local main:                      0.717245423802844
+observed max component adverse:          0.12228599640255161
+strict equal-cap ceiling min(M)/4:       0.179311355950711
+finite cap window width:                 0.05702535954815938
+```
+
+For this upper-bound cap, smaller is stricter: `.125` is stricter than `.126`,
+and both are stricter than `.13`.  On the finite component horizon, `.125`,
+`.126`, and `.13` all fit the observed component suprema and would be
+sufficient equal caps if proved universally.  `.12` and `.122` are too strict
+for the observed horizon; `.18` fits the observed suprema but is not sufficient
+as an equal cap.
+
+Decision: the one-sided per-modulus cap route survives as a sharply stated
+theorem target, but the constants are finite-fit candidates only.  The next
+proof obligation is a universal one-sided per-modulus adverse cap, or an
+asymmetric component bound whose sum stays below local main, plus an explicit
+finite remainder.  This proves no per-modulus supremum theorem, one-sided
+signed concentration theorem, raw adverse-envelope theorem, strict-central
+Goldbach theorem, or Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The q286 route now has an L2-versus-one-sided-adverse separation audit:
 
 ```text

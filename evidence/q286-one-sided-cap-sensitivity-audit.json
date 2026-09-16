@@ -1,0 +1,132 @@
+{
+  "candidate": {
+    "falsifier": "If the largest observed component adverse value is already at or above min(local_main)/4, then no uniform cap can both fit the finite horizon and certify the envelope.",
+    "mechanism": "Replace symmetric aggregate L2 by an upper bound on each modulus' harmful signed projected contribution.  A uniform cap k proves the component envelope whenever 4k is below the local main term.",
+    "name": "uniform one-sided per-modulus adverse cap",
+    "novelty_label": "new-to-this-task",
+    "prediction": "There should be a nonempty interval between the largest observed component adverse supremum and the strict equal-cap ceiling min(local_main)/4.",
+    "smallest_test": "Compute max_d A_d^obs and min_row M(row)/4 on the 232-row component-envelope horizon, then classify selected caps."
+  },
+  "cap_sensitivity": [
+    {
+      "cap": 0.12,
+      "classification": "too_strict_for_observed_horizon",
+      "margin_to_min_local_main": 0.23724542380284397,
+      "observed_fit_on_232_rows": false,
+      "sum_four_equal_caps": 0.48,
+      "universal_equal_cap_would_be_sufficient_if_proved": true
+    },
+    {
+      "cap": 0.122,
+      "classification": "too_strict_for_observed_horizon",
+      "margin_to_min_local_main": 0.22924542380284396,
+      "observed_fit_on_232_rows": false,
+      "sum_four_equal_caps": 0.488,
+      "universal_equal_cap_would_be_sufficient_if_proved": true
+    },
+    {
+      "cap": 0.125,
+      "classification": "fits_finite_and_theorem_sufficient_if_universal",
+      "margin_to_min_local_main": 0.21724542380284395,
+      "observed_fit_on_232_rows": true,
+      "sum_four_equal_caps": 0.5,
+      "universal_equal_cap_would_be_sufficient_if_proved": true
+    },
+    {
+      "cap": 0.126,
+      "classification": "fits_finite_and_theorem_sufficient_if_universal",
+      "margin_to_min_local_main": 0.21324542380284395,
+      "observed_fit_on_232_rows": true,
+      "sum_four_equal_caps": 0.504,
+      "universal_equal_cap_would_be_sufficient_if_proved": true
+    },
+    {
+      "cap": 0.13,
+      "classification": "fits_finite_and_theorem_sufficient_if_universal",
+      "margin_to_min_local_main": 0.19724542380284393,
+      "observed_fit_on_232_rows": true,
+      "sum_four_equal_caps": 0.52,
+      "universal_equal_cap_would_be_sufficient_if_proved": true
+    },
+    {
+      "cap": 0.15,
+      "classification": "fits_finite_and_theorem_sufficient_if_universal",
+      "margin_to_min_local_main": 0.11724542380284397,
+      "observed_fit_on_232_rows": true,
+      "sum_four_equal_caps": 0.6,
+      "universal_equal_cap_would_be_sufficient_if_proved": true
+    },
+    {
+      "cap": 0.175,
+      "classification": "fits_finite_and_theorem_sufficient_if_universal",
+      "margin_to_min_local_main": 0.017245423802843995,
+      "observed_fit_on_232_rows": true,
+      "sum_four_equal_caps": 0.7,
+      "universal_equal_cap_would_be_sufficient_if_proved": true
+    },
+    {
+      "cap": 0.18,
+      "classification": "fits_finite_but_not_sufficient_as_equal_cap",
+      "margin_to_min_local_main": -0.0027545761971560223,
+      "observed_fit_on_232_rows": true,
+      "sum_four_equal_caps": 0.72,
+      "universal_equal_cap_would_be_sufficient_if_proved": false
+    }
+  ],
+  "component_horizon": {
+    "component_adverse_suprema": {
+      "130": 0.00932108976691037,
+      "154": 0.08239931832908774,
+      "286": 0.12228599640255161,
+      "70": 0.11808088288936758
+    },
+    "component_adverse_supremum_sum": 0.3320872873879173,
+    "min_local_main": 0.717245423802844,
+    "min_local_main_target": 1038176,
+    "moduli": [
+      "70",
+      "130",
+      "154",
+      "286"
+    ],
+    "observed_max_component_adverse": 0.12228599640255161,
+    "observed_max_component_modulus": "286",
+    "observed_sum_margin_to_min_local_main": 0.38515813641492663,
+    "row_count": 232
+  },
+  "decision": "The one-sided per-modulus cap route has a nonempty finite window. The largest observed component adverse supremum is about 0.12228599640255161, while the strict equal-cap ceiling from the minimum checked local main is about 0.179311355950711. Thus .125, .126, and .13 are not too strict for this finite horizon and would be sufficient equal caps if proved universally.  They are still finite-fit candidates only; the universal theorem remains open.",
+  "finite_cap_sensitivity_audit_only": true,
+  "goldbach_proved": false,
+  "interpretation_of_125_126_13": {
+    "finite_horizon_result": "On this 232-row component horizon, .125, .126, and .13 all fit the observed component suprema and all would be equal-cap sufficient if a universal theorem actually proved them.",
+    "point": "For an upper-bound cap, smaller constants are stricter.  Thus .125 is stricter than .126, and both are stricter than .13.",
+    "proof_boundary": "They remain fitted finite cap candidates only.  No universal per-modulus supremum theorem or one-sided signed concentration theorem is established."
+  },
+  "one_sided_signed_concentration_theorem_proved": false,
+  "per_modulus_supremum_theorem_proved": false,
+  "question": "For the one-sided q286 route, which uniform per-modulus adverse caps fit the checked component envelope, and which would be sufficient theorem targets if proved universally?",
+  "raw_adverse_envelope_theorem_proved": false,
+  "route_decision": {
+    "acceptance_condition": "A universal, pointwise, unnormalized analytical estimate for every sufficiently large covered N, such as adverse_drag_raw(N)<local_main_raw(N), plus an explicit finite remainder.  Finite evidence is not an acceptance condition.",
+    "preferred_next_obligation": "Try to prove a universal one-sided per-modulus adverse cap, or replace the uniform cap by an asymmetric component bound whose sum stays below local main.",
+    "uniform_cap_route_survives_finite_horizon": true,
+    "why_this_is_sharper_than_l2": "All row-local L2-cap violations still have positive raw adverse gates, and most have small adverse ratios.  The finite obstruction to L2 is therefore not the finite obstruction to the one-sided adverse route."
+  },
+  "schema_version": 1,
+  "source_commit": "6a4022e04cb795b18695d8f3ee55239c96d486e8",
+  "source_receipts": {
+    "component_envelope_horizon": "evidence\\q286-wbss-four-modulus-component-envelope-horizon-audit.json",
+    "l2_vs_one_sided_adverse_separation": "evidence\\q286-l2-vs-one-sided-adverse-separation-audit.json",
+    "raw_sum_expansion_ledger": "evidence\\q286-raw-sum-expansion-ledger.json"
+  },
+  "status": "AUDIT_q286_one_sided_cap_sensitivity",
+  "strict_central_goldbach_theorem_proved": false,
+  "uniform_cap_window": {
+    "meaning": "Any universal theorem proving every modulus adverse part is <= k with observed_floor <= k < strict_ceiling would both fit this finite horizon and imply the equal-cap component envelope on rows whose local main is at least the checked minimum.  It would still need a real universal proof and a finite remainder.",
+    "nonempty_window": true,
+    "observed_uniform_cap_floor_inclusive": 0.12228599640255161,
+    "strict_equal_cap_theorem_ceiling_exclusive": 0.179311355950711,
+    "window_width": 0.05702535954815938
+  },
+  "universal_raw_pointwise_theorem_proved": false
+}
