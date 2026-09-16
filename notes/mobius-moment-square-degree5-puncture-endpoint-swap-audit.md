@@ -45,11 +45,15 @@ inside the reduced-denominator phase ledger.
 
 ## Decision
 
-The source-admissibility target can be sharpened again: instead of only
-studying whole translated windows, a plausible finite mechanism is
-endpoint-swap denominator-phase admissibility.  A future theorem or falsifier
-should inspect whether source-admissible windows avoid adverse endpoint-swap
-profiles.
+The adjacent translated-window deltas are explained by endpoint swaps, so the
+puncture is not just a whole-window bulk phenomenon.  However, the later
+reachability audit shows that start `1` is not reachable from the original
+checked-scale source mapping: the canonical source start is `32`.
+
+Thus endpoint-swap denominator-phase structure remains useful for artificial
+translated-window diagnostics, but it is not by itself a source-admissible
+window theorem target unless a separate arithmetic mapping makes the translated
+start source-admissible.
 
 This is finite diagnostic evidence only.  No endpoint-swap theorem,
 denominator-phase theorem, source-window implication theorem,

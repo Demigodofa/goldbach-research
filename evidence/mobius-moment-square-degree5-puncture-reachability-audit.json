@@ -1,0 +1,54 @@
+{
+  "answer": "UNREACHABLE",
+  "decision": "The start-1 puncture is a valid translated-sweep falsifier but not a reachable original source-construction row.  Future source-window statements should exclude unreachable translated starts unless a separate mapping makes them source-admissible.",
+  "endpoint_swap_theorem_proved": false,
+  "finite_diagnostic_only": true,
+  "finite_reachability_audit_only": true,
+  "goldbach_proved": false,
+  "puncture_count": 1,
+  "puncture_summaries": [
+    {
+      "calculation": "M=149: row_count=int((M**(1/.59))**.41)=32; original source start=row_count=32; translated sweep starts run 0..64; puncture start=1; since 1!=32, start 1 is not reachable from the original source-start mapping.",
+      "canonical_source_start": 32,
+      "canonical_source_start_formula": "row_count",
+      "divisor_range": [
+        3,
+        15
+      ],
+      "ell_freeze": 48,
+      "ell_freeze_formula": "row_count + row_count//2",
+      "failure_start": 1,
+      "failure_start_in_translated_sweep": true,
+      "failure_start_window_rows_inclusive": [
+        1,
+        32
+      ],
+      "inferred_n_formula": "M**(1/.59)",
+      "label": "00,12",
+      "p_minus_M_used_to_select_start": false,
+      "prime_modulus": 163,
+      "prime_modulus_minus_scale_modulus": 14,
+      "reachability": "UNREACHABLE",
+      "reachable_from_original_source_mapping": false,
+      "row_count": 32,
+      "row_count_formula": "int((M**(1/.59))**.41)",
+      "scale_modulus": 149,
+      "source_start_window_rows_inclusive": [
+        32,
+        63
+      ],
+      "translated_sweep_start_count": 65,
+      "translated_sweep_start_range": [
+        0,
+        64
+      ]
+    }
+  ],
+  "question": "For M=149, p=163, component (00,12), is translated active-row start 1 reachable from the original checked-scale source mapping?",
+  "source_admissible_window_theorem_proved": false,
+  "source_translated_puncture_audit": "evidence\\mobius-moment-square-degree5-translated-puncture-audit.json",
+  "source_window_implication_theorem_proved": false,
+  "status": "AUDIT_degree5_puncture_source_reachability",
+  "strict_central_goldbach_theorem_proved": false,
+  "unreachable_puncture_count": 1
+}

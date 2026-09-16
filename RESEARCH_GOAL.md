@@ -6,6 +6,36 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The translated puncture now has a source-reachability audit:
+`tools/build_mobius_moment_square_degree5_puncture_reachability_audit.py`
+generated
+`evidence/mobius-moment-square-degree5-puncture-reachability-audit.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-puncture-reachability-audit.md`.
+
+Question: for `M=149`, `p=163`, component `(00,12)`, is translated
+active-row start `1` reachable from the original checked-scale source
+mapping?
+
+Answer: `UNREACHABLE`.  The construction gives
+`row_count=int((149**(1/.59))**.41)=32`, `ell_freeze=48`, and canonical
+source start `row_count=32`.  The translated sweep deliberately tests starts
+`0..64`; start `1` lies in that sweep, but it is not the original source
+start.  Its active window is rows `1..32`, while the source active window is
+rows `32..63`.  The prime `p=163` enters the residue-cell phase calculation,
+but `p-M=14` is not used as the source-start selector.
+
+Decision: the start-`1` puncture is a valid finite falsifier for the broad
+all-translated-start quantifier, but it is not a reachable original
+source-construction row.  Future source-window statements should not treat it
+as a source-mapping failure unless a separate arithmetic mapping makes start
+`1` source-admissible.  The endpoint-swap audit remains useful for explaining
+adjacent translated-window deltas, not for proving a source-window theorem.
+This proves no source-admissible-window theorem, endpoint-swap theorem,
+strict-central Goldbach theorem, or Goldbach proof.
+
+## Latest continuation evidence, 2026-09-16
+
 The translated puncture now has an endpoint-swap audit:
 `tools/build_mobius_moment_square_degree5_puncture_endpoint_swap_audit.py`
 generated
@@ -25,14 +55,15 @@ swap delta is `19921005797.544834`.  Start `1` minus start `2` is incoming row
 `4244153577.4195795` and `2575530739.718102`; `q=30030` partly offsets it by
 `-1099884470.8255944`.
 
-Decision: the next source-admissibility target can be sharpened from a whole
-window phase statement to an endpoint-swap/denominator-phase statement for
-adjacent translated windows.  This blocks a purely bulk-window explanation.
-It remains finite diagnostic evidence only.  No endpoint-swap theorem,
-denominator-phase theorem, source-window implication theorem,
-source-admissible window theorem, phase-curve theorem, pointwise universal
-adverse-drag estimate, q286 threshold theorem, strict-central Goldbach
-theorem, or Goldbach proof is established.
+Decision: this explains the adjacent translated-window deltas and blocks a
+purely bulk-window explanation for that artificial sweep.  The later
+reachability audit shows start `1` is not reachable from the original source
+mapping, so this is not by itself a source-window theorem target.  It remains
+finite diagnostic evidence only.  No endpoint-swap theorem, denominator-phase
+theorem, source-window implication theorem, source-admissible window theorem,
+phase-curve theorem, pointwise universal adverse-drag estimate, q286
+threshold theorem, strict-central Goldbach theorem, or Goldbach proof is
+established.
 
 ## Latest continuation evidence, 2026-09-16
 
