@@ -6,6 +6,45 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The metric-soft moment-square route now has a critical-margin coefficient
+sensitivity audit:
+
+```text
+tools/build_mobius_moment_square_critical_margin_sensitivity_audit.py
+notes/mobius-moment-square-critical-margin-sensitivity-audit.md
+evidence/mobius-moment-square-critical-margin-sensitivity-audit.json
+```
+
+Result:
+
+```text
+status: MEASURE_critical_margin_coefficient_sensitivity
+weak row:                              M=167
+source critical margin:                0.4270105091865797085
+provenance critical margin:            0.4269818990580671773
+total provenance-source loss:         -0.0000286101285125313
+direct coefficient loss:              -0.0000286101238055836
+minimizer movement loss:              -0.0000000000047069476
+dominant degree:                       5
+degree-5 coefficient delta:           -0.02
+t_source^5:                            0.0014305061902791815
+```
+
+Decision: the weak-row source-to-provenance failure at the tight `427/1000`
+margin is not diffuse across all coefficients and is not materially caused by
+critical-point motion.  To the recorded precision, it is a single degree-`5`
+coefficient effect.  The next exact-coefficient theorem route should derive
+and control the degree-`5` active-minus-half-full coefficient in the actual
+family before treating the full Sturm sequence as an opaque algebraic object.
+This is finite serialized coefficient-sensitivity evidence only; no
+critical-margin sensitivity theorem, robust-margin universal theorem,
+coefficient-family theorem, universal Sturm-certificate theorem, half-frame
+curve-positivity theorem, uniform active/full lower frame, Mobius covariance
+theorem, signed prime-correlation estimate, q286 theorem, strict-central
+Goldbach theorem, or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-16
+
 The metric-soft moment-square route now has a robust Sturm sign-obligation
 audit:
 

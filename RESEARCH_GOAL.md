@@ -6,6 +6,42 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The metric-soft moment-square route now has a critical-margin coefficient
+sensitivity audit:
+`tools/build_mobius_moment_square_critical_margin_sensitivity_audit.py`
+generated
+`evidence/mobius-moment-square-critical-margin-sensitivity-audit.json`, with
+explanation in
+`notes/mobius-moment-square-critical-margin-sensitivity-audit.md`.
+
+Question: which serialized coefficient deltas move the critical margin from
+the source-curve polynomial to the coefficient-provenance polynomial,
+especially at the weak `M=167` row?
+
+Answer: at `M=167`, the source critical margin is
+`0.4270105091865797085`, the provenance critical margin is
+`0.4269818990580671773`, and the total provenance-source loss is
+`-0.0000286101285125313`.  The direct coefficient loss at the source
+minimizer is `-0.0000286101238055836`; minimizer movement contributes only
+about `-4.7e-12`.  The direct loss is entirely the degree-`5` serialized
+coefficient delta `-0.02`, evaluated at `t_source^5 =
+0.0014305061902791815`.
+
+Decision: `MEASURE_critical_margin_coefficient_sensitivity`.  The weak-row
+failure of the tight `427/1000` margin is not diffuse across all
+coefficients.  Before treating the whole Sturm sequence as an opaque object,
+the next exact-coefficient route should derive and control the degree-`5`
+active-minus-half-full coefficient in the actual family, then recheck whether
+the robust `21/50` margin can be certified from exact formulas.  This is
+finite serialized coefficient-sensitivity evidence only.  No critical-margin
+sensitivity theorem, robust-margin universal theorem, coefficient-family
+theorem, universal Sturm-certificate theorem, half-frame curve-positivity
+theorem, uniform active/full lower-frame theorem, Mobius covariance theorem,
+signed prime-correlation estimate, q286 theorem, strict-central Goldbach
+theorem, or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-16
+
 The metric-soft moment-square route now has a robust Sturm sign-obligation
 audit: `tools/build_mobius_moment_square_sturm_obligation_audit.py` generated
 `evidence/mobius-moment-square-sturm-obligation-audit.json`, with explanation

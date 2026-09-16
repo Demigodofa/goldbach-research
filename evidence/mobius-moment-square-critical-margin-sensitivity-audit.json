@@ -1,0 +1,242 @@
+{
+  "coefficient_family_theorem_proved": false,
+  "coefficient_provenance_audit": "evidence\\mobius-moment-square-coefficient-provenance-audit.json",
+  "critical_margin_sensitivity_theorem_proved": false,
+  "critical_margin_theorem_proved": false,
+  "decision": "At the weak M=167 row, the source-to-provenance critical-margin loss is not diffuse.  It is explained, to the recorded precision, by a single degree-5 serialized coefficient delta of -0.02 evaluated at the source minimizer; minimizer movement contributes only about -4.7e-12.  Therefore the next exact coefficient theorem should account for the degree-5 active/full coefficient before treating the full Sturm sequence as an opaque object.",
+  "finite_coefficient_sensitivity_diagnostic_only": true,
+  "finite_diagnostic_only": true,
+  "goldbach_proved": false,
+  "largest_provenance_below_source_loss_row": {
+    "direct_coefficient_delta_at_source_parameter_decimal": "-0.00002861012380558362917549348854174466195579",
+    "dominant_abs_contribution_degree": 5,
+    "dominant_abs_contribution_over_direct_abs": 1.0,
+    "minimizer_movement_delta_decimal": "-0.000000000004706947626659008532145617265835546928198",
+    "nonzero_coefficient_delta_count": 1,
+    "nonzero_degree_contributions": [
+      {
+        "coefficient_delta_decimal": "-0.02000000000000000000000000000000000000000",
+        "degree": 5,
+        "margin_delta_contribution_at_source_parameter": -2.861012380558363e-05,
+        "margin_delta_contribution_at_source_parameter_decimal": "-0.00002861012380558362917549348854174466195579",
+        "provenance_coefficient_decimal": "-126085079418913.1000000000000000000000000",
+        "source_coefficient_decimal": "-126085079418913.0800000000000000000000000",
+        "source_parameter_power_decimal": "0.001430506190279181458774674427087233097790"
+      }
+    ],
+    "provenance_critical_margin_decimal": "0.4269818990580671772500833131131551507996",
+    "provenance_critical_parameter_decimal": "0.269834811137552579806790342068",
+    "provenance_slack_above_robust_margin_decimal": "0.006981899058067177250083313113155150799648",
+    "provenance_slack_above_tight_margin_decimal": "-0.00001810094193282274991668688684484920035234",
+    "scale_modulus": 167,
+    "source_critical_margin_decimal": "0.4270105091865797085059178151338425127274",
+    "source_critical_parameter_decimal": "0.269834793380237521632973056401",
+    "source_slack_above_tight_margin_decimal": "0.00001050918657970850591781513384251272743899",
+    "total_provenance_minus_source_margin_delta_decimal": "-0.00002861012851253125583450202068736192779134"
+  },
+  "mobius_covariance_theorem_proved": false,
+  "moment_square_half_frame_curve_positivity_theorem_proved": false,
+  "q286_reactivated": false,
+  "question": "Which serialized coefficient deltas move the critical margin from the source-curve polynomial to the coefficient-provenance polynomial, especially at the weak M=167 row?",
+  "robust_margin": 0.42,
+  "robust_margin_rational": "21/50",
+  "robust_margin_universal_theorem_proved": false,
+  "scale_results": [
+    {
+      "direct_coefficient_delta_at_source_parameter_decimal": "0.000002148088443841265201589060037729645070856",
+      "dominant_abs_contribution_degree": 6,
+      "dominant_abs_contribution_over_direct_abs": 2.065129004245744,
+      "minimizer_movement_delta_decimal": "-6.207231628616537768163902409988442958858e-14",
+      "nonzero_coefficient_delta_count": 2,
+      "nonzero_degree_contributions": [
+        {
+          "coefficient_delta_decimal": "0.01000000000000000000000000000000000000000",
+          "degree": 6,
+          "margin_delta_contribution_at_source_parameter": 4.436079749061702e-06,
+          "margin_delta_contribution_at_source_parameter_decimal": "0.000004436079749061702024618207502959589835799",
+          "provenance_coefficient_decimal": "44863366934725.89000000000000000000000000",
+          "source_coefficient_decimal": "44863366934725.88000000000000000000000000",
+          "source_parameter_power_decimal": "0.0004436079749061702024618207502959589835798"
+        },
+        {
+          "coefficient_delta_decimal": "-0.00003000000000000000000000000000000000000000",
+          "degree": 2,
+          "margin_delta_contribution_at_source_parameter": -2.287991305220437e-06,
+          "margin_delta_contribution_at_source_parameter_decimal": "-0.000002287991305220436823029147465229944764943",
+          "provenance_coefficient_decimal": "181008279747.1292700000000000000000000000",
+          "source_coefficient_decimal": "181008279747.1293000000000000000000000000",
+          "source_parameter_power_decimal": "0.07626637684068122743430491550766482549809"
+        }
+      ],
+      "provenance_critical_margin_decimal": "0.9832450876941613851186059027019914360570",
+      "provenance_critical_parameter_decimal": "0.276163676071872119990494621451",
+      "provenance_slack_above_robust_margin_decimal": "0.5632450876941613851186059027019914360570",
+      "provenance_slack_above_tight_margin_decimal": "0.5562450876941613851186059027019914360570",
+      "scale_modulus": 127,
+      "source_critical_margin_decimal": "0.9832429396057796161696904790196353454360",
+      "source_critical_parameter_decimal": "0.276163677627383191383085558130",
+      "source_slack_above_tight_margin_decimal": "0.5562429396057796161696904790196353454360",
+      "total_provenance_minus_source_margin_delta_decimal": "0.000002148088381768948915423682356090620970971"
+    },
+    {
+      "direct_coefficient_delta_at_source_parameter_decimal": "-0.00002853852005899890643584099323044394782634",
+      "dominant_abs_contribution_degree": 5,
+      "dominant_abs_contribution_over_direct_abs": 1.0,
+      "minimizer_movement_delta_decimal": "-0.000000000001972394587699622336141033531558254724715",
+      "nonzero_coefficient_delta_count": 1,
+      "nonzero_degree_contributions": [
+        {
+          "coefficient_delta_decimal": "-0.02000000000000000000000000000000000000000",
+          "degree": 5,
+          "margin_delta_contribution_at_source_parameter": -2.8538520058998907e-05,
+          "margin_delta_contribution_at_source_parameter_decimal": "-0.00002853852005899890643584099323044394782634",
+          "provenance_coefficient_decimal": "-110456426035622.0800000000000000000000000",
+          "source_coefficient_decimal": "-110456426035622.0600000000000000000000000",
+          "source_parameter_power_decimal": "0.001426926002949945321792049661522197391317"
+        }
+      ],
+      "provenance_critical_margin_decimal": "0.6678905689472364958830011966935997002158",
+      "provenance_critical_parameter_decimal": "0.269699600067649710983196657994",
+      "provenance_slack_above_robust_margin_decimal": "0.2478905689472364958830011966935997002158",
+      "provenance_slack_above_tight_margin_decimal": "0.2408905689472364958830011966935997002158",
+      "scale_modulus": 149,
+      "source_critical_margin_decimal": "0.6679191074692678893771366600229711776952",
+      "source_critical_parameter_decimal": "0.269699592611704349217895871181",
+      "source_slack_above_tight_margin_decimal": "0.2409191074692678893771366600229711776952",
+      "total_provenance_minus_source_margin_delta_decimal": "-0.00002853852203139349413546332937147747938460"
+    },
+    {
+      "direct_coefficient_delta_at_source_parameter_decimal": "-0.00002861012380558362917549348854174466195579",
+      "dominant_abs_contribution_degree": 5,
+      "dominant_abs_contribution_over_direct_abs": 1.0,
+      "minimizer_movement_delta_decimal": "-0.000000000004706947626659008532145617265835546928198",
+      "nonzero_coefficient_delta_count": 1,
+      "nonzero_degree_contributions": [
+        {
+          "coefficient_delta_decimal": "-0.02000000000000000000000000000000000000000",
+          "degree": 5,
+          "margin_delta_contribution_at_source_parameter": -2.861012380558363e-05,
+          "margin_delta_contribution_at_source_parameter_decimal": "-0.00002861012380558362917549348854174466195579",
+          "provenance_coefficient_decimal": "-126085079418913.1000000000000000000000000",
+          "source_coefficient_decimal": "-126085079418913.0800000000000000000000000",
+          "source_parameter_power_decimal": "0.001430506190279181458774674427087233097790"
+        }
+      ],
+      "provenance_critical_margin_decimal": "0.4269818990580671772500833131131551507996",
+      "provenance_critical_parameter_decimal": "0.269834811137552579806790342068",
+      "provenance_slack_above_robust_margin_decimal": "0.006981899058067177250083313113155150799648",
+      "provenance_slack_above_tight_margin_decimal": "-0.00001810094193282274991668688684484920035234",
+      "scale_modulus": 167,
+      "source_critical_margin_decimal": "0.4270105091865797085059178151338425127274",
+      "source_critical_parameter_decimal": "0.269834793380237521632973056401",
+      "source_slack_above_tight_margin_decimal": "0.00001050918657970850591781513384251272743899",
+      "total_provenance_minus_source_margin_delta_decimal": "-0.00002861012851253125583450202068736192779134"
+    },
+    {
+      "direct_coefficient_delta_at_source_parameter_decimal": "0.0001426074340040267391646528846943569824550",
+      "dominant_abs_contribution_degree": 2,
+      "dominant_abs_contribution_over_direct_abs": 1.0,
+      "minimizer_movement_delta_decimal": "-2.040738613635365819521665928749243434950e-13",
+      "nonzero_coefficient_delta_count": 1,
+      "nonzero_degree_contributions": [
+        {
+          "coefficient_delta_decimal": "0.002000000000000000000000000000000000000000",
+          "degree": 2,
+          "margin_delta_contribution_at_source_parameter": 0.00014260743400402673,
+          "margin_delta_contribution_at_source_parameter_decimal": "0.0001426074340040267391646528846943569824550",
+          "provenance_coefficient_decimal": "11724256495119.72500000000000000000000000",
+          "source_coefficient_decimal": "11724256495119.72300000000000000000000000",
+          "source_parameter_power_decimal": "0.07130371700201336958232644234717849122752"
+        }
+      ],
+      "provenance_critical_margin_decimal": "113.0790716583685324808509758763761193455",
+      "provenance_critical_parameter_decimal": "0.267027558124511765353981541971",
+      "provenance_slack_above_robust_margin_decimal": "112.6590716583685324808509758763761193455",
+      "provenance_slack_above_tight_margin_decimal": "112.6520716583685324808509758763761193455",
+      "scale_modulus": 191,
+      "source_critical_margin_decimal": "113.0789290509347325279731747600733771551",
+      "source_critical_parameter_decimal": "0.267027558506633111863400503986",
+      "source_slack_above_tight_margin_decimal": "112.6519290509347325279731747600733771551",
+      "total_provenance_minus_source_margin_delta_decimal": "0.0001426074337999528778011163027421903895801"
+    },
+    {
+      "direct_coefficient_delta_at_source_parameter_decimal": "0",
+      "dominant_abs_contribution_degree": null,
+      "dominant_abs_contribution_over_direct_abs": null,
+      "minimizer_movement_delta_decimal": "0",
+      "nonzero_coefficient_delta_count": 0,
+      "nonzero_degree_contributions": [],
+      "provenance_critical_margin_decimal": "61.90104889532010357563310777642999196749",
+      "provenance_critical_parameter_decimal": "0.261174961818242340458693486618",
+      "provenance_slack_above_robust_margin_decimal": "61.48104889532010357563310777642999196749",
+      "provenance_slack_above_tight_margin_decimal": "61.47404889532010357563310777642999196749",
+      "scale_modulus": 211,
+      "source_critical_margin_decimal": "61.90104889532010357563310777642999196749",
+      "source_critical_parameter_decimal": "0.261174961818242340458693486618",
+      "source_slack_above_tight_margin_decimal": "61.47404889532010357563310777642999196749",
+      "total_provenance_minus_source_margin_delta_decimal": "0"
+    },
+    {
+      "direct_coefficient_delta_at_source_parameter_decimal": "0.0001760176809840733346972555218631727965106",
+      "dominant_abs_contribution_degree": 3,
+      "dominant_abs_contribution_over_direct_abs": 1.0,
+      "minimizer_movement_delta_decimal": "-0.000000000001648856625991801856437732854350816426630",
+      "nonzero_coefficient_delta_count": 1,
+      "nonzero_degree_contributions": [
+        {
+          "coefficient_delta_decimal": "0.01000000000000000000000000000000000000000",
+          "degree": 3,
+          "margin_delta_contribution_at_source_parameter": 0.00017601768098407332,
+          "margin_delta_contribution_at_source_parameter_decimal": "0.0001760176809840733346972555218631727965106",
+          "provenance_coefficient_decimal": "-116301896827122.8800000000000000000000000",
+          "source_coefficient_decimal": "-116301896827122.8900000000000000000000000",
+          "source_parameter_power_decimal": "0.01760176809840733346972555218631727965106"
+        }
+      ],
+      "provenance_critical_margin_decimal": "46.85486527595638726592541306373847723140",
+      "provenance_critical_parameter_decimal": "0.260126997960413244968551220234",
+      "provenance_slack_above_robust_margin_decimal": "46.43486527595638726592541306373847723140",
+      "provenance_slack_above_tight_margin_decimal": "46.42786527595638726592541306373847723140",
+      "scale_modulus": 227,
+      "source_critical_margin_decimal": "46.85468925827705204921670761007305179145",
+      "source_critical_parameter_decimal": "0.260126999584917192434504334568",
+      "source_slack_above_tight_margin_decimal": "46.42768925827705204921670761007305179145",
+      "total_provenance_minus_source_margin_delta_decimal": "0.0001760176793352167087054536654254399421598"
+    }
+  ],
+  "signed_prime_correlation_proved": false,
+  "source_curve_audit": "evidence\\mobius-moment-square-half-frame-curve-audit.json",
+  "status": "MEASURE_critical_margin_coefficient_sensitivity",
+  "sturm_obligation_theorem_proved": false,
+  "tight_margin": 0.427,
+  "tight_margin_rational": "427/1000",
+  "uniform_active_full_lower_frame_proved": false,
+  "universal_sturm_certificate_theorem_proved": false,
+  "weakest_provenance_margin_row": {
+    "direct_coefficient_delta_at_source_parameter_decimal": "-0.00002861012380558362917549348854174466195579",
+    "dominant_abs_contribution_degree": 5,
+    "dominant_abs_contribution_over_direct_abs": 1.0,
+    "minimizer_movement_delta_decimal": "-0.000000000004706947626659008532145617265835546928198",
+    "nonzero_coefficient_delta_count": 1,
+    "nonzero_degree_contributions": [
+      {
+        "coefficient_delta_decimal": "-0.02000000000000000000000000000000000000000",
+        "degree": 5,
+        "margin_delta_contribution_at_source_parameter": -2.861012380558363e-05,
+        "margin_delta_contribution_at_source_parameter_decimal": "-0.00002861012380558362917549348854174466195579",
+        "provenance_coefficient_decimal": "-126085079418913.1000000000000000000000000",
+        "source_coefficient_decimal": "-126085079418913.0800000000000000000000000",
+        "source_parameter_power_decimal": "0.001430506190279181458774674427087233097790"
+      }
+    ],
+    "provenance_critical_margin_decimal": "0.4269818990580671772500833131131551507996",
+    "provenance_critical_parameter_decimal": "0.269834811137552579806790342068",
+    "provenance_slack_above_robust_margin_decimal": "0.006981899058067177250083313113155150799648",
+    "provenance_slack_above_tight_margin_decimal": "-0.00001810094193282274991668688684484920035234",
+    "scale_modulus": 167,
+    "source_critical_margin_decimal": "0.4270105091865797085059178151338425127274",
+    "source_critical_parameter_decimal": "0.269834793380237521632973056401",
+    "source_slack_above_tight_margin_decimal": "0.00001050918657970850591781513384251272743899",
+    "total_provenance_minus_source_margin_delta_decimal": "-0.00002861012851253125583450202068736192779134"
+  }
+}
