@@ -6,6 +6,49 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The q286-WBSS route now has a signed-weight principal-factor audit:
+
+```text
+tools/build_q286_wbss_signed_weight_principal_factor_audit.py
+notes/q286-wbss-signed-weight-principal-factor-audit.md
+evidence/q286-wbss-signed-weight-principal-factor-audit.json
+```
+
+Question: does the q286 signed-weight major-arc local factor give an
+independent raw positive term, or does it factor through the ordinary
+strict-central pair mass `T_N`?
+
+Result:
+
+```text
+status:                               HOLD_signed_weight_principal_factor_TN_dependent
+even target residues:                 5005
+positive principal factors:           5005 / 5005
+nonpositive principal factors:           0 / 5005
+M(a) minimum:                         0.6039353780830684
+M(a) mean:                            1.0
+M(a) maximum:                         1.5716524655081634
+independent principal surplus found:  false
+rows with negative admissible weight: 5005
+rows with pointwise positive floor:      0
+```
+
+Decision: the local q286 principal factor is positive for every even target
+residue, but the principal term factors as `Principal_q286(N)=T_N*M(a)`.  If
+`T_N=0`, the q286 principal term is also zero.  No independent principal
+surplus is found.  The surviving route must prove a raw pointwise analytic
+estimate for the signed weighted binary-prime sum itself, such as `W_phi(N)>0`
+or `adverse_drag_raw(N)<local_main_raw(N)`, for every sufficiently large
+covered target, plus finite remainder.  If a proof first proves or assumes
+`T_N>0` and then uses q286 only as normalized signed-shape control, q286 has
+collapsed to conditional decoration after a Goldbach-strength positive-mass
+input.  No signed-weight major/minor arc estimate, raw weighted witness
+theorem, signed negative-region distribution theorem, positive-mass theorem,
+q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof is
+established.
+
+## Previous active checkpoint note, 2026-09-16
+
 The q286-WBSS route now has a zero-mass / aggregate-`L2` logical bridge audit:
 
 ```text
