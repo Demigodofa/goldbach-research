@@ -6,6 +6,50 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 residual support-order route now has an explicit pointwise theorem
+target audit:
+
+```text
+tools/build_q286_residual_support_order_pointwise_theorem_target.py
+notes/q286-residual-support-order-pointwise-theorem-target.md
+evidence/q286-residual-support-order-pointwise-theorem-target.json
+```
+
+Result:
+
+```text
+horizon rows:                         224
+same-row pointwise failures:            0
+tight pointwise target:            255016
+tight pointwise margin: 0.27673704750570044
+tight low-order base:   0.2943409774960611
+worst adverse/base target:         164926
+worst adverse/base ratio: 0.13266261119465184
+disconnected envelope margin:
+                         0.22461870068431022
+```
+
+Decision: `TARGET_pointwise_support_order_theorem_required`.  Finite evidence
+is calibration/falsifier evidence only.  The actual theorem target is same-row
+and pointwise after one full period:
+
+```text
+B_low(N)>0
+max(0,-T_high(N)) < B_low(N)
+```
+
+for every sufficiently large eligible target in the seven named period
+classes, with a separate finite-remainder check.  The proof must be
+unnormalized, or must separately prove the positive mass needed to multiply
+the normalized support-order action identity.  The old `L2` zero-mass audit
+does not fill this bridge: `L2` remains unconfirmed and does not prove
+existence when the normalizing mass is zero.  This proves no pointwise
+analytic estimate, one-period threshold theorem, low-order base theorem,
+high-order tail domination theorem, q286 threshold theorem, strict-central
+Goldbach theorem, or Goldbach proof.
+
+## Latest active checkpoint note, 2026-09-15
+
 The q286 residual support-order route now has a one-period threshold contrast:
 
 ```text
