@@ -6,6 +6,39 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The metric-soft moment-square route now has a Sturm certificate audit for the
+recorded half-frame curve polynomials:
+
+```text
+tools/build_mobius_moment_square_sturm_certificate_audit.py
+notes/mobius-moment-square-sturm-certificate-audit.md
+evidence/mobius-moment-square-sturm-certificate-audit.json
+```
+
+Result:
+
+```text
+status: CERTIFY_checked_moment_square_half_frame_curve_margin
+certified margin:                       427/1000
+checked scales:                         127, 149, 167, 191, 211, 227
+all shifted polynomials root-free:      true
+all certificates pass:                  true
+weakest source scale:                   167
+weakest source curve minimum:           0.427001953125
+```
+
+Decision: the checked half-frame curve positivity has been upgraded from
+floating optimizer evidence to an algebraic Sturm/root-count certificate for
+the recorded rationalized polynomials.  The next theorem target is to derive
+the coefficient family for `P_M(t)` and prove a uniform Sturm/sign
+certificate, or find a legitimate scale where this certificate fails.  This is
+finite polynomial evidence only; no universal Sturm-certificate theorem,
+half-frame curve-positivity theorem, uniform active/full lower frame, Mobius
+covariance theorem, signed prime-correlation estimate, q286 theorem,
+strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-16
+
 The metric-soft moment-square route now has a whole-curve half-frame audit:
 
 ```text
