@@ -6,6 +6,47 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 residual route now has a support-packet character budget audit:
+`tools/build_q286_residual_character_support_packet_budget_audit.py`
+generated
+`evidence/q286-residual-character-support-packet-budget-audit.json`, with
+explanation in
+`notes/q286-residual-character-support-packet-budget-audit.md`.
+
+Question: after the full-character triangle route failed, can a smaller
+dictionary earn its keep by grouping period characters by CRT conductor support
+and keeping signed packet structure?
+
+Answer: yes as a finite theorem-budget target, but no as an adverse-only
+envelope.  On the seven frozen signed-pair operator targets:
+
+```text
+support packets per row:                   15
+maximum packet reconstruction error:        9.992007221626409e-16
+tight positive row:                         94856
+tight signed packet abs sum:                0.22679673835446376
+tight signed packet budget:                 0.055452588891044076
+tight rowwise adverse packet margin:       -0.05008710016072493
+positive-only component envelope sum:       0.20972827541918798
+tight positive-only component margin:      -0.09568220367997388
+all-row component envelope sum:             1.2001268887790304
+```
+
+Decision:
+`HOLD_adverse_packet_route_fails_signed_packet_route_survives_budget`.  The
+support-packet dictionary reduces the tight-row source budget to about
+`5.545%`, materially looser than the previous sub-percent residual sign-split
+budget.  However, target `94856` is positive only because favorable packets
+offset adverse packets; the rowwise adverse-packet test and both disconnected
+component envelopes fail there.  The next proof object is therefore a signed
+support-packet binary-prime correlation estimate, not an adverse-only packet
+supremum bound and not a full-character triangle bound.  This proves no
+support-packet theorem, character-sum theorem, signed binary-prime correlation
+theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach
+proof.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 residual route now has a full-character triangle source-budget audit:
 `tools/build_q286_residual_character_triangle_budget_audit.py` generated
 `evidence/q286-residual-character-triangle-budget-audit.json`, with

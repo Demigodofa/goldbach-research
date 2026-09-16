@@ -6,6 +6,45 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 residual route now has a support-packet character budget audit:
+
+```text
+tools/build_q286_residual_character_support_packet_budget_audit.py
+notes/q286-residual-character-support-packet-budget-audit.md
+evidence/q286-residual-character-support-packet-budget-audit.json
+```
+
+Result on the seven frozen signed-pair operator targets:
+
+```text
+support packets per row:                   15
+maximum packet reconstruction error:        9.992007221626409e-16
+tight positive row:                         94856
+tight signed packet abs sum:                0.22679673835446376
+tight signed packet budget:                 0.055452588891044076
+tight rowwise adverse packet margin:       -0.05008710016072493
+positive-only component envelope sum:       0.20972827541918798
+tight positive-only component margin:      -0.09568220367997388
+all-row component envelope sum:             1.2001268887790304
+```
+
+Decision:
+`HOLD_adverse_packet_route_fails_signed_packet_route_survives_budget`.  The
+full-character triangle route remains too broad, but aggregating characters by
+CRT conductor support gives a meaningful smaller dictionary: `15` signed
+packets exactly reconstruct the residual action.  On the tight positive row
+`94856`, the signed packet budget is about `0.05545`, materially looser than
+the prior sub-percent residual sign-split budget.  The adverse-only packet
+route fails: `94856` is positive only because favorable packets offset adverse
+packets, and both rowwise and disconnected component envelopes fail there.
+The next proof object is a signed support-packet binary-prime correlation
+estimate, not an adverse-only packet supremum bound and not a full-character
+triangle bound.  This proves no support-packet theorem, character-sum theorem,
+signed binary-prime correlation theorem, q286 threshold theorem,
+strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 residual route now has a full-character triangle source-budget audit:
 
 ```text
