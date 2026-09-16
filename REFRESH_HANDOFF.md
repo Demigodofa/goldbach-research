@@ -6,6 +6,59 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS route now has a source-theorem fit audit:
+
+```text
+tools/build_q286_wbss_source_theorem_fit_audit.py
+notes/q286-wbss-source-theorem-fit-audit.md
+evidence/q286-wbss-source-theorem-fit-audit.json
+```
+
+Question: after the strict raw-gap analytic HOLD, can any currently named
+source-backed AP or Goldbach-in-progressions theorem directly pay the
+pointwise raw binary-prime estimate?
+
+Answer: no currently named source theorem fits the q286 strict raw-gap payment
+as a direct bridge.
+
+Fit table:
+
+```text
+BMOR_2018_AP_prime_counts:
+  useful one-dimensional AP input, but insufficient as a direct q286 bridge.
+  It controls marginal prime occupancy by residue class, not the reflected
+  binary convolution p+(N-p) or the signed q286 coefficient direction.
+
+Salmensuu_2021_binary_AP_Goldbach_almost_all:
+  relevant binary AP-Goldbach literature, but insufficient as a direct bridge.
+  The q286 route needs every sufficiently large covered target, an explicit
+  finite remainder threshold, the strict-central interval, and a signed
+  weighted coefficient sum.  Almost-all or exceptional-set theorems leave
+  unnamed targets.
+
+Halupczok_2012_AP_Goldbach_mean_value:
+  relevant circle-method and L-function setting, but insufficient as a direct
+  bridge.  Mean-value or averaged representation information does not give a
+  pointwise raw lower bound for the signed q286-WBSS witness for every covered
+  target.
+
+q286_active_character_L2_payment:
+  best current internal theorem target, not a source theorem.  The aggregate
+  active-character moment cap is materially looser than per-residue control,
+  but the required pointwise twisted binary-prime moment theorem is still
+  missing and must be rawized or paired with positive mass.
+```
+
+Decision: `SOURCE_FIT_no_existing_direct_pointwise_bridge`.  The next
+evidence-bearing move is not another finite scan, but an exact raw
+character-expanded theorem target for a bespoke fixed-modulus weighted
+circle-method estimate, or a sleep decision if that target collapses to
+ordinary pointwise binary Goldbach.  This proves no external pointwise bridge
+theorem, no strict raw-gap theorem, no q286 threshold theorem, no strict-central
+Goldbach theorem, and no Goldbach proof.
+
+## Latest active checkpoint note, 2026-09-15
+
 The q286-WBSS route now has a strict raw-gap analytic HOLD:
 
 ```text
