@@ -6,6 +6,42 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The source-start lane now has a prime-block theorem-obligation audit:
+
+```text
+tools/build_mobius_moment_square_degree5_prime_block_theorem_obligation_audit.py
+notes/mobius-moment-square-degree5-prime-block-theorem-obligation-audit.md
+evidence/mobius-moment-square-degree5-prime-block-theorem-obligation-audit.json
+```
+
+Result:
+
+```text
+status:                         AUDIT_degree5_prime_block_theorem_obligation
+scales:                         229, 251, 293, 331, 353, 379
+checked dominance rows:         1188
+all full contributions < 0:     true
+all full/2-active margins > 0:  true
+minimum normalized slack:       0.40189096624031384
+minimum unnormalized margin:    13356828127253.525
+minimum block separation gap:   0.003258445243465413
+tightest prime counts:          379 -> 2, 461 -> 1, 599 -> 3
+```
+
+Decision: the next mathematical target is not another raw finite acceptance
+threshold.  Since `full<0`, the normalized condition `active/full>1/2` is
+equivalent to the pointwise unnormalized inequality `full/2-active>0`.
+The live theorem-shaped target is source-start prime-block lower-frame control:
+prove `full(M,p,label)<0` and `full(M,p,label)/2-active(M,p,label)>0`, first
+by prime block and then over all primes in `[M,2M]`, for every sufficiently
+large source scale `M`.  The persistent `p=599` winner remains diagnostic only:
+the checked block-separation gap can be narrow, so fixed-winner prediction is
+not the theorem target.  This is a theorem-obligation audit only, not a
+prime-block theorem, not a source-start theorem, not a source-window theorem,
+not a strict-central Goldbach theorem, and not a Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The source-start lane now has a full `M=379` prime-row sweep and the
 stress-morphology audit is consolidated through six complete scales:
 

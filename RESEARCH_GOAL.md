@@ -6,6 +6,37 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The source-start lane now has a prime-block theorem-obligation audit:
+`tools/build_mobius_moment_square_degree5_prime_block_theorem_obligation_audit.py`
+generated
+`evidence/mobius-moment-square-degree5-prime-block-theorem-obligation-audit.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-prime-block-theorem-obligation-audit.md`.
+
+Question: what universal pointwise theorem would replace the six-scale finite
+source-start prime-block morphology evidence?
+
+Answer: the normalized finite condition is not the right final object.  Since
+the checked rows require `full < 0`, the condition `active/full > 1/2` is
+equivalent to the pointwise unnormalized inequality `full/2 - active > 0`.
+The checked six-scale fixture has `1188` dominance rows, all with negative
+full contribution and positive unnormalized half-frame margin.  The minimum
+checked normalized slack is `0.40189096624031384`; the minimum checked
+unnormalized margin is `13356828127253.525`.
+
+Decision: the next theorem-shaped target is source-start prime-block
+lower-frame control in unnormalized form: prove `full(M,p,label)<0` and
+`full(M,p,label)/2 - active(M,p,label)>0` at the canonical source start,
+first by prime block and then over all primes `p` in `[M,2M]`, for every
+sufficiently large source scale `M`.  The persistent `p=599` winner remains
+diagnostic only: the smallest top-to-second block slack gap is just
+`0.003258445243465413` at `M=379`, so exact fixed-winner prediction is the
+wrong theorem target unless a new mechanism appears.  This is not a
+prime-block theorem, not a source-start theorem, not a source-window theorem,
+not a strict-central Goldbach theorem, and not a Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The source-start lane now has a full `M=379` prime-row sweep and the
 stress-morphology audit is consolidated through six complete scales:
 `tools/build_mobius_moment_square_degree5_source_start_m379_full_prime_sweep.py`

@@ -1,0 +1,335 @@
+{
+  "all_checked_rows_have_negative_full_contribution": true,
+  "all_checked_rows_have_positive_unnormalized_half_frame_margin": true,
+  "checked_dominance_row_count": 1188,
+  "decision": "The next mathematical target is not another raw finite acceptance threshold.  It is a pointwise unnormalized inequality: full/2-active>0, with full<0, first by prime block and then over all primes in the source-start interval.  The persistent p=599 winner is only a diagnostic because the checked block-separation gap can be small.",
+  "finite_diagnostic_only": true,
+  "finite_obligation_audit_only": true,
+  "goldbach_proved": false,
+  "maximum_top_block_slack_spread": 0.0009780257632791,
+  "minimum_checked_dominance_slack_above_one_half": 0.40189096624031384,
+  "minimum_checked_unnormalized_half_frame_margin": 13356828127253.525,
+  "minimum_top_gap_to_internal_spread_factor": 6.297158705088222,
+  "minimum_top_to_second_block_slack_gap": 0.003258445243465413,
+  "pointwise_unnormalized_theorem_target": {
+    "current_finite_floor": "The checked floor is the minimum of full/2-active across the six complete source-start sweeps; it is not a universal constant.",
+    "name": "source-start prime-block lower-frame control",
+    "statement_shape": "For every sufficiently large source scale M and every prime p in [M,2M], every tracked component row and the degree-5 TOTAL row should satisfy full(M,p,label)<0 and full/2 - active > 0, i.e. full(M,p,label)/2 - active(M,p,label) > 0, at the canonical source start.  A stronger usable version needs a positive lower envelope for the minimum block margin over p.",
+    "why_unnormalized": "Because full<0, the normalized check active/full>1/2 is equivalent to the pointwise unnormalized inequality full/2 - active > 0."
+  },
+  "prime_block_theorem_proved": false,
+  "proof_obligations": [
+    {
+      "finite_status": "passes on checked six-scale fixture",
+      "id": "source_start.full_negative",
+      "needed": "Prove full(M,p,label)<0 uniformly for all relevant source-start rows.",
+      "theorem_status": "open"
+    },
+    {
+      "finite_status": "passes on checked six-scale fixture",
+      "id": "source_start.unnormalized_half_frame_margin",
+      "needed": "Prove full(M,p,label)/2-active(M,p,label)>0 uniformly, or prove a stronger explicit lower envelope by prime block.",
+      "theorem_status": "open"
+    },
+    {
+      "finite_status": "top blocks are coherent; the smallest top-to-second slack gap is narrow enough that exact winner claims should remain diagnostic only.",
+      "id": "prime_block.lower_envelope",
+      "needed": "Control the minimum over labels inside each prime block, then the minimum over primes p in [M,2M].",
+      "theorem_status": "open"
+    }
+  ],
+  "question": "What universal pointwise theorem would replace the six-scale finite source-start prime-block morphology evidence?",
+  "scale_count": 6,
+  "scale_obligation_records": [
+    {
+      "all_rows_have_negative_full_contribution": true,
+      "all_rows_have_positive_unnormalized_half_frame_margin": true,
+      "dominance_row_count": 156,
+      "full_sign_failure_count": 0,
+      "minimum_dominance_slack_above_one_half": 0.40189096624031384,
+      "minimum_unnormalized_half_frame_margin": 13356828127253.525,
+      "prime_row_count": 39,
+      "scale_modulus": 229,
+      "second_prime_block": {
+        "labels_by_slack": [
+          "00,12",
+          "01,11",
+          "TOTAL",
+          "01,02"
+        ],
+        "maximum_slack": 0.41683904006062233,
+        "minimum_slack": 0.41648819300272866,
+        "minimum_unnormalized_half_frame_margin": 27666003846526.215,
+        "prime_modulus": 401,
+        "scale_modulus": 229,
+        "slack_spread": 0.0003508470578936773,
+        "weakest_label": "00,12"
+      },
+      "source_receipt": "evidence\\mobius-moment-square-degree5-source-start-m229-full-prime-sweep.json",
+      "top_block_slack_spread": 0.00035737890954545826,
+      "top_gap_to_internal_spread_factor": 40.845238408110546,
+      "top_prime_block": {
+        "labels_by_slack": [
+          "00,12",
+          "01,11",
+          "TOTAL",
+          "01,02"
+        ],
+        "maximum_slack": 0.4022483451498593,
+        "minimum_slack": 0.40189096624031384,
+        "minimum_unnormalized_half_frame_margin": 27794559376702.99,
+        "prime_modulus": 379,
+        "scale_modulus": 229,
+        "slack_spread": 0.00035737890954545826,
+        "weakest_label": "00,12"
+      },
+      "top_to_second_block_slack_gap": 0.014597226762414817,
+      "unnormalized_margin_failure_count": 0
+    },
+    {
+      "all_rows_have_negative_full_contribution": true,
+      "all_rows_have_positive_unnormalized_half_frame_margin": true,
+      "dominance_row_count": 168,
+      "full_sign_failure_count": 0,
+      "minimum_dominance_slack_above_one_half": 0.43435333637430296,
+      "minimum_unnormalized_half_frame_margin": 16700489343595.932,
+      "prime_row_count": 42,
+      "scale_modulus": 251,
+      "second_prime_block": {
+        "labels_by_slack": [
+          "00,12",
+          "01,11",
+          "TOTAL",
+          "01,02"
+        ],
+        "maximum_slack": 0.4390719083131236,
+        "minimum_slack": 0.4385550526424923,
+        "minimum_unnormalized_half_frame_margin": 30193829419439.008,
+        "prime_modulus": 401,
+        "scale_modulus": 251,
+        "slack_spread": 0.000516855670631311,
+        "weakest_label": "00,12"
+      },
+      "source_receipt": "evidence\\mobius-moment-square-degree5-source-start-m251-full-prime-sweep.json",
+      "top_block_slack_spread": 0.0002963819806068857,
+      "top_gap_to_internal_spread_factor": 14.176692724657869,
+      "top_prime_block": {
+        "labels_by_slack": [
+          "00,12",
+          "01,11",
+          "TOTAL",
+          "01,02"
+        ],
+        "maximum_slack": 0.43464971835490984,
+        "minimum_slack": 0.43435333637430296,
+        "minimum_unnormalized_half_frame_margin": 30696847645850.82,
+        "prime_modulus": 379,
+        "scale_modulus": 251,
+        "slack_spread": 0.0002963819806068857,
+        "weakest_label": "00,12"
+      },
+      "top_to_second_block_slack_gap": 0.004201716268189326,
+      "unnormalized_margin_failure_count": 0
+    },
+    {
+      "all_rows_have_negative_full_contribution": true,
+      "all_rows_have_positive_unnormalized_half_frame_margin": true,
+      "dominance_row_count": 180,
+      "full_sign_failure_count": 0,
+      "minimum_dominance_slack_above_one_half": 0.4257305726250574,
+      "minimum_unnormalized_half_frame_margin": 44329698824537.734,
+      "prime_row_count": 45,
+      "scale_modulus": 293,
+      "second_prime_block": {
+        "labels_by_slack": [
+          "00,12",
+          "01,11",
+          "TOTAL",
+          "01,02"
+        ],
+        "maximum_slack": 0.4405755460946681,
+        "minimum_slack": 0.440167185767269,
+        "minimum_unnormalized_half_frame_margin": 66561325079162.66,
+        "prime_modulus": 541,
+        "scale_modulus": 293,
+        "slack_spread": 0.00040836032739910433,
+        "weakest_label": "00,12"
+      },
+      "source_receipt": "evidence\\mobius-moment-square-degree5-source-start-m293-full-prime-sweep.json",
+      "top_block_slack_spread": 0.0007854839774833478,
+      "top_gap_to_internal_spread_factor": 18.379258592219493,
+      "top_prime_block": {
+        "labels_by_slack": [
+          "00,12",
+          "TOTAL",
+          "01,02",
+          "01,11"
+        ],
+        "maximum_slack": 0.42651605660254077,
+        "minimum_slack": 0.4257305726250574,
+        "minimum_unnormalized_half_frame_margin": 53259886272611.25,
+        "prime_modulus": 461,
+        "scale_modulus": 293,
+        "slack_spread": 0.0007854839774833478,
+        "weakest_label": "00,12"
+      },
+      "top_to_second_block_slack_gap": 0.014436613142211563,
+      "unnormalized_margin_failure_count": 0
+    },
+    {
+      "all_rows_have_negative_full_contribution": true,
+      "all_rows_have_positive_unnormalized_half_frame_margin": true,
+      "dominance_row_count": 220,
+      "full_sign_failure_count": 0,
+      "minimum_dominance_slack_above_one_half": 0.40479256047704726,
+      "minimum_unnormalized_half_frame_margin": 133061060230678.78,
+      "prime_row_count": 55,
+      "scale_modulus": 331,
+      "second_prime_block": {
+        "labels_by_slack": [
+          "00,12",
+          "TOTAL",
+          "01,02",
+          "01,11"
+        ],
+        "maximum_slack": 0.41563880236847484,
+        "minimum_slack": 0.4149517018938488,
+        "minimum_unnormalized_half_frame_margin": 259176419040939.0,
+        "prime_modulus": 647,
+        "scale_modulus": 331,
+        "slack_spread": 0.0006871004746260567,
+        "weakest_label": "00,12"
+      },
+      "source_receipt": "evidence\\mobius-moment-square-degree5-source-start-m331-full-prime-sweep.json",
+      "top_block_slack_spread": 0.0009780257632791,
+      "top_gap_to_internal_spread_factor": 10.387396526999664,
+      "top_prime_block": {
+        "labels_by_slack": [
+          "00,12",
+          "TOTAL",
+          "01,11",
+          "01,02"
+        ],
+        "maximum_slack": 0.40577058624032636,
+        "minimum_slack": 0.40479256047704726,
+        "minimum_unnormalized_half_frame_margin": 249176824511996.3,
+        "prime_modulus": 599,
+        "scale_modulus": 331,
+        "slack_spread": 0.0009780257632791,
+        "weakest_label": "00,12"
+      },
+      "top_to_second_block_slack_gap": 0.01015914141680152,
+      "unnormalized_margin_failure_count": 0
+    },
+    {
+      "all_rows_have_negative_full_contribution": true,
+      "all_rows_have_positive_unnormalized_half_frame_margin": true,
+      "dominance_row_count": 224,
+      "full_sign_failure_count": 0,
+      "minimum_dominance_slack_above_one_half": 0.41096324474219414,
+      "minimum_unnormalized_half_frame_margin": 133292041554175.53,
+      "prime_row_count": 56,
+      "scale_modulus": 353,
+      "second_prime_block": {
+        "labels_by_slack": [
+          "00,12",
+          "TOTAL",
+          "01,11",
+          "01,02"
+        ],
+        "maximum_slack": 0.4239976647636833,
+        "minimum_slack": 0.42344857003531877,
+        "minimum_unnormalized_half_frame_margin": 278734334621399.06,
+        "prime_modulus": 691,
+        "scale_modulus": 353,
+        "slack_spread": 0.0005490947283645076,
+        "weakest_label": "00,12"
+      },
+      "source_receipt": "evidence\\mobius-moment-square-degree5-source-start-m353-full-prime-sweep.json",
+      "top_block_slack_spread": 0.0007927889013509271,
+      "top_gap_to_internal_spread_factor": 15.748612615349938,
+      "top_prime_block": {
+        "labels_by_slack": [
+          "00,12",
+          "TOTAL",
+          "01,11",
+          "01,02"
+        ],
+        "maximum_slack": 0.41175603364354507,
+        "minimum_slack": 0.41096324474219414,
+        "minimum_unnormalized_half_frame_margin": 253846683367721.5,
+        "prime_modulus": 599,
+        "scale_modulus": 353,
+        "slack_spread": 0.0007927889013509271,
+        "weakest_label": "00,12"
+      },
+      "top_to_second_block_slack_gap": 0.012485325293124627,
+      "unnormalized_margin_failure_count": 0
+    },
+    {
+      "all_rows_have_negative_full_contribution": true,
+      "all_rows_have_positive_unnormalized_half_frame_margin": true,
+      "dominance_row_count": 240,
+      "full_sign_failure_count": 0,
+      "minimum_dominance_slack_above_one_half": 0.4246854972346972,
+      "minimum_unnormalized_half_frame_margin": 139963931473254.75,
+      "prime_row_count": 60,
+      "scale_modulus": 379,
+      "second_prime_block": {
+        "labels_by_slack": [
+          "01,02",
+          "TOTAL",
+          "01,11",
+          "00,12"
+        ],
+        "maximum_slack": 0.42827575917784777,
+        "minimum_slack": 0.4279439424781626,
+        "minimum_unnormalized_half_frame_margin": 283996098465682.2,
+        "prime_modulus": 727,
+        "scale_modulus": 379,
+        "slack_spread": 0.00033181669968518346,
+        "weakest_label": "01,02"
+      },
+      "source_receipt": "evidence\\mobius-moment-square-degree5-source-start-m379-full-prime-sweep.json",
+      "top_block_slack_spread": 0.0005174468988422554,
+      "top_gap_to_internal_spread_factor": 6.297158705088222,
+      "top_prime_block": {
+        "labels_by_slack": [
+          "00,12",
+          "TOTAL",
+          "01,11",
+          "01,02"
+        ],
+        "maximum_slack": 0.42520294413353943,
+        "minimum_slack": 0.4246854972346972,
+        "minimum_unnormalized_half_frame_margin": 267181208856695.88,
+        "prime_modulus": 599,
+        "scale_modulus": 379,
+        "slack_spread": 0.0005174468988422554,
+        "weakest_label": "00,12"
+      },
+      "top_to_second_block_slack_gap": 0.003258445243465413,
+      "unnormalized_margin_failure_count": 0
+    }
+  ],
+  "scales": [
+    229,
+    251,
+    293,
+    331,
+    353,
+    379
+  ],
+  "schema_version": 1,
+  "source_commit": "2b697dca8bcf42d1d40965889a1cc6027feb7363",
+  "source_morphology_audit": "evidence\\mobius-moment-square-degree5-source-start-stress-morphology-audit.json",
+  "source_start_theorem_proved": false,
+  "source_window_theorem_proved": false,
+  "status": "AUDIT_degree5_prime_block_theorem_obligation",
+  "strict_central_goldbach_theorem_proved": false,
+  "tightest_prime_counts": {
+    "379": 2,
+    "461": 1,
+    "599": 3
+  }
+}
