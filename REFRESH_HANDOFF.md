@@ -6,6 +6,41 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The `Q=46189` replacement-family lane now has a packet-ratio landscape audit:
+
+```text
+tools/build_mobius_moment_square_degree5_q46189_packet_ratio_landscape_audit.py
+notes/mobius-moment-square-degree5-q46189-packet-ratio-landscape-audit.md
+evidence/mobius-moment-square-degree5-q46189-packet-ratio-landscape-audit.json
+```
+
+Result:
+
+```text
+same-source denominators:              35
+nonadverse denominators:               34
+six-pair packets:                      33
+raw scalar-identity rows:              33
+Q=46189 ratio minus half:              -0.0026909627652296764
+nonadverse ratio-above-half count:     34 / 34
+nonadverse ratio <= half count:        0
+weakest nonadverse denominator:        38038 = 2*7*11*13*19
+weakest nonadverse ratio minus half:   0.0763534077069109
+50A..60A share failures still present: 16302
+```
+
+Decision: the reachable `q=16302` packet still demotes the frozen
+`50A..60A` distance-window selector, but it does not demote the
+one-coordinate active/full ratio target.  In the checked landscape,
+`Q=46189` is the unique row below one half and all `34/34` nonadverse rows
+are above one half.  The next useful route is a symbolic active/full
+energy-ratio inequality, starting with the tight finite comparison
+`Q=46189` versus `q=38038`.  This proves no one-coordinate active/full ratio
+theorem, packet-landscape theorem, strict-central Goldbach theorem, or
+Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The `Q=46189` replacement-family lane now has a frozen-selector
 unused-denominator holdout and counterexample-reachability audit:
 

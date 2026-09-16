@@ -6,6 +6,35 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The `Q=46189` replacement-family lane now has a packet-ratio landscape audit:
+`tools/build_mobius_moment_square_degree5_q46189_packet_ratio_landscape_audit.py`
+generated
+`evidence/mobius-moment-square-degree5-q46189-packet-ratio-landscape-audit.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-q46189-packet-ratio-landscape-audit.md`.
+
+Question: after reachable `q=16302` falsifies the broad frozen `50A..60A`
+distance selector, does the one-coordinate active/full ratio target survive
+on the broader same-source packet landscape?
+
+Answer: yes as finite landscape evidence.  In the checked same-source
+landscape there are `35` denominators.  `Q=46189` is the unique row below one
+half, with ratio-minus-half `-0.0026909627652296764`.  All `34/34`
+nonadverse denominators are above one half.  The weakest positive
+nonadverse row is `q=38038 = 2*7*11*13*19`, with ratio-minus-half
+`0.0763534077069109`.  The reachable counterexample `q=16302` still fails
+the frozen `50A..60A` positive-share test, but its one-coordinate ratio is
+positive; it demotes the distance-window selector, not the energy-ratio
+target.
+
+Decision: do not rescue `50A..60A`.  The useful theorem-shaped target shifts
+to a symbolic active/full energy-ratio inequality over source packets,
+starting with the tight comparison `Q=46189` versus `q=38038`.  This proves
+no one-coordinate active/full ratio theorem, packet-landscape theorem,
+strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The `Q=46189` replacement-family lane now has a frozen-selector
 unused-denominator holdout and counterexample-reachability audit:
 `tools/build_mobius_moment_square_degree5_q46189_frozen_selector_unused_denominator_holdout.py`
