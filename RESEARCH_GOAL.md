@@ -6,6 +6,37 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The q286-WBSS route now has a zero-residue `K_286` absolute-envelope payment
+probe:
+`tools/build_q286_wbss_k286_zero_residue_absolute_envelope_payment_probe.py`
+generated
+`evidence/q286-wbss-k286-zero-residue-absolute-envelope-payment-probe.json`,
+with explanation in
+`notes/q286-wbss-k286-zero-residue-absolute-envelope-payment-probe.md`.
+
+Question: does the `K_286` absolute-envelope payment diagnostic survive all
+`35` zero-residue period classes for the first two lifts after the raw
+adverse-drag horizon?
+
+Answer: yes on this finite probe.  All `70/70` rows satisfy
+`M(N)-A_other(N)-H_286(N)>0`.  The maximum payment ratio is
+`0.6081499594276282`; the minimum margin is `0.2797816892333873`, at target
+`1170884`, residue `9724`, lift `1`, with local main
+`0.7140019401930207`, other-moduli adverse drag `0.03871070052911857`, and
+full `K_286` envelope `0.3955095504305148`.
+
+Decision: `PROBE_k286_zero_residue_absolute_envelope_payment_survives`.  The
+absolute-envelope payment route survives a wider near-horizon zero-residue
+probe.  This strengthens the theorem-shaped direction toward a `K_286`
+absolute-envelope bound plus companion one-sided bounds for the other moduli,
+and suggests the next finite stress should extend lift depth rather than only
+add near-horizon period residues.  No `K_286` absolute-envelope theorem,
+companion adverse-drag theorem, phase-cancellation theorem, universal
+pointwise raw estimate, q286 threshold theorem, strict-central Goldbach
+theorem, or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-16
+
 The q286-WBSS route now has a `K_286` absolute-envelope payment audit:
 `tools/build_q286_wbss_k286_absolute_envelope_payment_audit.py` generated
 `evidence/q286-wbss-k286-absolute-envelope-payment-audit.json`, with
