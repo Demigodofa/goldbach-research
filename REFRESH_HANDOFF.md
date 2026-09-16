@@ -6,6 +6,44 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The source-start lane now has a denominator decomposition for the unnormalized
+theorem margin:
+
+```text
+tools/build_mobius_moment_square_degree5_source_margin_denominator_audit.py
+notes/mobius-moment-square-degree5-source-margin-denominator-audit.md
+evidence/mobius-moment-square-degree5-source-margin-denominator-audit.json
+```
+
+Result:
+
+```text
+status:                         AUDIT_degree5_source_margin_denominator_decomposition
+scales:                         229, 251, 293, 331, 353, 379
+tight blocks:                   (229,379), (251,379), (293,461), (331,599), (353,599), (379,599)
+reduced denominator counts:      28..77
+minimum adverse/positive ratio:  0.00034280843897457745
+maximum adverse/positive ratio:  0.000878341064244336
+M=379 total margin:             267181208856715.3
+M=379 positive denom sum:       267329631995333.88
+M=379 negative denom sum:      -148423138618.55527
+M=379 largest positive q:       156009
+M=379 largest negative q:        52003
+```
+
+Decision: the checked tight margins are not fragile cancellations of
+comparable positive and negative denominator masses.  The next theorem
+subtarget should be a signed reduced-denominator margin ledger: prove
+`sum_q(full_q/2-active_q)>0` after grouping denominators into stable families.
+It is probably too strong to require every individual reduced denominator to
+be positive, but the finite data says the adverse ledger is small enough that
+a positive-family dominance theorem is plausible.  This is finite denominator
+decomposition evidence only, not a denominator-margin theorem, not a
+prime-block theorem, not a source-start theorem, not a source-window theorem,
+not a strict-central Goldbach theorem, and not a Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The source-start lane now has a prime-block theorem-obligation audit:
 
 ```text

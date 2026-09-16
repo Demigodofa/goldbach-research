@@ -6,6 +6,40 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The source-start lane now has a denominator decomposition for the
+unnormalized theorem margin:
+`tools/build_mobius_moment_square_degree5_source_margin_denominator_audit.py`
+generated
+`evidence/mobius-moment-square-degree5-source-margin-denominator-audit.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-source-margin-denominator-audit.md`.
+
+Question: for the tightest checked source-start prime blocks, is the positive
+margin `full/2 - active > 0` denominator-local, diffuse, or
+cancellation-dependent?
+
+Answer: as finite evidence, the tight margins are not fragile cancellations of
+comparable positive and negative denominator masses.  Across the six tight
+blocks, reduced denominator counts range from `28` to `77`.  The adverse
+denominator mass is tiny relative to the positive denominator mass: the
+adverse/positive ratio ranges from `0.00034280843897457745` to
+`0.000878341064244336`.  For the tightest `M=379`, `p=599`, `(00,12)` block,
+the total unnormalized margin is `267181208856715.3`, the positive denominator
+sum is `267329631995333.88`, the negative denominator sum is
+`-148423138618.55527`, the largest positive reduced denominator is `156009`,
+and the largest negative reduced denominator is `52003`.
+
+Decision: the next theorem subtarget should be a signed reduced-denominator
+margin ledger: prove `sum_q(full_q/2-active_q)>0` after grouping denominators
+into stable families.  It is probably too strong to require every individual
+denominator to be positive, but the finite data says the adverse ledger is
+small enough that a positive-family dominance theorem is plausible.  This is
+not a denominator-margin theorem, not a prime-block theorem, not a
+source-start theorem, not a source-window theorem, not a strict-central
+Goldbach theorem, and not a Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The source-start lane now has a prime-block theorem-obligation audit:
 `tools/build_mobius_moment_square_degree5_prime_block_theorem_obligation_audit.py`
 generated
