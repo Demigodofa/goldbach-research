@@ -6,6 +6,39 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The free frozen scale has earned an analytical simplification. See
+`notes/cutoff-normalized-complementary-remainder.md`.
+For fixed `0<theta<1/2`, `R=floor(N^theta)`, define
+`A(n)=sum_(d|n,d<=R)mu(d)log(R/d)` and `D(n)=Lambda(n)-A(n)`.
+The scale is now `R`, not the previous `N`; the underlying full divisor
+identity is unchanged. On the strict central interval, the derivation gives
+
+```text
+C(A,A)      = H(N) + O_(theta,J)(N/log(N)^J),
+C(A,D)      =        O_(theta,J)(N/log(N)^J),
+Delta_0(N)  = C(D,D)+O_(theta,J)(N/log(N)^J)
+```
+
+for every fixed `J>0`, uniformly as even `N` tends to infinity.
+The inputs are Goldston-Yildirim Lemma 2.1 and Bombieri-Vinogradov, with a
+written common-divisor tail argument supplying the needed target uniformity.
+The paper's restricted-shift pair theorem is NOT applied at `k=N`.
+The old scale-`N` main and mixed terms are not separately reclassified.
+
+The remaining sufficient theorem is the pointwise one-sided estimate
+`C(D,D)>=-(1-epsilon)H(N)` for some fixed `epsilon>0` and all sufficiently
+large even `N`. It is OPEN. This is a reduction of the open obligations,
+not a bound for the last correlation, a numerical starting point, or a
+Goldbach proof. q286's additional `sum U_d` also remains if that route is used.
+
+Eleven new exact-algebra tests and the 59-test combined suite pass.
+The separate mathematical/source review is in `notes/review-receipts.md`.
+This was a useful creative change of representation, not a new-math novelty
+claim. The full prove-or-disprove objective remains active. Choose the next
+question for information value; do not force a route or scan more constants.
+
+## Complementary-divisor mapping checkpoint, 2026-09-16
+
 The original divisor construction is now mapped exactly to the binary mass
 error in `notes/q286-q46189-complementary-divisor-mapping.md`.
 With `c_a=mu(a)log(N/a)`, its full divisor sum is exactly `Lambda(n)` for

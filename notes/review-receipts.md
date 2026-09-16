@@ -4,6 +4,42 @@ Owner: Rill. Purpose: preserve the reasoning and validation that support claimed
 results, including corrections that change future execution. No raw model
 reasoning is retained. Model agreement is not a proof by itself.
 
+## Cutoff-normalized complementary remainder, 2026-09-16
+
+A separate read-only Sol review (`01a0ac44-b822-7c63-9584-9463e00f38b9`)
+gave a consolidated PASS to the proof and primary-source applications in
+`notes/cutoff-normalized-complementary-remainder.md`. This was a fresh
+review context supplied the derivation, not blind independent discovery.
+It directly checked Goldston-Yildirim Lemma 2.1's logarithmic uniformity
+condition, its `j=0,1` specializations, both common-divisor tails, the Euler
+collapse, and the moving-residue use of Bombieri-Vinogradov at the two
+strict endpoints. No correction to the displayed deductions was required.
+
+The accepted result is a proved reduction: in the new cutoff-scale
+normalization, `C(A,A)=H+O_(theta,J)(N/log(N)^J)` and
+`C(A,Lambda)=H+O_(theta,J)(N/log(N)^J)`, so
+`Delta_0=C(D,D)+O_(theta,J)(N/log(N)^J)`. Fixed `0<theta<1/2` is essential;
+no uniformity over a changing theta or numerical starting point is claimed.
+The published pair theorem's small-shift restriction is NOT bypassed by
+citation; the written common-divisor argument supplies the required extension.
+The original scale-`N` decomposition is not separately reclassified.
+
+Eleven new tests pass normally and under `python -O`; the lead's combined
+suite passes 59 tests. The reviewer also ran the 24-test new/parent suite
+in both modes and found no implementation issue. These verify exact finite
+algebra, not the analytical inputs or asymptotic conclusion.
+
+A local Qwen response incorrectly rejected the Euler identity by retaining
+non-squarefree powers of two and misvaluing the factor at two. Rill rejected
+that objection by exact calculation, sent a linked correction, and checked
+the corrected response. The explicit `N=8` rational fixture preserves the
+zero Mobius-square weights. Neither response serves as proof authority.
+
+The one-sided bound for `C(D,D)` remains OPEN. This is a useful change in
+the remaining obligation, not a Goldbach proof, an external novelty claim,
+or permission to resume constant scans. The primary source is linked with
+equation/page locators in the mathematical note.
+
 ## Complementary-divisor mapping and sign check, 2026-09-16
 
 A separate read-only Sol review (`01a0ac33-64b3-78e3-bd5c-e1ec0de0cea8`)

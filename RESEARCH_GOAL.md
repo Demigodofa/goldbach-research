@@ -6,6 +6,25 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+A cutoff-normalized decomposition now isolates one residual correlation.
+See `notes/cutoff-normalized-complementary-remainder.md`. Choosing the free
+frozen scale to equal `R=floor(N^theta)`, `0<theta<1/2`, puts the short
+part `A` in the classical truncated von Mangoldt form. With `D=Lambda-A`,
+the target-uniform derivation gives `C(A,A)=H+O_J(N/log(N)^J)` and
+`C(A,D)=O_J(N/log(N)^J)`, hence `Delta_0=C(D,D)+O_J(N/log(N)^J)` for
+every fixed `J>0` (constants may also depend on fixed `theta`).
+
+The proof uses a published uniform divisor-sum lemma, an explicit
+common-divisor tail estimate, and Bombieri-Vinogradov. It does not
+misapply a fixed/small-shift pair theorem. The previous scale-`N` terms
+are redistributed, not individually declared controlled. The remaining
+one-sided signed residual estimate is OPEN and still has Goldbach strength.
+Eleven new tests and a 59-test combined run validate the finite algebra;
+source and mathematical review are recorded separately. This changes the
+next proof obligation, not the full prove-or-disprove objective.
+
+## Complementary-divisor mapping checkpoint, 2026-09-16
+
 An exact complementary-divisor mapping now isolates the missing mass error:
 `Delta_0=(N/3)(K_B-S)+E_B+2C(A_B,R_B)+C(R_B,R_B)-P_N`.
 See `notes/q286-q46189-complementary-divisor-mapping.md`. The elementary
