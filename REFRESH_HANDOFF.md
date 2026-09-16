@@ -6,6 +6,53 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 residual support-order route now has a raw-scale bridge audit:
+
+```text
+tools/build_q286_residual_support_order_raw_scale_bridge.py
+notes/q286-residual-support-order-raw-scale-bridge.md
+evidence/q286-residual-support-order-raw-scale-bridge.json
+```
+
+Result:
+
+```text
+horizon rows:                              224
+positive scale rows:                       224
+nonpositive scale targets:                   0
+raw domination failures:                     0
+sign-equivalence failures:                   0
+principal mean, real:        44002.512499999146
+principal mean, imag/real:   7.23271826100478e-15
+minimum strict-central total weight:
+                              9320.216763448925
+minimum pair count target:                  24148
+minimum ordered central prime-pair count:     106
+tight raw margin target:                   44168
+tight raw margin:             471324043.51697165
+maximum relative reconstruction error:
+                              2.1714989760691137e-16
+```
+
+Decision: `CALIBRATION_raw_scale_bridge_verified_on_horizon`.  On the checked
+horizon, `scale(N)=principal_mean*strict_central_total_weight(N)` is positive
+on every row, so normalized same-row support-order domination is
+sign-equivalent to raw domination.  This proves no positive-mass theorem and no
+raw pointwise estimate.  The theorem obligations are now sharper:
+
+```text
+1. prove total_weight(N)>0 for every sufficiently large eligible N, or avoid
+   the denominator entirely;
+2. prove raw_low_order_base(N)>raw_adverse_drag(N) pointwise after one period;
+3. verify the finite initial interval separately.
+```
+
+No one-period threshold theorem, low-order base theorem, high-order tail
+domination theorem, q286 threshold theorem, strict-central Goldbach theorem, or
+Goldbach proof is established.
+
+## Latest active checkpoint note, 2026-09-15
+
 The q286 residual support-order route now has an explicit pointwise theorem
 target audit:
 

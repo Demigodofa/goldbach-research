@@ -6,6 +6,56 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 residual support-order route now has a raw-scale bridge audit:
+`tools/build_q286_residual_support_order_raw_scale_bridge.py` generated
+`evidence/q286-residual-support-order-raw-scale-bridge.json`, with explanation
+in `notes/q286-residual-support-order-raw-scale-bridge.md`.
+
+Question: does the checked one-period support-order horizon identify the exact
+normalization bridge from normalized action inequalities to raw prime-pair
+scale?
+
+Answer: yes as finite calibration.  On the checked horizon,
+
+```text
+scale(N) = principal_mean * strict_central_total_weight(N)
+raw_low_order_base(N) = normalized_low_order_base(N) * scale(N)
+raw_adverse_drag(N)   = normalized_adverse_drag(N) * scale(N)
+```
+
+and `scale(N)>0` makes normalized same-row domination sign-equivalent to raw
+domination.
+
+```text
+horizon rows:                              224
+positive scale rows:                       224
+nonpositive scale targets:                   0
+raw domination failures:                     0
+sign-equivalence failures:                   0
+principal mean, real:        44002.512499999146
+principal mean, imag/real:   7.23271826100478e-15
+minimum strict-central total weight:
+                              9320.216763448925
+minimum pair count target:                  24148
+minimum ordered central prime-pair count:     106
+tight raw margin target:                   44168
+tight raw margin:             471324043.51697165
+maximum relative reconstruction error:
+                              2.1714989760691137e-16
+```
+
+Decision: `CALIBRATION_raw_scale_bridge_verified_on_horizon`.  This removes
+ambiguity about the finite normalization bridge, but proves no positive-mass
+theorem or raw pointwise estimate.  The remaining theorem obligations are to
+prove `total_weight(N)>0` for every sufficiently large eligible `N` in the
+named period classes, prove
+`raw_low_order_base(N)>raw_adverse_drag(N)` pointwise after one period, and
+verify the finite initial range separately.  No one-period threshold theorem,
+low-order base theorem, high-order tail domination theorem, q286 threshold
+theorem, strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Latest continuation evidence, 2026-09-15
+
 The q286 residual support-order route now has an explicit pointwise theorem
 target audit:
 `tools/build_q286_residual_support_order_pointwise_theorem_target.py`
