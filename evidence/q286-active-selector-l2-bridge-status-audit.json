@@ -1,0 +1,124 @@
+{
+  "active_selector_rarity_theorem_proved": false,
+  "decision": "HOLD_L2_is_valid_sufficient_non_circular_shape_but_unconfirmed. Do not treat L2 as an accepted bridge.  Use it only as a theorem target or replace it with the sharper signed-projection/anti-alignment obligation.",
+  "goldbach_proved": false,
+  "l2_discrepancy_theorem_proved": false,
+  "l2_sufficient_theorem_shape": {
+    "even_target_residue_count": 143,
+    "maximum_centered_coefficient_mean_error": 2.3092638912203256e-14,
+    "maximum_l2_relative_error_sufficient": 0.017908306132142508,
+    "maximum_linf_relative_error_sufficient": 0.002451362294448365,
+    "minimum_l2_relative_error_sufficient": 0.0059551615239434134,
+    "minimum_linf_relative_error_sufficient": 0.0012438599030454016,
+    "normalized_statement": "For even N == a mod 286 with T_N=sum_u W_N(u)>0, if ||W_N - T_N/|A_a|||_2 / T_N <= 0.3 / ||gamma_a||_2, then first_three(N) >= -0.3."
+  },
+  "next_action": "Prefer the coefficient-sensitive signed-projection theorem <delta_N,c_a> >= -0.3, or its residue-pair correlation form, over plain L2 uniformity.  Plain L2 should sleep unless a genuine pointwise fixed-modulus binary-prime discrepancy theorem is proved or cited.",
+  "non_circularity_classification": {
+    "confirmed_by_current_work": false,
+    "non_circular_as_external_arithmetic_premise": true,
+    "normalization_boundary": "The L2 premise is normalized by T_N and therefore only has content when T_N>0.  It can control residue distribution conditional on strict-central prime-pair mass; it cannot by itself prove that such mass exists.  A positive main-term AP theorem would be a separate Goldbach-strength input.",
+    "proves_goldbach": false,
+    "proves_strict_central_existence": false,
+    "valid_sufficient_implication": true,
+    "why_not_circular": "The premise is a statement about actual residue weights W_N(u) before applying the active selector; it does not say 'assume first_three >= -0.3'.  If proved uniformly from prime-pair distribution, it would exclude active-selector tails without reusing the desired conclusion.",
+    "why_not_confirmed": "The repository has coefficient identities and finite window measurements, but no pointwise theorem proving the L2 bound for every sufficiently large target."
+  },
+  "post_failure_context": {
+    "active_selector_count": 1,
+    "active_targets": [
+      650476
+    ],
+    "active_targets_not_in_source_summary": [],
+    "decision_relevance": "The post-failure holdout supports active-selector rarity as a theorem obligation, but it does not prove the L2 premise.",
+    "scanned_target_count": 10010
+  },
+  "question": "Is the q286 active-selector L2 rarity target genuinely non-circular, and is it actually confirmed?",
+  "receipt": "q286-active-selector-l2-bridge-status-audit",
+  "sample_stress": {
+    "clear_l2_fail_signed_pass_count": 2,
+    "clear_rows_that_fail_l2_but_pass_signed_projection": [
+      {
+        "cosine_margin_to_threshold": 0.0462017717385812,
+        "first_three_to_principal_ratio": -0.27468410150061684,
+        "generic_l2_uniformity_certificate_holds": false,
+        "l2_budget_utilization": 1.82647385924401,
+        "orthogonal_delta_l2_fraction": 0.8652728085285658,
+        "signed_projection_certificate_holds": true,
+        "tail_target": false,
+        "target": 1240888,
+        "target_mod_286": 220
+      },
+      {
+        "cosine_margin_to_threshold": 0.01554916722773031,
+        "first_three_to_principal_ratio": -0.2864267432684322,
+        "generic_l2_uniformity_certificate_holds": false,
+        "l2_budget_utilization": 2.9097499848440553,
+        "orthogonal_delta_l2_fraction": 0.9446350171767286,
+        "signed_projection_certificate_holds": true,
+        "tail_target": false,
+        "target": 1242118,
+        "target_mod_286": 20
+      }
+    ],
+    "interpretation": "Generic L2 uniformity is sufficient but too blunt: clear rows can fail the L2 budget and still pass because their deviation is mostly orthogonal or favorably aligned relative to the q286 coefficient vector.",
+    "sample_rows": [
+      {
+        "cosine_margin_to_threshold": -0.012059483057299869,
+        "first_three_to_principal_ratio": -0.3075877603708794,
+        "generic_l2_uniformity_certificate_holds": false,
+        "l2_budget_utilization": 2.0973149884967834,
+        "orthogonal_delta_l2_fraction": 0.8723624856121294,
+        "signed_projection_certificate_holds": false,
+        "tail_target": true,
+        "target": 1222142,
+        "target_mod_286": 64
+      },
+      {
+        "cosine_margin_to_threshold": 0.0462017717385812,
+        "first_three_to_principal_ratio": -0.27468410150061684,
+        "generic_l2_uniformity_certificate_holds": false,
+        "l2_budget_utilization": 1.82647385924401,
+        "orthogonal_delta_l2_fraction": 0.8652728085285658,
+        "signed_projection_certificate_holds": true,
+        "tail_target": false,
+        "target": 1240888,
+        "target_mod_286": 220
+      },
+      {
+        "cosine_margin_to_threshold": 0.01554916722773031,
+        "first_three_to_principal_ratio": -0.2864267432684322,
+        "generic_l2_uniformity_certificate_holds": false,
+        "l2_budget_utilization": 2.9097499848440553,
+        "orthogonal_delta_l2_fraction": 0.9446350171767286,
+        "signed_projection_certificate_holds": true,
+        "tail_target": false,
+        "target": 1242118,
+        "target_mod_286": 20
+      }
+    ],
+    "sample_targets": [
+      1222142,
+      1242118,
+      1240888
+    ],
+    "tail_sample_targets": [
+      1222142
+    ]
+  },
+  "schema_version": 1,
+  "short_answer": "The L2 smallness statement is a valid non-circular sufficient theorem shape if it is proved as a pointwise arithmetic estimate for actual strict-central binary-prime residue weights with T_N>0.  It is not confirmed: no such theorem is proved, the finite scouts only measure windows, and clear sample rows already show generic L2 uniformity is stronger than necessary.",
+  "source_commit": "5ccbf2ea4524dff03f6f8a6fa484a8e179020d47",
+  "sources": {
+    "orbit_uniformity_budget": "evidence\\q286-first-three-orbit-uniformity-budget.json",
+    "post_failure_cycle_holdout": "evidence\\q286-active-lane-post-failure-cycle-holdout.json",
+    "residue_pair_correlation_obligation": "evidence\\q286-first-three-residue-pair-correlation-obligation.json",
+    "signed_projection_obligation": "evidence\\q286-first-three-signed-projection-obligation.json"
+  },
+  "status_boundary": "Logical bridge-status audit only; this proves no L2 discrepancy theorem, active-selector rarity theorem, strict-central prime-pair existence theorem, q286 threshold theorem, or Goldbach proof.",
+  "strict_central_prime_pair_existence_proved": false,
+  "zero_mass_status": {
+    "meaning": "This active-selector L2 audit is a normalized rarity audit, not a zero-mass existence proof.  If T_N=0, the normalized L2 ratio and first_three selector are not the right bridge; one must use an unnormalized positive witness or a separate strict-central existence theorem.",
+    "zero_mass_checked_here": false,
+    "zero_mass_defect_found": false
+  }
+}

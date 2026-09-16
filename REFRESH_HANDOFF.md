@@ -6,6 +6,38 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 active-selector route now has an explicit `L2` bridge-status audit:
+
+```text
+tools/build_q286_active_selector_l2_bridge_status_audit.py
+notes/q286-active-selector-l2-bridge-status-audit.md
+evidence/q286-active-selector-l2-bridge-status-audit.json
+```
+
+Result:
+
+```text
+L2 sufficient relative-delta range:
+  0.0059551615239434134 .. 0.017908306132142508
+clear rows failing L2 but passing signed projection:
+  1240888, 1242118
+tail sample failing signed projection:
+  1222142
+```
+
+Decision:
+`HOLD_L2_is_valid_sufficient_non_circular_shape_but_unconfirmed`.  The `L2`
+smallness route is non-circular as an external pointwise arithmetic premise
+on actual strict-central binary-prime residue weights with `T_N>0`; it is not
+confirmed by current evidence and cannot by itself prove existence because it
+is normalized by `T_N`.  Prefer the sharper signed-projection or residue-pair
+correlation obligation over plain generic `L2` uniformity.  This proves no
+`L2` discrepancy theorem, active-selector rarity theorem, strict-central
+prime-pair existence theorem, q286 threshold theorem, strict-central Goldbach
+theorem, or Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 component-pair route now has a post-failure full-cycle holdout:
 
 ```text
