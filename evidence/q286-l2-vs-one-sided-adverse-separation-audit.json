@@ -1,0 +1,104 @@
+{
+  "aggregate_l2_theorem_proved": false,
+  "candidate": {
+    "falsifier": "If L2 violations coincide with adverse-gate failures or near-failures, then abandoning L2 as the main bridge would discard the true obstruction.",
+    "mechanism": "The proof target only needs harmful projected mass to stay below local main.  Symmetric aggregate L2 charges helpful and harmful character moments alike, so it may be too strong as the immediate bridge.",
+    "name": "one-sided adverse route over symmetric aggregate L2",
+    "novelty_label": "new-to-this-task",
+    "prediction": "Many row-local aggregate L2 violations should still have positive raw adverse gates, with weak correlation between L2-ratio and adverse-drag ratio.",
+    "smallest_test": "Join the 348-row observed L2 audit to the 348-row raw adverse target by target N and compare violation flags, adverse ratios, and raw gate gaps."
+  },
+  "decision": "The checked rows separate the aggregate L2 obstruction from the one-sided adverse envelope.  The row-local L2 cap fails on 120 rows, but every one of those rows still has positive raw adverse gate gap; 77 of the 120 have adverse ratio below 0.05, and the Pearson correlation between row-local L2 ratio and adverse ratio is weak.  This demotes symmetric aggregate L2 as the immediate bridge and promotes one-sided raw adverse projection control as the sharper theorem target.",
+  "extreme_rows": {
+    "worst_adverse_ratio_among_row_l2_violations": {
+      "aggregate_character_moment_l2": 0.16996798162204144,
+      "exceeds_global_min_l2_cap": true,
+      "exceeds_row_local_l2_cap": true,
+      "local_main": 0.8894638336809358,
+      "ratio_to_row_local_l2_cap": 1.0557946886340719,
+      "raw_adverse_drag": 99591.33773867242,
+      "raw_adverse_drag_ratio": 0.23148438379145228,
+      "raw_adverse_gate_gap": 330637.8470878761,
+      "raw_gate_gap_positive": true,
+      "raw_local_main": 430229.1848265485,
+      "row_local_l2_cap": 0.1609858275020653,
+      "source": "frozen_component_envelope_fresh_holdout",
+      "target": 1124642
+    },
+    "worst_row_local_l2_ratio": {
+      "aggregate_character_moment_l2": 0.20982859176041493,
+      "exceeds_global_min_l2_cap": true,
+      "exceeds_row_local_l2_cap": true,
+      "local_main": 0.7445418302942308,
+      "ratio_to_row_local_l2_cap": 1.5570989543984672,
+      "raw_adverse_drag": 2757.817543836677,
+      "raw_adverse_drag_ratio": 0.007847474147496985,
+      "raw_adverse_gate_gap": 348669.59616944136,
+      "raw_gate_gap_positive": true,
+      "raw_local_main": 351427.413713278,
+      "row_local_l2_cap": 0.13475610600578378,
+      "source": "adverse_drag_horizon",
+      "target": 1089544
+    }
+  },
+  "finite_separation_audit_only": true,
+  "goldbach_proved": false,
+  "one_sided_adverse_projection_theorem_proved": false,
+  "population": {
+    "global_l2_violations_with_positive_adverse_gate": 301,
+    "global_min_l2_cap_violation_count": 301,
+    "joined_row_count": 348,
+    "raw_adverse_gate_failure_count": 0,
+    "row_local_l2_cap_violation_count": 120,
+    "row_local_l2_violations_with_positive_adverse_gate": 120
+  },
+  "question": "Are the finite aggregate L2 cap failures the same obstruction as the raw one-sided adverse envelope, or does symmetric L2 reject rows that the one-sided adverse gate handles?",
+  "raw_adverse_envelope_theorem_proved": false,
+  "raw_witness_theorem_proved": false,
+  "route_decision": {
+    "l2_retained_as": "reservoir for future structured moment estimates, not the next acceptance bridge",
+    "preferred_next_theorem_shape": "Prove a one-sided raw adverse projection bound, ideally per-modulus or componentwise, rather than a symmetric aggregate L2 bound over all active characters.",
+    "required_universal_statement": "A universal, pointwise, unnormalized analytical estimate for every sufficiently large covered N, such as adverse_drag_raw(N)<local_main_raw(N), plus an explicit finite remainder.  Finite evidence is not an acceptance condition.",
+    "symmetric_l2_is_too_strong_as_immediate_bridge": true,
+    "why": "All row-local L2-cap violations still have positive raw adverse gates, and most have small adverse ratios.  The finite obstruction to L2 is therefore not the finite obstruction to the one-sided adverse route."
+  },
+  "schema_version": 1,
+  "separation_metrics": {
+    "all_rows_raw_adverse_ratio": {
+      "count": 348,
+      "maximum": 0.23148438379145228,
+      "mean": 0.04133330485045476,
+      "minimum": 0.0
+    },
+    "global_l2_violation_raw_adverse_ratio": {
+      "count": 301,
+      "maximum": 0.23148438379145228,
+      "mean": 0.04404538422494216,
+      "minimum": 0.0
+    },
+    "pearson_row_l2_ratio_vs_raw_adverse_ratio": 0.16452492187036813,
+    "row_l2_violation_raw_adverse_ratio": {
+      "count": 120,
+      "maximum": 0.23148438379145228,
+      "mean": 0.047658311638979454,
+      "minimum": 0.0
+    },
+    "row_l2_violation_raw_gate_gap": {
+      "count": 120,
+      "maximum": 719787.0682382997,
+      "mean": 387593.2667219359,
+      "minimum": 286929.1729900494
+    },
+    "row_l2_violations_with_adverse_ratio_below_0_05": 77,
+    "row_l2_violations_with_adverse_ratio_below_0_10": 103
+  },
+  "source_commit": "c6a7699bf19923d4d5cd818d737b3cb64317c239",
+  "source_receipts": {
+    "l2_observed_moment_audit": "evidence\\q286-wbss-multiplicative-character-l2-observed-moment-audit.json",
+    "raw_adverse_drag_theorem_target": "evidence\\q286-wbss-raw-adverse-drag-theorem-target.json",
+    "raw_sum_expansion_ledger": "evidence\\q286-raw-sum-expansion-ledger.json"
+  },
+  "status": "AUDIT_q286_l2_vs_one_sided_adverse_separation",
+  "strict_central_goldbach_theorem_proved": false,
+  "universal_raw_pointwise_theorem_proved": false
+}

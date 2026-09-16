@@ -6,6 +6,42 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The q286 route now has an L2-versus-one-sided-adverse separation audit:
+
+```text
+tools/build_q286_l2_vs_one_sided_adverse_separation_audit.py
+notes/q286-l2-vs-one-sided-adverse-separation-audit.md
+evidence/q286-l2-vs-one-sided-adverse-separation-audit.json
+```
+
+Result:
+
+```text
+joined rows:                              348
+row-local L2 cap violations:              120
+global-minimum L2 cap violations:         301
+raw adverse gate failures:                0
+row-local L2 violations with positive gate:120
+max adverse ratio on L2 violations:       0.23148438379145228
+min raw gate gap on L2 violations:        286929.1729900494
+L2/adverse Pearson:                       0.16452492187036813
+L2 violations with adverse ratio < .05:   77
+L2 violations with adverse ratio < .10:   103
+```
+
+Decision: the checked rows separate the aggregate L2 obstruction from the
+one-sided adverse envelope.  Symmetric L2 rejects many rows that the raw
+one-sided adverse gate handles comfortably.  Keep aggregate L2 as a reservoir
+for future structured moment estimates, but do not treat it as the next
+acceptance bridge.  The sharper theorem target is one-sided raw adverse
+projection control, ideally per-modulus or componentwise, sufficient for
+`A_raw_-(N)<L_raw(N)` or direct `W_phi(N)>0`.  This is finite separation
+evidence only; it proves no aggregate L2 theorem, one-sided adverse projection
+theorem, raw adverse-envelope theorem, strict-central Goldbach theorem, or
+Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The q286 route now has a raw-sum expansion ledger:
 
 ```text
