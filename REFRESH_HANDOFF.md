@@ -6,6 +6,45 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS route now has a signed-region source-fit audit:
+
+```text
+tools/build_q286_wbss_signed_region_source_fit_audit.py
+notes/q286-wbss-signed-region-source-fit-audit.md
+evidence/q286-wbss-signed-region-source-fit-audit.json
+```
+
+Question: does any currently named source-shaped theorem pay the q286 raw
+signed-region obligation?
+
+Answer: no currently named source theorem directly pays the required shape:
+
+```text
+for every sufficiently large covered even N,
+sum_{u:phi(u)>0} P_N(u)phi(u)
+  > sum_{u:phi(u)<0} P_N(u)(-phi(u)).
+```
+
+Fit summary:
+
+```text
+BMOR AP prime counts:                    insufficient
+Salmensuu binary AP Goldbach almost-all: insufficient as direct bridge
+Halupczok AP Goldbach mean-value:        insufficient as direct bridge
+q286 active-character L2 payment:        related unproved target
+q286 signed-region shape target:         exact target, not theorem
+```
+
+Decision: `SOURCE_FIT_no_existing_signed_region_pointwise_bridge`.  The next
+useful work is a bespoke fixed-modulus signed circle-method target, a raw
+active-character moment theorem, or a collapse classifier if that target first
+requires `T_N>0`.  This proves no external pointwise bridge theorem, signed
+negative-region distribution theorem, raw adverse-drag theorem, positive-mass
+theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach
+proof.
+
+## Latest active checkpoint note, 2026-09-15
+
 The q286-WBSS route now has a negative-region mass threshold audit:
 
 ```text

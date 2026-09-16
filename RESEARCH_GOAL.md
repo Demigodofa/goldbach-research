@@ -6,6 +6,41 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS route now has a signed-region source-fit audit:
+`tools/build_q286_wbss_signed_region_source_fit_audit.py` generated
+`evidence/q286-wbss-signed-region-source-fit-audit.json`, with explanation in
+`notes/q286-wbss-signed-region-source-fit-audit.md`.
+
+Question: does any currently named source-shaped theorem pay the q286 raw
+signed-region obligation?
+
+Answer: no currently named source theorem directly pays it.  The required
+shape is
+
+```text
+for every sufficiently large covered even N,
+sum_{u:phi(u)>0} P_N(u)phi(u)
+  > sum_{u:phi(u)<0} P_N(u)(-phi(u)).
+```
+
+BMOR-style one-dimensional AP prime counts do not control the reflected
+binary-prime convolution or where pair mass lands inside q286 signed regions.
+Salmensuu-style almost-all AP Goldbach and Halupczok-style mean-value AP
+representation results are relevant context but do not give the exact
+pointwise, strict-central, log-weighted, signed finite-modulus bridge for every
+covered target.  The local q286 active-character `L2` target is related but
+still unproved.
+
+Decision: `SOURCE_FIT_no_existing_signed_region_pointwise_bridge`.  The next
+useful work is a bespoke fixed-modulus signed circle-method target, a raw
+active-character moment theorem, or a collapse classifier if that target first
+requires `T_N>0`.  This proves no external pointwise bridge theorem, signed
+negative-region distribution theorem, raw adverse-drag theorem, positive-mass
+theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach
+proof.
+
+## Latest continuation evidence, 2026-09-15
+
 The q286-WBSS route now has a negative-region mass threshold audit:
 `tools/build_q286_wbss_negative_region_mass_threshold_audit.py` generated
 `evidence/q286-wbss-negative-region-mass-threshold-audit.json`, with
