@@ -1,0 +1,71 @@
+{
+  "answer": "No.  The available PLDML/ICM source metadata describes an almost-all theorem over prime moduli, residue classes, and eligible targets.  That shape is relevant AP-Goldbach context but cannot pay the no-exception, exact signed q286 raw pointwise bridge.",
+  "bauer_wang_direct_bridge_found": false,
+  "bauer_wang_theorem_shape_from_metadata": {
+    "method_note": "new estimates for exponential sums over primes in arithmetic progressions",
+    "modulus_quantifier": "almost all prime moduli k <= N^(1/4-epsilon)",
+    "residue_quantifier": "fixed admissible b2 and almost all admissible b1",
+    "summand_requirement": "p_i congruent to b_i mod k for i=1,2",
+    "target_quantifier": "almost all integers n in the matching congruence class"
+  },
+  "decision": "Bauer-Wang closes as a direct q286 wake-up source.  Its metadata-level theorem shape is almost-all and AP-positive, whereas the q286 signed-weight trigger needs an every-N raw signed weighted convolution estimate for the exact fixed q286 package.  Future use requires a new derivation with those missing quantifiers supplied explicitly.",
+  "external_pointwise_bridge_found": false,
+  "fit_summary": {
+    "external_pointwise_bridge_found": false,
+    "fit_to_q286_raw_pointwise_trigger": "insufficient",
+    "reactivates_q286_signed_weight_lane": false,
+    "remaining_use": "Relevant AP-Goldbach context and possible ingredient for a bespoke derivation, not a direct bridge.",
+    "source": "Bauer_Wang_2013_binary_AP_large_modulus"
+  },
+  "goldbach_proved": false,
+  "mismatches": [
+    {
+      "id": "almost_all_targets",
+      "why_it_blocks_q286_trigger": "The q286 trigger has no exceptional covered targets above threshold; an almost-all target theorem leaves exactly the pointwise gap open."
+    },
+    {
+      "id": "almost_all_moduli_and_residues",
+      "why_it_blocks_q286_trigger": "The source theorem's quantifiers are not the exact fixed q286 signed coefficient family."
+    },
+    {
+      "id": "positive_AP_pair_not_signed_q286_weight",
+      "why_it_blocks_q286_trigger": "A positive AP pair representation theorem is not the same object as a lower bound for the signed q286 raw weighted convolution."
+    },
+    {
+      "id": "no_strict_central_or_finite_remainder_bridge",
+      "why_it_blocks_q286_trigger": "The available source metadata does not provide the strict-central q286 truncation, explicit threshold, and finite-remainder package required by the route."
+    }
+  ],
+  "next_evidence_bearing_move": "Stop retrying named AP-Goldbach source fit for q286.  Either derive the raw active-character theorem target from scratch, or switch to a different proof engine whose first obligation is not already Goldbach-strength pointwise positivity.",
+  "positive_mass_theorem_proved": false,
+  "q286_required_bridge_shape": {
+    "finite_remainder": "explicit N0 plus finite verification below N0",
+    "interval": "strict central range N/3 < p < 2N/3",
+    "modulus": "exact fixed q286 finite-modulus package",
+    "scale": "raw unnormalized log-prime pair sum",
+    "support_boundary": "the proof must create support and cannot divide by T_N before support is known",
+    "target_quantifier": "every sufficiently large covered even N",
+    "weight": "exact signed q286 left-prime coefficient"
+  },
+  "q286_threshold_theorem_proved": false,
+  "question": "Does Bauer-Wang 2013 provide the exact raw pointwise theorem needed to reactivate the q286 signed-weight proof engine?",
+  "raw_weighted_witness_theorem_proved": false,
+  "receipt": "q286-wbss-bauer-wang-source-fit-audit",
+  "schema_version": 1,
+  "source_access": {
+    "access_boundary": "The audit uses source metadata and abstract-level theorem shape.  It does not claim full-paper theorem extraction.",
+    "doi": "10.4064/aa159-3-2",
+    "impam_pdf_redirect_observed": "https://www.impan.pl/pl/download/pdf/aa159-3-2",
+    "journal": "Acta Arithmetica 159 (2013), 227-243",
+    "primary_locator": "https://pldml.icm.edu.pl/pldml/element/bwmeta1.element.bwnjournal-article-doi-10_4064-aa159-3-2",
+    "publisher": "Institute of Mathematics Polish Academy of Sciences"
+  },
+  "source_commit": "5bab56b952203f5ab5e522a9495420d7c5ee7337",
+  "sources": {
+    "raw_pointwise_source_scout": "evidence\\q286-wbss-raw-pointwise-source-scout.json",
+    "raw_pointwise_source_scout_status": "SOURCE_SCOUT_no_raw_pointwise_q286_bridge_found"
+  },
+  "status": "SOURCE_FIT_Bauer_Wang_not_q286_raw_pointwise_bridge",
+  "status_boundary": "Source-fit HOLD only.  No Bauer-Wang theorem is promoted to a q286 bridge, no raw weighted witness theorem, no positive-mass theorem, no q286 threshold theorem, no strict-central Goldbach theorem, and no Goldbach proof is established.",
+  "strict_central_goldbach_theorem_proved": false
+}

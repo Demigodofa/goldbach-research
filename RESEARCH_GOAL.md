@@ -6,6 +6,33 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The q286-WBSS route now has a Bauer-Wang source-fit audit:
+`tools/build_q286_wbss_bauer_wang_source_fit_audit.py` generated
+`evidence/q286-wbss-bauer-wang-source-fit-audit.json`, with explanation in
+`notes/q286-wbss-bauer-wang-source-fit-audit.md`.
+
+Question: does Bauer-Wang 2013 provide the exact raw pointwise theorem needed
+to reactivate the q286 signed-weight proof engine?
+
+Answer: no.  The available PLDML/ICM source metadata describes an almost-all
+theorem over prime moduli, residue classes, and eligible targets.  That is
+useful AP-Goldbach context, but it is not a no-exception raw lower bound for
+the exact signed q286 weighted convolution.
+
+Decision: `SOURCE_FIT_Bauer_Wang_not_q286_raw_pointwise_bridge`.
+Bauer-Wang closes as a direct q286 wake-up source.  Future use would require a
+new derivation that supplies the missing every-`N`, exact-q286,
+signed-weighted, strict-central, raw-scale, finite-remainder bridge explicitly.
+The next evidence-bearing move is no longer another named AP-Goldbach source
+fit for q286.  Either derive the raw active-character theorem target from
+scratch, or switch to a different proof engine whose first obligation is not
+already Goldbach-strength pointwise positivity.  No Bauer-Wang theorem is
+promoted to a q286 bridge, no raw weighted witness theorem, positive-mass
+theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach
+proof is established.
+
+## Previous continuation evidence, 2026-09-16
+
 The q286-WBSS route now has a raw pointwise source scout:
 `tools/build_q286_wbss_raw_pointwise_source_scout.py` generated
 `evidence/q286-wbss-raw-pointwise-source-scout.json`, with explanation in
