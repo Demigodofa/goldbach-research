@@ -6,6 +6,37 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The q286 route now has a raw adverse-envelope definition audit:
+
+```text
+tools/build_q286_raw_adverse_envelope_definition_audit.py
+notes/q286-raw-adverse-envelope-definition-audit.md
+evidence/q286-raw-adverse-envelope-definition-audit.json
+```
+
+Result:
+
+```text
+finite calibration rows:                  348
+all checked raw gate gaps positive:        true
+finite evidence is acceptance condition:  false
+raw adverse-envelope theorem proved:      false
+raw adverse-envelope non-circular shape:  true
+```
+
+Decision: `A_raw_-(N)<L_raw(N)` survives as a non-circular strict theorem
+shape, because zero support makes both sides zero and the strict inequality
+fails.  But the proof must be stated directly in raw sums.  `U_d=T_N*E_d` is
+safe only when `U_d` is defined without `mu_N`; otherwise it is mass-positive
+shorthand.  `L_raw=T_N*M(a)` cannot be made positive by assuming `T_N>0`
+unless the route is explicitly a two-theorem bridge.  The next useful object
+is a raw-sum expansion ledger for `U_d(N)` and `W_phi(N)`, with no `mu_N`
+notation.  This proves no positive-mass theorem, raw adverse-envelope theorem,
+raw weighted witness theorem, strict-central Goldbach theorem, or Goldbach
+proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The research record now has an adverse-alignment unification audit plus the
 Q46189 source-matrix margin demotion audit:
 

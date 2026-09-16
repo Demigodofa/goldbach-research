@@ -6,6 +6,36 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The q286 route now has a raw adverse-envelope definition audit:
+`tools/build_q286_raw_adverse_envelope_definition_audit.py` generated
+`evidence/q286-raw-adverse-envelope-definition-audit.json`, with explanation
+in `notes/q286-raw-adverse-envelope-definition-audit.md`.
+
+Question: can the q286 adverse-envelope route be stated as a genuinely raw,
+non-circular theorem target, and exactly where do `T_N` or `mu_N`
+dependencies remain?
+
+Answer: `A_raw_-(N)<L_raw(N)` survives as a non-circular strict theorem shape,
+but it is still unproved and must be stated directly in raw sums.  If
+strict-central support is empty, then `T_N=0`, `L_raw(N)=0`, and
+`A_raw_-(N)=0`; the strict inequality fails, so a proof of the strict
+inequality would create support.  However, `U_d=T_N*E_d` is theorem-ready only
+when `U_d` is also defined directly as an unnormalized projected binary-prime
+discrepancy.  If `E_d` is first defined through the normalized measure
+`mu_N`, then `T_N*E_d` is only mass-positive shorthand.  Likewise
+`L_raw=T_N*M(a)` cannot be made positive by assuming `T_N>0` unless the route
+is explicitly a two-theorem bridge.
+
+Decision: keep the q286 raw adverse-envelope route alive only in the raw-sum
+form.  The next useful object is a raw-sum expansion ledger for `U_d(N)` and
+`W_phi(N)`, with no `mu_N` notation, followed by the question of what
+universal pointwise binary-prime estimate could bound the one-sided adverse
+envelope.  This proves no positive-mass theorem, raw adverse-envelope theorem,
+raw weighted witness theorem, strict-central Goldbach theorem, or Goldbach
+proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The research record now has an adverse-alignment unification audit plus the
 Q46189 source-matrix margin demotion audit:
 `tools/build_goldbach_adverse_alignment_unification_audit.py` generated
