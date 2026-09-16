@@ -6,6 +6,40 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The q286-WBSS route now has a `K_286` absolute-envelope two-budget obligation
+audit:
+
+```text
+tools/build_q286_wbss_k286_absolute_envelope_two_budget_obligation.py
+notes/q286-wbss-k286-absolute-envelope-two-budget-obligation.md
+evidence/q286-wbss-k286-absolute-envelope-two-budget-obligation.json
+```
+
+Question: what universal theorem obligations are exposed by the surviving
+finite `K_286` absolute-envelope payment probe?
+
+Result:
+
+```text
+rows:                                      280
+positive two-budget margins:              280 / 280
+H_286 / M max:                              0.7254295025978773
+A_other / M max:                            0.09287286305792383
+same-row payment ratio max:                 0.7926876143614664
+same-row margin ratio min:                  0.2073123856385336
+sum of separate finite maxima:              0.8183023656558012
+```
+
+Decision: `TARGET_k286_absolute_envelope_two_budget_theorem_required`.  The
+lift-depth probe exposes two separate universal obligations: bound `H_286`
+relative to local main and bound `A_other` relative to local main with strict
+same-row sum below `1`.  Finite fitted ratios are calibration only.  No
+`K_286` absolute-envelope theorem, companion adverse-drag theorem, same-row
+tradeoff theorem, universal pointwise raw estimate, q286 threshold theorem,
+strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-16
+
 The q286-WBSS route now has a zero-residue `K_286` absolute-envelope
 lift-depth probe:
 

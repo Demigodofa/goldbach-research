@@ -6,6 +6,36 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The q286-WBSS route now has a `K_286` absolute-envelope two-budget obligation
+audit:
+`tools/build_q286_wbss_k286_absolute_envelope_two_budget_obligation.py`
+generated
+`evidence/q286-wbss-k286-absolute-envelope-two-budget-obligation.json`, with
+explanation in
+`notes/q286-wbss-k286-absolute-envelope-two-budget-obligation.md`.
+
+Question: what universal theorem obligations are exposed by the surviving
+finite `K_286` absolute-envelope payment probe?
+
+Answer: a proof route must separately bound the `K_286` absolute phase
+envelope and the companion adverse drag from moduli `70`, `130`, and `154`.
+The required theorem shape is `H_286(N)<=h(N)M(N)`,
+`A_other(N)<=a(N)M(N)`, and `h(N)+a(N)<1` for every sufficiently large
+covered target, plus finite remainder.  On the `280` checked rows, the maximum
+`H_286/M` is `0.7254295025978773`, the maximum `A_other/M` is
+`0.09287286305792383`, and the maximum same-row sum is
+`0.7926876143614664`.
+
+Decision: `TARGET_k286_absolute_envelope_two_budget_theorem_required`.  The
+lift-depth probe exposes two separate universal obligations: bound `H_286`
+relative to local main and bound `A_other` relative to local main with strict
+same-row sum below `1`.  Finite fitted ratios are calibration only.  No
+`K_286` absolute-envelope theorem, companion adverse-drag theorem, same-row
+tradeoff theorem, universal pointwise raw estimate, q286 threshold theorem,
+strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-16
+
 The q286-WBSS route now has a zero-residue `K_286` absolute-envelope
 lift-depth probe:
 `tools/build_q286_wbss_k286_zero_residue_absolute_envelope_lift_depth_probe.py`
