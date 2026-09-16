@@ -6,6 +6,41 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The route now has a derived semantic route graph:
+
+```text
+tools/build_goldbach_semantic_route_graph.py
+notes/goldbach-bridge-semantic-route-graph.md
+evidence/goldbach-semantic-route-graph.json
+```
+
+Result:
+
+```text
+status:                 GRAPH_current_goldbach_semantic_route
+node count:             13
+edge count:             19
+nexus:                  Goldbach
+trunk:                  current bridge acceptance gate
+live branches:          raw adverse-drag, source-window
+held branch:            aggregate L2
+dead ends:              broad all-translation dominance,
+                         finite evidence as acceptance
+projection views:       branch_map, by_theorem_attempt, by_result_state,
+                         by_evidence_weight, churn_or_low_return_flags,
+                         thin_or_frontier_flags
+```
+
+Decision: the graph is a machine-facing navigation/dependency artifact, not
+mathematical authority.  It preserves the linear handoff for humans while
+making theorem attempts, proof obligations, falsifiers, HOLDs, low-return
+lanes, and thin frontiers explicit for future agents.  No semantic graph
+theorem, aggregate `L2` theorem, source-window theorem, raw adverse-drag
+theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach
+proof is established.
+
+## Latest active checkpoint note, 2026-09-16
+
 The route now has a current bridge acceptance-gate audit:
 
 ```text

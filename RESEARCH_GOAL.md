@@ -6,6 +6,30 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The route now has a derived semantic route graph:
+`tools/build_goldbach_semantic_route_graph.py` generated
+`evidence/goldbach-semantic-route-graph.json`, with explanation in
+`notes/goldbach-bridge-semantic-route-graph.md`.
+
+Question: can the active Goldbach route be represented as a semantic
+dependency graph while keeping the human-facing notes linear?
+
+Answer: yes.  The graph is not mathematical authority, but it gives the
+machine-facing route shape: Goldbach is the nexus, the bridge acceptance gate
+is the trunk, raw adverse-drag and source-window work are live branches,
+aggregate `L2` is a held branch, proof obligations are twigs, and broad
+all-translation dominance plus finite evidence as acceptance are dead ends.
+It also saves projection views by theorem attempt, result state, evidence
+weight, churn/low-return flags, and thin/frontier flags.
+
+Decision: use the graph as a compact active-route map only.  The owning
+commit, evidence receipts, tests, notes, and cited mathematics remain
+authority.  The graph proves no semantic graph theorem, aggregate `L2`
+theorem, source-window theorem, raw adverse-drag theorem, q286 threshold
+theorem, strict-central Goldbach theorem, or Goldbach proof.
+
+## Latest continuation evidence, 2026-09-16
+
 The route now has a current bridge acceptance-gate audit:
 `tools/build_goldbach_bridge_acceptance_gate_audit.py` generated
 `evidence/goldbach-bridge-acceptance-gate-audit.json`, with explanation in
