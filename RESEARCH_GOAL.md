@@ -6,6 +6,38 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The q286-WBSS route now has a raw-coverage audit for the unique `K_286`
+no-reflection-discount residue:
+`tools/build_q286_wbss_k286_zero_residue_raw_coverage_audit.py` generated
+`evidence/q286-wbss-k286-zero-residue-raw-coverage-audit.json`, with
+explanation in
+`notes/q286-wbss-k286-zero-residue-raw-coverage-audit.md`.
+
+Question: does the current raw adverse-drag calibration horizon sample the
+`K_286` target residue where reflection gives no two-mode discount?
+
+Answer: no.  Target residue `0 mod 286` is the unique combined two-mode
+reflection no-discount residue at threshold `0.95`, with even energy fraction
+`1.0` and odd energy fraction `1.8822507657823637e-28`.  The `348`-row raw
+adverse-drag finite calibration samples `27` mod-286 residue classes but has
+`0` rows with `target_mod_286 = 0`.  The finite raw stress classes are
+different: highest raw adverse ratio occurs at `90 mod 286`
+(`0.23148438379145228`), and tightest `gap/N` occurs at `134 mod 286`
+(`0.26310340793692394`).
+
+Decision:
+`AUDIT_zero_residue_no_discount_lane_uncovered_by_raw_finite_calibration`.
+The universal raw adverse-drag theorem now has a sharper necessary sublane:
+for every sufficiently large covered even `N == 0 mod 286`, prove
+`A_raw_-(N) < L_raw(N)` or an equivalent direct raw witness lower bound.
+Do not use the `348`-row raw margin summary as evidence that the hard `K_286`
+no-discount lane has been calibrated.  No zero-residue raw adverse-drag
+theorem, universal pointwise raw estimate, binary-prime moment theorem, q286
+threshold theorem, strict-central Goldbach theorem, or Goldbach proof is
+established.
+
+## Previous continuation evidence, 2026-09-16
+
 The q286-WBSS route now has a reflection/parity audit for the exact `K_286`
 two-mode singular target:
 `tools/build_q286_wbss_k286_two_mode_reflection_parity_audit.py` generated

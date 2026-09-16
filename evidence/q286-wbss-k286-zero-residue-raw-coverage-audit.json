@@ -1,0 +1,795 @@
+{
+  "answer": "No.  Target residue 0 mod 286 is the unique combined two-mode reflection no-discount residue at threshold 0.95, with even energy fraction 1.0, but the 348-row raw adverse-drag finite calibration contains 0 rows with target_mod_286=0.",
+  "binary_prime_moment_theorem_proved": false,
+  "candidate": {
+    "falsifier": "If a targeted zero-residue raw horizon shows the same or larger margin as ordinary residues and no new coefficient pressure, then the no-discount lane is not a distinct next proof bottleneck.",
+    "mechanism": "Treat the unique reflection-even K_286 two-mode residue as a separate necessary raw theorem lane instead of averaging it into finite rows that do not sample it.",
+    "name": "zero-residue no-discount raw subtheorem",
+    "novelty_label": "new-to-this-task",
+    "prediction": "If the K_286 obstruction is real, N == 0 mod 286 will either require a different analytic input or become the first place where a proposed universal raw bound fails.",
+    "smallest_next_test": "Build a zero-residue raw horizon or derive an analytic subtheorem for N == 0 mod 286; use it only as calibration or falsifier, not as acceptance."
+  },
+  "decision": "The universal raw adverse-drag theorem now has a sharper necessary sublane: N == 0 mod 286.  Existing raw finite calibration does not sample that lane, while K_286 reflection geometry says it is the unique no-discount two-mode residue.  Do not use the 348-row raw margin summary as evidence that the hard K_286 no-discount lane has been calibrated.",
+  "goldbach_proved": false,
+  "necessary_subtheorem": {
+    "finite_calibration_status": "No current raw calibration row samples target_mod_286=0, so current finite raw margins cannot calibrate or falsify this necessary sublane.",
+    "statement": "For every sufficiently large covered even N with N == 0 mod 286, prove A_raw_-(N) < L_raw(N), or prove an equivalent direct raw witness lower bound W_phi(N)>0.",
+    "why_necessary": "The full universal q286-WBSS raw theorem quantifies over every covered even target; residue 0 mod 286 is included and is the unique K_286 two-mode no-discount reflection lane."
+  },
+  "no_discount_definition": {
+    "quantity": "combined scaled first-two-singular-mode reflection-even energy fraction",
+    "reason": "A universal raw theorem must handle every even target residue.  The no-discount residue is a necessary sublane because the reflection-odd null identity does not reduce the two-mode burden there.",
+    "threshold": 0.95
+  },
+  "q286_threshold_theorem_proved": false,
+  "question": "Does the current raw adverse-drag calibration horizon sample the K_286 target residue where reflection gives no two-mode discount?",
+  "raw_calibration_coverage": {
+    "highest_raw_adverse_drag_ratio_class": {
+      "raw_adverse_drag_ratio_summary": {
+        "count": 12,
+        "maximum": 0.23148438379145228,
+        "mean": 0.06348868843039414,
+        "minimum": 0.001116107603011502
+      },
+      "raw_adverse_gate_gap_over_target_summary": {
+        "count": 12,
+        "maximum": 0.7782053577576762,
+        "mean": 0.49059705260061076,
+        "minimum": 0.29399386390324755
+      },
+      "raw_adverse_gate_gap_summary": {
+        "count": 12,
+        "maximum": 883257.2988057323,
+        "mean": 539460.5439364527,
+        "minimum": 330637.8470878761
+      },
+      "row_count": 12,
+      "target_maximum": 1154672,
+      "target_minimum": 1044562,
+      "target_mod_286": 90
+    },
+    "missing_no_discount_residues": [
+      0
+    ],
+    "raw_class_rows": [
+      {
+        "raw_adverse_drag_ratio_summary": {
+          "count": 12,
+          "maximum": 0.15214704109888458,
+          "mean": 0.046870798103850725,
+          "minimum": 0.0010363937109099963
+        },
+        "raw_adverse_gate_gap_over_target_summary": {
+          "count": 12,
+          "maximum": 0.823037463979509,
+          "mean": 0.5032294580652439,
+          "minimum": 0.32933705749277786
+        },
+        "raw_adverse_gate_gap_summary": {
+          "count": 12,
+          "maximum": 887815.7739534128,
+          "mean": 553250.7917454774,
+          "minimum": 343136.9388758402
+        },
+        "row_count": 12,
+        "target_maximum": 1152012,
+        "target_minimum": 1041902,
+        "target_mod_286": 4
+      },
+      {
+        "raw_adverse_drag_ratio_summary": {
+          "count": 12,
+          "maximum": 0.09532636146501544,
+          "mean": 0.032818961741692694,
+          "minimum": 0.0013664112232460713
+        },
+        "raw_adverse_gate_gap_over_target_summary": {
+          "count": 12,
+          "maximum": 1.0766487775362417,
+          "mean": 0.6604416410443396,
+          "minimum": 0.4456431685993633
+        },
+        "raw_adverse_gate_gap_summary": {
+          "count": 12,
+          "maximum": 1204304.8697911587,
+          "mean": 723988.5270144398,
+          "minimum": 462795.0828724156
+        },
+        "row_count": 12,
+        "target_maximum": 1148598,
+        "target_minimum": 1038488,
+        "target_mod_286": 22
+      },
+      {
+        "raw_adverse_drag_ratio_summary": {
+          "count": 12,
+          "maximum": 0.08610131177092764,
+          "mean": 0.02665690631641103,
+          "minimum": 0.0
+        },
+        "raw_adverse_gate_gap_over_target_summary": {
+          "count": 12,
+          "maximum": 0.8177061739625477,
+          "mean": 0.5305528837440397,
+          "minimum": 0.37315774290035963
+        },
+        "raw_adverse_gate_gap_summary": {
+          "count": 12,
+          "maximum": 909287.6300340052,
+          "mean": 581856.3069778417,
+          "minimum": 419733.2339969448
+        },
+        "row_count": 12,
+        "target_maximum": 1152038,
+        "target_minimum": 1041928,
+        "target_mod_286": 30
+      },
+      {
+        "raw_adverse_drag_ratio_summary": {
+          "count": 12,
+          "maximum": 0.17182527672774267,
+          "mean": 0.05436456212520748,
+          "minimum": 0.0
+        },
+        "raw_adverse_gate_gap_over_target_summary": {
+          "count": 12,
+          "maximum": 0.7835587414442868,
+          "mean": 0.49398220370242396,
+          "minimum": 0.3322837645947321
+        },
+        "raw_adverse_gate_gap_summary": {
+          "count": 12,
+          "maximum": 854292.1561519455,
+          "mean": 542178.6538627214,
+          "minimum": 355627.3636250412
+        },
+        "row_count": 12,
+        "target_maximum": 1150332,
+        "target_minimum": 1040222,
+        "target_mod_286": 40
+      },
+      {
+        "raw_adverse_drag_ratio_summary": {
+          "count": 12,
+          "maximum": 0.1498255908192489,
+          "mean": 0.03669177874113553,
+          "minimum": 0.00022422709768368936
+        },
+        "raw_adverse_gate_gap_over_target_summary": {
+          "count": 12,
+          "maximum": 0.7986198885266633,
+          "mean": 0.49678452312408217,
+          "minimum": 0.32011972075557144
+        },
+        "raw_adverse_gate_gap_summary": {
+          "count": 12,
+          "maximum": 904523.2747044071,
+          "mean": 543971.7914919658,
+          "minimum": 368978.9534950528
+        },
+        "row_count": 12,
+        "target_maximum": 1152628,
+        "target_minimum": 1042518,
+        "target_mod_286": 48
+      },
+      {
+        "raw_adverse_drag_ratio_summary": {
+          "count": 12,
+          "maximum": 0.15325280468816763,
+          "mean": 0.06600696714314988,
+          "minimum": 0.014345604686299036
+        },
+        "raw_adverse_gate_gap_over_target_summary": {
+          "count": 12,
+          "maximum": 0.8503563013315101,
+          "mean": 0.5445894753382016,
+          "minimum": 0.3790938834607765
+        },
+        "raw_adverse_gate_gap_summary": {
+          "count": 12,
+          "maximum": 898591.1795188485,
+          "mean": 592937.0457107619,
+          "minimum": 408014.19764223223
+        },
+        "row_count": 12,
+        "target_maximum": 1146358,
+        "target_minimum": 1036248,
+        "target_mod_286": 70
+      },
+      {
+        "raw_adverse_drag_ratio_summary": {
+          "count": 12,
+          "maximum": 0.1358445728878019,
+          "mean": 0.05366174239595415,
+          "minimum": 0.0020893123167416783
+        },
+        "raw_adverse_gate_gap_over_target_summary": {
+          "count": 12,
+          "maximum": 1.020107338010631,
+          "mean": 0.6251825871382701,
+          "minimum": 0.4165529858830274
+        },
+        "raw_adverse_gate_gap_summary": {
+          "count": 12,
+          "maximum": 1159782.4749457226,
+          "mean": 682938.982305911,
+          "minimum": 440230.6907065905
+        },
+        "row_count": 12,
+        "target_maximum": 1146932,
+        "target_minimum": 1036822,
+        "target_mod_286": 72
+      },
+      {
+        "raw_adverse_drag_ratio_summary": {
+          "count": 12,
+          "maximum": 0.0748693041843002,
+          "mean": 0.03289770750514115,
+          "minimum": 0.0008097223743187495
+        },
+        "raw_adverse_gate_gap_over_target_summary": {
+          "count": 12,
+          "maximum": 0.8755843684374897,
+          "mean": 0.5739259721166995,
+          "minimum": 0.40599073982688794
+        },
+        "raw_adverse_gate_gap_summary": {
+          "count": 12,
+          "maximum": 994427.772633268,
+          "mean": 629339.5579493366,
+          "minimum": 439096.01680914214
+        },
+        "row_count": 12,
+        "target_maximum": 1151804,
+        "target_minimum": 1041694,
+        "target_mod_286": 82
+      },
+      {
+        "raw_adverse_drag_ratio_summary": {
+          "count": 12,
+          "maximum": 0.06719138291247427,
+          "mean": 0.031251668118032594,
+          "minimum": 0.0005473523587972767
+        },
+        "raw_adverse_gate_gap_over_target_summary": {
+          "count": 12,
+          "maximum": 0.7723832320119058,
+          "mean": 0.4962908312242937,
+          "minimum": 0.34961117959328536
+        },
+        "raw_adverse_gate_gap_summary": {
+          "count": 12,
+          "maximum": 886323.6616318382,
+          "mean": 543537.6476491619,
+          "minimum": 366614.9215244974
+        },
+        "row_count": 12,
+        "target_maximum": 1147518,
+        "target_minimum": 1037408,
+        "target_mod_286": 86
+      },
+      {
+        "raw_adverse_drag_ratio_summary": {
+          "count": 12,
+          "maximum": 0.23148438379145228,
+          "mean": 0.06348868843039414,
+          "minimum": 0.001116107603011502
+        },
+        "raw_adverse_gate_gap_over_target_summary": {
+          "count": 12,
+          "maximum": 0.7782053577576762,
+          "mean": 0.49059705260061076,
+          "minimum": 0.29399386390324755
+        },
+        "raw_adverse_gate_gap_summary": {
+          "count": 12,
+          "maximum": 883257.2988057323,
+          "mean": 539460.5439364527,
+          "minimum": 330637.8470878761
+        },
+        "row_count": 12,
+        "target_maximum": 1154672,
+        "target_minimum": 1044562,
+        "target_mod_286": 90
+      },
+      {
+        "raw_adverse_drag_ratio_summary": {
+          "count": 24,
+          "maximum": 0.13240647199249994,
+          "mean": 0.03413569215491153,
+          "minimum": 0.0
+        },
+        "raw_adverse_gate_gap_over_target_summary": {
+          "count": 24,
+          "maximum": 1.005833247320061,
+          "mean": 0.5697952783052256,
+          "minimum": 0.3647084570305944
+        },
+        "raw_adverse_gate_gap_summary": {
+          "count": 24,
+          "maximum": 1120282.9891996216,
+          "mean": 624792.3960342753,
+          "minimum": 378774.53280135035
+        },
+        "row_count": 24,
+        "target_maximum": 1153826,
+        "target_minimum": 1038568,
+        "target_mod_286": 102
+      },
+      {
+        "raw_adverse_drag_ratio_summary": {
+          "count": 12,
+          "maximum": 0.0820027940938653,
+          "mean": 0.02919484214451398,
+          "minimum": 0.00218311466862072
+        },
+        "raw_adverse_gate_gap_over_target_summary": {
+          "count": 12,
+          "maximum": 0.7911776087878414,
+          "mean": 0.5029503214680646,
+          "minimum": 0.3449626233877421
+        },
+        "raw_adverse_gate_gap_summary": {
+          "count": 12,
+          "maximum": 872833.4674356169,
+          "mean": 551200.9820218175,
+          "minimum": 366753.22238189896
+        },
+        "row_count": 12,
+        "target_maximum": 1153258,
+        "target_minimum": 1043148,
+        "target_mod_286": 106
+      },
+      {
+        "raw_adverse_drag_ratio_summary": {
+          "count": 12,
+          "maximum": 0.1638221632683811,
+          "mean": 0.05257351209802633,
+          "minimum": 0.01112019584053034
+        },
+        "raw_adverse_gate_gap_over_target_summary": {
+          "count": 12,
+          "maximum": 0.7487371335957641,
+          "mean": 0.48967203279228294,
+          "minimum": 0.3134140336133795
+        },
+        "raw_adverse_gate_gap_summary": {
+          "count": 12,
+          "maximum": 862772.064198099,
+          "mean": 540231.2019833896,
+          "minimum": 330793.4686053086
+        },
+        "row_count": 12,
+        "target_maximum": 1155552,
+        "target_minimum": 1045442,
+        "target_mod_286": 112
+      },
+      {
+        "raw_adverse_drag_ratio_summary": {
+          "count": 12,
+          "maximum": 0.14422478313775428,
+          "mean": 0.044049087833479696,
+          "minimum": 0.0
+        },
+        "raw_adverse_gate_gap_over_target_summary": {
+          "count": 12,
+          "maximum": 0.914070102322475,
+          "mean": 0.5886778268241697,
+          "minimum": 0.4058083189188663
+        },
+        "raw_adverse_gate_gap_summary": {
+          "count": 12,
+          "maximum": 991438.3377882999,
+          "mean": 642687.4803220282,
+          "minimum": 429009.1921280957
+        },
+        "row_count": 12,
+        "target_maximum": 1147262,
+        "target_minimum": 1037152,
+        "target_mod_286": 116
+      },
+      {
+        "raw_adverse_drag_ratio_summary": {
+          "count": 12,
+          "maximum": 0.0522337913350059,
+          "mean": 0.024790866290629585,
+          "minimum": 0.00039965890370242
+        },
+        "raw_adverse_gate_gap_over_target_summary": {
+          "count": 12,
+          "maximum": 0.855845808253335,
+          "mean": 0.5305759056804916,
+          "minimum": 0.37343748955336675
+        },
+        "raw_adverse_gate_gap_summary": {
+          "count": 12,
+          "maximum": 956317.6909185195,
+          "mean": 581743.4315012578,
+          "minimum": 405467.50834011694
+        },
+        "row_count": 12,
+        "target_maximum": 1148988,
+        "target_minimum": 1038878,
+        "target_mod_286": 126
+      },
+      {
+        "raw_adverse_drag_ratio_summary": {
+          "count": 12,
+          "maximum": 0.18494974330715555,
+          "mean": 0.047501790421281276,
+          "minimum": 0.0016354845594573502
+        },
+        "raw_adverse_gate_gap_over_target_summary": {
+          "count": 12,
+          "maximum": 0.7023785952132031,
+          "mean": 0.42456779591686783,
+          "minimum": 0.26310340793692394
+        },
+        "raw_adverse_gate_gap_summary": {
+          "count": 12,
+          "maximum": 752390.7607067641,
+          "mean": 464169.96833342384,
+          "minimum": 288987.86582196975
+        },
+        "row_count": 12,
+        "target_maximum": 1151284,
+        "target_minimum": 1041174,
+        "target_mod_286": 134
+      },
+      {
+        "raw_adverse_drag_ratio_summary": {
+          "count": 12,
+          "maximum": 0.07684076478167869,
+          "mean": 0.033679208750126075,
+          "minimum": 0.0
+        },
+        "raw_adverse_gate_gap_over_target_summary": {
+          "count": 12,
+          "maximum": 0.7772486792593978,
+          "mean": 0.5059014141364903,
+          "minimum": 0.3556900952659423
+        },
+        "raw_adverse_gate_gap_summary": {
+          "count": 12,
+          "maximum": 882831.6943473528,
+          "mean": 555603.3342818058,
+          "minimum": 400447.29133344634
+        },
+        "row_count": 12,
+        "target_maximum": 1155862,
+        "target_minimum": 1045752,
+        "target_mod_286": 136
+      },
+      {
+        "raw_adverse_drag_ratio_summary": {
+          "count": 12,
+          "maximum": 0.12851187881848114,
+          "mean": 0.03960546819450696,
+          "minimum": 0.0
+        },
+        "raw_adverse_gate_gap_over_target_summary": {
+          "count": 12,
+          "maximum": 0.756573651861741,
+          "mean": 0.4817086281002611,
+          "minimum": 0.3150396146805612
+        },
+        "raw_adverse_gate_gap_summary": {
+          "count": 12,
+          "maximum": 825535.4949614315,
+          "mean": 526199.7168190186,
+          "minimum": 345856.1597093843
+        },
+        "row_count": 12,
+        "target_maximum": 1147868,
+        "target_minimum": 1037758,
+        "target_mod_286": 150
+      },
+      {
+        "raw_adverse_drag_ratio_summary": {
+          "count": 12,
+          "maximum": 0.18121406011311528,
+          "mean": 0.04803936660140987,
+          "minimum": 0.0003437041280239914
+        },
+        "raw_adverse_gate_gap_over_target_summary": {
+          "count": 12,
+          "maximum": 0.6555027671307186,
+          "mean": 0.42617493241498366,
+          "minimum": 0.27081206382364875
+        },
+        "raw_adverse_gate_gap_summary": {
+          "count": 12,
+          "maximum": 708186.4567711505,
+          "mean": 465430.6824312243,
+          "minimum": 286929.1729900494
+        },
+        "row_count": 12,
+        "target_maximum": 1149604,
+        "target_minimum": 1039494,
+        "target_mod_286": 170
+      },
+      {
+        "raw_adverse_drag_ratio_summary": {
+          "count": 12,
+          "maximum": 0.05762971580792007,
+          "mean": 0.01776578069729492,
+          "minimum": 0.0
+        },
+        "raw_adverse_gate_gap_over_target_summary": {
+          "count": 12,
+          "maximum": 0.7122325133893798,
+          "mean": 0.43080320839947706,
+          "minimum": 0.30127390111955976
+        },
+        "raw_adverse_gate_gap_summary": {
+          "count": 12,
+          "maximum": 749942.3760432939,
+          "mean": 472783.05238547403,
+          "minimum": 323256.65258864954
+        },
+        "row_count": 12,
+        "target_maximum": 1153046,
+        "target_minimum": 1042936,
+        "target_mod_286": 180
+      },
+      {
+        "raw_adverse_drag_ratio_summary": {
+          "count": 12,
+          "maximum": 0.13991919316599497,
+          "mean": 0.055457137773805815,
+          "minimum": 0.0014250239879560664
+        },
+        "raw_adverse_gate_gap_over_target_summary": {
+          "count": 12,
+          "maximum": 0.9582639858750919,
+          "mean": 0.557678663775523,
+          "minimum": 0.36734507936432204
+        },
+        "raw_adverse_gate_gap_summary": {
+          "count": 12,
+          "maximum": 1053961.9770884938,
+          "mean": 608927.9056172342,
+          "minimum": 389321.86608237197
+        },
+        "row_count": 12,
+        "target_maximum": 1149916,
+        "target_minimum": 1039806,
+        "target_mod_286": 196
+      },
+      {
+        "raw_adverse_drag_ratio_summary": {
+          "count": 24,
+          "maximum": 0.1115127907065859,
+          "mean": 0.05027263242637799,
+          "minimum": 0.004425224780079694
+        },
+        "raw_adverse_gate_gap_over_target_summary": {
+          "count": 24,
+          "maximum": 0.9578751789217423,
+          "mean": 0.557246731539004,
+          "minimum": 0.35553969745060354
+        },
+        "raw_adverse_gate_gap_summary": {
+          "count": 24,
+          "maximum": 1047295.9463324079,
+          "mean": 612182.3953343887,
+          "minimum": 385998.17314009
+        },
+        "row_count": 24,
+        "target_maximum": 1152534,
+        "target_minimum": 1042138,
+        "target_mod_286": 240
+      },
+      {
+        "raw_adverse_drag_ratio_summary": {
+          "count": 12,
+          "maximum": 0.09892192071111423,
+          "mean": 0.03344969163253475,
+          "minimum": 0.0003034023855149862
+        },
+        "raw_adverse_gate_gap_over_target_summary": {
+          "count": 12,
+          "maximum": 0.793895850092683,
+          "mean": 0.5146029754407359,
+          "minimum": 0.36534588778566984
+        },
+        "raw_adverse_gate_gap_summary": {
+          "count": 12,
+          "maximum": 878375.5142972007,
+          "mean": 564138.9432959434,
+          "minimum": 392639.44523747946
+        },
+        "row_count": 12,
+        "target_maximum": 1153972,
+        "target_minimum": 1043862,
+        "target_mod_286": 248
+      },
+      {
+        "raw_adverse_drag_ratio_summary": {
+          "count": 12,
+          "maximum": 0.1423579853389743,
+          "mean": 0.055135038328481704,
+          "minimum": 0.00048087203242457797
+        },
+        "raw_adverse_gate_gap_over_target_summary": {
+          "count": 12,
+          "maximum": 0.7636233425227189,
+          "mean": 0.4659488940482884,
+          "minimum": 0.3061756477401679
+        },
+        "raw_adverse_gate_gap_summary": {
+          "count": 12,
+          "maximum": 804109.1248965884,
+          "mean": 511109.7050394735,
+          "minimum": 342826.81703282375
+        },
+        "row_count": 12,
+        "target_maximum": 1153118,
+        "target_minimum": 1043008,
+        "target_mod_286": 252
+      },
+      {
+        "raw_adverse_drag_ratio_summary": {
+          "count": 12,
+          "maximum": 0.15153903479675315,
+          "mean": 0.03915791033357948,
+          "minimum": 0.0
+        },
+        "raw_adverse_gate_gap_over_target_summary": {
+          "count": 12,
+          "maximum": 0.672361499593005,
+          "mean": 0.42337293061177256,
+          "minimum": 0.27355071715913926
+        },
+        "raw_adverse_gate_gap_summary": {
+          "count": 12,
+          "maximum": 741382.8137140567,
+          "mean": 463359.9053850739,
+          "minimum": 290405.2710461825
+        },
+        "row_count": 12,
+        "target_maximum": 1151704,
+        "target_minimum": 1041594,
+        "target_mod_286": 268
+      },
+      {
+        "raw_adverse_drag_ratio_summary": {
+          "count": 12,
+          "maximum": 0.13358203234153404,
+          "mean": 0.04166753513662492,
+          "minimum": 0.0
+        },
+        "raw_adverse_gate_gap_over_target_summary": {
+          "count": 12,
+          "maximum": 0.7024181338763549,
+          "mean": 0.45446942102753035,
+          "minimum": 0.30193338244215157
+        },
+        "raw_adverse_gate_gap_summary": {
+          "count": 12,
+          "maximum": 780695.6767199608,
+          "mean": 498647.7137217983,
+          "minimum": 323732.36878771003
+        },
+        "row_count": 12,
+        "target_maximum": 1152278,
+        "target_minimum": 1042168,
+        "target_mod_286": 270
+      },
+      {
+        "raw_adverse_drag_ratio_summary": {
+          "count": 12,
+          "maximum": 0.10114750759208735,
+          "mean": 0.023072174643344243,
+          "minimum": 0.0
+        },
+        "raw_adverse_gate_gap_over_target_summary": {
+          "count": 12,
+          "maximum": 0.6299633054359206,
+          "mean": 0.41444565913979287,
+          "minimum": 0.2830026644339302
+        },
+        "raw_adverse_gate_gap_summary": {
+          "count": 12,
+          "maximum": 718354.419135557,
+          "mean": 453941.1424069546,
+          "minimum": 312643.60852865607
+        },
+        "row_count": 12,
+        "target_maximum": 1148286,
+        "target_minimum": 1038176,
+        "target_mod_286": 282
+      }
+    ],
+    "row_count": 348,
+    "sampled_mod_286_residue_count": 27,
+    "sampled_mod_286_residues": [
+      4,
+      22,
+      30,
+      40,
+      48,
+      70,
+      72,
+      82,
+      86,
+      90,
+      102,
+      106,
+      112,
+      116,
+      126,
+      134,
+      136,
+      150,
+      170,
+      180,
+      196,
+      240,
+      248,
+      252,
+      268,
+      270,
+      282
+    ],
+    "tightest_gap_over_target_class": {
+      "raw_adverse_drag_ratio_summary": {
+        "count": 12,
+        "maximum": 0.18494974330715555,
+        "mean": 0.047501790421281276,
+        "minimum": 0.0016354845594573502
+      },
+      "raw_adverse_gate_gap_over_target_summary": {
+        "count": 12,
+        "maximum": 0.7023785952132031,
+        "mean": 0.42456779591686783,
+        "minimum": 0.26310340793692394
+      },
+      "raw_adverse_gate_gap_summary": {
+        "count": 12,
+        "maximum": 752390.7607067641,
+        "mean": 464169.96833342384,
+        "minimum": 288987.86582196975
+      },
+      "row_count": 12,
+      "target_maximum": 1151284,
+      "target_minimum": 1041174,
+      "target_mod_286": 134
+    },
+    "zero_residue_raw_row_count": 0
+  },
+  "receipt": "q286-wbss-k286-zero-residue-raw-coverage-audit",
+  "reflection_no_discount_residues": [
+    {
+      "centered_full_l2": 50.09192896531902,
+      "reflection_even_energy_fraction": 1.0,
+      "reflection_even_l2": 50.09192896531902,
+      "reflection_even_linf": 31.915267800155164,
+      "reflection_odd_energy_fraction": 1.8822507657823637e-28,
+      "reflection_odd_l2": 6.872369429658946e-13,
+      "reflection_odd_linf": 2.6262037010113885e-13,
+      "target_mod_286": 0
+    }
+  ],
+  "residue_zero_reflection_row": {
+    "centered_full_l2": 50.09192896531902,
+    "reflection_even_energy_fraction": 1.0,
+    "reflection_even_l2": 50.09192896531902,
+    "reflection_odd_energy_fraction": 1.8822507657823637e-28,
+    "reflection_odd_l2": 6.872369429658946e-13,
+    "target_mod_286": 0
+  },
+  "schema_version": 1,
+  "source_commit": "0d3a7bb27dc79d9c0264e8e16a7eb671da44362c",
+  "sources": {
+    "raw_adverse_drag_source_commit": "fe9a080d5278e4cb92130dc37dc79ae5e676dc54",
+    "raw_adverse_drag_theorem_target": "evidence\\q286-wbss-raw-adverse-drag-theorem-target.json",
+    "reflection_parity_audit": "evidence\\q286-wbss-k286-two-mode-reflection-parity-audit.json",
+    "reflection_parity_source_commit": "921459dba73f13660823b7de3c12a44b048b0e4d"
+  },
+  "status": "AUDIT_zero_residue_no_discount_lane_uncovered_by_raw_finite_calibration",
+  "status_boundary": "Coverage audit and necessary-subtheorem locator only.  No zero-residue raw adverse-drag theorem, no universal pointwise raw estimate, no binary-prime moment theorem, no q286 threshold theorem, no strict-central Goldbach theorem, and no Goldbach proof is established.",
+  "strict_central_goldbach_theorem_proved": false,
+  "universal_pointwise_raw_bound_proved": false,
+  "zero_residue_raw_adverse_drag_theorem_proved": false
+}
