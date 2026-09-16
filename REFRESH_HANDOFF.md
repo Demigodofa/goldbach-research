@@ -6,6 +6,47 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The `Q=46189` replacement-family lane now has a packet-kernel sign landscape
+audit:
+
+```text
+tools/build_mobius_moment_square_degree5_q46189_packet_kernel_sign_landscape_audit.py
+notes/mobius-moment-square-degree5-q46189-packet-kernel-sign-landscape-audit.md
+evidence/mobius-moment-square-degree5-q46189-packet-kernel-sign-landscape-audit.json
+```
+
+Identity:
+
+```text
+ratio_minus_half = 0.5 * (1 + off_diagonal_total / diagonal_half)
+below half <=> off_diagonal_total / diagonal_half <= -1
+```
+
+Result:
+
+```text
+same-source denominators:                    35
+below-half denominators:                      46189
+off-diagonal overpayment count:               1
+nonadverse overpayment count:                 0
+Q=46189 off/diagonal-half:                    -1.0053819255304557
+minimum nonadverse off/diagonal-half:         -0.8472931845861708
+minimum nonadverse off/diagonal denominator:  38038
+minimum nonadverse ratio-minus-half:          0.07635340770691464
+```
+
+Decision: the active theorem-shaped target sharpens again.  Instead of
+rescuing the failed `50A..60A` selector, try to prove an off-diagonal
+overpayment exclusion bound for source-admissible replacement packets:
+`off_diagonal_total / diagonal_half > -1`.  The checked all-high
+`Q=46189` packet crosses below the boundary at `-1.0053819255304557`, while
+the tightest nonadverse packet `q=38038` survives at `-0.8472931845861708`.
+This is finite diagnostic evidence only and proves no coordinate-`00`
+residue-gap sign theorem, active/full ratio theorem, packet-landscape theorem,
+strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The `Q=46189` replacement-family lane now has a packet-ratio landscape audit:
 
 ```text

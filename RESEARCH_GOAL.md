@@ -6,6 +6,37 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The `Q=46189` replacement-family lane now has a packet-kernel sign landscape
+audit:
+`tools/build_mobius_moment_square_degree5_q46189_packet_kernel_sign_landscape_audit.py`
+generated
+`evidence/mobius-moment-square-degree5-q46189-packet-kernel-sign-landscape-audit.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-q46189-packet-kernel-sign-landscape-audit.md`.
+
+Question: across the same-source packet landscape, is the sign of the
+coordinate-`00` active/full half-margin explained by whether off-diagonal
+Dirichlet-kernel mass overpays the diagonal half?
+
+Answer: yes as a finite diagnostic.  The exact normalized identity is
+`ratio_minus_half = 0.5 * (1 + off_diagonal_total / diagonal_half)`, so a row
+is below one half exactly when `off_diagonal_total / diagonal_half <= -1`.
+In the checked `35`-row landscape, `Q=46189` is the only below-half row and
+the only off-diagonal overpayment row.  Its normalized off-diagonal value is
+`-1.0053819255304557`.  Every nonadverse packet keeps diagonal surplus; the
+tightest survivor is `q=38038` with normalized off-diagonal value
+`-0.8472931845861708` and ratio-minus-half `0.07635340770691464`.
+
+Decision: the sharper theorem-shaped object is now an off-diagonal
+overpayment exclusion bound for source-admissible replacement packets:
+prove `off_diagonal_total / diagonal_half > -1` in the relevant packet class,
+while allowing the all-high `Q=46189` style packet to cross below `-1`.  This
+proves no coordinate-`00` residue-gap sign theorem, one-coordinate active/full
+ratio theorem, packet-landscape theorem, strict-central Goldbach theorem, or
+Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The `Q=46189` replacement-family lane now has a packet-ratio landscape audit:
 `tools/build_mobius_moment_square_degree5_q46189_packet_ratio_landscape_audit.py`
 generated
