@@ -6,6 +6,45 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The `Q=46189` replacement-family lane now has a scalar-cancelled
+one-coordinate ratio ledger:
+`tools/build_mobius_moment_square_degree5_q46189_one_coordinate_ratio_ledger_audit.py`
+generated
+`evidence/mobius-moment-square-degree5-q46189-one-coordinate-ratio-ledger-audit.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-q46189-one-coordinate-ratio-ledger-audit.md`.
+
+Question: after the exact source-conductor scalar is factored out, what
+one-coordinate active/full ratio ledger remains for `Q=46189` and the
+replacement rows?
+
+Answer: for this selected finite family, every signed margin is accounted for
+by
+
+```text
+(-exact_scalar) * coordinate_00_full_energy
+* (coordinate_00_active_over_full_ratio - 1/2).
+```
+
+`Q=46189` has ratio-minus-half `-0.0026909627652296764` and scalar-cancelled
+margin `-8444721229.467161`.  All ten replacement rows have positive
+one-coordinate ratio gaps, with minimum gap `0.0763534077069109`; their
+combined scalar-cancelled payment is `1740.1304948166812` times the
+`Q=46189` defect, and every omitted-high-prime subfamily pays the defect.
+
+Decision: the exact scalar/log identity reduces the selected `Q=46189`
+payment lane to a one-coordinate active/full ratio ledger.  The remaining
+obstruction is no longer phase alignment but an energy-ratio inequality for
+coordinate `00`.  The next theorem-shaped target is an exact
+Dirichlet-kernel decomposition of coordinate-00 active and full energies,
+starting with `Q=46189` and the weakest replacement row.  This remains finite
+selected-family evidence only; it proves no symbolic coordinate-00 energy
+ratio theorem, one-coordinate active/full ratio theorem, replacement-family
+payment theorem, universal source-conductor scalar formula theorem,
+strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The `Q=46189` replacement-family lane now has an exact log-polynomial
 identity audit:
 `tools/build_mobius_moment_square_degree5_q46189_exact_log_polynomial_identity_audit.py`

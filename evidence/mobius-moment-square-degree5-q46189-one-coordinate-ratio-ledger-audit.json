@@ -1,0 +1,470 @@
+{
+  "answer": "For this selected finite family, every signed margin is accounted for by (-scalar) * full_00 * (active_00/full_00 - 1/2).  Q=46189 has a negative ratio gap, while all ten replacement rows have positive ratio gaps.  Thus the phase/scalar issue is closed for this family; the remaining theorem target is a coordinate-00 energy ratio inequality.",
+  "candidate_next_action": {
+    "falsifier": "If exact coordinate-00 energy decomposition still requires hidden phase cancellation or loses the replacement signs, the one-coordinate theorem target is not isolated enough.",
+    "mechanism": "Express coordinate-00 full and active energies by exact Dirichlet-kernel sums for the selected denominator family, then prove or falsify the half-threshold ratio signs without using the coordinate-12 phase scalar.",
+    "name": "symbolic coordinate-00 energy ratio inequality",
+    "novelty_label": "new-to-this-task",
+    "prediction": "The replacement rows should stay above one half because their coordinate-00 active window has constructive residue-kernel alignment, while Q=46189 has a small destructive deficit.",
+    "smallest_next_test": "For Q=46189 and the weakest replacement row, decompose coordinate-00 active-full half-margin into exact diagonal and off-diagonal residue-kernel terms and identify the sign-deciding terms."
+  },
+  "classification": {
+    "all_margins_reconstructed_after_scalar_cancel": true,
+    "all_replacements_exact_phase_removed": true,
+    "all_replacements_one_coordinate_ratio_above_half": true,
+    "each_omitted_high_prime_family_pays_after_scalar_cancel": true,
+    "finite_one_coordinate_ledger_only": true,
+    "q46189_exact_phase_removed": true,
+    "q46189_one_coordinate_ratio_below_half": true,
+    "replacement_family_pays_q46189_defect_after_scalar_cancel": true
+  },
+  "decision": "The exact scalar/log identity reduces the selected Q=46189 payment lane to a one-coordinate active/full ratio ledger.  The remaining obstruction is no longer phase alignment but an energy ratio inequality for coordinate 00.  No universal ratio theorem or Goldbach proof is established.",
+  "finite_diagnostic_only": true,
+  "finite_one_coordinate_ratio_ledger_audit_only": true,
+  "fixture": {
+    "adverse_denominator": 46189,
+    "adverse_denominator_factorization": {
+      "11": 1,
+      "13": 1,
+      "17": 1,
+      "19": 1
+    },
+    "common_margin_formula": "(-exact_scalar) * coordinate_00_full_energy * (coordinate_00_active_over_full_ratio - 1/2)",
+    "prime_modulus": 379,
+    "scale_modulus": 229,
+    "target_label": "00,12"
+  },
+  "goldbach_proved": false,
+  "omitted_high_prime_family_one_coordinate_summaries": {
+    "11": {
+      "all_rows_above_half": true,
+      "all_rows_positive_margin": true,
+      "maximum_ratio_minus_half": 0.5246550671421413,
+      "minimum_individual_payment_over_defect": 38.50194361226896,
+      "minimum_positive_margin": 325138180598.27527,
+      "minimum_ratio_minus_half": 0.2334973555723261,
+      "payment_over_q46189_adverse": 653.935929076597,
+      "positive_margin_sum": 5522306622984.47,
+      "row_count": 3
+    },
+    "13": {
+      "all_rows_above_half": true,
+      "all_rows_positive_margin": true,
+      "maximum_ratio_minus_half": 0.5090053014564788,
+      "minimum_individual_payment_over_defect": 82.9763465431283,
+      "minimum_positive_margin": 700712115196.3796,
+      "minimum_ratio_minus_half": 0.42624522980526247,
+      "payment_over_q46189_adverse": 466.9478641033951,
+      "positive_margin_sum": 3943244541048.2876,
+      "row_count": 3
+    },
+    "17": {
+      "all_rows_above_half": true,
+      "all_rows_positive_margin": true,
+      "maximum_ratio_minus_half": 0.5735414442150166,
+      "minimum_individual_payment_over_defect": 36.74165224069168,
+      "minimum_positive_margin": 310273010682.6687,
+      "minimum_ratio_minus_half": 0.0763534077069109,
+      "payment_over_q46189_adverse": 320.014748101607,
+      "positive_margin_sum": 2702435337036.2266,
+      "row_count": 2
+    },
+    "19": {
+      "all_rows_above_half": true,
+      "all_rows_positive_margin": true,
+      "maximum_ratio_minus_half": 0.43551465411843837,
+      "minimum_individual_payment_over_defect": 143.38947642551366,
+      "minimum_positive_margin": 1210884155652.7163,
+      "minimum_ratio_minus_half": 0.35648992391562706,
+      "payment_over_q46189_adverse": 299.2319535350822,
+      "positive_margin_sum": 2526930430552.6396,
+      "row_count": 2
+    }
+  },
+  "one_coordinate_active_full_ratio_theorem_proved": false,
+  "q46189_one_coordinate_row": {
+    "common_log_numerator": "-l11*l13*l17 - l11*l13*l19 - l11*l17*l19 - l13*l17*l19",
+    "coordinate_00_active_energy": 20877270338102.797,
+    "coordinate_00_full_energy": 41980476474323.6,
+    "cross_ratio_reduction_abs_error": 1.1102230246251565e-16,
+    "exact_log_pair_identity_verified": true,
+    "exact_scalar_numeric_substitution": -0.07475328212536136,
+    "factorization": {
+      "11": 1,
+      "13": 1,
+      "17": 1,
+      "19": 1
+    },
+    "full_contribution": -3138178401642.2075,
+    "full_contribution_negative": true,
+    "high_prime_support": [
+      11,
+      13,
+      17,
+      19
+    ],
+    "margin_reconstruction_abs_error": 0.0052509307861328125,
+    "missing_high_primes": [],
+    "one_coordinate_active_over_full_ratio": 0.4973090372347703,
+    "one_coordinate_sign_explains_margin": true,
+    "positive_scalar_magnitude": 0.07475328212536136,
+    "ratio_minus_half": -0.0026909627652296764,
+    "reduced_denominator": 46189,
+    "scalar_cancelled_margin_full_over_2_minus_active": -8444721229.467161,
+    "source_margin_full_over_2_minus_active": -8444721229.472412
+  },
+  "question": "After the exact source-conductor scalar is factored out, what one-coordinate active/full ratio ledger remains for Q=46189 and the replacement rows?",
+  "replacement_family_payment_theorem_proved": false,
+  "replacement_one_coordinate_rows": [
+    {
+      "common_log_numerator": "-l13*l17*l19 - l13*l17*l2 - l13*l17*l7 - l13*l19*l2 - l13*l19*l7 - l17*l19*l2 - l17*l19*l7",
+      "coordinate_00_active_energy": 81516843919614.19,
+      "coordinate_00_full_energy": 79555400186496.2,
+      "cross_ratio_reduction_abs_error": 4.440892098500626e-16,
+      "exact_log_pair_identity_verified": true,
+      "exact_scalar_numeric_substitution": -0.08018047904089409,
+      "factorization": {
+        "13": 1,
+        "17": 1,
+        "19": 1,
+        "2": 1,
+        "7": 1
+      },
+      "full_contribution": -6378790097243.301,
+      "full_contribution_negative": true,
+      "high_prime_support": [
+        13,
+        17,
+        19
+      ],
+      "margin_reconstruction_abs_error": 0.02587890625,
+      "missing_high_primes": [
+        11
+      ],
+      "one_coordinate_active_over_full_ratio": 1.0246550671421413,
+      "one_coordinate_sign_explains_margin": true,
+      "positive_scalar_magnitude": 0.08018047904089409,
+      "ratio_minus_half": 0.5246550671421413,
+      "reduced_denominator": 58786,
+      "scalar_cancelled_margin_full_over_2_minus_active": 3346664546754.81,
+      "source_margin_full_over_2_minus_active": 3346664546754.784
+    },
+    {
+      "common_log_numerator": "-l11*l13*l19 - l11*l13*l3 - l11*l13*l5 - l11*l19*l3 - l11*l19*l5 - l13*l19*l3 - l13*l19*l5",
+      "coordinate_00_active_energy": 61992289574279.98,
+      "coordinate_00_full_energy": 57745595112640.766,
+      "cross_ratio_reduction_abs_error": 8.881784197001252e-16,
+      "exact_log_pair_identity_verified": true,
+      "exact_scalar_numeric_substitution": -0.07222823118954748,
+      "factorization": {
+        "11": 1,
+        "13": 1,
+        "19": 1,
+        "3": 1,
+        "5": 1
+      },
+      "full_contribution": -4170862193973.8203,
+      "full_contribution_negative": true,
+      "high_prime_support": [
+        11,
+        13,
+        19
+      ],
+      "margin_reconstruction_abs_error": 0.0146484375,
+      "missing_high_primes": [
+        17
+      ],
+      "one_coordinate_active_over_full_ratio": 1.0735414442150166,
+      "one_coordinate_sign_explains_margin": true,
+      "positive_scalar_magnitude": 0.07222823118954748,
+      "ratio_minus_half": 0.5735414442150166,
+      "reduced_denominator": 40755,
+      "scalar_cancelled_margin_full_over_2_minus_active": 2392162326353.5576,
+      "source_margin_full_over_2_minus_active": 2392162326353.543
+    },
+    {
+      "common_log_numerator": "-l13*l17*l19 - l13*l17*l3 - l13*l17*l5 - l13*l19*l3 - l13*l19*l5 - l17*l19*l3 - l17*l19*l5",
+      "coordinate_00_active_energy": 66486505498414.445,
+      "coordinate_00_full_energy": 87691394113272.52,
+      "cross_ratio_reduction_abs_error": 4.440892098500626e-16,
+      "exact_log_pair_identity_verified": true,
+      "exact_scalar_numeric_substitution": -0.08173311922098693,
+      "factorization": {
+        "13": 1,
+        "17": 1,
+        "19": 1,
+        "3": 1,
+        "5": 1
+      },
+      "full_contribution": -7167291169714.654,
+      "full_contribution_negative": true,
+      "high_prime_support": [
+        13,
+        17,
+        19
+      ],
+      "margin_reconstruction_abs_error": 0.033935546875,
+      "missing_high_primes": [
+        11
+      ],
+      "one_coordinate_active_over_full_ratio": 0.7581873474668752,
+      "one_coordinate_sign_explains_margin": true,
+      "positive_scalar_magnitude": 0.08173311922098693,
+      "ratio_minus_half": 0.2581873474668752,
+      "reduced_denominator": 62985,
+      "scalar_cancelled_margin_full_over_2_minus_active": 1850503895631.384,
+      "source_margin_full_over_2_minus_active": 1850503895631.418
+    },
+    {
+      "common_log_numerator": "-l11*l17*l19 - l11*l17*l2 - l11*l17*l7 - l11*l19*l2 - l11*l19*l7 - l17*l19*l2 - l17*l19*l7",
+      "coordinate_00_active_energy": 44944053283635.31,
+      "coordinate_00_full_energy": 44542930764347.3,
+      "cross_ratio_reduction_abs_error": 2.220446049250313e-16,
+      "exact_log_pair_identity_verified": true,
+      "exact_scalar_numeric_substitution": -0.07635153651590741,
+      "factorization": {
+        "11": 1,
+        "17": 1,
+        "19": 1,
+        "2": 1,
+        "7": 1
+      },
+      "full_contribution": -3400921204779.598,
+      "full_contribution_negative": true,
+      "high_prime_support": [
+        11,
+        17,
+        19
+      ],
+      "margin_reconstruction_abs_error": 0.0009765625,
+      "missing_high_primes": [
+        13
+      ],
+      "one_coordinate_active_over_full_ratio": 1.0090053014564788,
+      "one_coordinate_sign_explains_margin": true,
+      "positive_scalar_magnitude": 0.07635153651590741,
+      "ratio_minus_half": 0.5090053014564788,
+      "reduced_denominator": 49742,
+      "scalar_cancelled_margin_full_over_2_minus_active": 1731086923068.5706,
+      "source_margin_full_over_2_minus_active": 1731086923068.5696
+    },
+    {
+      "common_log_numerator": "-l11*l17*l19 - l11*l17*l3 - l11*l17*l5 - l11*l19*l3 - l11*l19*l5 - l17*l19*l3 - l17*l19*l5",
+      "coordinate_00_active_energy": 41827337125108.85,
+      "coordinate_00_full_energy": 44819738939979.664,
+      "cross_ratio_reduction_abs_error": 4.440892098500626e-16,
+      "exact_log_pair_identity_verified": true,
+      "exact_scalar_numeric_substitution": -0.077839475755989,
+      "factorization": {
+        "11": 1,
+        "17": 1,
+        "19": 1,
+        "3": 1,
+        "5": 1
+      },
+      "full_contribution": -3488744982608.303,
+      "full_contribution_negative": true,
+      "high_prime_support": [
+        11,
+        17,
+        19
+      ],
+      "margin_reconstruction_abs_error": 0.002197265625,
+      "missing_high_primes": [
+        13
+      ],
+      "one_coordinate_active_over_full_ratio": 0.9332347334981561,
+      "one_coordinate_sign_explains_margin": true,
+      "positive_scalar_magnitude": 0.077839475755989,
+      "ratio_minus_half": 0.4332347334981561,
+      "reduced_denominator": 53295,
+      "scalar_cancelled_margin_full_over_2_minus_active": 1511445502783.3374,
+      "source_margin_full_over_2_minus_active": 1511445502783.3352
+    },
+    {
+      "common_log_numerator": "-l11*l13*l17 - l11*l13*l2 - l11*l13*l7 - l11*l17*l2 - l11*l17*l7 - l13*l17*l2 - l13*l17*l7",
+      "coordinate_00_active_energy": 41115600997858.516,
+      "coordinate_00_full_energy": 43949713472530.15,
+      "cross_ratio_reduction_abs_error": 0.0,
+      "exact_log_pair_identity_verified": true,
+      "exact_scalar_numeric_substitution": -0.06875627493444,
+      "factorization": {
+        "11": 1,
+        "13": 1,
+        "17": 1,
+        "2": 1,
+        "7": 1
+      },
+      "full_contribution": -3021818582807.1445,
+      "full_contribution_negative": true,
+      "high_prime_support": [
+        11,
+        13,
+        17
+      ],
+      "margin_reconstruction_abs_error": 0.00390625,
+      "missing_high_primes": [
+        19
+      ],
+      "one_coordinate_active_over_full_ratio": 0.9355146541184384,
+      "one_coordinate_sign_explains_margin": true,
+      "positive_scalar_magnitude": 0.06875627493444,
+      "ratio_minus_half": 0.43551465411843837,
+      "reduced_denominator": 34034,
+      "scalar_cancelled_margin_full_over_2_minus_active": 1316046274899.9233,
+      "source_margin_full_over_2_minus_active": 1316046274899.9194
+    },
+    {
+      "common_log_numerator": "-l11*l13*l17 - l11*l13*l3 - l11*l13*l5 - l11*l17*l3 - l11*l17*l5 - l13*l17*l3 - l13*l17*l5",
+      "coordinate_00_active_energy": 41494503308331.234,
+      "coordinate_00_full_energy": 48447158746048.32,
+      "cross_ratio_reduction_abs_error": 2.220446049250313e-16,
+      "exact_log_pair_identity_verified": true,
+      "exact_scalar_numeric_substitution": -0.07011113940333541,
+      "factorization": {
+        "11": 1,
+        "13": 1,
+        "17": 1,
+        "3": 1,
+        "5": 1
+      },
+      "full_contribution": -3396685500539.714,
+      "full_contribution_negative": true,
+      "high_prime_support": [
+        11,
+        13,
+        17
+      ],
+      "margin_reconstruction_abs_error": 0.00830078125,
+      "missing_high_primes": [
+        19
+      ],
+      "one_coordinate_active_over_full_ratio": 0.8564899239156271,
+      "one_coordinate_sign_explains_margin": true,
+      "positive_scalar_magnitude": 0.07011113940333541,
+      "ratio_minus_half": 0.35648992391562706,
+      "reduced_denominator": 36465,
+      "scalar_cancelled_margin_full_over_2_minus_active": 1210884155652.7163,
+      "source_margin_full_over_2_minus_active": 1210884155652.7246
+    },
+    {
+      "common_log_numerator": "-l11*l17*l19 - l11*l17*l2 - l11*l17*l5 - l11*l19*l2 - l11*l19*l5 - l17*l19*l2 - l17*l19*l5",
+      "coordinate_00_active_energy": 22037358902623.39,
+      "coordinate_00_full_energy": 23792142937412.605,
+      "cross_ratio_reduction_abs_error": 1.1102230246251565e-16,
+      "exact_log_pair_identity_verified": true,
+      "exact_scalar_numeric_substitution": -0.06909498619010432,
+      "factorization": {
+        "11": 1,
+        "17": 1,
+        "19": 1,
+        "2": 1,
+        "5": 1
+      },
+      "full_contribution": -1643917787693.512,
+      "full_contribution_negative": true,
+      "high_prime_support": [
+        11,
+        17,
+        19
+      ],
+      "margin_reconstruction_abs_error": 0.0084228515625,
+      "missing_high_primes": [
+        13
+      ],
+      "one_coordinate_active_over_full_ratio": 0.9262452298052625,
+      "one_coordinate_sign_explains_margin": true,
+      "positive_scalar_magnitude": 0.06909498619010432,
+      "ratio_minus_half": 0.42624522980526247,
+      "reduced_denominator": 35530,
+      "scalar_cancelled_margin_full_over_2_minus_active": 700712115196.3796,
+      "source_margin_full_over_2_minus_active": 700712115196.3881
+    },
+    {
+      "common_log_numerator": "-l13*l17*l19 - l13*l17*l2 - l13*l17*l5 - l13*l19*l2 - l13*l19*l5 - l17*l19*l2 - l17*l19*l5",
+      "coordinate_00_active_energy": 14066879367541.666,
+      "coordinate_00_full_energy": 19177818789224.81,
+      "cross_ratio_reduction_abs_error": 3.3306690738754696e-16,
+      "exact_log_pair_identity_verified": true,
+      "exact_scalar_numeric_substitution": -0.072608387855175,
+      "factorization": {
+        "13": 1,
+        "17": 1,
+        "19": 1,
+        "2": 1,
+        "5": 1
+      },
+      "full_contribution": -1392470504864.2974,
+      "full_contribution_negative": true,
+      "high_prime_support": [
+        13,
+        17,
+        19
+      ],
+      "margin_reconstruction_abs_error": 0.003662109375,
+      "missing_high_primes": [
+        11
+      ],
+      "one_coordinate_active_over_full_ratio": 0.7334973555723261,
+      "one_coordinate_sign_explains_margin": true,
+      "positive_scalar_magnitude": 0.072608387855175,
+      "ratio_minus_half": 0.2334973555723261,
+      "reduced_denominator": 41990,
+      "scalar_cancelled_margin_full_over_2_minus_active": 325138180598.27527,
+      "source_margin_full_over_2_minus_active": 325138180598.27893
+    },
+    {
+      "common_log_numerator": "-l11*l13*l19 - l11*l13*l2 - l11*l13*l7 - l11*l19*l2 - l11*l19*l7 - l13*l19*l2 - l13*l19*l7",
+      "coordinate_00_active_energy": 33063451032883.82,
+      "coordinate_00_full_energy": 57366627126281.09,
+      "cross_ratio_reduction_abs_error": 5.551115123125783e-16,
+      "exact_log_pair_identity_verified": true,
+      "exact_scalar_numeric_substitution": -0.07083636365889087,
+      "factorization": {
+        "11": 1,
+        "13": 1,
+        "19": 1,
+        "2": 1,
+        "7": 1
+      },
+      "full_contribution": -4063643261001.241,
+      "full_contribution_negative": true,
+      "high_prime_support": [
+        11,
+        13,
+        19
+      ],
+      "margin_reconstruction_abs_error": 0.007568359375,
+      "missing_high_primes": [
+        17
+      ],
+      "one_coordinate_active_over_full_ratio": 0.5763534077069109,
+      "one_coordinate_sign_explains_margin": true,
+      "positive_scalar_magnitude": 0.07083636365889087,
+      "ratio_minus_half": 0.0763534077069109,
+      "reduced_denominator": 38038,
+      "scalar_cancelled_margin_full_over_2_minus_active": 310273010682.6687,
+      "source_margin_full_over_2_minus_active": 310273010682.6763
+    }
+  ],
+  "replacement_summary": {
+    "all_rows_above_half": true,
+    "all_rows_positive_margin": true,
+    "maximum_ratio_minus_half": 0.5735414442150166,
+    "minimum_individual_payment_over_defect": 36.74165224069168,
+    "minimum_positive_margin": 310273010682.6687,
+    "minimum_ratio_minus_half": 0.0763534077069109,
+    "payment_over_q46189_adverse": 1740.1304948166812,
+    "positive_margin_sum": 14694916931621.623,
+    "row_count": 10
+  },
+  "schema_version": 1,
+  "source_commit": "040dead832e19146164070b84d75e5ed77a09d00",
+  "source_exact_log_identity_audit": "evidence\\mobius-moment-square-degree5-q46189-exact-log-polynomial-identity-audit.json",
+  "source_scalar_collapse_audit": "evidence\\mobius-moment-square-degree5-q46189-scalar-collapse-audit.json",
+  "source_start_theorem_proved": false,
+  "status": "AUDIT_q46189_one_coordinate_ratio_ledger",
+  "strict_central_goldbach_theorem_proved": false,
+  "symbolic_coordinate_00_energy_ratio_theorem_proved": false,
+  "universal_source_conductor_scalar_formula_theorem_proved": false
+}
