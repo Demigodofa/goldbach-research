@@ -6,6 +6,43 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The q286-WBSS route now has a centered-support source-fit audit:
+`tools/build_q286_wbss_centered_support_source_fit_audit.py` generated
+`evidence/q286-wbss-centered-support-source-fit-audit.json`, with explanation
+in `notes/q286-wbss-centered-support-source-fit-audit.md`.
+
+Question: do currently named source-shaped theorem families pay the four q286
+centered-support raw bucket inequalities?
+
+Answer: no.  The required raw theorem shape is, for every sufficiently large
+covered even `N` and before any division by actual `T_N`,
+
+```text
+K_B(N) >= -beta_B * P0_a(N)
+```
+
+for `B in {dominant_286, dominant_154, dominant_70, tail}`.
+
+BMOR explicit AP counts are one-dimensional marginals and do not control the
+reflected binary pair correlation.  Bhowmik-Halupczok-Matsumoto-Suzuki,
+Salmensuu, and Halupczok give relevant average, almost-all, or mean-value AP
+Goldbach context but not the pointwise bucket lower bounds for every covered
+target.  Lichtman-style distribution/upper-bound context does not supply a
+positive one-sided lower bucket estimate.  Even an ordinary theorem proving
+`P0_a(N)>0` or `T_N>0` is not enough unless it also controls the signed
+centered bucket placement.
+
+Decision: `SOURCE_FIT_no_existing_centered_bucket_bridge`.  No named source
+family currently pays the four raw centered-support bucket inequalities.  The
+next evidence-bearing step is a character-expanded `K_286` target, or a
+sharper combined ledger that reduces the source theorem required.  This is a
+source-fit audit only.  It proves no source theorem fit, major/minor arc
+estimate, pointwise centered-error estimate, signed prime-correlation theorem,
+positive-mass theorem, q286 threshold theorem, strict-central Goldbach theorem,
+or Goldbach proof.
+
+## Latest continuation evidence, 2026-09-16
+
 The q286-WBSS route now has a centered-support inequality ledger:
 `tools/build_q286_wbss_centered_support_inequality_ledger.py` generated
 `evidence/q286-wbss-centered-support-inequality-ledger.json`, with explanation

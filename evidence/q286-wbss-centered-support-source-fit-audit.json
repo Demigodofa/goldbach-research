@@ -1,0 +1,186 @@
+{
+  "answer": "No.  The ledger obligations require pointwise raw lower bounds for signed centered binary-prime correlations in buckets 286, 154, 70, and tail.  The named source families either control one-dimensional marginal AP counts, average/almost-all AP Goldbach behavior, upper-bound/distribution information, or ordinary positive mass without the signed bucket placement.",
+  "bucket_source_fit_table": [
+    {
+      "allocated_negative_budget_ratio": 0.1759037368828583,
+      "bucket": "dominant_286",
+      "missing_theorem_shape": "pointwise raw signed binary-prime correlation lower bound for this fixed support bucket, valid for every sufficiently large covered N before dividing by actual T_N",
+      "natural_moduli": [
+        286
+      ],
+      "required_raw_lower_bound": "K_dominant_286(N) >= -0.1759037368828583*P0_a(N)",
+      "source_fit_status": "no_named_source_bridge",
+      "support_labels": [
+        "11x13"
+      ]
+    },
+    {
+      "allocated_negative_budget_ratio": 0.08427753550519382,
+      "bucket": "dominant_154",
+      "missing_theorem_shape": "pointwise raw signed binary-prime correlation lower bound for this fixed support bucket, valid for every sufficiently large covered N before dividing by actual T_N",
+      "natural_moduli": [
+        154
+      ],
+      "required_raw_lower_bound": "K_dominant_154(N) >= -0.08427753550519382*P0_a(N)",
+      "source_fit_status": "no_named_source_bridge",
+      "support_labels": [
+        "7x11"
+      ]
+    },
+    {
+      "allocated_negative_budget_ratio": 0.20193008318147818,
+      "bucket": "dominant_70",
+      "missing_theorem_shape": "pointwise raw signed binary-prime correlation lower bound for this fixed support bucket, valid for every sufficiently large covered N before dividing by actual T_N",
+      "natural_moduli": [
+        70
+      ],
+      "required_raw_lower_bound": "K_dominant_70(N) >= -0.20193008318147818*P0_a(N)",
+      "source_fit_status": "no_named_source_bridge",
+      "support_labels": [
+        "5x7"
+      ]
+    },
+    {
+      "allocated_negative_budget_ratio": 0.0814304847052313,
+      "bucket": "tail",
+      "missing_theorem_shape": "pointwise raw signed binary-prime correlation lower bound for this fixed support bucket, valid for every sufficiently large covered N before dividing by actual T_N",
+      "natural_moduli": [
+        10,
+        14,
+        22,
+        26,
+        130
+      ],
+      "required_raw_lower_bound": "K_tail(N) >= -0.0814304847052313*P0_a(N)",
+      "source_fit_status": "no_named_source_bridge",
+      "support_labels": [
+        "7",
+        "13",
+        "5x13",
+        "5",
+        "11"
+      ]
+    }
+  ],
+  "candidate": {
+    "falsifier": "A source-backed theorem that proves the four K_B lower bounds, or a stronger combined centered-error inequality, for every sufficiently large covered N would falsify this HOLD.",
+    "mechanism": "Use the centered-support ledger as a non-moving theorem target and reject adjacent source theorems whose quantifiers or observables do not pay the raw bucket bounds.",
+    "name": "four-bucket source-fit HOLD",
+    "novelty_label": "new-to-this-task",
+    "prediction": "Known AP-count, average, almost-all, and positive-mass-only sources will not pay the raw centered bucket obligations.",
+    "smallest_next_test": "Write the character-expanded formula for K_d(N) for the dominant_286 bucket and identify the exact principal and nonprincipal terms a bespoke circle-method proof must control."
+  },
+  "decision": "SOURCE_FIT_no_existing_centered_bucket_bridge.  No named source family currently pays the four raw centered-support bucket inequalities.  Ordinary positive mass would not be enough: it does not control where mass lands against the sign-indefinite centered bucket weights.  The next evidence-bearing step is a character-expanded K_286 target, or a sharper combined ledger that reduces the source theorem required.",
+  "external_pointwise_bridge_found": false,
+  "fit_summary": {
+    "all_buckets_paid_by_named_sources": false,
+    "analytic_hold": "Need a new pointwise raw signed-correlation theorem for the four centered buckets, or a sharper source-backed inequality replacing this sufficient ledger.",
+    "bucket_obligation_count": 4,
+    "evaluated_source_count": 6,
+    "external_direct_bridge_count": 0,
+    "ordinary_positive_mass_is_sufficient": false
+  },
+  "goldbach_proved": false,
+  "ledger_budget": {
+    "allocated_negative_budget_total": 0.5435418402747616,
+    "bucket_count": 4,
+    "unallocated_reserve_ratio": 0.06039353780830681,
+    "weakest_local_factor_ratio": 0.6039353780830684
+  },
+  "major_minor_arc_estimate_proved": false,
+  "ordinary_positive_mass_suffices": false,
+  "pointwise_centered_error_estimate_proved": false,
+  "positive_mass_theorem_proved": false,
+  "q286_threshold_theorem_proved": false,
+  "question": "Do currently named source-shaped theorem families pay the four q286 centered-support raw bucket inequalities?",
+  "receipt": "q286-wbss-centered-support-source-fit-audit",
+  "required_theorem_shape": {
+    "bucket_set": [
+      "dominant_286",
+      "dominant_154",
+      "dominant_70",
+      "tail"
+    ],
+    "finite_remainder": "Any successful theorem still needs an explicit threshold N0 and finite verification below N0.",
+    "ordinary_mass_boundary": "A theorem proving P0_a(N)>0 or T_N>0 is not enough unless it also proves the signed centered bucket lower bounds in the same raw argument or supplies them as a corollary.",
+    "quantifier": "every sufficiently large covered even N",
+    "raw_scale": "K_B(N) >= -beta_B*P0_a(N), before division by actual T_N"
+  },
+  "schema_version": 1,
+  "signed_prime_correlation_estimate_proved": false,
+  "sleep_conditions": [
+    "the route invokes AP marginals without reflected binary-pair correlation",
+    "the route invokes average or almost-all AP Goldbach with exceptional covered targets",
+    "the route proves ordinary T_N>0 but not the centered bucket lower bounds",
+    "the route divides by T_N before producing raw bucket control"
+  ],
+  "source_commit": "3abc24a75c1560185017ae38e32e1281c8bcc994",
+  "source_fit_table": [
+    {
+      "fit_to_centered_support_ledger": "insufficient",
+      "id": "BMOR_2018_explicit_AP_prime_counts",
+      "mismatch": "The bucket obligations are raw signed binary-prime correlations K_B(N) for the coupled pair p and N-p.  Marginal counts for p in a residue class do not control the centered reflected convolution or one-sided negative bucket drag.",
+      "shape": "one_dimensional_AP_prime_counts",
+      "source": "Bennett, Martin, O'Bryant, Rechnitzer, Explicit bounds for primes in arithmetic progressions, arXiv:1802.00085",
+      "useful_part": "Explicit fixed-modulus prime counts in individual AP classes."
+    },
+    {
+      "fit_to_centered_support_ledger": "insufficient_as_direct_bridge",
+      "id": "BHMS_2017_Goldbach_AP_averages",
+      "mismatch": "Average representation information does not give a pointwise every-sufficiently-large-N lower bound for each signed bucket K_B(N).",
+      "shape": "average_AP_Goldbach_representation_information",
+      "source": "Bhowmik, Halupczok, Matsumoto, Suzuki, Goldbach Representations in Arithmetic Progressions and zeros of Dirichlet L-functions, arXiv:1704.06103",
+      "useful_part": "Relevant AP Goldbach and L-function context."
+    },
+    {
+      "fit_to_centered_support_ledger": "insufficient_as_direct_bridge",
+      "id": "Salmensuu_2021_almost_all_AP_Goldbach",
+      "mismatch": "The ledger needs every sufficiently large covered target, with no exceptional target left unpaid, and it needs signed bucket inequalities rather than mere representation.",
+      "shape": "almost_all_binary_AP_Goldbach",
+      "source": "Salmensuu, Goldbach's problem with primes in arithmetic progressions, arXiv:2106.00778",
+      "useful_part": "Shows AP-restricted binary Goldbach has strong almost-all machinery."
+    },
+    {
+      "fit_to_centered_support_ledger": "insufficient_as_direct_bridge",
+      "id": "Halupczok_2012_AP_Goldbach_mean_value",
+      "mismatch": "Mean-value control does not supply the required pointwise one-sided lower bounds for dominant_286, dominant_154, dominant_70, and tail.",
+      "shape": "mean_value_AP_Goldbach_representation_result",
+      "source": "Halupczok, Goldbach representations in arithmetic progressions and zeros of Dirichlet L-functions, arXiv:1212.4406",
+      "useful_part": "Relevant mean-value and L-function framework for AP Goldbach."
+    },
+    {
+      "fit_to_centered_support_ledger": "insufficient_as_direct_bridge",
+      "id": "Lichtman_2023_distribution_upper_bounds",
+      "mismatch": "Distribution levels and upper bounds do not provide the positive pointwise lower bucket control needed to keep centered error above the negative budget.",
+      "shape": "level_of_distribution_and_upper_bound_result",
+      "source": "Lichtman, Primes in arithmetic progressions to large moduli, and Goldbach beyond the square-root barrier, arXiv:2309.08522",
+      "useful_part": "Relevant modern distribution and Goldbach upper-bound context."
+    },
+    {
+      "fit_to_centered_support_ledger": "insufficient_without_bucket_bounds",
+      "id": "ordinary_strict_central_positive_mass_theorem",
+      "mismatch": "Positive ordinary mass alone does not bound the signed centered placement of that mass.  The combined coefficient is sign-indefinite on every target support, so the mass could still concentrate in adverse bucket regions without a separate raw signed-correlation estimate.",
+      "shape": "ordinary_positive_mass_only",
+      "source": "hypothetical or external pointwise theorem proving P0_a(N)>0 / T_N>0",
+      "useful_part": "Would create ordinary strict-central support."
+    }
+  ],
+  "source_theorem_fit_proved": false,
+  "sources": {
+    "centered_support_inequality_ledger": "evidence\\q286-wbss-centered-support-inequality-ledger.json",
+    "centered_support_ledger_status": "TARGET_centered_support_inequality_ledger_open",
+    "known_theorem_adequacy_audit": "evidence\\q286-wbss-known-theorem-adequacy-audit.json",
+    "known_theorem_adequacy_status": "HOLD_external_known_theorems_do_not_pay_budget",
+    "signed_region_source_fit_audit": "evidence\\q286-wbss-signed-region-source-fit-audit.json",
+    "signed_region_source_fit_status": "SOURCE_FIT_no_existing_signed_region_pointwise_bridge"
+  },
+  "status": "SOURCE_FIT_no_existing_centered_bucket_bridge",
+  "status_boundary": "Source-fit audit only; this is not a theorem.  No source theorem is promoted to a centered bucket bridge, no major/minor arc estimate, pointwise centered-error estimate, signed prime-correlation theorem, positive-mass theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof is established.",
+  "strict_central_goldbach_theorem_proved": false,
+  "surviving_work": {
+    "bespoke_bucket_circle_method": "For each bucket B, expand K_B(N) into the finite character package at its natural modulus and prove the allocated raw lower bound pointwise.",
+    "sharper_ledger": "Replace the sufficient beta allocation with a source-backed inequality that uses cancellations between buckets rather than independent bucket lower bounds.",
+    "source_fit_next": "Search for or derive pointwise fixed-modulus signed Goldbach-in-progressions estimates for the exact bucket weights."
+  },
+  "universal_pointwise_bound_proved": false
+}

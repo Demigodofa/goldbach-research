@@ -6,6 +6,51 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The q286-WBSS route now has a centered-support source-fit audit:
+
+```text
+tools/build_q286_wbss_centered_support_source_fit_audit.py
+notes/q286-wbss-centered-support-source-fit-audit.md
+evidence/q286-wbss-centered-support-source-fit-audit.json
+```
+
+Question: do currently named source-shaped theorem families pay the four q286
+centered-support raw bucket inequalities?
+
+Answer: no.  The required raw theorem shape is, for every sufficiently large
+covered even `N` and before any division by actual `T_N`,
+
+```text
+K_B(N) >= -beta_B * P0_a(N)
+```
+
+for `B in {dominant_286, dominant_154, dominant_70, tail}`.
+
+Source-fit result:
+
+```text
+evaluated source families:        6
+bucket obligations:               4
+external direct bridges found:    0
+ordinary positive mass suffices:  false
+```
+
+BMOR explicit AP counts are one-dimensional marginals and do not control the
+reflected binary pair correlation.  Average, almost-all, and mean-value AP
+Goldbach context does not give the pointwise bucket lower bounds for every
+covered target.  Even an ordinary theorem proving `P0_a(N)>0` or `T_N>0` is
+not enough unless it also controls the signed centered bucket placement.
+
+Decision: `SOURCE_FIT_no_existing_centered_bucket_bridge`.  The next
+evidence-bearing step is a character-expanded `K_286` target, or a sharper
+combined ledger that reduces the source theorem required.  This is a source-fit
+audit only.  It proves no source theorem fit, major/minor arc estimate,
+pointwise centered-error estimate, signed prime-correlation theorem,
+positive-mass theorem, q286 threshold theorem, strict-central Goldbach theorem,
+or Goldbach proof.
+
+## Latest active checkpoint note, 2026-09-16
+
 The q286-WBSS route now has a centered-support inequality ledger:
 
 ```text
