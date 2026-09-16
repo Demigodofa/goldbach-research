@@ -6,6 +6,41 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The `Q=46189` replacement-family lane now has a source-pair bucket
+compensation audit:
+
+```text
+tools/build_mobius_moment_square_degree5_q46189_source_pair_bucket_compensation_audit.py
+notes/mobius-moment-square-degree5-q46189-source-pair-bucket-compensation-audit.md
+evidence/mobius-moment-square-degree5-q46189-source-pair-bucket-compensation-audit.json
+```
+
+Result:
+
+```text
+q=38038 middle A..10A:             -0.939992990438763
+q=38038 non-middle sum:            0.09269980585259228
+q=38038 off/diag-half:             -0.8472931845861708
+q=38038 top-four non-middle sum:   0.07765412336759717
+q=38038 top-four non-middle share: 0.8376945631480589
+Q=46189 middle A..10A:             -0.2840414834738627
+Q=46189 non-middle sum:            -0.721340442056593
+Q=46189 off/diag-half:             -1.0053819255304557
+```
+
+Decision: the `q=38038` compensation localizes in the exact bilinear
+source-pair cross-term matrix.  The top four non-middle compensation terms
+are exactly the ordered mirror block on source pairs `(143,266)` and
+`(266,143)`, while `Q=46189` has negative aggregate non-middle contribution.
+The next theorem-shaped target is a mirror-source-pair compensation theorem
+target, followed by control of the remaining cross-term matrix across all
+replacement packets.  This proves no source-pair compensation theorem,
+mirror-block theorem, replacement-packet compensation theorem,
+coordinate-`00` residue-gap sign theorem, strict-central Goldbach theorem, or
+Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The `Q=46189` replacement-family lane now has a factor-geometry route triage:
 
 ```text

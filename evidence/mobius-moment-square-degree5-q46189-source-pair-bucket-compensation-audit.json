@@ -1,0 +1,2183 @@
+{
+  "candidate_next_action": {
+    "falsifier": "A reachable replacement packet whose mirror block does not pay the non-middle compensation, or whose remaining cross terms erase that payment below -1, falsifies this route.",
+    "mechanism": "The q=38038 survivor is not protected by every bucket.  Its middle bucket is worse than the final total, but ordered cross terms among the mirror source pairs (143,266) and (266,143) supply most of the positive non-middle compensation.",
+    "name": "mirror-source-pair compensation theorem target",
+    "novelty_label": "new-to-this-task",
+    "prediction": "A replacement-packet theorem should prove a mirror-block compensation inequality, then bound the remaining cross-term matrix; Q=46189 should fail because its corresponding non-middle aggregate remains negative.",
+    "smallest_next_test": "Run the same source-pair cross-term compensation audit across all 34 replacement packets and check whether q=38038 is the worst surviving instance of the mirror-block inequality."
+  },
+  "classification": {
+    "finite_source_pair_bucket_compensation_audit_only": true,
+    "q38038_compensation_localizes_to_mirror_source_pair_block": true,
+    "q38038_cross_terms_reconstruct_aggregate": true,
+    "q46189_cross_terms_reconstruct_aggregate": true,
+    "q46189_lacks_positive_aggregate_non_middle_compensation": true,
+    "source_pair_bucket_compensation_theorem_proved": false
+  },
+  "comparison": {
+    "q38038_middle_loss_stronger_than_total_loss": true,
+    "q38038_non_middle_compensation_positive": true,
+    "q38038_top_four_non_middle_share": 0.8376945631480589,
+    "q38038_top_four_non_middle_source_pairs": [
+      {
+        "left_source_pair": [
+          266,
+          143
+        ],
+        "non_middle_sum": 0.019413530841899306,
+        "right_source_pair": [
+          266,
+          143
+        ]
+      },
+      {
+        "left_source_pair": [
+          266,
+          143
+        ],
+        "non_middle_sum": 0.019413530841899288,
+        "right_source_pair": [
+          143,
+          266
+        ]
+      },
+      {
+        "left_source_pair": [
+          143,
+          266
+        ],
+        "non_middle_sum": 0.019413530841899285,
+        "right_source_pair": [
+          143,
+          266
+        ]
+      },
+      {
+        "left_source_pair": [
+          143,
+          266
+        ],
+        "non_middle_sum": 0.019413530841899285,
+        "right_source_pair": [
+          266,
+          143
+        ]
+      }
+    ],
+    "q46189_non_middle_compensation_negative": true
+  },
+  "coordinate00_residue_gap_sign_theorem_proved": false,
+  "decision": "The q=38038 compensation is visible in exact source-pair cross terms.  Its middle bucket alone is about -0.939993, but non-middle buckets add about +0.092700; the top four non-middle cross terms, all from the mirror block (143,266)/(266,143), supply more than 80 percent of that positive non-middle sum.  Q=46189 has negative aggregate non-middle contribution instead. This supports a mirror-source-pair compensation theorem target, but proves no such theorem and no Goldbach result.",
+  "finite_diagnostic_only": true,
+  "finite_source_pair_bucket_compensation_audit_only": true,
+  "fixture": {
+    "active_row_start": 43,
+    "adverse_denominator": 46189,
+    "cross_term_identity": "For source-pair packet vectors v_i, the bucket contribution is the sum over ordered cross terms 2*q*ifft(fft(v_i)*conj(fft(v_j)))*K_active.",
+    "divisor_range": [
+      3,
+      19
+    ],
+    "ell_freeze": 64,
+    "prime_modulus": 379,
+    "row_count_A": 43,
+    "scale_modulus": 229,
+    "target_label": "00,12",
+    "weakest_replacement_denominator": 38038
+  },
+  "goldbach_proved": false,
+  "mirror_source_pair_compensation_theorem_proved": false,
+  "question": "Can the q=38038 replacement-packet bucket compensation be localized in exact ordered source-conductor-pair cross terms, and how does that differ from Q=46189?",
+  "replacement_packet_compensation_theorem_proved": false,
+  "rows": [
+    {
+      "aggregate_bucket_contributions_over_diagonal_half": {
+        "far_10A_to_100A": -0.47656170489466876,
+        "middle_A_to_10A": -0.2840414834738627,
+        "near_1_to_A": -0.13773753588998874,
+        "tail_over_100A": -0.10704120127193549
+      },
+      "aggregate_middle_A_to_10A": -0.2840414834738627,
+      "aggregate_non_middle_sum": -0.721340442056593,
+      "cross_term_count": 36,
+      "cross_term_reconstruction_max_abs_error": 0.000732421875,
+      "cross_term_reconstruction_relative_to_diagonal_half": 3.4893452219293984e-17,
+      "cross_terms": [
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.014735565061296379,
+            "middle_A_to_10A": 0.04629316120916303,
+            "near_1_to_A": -0.005159517630902894,
+            "tail_over_100A": -0.01220245842147009
+          },
+          "left_source_pair": [
+            143,
+            323
+          ],
+          "middle_A_to_10A": 0.04629316120916303,
+          "non_middle_sum": -0.0026264109910766062,
+          "off_diagonal_over_diagonal_half": 0.043666750218086414,
+          "right_source_pair": [
+            143,
+            323
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.014022594308293182,
+            "middle_A_to_10A": -0.030445418013031363,
+            "near_1_to_A": -0.00015786638158393082,
+            "tail_over_100A": -0.0011435413388474983
+          },
+          "left_source_pair": [
+            143,
+            323
+          ],
+          "middle_A_to_10A": -0.030445418013031363,
+          "non_middle_sum": -0.015324002028724611,
+          "off_diagonal_over_diagonal_half": -0.04576942004175597,
+          "right_source_pair": [
+            187,
+            247
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.03280854238270979,
+            "middle_A_to_10A": -0.018528719334241772,
+            "near_1_to_A": -0.019145414013577475,
+            "tail_over_100A": 0.0003802409957522262
+          },
+          "left_source_pair": [
+            143,
+            323
+          ],
+          "middle_A_to_10A": -0.018528719334241772,
+          "non_middle_sum": -0.05157371540053504,
+          "off_diagonal_over_diagonal_half": -0.07010243473477683,
+          "right_source_pair": [
+            209,
+            221
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.03280854238270979,
+            "middle_A_to_10A": -0.018528719334241783,
+            "near_1_to_A": -0.019145414013577472,
+            "tail_over_100A": 0.00038024099575222634
+          },
+          "left_source_pair": [
+            143,
+            323
+          ],
+          "middle_A_to_10A": -0.018528719334241783,
+          "non_middle_sum": -0.051573715400535035,
+          "off_diagonal_over_diagonal_half": -0.07010243473477683,
+          "right_source_pair": [
+            221,
+            209
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.014022594308293182,
+            "middle_A_to_10A": -0.030445418013031356,
+            "near_1_to_A": -0.00015786638158393003,
+            "tail_over_100A": -0.001143541338847499
+          },
+          "left_source_pair": [
+            143,
+            323
+          ],
+          "middle_A_to_10A": -0.030445418013031356,
+          "non_middle_sum": -0.015324002028724611,
+          "off_diagonal_over_diagonal_half": -0.04576942004175596,
+          "right_source_pair": [
+            247,
+            187
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.014735565061296387,
+            "middle_A_to_10A": 0.04629316120916302,
+            "near_1_to_A": -0.0051595176309028904,
+            "tail_over_100A": -0.012202458421470082
+          },
+          "left_source_pair": [
+            143,
+            323
+          ],
+          "middle_A_to_10A": 0.04629316120916302,
+          "non_middle_sum": -0.0026264109910765854,
+          "off_diagonal_over_diagonal_half": 0.043666750218086435,
+          "right_source_pair": [
+            323,
+            143
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.014022594308293182,
+            "middle_A_to_10A": -0.030445418013031366,
+            "near_1_to_A": -0.00015786638158393193,
+            "tail_over_100A": -0.0011435413388474992
+          },
+          "left_source_pair": [
+            187,
+            247
+          ],
+          "middle_A_to_10A": -0.030445418013031366,
+          "non_middle_sum": -0.015324002028724613,
+          "off_diagonal_over_diagonal_half": -0.045769420041755986,
+          "right_source_pair": [
+            143,
+            323
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.014254238873427099,
+            "middle_A_to_10A": 0.010907929950117868,
+            "near_1_to_A": -0.003428930354771718,
+            "tail_over_100A": 0.005119488060275296
+          },
+          "left_source_pair": [
+            187,
+            247
+          ],
+          "middle_A_to_10A": 0.010907929950117868,
+          "non_middle_sum": -0.01256368116792352,
+          "off_diagonal_over_diagonal_half": -0.001655751217805654,
+          "right_source_pair": [
+            187,
+            247
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.006538259231748887,
+            "middle_A_to_10A": -0.0059559936016585,
+            "near_1_to_A": 0.0032633589891737417,
+            "tail_over_100A": -0.0009084508388639192
+          },
+          "left_source_pair": [
+            187,
+            247
+          ],
+          "middle_A_to_10A": -0.0059559936016585,
+          "non_middle_sum": 0.00889316738205871,
+          "off_diagonal_over_diagonal_half": 0.0029371737804002106,
+          "right_source_pair": [
+            209,
+            221
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.006538259231748883,
+            "middle_A_to_10A": -0.005955993601658498,
+            "near_1_to_A": 0.0032633589891737425,
+            "tail_over_100A": -0.0009084508388639195
+          },
+          "left_source_pair": [
+            187,
+            247
+          ],
+          "middle_A_to_10A": -0.005955993601658498,
+          "non_middle_sum": 0.008893167382058706,
+          "off_diagonal_over_diagonal_half": 0.0029371737804002084,
+          "right_source_pair": [
+            221,
+            209
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.014254238873427102,
+            "middle_A_to_10A": 0.01090792995011787,
+            "near_1_to_A": -0.003428930354771717,
+            "tail_over_100A": 0.005119488060275298
+          },
+          "left_source_pair": [
+            187,
+            247
+          ],
+          "middle_A_to_10A": 0.01090792995011787,
+          "non_middle_sum": -0.01256368116792352,
+          "off_diagonal_over_diagonal_half": -0.0016557512178056568,
+          "right_source_pair": [
+            247,
+            187
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.014022594308293182,
+            "middle_A_to_10A": -0.030445418013031366,
+            "near_1_to_A": -0.00015786638158392998,
+            "tail_over_100A": -0.0011435413388474992
+          },
+          "left_source_pair": [
+            187,
+            247
+          ],
+          "middle_A_to_10A": -0.030445418013031366,
+          "non_middle_sum": -0.015324002028724611,
+          "off_diagonal_over_diagonal_half": -0.04576942004175598,
+          "right_source_pair": [
+            323,
+            143
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.0328085423827098,
+            "middle_A_to_10A": -0.018528719334241783,
+            "near_1_to_A": -0.01914541401357748,
+            "tail_over_100A": 0.00038024099575222634
+          },
+          "left_source_pair": [
+            209,
+            221
+          ],
+          "middle_A_to_10A": -0.018528719334241783,
+          "non_middle_sum": -0.05157371540053505,
+          "off_diagonal_over_diagonal_half": -0.07010243473477684,
+          "right_source_pair": [
+            143,
+            323
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.006538259231748883,
+            "middle_A_to_10A": -0.005955993601658502,
+            "near_1_to_A": 0.0032633589891737412,
+            "tail_over_100A": -0.0009084508388639193
+          },
+          "left_source_pair": [
+            209,
+            221
+          ],
+          "middle_A_to_10A": -0.005955993601658502,
+          "non_middle_sum": 0.008893167382058705,
+          "off_diagonal_over_diagonal_half": 0.002937173780400206,
+          "right_source_pair": [
+            187,
+            247
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.03903599749302827,
+            "middle_A_to_10A": -0.018351200129883376,
+            "near_1_to_A": 0.006233906825152741,
+            "tail_over_100A": -0.016333827592870713
+          },
+          "left_source_pair": [
+            209,
+            221
+          ],
+          "middle_A_to_10A": -0.018351200129883376,
+          "non_middle_sum": -0.04913591826074624,
+          "off_diagonal_over_diagonal_half": -0.06748711839062964,
+          "right_source_pair": [
+            209,
+            221
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.03903599749302829,
+            "middle_A_to_10A": -0.018351200129883317,
+            "near_1_to_A": 0.00623390682515274,
+            "tail_over_100A": -0.016333827592870713
+          },
+          "left_source_pair": [
+            209,
+            221
+          ],
+          "middle_A_to_10A": -0.018351200129883317,
+          "non_middle_sum": -0.04913591826074626,
+          "off_diagonal_over_diagonal_half": -0.06748711839062958,
+          "right_source_pair": [
+            221,
+            209
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.006538259231748888,
+            "middle_A_to_10A": -0.005955993601658506,
+            "near_1_to_A": 0.003263358989173741,
+            "tail_over_100A": -0.0009084508388639215
+          },
+          "left_source_pair": [
+            209,
+            221
+          ],
+          "middle_A_to_10A": -0.005955993601658506,
+          "non_middle_sum": 0.008893167382058706,
+          "off_diagonal_over_diagonal_half": 0.0029371737804002006,
+          "right_source_pair": [
+            247,
+            187
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.0328085423827098,
+            "middle_A_to_10A": -0.018528719334241748,
+            "near_1_to_A": -0.019145414013577472,
+            "tail_over_100A": 0.0003802409957522291
+          },
+          "left_source_pair": [
+            209,
+            221
+          ],
+          "middle_A_to_10A": -0.018528719334241748,
+          "non_middle_sum": -0.05157371540053504,
+          "off_diagonal_over_diagonal_half": -0.07010243473477679,
+          "right_source_pair": [
+            323,
+            143
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.03280854238270979,
+            "middle_A_to_10A": -0.018528719334241783,
+            "near_1_to_A": -0.019145414013577472,
+            "tail_over_100A": 0.00038024099575222634
+          },
+          "left_source_pair": [
+            221,
+            209
+          ],
+          "middle_A_to_10A": -0.018528719334241783,
+          "non_middle_sum": -0.051573715400535035,
+          "off_diagonal_over_diagonal_half": -0.07010243473477681,
+          "right_source_pair": [
+            143,
+            323
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.006538259231748881,
+            "middle_A_to_10A": -0.005955993601658493,
+            "near_1_to_A": 0.003263358989173742,
+            "tail_over_100A": -0.0009084508388639181
+          },
+          "left_source_pair": [
+            221,
+            209
+          ],
+          "middle_A_to_10A": -0.005955993601658493,
+          "non_middle_sum": 0.008893167382058705,
+          "off_diagonal_over_diagonal_half": 0.0029371737804002106,
+          "right_source_pair": [
+            187,
+            247
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.039035997493028274,
+            "middle_A_to_10A": -0.018351200129883352,
+            "near_1_to_A": 0.006233906825152746,
+            "tail_over_100A": -0.016333827592870713
+          },
+          "left_source_pair": [
+            221,
+            209
+          ],
+          "middle_A_to_10A": -0.018351200129883352,
+          "non_middle_sum": -0.049135918260746245,
+          "off_diagonal_over_diagonal_half": -0.06748711839062958,
+          "right_source_pair": [
+            209,
+            221
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.039035997493028274,
+            "middle_A_to_10A": -0.018351200129883328,
+            "near_1_to_A": 0.006233906825152738,
+            "tail_over_100A": -0.016333827592870723
+          },
+          "left_source_pair": [
+            221,
+            209
+          ],
+          "middle_A_to_10A": -0.018351200129883328,
+          "non_middle_sum": -0.04913591826074626,
+          "off_diagonal_over_diagonal_half": -0.06748711839062958,
+          "right_source_pair": [
+            221,
+            209
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.006538259231748884,
+            "middle_A_to_10A": -0.005955993601658501,
+            "near_1_to_A": 0.003263358989173742,
+            "tail_over_100A": -0.00090845083886392
+          },
+          "left_source_pair": [
+            221,
+            209
+          ],
+          "middle_A_to_10A": -0.005955993601658501,
+          "non_middle_sum": 0.008893167382058706,
+          "off_diagonal_over_diagonal_half": 0.0029371737804002084,
+          "right_source_pair": [
+            247,
+            187
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.03280854238270979,
+            "middle_A_to_10A": -0.018528719334241772,
+            "near_1_to_A": -0.019145414013577475,
+            "tail_over_100A": 0.0003802409957522287
+          },
+          "left_source_pair": [
+            221,
+            209
+          ],
+          "middle_A_to_10A": -0.018528719334241772,
+          "non_middle_sum": -0.051573715400535035,
+          "off_diagonal_over_diagonal_half": -0.0701024347347768,
+          "right_source_pair": [
+            323,
+            143
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.01402259430829318,
+            "middle_A_to_10A": -0.030445418013031356,
+            "near_1_to_A": -0.00015786638158393117,
+            "tail_over_100A": -0.0011435413388474992
+          },
+          "left_source_pair": [
+            247,
+            187
+          ],
+          "middle_A_to_10A": -0.030445418013031356,
+          "non_middle_sum": -0.015324002028724611,
+          "off_diagonal_over_diagonal_half": -0.045769420041755965,
+          "right_source_pair": [
+            143,
+            323
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.014254238873427106,
+            "middle_A_to_10A": 0.010907929950117875,
+            "near_1_to_A": -0.00342893035477172,
+            "tail_over_100A": 0.005119488060275298
+          },
+          "left_source_pair": [
+            247,
+            187
+          ],
+          "middle_A_to_10A": 0.010907929950117875,
+          "non_middle_sum": -0.012563681167923528,
+          "off_diagonal_over_diagonal_half": -0.0016557512178056587,
+          "right_source_pair": [
+            187,
+            247
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.006538259231748885,
+            "middle_A_to_10A": -0.0059559936016585074,
+            "near_1_to_A": 0.0032633589891737434,
+            "tail_over_100A": -0.0009084508388639203
+          },
+          "left_source_pair": [
+            247,
+            187
+          ],
+          "middle_A_to_10A": -0.0059559936016585074,
+          "non_middle_sum": 0.008893167382058708,
+          "off_diagonal_over_diagonal_half": 0.0029371737804001993,
+          "right_source_pair": [
+            209,
+            221
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.006538259231748885,
+            "middle_A_to_10A": -0.0059559936016585005,
+            "near_1_to_A": 0.0032633589891737412,
+            "tail_over_100A": -0.0009084508388639197
+          },
+          "left_source_pair": [
+            247,
+            187
+          ],
+          "middle_A_to_10A": -0.0059559936016585005,
+          "non_middle_sum": 0.008893167382058706,
+          "off_diagonal_over_diagonal_half": 0.002937173780400209,
+          "right_source_pair": [
+            221,
+            209
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.014254238873427118,
+            "middle_A_to_10A": 0.010907929950117877,
+            "near_1_to_A": -0.003428930354771718,
+            "tail_over_100A": 0.005119488060275298
+          },
+          "left_source_pair": [
+            247,
+            187
+          ],
+          "middle_A_to_10A": 0.010907929950117877,
+          "non_middle_sum": -0.012563681167923538,
+          "off_diagonal_over_diagonal_half": -0.0016557512178056594,
+          "right_source_pair": [
+            247,
+            187
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.014022594308293182,
+            "middle_A_to_10A": -0.030445418013031356,
+            "near_1_to_A": -0.00015786638158393299,
+            "tail_over_100A": -0.001143541338847498
+          },
+          "left_source_pair": [
+            247,
+            187
+          ],
+          "middle_A_to_10A": -0.030445418013031356,
+          "non_middle_sum": -0.015324002028724613,
+          "off_diagonal_over_diagonal_half": -0.04576942004175597,
+          "right_source_pair": [
+            323,
+            143
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.014735565061296379,
+            "middle_A_to_10A": 0.04629316120916303,
+            "near_1_to_A": -0.005159517630902886,
+            "tail_over_100A": -0.012202458421470077
+          },
+          "left_source_pair": [
+            323,
+            143
+          ],
+          "middle_A_to_10A": 0.04629316120916303,
+          "non_middle_sum": -0.0026264109910765845,
+          "off_diagonal_over_diagonal_half": 0.04366675021808645,
+          "right_source_pair": [
+            143,
+            323
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.014022594308293182,
+            "middle_A_to_10A": -0.030445418013031363,
+            "near_1_to_A": -0.00015786638158393036,
+            "tail_over_100A": -0.0011435413388474983
+          },
+          "left_source_pair": [
+            323,
+            143
+          ],
+          "middle_A_to_10A": -0.030445418013031363,
+          "non_middle_sum": -0.015324002028724611,
+          "off_diagonal_over_diagonal_half": -0.04576942004175597,
+          "right_source_pair": [
+            187,
+            247
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.03280854238270979,
+            "middle_A_to_10A": -0.01852871933424176,
+            "near_1_to_A": -0.019145414013577472,
+            "tail_over_100A": 0.00038024099575222997
+          },
+          "left_source_pair": [
+            323,
+            143
+          ],
+          "middle_A_to_10A": -0.01852871933424176,
+          "non_middle_sum": -0.051573715400535035,
+          "off_diagonal_over_diagonal_half": -0.0701024347347768,
+          "right_source_pair": [
+            209,
+            221
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.03280854238270979,
+            "middle_A_to_10A": -0.018528719334241772,
+            "near_1_to_A": -0.019145414013577475,
+            "tail_over_100A": 0.0003802409957522267
+          },
+          "left_source_pair": [
+            323,
+            143
+          ],
+          "middle_A_to_10A": -0.018528719334241772,
+          "non_middle_sum": -0.05157371540053504,
+          "off_diagonal_over_diagonal_half": -0.07010243473477681,
+          "right_source_pair": [
+            221,
+            209
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.014022594308293182,
+            "middle_A_to_10A": -0.030445418013031363,
+            "near_1_to_A": -0.00015786638158393152,
+            "tail_over_100A": -0.0011435413388474988
+          },
+          "left_source_pair": [
+            323,
+            143
+          ],
+          "middle_A_to_10A": -0.030445418013031363,
+          "non_middle_sum": -0.015324002028724613,
+          "off_diagonal_over_diagonal_half": -0.04576942004175597,
+          "right_source_pair": [
+            247,
+            187
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.01473556506129637,
+            "middle_A_to_10A": 0.04629316120916305,
+            "near_1_to_A": -0.005159517630902894,
+            "tail_over_100A": -0.01220245842147008
+          },
+          "left_source_pair": [
+            323,
+            143
+          ],
+          "middle_A_to_10A": 0.04629316120916305,
+          "non_middle_sum": -0.0026264109910766045,
+          "off_diagonal_over_diagonal_half": 0.04366675021808644,
+          "right_source_pair": [
+            323,
+            143
+          ]
+        }
+      ],
+      "diagonal_half_contribution": 20990238237161.72,
+      "margin_above_minus_one": -0.005381925530455689,
+      "off_diagonal_over_diagonal_half": -1.0053819255304557,
+      "ordered_source_pair_count": 6,
+      "ordered_source_pairs": [
+        [
+          143,
+          323
+        ],
+        [
+          187,
+          247
+        ],
+        [
+          209,
+          221
+        ],
+        [
+          221,
+          209
+        ],
+        [
+          247,
+          187
+        ],
+        [
+          323,
+          143
+        ]
+      ],
+      "reduced_denominator": 46189,
+      "role": "q46189_adverse",
+      "top_four_non_middle_compensation_sum": 0.03557266952823483,
+      "top_four_non_middle_share_of_aggregate_non_middle": -0.04931467508852633,
+      "top_middle_loss_terms": [
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.014022594308293182,
+            "middle_A_to_10A": -0.030445418013031366,
+            "near_1_to_A": -0.00015786638158393193,
+            "tail_over_100A": -0.0011435413388474992
+          },
+          "left_source_pair": [
+            187,
+            247
+          ],
+          "middle_A_to_10A": -0.030445418013031366,
+          "non_middle_sum": -0.015324002028724613,
+          "off_diagonal_over_diagonal_half": -0.045769420041755986,
+          "right_source_pair": [
+            143,
+            323
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.014022594308293182,
+            "middle_A_to_10A": -0.030445418013031366,
+            "near_1_to_A": -0.00015786638158392998,
+            "tail_over_100A": -0.0011435413388474992
+          },
+          "left_source_pair": [
+            187,
+            247
+          ],
+          "middle_A_to_10A": -0.030445418013031366,
+          "non_middle_sum": -0.015324002028724611,
+          "off_diagonal_over_diagonal_half": -0.04576942004175598,
+          "right_source_pair": [
+            323,
+            143
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.014022594308293182,
+            "middle_A_to_10A": -0.030445418013031363,
+            "near_1_to_A": -0.00015786638158393082,
+            "tail_over_100A": -0.0011435413388474983
+          },
+          "left_source_pair": [
+            143,
+            323
+          ],
+          "middle_A_to_10A": -0.030445418013031363,
+          "non_middle_sum": -0.015324002028724611,
+          "off_diagonal_over_diagonal_half": -0.04576942004175597,
+          "right_source_pair": [
+            187,
+            247
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.014022594308293182,
+            "middle_A_to_10A": -0.030445418013031363,
+            "near_1_to_A": -0.00015786638158393036,
+            "tail_over_100A": -0.0011435413388474983
+          },
+          "left_source_pair": [
+            323,
+            143
+          ],
+          "middle_A_to_10A": -0.030445418013031363,
+          "non_middle_sum": -0.015324002028724611,
+          "off_diagonal_over_diagonal_half": -0.04576942004175597,
+          "right_source_pair": [
+            187,
+            247
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.014022594308293182,
+            "middle_A_to_10A": -0.030445418013031363,
+            "near_1_to_A": -0.00015786638158393152,
+            "tail_over_100A": -0.0011435413388474988
+          },
+          "left_source_pair": [
+            323,
+            143
+          ],
+          "middle_A_to_10A": -0.030445418013031363,
+          "non_middle_sum": -0.015324002028724613,
+          "off_diagonal_over_diagonal_half": -0.04576942004175597,
+          "right_source_pair": [
+            247,
+            187
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.014022594308293182,
+            "middle_A_to_10A": -0.030445418013031356,
+            "near_1_to_A": -0.00015786638158393003,
+            "tail_over_100A": -0.001143541338847499
+          },
+          "left_source_pair": [
+            143,
+            323
+          ],
+          "middle_A_to_10A": -0.030445418013031356,
+          "non_middle_sum": -0.015324002028724611,
+          "off_diagonal_over_diagonal_half": -0.04576942004175596,
+          "right_source_pair": [
+            247,
+            187
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.01402259430829318,
+            "middle_A_to_10A": -0.030445418013031356,
+            "near_1_to_A": -0.00015786638158393117,
+            "tail_over_100A": -0.0011435413388474992
+          },
+          "left_source_pair": [
+            247,
+            187
+          ],
+          "middle_A_to_10A": -0.030445418013031356,
+          "non_middle_sum": -0.015324002028724611,
+          "off_diagonal_over_diagonal_half": -0.045769420041755965,
+          "right_source_pair": [
+            143,
+            323
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.014022594308293182,
+            "middle_A_to_10A": -0.030445418013031356,
+            "near_1_to_A": -0.00015786638158393299,
+            "tail_over_100A": -0.001143541338847498
+          },
+          "left_source_pair": [
+            247,
+            187
+          ],
+          "middle_A_to_10A": -0.030445418013031356,
+          "non_middle_sum": -0.015324002028724613,
+          "off_diagonal_over_diagonal_half": -0.04576942004175597,
+          "right_source_pair": [
+            323,
+            143
+          ]
+        }
+      ],
+      "top_non_middle_compensation_terms": [
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.006538259231748887,
+            "middle_A_to_10A": -0.0059559936016585,
+            "near_1_to_A": 0.0032633589891737417,
+            "tail_over_100A": -0.0009084508388639192
+          },
+          "left_source_pair": [
+            187,
+            247
+          ],
+          "middle_A_to_10A": -0.0059559936016585,
+          "non_middle_sum": 0.00889316738205871,
+          "off_diagonal_over_diagonal_half": 0.0029371737804002106,
+          "right_source_pair": [
+            209,
+            221
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.006538259231748885,
+            "middle_A_to_10A": -0.0059559936016585074,
+            "near_1_to_A": 0.0032633589891737434,
+            "tail_over_100A": -0.0009084508388639203
+          },
+          "left_source_pair": [
+            247,
+            187
+          ],
+          "middle_A_to_10A": -0.0059559936016585074,
+          "non_middle_sum": 0.008893167382058708,
+          "off_diagonal_over_diagonal_half": 0.0029371737804001993,
+          "right_source_pair": [
+            209,
+            221
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.006538259231748883,
+            "middle_A_to_10A": -0.005955993601658498,
+            "near_1_to_A": 0.0032633589891737425,
+            "tail_over_100A": -0.0009084508388639195
+          },
+          "left_source_pair": [
+            187,
+            247
+          ],
+          "middle_A_to_10A": -0.005955993601658498,
+          "non_middle_sum": 0.008893167382058706,
+          "off_diagonal_over_diagonal_half": 0.0029371737804002084,
+          "right_source_pair": [
+            221,
+            209
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.006538259231748888,
+            "middle_A_to_10A": -0.005955993601658506,
+            "near_1_to_A": 0.003263358989173741,
+            "tail_over_100A": -0.0009084508388639215
+          },
+          "left_source_pair": [
+            209,
+            221
+          ],
+          "middle_A_to_10A": -0.005955993601658506,
+          "non_middle_sum": 0.008893167382058706,
+          "off_diagonal_over_diagonal_half": 0.0029371737804002006,
+          "right_source_pair": [
+            247,
+            187
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.006538259231748884,
+            "middle_A_to_10A": -0.005955993601658501,
+            "near_1_to_A": 0.003263358989173742,
+            "tail_over_100A": -0.00090845083886392
+          },
+          "left_source_pair": [
+            221,
+            209
+          ],
+          "middle_A_to_10A": -0.005955993601658501,
+          "non_middle_sum": 0.008893167382058706,
+          "off_diagonal_over_diagonal_half": 0.0029371737804002084,
+          "right_source_pair": [
+            247,
+            187
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.006538259231748885,
+            "middle_A_to_10A": -0.0059559936016585005,
+            "near_1_to_A": 0.0032633589891737412,
+            "tail_over_100A": -0.0009084508388639197
+          },
+          "left_source_pair": [
+            247,
+            187
+          ],
+          "middle_A_to_10A": -0.0059559936016585005,
+          "non_middle_sum": 0.008893167382058706,
+          "off_diagonal_over_diagonal_half": 0.002937173780400209,
+          "right_source_pair": [
+            221,
+            209
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.006538259231748883,
+            "middle_A_to_10A": -0.005955993601658502,
+            "near_1_to_A": 0.0032633589891737412,
+            "tail_over_100A": -0.0009084508388639193
+          },
+          "left_source_pair": [
+            209,
+            221
+          ],
+          "middle_A_to_10A": -0.005955993601658502,
+          "non_middle_sum": 0.008893167382058705,
+          "off_diagonal_over_diagonal_half": 0.002937173780400206,
+          "right_source_pair": [
+            187,
+            247
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.006538259231748881,
+            "middle_A_to_10A": -0.005955993601658493,
+            "near_1_to_A": 0.003263358989173742,
+            "tail_over_100A": -0.0009084508388639181
+          },
+          "left_source_pair": [
+            221,
+            209
+          ],
+          "middle_A_to_10A": -0.005955993601658493,
+          "non_middle_sum": 0.008893167382058705,
+          "off_diagonal_over_diagonal_half": 0.0029371737804002106,
+          "right_source_pair": [
+            187,
+            247
+          ]
+        }
+      ]
+    },
+    {
+      "aggregate_bucket_contributions_over_diagonal_half": {
+        "far_10A_to_100A": 0.021414069308930563,
+        "middle_A_to_10A": -0.939992990438763,
+        "near_1_to_A": 0.02169538928539489,
+        "tail_over_100A": 0.04959034725826683
+      },
+      "aggregate_middle_A_to_10A": -0.939992990438763,
+      "aggregate_non_middle_sum": 0.09269980585259228,
+      "cross_term_count": 36,
+      "cross_term_reconstruction_max_abs_error": 0.001220703125,
+      "cross_term_reconstruction_relative_to_diagonal_half": 4.255795350536696e-17,
+      "cross_terms": [
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.0006040981919956628,
+            "middle_A_to_10A": 0.007054559847980698,
+            "near_1_to_A": 0.01641028260446958,
+            "tail_over_100A": 0.002399150045434041
+          },
+          "left_source_pair": [
+            143,
+            266
+          ],
+          "middle_A_to_10A": 0.007054559847980698,
+          "non_middle_sum": 0.019413530841899285,
+          "off_diagonal_over_diagonal_half": 0.02646809068987998,
+          "right_source_pair": [
+            143,
+            266
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.001014881667628036,
+            "middle_A_to_10A": -0.12100971974201111,
+            "near_1_to_A": 0.0029264252845417785,
+            "tail_over_100A": 0.008939935067329995
+          },
+          "left_source_pair": [
+            143,
+            266
+          ],
+          "middle_A_to_10A": -0.12100971974201111,
+          "non_middle_sum": 0.010851478684243738,
+          "off_diagonal_over_diagonal_half": -0.11015824105776738,
+          "right_source_pair": [
+            154,
+            247
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.0022220801689418245,
+            "middle_A_to_10A": -0.006498783578975594,
+            "near_1_to_A": -0.007021350704079179,
+            "tail_over_100A": 0.004466823446979219
+          },
+          "left_source_pair": [
+            143,
+            266
+          ],
+          "middle_A_to_10A": -0.006498783578975594,
+          "non_middle_sum": -0.0003324470881581349,
+          "off_diagonal_over_diagonal_half": -0.006831230667133728,
+          "right_source_pair": [
+            182,
+            209
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.002222080168941822,
+            "middle_A_to_10A": -0.006498783578975593,
+            "near_1_to_A": -0.0070213507040791795,
+            "tail_over_100A": 0.004466823446979218
+          },
+          "left_source_pair": [
+            143,
+            266
+          ],
+          "middle_A_to_10A": -0.006498783578975593,
+          "non_middle_sum": -0.00033244708815813925,
+          "off_diagonal_over_diagonal_half": -0.006831230667133732,
+          "right_source_pair": [
+            209,
+            182
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.0010148816676280442,
+            "middle_A_to_10A": -0.12100971974201111,
+            "near_1_to_A": 0.0029264252845417754,
+            "tail_over_100A": 0.008939935067329994
+          },
+          "left_source_pair": [
+            143,
+            266
+          ],
+          "middle_A_to_10A": -0.12100971974201111,
+          "non_middle_sum": 0.010851478684243725,
+          "off_diagonal_over_diagonal_half": -0.11015824105776738,
+          "right_source_pair": [
+            247,
+            154
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.0006040981919956689,
+            "middle_A_to_10A": 0.007054559847980688,
+            "near_1_to_A": 0.016410282604469577,
+            "tail_over_100A": 0.00239915004543404
+          },
+          "left_source_pair": [
+            143,
+            266
+          ],
+          "middle_A_to_10A": 0.007054559847980688,
+          "non_middle_sum": 0.019413530841899285,
+          "off_diagonal_over_diagonal_half": 0.026468090689879976,
+          "right_source_pair": [
+            266,
+            143
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.0010148816676280334,
+            "middle_A_to_10A": -0.12100971974201111,
+            "near_1_to_A": 0.0029264252845417798,
+            "tail_over_100A": 0.008939935067329994
+          },
+          "left_source_pair": [
+            154,
+            247
+          ],
+          "middle_A_to_10A": -0.12100971974201111,
+          "non_middle_sum": 0.01085147868424374,
+          "off_diagonal_over_diagonal_half": -0.11015824105776738,
+          "right_source_pair": [
+            143,
+            266
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.0013600959905764249,
+            "middle_A_to_10A": -0.0041549949130443254,
+            "near_1_to_A": 0.0006607376508933636,
+            "tail_over_100A": -0.003341687496748715
+          },
+          "left_source_pair": [
+            154,
+            247
+          ],
+          "middle_A_to_10A": -0.0041549949130443254,
+          "non_middle_sum": -0.0013208538552789265,
+          "off_diagonal_over_diagonal_half": -0.005475848768323252,
+          "right_source_pair": [
+            154,
+            247
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.0007521024219821031,
+            "middle_A_to_10A": 0.0047536012556278736,
+            "near_1_to_A": 0.0018490205662161083,
+            "tail_over_100A": -0.0041369890438939265
+          },
+          "left_source_pair": [
+            154,
+            247
+          ],
+          "middle_A_to_10A": 0.0047536012556278736,
+          "non_middle_sum": -0.003040070899659921,
+          "off_diagonal_over_diagonal_half": 0.0017135303559679496,
+          "right_source_pair": [
+            182,
+            209
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.0007521024219821028,
+            "middle_A_to_10A": 0.004753601255627872,
+            "near_1_to_A": 0.0018490205662161083,
+            "tail_over_100A": -0.004136989043893925
+          },
+          "left_source_pair": [
+            154,
+            247
+          ],
+          "middle_A_to_10A": 0.004753601255627872,
+          "non_middle_sum": -0.0030400708996599192,
+          "off_diagonal_over_diagonal_half": 0.0017135303559679528,
+          "right_source_pair": [
+            209,
+            182
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.001360095990576441,
+            "middle_A_to_10A": -0.004154994913044323,
+            "near_1_to_A": 0.0006607376508933584,
+            "tail_over_100A": -0.0033416874967487136
+          },
+          "left_source_pair": [
+            154,
+            247
+          ],
+          "middle_A_to_10A": -0.004154994913044323,
+          "non_middle_sum": -0.0013208538552789144,
+          "off_diagonal_over_diagonal_half": -0.005475848768323237,
+          "right_source_pair": [
+            247,
+            154
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.001014881667628048,
+            "middle_A_to_10A": -0.12100971974201112,
+            "near_1_to_A": 0.0029264252845417754,
+            "tail_over_100A": 0.008939935067329994
+          },
+          "left_source_pair": [
+            154,
+            247
+          ],
+          "middle_A_to_10A": -0.12100971974201112,
+          "non_middle_sum": 0.010851478684243722,
+          "off_diagonal_over_diagonal_half": -0.1101582410577674,
+          "right_source_pair": [
+            266,
+            143
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.002222080168941821,
+            "middle_A_to_10A": -0.0064987835789755925,
+            "near_1_to_A": -0.00702135070407918,
+            "tail_over_100A": 0.004466823446979219
+          },
+          "left_source_pair": [
+            182,
+            209
+          ],
+          "middle_A_to_10A": -0.0064987835789755925,
+          "non_middle_sum": -0.0003324470881581401,
+          "off_diagonal_over_diagonal_half": -0.006831230667133732,
+          "right_source_pair": [
+            143,
+            266
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.000752102421982102,
+            "middle_A_to_10A": 0.004753601255627873,
+            "near_1_to_A": 0.0018490205662161086,
+            "tail_over_100A": -0.0041369890438939265
+          },
+          "left_source_pair": [
+            182,
+            209
+          ],
+          "middle_A_to_10A": 0.004753601255627873,
+          "non_middle_sum": -0.00304007089965992,
+          "off_diagonal_over_diagonal_half": 0.00171353035596795,
+          "right_source_pair": [
+            154,
+            247
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.002479130985997115,
+            "middle_A_to_10A": 0.0076119915860905045,
+            "near_1_to_A": -0.007155363227371618,
+            "tail_over_100A": -0.0051994146749491914
+          },
+          "left_source_pair": [
+            182,
+            209
+          ],
+          "middle_A_to_10A": 0.0076119915860905045,
+          "non_middle_sum": -0.009875646916323694,
+          "off_diagonal_over_diagonal_half": -0.0022636553302331896,
+          "right_source_pair": [
+            182,
+            209
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.002479130985997119,
+            "middle_A_to_10A": 0.0076119915860905045,
+            "near_1_to_A": -0.007155363227371618,
+            "tail_over_100A": -0.005199414674949191
+          },
+          "left_source_pair": [
+            182,
+            209
+          ],
+          "middle_A_to_10A": 0.0076119915860905045,
+          "non_middle_sum": -0.009875646916323689,
+          "off_diagonal_over_diagonal_half": -0.0022636553302331844,
+          "right_source_pair": [
+            209,
+            182
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.0007521024219820996,
+            "middle_A_to_10A": 0.004753601255627878,
+            "near_1_to_A": 0.0018490205662161088,
+            "tail_over_100A": -0.004136989043893928
+          },
+          "left_source_pair": [
+            182,
+            209
+          ],
+          "middle_A_to_10A": 0.004753601255627878,
+          "non_middle_sum": -0.0030400708996599192,
+          "off_diagonal_over_diagonal_half": 0.0017135303559679598,
+          "right_source_pair": [
+            247,
+            154
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.0022220801689418245,
+            "middle_A_to_10A": -0.006498783578975586,
+            "near_1_to_A": -0.007021350704079179,
+            "tail_over_100A": 0.0044668234469792175
+          },
+          "left_source_pair": [
+            182,
+            209
+          ],
+          "middle_A_to_10A": -0.006498783578975586,
+          "non_middle_sum": -0.00033244708815813664,
+          "off_diagonal_over_diagonal_half": -0.006831230667133724,
+          "right_source_pair": [
+            266,
+            143
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.0022220801689418206,
+            "middle_A_to_10A": -0.006498783578975593,
+            "near_1_to_A": -0.007021350704079182,
+            "tail_over_100A": 0.0044668234469792175
+          },
+          "left_source_pair": [
+            209,
+            182
+          ],
+          "middle_A_to_10A": -0.006498783578975593,
+          "non_middle_sum": -0.000332447088158144,
+          "off_diagonal_over_diagonal_half": -0.006831230667133735,
+          "right_source_pair": [
+            143,
+            266
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.0007521024219821034,
+            "middle_A_to_10A": 0.004753601255627869,
+            "near_1_to_A": 0.0018490205662161094,
+            "tail_over_100A": -0.004136989043893926
+          },
+          "left_source_pair": [
+            209,
+            182
+          ],
+          "middle_A_to_10A": 0.004753601255627869,
+          "non_middle_sum": -0.0030400708996599197,
+          "off_diagonal_over_diagonal_half": 0.0017135303559679496,
+          "right_source_pair": [
+            154,
+            247
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.0024791309859971177,
+            "middle_A_to_10A": 0.007611991586090502,
+            "near_1_to_A": -0.0071553632273716195,
+            "tail_over_100A": -0.005199414674949191
+          },
+          "left_source_pair": [
+            209,
+            182
+          ],
+          "middle_A_to_10A": 0.007611991586090502,
+          "non_middle_sum": -0.009875646916323692,
+          "off_diagonal_over_diagonal_half": -0.0022636553302331896,
+          "right_source_pair": [
+            182,
+            209
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.0024791309859971177,
+            "middle_A_to_10A": 0.007611991586090502,
+            "near_1_to_A": -0.007155363227371619,
+            "tail_over_100A": -0.00519941467494919
+          },
+          "left_source_pair": [
+            209,
+            182
+          ],
+          "middle_A_to_10A": 0.007611991586090502,
+          "non_middle_sum": -0.00987564691632369,
+          "off_diagonal_over_diagonal_half": -0.0022636553302331866,
+          "right_source_pair": [
+            209,
+            182
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.0007521024219820994,
+            "middle_A_to_10A": 0.004753601255627878,
+            "near_1_to_A": 0.00184902056621611,
+            "tail_over_100A": -0.004136989043893928
+          },
+          "left_source_pair": [
+            209,
+            182
+          ],
+          "middle_A_to_10A": 0.004753601255627878,
+          "non_middle_sum": -0.0030400708996599175,
+          "off_diagonal_over_diagonal_half": 0.00171353035596796,
+          "right_source_pair": [
+            247,
+            154
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.002222080168941825,
+            "middle_A_to_10A": -0.0064987835789755855,
+            "near_1_to_A": -0.0070213507040791795,
+            "tail_over_100A": 0.0044668234469792175
+          },
+          "left_source_pair": [
+            209,
+            182
+          ],
+          "middle_A_to_10A": -0.0064987835789755855,
+          "non_middle_sum": -0.0003324470881581371,
+          "off_diagonal_over_diagonal_half": -0.006831230667133724,
+          "right_source_pair": [
+            266,
+            143
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.0010148816676280462,
+            "middle_A_to_10A": -0.12100971974201107,
+            "near_1_to_A": 0.0029264252845417754,
+            "tail_over_100A": 0.008939935067329995
+          },
+          "left_source_pair": [
+            247,
+            154
+          ],
+          "middle_A_to_10A": -0.12100971974201107,
+          "non_middle_sum": 0.010851478684243725,
+          "off_diagonal_over_diagonal_half": -0.11015824105776738,
+          "right_source_pair": [
+            143,
+            266
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.0013600959905764444,
+            "middle_A_to_10A": -0.004154994913044323,
+            "near_1_to_A": 0.0006607376508933593,
+            "tail_over_100A": -0.0033416874967487136
+          },
+          "left_source_pair": [
+            247,
+            154
+          ],
+          "middle_A_to_10A": -0.004154994913044323,
+          "non_middle_sum": -0.00132085385527891,
+          "off_diagonal_over_diagonal_half": -0.005475848768323235,
+          "right_source_pair": [
+            154,
+            247
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.0007521024219820986,
+            "middle_A_to_10A": 0.004753601255627874,
+            "near_1_to_A": 0.0018490205662161096,
+            "tail_over_100A": -0.004136989043893928
+          },
+          "left_source_pair": [
+            247,
+            154
+          ],
+          "middle_A_to_10A": 0.004753601255627874,
+          "non_middle_sum": -0.003040070899659917,
+          "off_diagonal_over_diagonal_half": 0.0017135303559679578,
+          "right_source_pair": [
+            182,
+            209
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.0007521024219820984,
+            "middle_A_to_10A": 0.004753601255627873,
+            "near_1_to_A": 0.0018490205662161105,
+            "tail_over_100A": -0.0041369890438939265
+          },
+          "left_source_pair": [
+            247,
+            154
+          ],
+          "middle_A_to_10A": 0.004753601255627873,
+          "non_middle_sum": -0.0030400708996599145,
+          "off_diagonal_over_diagonal_half": 0.0017135303559679576,
+          "right_source_pair": [
+            209,
+            182
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.0013600959905764518,
+            "middle_A_to_10A": -0.0041549949130443254,
+            "near_1_to_A": 0.0006607376508933583,
+            "tail_over_100A": -0.0033416874967487128
+          },
+          "left_source_pair": [
+            247,
+            154
+          ],
+          "middle_A_to_10A": -0.0041549949130443254,
+          "non_middle_sum": -0.0013208538552789027,
+          "off_diagonal_over_diagonal_half": -0.005475848768323229,
+          "right_source_pair": [
+            247,
+            154
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.001014881667628044,
+            "middle_A_to_10A": -0.12100971974201113,
+            "near_1_to_A": 0.002926425284541778,
+            "tail_over_100A": 0.008939935067329999
+          },
+          "left_source_pair": [
+            247,
+            154
+          ],
+          "middle_A_to_10A": -0.12100971974201113,
+          "non_middle_sum": 0.010851478684243732,
+          "off_diagonal_over_diagonal_half": -0.1101582410577674,
+          "right_source_pair": [
+            266,
+            143
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.0006040981919956693,
+            "middle_A_to_10A": 0.007054559847980684,
+            "near_1_to_A": 0.01641028260446958,
+            "tail_over_100A": 0.0023991500454340394
+          },
+          "left_source_pair": [
+            266,
+            143
+          ],
+          "middle_A_to_10A": 0.007054559847980684,
+          "non_middle_sum": 0.019413530841899288,
+          "off_diagonal_over_diagonal_half": 0.026468090689879976,
+          "right_source_pair": [
+            143,
+            266
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.0010148816676280377,
+            "middle_A_to_10A": -0.12100971974201113,
+            "near_1_to_A": 0.0029264252845417754,
+            "tail_over_100A": 0.008939935067329997
+          },
+          "left_source_pair": [
+            266,
+            143
+          ],
+          "middle_A_to_10A": -0.12100971974201113,
+          "non_middle_sum": 0.010851478684243734,
+          "off_diagonal_over_diagonal_half": -0.11015824105776738,
+          "right_source_pair": [
+            154,
+            247
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.0022220801689418223,
+            "middle_A_to_10A": -0.00649878357897559,
+            "near_1_to_A": -0.0070213507040791795,
+            "tail_over_100A": 0.004466823446979219
+          },
+          "left_source_pair": [
+            266,
+            143
+          ],
+          "middle_A_to_10A": -0.00649878357897559,
+          "non_middle_sum": -0.00033244708815813795,
+          "off_diagonal_over_diagonal_half": -0.006831230667133727,
+          "right_source_pair": [
+            182,
+            209
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.002222080168941822,
+            "middle_A_to_10A": -0.006498783578975586,
+            "near_1_to_A": -0.007021350704079179,
+            "tail_over_100A": 0.0044668234469792175
+          },
+          "left_source_pair": [
+            266,
+            143
+          ],
+          "middle_A_to_10A": -0.006498783578975586,
+          "non_middle_sum": -0.00033244708815813925,
+          "off_diagonal_over_diagonal_half": -0.0068312306671337265,
+          "right_source_pair": [
+            209,
+            182
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.001014881667628052,
+            "middle_A_to_10A": -0.12100971974201111,
+            "near_1_to_A": 0.002926425284541778,
+            "tail_over_100A": 0.008939935067329994
+          },
+          "left_source_pair": [
+            266,
+            143
+          ],
+          "middle_A_to_10A": -0.12100971974201111,
+          "non_middle_sum": 0.01085147868424372,
+          "off_diagonal_over_diagonal_half": -0.11015824105776738,
+          "right_source_pair": [
+            247,
+            154
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.0006040981919956801,
+            "middle_A_to_10A": 0.007054559847980683,
+            "near_1_to_A": 0.016410282604469584,
+            "tail_over_100A": 0.0023991500454340424
+          },
+          "left_source_pair": [
+            266,
+            143
+          ],
+          "middle_A_to_10A": 0.007054559847980683,
+          "non_middle_sum": 0.019413530841899306,
+          "off_diagonal_over_diagonal_half": 0.026468090689879993,
+          "right_source_pair": [
+            266,
+            143
+          ]
+        }
+      ],
+      "diagonal_half_contribution": 28683313563140.617,
+      "margin_above_minus_one": 0.15270681541382924,
+      "off_diagonal_over_diagonal_half": -0.8472931845861708,
+      "ordered_source_pair_count": 6,
+      "ordered_source_pairs": [
+        [
+          143,
+          266
+        ],
+        [
+          154,
+          247
+        ],
+        [
+          182,
+          209
+        ],
+        [
+          209,
+          182
+        ],
+        [
+          247,
+          154
+        ],
+        [
+          266,
+          143
+        ]
+      ],
+      "reduced_denominator": 38038,
+      "role": "weakest_replacement_q38038",
+      "top_four_non_middle_compensation_sum": 0.07765412336759717,
+      "top_four_non_middle_share_of_aggregate_non_middle": 0.8376945631480589,
+      "top_middle_loss_terms": [
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.001014881667628044,
+            "middle_A_to_10A": -0.12100971974201113,
+            "near_1_to_A": 0.002926425284541778,
+            "tail_over_100A": 0.008939935067329999
+          },
+          "left_source_pair": [
+            247,
+            154
+          ],
+          "middle_A_to_10A": -0.12100971974201113,
+          "non_middle_sum": 0.010851478684243732,
+          "off_diagonal_over_diagonal_half": -0.1101582410577674,
+          "right_source_pair": [
+            266,
+            143
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.0010148816676280377,
+            "middle_A_to_10A": -0.12100971974201113,
+            "near_1_to_A": 0.0029264252845417754,
+            "tail_over_100A": 0.008939935067329997
+          },
+          "left_source_pair": [
+            266,
+            143
+          ],
+          "middle_A_to_10A": -0.12100971974201113,
+          "non_middle_sum": 0.010851478684243734,
+          "off_diagonal_over_diagonal_half": -0.11015824105776738,
+          "right_source_pair": [
+            154,
+            247
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.001014881667628048,
+            "middle_A_to_10A": -0.12100971974201112,
+            "near_1_to_A": 0.0029264252845417754,
+            "tail_over_100A": 0.008939935067329994
+          },
+          "left_source_pair": [
+            154,
+            247
+          ],
+          "middle_A_to_10A": -0.12100971974201112,
+          "non_middle_sum": 0.010851478684243722,
+          "off_diagonal_over_diagonal_half": -0.1101582410577674,
+          "right_source_pair": [
+            266,
+            143
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.001014881667628036,
+            "middle_A_to_10A": -0.12100971974201111,
+            "near_1_to_A": 0.0029264252845417785,
+            "tail_over_100A": 0.008939935067329995
+          },
+          "left_source_pair": [
+            143,
+            266
+          ],
+          "middle_A_to_10A": -0.12100971974201111,
+          "non_middle_sum": 0.010851478684243738,
+          "off_diagonal_over_diagonal_half": -0.11015824105776738,
+          "right_source_pair": [
+            154,
+            247
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.0010148816676280442,
+            "middle_A_to_10A": -0.12100971974201111,
+            "near_1_to_A": 0.0029264252845417754,
+            "tail_over_100A": 0.008939935067329994
+          },
+          "left_source_pair": [
+            143,
+            266
+          ],
+          "middle_A_to_10A": -0.12100971974201111,
+          "non_middle_sum": 0.010851478684243725,
+          "off_diagonal_over_diagonal_half": -0.11015824105776738,
+          "right_source_pair": [
+            247,
+            154
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.0010148816676280334,
+            "middle_A_to_10A": -0.12100971974201111,
+            "near_1_to_A": 0.0029264252845417798,
+            "tail_over_100A": 0.008939935067329994
+          },
+          "left_source_pair": [
+            154,
+            247
+          ],
+          "middle_A_to_10A": -0.12100971974201111,
+          "non_middle_sum": 0.01085147868424374,
+          "off_diagonal_over_diagonal_half": -0.11015824105776738,
+          "right_source_pair": [
+            143,
+            266
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.001014881667628052,
+            "middle_A_to_10A": -0.12100971974201111,
+            "near_1_to_A": 0.002926425284541778,
+            "tail_over_100A": 0.008939935067329994
+          },
+          "left_source_pair": [
+            266,
+            143
+          ],
+          "middle_A_to_10A": -0.12100971974201111,
+          "non_middle_sum": 0.01085147868424372,
+          "off_diagonal_over_diagonal_half": -0.11015824105776738,
+          "right_source_pair": [
+            247,
+            154
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.0010148816676280462,
+            "middle_A_to_10A": -0.12100971974201107,
+            "near_1_to_A": 0.0029264252845417754,
+            "tail_over_100A": 0.008939935067329995
+          },
+          "left_source_pair": [
+            247,
+            154
+          ],
+          "middle_A_to_10A": -0.12100971974201107,
+          "non_middle_sum": 0.010851478684243725,
+          "off_diagonal_over_diagonal_half": -0.11015824105776738,
+          "right_source_pair": [
+            143,
+            266
+          ]
+        }
+      ],
+      "top_non_middle_compensation_terms": [
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.0006040981919956801,
+            "middle_A_to_10A": 0.007054559847980683,
+            "near_1_to_A": 0.016410282604469584,
+            "tail_over_100A": 0.0023991500454340424
+          },
+          "left_source_pair": [
+            266,
+            143
+          ],
+          "middle_A_to_10A": 0.007054559847980683,
+          "non_middle_sum": 0.019413530841899306,
+          "off_diagonal_over_diagonal_half": 0.026468090689879993,
+          "right_source_pair": [
+            266,
+            143
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.0006040981919956693,
+            "middle_A_to_10A": 0.007054559847980684,
+            "near_1_to_A": 0.01641028260446958,
+            "tail_over_100A": 0.0023991500454340394
+          },
+          "left_source_pair": [
+            266,
+            143
+          ],
+          "middle_A_to_10A": 0.007054559847980684,
+          "non_middle_sum": 0.019413530841899288,
+          "off_diagonal_over_diagonal_half": 0.026468090689879976,
+          "right_source_pair": [
+            143,
+            266
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.0006040981919956628,
+            "middle_A_to_10A": 0.007054559847980698,
+            "near_1_to_A": 0.01641028260446958,
+            "tail_over_100A": 0.002399150045434041
+          },
+          "left_source_pair": [
+            143,
+            266
+          ],
+          "middle_A_to_10A": 0.007054559847980698,
+          "non_middle_sum": 0.019413530841899285,
+          "off_diagonal_over_diagonal_half": 0.02646809068987998,
+          "right_source_pair": [
+            143,
+            266
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": 0.0006040981919956689,
+            "middle_A_to_10A": 0.007054559847980688,
+            "near_1_to_A": 0.016410282604469577,
+            "tail_over_100A": 0.00239915004543404
+          },
+          "left_source_pair": [
+            143,
+            266
+          ],
+          "middle_A_to_10A": 0.007054559847980688,
+          "non_middle_sum": 0.019413530841899285,
+          "off_diagonal_over_diagonal_half": 0.026468090689879976,
+          "right_source_pair": [
+            266,
+            143
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.0010148816676280334,
+            "middle_A_to_10A": -0.12100971974201111,
+            "near_1_to_A": 0.0029264252845417798,
+            "tail_over_100A": 0.008939935067329994
+          },
+          "left_source_pair": [
+            154,
+            247
+          ],
+          "middle_A_to_10A": -0.12100971974201111,
+          "non_middle_sum": 0.01085147868424374,
+          "off_diagonal_over_diagonal_half": -0.11015824105776738,
+          "right_source_pair": [
+            143,
+            266
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.001014881667628036,
+            "middle_A_to_10A": -0.12100971974201111,
+            "near_1_to_A": 0.0029264252845417785,
+            "tail_over_100A": 0.008939935067329995
+          },
+          "left_source_pair": [
+            143,
+            266
+          ],
+          "middle_A_to_10A": -0.12100971974201111,
+          "non_middle_sum": 0.010851478684243738,
+          "off_diagonal_over_diagonal_half": -0.11015824105776738,
+          "right_source_pair": [
+            154,
+            247
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.0010148816676280377,
+            "middle_A_to_10A": -0.12100971974201113,
+            "near_1_to_A": 0.0029264252845417754,
+            "tail_over_100A": 0.008939935067329997
+          },
+          "left_source_pair": [
+            266,
+            143
+          ],
+          "middle_A_to_10A": -0.12100971974201113,
+          "non_middle_sum": 0.010851478684243734,
+          "off_diagonal_over_diagonal_half": -0.11015824105776738,
+          "right_source_pair": [
+            154,
+            247
+          ]
+        },
+        {
+          "bucket_contributions_over_diagonal_half": {
+            "far_10A_to_100A": -0.001014881667628044,
+            "middle_A_to_10A": -0.12100971974201113,
+            "near_1_to_A": 0.002926425284541778,
+            "tail_over_100A": 0.008939935067329999
+          },
+          "left_source_pair": [
+            247,
+            154
+          ],
+          "middle_A_to_10A": -0.12100971974201113,
+          "non_middle_sum": 0.010851478684243732,
+          "off_diagonal_over_diagonal_half": -0.1101582410577674,
+          "right_source_pair": [
+            266,
+            143
+          ]
+        }
+      ]
+    }
+  ],
+  "schema_version": 1,
+  "source_commit": "e433855e519f42fb05ed95b658c670875748dc4f",
+  "source_factor_geometry_route_triage": "evidence\\mobius-moment-square-degree5-q46189-factor-geometry-route-triage.json",
+  "source_pair_bucket_compensation_theorem_proved": false,
+  "status": "AUDIT_q46189_source_pair_bucket_compensation",
+  "strict_central_goldbach_theorem_proved": false
+}

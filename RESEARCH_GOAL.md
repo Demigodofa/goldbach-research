@@ -6,6 +6,42 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The `Q=46189` replacement-family lane now has a source-pair bucket
+compensation audit:
+`tools/build_mobius_moment_square_degree5_q46189_source_pair_bucket_compensation_audit.py`
+generated
+`evidence/mobius-moment-square-degree5-q46189-source-pair-bucket-compensation-audit.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-q46189-source-pair-bucket-compensation-audit.md`.
+
+Question: can the `q=38038` replacement-packet bucket compensation be
+localized in exact ordered source-conductor-pair cross terms, and how does
+that differ from `Q=46189`?
+
+Answer: yes as a finite diagnostic.  The source packets add before squaring,
+so the exact object is a bilinear cross-term matrix over ordered
+source-conductor-pair packet vectors.  For `q=38038`, the `middle_A_to_10A`
+bucket contributes `-0.939992990438763`, but the non-middle buckets contribute
+`0.09269980585259228`, keeping the total at `-0.8472931845861708`.  The top
+four non-middle cross terms contribute `0.07765412336759717`, or about
+`0.8376945631480589` of the positive non-middle sum, and they are exactly the
+ordered mirror block on source pairs `(143,266)` and `(266,143)`.  For
+`Q=46189`, the aggregate non-middle contribution is negative:
+`-0.721340442056593`.
+
+Decision: the next theorem-shaped target sharpens from generic
+replacement-packet compensation to a mirror-source-pair compensation theorem
+target.  A proof route would need to pay the mirror-block compensation and
+then bound the remaining cross-term matrix across the replacement packet
+family.  The next finite falsifier test is to run the same source-pair
+cross-term compensation audit across all `34` replacement packets and check
+whether `q=38038` is the worst surviving instance of the mirror-block
+inequality.  This proves no source-pair compensation theorem, mirror-block
+theorem, replacement-packet compensation theorem, coordinate-`00` residue-gap
+sign theorem, strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The `Q=46189` replacement-family lane now has a factor-geometry route triage:
 `tools/build_mobius_moment_square_degree5_q46189_factor_geometry_route_triage.py`
 generated
