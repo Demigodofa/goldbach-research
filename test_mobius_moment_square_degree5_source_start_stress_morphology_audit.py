@@ -30,17 +30,17 @@ class MobiusMomentSquareDegree5SourceStartStressMorphologyAuditTests(
         self.assertFalse(self.receipt["prime_block_theorem_proved"])
 
     def test_all_complete_sweeps_are_included_and_pass(self):
-        self.assertEqual(self.receipt["scale_count"], 6)
+        self.assertEqual(self.receipt["scale_count"], 7)
         self.assertEqual(
             [row["scale_modulus"]
              for row in self.receipt["scale_summaries"]],
-            [229, 251, 293, 331, 353, 379])
+            [229, 251, 293, 331, 353, 379, 383])
         self.assertTrue(
             self.receipt["all_complete_sweeps_pass_signed_dominance"])
         self.assertEqual(
             [row["prime_row_count"]
              for row in self.receipt["scale_summaries"]],
-            [39, 42, 45, 55, 56, 60])
+            [39, 42, 45, 55, 56, 60, 60])
 
     def test_weakest_sequence_downgrades_fixed_prime_rule(self):
         sequence = self.receipt["weakest_sequence"]
@@ -50,17 +50,18 @@ class MobiusMomentSquareDegree5SourceStartStressMorphologyAuditTests(
             [
                 (229, 379), (251, 379), (293, 461),
                 (331, 599), (353, 599), (379, 599),
+                (383, 599),
             ])
         self.assertFalse(
             self.receipt["single_fixed_weakest_prime_rule_survives"])
         self.assertEqual(
             self.receipt["weakest_prime_counts"],
-            {"379": 2, "461": 1, "599": 3})
+            {"379": 2, "461": 1, "599": 4})
 
     def test_weakest_label_and_prime_block_morphology(self):
         self.assertTrue(self.receipt["all_weakest_labels_are_0012"])
         self.assertEqual(
-            self.receipt["weakest_label_counts"], {"00,12": 6})
+            self.receipt["weakest_label_counts"], {"00,12": 7})
         self.assertTrue(
             self.receipt["all_tightest_prime_blocks_are_row_coherent"])
         for summary in self.receipt["scale_summaries"]:
@@ -77,7 +78,7 @@ class MobiusMomentSquareDegree5SourceStartStressMorphologyAuditTests(
         self.assertEqual(
             target["name"], "source-start prime-block lower-frame control")
         self.assertEqual(target["novelty_label"], "new-to-this-task")
-        self.assertIn("future M=383", target["prediction"])
+        self.assertIn("larger than M=383", target["prediction"])
 
 
 if __name__ == "__main__":

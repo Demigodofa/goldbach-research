@@ -1,6 +1,6 @@
 """Summarize stress morphology across complete source-start sweeps.
 
-The full M=379 sweep survived the next prime-block morphology falsifier.  This
+The full M=383 sweep survived the next prime-block morphology falsifier.  This
 derived audit reads the complete fresh-scale source-start sweeps and asks what
 should guide the next finite or theorem target: fixed attention primes,
 endpoint position, component labels, or prime-level stress blocks.
@@ -19,7 +19,7 @@ EVIDENCE = ROOT / "evidence"
 OUT = (
     EVIDENCE
     / "mobius-moment-square-degree5-source-start-stress-morphology-audit.json")
-SCALES = (229, 251, 293, 331, 353, 379)
+SCALES = (229, 251, 293, 331, 353, 379, 383)
 TOP_ROW_COUNT = 12
 TOP_BLOCK_COUNT = 4
 
@@ -160,7 +160,7 @@ def build_receipt():
         "status": "AUDIT_degree5_source_start_stress_morphology",
         "question": (
             "Across the complete fresh-scale source-start sweeps M=229, 251, "
-            "293, 331, 353, and 379, what finite stress morphology should "
+            "293, 331, 353, 379, and 383, what finite stress morphology should "
             "guide the next theorem target or falsifier?"),
         "scales": list(SCALES),
         "scale_count": len(SCALES),
@@ -190,7 +190,7 @@ def build_receipt():
                 "block, then treat component labels as a secondary spread "
                 "inside each block."),
             "prediction": (
-                "A future M=383 or larger full sweep should either produce a "
+                "A future full sweep larger than M=383 should either produce a "
                 "new coherent prime block of weak rows, or expose the first "
                 "split-block falsifier of this morphology."),
             "falsifier": (
@@ -201,9 +201,10 @@ def build_receipt():
         },
         "decision": (
             "The completed sweeps support prime-block stress tracking, not a "
-            "single fixed-prime predictor.  All six weakest rows use label "
+            "single fixed-prime predictor.  All seven weakest rows use label "
             "(00,12), but the weakest prime moves from 379 to 461 to 599.  "
-            "The prime p=599 now persists across M=331, M=353, and M=379, "
+            "The prime p=599 now persists across M=331, M=353, M=379, and "
+            "M=383, "
             "but this is still a current diagnostic rather than a rule.  Each "
             "scale's tightest rows bunch by prime block.  Future finite work "
             "should track coherent prime blocks and use fixed attention primes "

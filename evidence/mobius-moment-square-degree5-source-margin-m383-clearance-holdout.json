@@ -1,0 +1,110 @@
+{
+  "all_negative_denominators_near_threshold": true,
+  "clearance_family_theorem_proved": false,
+  "decision": "The fresh M=383 tight block supports the clearance-family target: all adverse denominator mass is in the near-threshold family, and middle/far higher-clearance positive and net margin dominate that near-threshold leakage.  This is one fresh block only and proves no universal theorem.",
+  "denominator_margin_theorem_proved": false,
+  "finite_diagnostic_only": true,
+  "finite_holdout_only": true,
+  "fresh_clearance_holdout_only": true,
+  "goldbach_proved": false,
+  "middle_far_positive_dominates_near_negative": true,
+  "middle_far_positive_margin_sum": 203565211531254.94,
+  "middle_far_total_dominates_near_negative": true,
+  "middle_far_total_margin_sum": 203565211531254.94,
+  "near_negative_abs": 152079879558.52072,
+  "near_negative_over_middle_far_positive": 0.0007470818732461599,
+  "prime_block_theorem_proved": false,
+  "prime_modulus": 599,
+  "question": "Does the clearance-family denominator target survive on the fresh M=383 full-sweep tight block?",
+  "scale_modulus": 383,
+  "scale_summary": {
+    "all_negative_denominators_near_threshold": true,
+    "family_summaries": {
+      "far_3_plus": {
+        "abs_negative_over_positive": 0.0,
+        "largest_negative": null,
+        "largest_positive": {
+          "clearance_ratio_q_over_pA": 4.200791641983952,
+          "margin": 18395324180554.414,
+          "reduced_denominator": 156009
+        },
+        "negative_count": 0,
+        "negative_margin_sum": 0,
+        "positive_count": 13,
+        "positive_margin_sum": 112880344191437.22,
+        "row_count": 13,
+        "total_margin": 112880344191437.22
+      },
+      "middle_2_to_3": {
+        "abs_negative_over_positive": 0.0,
+        "largest_negative": null,
+        "largest_positive": {
+          "clearance_ratio_q_over_pA": 2.2109429694652376,
+          "margin": 14599841170794.375,
+          "reduced_denominator": 82110
+        },
+        "negative_count": 0,
+        "negative_margin_sum": 0,
+        "positive_count": 19,
+        "positive_margin_sum": 90684867339817.73,
+        "row_count": 19,
+        "total_margin": 90684867339817.73
+      },
+      "near_1_to_2": {
+        "abs_negative_over_positive": 0.0023591186283467387,
+        "largest_negative": {
+          "clearance_ratio_q_over_pA": 1.4002638806613172,
+          "margin": -81166699127.99426,
+          "reduced_denominator": 52003
+        },
+        "largest_positive": {
+          "clearance_ratio_q_over_pA": 1.5829069955301847,
+          "margin": 7796287048776.493,
+          "reduced_denominator": 58786
+        },
+        "negative_count": 3,
+        "negative_margin_sum": -152079879558.52072,
+        "positive_count": 35,
+        "positive_margin_sum": 64464702084565.25,
+        "row_count": 38,
+        "total_margin": 64312622205006.73
+      }
+    },
+    "middle_far_positive_dominates_near_negative": true,
+    "middle_far_positive_margin_sum": 203565211531254.94,
+    "middle_far_total_dominates_near_negative": true,
+    "middle_far_total_margin_sum": 203565211531254.94,
+    "near_negative_abs": 152079879558.52072,
+    "prime_modulus": 599,
+    "row_count_A": 62,
+    "scale_modulus": 383,
+    "threshold_p_times_A": 37138,
+    "total_summary": {
+      "abs_negative_over_positive": 0.0005673989052449717,
+      "largest_negative": {
+        "clearance_ratio_q_over_pA": 1.4002638806613172,
+        "margin": -81166699127.99426,
+        "reduced_denominator": 52003
+      },
+      "largest_positive": {
+        "clearance_ratio_q_over_pA": 4.200791641983952,
+        "margin": 18395324180554.414,
+        "reduced_denominator": 156009
+      },
+      "negative_count": 3,
+      "negative_margin_sum": -152079879558.52072,
+      "positive_count": 67,
+      "positive_margin_sum": 268029913615820.2,
+      "row_count": 70,
+      "total_margin": 267877833736261.66
+    },
+    "weakest_label": "00,12"
+  },
+  "schema_version": 1,
+  "source_commit": "5361dbf90ce40d92036cac50b1442007e4e25a02",
+  "source_full_sweep": "evidence\\mobius-moment-square-degree5-source-start-m383-full-prime-sweep.json",
+  "source_start_theorem_proved": false,
+  "status": "HOLDOUT_degree5_source_margin_m383_clearance_family",
+  "strict_central_goldbach_theorem_proved": false,
+  "weakest_label": "00,12"
+}

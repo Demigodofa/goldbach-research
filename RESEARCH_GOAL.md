@@ -6,6 +6,46 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The source-start lane now has a full fresh `M=383` prime-row sweep and a
+matching denominator clearance-family holdout:
+`tools/build_mobius_moment_square_degree5_source_start_m383_full_prime_sweep.py`
+generated
+`evidence/mobius-moment-square-degree5-source-start-m383-full-prime-sweep.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-source-start-m383-full-prime-sweep.md`.
+`tools/build_mobius_moment_square_degree5_source_margin_m383_clearance_holdout.py`
+generated
+`evidence/mobius-moment-square-degree5-source-margin-m383-clearance-holdout.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-source-margin-m383-clearance-holdout.md`.
+The stress-morphology audit is also regenerated through seven complete
+fresh-scale sweeps.
+
+Question: after the `M=379` checkpoint, does the next complete source-start
+sweep preserve signed dominance, coherent prime-block morphology, and the
+clearance-family denominator target on its tightest block?
+
+Answer: yes, as finite evidence.  The full `M=383` sweep covers `60` primes in
+`[383,766]` and `240` dominance rows.  Every row has positive signed
+active/full dominance slack; the minimum slack is `0.4215742230435717` at
+`p=599`, `(00,12)`.  The top four stress rows remain one coherent `p=599`
+prime block with labels `(00,12)`, `TOTAL`, `(01,11)`, `(01,02)`.  The
+clearance-family holdout on that tight block has near-threshold adverse mass
+`152079879558.52072`, middle/far net margin `203565211531254.94`, and
+near-negative / middle-far-positive ratio `0.0007470818732461599`; all adverse
+denominators in this fresh block are near-threshold.
+
+Decision: the split-block falsifier did not appear at `M=383`.  The finite
+prime-block morphology now survives seven complete fresh scales, with `p=599`
+persisting as the weakest prime for `M=331`, `353`, `379`, and `383`; this is
+still a current diagnostic, not a fixed-prime theorem.  The clearance-family
+target also survives the fresh tight block.  This is finite sweep and
+clearance-holdout evidence only, not a prime-block theorem, not a
+clearance-family theorem, not a source-start theorem, not a strict-central
+Goldbach theorem, and not a Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The source-start denominator lane now has a clearance-family audit for the
 unnormalized margin ledger:
 `tools/build_mobius_moment_square_degree5_source_margin_clearance_family_audit.py`

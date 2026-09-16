@@ -2,7 +2,7 @@
 
 ## Question
 
-After the full `M=379` sweep preserved the `p=599` stress block, what should
+After the full `M=383` sweep preserved the `p=599` stress block, what should
 guide the next source-start target: a fixed attention prime, a component label,
 endpoint position, or a prime-level stress block?
 
@@ -17,6 +17,7 @@ M=293
 M=331
 M=353
 M=379
+M=383
 ```
 
 For every dominance row, record:
@@ -43,7 +44,7 @@ evidence/mobius-moment-square-degree5-source-start-stress-morphology-audit.json
 
 ## Result
 
-All six complete fresh-scale sweeps pass signed dominance:
+All seven complete fresh-scale sweeps pass signed dominance:
 
 ```text
 M=229  prime rows 39  weakest p=379  label (00,12)  slack 0.40189096624031384
@@ -52,6 +53,7 @@ M=293  prime rows 45  weakest p=461  label (00,12)  slack 0.4257305726250574
 M=331  prime rows 55  weakest p=599  label (00,12)  slack 0.40479256047704726
 M=353  prime rows 56  weakest p=599  label (00,12)  slack 0.41096324474219414
 M=379  prime rows 60  weakest p=599  label (00,12)  slack 0.4246854972346972
+M=383  prime rows 60  weakest p=599  label (00,12)  slack 0.4215742230435717
 ```
 
 The fixed-prime rule fails:
@@ -60,23 +62,23 @@ The fixed-prime rule fails:
 weakest prime counts:
 379 -> 2
 461 -> 1
-599 -> 3
+599 -> 4
 ```
 
-But two patterns survive the six complete sweeps:
+But two patterns survive the seven complete sweeps:
 
 ```text
 weakest label is always (00,12)
 tightest four rows always form one coherent prime block
 ```
 
-For example, the tightest `M=379` block is:
+For example, the tightest `M=383` block is:
 
 ```text
-p=599  (00,12)  slack 0.4246854972346972
-p=599  TOTAL    slack 0.42504843582069374
-p=599  (01,11)  slack 0.42506099800075414
-p=599  (01,02)  slack 0.42520294413353943
+p=599  (00,12)  slack 0.4215742230435717
+p=599  TOTAL    slack 0.42189396041487515
+p=599  (01,11)  slack 0.42190578809242385
+p=599  (01,02)  slack 0.42202855669144745
 ```
 
 ## Decision
@@ -91,7 +93,7 @@ source-start prime-block lower-frame control
 Mechanism: bound the source-start active/full ratio first by prime block, then
 treat component labels as a secondary spread inside each block.
 
-Prediction: the next complete source-start sweep, likely `M=383` or larger,
+Prediction: the next complete source-start sweep larger than `M=383`
 should either produce a new coherent prime block of weak rows, preserve the
 current `p=599` diagnostic, or expose the first split-block falsifier.
 
@@ -99,8 +101,8 @@ Falsifier: a future complete scale whose tightest rows are split across
 unrelated primes, or whose weakest row is an isolated component far below its
 prime companions.
 
-The prime `p=599` now persists across `M=331`, `M=353`, and `M=379`, but it is
-still a finite current diagnostic rather than a fixed-prime rule.
+The prime `p=599` now persists across `M=331`, `M=353`, `M=379`, and `M=383`,
+but it is still a finite current diagnostic rather than a fixed-prime rule.
 
 This is a finite morphology audit only.  It proves no prime-block theorem, no
 source-start theorem, no source-window theorem, no strict-central Goldbach

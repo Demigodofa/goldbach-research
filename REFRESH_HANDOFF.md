@@ -6,6 +6,59 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The source-start lane now has a full fresh `M=383` prime-row sweep and a
+matching denominator clearance-family holdout:
+
+```text
+tools/build_mobius_moment_square_degree5_source_start_m383_full_prime_sweep.py
+notes/mobius-moment-square-degree5-source-start-m383-full-prime-sweep.md
+evidence/mobius-moment-square-degree5-source-start-m383-full-prime-sweep.json
+
+tools/build_mobius_moment_square_degree5_source_margin_m383_clearance_holdout.py
+notes/mobius-moment-square-degree5-source-margin-m383-clearance-holdout.md
+evidence/mobius-moment-square-degree5-source-margin-m383-clearance-holdout.json
+```
+
+The stress-morphology audit has been regenerated through seven complete
+fresh-scale sweeps:
+
+```text
+tools/build_mobius_moment_square_degree5_source_start_stress_morphology_audit.py
+notes/mobius-moment-square-degree5-source-start-stress-morphology-audit.md
+evidence/mobius-moment-square-degree5-source-start-stress-morphology-audit.json
+```
+
+Result:
+
+```text
+M=383 prime rows:                  60
+M=383 dominance rows:             240
+all rows dominate 1/2 signed:     true
+M=383 minimum slack:              0.4215742230435717
+M=383 tightest block:             p=599
+M=383 top-four labels:            (00,12), TOTAL, (01,11), (01,02)
+top-four single prime block:      true
+
+M=383 near negative mass:         152079879558.52072
+M=383 middle/far net margin:      203565211531254.94
+near neg / middle-far positive:   0.0007470818732461599
+all M=383 adverse denominators near threshold: true
+
+complete source-start sweeps:     7
+weakest prime counts:             379 -> 2, 461 -> 1, 599 -> 4
+weakest label counts:             (00,12) -> 7
+all tightest blocks row-coherent: true
+```
+
+Decision: the split-block falsifier did not appear at `M=383`; the full sweep
+survives signed dominance and keeps a coherent `p=599` stress block.  The
+fresh tight block also supports the clearance-family target.  This is finite
+sweep and clearance-holdout evidence only, not a prime-block theorem, not a
+clearance-family theorem, not a source-start theorem, not a strict-central
+Goldbach theorem, and not a Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The source-start denominator lane now has a clearance-family audit for the
 unnormalized margin ledger:
 
