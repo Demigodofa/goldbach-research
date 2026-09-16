@@ -6,6 +6,50 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The `Q=46189` replacement-family lane now has an explicit selector-provenance
+and distance-profile checkpoint:
+
+```text
+tools/build_mobius_moment_square_degree5_q46189_50a60a_distance_profile_audit.py
+tools/build_mobius_moment_square_degree5_q46189_selector_provenance_holdout_audit.py
+notes/mobius-moment-square-degree5-q46189-50a60a-distance-profile-audit.md
+notes/mobius-moment-square-degree5-q46189-selector-provenance-holdout-audit.md
+evidence/mobius-moment-square-degree5-q46189-50a60a-distance-profile-audit.json
+evidence/mobius-moment-square-degree5-q46189-selector-provenance-holdout-audit.json
+```
+
+Result:
+
+```text
+50A..60A selector status:             post-hoc
+natural conductor selector proved:    no
+exact pointwise positive gaps:        83 / 430
+exact pointwise nonpositive gaps:     347 / 430
+Q exact-distance total / diag:        -0.08597078804878477
+componentwise exact envelope total:   -0.5389671631863593
+coarse leave-one-out pass count:      10 / 10
+coarse selected-block counts:         50A_to_60A -> 10
+coarse min heldout share gap:         0.041455517777469975
+coarse min heldout total gap:         0.06613384233919847
+short 56A..58A share gap:             0.04162576743194285
+short 56A..58A total gap:             0.03381535395165591
+```
+
+Decision: Kevin's objection is correct.  The `50A..60A` slice was selected
+after examining the slice table, so it is not a natural/predeclared theorem
+condition.  Exact-distance pointwise sharpening is too strict.  The finite
+selector is still less flimsy than a single fitted row: leave-one-denominator-
+out selection over the coarse `10A` far-band slices chooses `50A..60A` in all
+folds and every held-out replacement denominator passes.  Treat this only as
+a finite hypothesis.  The next useful route is to freeze a non-post-hoc
+selector from active-kernel, conductor, or residual geometry, or to run a
+fresh source-admissible conductor holdout.  This proves no natural selector
+theorem, exact-distance theorem, short-block theorem, distance-slice theorem,
+replacement residue-gap bound theorem, coordinate-`00` residue-gap sign
+theorem, strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The `Q=46189` replacement-family lane now has a far-band slice balance audit:
 
 ```text

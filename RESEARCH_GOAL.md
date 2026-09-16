@@ -6,6 +6,55 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The `Q=46189` replacement-family lane now has a selector-provenance and
+distance-profile checkpoint:
+`tools/build_mobius_moment_square_degree5_q46189_50a60a_distance_profile_audit.py`
+and
+`tools/build_mobius_moment_square_degree5_q46189_selector_provenance_holdout_audit.py`
+generated
+`evidence/mobius-moment-square-degree5-q46189-50a60a-distance-profile-audit.json`
+and
+`evidence/mobius-moment-square-degree5-q46189-selector-provenance-holdout-audit.json`,
+with explanations in
+`notes/mobius-moment-square-degree5-q46189-50a60a-distance-profile-audit.md`
+and
+`notes/mobius-moment-square-degree5-q46189-selector-provenance-holdout-audit.md`.
+
+Question: was the `50A..60A` slice a post-hoc selector, and does the local
+witness survive any finite holdout pressure once that provenance is made
+explicit?
+
+Answer: yes, `50A..60A` is post-hoc.  The `10A` slice boundaries are natural
+from the active scale `A`, but choosing `50A..60A` among those slices happened
+after inspection and is not a predeclared theorem condition.  Inside that
+slice, exact-distance sharpening is too strict: only `83/430` exact distances
+have a positive pointwise min-replacement gap, and the disconnected exact
+distance envelope has total `-0.5389671631863593`, below the adverse
+`Q=46189` total `-0.08597078804878477`.
+
+The finite selector is nevertheless not only fitted to one weakest row.  In
+leave-one-replacement-denominator-out selection over the coarse `10A` far-band
+slices, the training set chooses `50A..60A` in all `10/10` folds, and every
+held-out denominator clears both selected comparisons.  The minimum held-out
+positive-share gap is `0.041455517777469975`, and the minimum held-out total
+gap is `0.06613384233919847`.  A nested microblock scan inside `50A..60A`
+also passes `10/10` held-out denominators, but its choice varies and remains
+conditioned on the post-hoc parent slice.  The short `56A..58A` block has
+positive-share gap `0.04162576743194285` and total gap
+`0.03381535395165591`.
+
+Decision: the live theorem-shaped route must not treat `50A..60A` as a
+natural acceptance condition.  It is a finite hypothesis generator supported
+by internal leave-one-denominator-out evidence.  The next legitimate step is
+to freeze a non-post-hoc selector from active-kernel, conductor, or residual
+geometry, or run fresh source-admissible conductors not used in discovering
+the slice.  This proves no natural selector theorem, exact-distance theorem,
+short-block theorem, distance-slice theorem, replacement residue-gap bound
+theorem, coordinate-`00` residue-gap sign theorem, strict-central Goldbach
+theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The `Q=46189` replacement-family lane now has a far-band slice balance audit:
 `tools/build_mobius_moment_square_degree5_q46189_far_band_slice_balance_audit.py`
 generated

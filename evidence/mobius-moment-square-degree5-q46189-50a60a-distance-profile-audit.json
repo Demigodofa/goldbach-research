@@ -1,0 +1,4095 @@
+{
+  "candidate_next_action": {
+    "falsifier": "A source-admissible replacement row at or below the 56A..58A share or total separator, or a proof that the block is a finite artifact with no source-admissible stability, falsifies this narrowed witness.",
+    "mechanism": "The 50A..60A separator is not a pointwise exact-distance phenomenon.  It survives after aggregating the short 56A..58A block, where Q=46189 has lower positive share and more adverse total pressure than every replacement row.",
+    "name": "56A-to-58A short-block signed-balance witness",
+    "novelty_label": "new-to-this-task",
+    "prediction": "A useful theorem target should control short distance-block phase balance, not individual circular distances.  Exact distance componentwise envelopes are too strict on this fixture.",
+    "smallest_next_test": "Check whether the same 56A..58A short-block separator appears in the robustness slice 80A..90A or in a fresh source-admissible replacement holdout."
+  },
+  "classification": {
+    "componentwise_exact_distance_envelope_falsified": true,
+    "exact_distance_pointwise_theorem_target_falsified": true,
+    "finite_selected_family_diagnostic_only": true,
+    "micro_slices_separating_by_both": [
+      "56A_to_57A",
+      "57A_to_58A"
+    ],
+    "minimal_width_separating_micro_blocks": [
+      "56A_to_57A",
+      "57A_to_58A"
+    ],
+    "separating_contiguous_micro_block_count": 15,
+    "two_a_witness_block": "56A_to_58A",
+    "two_a_witness_distance_range": [
+      2409,
+      2494
+    ]
+  },
+  "contiguous_micro_block_summaries": [
+    {
+      "adverse_positive_fraction": 0.5210224700338292,
+      "adverse_total_over_diagonal": 0.0002040997779254744,
+      "block_name": "50A_to_51A",
+      "distance_count": 43,
+      "distance_range": [
+        2151,
+        2193
+      ],
+      "minimum_replacement_positive_fraction": 0.3906000029067059,
+      "minimum_replacement_positive_fraction_denominator": 41990,
+      "minimum_replacement_total_denominator": 41990,
+      "minimum_replacement_total_over_diagonal": -0.0025055595620667526,
+      "positive_fraction_gap": -0.1304224671271233,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.45581123647026756,
+      "separates_by_both_share_and_total": false,
+      "total_gap": -0.002709659339992227,
+      "total_pressure_separates": false,
+      "total_separator": -0.001150729892070639
+    },
+    {
+      "adverse_positive_fraction": 0.4222082829846777,
+      "adverse_total_over_diagonal": -0.0028224987451585595,
+      "block_name": "50A_to_52A",
+      "distance_count": 86,
+      "distance_range": [
+        2151,
+        2236
+      ],
+      "minimum_replacement_positive_fraction": 0.23739302134204887,
+      "minimum_replacement_positive_fraction_denominator": 41990,
+      "minimum_replacement_total_denominator": 41990,
+      "minimum_replacement_total_over_diagonal": -0.015371482203577853,
+      "positive_fraction_gap": -0.18481526164262885,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.3298006521633633,
+      "separates_by_both_share_and_total": false,
+      "total_gap": -0.012548983458419294,
+      "total_pressure_separates": false,
+      "total_separator": -0.009096990474368207
+    },
+    {
+      "adverse_positive_fraction": 0.4546722835860742,
+      "adverse_total_over_diagonal": -0.002575596615203163,
+      "block_name": "50A_to_53A",
+      "distance_count": 129,
+      "distance_range": [
+        2151,
+        2279
+      ],
+      "minimum_replacement_positive_fraction": 0.33315069778187417,
+      "minimum_replacement_positive_fraction_denominator": 41990,
+      "minimum_replacement_total_denominator": 41990,
+      "minimum_replacement_total_over_diagonal": -0.01943039021894661,
+      "positive_fraction_gap": -0.12152158580420003,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.3939114906839742,
+      "separates_by_both_share_and_total": false,
+      "total_gap": -0.016854793603743447,
+      "total_pressure_separates": false,
+      "total_separator": -0.011002993417074886
+    },
+    {
+      "adverse_positive_fraction": 0.43337210270121634,
+      "adverse_total_over_diagonal": -0.004861551791256071,
+      "block_name": "50A_to_54A",
+      "distance_count": 172,
+      "distance_range": [
+        2151,
+        2322
+      ],
+      "minimum_replacement_positive_fraction": 0.36939057824586813,
+      "minimum_replacement_positive_fraction_denominator": 34034,
+      "minimum_replacement_total_denominator": 34034,
+      "minimum_replacement_total_over_diagonal": -0.009481782616161559,
+      "positive_fraction_gap": -0.06398152445534822,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.40138134047354224,
+      "separates_by_both_share_and_total": false,
+      "total_gap": -0.004620230824905488,
+      "total_pressure_separates": false,
+      "total_separator": -0.007171667203708815
+    },
+    {
+      "adverse_positive_fraction": 0.4545804768628468,
+      "adverse_total_over_diagonal": -0.0037870029864446233,
+      "block_name": "50A_to_55A",
+      "distance_count": 215,
+      "distance_range": [
+        2151,
+        2365
+      ],
+      "minimum_replacement_positive_fraction": 0.35258350691264123,
+      "minimum_replacement_positive_fraction_denominator": 34034,
+      "minimum_replacement_total_denominator": 34034,
+      "minimum_replacement_total_over_diagonal": -0.011784778861601546,
+      "positive_fraction_gap": -0.10199696995020557,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.403581991887744,
+      "separates_by_both_share_and_total": false,
+      "total_gap": -0.007997775875156923,
+      "total_pressure_separates": false,
+      "total_separator": -0.007785890924023085
+    },
+    {
+      "adverse_positive_fraction": 0.4270843492139064,
+      "adverse_total_over_diagonal": -0.012260503018883205,
+      "block_name": "50A_to_56A",
+      "distance_count": 258,
+      "distance_range": [
+        2151,
+        2408
+      ],
+      "minimum_replacement_positive_fraction": 0.3551088043344676,
+      "minimum_replacement_positive_fraction_denominator": 34034,
+      "minimum_replacement_total_denominator": 34034,
+      "minimum_replacement_total_over_diagonal": -0.011793906180705804,
+      "positive_fraction_gap": -0.0719755448794388,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.391096576774187,
+      "separates_by_both_share_and_total": false,
+      "total_gap": 0.00046659683817740043,
+      "total_pressure_separates": true,
+      "total_separator": -0.012027204599794505
+    },
+    {
+      "adverse_positive_fraction": 0.4009268771741403,
+      "adverse_total_over_diagonal": -0.025213484915151397,
+      "block_name": "50A_to_57A",
+      "distance_count": 301,
+      "distance_range": [
+        2151,
+        2451
+      ],
+      "minimum_replacement_positive_fraction": 0.3809019167676283,
+      "minimum_replacement_positive_fraction_denominator": 34034,
+      "minimum_replacement_total_denominator": 34034,
+      "minimum_replacement_total_over_diagonal": -0.011215914307338464,
+      "positive_fraction_gap": -0.02002496040651197,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.39091439697088426,
+      "separates_by_both_share_and_total": false,
+      "total_gap": 0.013997570607812933,
+      "total_pressure_separates": true,
+      "total_separator": -0.01821469961124493
+    },
+    {
+      "adverse_positive_fraction": 0.3308184344637563,
+      "adverse_total_over_diagonal": -0.06938600852154445,
+      "block_name": "50A_to_58A",
+      "distance_count": 344,
+      "distance_range": [
+        2151,
+        2494
+      ],
+      "minimum_replacement_positive_fraction": 0.3894660685424342,
+      "minimum_replacement_positive_fraction_denominator": 34034,
+      "minimum_replacement_total_denominator": 40755,
+      "minimum_replacement_total_over_diagonal": -0.020347091952061046,
+      "positive_fraction_gap": 0.0586476340786779,
+      "positive_fraction_separates": true,
+      "positive_fraction_separator": 0.36014225150309526,
+      "separates_by_both_share_and_total": true,
+      "total_gap": 0.0490389165694834,
+      "total_pressure_separates": true,
+      "total_separator": -0.04486655023680275
+    },
+    {
+      "adverse_positive_fraction": 0.3982658971692172,
+      "adverse_total_over_diagonal": -0.05218286284035083,
+      "block_name": "50A_to_59A",
+      "distance_count": 387,
+      "distance_range": [
+        2151,
+        2537
+      ],
+      "minimum_replacement_positive_fraction": 0.3957456755002067,
+      "minimum_replacement_positive_fraction_denominator": 34034,
+      "minimum_replacement_total_denominator": 41990,
+      "minimum_replacement_total_over_diagonal": -0.013520285255117658,
+      "positive_fraction_gap": -0.002520221669010503,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.39700578633471195,
+      "separates_by_both_share_and_total": false,
+      "total_gap": 0.03866257758523317,
+      "total_pressure_separates": true,
+      "total_separator": -0.03285157404773424
+    },
+    {
+      "adverse_positive_fraction": 0.37047500447094334,
+      "adverse_total_over_diagonal": -0.08597078804878477,
+      "block_name": "50A_to_60A",
+      "distance_count": 430,
+      "distance_range": [
+        2151,
+        2580
+      ],
+      "minimum_replacement_positive_fraction": 0.4119305222484133,
+      "minimum_replacement_positive_fraction_denominator": 49742,
+      "minimum_replacement_total_denominator": 40755,
+      "minimum_replacement_total_over_diagonal": -0.019836945709586298,
+      "positive_fraction_gap": 0.041455517777469975,
+      "positive_fraction_separates": true,
+      "positive_fraction_separator": 0.3912027633596783,
+      "separates_by_both_share_and_total": true,
+      "total_gap": 0.06613384233919847,
+      "total_pressure_separates": true,
+      "total_separator": -0.05290386687918554
+    },
+    {
+      "adverse_positive_fraction": 0.3861072832518102,
+      "adverse_total_over_diagonal": -0.003026598523084034,
+      "block_name": "51A_to_52A",
+      "distance_count": 43,
+      "distance_range": [
+        2194,
+        2236
+      ],
+      "minimum_replacement_positive_fraction": 0.12249562953285326,
+      "minimum_replacement_positive_fraction_denominator": 58786,
+      "minimum_replacement_total_denominator": 58786,
+      "minimum_replacement_total_over_diagonal": -0.016371530986217415,
+      "positive_fraction_gap": -0.26361165371895695,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.2543014563923317,
+      "separates_by_both_share_and_total": false,
+      "total_gap": -0.013344932463133381,
+      "total_pressure_separates": false,
+      "total_separator": -0.009699064754650724
+    },
+    {
+      "adverse_positive_fraction": 0.4409994046649909,
+      "adverse_total_over_diagonal": -0.002779696393128637,
+      "block_name": "51A_to_53A",
+      "distance_count": 86,
+      "distance_range": [
+        2194,
+        2279
+      ],
+      "minimum_replacement_positive_fraction": 0.27533728176611805,
+      "minimum_replacement_positive_fraction_denominator": 34034,
+      "minimum_replacement_total_denominator": 41990,
+      "minimum_replacement_total_over_diagonal": -0.016924830656879858,
+      "positive_fraction_gap": -0.16566212289887283,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.35816834321555446,
+      "separates_by_both_share_and_total": false,
+      "total_gap": -0.01414513426375122,
+      "total_pressure_separates": false,
+      "total_separator": -0.009852263525004248
+    },
+    {
+      "adverse_positive_fraction": 0.41991958652127553,
+      "adverse_total_over_diagonal": -0.005065651569181545,
+      "block_name": "51A_to_54A",
+      "distance_count": 129,
+      "distance_range": [
+        2194,
+        2322
+      ],
+      "minimum_replacement_positive_fraction": 0.2840827807583875,
+      "minimum_replacement_positive_fraction_denominator": 34034,
+      "minimum_replacement_total_denominator": 35530,
+      "minimum_replacement_total_over_diagonal": -0.012358149398991524,
+      "positive_fraction_gap": -0.13583680576288804,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.3520011836398315,
+      "separates_by_both_share_and_total": false,
+      "total_gap": -0.00729249782980998,
+      "total_pressure_separates": false,
+      "total_separator": -0.008711900484086535
+    },
+    {
+      "adverse_positive_fraction": 0.4458243351500206,
+      "adverse_total_over_diagonal": -0.0039911027643700974,
+      "block_name": "51A_to_55A",
+      "distance_count": 172,
+      "distance_range": [
+        2194,
+        2365
+      ],
+      "minimum_replacement_positive_fraction": 0.2718040701810215,
+      "minimum_replacement_positive_fraction_denominator": 34034,
+      "minimum_replacement_total_denominator": 34034,
+      "minimum_replacement_total_over_diagonal": -0.013324384927172557,
+      "positive_fraction_gap": -0.17402026496899914,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.35881420266552105,
+      "separates_by_both_share_and_total": false,
+      "total_gap": -0.00933328216280246,
+      "total_pressure_separates": false,
+      "total_separator": -0.008657743845771327
+    },
+    {
+      "adverse_positive_fraction": 0.42132806760536073,
+      "adverse_total_over_diagonal": -0.012464602796808678,
+      "block_name": "51A_to_56A",
+      "distance_count": 215,
+      "distance_range": [
+        2194,
+        2408
+      ],
+      "minimum_replacement_positive_fraction": 0.2772044619286265,
+      "minimum_replacement_positive_fraction_denominator": 34034,
+      "minimum_replacement_total_denominator": 58786,
+      "minimum_replacement_total_over_diagonal": -0.014845570276572795,
+      "positive_fraction_gap": -0.1441236056767342,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.34926626476699363,
+      "separates_by_both_share_and_total": false,
+      "total_gap": -0.0023809674797641168,
+      "total_pressure_separates": false,
+      "total_separator": -0.013655086536690737
+    },
+    {
+      "adverse_positive_fraction": 0.3961636534502044,
+      "adverse_total_over_diagonal": -0.02541758469307687,
+      "block_name": "51A_to_57A",
+      "distance_count": 258,
+      "distance_range": [
+        2194,
+        2451
+      ],
+      "minimum_replacement_positive_fraction": 0.3243568752289549,
+      "minimum_replacement_positive_fraction_denominator": 34034,
+      "minimum_replacement_total_denominator": 58786,
+      "minimum_replacement_total_over_diagonal": -0.01937044705207498,
+      "positive_fraction_gap": -0.07180677822124948,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.36026026433957964,
+      "separates_by_both_share_and_total": false,
+      "total_gap": 0.0060471376410018915,
+      "total_pressure_separates": true,
+      "total_separator": -0.022394015872575924
+    },
+    {
+      "adverse_positive_fraction": 0.32620670282295067,
+      "adverse_total_over_diagonal": -0.06959010829946993,
+      "block_name": "51A_to_58A",
+      "distance_count": 301,
+      "distance_range": [
+        2194,
+        2494
+      ],
+      "minimum_replacement_positive_fraction": 0.3387445307628665,
+      "minimum_replacement_positive_fraction_denominator": 34034,
+      "minimum_replacement_total_denominator": 40755,
+      "minimum_replacement_total_over_diagonal": -0.02931014205693773,
+      "positive_fraction_gap": 0.012537827939915813,
+      "positive_fraction_separates": true,
+      "positive_fraction_separator": 0.3324756167929086,
+      "separates_by_both_share_and_total": true,
+      "total_gap": 0.0402799662425322,
+      "total_pressure_separates": true,
+      "total_separator": -0.04945012517820383
+    },
+    {
+      "adverse_positive_fraction": 0.3958975728106476,
+      "adverse_total_over_diagonal": -0.0523869626182763,
+      "block_name": "51A_to_59A",
+      "distance_count": 344,
+      "distance_range": [
+        2194,
+        2537
+      ],
+      "minimum_replacement_positive_fraction": 0.34895759638857793,
+      "minimum_replacement_positive_fraction_denominator": 34034,
+      "minimum_replacement_total_denominator": 58786,
+      "minimum_replacement_total_over_diagonal": -0.01651768447789196,
+      "positive_fraction_gap": -0.04693997642206965,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.3724275845996128,
+      "separates_by_both_share_and_total": false,
+      "total_gap": 0.03586927814038434,
+      "total_pressure_separates": true,
+      "total_separator": -0.03445232354808413
+    },
+    {
+      "adverse_positive_fraction": 0.36824022665778683,
+      "adverse_total_over_diagonal": -0.08617488782671025,
+      "block_name": "51A_to_60A",
+      "distance_count": 387,
+      "distance_range": [
+        2194,
+        2580
+      ],
+      "minimum_replacement_positive_fraction": 0.38990056495830916,
+      "minimum_replacement_positive_fraction_denominator": 49742,
+      "minimum_replacement_total_denominator": 40755,
+      "minimum_replacement_total_over_diagonal": -0.02879999581446298,
+      "positive_fraction_gap": 0.02166033830052233,
+      "positive_fraction_separates": true,
+      "positive_fraction_separator": 0.379070395808048,
+      "separates_by_both_share_and_total": true,
+      "total_gap": 0.05737489201224727,
+      "total_pressure_separates": true,
+      "total_separator": -0.05748744182058661
+    },
+    {
+      "adverse_positive_fraction": 0.5120211927280736,
+      "adverse_total_over_diagonal": 0.0002469021299553968,
+      "block_name": "52A_to_53A",
+      "distance_count": 43,
+      "distance_range": [
+        2237,
+        2279
+      ],
+      "minimum_replacement_positive_fraction": 0.011117194701219933,
+      "minimum_replacement_positive_fraction_denominator": 34034,
+      "minimum_replacement_total_denominator": 34034,
+      "minimum_replacement_total_over_diagonal": -0.01143269098971573,
+      "positive_fraction_gap": -0.5009039980268536,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.26156919371464676,
+      "separates_by_both_share_and_total": false,
+      "total_gap": -0.011679593119671127,
+      "total_pressure_separates": false,
+      "total_separator": -0.005592894429880166
+    },
+    {
+      "adverse_positive_fraction": 0.44441413597019014,
+      "adverse_total_over_diagonal": -0.0020390530460975107,
+      "block_name": "52A_to_54A",
+      "distance_count": 86,
+      "distance_range": [
+        2237,
+        2322
+      ],
+      "minimum_replacement_positive_fraction": 0.08188324768398146,
+      "minimum_replacement_positive_fraction_denominator": 34034,
+      "minimum_replacement_total_denominator": 34034,
+      "minimum_replacement_total_over_diagonal": -0.01238971583261462,
+      "positive_fraction_gap": -0.36253088828620866,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.2631486918270858,
+      "separates_by_both_share_and_total": false,
+      "total_gap": -0.01035066278651711,
+      "total_pressure_separates": false,
+      "total_separator": -0.007214384439356065
+    },
+    {
+      "adverse_positive_fraction": 0.47952026406997006,
+      "adverse_total_over_diagonal": -0.0009645042412860634,
+      "block_name": "52A_to_55A",
+      "distance_count": 129,
+      "distance_range": [
+        2237,
+        2365
+      ],
+      "minimum_replacement_positive_fraction": 0.10266115750482167,
+      "minimum_replacement_positive_fraction_denominator": 34034,
+      "minimum_replacement_total_denominator": 34034,
+      "minimum_replacement_total_over_diagonal": -0.014692712078054608,
+      "positive_fraction_gap": -0.37685910656514837,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.29109071078739585,
+      "separates_by_both_share_and_total": false,
+      "total_gap": -0.013728207836768544,
+      "total_pressure_separates": false,
+      "total_separator": -0.007828608159670335
+    },
+    {
+      "adverse_positive_fraction": 0.42842601706004224,
+      "adverse_total_over_diagonal": -0.009438004273724645,
+      "block_name": "52A_to_56A",
+      "distance_count": 172,
+      "distance_range": [
+        2237,
+        2408
+      ],
+      "minimum_replacement_positive_fraction": 0.11747916450000052,
+      "minimum_replacement_positive_fraction_denominator": 34034,
+      "minimum_replacement_total_denominator": 34034,
+      "minimum_replacement_total_over_diagonal": -0.014701839397158866,
+      "positive_fraction_gap": -0.31094685256004173,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.2729525907800214,
+      "separates_by_both_share_and_total": false,
+      "total_gap": -0.005263835123434221,
+      "total_pressure_separates": false,
+      "total_separator": -0.012069921835441755
+    },
+    {
+      "adverse_positive_fraction": 0.3973883362635757,
+      "adverse_total_over_diagonal": -0.022390986169992837,
+      "block_name": "52A_to_57A",
+      "distance_count": 215,
+      "distance_range": [
+        2237,
+        2451
+      ],
+      "minimum_replacement_positive_fraction": 0.22419469479082926,
+      "minimum_replacement_positive_fraction_denominator": 34034,
+      "minimum_replacement_total_denominator": 40755,
+      "minimum_replacement_total_over_diagonal": -0.015154901810990678,
+      "positive_fraction_gap": -0.17319364147274646,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.3107915155272025,
+      "separates_by_both_share_and_total": false,
+      "total_gap": 0.00723608435900216,
+      "total_pressure_separates": true,
+      "total_separator": -0.01877294399049176
+    },
+    {
+      "adverse_positive_fraction": 0.32194877147338724,
+      "adverse_total_over_diagonal": -0.06656350977638589,
+      "block_name": "52A_to_58A",
+      "distance_count": 258,
+      "distance_range": [
+        2237,
+        2494
+      ],
+      "minimum_replacement_positive_fraction": 0.25251105499340964,
+      "minimum_replacement_positive_fraction_denominator": 34034,
+      "minimum_replacement_total_denominator": 40755,
+      "minimum_replacement_total_over_diagonal": -0.034868626952388314,
+      "positive_fraction_gap": -0.0694377164799776,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.2872299132333984,
+      "separates_by_both_share_and_total": false,
+      "total_gap": 0.03169488282399758,
+      "total_pressure_separates": true,
+      "total_separator": -0.05071606836438711
+    },
+    {
+      "adverse_positive_fraction": 0.39644339832867476,
+      "adverse_total_over_diagonal": -0.04936036409519227,
+      "block_name": "52A_to_59A",
+      "distance_count": 301,
+      "distance_range": [
+        2237,
+        2537
+      ],
+      "minimum_replacement_positive_fraction": 0.2716258162597134,
+      "minimum_replacement_positive_fraction_denominator": 34034,
+      "minimum_replacement_total_denominator": 40755,
+      "minimum_replacement_total_over_diagonal": -0.02137164748848754,
+      "positive_fraction_gap": -0.12481758206896137,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.3340346072941941,
+      "separates_by_both_share_and_total": false,
+      "total_gap": 0.02798871660670473,
+      "total_pressure_separates": true,
+      "total_separator": -0.035366005791839905
+    },
+    {
+      "adverse_positive_fraction": 0.3674835184332014,
+      "adverse_total_over_diagonal": -0.08314828930362621,
+      "block_name": "52A_to_60A",
+      "distance_count": 344,
+      "distance_range": [
+        2237,
+        2580
+      ],
+      "minimum_replacement_positive_fraction": 0.3877944871180993,
+      "minimum_replacement_positive_fraction_denominator": 49742,
+      "minimum_replacement_total_denominator": 40755,
+      "minimum_replacement_total_over_diagonal": -0.03435848070991356,
+      "positive_fraction_gap": 0.0203109686848979,
+      "positive_fraction_separates": true,
+      "positive_fraction_separator": 0.3776390027756503,
+      "separates_by_both_share_and_total": true,
+      "total_gap": 0.048789808593712646,
+      "total_pressure_separates": true,
+      "total_separator": -0.05875338500676988
+    },
+    {
+      "adverse_positive_fraction": 0.3584025135124094,
+      "adverse_total_over_diagonal": -0.0022859551760529076,
+      "block_name": "53A_to_54A",
+      "distance_count": 43,
+      "distance_range": [
+        2280,
+        2322
+      ],
+      "minimum_replacement_positive_fraction": 0.17538141528681206,
+      "minimum_replacement_positive_fraction_denominator": 35530,
+      "minimum_replacement_total_denominator": 35530,
+      "minimum_replacement_total_over_diagonal": -0.01705509134070855,
+      "positive_fraction_gap": -0.18302109822559737,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.2668919643996107,
+      "separates_by_both_share_and_total": false,
+      "total_gap": -0.014769136164655642,
+      "total_pressure_separates": false,
+      "total_separator": -0.009670523258380729
+    },
+    {
+      "adverse_positive_fraction": 0.4543840434213548,
+      "adverse_total_over_diagonal": -0.0012114063712414603,
+      "block_name": "53A_to_55A",
+      "distance_count": 86,
+      "distance_range": [
+        2280,
+        2365
+      ],
+      "minimum_replacement_positive_fraction": 0.1824129623951249,
+      "minimum_replacement_positive_fraction_denominator": 35530,
+      "minimum_replacement_total_denominator": 35530,
+      "minimum_replacement_total_over_diagonal": -0.01768676980600322,
+      "positive_fraction_gap": -0.2719710810262299,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.31839850290823984,
+      "separates_by_both_share_and_total": false,
+      "total_gap": -0.01647536343476176,
+      "total_pressure_separates": false,
+      "total_separator": -0.00944908808862234
+    },
+    {
+      "adverse_positive_fraction": 0.41300308628806937,
+      "adverse_total_over_diagonal": -0.00968490640368004,
+      "block_name": "53A_to_56A",
+      "distance_count": 129,
+      "distance_range": [
+        2280,
+        2408
+      ],
+      "minimum_replacement_positive_fraction": 0.24758615219251506,
+      "minimum_replacement_positive_fraction_denominator": 35530,
+      "minimum_replacement_total_denominator": 35530,
+      "minimum_replacement_total_over_diagonal": -0.016465561731435492,
+      "positive_fraction_gap": -0.1654169340955543,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.33029461924029224,
+      "separates_by_both_share_and_total": false,
+      "total_gap": -0.006780655327755451,
+      "total_pressure_separates": false,
+      "total_separator": -0.013075234067557766
+    },
+    {
+      "adverse_positive_fraction": 0.3854775292693062,
+      "adverse_total_over_diagonal": -0.022637888299948235,
+      "block_name": "53A_to_57A",
+      "distance_count": 172,
+      "distance_range": [
+        2280,
+        2451
+      ],
+      "minimum_replacement_positive_fraction": 0.29947548459821083,
+      "minimum_replacement_positive_fraction_denominator": 35530,
+      "minimum_replacement_total_denominator": 35530,
+      "minimum_replacement_total_over_diagonal": -0.014692457847631088,
+      "positive_fraction_gap": -0.08600204467109535,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.34247650693375853,
+      "separates_by_both_share_and_total": false,
+      "total_gap": 0.007945430452317147,
+      "total_pressure_separates": true,
+      "total_separator": -0.018665173073789662
+    },
+    {
+      "adverse_positive_fraction": 0.3108991955430433,
+      "adverse_total_over_diagonal": -0.0668104119063413,
+      "block_name": "53A_to_58A",
+      "distance_count": 215,
+      "distance_range": [
+        2280,
+        2494
+      ],
+      "minimum_replacement_positive_fraction": 0.3224393903935958,
+      "minimum_replacement_positive_fraction_denominator": 35530,
+      "minimum_replacement_total_denominator": 40755,
+      "minimum_replacement_total_over_diagonal": -0.033644452583680214,
+      "positive_fraction_gap": 0.011540194850552521,
+      "positive_fraction_separates": true,
+      "positive_fraction_separator": 0.3166692929683196,
+      "separates_by_both_share_and_total": true,
+      "total_gap": 0.03316595932266108,
+      "total_pressure_separates": true,
+      "total_separator": -0.05022743224501075
+    },
+    {
+      "adverse_positive_fraction": 0.3912388861241632,
+      "adverse_total_over_diagonal": -0.04960726622514766,
+      "block_name": "53A_to_59A",
+      "distance_count": 258,
+      "distance_range": [
+        2280,
+        2537
+      ],
+      "minimum_replacement_positive_fraction": 0.3200993611765787,
+      "minimum_replacement_positive_fraction_denominator": 35530,
+      "minimum_replacement_total_denominator": 40755,
+      "minimum_replacement_total_over_diagonal": -0.02014747311977944,
+      "positive_fraction_gap": -0.07113952494758446,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.35566912365037096,
+      "separates_by_both_share_and_total": false,
+      "total_gap": 0.029459793105368223,
+      "total_pressure_separates": true,
+      "total_separator": -0.03487736967246355
+    },
+    {
+      "adverse_positive_fraction": 0.36259216755535073,
+      "adverse_total_over_diagonal": -0.08339519143358161,
+      "block_name": "53A_to_60A",
+      "distance_count": 301,
+      "distance_range": [
+        2280,
+        2580
+      ],
+      "minimum_replacement_positive_fraction": 0.3291648733222095,
+      "minimum_replacement_positive_fraction_denominator": 35530,
+      "minimum_replacement_total_denominator": 40755,
+      "minimum_replacement_total_over_diagonal": -0.03313430634120547,
+      "positive_fraction_gap": -0.033427294233141225,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.3458785204387801,
+      "separates_by_both_share_and_total": false,
+      "total_gap": 0.05026088509237614,
+      "total_pressure_separates": true,
+      "total_separator": -0.05826474888739354
+    },
+    {
+      "adverse_positive_fraction": 0.6031969877219858,
+      "adverse_total_over_diagonal": 0.0010745488048114473,
+      "block_name": "54A_to_55A",
+      "distance_count": 43,
+      "distance_range": [
+        2323,
+        2365
+      ],
+      "minimum_replacement_positive_fraction": 0.1864793901992136,
+      "minimum_replacement_positive_fraction_denominator": 34034,
+      "minimum_replacement_total_denominator": 34034,
+      "minimum_replacement_total_over_diagonal": -0.002302996245439987,
+      "positive_fraction_gap": -0.4167175975227722,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.39483818896059975,
+      "separates_by_both_share_and_total": false,
+      "total_gap": -0.0033775450502514346,
+      "total_pressure_separates": false,
+      "total_separator": -0.0006142237203142699
+    },
+    {
+      "adverse_positive_fraction": 0.42226414390065886,
+      "adverse_total_over_diagonal": -0.007398951227627134,
+      "block_name": "54A_to_56A",
+      "distance_count": 86,
+      "distance_range": [
+        2323,
+        2408
+      ],
+      "minimum_replacement_positive_fraction": 0.23731528167216162,
+      "minimum_replacement_positive_fraction_denominator": 34034,
+      "minimum_replacement_total_denominator": 58786,
+      "minimum_replacement_total_over_diagonal": -0.006889435115014626,
+      "positive_fraction_gap": -0.18494886222849724,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.3297897127864102,
+      "separates_by_both_share_and_total": false,
+      "total_gap": 0.0005095161126125085,
+      "total_pressure_separates": true,
+      "total_separator": -0.007144193171320879
+    },
+    {
+      "adverse_positive_fraction": 0.3878854229130893,
+      "adverse_total_over_diagonal": -0.020351933123895327,
+      "block_name": "54A_to_57A",
+      "distance_count": 129,
+      "distance_range": [
+        2323,
+        2451
+      ],
+      "minimum_replacement_positive_fraction": 0.39925883345884705,
+      "minimum_replacement_positive_fraction_denominator": 58786,
+      "minimum_replacement_total_denominator": 58786,
+      "minimum_replacement_total_over_diagonal": -0.011414311890516811,
+      "positive_fraction_gap": 0.011373410545757745,
+      "positive_fraction_separates": true,
+      "positive_fraction_separator": 0.3935721281859682,
+      "separates_by_both_share_and_total": true,
+      "total_gap": 0.008937621233378516,
+      "total_pressure_separates": true,
+      "total_separator": -0.01588312250720607
+    },
+    {
+      "adverse_positive_fraction": 0.3086246334881832,
+      "adverse_total_over_diagonal": -0.06452445673028838,
+      "block_name": "54A_to_58A",
+      "distance_count": 172,
+      "distance_range": [
+        2323,
+        2494
+      ],
+      "minimum_replacement_positive_fraction": 0.34842624912715203,
+      "minimum_replacement_positive_fraction_denominator": 40755,
+      "minimum_replacement_total_denominator": 40755,
+      "minimum_replacement_total_over_diagonal": -0.024261165789208526,
+      "positive_fraction_gap": 0.039801615638968835,
+      "positive_fraction_separates": true,
+      "positive_fraction_separator": 0.3285254413076676,
+      "separates_by_both_share_and_total": true,
+      "total_gap": 0.04026329094107985,
+      "total_pressure_separates": true,
+      "total_separator": -0.04439281125974845
+    },
+    {
+      "adverse_positive_fraction": 0.39244377261072894,
+      "adverse_total_over_diagonal": -0.047321311049094754,
+      "block_name": "54A_to_59A",
+      "distance_count": 215,
+      "distance_range": [
+        2323,
+        2537
+      ],
+      "minimum_replacement_positive_fraction": 0.4325741086382761,
+      "minimum_replacement_positive_fraction_denominator": 58786,
+      "minimum_replacement_total_denominator": 40755,
+      "minimum_replacement_total_over_diagonal": -0.010764186325307751,
+      "positive_fraction_gap": 0.040130336027547175,
+      "positive_fraction_separates": true,
+      "positive_fraction_separator": 0.4125089406245025,
+      "separates_by_both_share_and_total": true,
+      "total_gap": 0.036557124723787,
+      "total_pressure_separates": true,
+      "total_separator": -0.029042748687201254
+    },
+    {
+      "adverse_positive_fraction": 0.36270665806631586,
+      "adverse_total_over_diagonal": -0.0811092362575287,
+      "block_name": "54A_to_60A",
+      "distance_count": 258,
+      "distance_range": [
+        2323,
+        2580
+      ],
+      "minimum_replacement_positive_fraction": 0.3631973590601818,
+      "minimum_replacement_positive_fraction_denominator": 49742,
+      "minimum_replacement_total_denominator": 40755,
+      "minimum_replacement_total_over_diagonal": -0.023751019546733778,
+      "positive_fraction_gap": 0.0004907009938659446,
+      "positive_fraction_separates": true,
+      "positive_fraction_separator": 0.36295200856324883,
+      "separates_by_both_share_and_total": true,
+      "total_gap": 0.05735821671079491,
+      "total_pressure_separates": true,
+      "total_separator": -0.05243012790213124
+    },
+    {
+      "adverse_positive_fraction": 0.40003901913437884,
+      "adverse_total_over_diagonal": -0.008473500032438581,
+      "block_name": "55A_to_56A",
+      "distance_count": 43,
+      "distance_range": [
+        2366,
+        2408
+      ],
+      "minimum_replacement_positive_fraction": 0.28275161442229707,
+      "minimum_replacement_positive_fraction_denominator": 58786,
+      "minimum_replacement_total_denominator": 58786,
+      "minimum_replacement_total_over_diagonal": -0.01058834881383169,
+      "positive_fraction_gap": -0.11728740471208177,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.34139531677833795,
+      "separates_by_both_share_and_total": false,
+      "total_gap": -0.002114848781393109,
+      "total_pressure_separates": false,
+      "total_separator": -0.009530924423135136
+    },
+    {
+      "adverse_positive_fraction": 0.374783428106821,
+      "adverse_total_over_diagonal": -0.021426481928706772,
+      "block_name": "55A_to_57A",
+      "distance_count": 86,
+      "distance_range": [
+        2366,
+        2451
+      ],
+      "minimum_replacement_positive_fraction": 0.3118610269722908,
+      "minimum_replacement_positive_fraction_denominator": 58786,
+      "minimum_replacement_total_denominator": 58786,
+      "minimum_replacement_total_over_diagonal": -0.015113225589333876,
+      "positive_fraction_gap": -0.06292240113453024,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.3433222275395559,
+      "separates_by_both_share_and_total": false,
+      "total_gap": 0.006313256339372896,
+      "total_pressure_separates": true,
+      "total_separator": -0.018269853759020325
+    },
+    {
+      "adverse_positive_fraction": 0.29923742162918465,
+      "adverse_total_over_diagonal": -0.06559900553509983,
+      "block_name": "55A_to_58A",
+      "distance_count": 129,
+      "distance_range": [
+        2366,
+        2494
+      ],
+      "minimum_replacement_positive_fraction": 0.3251310914458341,
+      "minimum_replacement_positive_fraction_denominator": 40755,
+      "minimum_replacement_total_denominator": 40755,
+      "minimum_replacement_total_over_diagonal": -0.02375274645421147,
+      "positive_fraction_gap": 0.025893669816649423,
+      "positive_fraction_separates": true,
+      "positive_fraction_separator": 0.31218425653750936,
+      "separates_by_both_share_and_total": true,
+      "total_gap": 0.04184625908088836,
+      "total_pressure_separates": true,
+      "total_separator": -0.044675875994655646
+    },
+    {
+      "adverse_positive_fraction": 0.38733502992696384,
+      "adverse_total_over_diagonal": -0.0483958598539062,
+      "block_name": "55A_to_59A",
+      "distance_count": 172,
+      "distance_range": [
+        2366,
+        2537
+      ],
+      "minimum_replacement_positive_fraction": 0.3695750099513211,
+      "minimum_replacement_positive_fraction_denominator": 58786,
+      "minimum_replacement_total_denominator": 58786,
+      "minimum_replacement_total_over_diagonal": -0.012260463015150855,
+      "positive_fraction_gap": -0.01776001997564275,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.37845501993914243,
+      "separates_by_both_share_and_total": false,
+      "total_gap": 0.03613539683875534,
+      "total_pressure_separates": true,
+      "total_separator": -0.03032816143452853
+    },
+    {
+      "adverse_positive_fraction": 0.3583918769467776,
+      "adverse_total_over_diagonal": -0.08218378506234014,
+      "block_name": "55A_to_60A",
+      "distance_count": 215,
+      "distance_range": [
+        2366,
+        2580
+      ],
+      "minimum_replacement_positive_fraction": 0.35744471982919246,
+      "minimum_replacement_positive_fraction_denominator": 49742,
+      "minimum_replacement_total_denominator": 40755,
+      "minimum_replacement_total_over_diagonal": -0.02324260021173672,
+      "positive_fraction_gap": -0.0009471571175851401,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.35791829838798506,
+      "separates_by_both_share_and_total": false,
+      "total_gap": 0.05894118485060342,
+      "total_pressure_separates": true,
+      "total_separator": -0.05271319263703843
+    },
+    {
+      "adverse_positive_fraction": 0.3499897444932947,
+      "adverse_total_over_diagonal": -0.012952981896268192,
+      "block_name": "56A_to_57A",
+      "distance_count": 43,
+      "distance_range": [
+        2409,
+        2451
+      ],
+      "minimum_replacement_positive_fraction": 0.35676993975148935,
+      "minimum_replacement_positive_fraction_denominator": 58786,
+      "minimum_replacement_total_denominator": 58786,
+      "minimum_replacement_total_over_diagonal": -0.004524876775502186,
+      "positive_fraction_gap": 0.006780195258194677,
+      "positive_fraction_separates": true,
+      "positive_fraction_separator": 0.35337984212239204,
+      "separates_by_both_share_and_total": true,
+      "total_gap": 0.008428105120766007,
+      "total_pressure_separates": true,
+      "total_separator": -0.008738929335885189
+    },
+    {
+      "adverse_positive_fraction": 0.26392574746028347,
+      "adverse_total_over_diagonal": -0.057125505502661246,
+      "block_name": "56A_to_58A",
+      "distance_count": 86,
+      "distance_range": [
+        2409,
+        2494
+      ],
+      "minimum_replacement_positive_fraction": 0.3055515148922263,
+      "minimum_replacement_positive_fraction_denominator": 40755,
+      "minimum_replacement_total_denominator": 40755,
+      "minimum_replacement_total_over_diagonal": -0.023310151551005336,
+      "positive_fraction_gap": 0.04162576743194285,
+      "positive_fraction_separates": true,
+      "positive_fraction_separator": 0.28473863117625486,
+      "separates_by_both_share_and_total": true,
+      "total_gap": 0.03381535395165591,
+      "total_pressure_separates": true,
+      "total_separator": -0.04021782852683329
+    },
+    {
+      "adverse_positive_fraction": 0.3842116774339366,
+      "adverse_total_over_diagonal": -0.03992235982146762,
+      "block_name": "56A_to_59A",
+      "distance_count": 129,
+      "distance_range": [
+        2409,
+        2537
+      ],
+      "minimum_replacement_positive_fraction": 0.4075904352785,
+      "minimum_replacement_positive_fraction_denominator": 41990,
+      "minimum_replacement_total_denominator": 62985,
+      "minimum_replacement_total_over_diagonal": -0.016432412263453346,
+      "positive_fraction_gap": 0.02337875784456339,
+      "positive_fraction_separates": true,
+      "positive_fraction_separator": 0.3959010563562183,
+      "separates_by_both_share_and_total": true,
+      "total_gap": 0.023489947558014274,
+      "total_pressure_separates": true,
+      "total_separator": -0.028177386042460485
+    },
+    {
+      "adverse_positive_fraction": 0.3512683884866809,
+      "adverse_total_over_diagonal": -0.07371028502990157,
+      "block_name": "56A_to_60A",
+      "distance_count": 172,
+      "distance_range": [
+        2409,
+        2580
+      ],
+      "minimum_replacement_positive_fraction": 0.3323239769238765,
+      "minimum_replacement_positive_fraction_denominator": 49742,
+      "minimum_replacement_total_denominator": 40755,
+      "minimum_replacement_total_over_diagonal": -0.022800005308530588,
+      "positive_fraction_gap": -0.01894441156280441,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.3417961827052787,
+      "separates_by_both_share_and_total": false,
+      "total_gap": 0.05091027972137098,
+      "total_pressure_separates": true,
+      "total_separator": -0.04825514516921608
+    },
+    {
+      "adverse_positive_fraction": 0.21617650950023864,
+      "adverse_total_over_diagonal": -0.04417252360639306,
+      "block_name": "57A_to_58A",
+      "distance_count": 43,
+      "distance_range": [
+        2452,
+        2494
+      ],
+      "minimum_replacement_positive_fraction": 0.22204669495211413,
+      "minimum_replacement_positive_fraction_denominator": 40755,
+      "minimum_replacement_total_denominator": 40755,
+      "minimum_replacement_total_over_diagonal": -0.019713725141397635,
+      "positive_fraction_gap": 0.0058701854518754815,
+      "positive_fraction_separates": true,
+      "positive_fraction_separator": 0.21911160222617637,
+      "separates_by_both_share_and_total": true,
+      "total_gap": 0.024458798464995424,
+      "total_pressure_separates": true,
+      "total_separator": -0.03194312437389535
+    },
+    {
+      "adverse_positive_fraction": 0.3956455509600847,
+      "adverse_total_over_diagonal": -0.02696937792519943,
+      "block_name": "57A_to_59A",
+      "distance_count": 86,
+      "distance_range": [
+        2452,
+        2537
+      ],
+      "minimum_replacement_positive_fraction": 0.3667381901413309,
+      "minimum_replacement_positive_fraction_denominator": 41990,
+      "minimum_replacement_total_denominator": 62985,
+      "minimum_replacement_total_over_diagonal": -0.012814103342621834,
+      "positive_fraction_gap": -0.02890736081875378,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.3811918705507078,
+      "separates_by_both_share_and_total": false,
+      "total_gap": 0.014155274582577596,
+      "total_pressure_separates": true,
+      "total_separator": -0.01989174063391063
+    },
+    {
+      "adverse_positive_fraction": 0.351538171603047,
+      "adverse_total_over_diagonal": -0.060757303133633374,
+      "block_name": "57A_to_60A",
+      "distance_count": 129,
+      "distance_range": [
+        2452,
+        2580
+      ],
+      "minimum_replacement_positive_fraction": 0.2788819437964977,
+      "minimum_replacement_positive_fraction_denominator": 49742,
+      "minimum_replacement_total_denominator": 40755,
+      "minimum_replacement_total_over_diagonal": -0.019203578898922886,
+      "positive_fraction_gap": -0.07265622780654929,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.3152100576997724,
+      "separates_by_both_share_and_total": false,
+      "total_gap": 0.04155372423471049,
+      "total_pressure_separates": true,
+      "total_separator": -0.03998044101627813
+    },
+    {
+      "adverse_positive_fraction": 0.6673354354771922,
+      "adverse_total_over_diagonal": 0.01720314568119363,
+      "block_name": "58A_to_59A",
+      "distance_count": 43,
+      "distance_range": [
+        2495,
+        2537
+      ],
+      "minimum_replacement_positive_fraction": 0.18141882139874546,
+      "minimum_replacement_positive_fraction_denominator": 49742,
+      "minimum_replacement_total_denominator": 41990,
+      "minimum_replacement_total_over_diagonal": -0.003879111718110782,
+      "positive_fraction_gap": -0.4859166140784468,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.4243771284379688,
+      "separates_by_both_share_and_total": false,
+      "total_gap": -0.02108225739930441,
+      "total_pressure_separates": false,
+      "total_separator": 0.006662016981541423
+    },
+    {
+      "adverse_positive_fraction": 0.43460557003258726,
+      "adverse_total_over_diagonal": -0.016584779527240318,
+      "block_name": "58A_to_60A",
+      "distance_count": 86,
+      "distance_range": [
+        2495,
+        2580
+      ],
+      "minimum_replacement_positive_fraction": 0.19777397242213665,
+      "minimum_replacement_positive_fraction_denominator": 49742,
+      "minimum_replacement_total_denominator": 49742,
+      "minimum_replacement_total_over_diagonal": -0.014561865843773284,
+      "positive_fraction_gap": -0.2368315976104506,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.31618977122736197,
+      "separates_by_both_share_and_total": false,
+      "total_gap": 0.002022913683467034,
+      "total_pressure_separates": true,
+      "total_separator": -0.015573322685506801
+    },
+    {
+      "adverse_positive_fraction": 0.27594979031452244,
+      "adverse_total_over_diagonal": -0.03378792520843395,
+      "block_name": "59A_to_60A",
+      "distance_count": 43,
+      "distance_range": [
+        2538,
+        2580
+      ],
+      "minimum_replacement_positive_fraction": 0.2013279100029429,
+      "minimum_replacement_positive_fraction_denominator": 49742,
+      "minimum_replacement_total_denominator": 40755,
+      "minimum_replacement_total_over_diagonal": -0.012986833221426027,
+      "positive_fraction_gap": -0.07462188031157954,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.23863885015873265,
+      "separates_by_both_share_and_total": false,
+      "total_gap": 0.02080109198700792,
+      "total_pressure_separates": true,
+      "total_separator": -0.023387379214929987
+    }
+  ],
+  "coordinate00_residue_gap_sign_theorem_proved": false,
+  "decision": "The exact-distance sharpening is too strict: only 83 of 430 distances have a positive pointwise min-replacement gap, and the disconnected exact-distance envelope is below the adverse Q=46189 total.  The useful local structure is a short aggregate block: 56A..58A separates by both positive share and total pressure, while the one-A blocks 56A..57A and 57A..58A are the minimal separating micro-slices.",
+  "distance_slice_positive_share_theorem_proved": false,
+  "distance_slice_pressure_theorem_proved": false,
+  "exact_distance_pointwise_envelope": {
+    "adverse_total_over_diagonal": -0.08597078804878477,
+    "componentwise_exact_distance_envelope_survives": false,
+    "componentwise_min_replacement_minus_adverse_total_gap": -0.4529963751375745,
+    "componentwise_min_replacement_total_over_diagonal": -0.5389671631863593,
+    "distance_count": 430,
+    "exact_distance_pointwise_separator_survives": false,
+    "pointwise_nonpositive_gap_count": 347,
+    "pointwise_positive_gap_count": 83,
+    "top_pointwise_advantages": [
+      {
+        "adverse_contribution": -0.02990648718817285,
+        "circular_distance": 2470,
+        "minimum_replacement_contribution": -0.008750311473329534,
+        "minimum_replacement_denominator": 40755,
+        "pointwise_min_replacement_minus_adverse": 0.021156175714843316
+      },
+      {
+        "adverse_contribution": -0.014458993364663381,
+        "circular_distance": 2555,
+        "minimum_replacement_contribution": -0.0025546554700970467,
+        "minimum_replacement_denominator": 40755,
+        "pointwise_min_replacement_minus_adverse": 0.011904337894566335
+      },
+      {
+        "adverse_contribution": -0.010253996174640609,
+        "circular_distance": 2408,
+        "minimum_replacement_contribution": -0.0004072236307568574,
+        "minimum_replacement_denominator": 38038,
+        "pointwise_min_replacement_minus_adverse": 0.00984677254388375
+      },
+      {
+        "adverse_contribution": -0.008805391622447558,
+        "circular_distance": 2483,
+        "minimum_replacement_contribution": -0.0001543012706958293,
+        "minimum_replacement_denominator": 40755,
+        "pointwise_min_replacement_minus_adverse": 0.008651090351751729
+      },
+      {
+        "adverse_contribution": -0.008084402272238198,
+        "circular_distance": 2493,
+        "minimum_replacement_contribution": -0.000259464983283993,
+        "minimum_replacement_denominator": 40755,
+        "pointwise_min_replacement_minus_adverse": 0.007824937288954205
+      },
+      {
+        "adverse_contribution": -0.007803964150502037,
+        "circular_distance": 2444,
+        "minimum_replacement_contribution": -0.0005807747744171927,
+        "minimum_replacement_denominator": 62985,
+        "pointwise_min_replacement_minus_adverse": 0.007223189376084844
+      },
+      {
+        "adverse_contribution": -0.005962634471942346,
+        "circular_distance": 2395,
+        "minimum_replacement_contribution": -1.1317819910043019e-05,
+        "minimum_replacement_denominator": 53295,
+        "pointwise_min_replacement_minus_adverse": 0.005951316652032303
+      },
+      {
+        "adverse_contribution": -0.006556019190642093,
+        "circular_distance": 2421,
+        "minimum_replacement_contribution": -0.0006053485196168597,
+        "minimum_replacement_denominator": 62985,
+        "pointwise_min_replacement_minus_adverse": 0.0059506706710252336
+      },
+      {
+        "adverse_contribution": -0.005327062921542906,
+        "circular_distance": 2568,
+        "minimum_replacement_contribution": -1.5305691248775047e-05,
+        "minimum_replacement_denominator": 58786,
+        "pointwise_min_replacement_minus_adverse": 0.00531175723029413
+      },
+      {
+        "adverse_contribution": -0.004389775486690241,
+        "circular_distance": 2519,
+        "minimum_replacement_contribution": -0.0002116134610377422,
+        "minimum_replacement_denominator": 40755,
+        "pointwise_min_replacement_minus_adverse": 0.004178162025652499
+      }
+    ],
+    "top_pointwise_failures": [
+      {
+        "adverse_contribution": 5.151474948369573e-05,
+        "circular_distance": 2284,
+        "minimum_replacement_contribution": -0.01682444700281227,
+        "minimum_replacement_denominator": 35530,
+        "pointwise_min_replacement_minus_adverse": -0.016875961752295967
+      },
+      {
+        "adverse_contribution": 0.015010758816090023,
+        "circular_distance": 2506,
+        "minimum_replacement_contribution": -0.00035069073164396093,
+        "minimum_replacement_denominator": 62985,
+        "pointwise_min_replacement_minus_adverse": -0.015361449547733984
+      },
+      {
+        "adverse_contribution": 8.913604411353057e-05,
+        "circular_distance": 2366,
+        "minimum_replacement_contribution": -0.01145494121170133,
+        "minimum_replacement_denominator": 58786,
+        "pointwise_min_replacement_minus_adverse": -0.01154407725581486
+      },
+      {
+        "adverse_contribution": 0.0005592504847269774,
+        "circular_distance": 2574,
+        "minimum_replacement_contribution": -0.010200374514482165,
+        "minimum_replacement_denominator": 40755,
+        "pointwise_min_replacement_minus_adverse": -0.010759624999209143
+      },
+      {
+        "adverse_contribution": 0.008170761840398312,
+        "circular_distance": 2372,
+        "minimum_replacement_contribution": -0.0023682320786925387,
+        "minimum_replacement_denominator": 53295,
+        "pointwise_min_replacement_minus_adverse": -0.01053899391909085
+      },
+      {
+        "adverse_contribution": 0.010093047080091847,
+        "circular_distance": 2542,
+        "minimum_replacement_contribution": -0.00016551691371269057,
+        "minimum_replacement_denominator": 53295,
+        "pointwise_min_replacement_minus_adverse": -0.010258563993804537
+      },
+      {
+        "adverse_contribution": -9.369805255094405e-05,
+        "circular_distance": 2299,
+        "minimum_replacement_contribution": -0.010343671251531022,
+        "minimum_replacement_denominator": 40755,
+        "pointwise_min_replacement_minus_adverse": -0.010249973198980078
+      },
+      {
+        "adverse_contribution": 0.00010975009105041798,
+        "circular_distance": 2487,
+        "minimum_replacement_contribution": -0.009805624672083683,
+        "minimum_replacement_denominator": 62985,
+        "pointwise_min_replacement_minus_adverse": -0.0099153747631341
+      },
+      {
+        "adverse_contribution": 0.000913883276548143,
+        "circular_distance": 2536,
+        "minimum_replacement_contribution": -0.008622340015809641,
+        "minimum_replacement_denominator": 62985,
+        "pointwise_min_replacement_minus_adverse": -0.009536223292357784
+      },
+      {
+        "adverse_contribution": 0.0005345085522361048,
+        "circular_distance": 2414,
+        "minimum_replacement_contribution": -0.00789442695939778,
+        "minimum_replacement_denominator": 62985,
+        "pointwise_min_replacement_minus_adverse": -0.008428935511633885
+      }
+    ]
+  },
+  "exact_distance_pointwise_theorem_proved": false,
+  "finite_50a60a_distance_profile_audit_only": true,
+  "finite_diagnostic_only": true,
+  "fixture": {
+    "active_row_start": 43,
+    "distance_range_50A_to_60A": [
+      2151,
+      2580
+    ],
+    "divisor_range": [
+      3,
+      19
+    ],
+    "ell_freeze": 64,
+    "prime_modulus": 379,
+    "replacement_row_count": 10,
+    "row_count_A": 43,
+    "scale_modulus": 229,
+    "target_label": "00,12"
+  },
+  "goldbach_proved": false,
+  "micro_slice_summaries": [
+    {
+      "adverse_positive_fraction": 0.5210224700338292,
+      "adverse_total_over_diagonal": 0.0002040997779254744,
+      "block_name": "50A_to_51A",
+      "distance_count": 43,
+      "distance_range": [
+        2151,
+        2193
+      ],
+      "minimum_replacement_positive_fraction": 0.3906000029067059,
+      "minimum_replacement_positive_fraction_denominator": 41990,
+      "minimum_replacement_total_denominator": 41990,
+      "minimum_replacement_total_over_diagonal": -0.0025055595620667526,
+      "positive_fraction_gap": -0.1304224671271233,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.45581123647026756,
+      "separates_by_both_share_and_total": false,
+      "total_gap": -0.002709659339992227,
+      "total_pressure_separates": false,
+      "total_separator": -0.001150729892070639
+    },
+    {
+      "adverse_positive_fraction": 0.3861072832518102,
+      "adverse_total_over_diagonal": -0.003026598523084034,
+      "block_name": "51A_to_52A",
+      "distance_count": 43,
+      "distance_range": [
+        2194,
+        2236
+      ],
+      "minimum_replacement_positive_fraction": 0.12249562953285326,
+      "minimum_replacement_positive_fraction_denominator": 58786,
+      "minimum_replacement_total_denominator": 58786,
+      "minimum_replacement_total_over_diagonal": -0.016371530986217415,
+      "positive_fraction_gap": -0.26361165371895695,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.2543014563923317,
+      "separates_by_both_share_and_total": false,
+      "total_gap": -0.013344932463133381,
+      "total_pressure_separates": false,
+      "total_separator": -0.009699064754650724
+    },
+    {
+      "adverse_positive_fraction": 0.5120211927280736,
+      "adverse_total_over_diagonal": 0.0002469021299553968,
+      "block_name": "52A_to_53A",
+      "distance_count": 43,
+      "distance_range": [
+        2237,
+        2279
+      ],
+      "minimum_replacement_positive_fraction": 0.011117194701219933,
+      "minimum_replacement_positive_fraction_denominator": 34034,
+      "minimum_replacement_total_denominator": 34034,
+      "minimum_replacement_total_over_diagonal": -0.01143269098971573,
+      "positive_fraction_gap": -0.5009039980268536,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.26156919371464676,
+      "separates_by_both_share_and_total": false,
+      "total_gap": -0.011679593119671127,
+      "total_pressure_separates": false,
+      "total_separator": -0.005592894429880166
+    },
+    {
+      "adverse_positive_fraction": 0.3584025135124094,
+      "adverse_total_over_diagonal": -0.0022859551760529076,
+      "block_name": "53A_to_54A",
+      "distance_count": 43,
+      "distance_range": [
+        2280,
+        2322
+      ],
+      "minimum_replacement_positive_fraction": 0.17538141528681206,
+      "minimum_replacement_positive_fraction_denominator": 35530,
+      "minimum_replacement_total_denominator": 35530,
+      "minimum_replacement_total_over_diagonal": -0.01705509134070855,
+      "positive_fraction_gap": -0.18302109822559737,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.2668919643996107,
+      "separates_by_both_share_and_total": false,
+      "total_gap": -0.014769136164655642,
+      "total_pressure_separates": false,
+      "total_separator": -0.009670523258380729
+    },
+    {
+      "adverse_positive_fraction": 0.6031969877219858,
+      "adverse_total_over_diagonal": 0.0010745488048114473,
+      "block_name": "54A_to_55A",
+      "distance_count": 43,
+      "distance_range": [
+        2323,
+        2365
+      ],
+      "minimum_replacement_positive_fraction": 0.1864793901992136,
+      "minimum_replacement_positive_fraction_denominator": 34034,
+      "minimum_replacement_total_denominator": 34034,
+      "minimum_replacement_total_over_diagonal": -0.002302996245439987,
+      "positive_fraction_gap": -0.4167175975227722,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.39483818896059975,
+      "separates_by_both_share_and_total": false,
+      "total_gap": -0.0033775450502514346,
+      "total_pressure_separates": false,
+      "total_separator": -0.0006142237203142699
+    },
+    {
+      "adverse_positive_fraction": 0.40003901913437884,
+      "adverse_total_over_diagonal": -0.008473500032438581,
+      "block_name": "55A_to_56A",
+      "distance_count": 43,
+      "distance_range": [
+        2366,
+        2408
+      ],
+      "minimum_replacement_positive_fraction": 0.28275161442229707,
+      "minimum_replacement_positive_fraction_denominator": 58786,
+      "minimum_replacement_total_denominator": 58786,
+      "minimum_replacement_total_over_diagonal": -0.01058834881383169,
+      "positive_fraction_gap": -0.11728740471208177,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.34139531677833795,
+      "separates_by_both_share_and_total": false,
+      "total_gap": -0.002114848781393109,
+      "total_pressure_separates": false,
+      "total_separator": -0.009530924423135136
+    },
+    {
+      "adverse_positive_fraction": 0.3499897444932947,
+      "adverse_total_over_diagonal": -0.012952981896268192,
+      "block_name": "56A_to_57A",
+      "distance_count": 43,
+      "distance_range": [
+        2409,
+        2451
+      ],
+      "minimum_replacement_positive_fraction": 0.35676993975148935,
+      "minimum_replacement_positive_fraction_denominator": 58786,
+      "minimum_replacement_total_denominator": 58786,
+      "minimum_replacement_total_over_diagonal": -0.004524876775502186,
+      "positive_fraction_gap": 0.006780195258194677,
+      "positive_fraction_separates": true,
+      "positive_fraction_separator": 0.35337984212239204,
+      "separates_by_both_share_and_total": true,
+      "total_gap": 0.008428105120766007,
+      "total_pressure_separates": true,
+      "total_separator": -0.008738929335885189
+    },
+    {
+      "adverse_positive_fraction": 0.21617650950023864,
+      "adverse_total_over_diagonal": -0.04417252360639306,
+      "block_name": "57A_to_58A",
+      "distance_count": 43,
+      "distance_range": [
+        2452,
+        2494
+      ],
+      "minimum_replacement_positive_fraction": 0.22204669495211413,
+      "minimum_replacement_positive_fraction_denominator": 40755,
+      "minimum_replacement_total_denominator": 40755,
+      "minimum_replacement_total_over_diagonal": -0.019713725141397635,
+      "positive_fraction_gap": 0.0058701854518754815,
+      "positive_fraction_separates": true,
+      "positive_fraction_separator": 0.21911160222617637,
+      "separates_by_both_share_and_total": true,
+      "total_gap": 0.024458798464995424,
+      "total_pressure_separates": true,
+      "total_separator": -0.03194312437389535
+    },
+    {
+      "adverse_positive_fraction": 0.6673354354771922,
+      "adverse_total_over_diagonal": 0.01720314568119363,
+      "block_name": "58A_to_59A",
+      "distance_count": 43,
+      "distance_range": [
+        2495,
+        2537
+      ],
+      "minimum_replacement_positive_fraction": 0.18141882139874546,
+      "minimum_replacement_positive_fraction_denominator": 49742,
+      "minimum_replacement_total_denominator": 41990,
+      "minimum_replacement_total_over_diagonal": -0.003879111718110782,
+      "positive_fraction_gap": -0.4859166140784468,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.4243771284379688,
+      "separates_by_both_share_and_total": false,
+      "total_gap": -0.02108225739930441,
+      "total_pressure_separates": false,
+      "total_separator": 0.006662016981541423
+    },
+    {
+      "adverse_positive_fraction": 0.27594979031452244,
+      "adverse_total_over_diagonal": -0.03378792520843395,
+      "block_name": "59A_to_60A",
+      "distance_count": 43,
+      "distance_range": [
+        2538,
+        2580
+      ],
+      "minimum_replacement_positive_fraction": 0.2013279100029429,
+      "minimum_replacement_positive_fraction_denominator": 49742,
+      "minimum_replacement_total_denominator": 40755,
+      "minimum_replacement_total_over_diagonal": -0.012986833221426027,
+      "positive_fraction_gap": -0.07462188031157954,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.23863885015873265,
+      "separates_by_both_share_and_total": false,
+      "total_gap": 0.02080109198700792,
+      "total_pressure_separates": true,
+      "total_separator": -0.023387379214929987
+    }
+  ],
+  "question": "Inside the Q=46189 50A..60A signed-balance witness, does the replacement advantage live at exact distances or in short aggregate distance blocks?",
+  "replacement_residue_gap_bound_theorem_proved": false,
+  "row_summaries": [
+    {
+      "band_metric": {
+        "absolute_over_diagonal": 0.331869488578746,
+        "distance_count": 430,
+        "distance_range": [
+          2151,
+          2580
+        ],
+        "negative_over_diagonal": -0.20892013831376538,
+        "positive_fraction_of_absolute": 0.37047500447094334,
+        "positive_over_diagonal": 0.1229493502649806,
+        "total_over_diagonal": -0.08597078804878477
+      },
+      "diagonal_half_contribution": 20990238237161.72,
+      "negative_abs_concentration": {
+        "top_10_fraction": 0.5159620240263315,
+        "top_1_fraction": 0.14314793887058405,
+        "top_25_fraction": 0.714346593504577,
+        "top_3_fraction": 0.26143710782656543,
+        "top_50_fraction": 0.8311802504933107,
+        "top_5_fraction": 0.352564865423578
+      },
+      "negative_distance_count": 229,
+      "positive_concentration": {
+        "top_10_fraction": 0.4345627150194741,
+        "top_1_fraction": 0.12208896414449377,
+        "top_25_fraction": 0.6097623379801843,
+        "top_3_fraction": 0.27063638534784273,
+        "top_50_fraction": 0.7647058720907377,
+        "top_5_fraction": 0.3353087511901962
+      },
+      "positive_distance_count": 201,
+      "reduced_denominator": 46189,
+      "role": "q46189_adverse",
+      "top_negative_distances": [
+        {
+          "circular_distance": 2470,
+          "deltas": [
+            2470,
+            43719
+          ],
+          "normalized_contribution": -0.02990648718817285
+        },
+        {
+          "circular_distance": 2555,
+          "deltas": [
+            2555,
+            43634
+          ],
+          "normalized_contribution": -0.014458993364663381
+        },
+        {
+          "circular_distance": 2408,
+          "deltas": [
+            2408,
+            43781
+          ],
+          "normalized_contribution": -0.010253996174640609
+        },
+        {
+          "circular_distance": 2558,
+          "deltas": [
+            2558,
+            43631
+          ],
+          "normalized_contribution": -0.010233032098943596
+        },
+        {
+          "circular_distance": 2483,
+          "deltas": [
+            2483,
+            43706
+          ],
+          "normalized_contribution": -0.008805391622447558
+        },
+        {
+          "circular_distance": 2493,
+          "deltas": [
+            2493,
+            43696
+          ],
+          "normalized_contribution": -0.008084402272238198
+        },
+        {
+          "circular_distance": 2444,
+          "deltas": [
+            2444,
+            43745
+          ],
+          "normalized_contribution": -0.007803964150502037
+        },
+        {
+          "circular_distance": 2421,
+          "deltas": [
+            2421,
+            43768
+          ],
+          "normalized_contribution": -0.006556019190642093
+        },
+        {
+          "circular_distance": 2395,
+          "deltas": [
+            2395,
+            43794
+          ],
+          "normalized_contribution": -0.005962634471942346
+        },
+        {
+          "circular_distance": 2565,
+          "deltas": [
+            2565,
+            43624
+          ],
+          "normalized_contribution": -0.005729936890038843
+        }
+      ],
+      "top_positive_distances": [
+        {
+          "circular_distance": 2506,
+          "deltas": [
+            2506,
+            43683
+          ],
+          "normalized_contribution": 0.015010758816090023
+        },
+        {
+          "circular_distance": 2542,
+          "deltas": [
+            2542,
+            43647
+          ],
+          "normalized_contribution": 0.010093047080091847
+        },
+        {
+          "circular_distance": 2372,
+          "deltas": [
+            2372,
+            43817
+          ],
+          "normalized_contribution": 0.008170761840398312
+        },
+        {
+          "circular_distance": 2431,
+          "deltas": [
+            2431,
+            43758
+          ],
+          "normalized_contribution": 0.004860400248914407
+        },
+        {
+          "circular_distance": 2480,
+          "deltas": [
+            2480,
+            43709
+          ],
+          "normalized_contribution": 0.0030910251115020774
+        },
+        {
+          "circular_distance": 2486,
+          "deltas": [
+            2486,
+            43703
+          ],
+          "normalized_contribution": 0.002762708509794448
+        },
+        {
+          "circular_distance": 2476,
+          "deltas": [
+            2476,
+            43713
+          ],
+          "normalized_contribution": 0.0024191865113587833
+        },
+        {
+          "circular_distance": 2496,
+          "deltas": [
+            2496,
+            43693
+          ],
+          "normalized_contribution": 0.0024137606973708703
+        },
+        {
+          "circular_distance": 2437,
+          "deltas": [
+            2437,
+            43752
+          ],
+          "normalized_contribution": 0.0023468734971950384
+        },
+        {
+          "circular_distance": 2540,
+          "deltas": [
+            2540,
+            43649
+          ],
+          "normalized_contribution": 0.002260681148314456
+        }
+      ]
+    },
+    {
+      "band_metric": {
+        "absolute_over_diagonal": 0.17552747996777132,
+        "distance_count": 430,
+        "distance_range": [
+          2151,
+          2580
+        ],
+        "negative_over_diagonal": -0.09061053003829393,
+        "positive_fraction_of_absolute": 0.4837815135559915,
+        "positive_over_diagonal": 0.08491694992947739,
+        "total_over_diagonal": -0.00569358010881654
+      },
+      "diagonal_half_contribution": 39777700093247.94,
+      "negative_abs_concentration": {
+        "top_10_fraction": 0.4740788482386897,
+        "top_1_fraction": 0.12641953652473095,
+        "top_25_fraction": 0.7456759700670431,
+        "top_3_fraction": 0.2414967185653821,
+        "top_50_fraction": 0.8994401526133448,
+        "top_5_fraction": 0.3161529981689377
+      },
+      "negative_distance_count": 227,
+      "positive_concentration": {
+        "top_10_fraction": 0.5066713220874832,
+        "top_1_fraction": 0.08273785260003953,
+        "top_25_fraction": 0.7596623637009166,
+        "top_3_fraction": 0.23276306931787302,
+        "top_50_fraction": 0.9248374280541566,
+        "top_5_fraction": 0.3227054822000523
+      },
+      "positive_distance_count": 203,
+      "reduced_denominator": 58786,
+      "role": "replacement",
+      "top_negative_distances": [
+        {
+          "circular_distance": 2366,
+          "deltas": [
+            2366,
+            56420
+          ],
+          "normalized_contribution": -0.01145494121170133
+        },
+        {
+          "circular_distance": 2294,
+          "deltas": [
+            2294,
+            56492
+          ],
+          "normalized_contribution": -0.0056524832327987376
+        },
+        {
+          "circular_distance": 2274,
+          "deltas": [
+            2274,
+            56512
+          ],
+          "normalized_contribution": -0.004774721227217903
+        },
+        {
+          "circular_distance": 2162,
+          "deltas": [
+            2162,
+            56624
+          ],
+          "normalized_contribution": -0.003508756824440976
+        },
+        {
+          "circular_distance": 2222,
+          "deltas": [
+            2222,
+            56564
+          ],
+          "normalized_contribution": -0.003255888241124273
+        },
+        {
+          "circular_distance": 2428,
+          "deltas": [
+            2428,
+            56358
+          ],
+          "normalized_contribution": -0.0031640509025993935
+        },
+        {
+          "circular_distance": 2416,
+          "deltas": [
+            2416,
+            56370
+          ],
+          "normalized_contribution": -0.0029741538062954174
+        },
+        {
+          "circular_distance": 2192,
+          "deltas": [
+            2192,
+            56594
+          ],
+          "normalized_contribution": -0.0028415058054861025
+        },
+        {
+          "circular_distance": 2226,
+          "deltas": [
+            2226,
+            56560
+          ],
+          "normalized_contribution": -0.0026910739131768093
+        },
+        {
+          "circular_distance": 2210,
+          "deltas": [
+            2210,
+            56576
+          ],
+          "normalized_contribution": -0.0026389605540106348
+        }
+      ],
+      "top_positive_distances": [
+        {
+          "circular_distance": 2172,
+          "deltas": [
+            2172,
+            56614
+          ],
+          "normalized_contribution": 0.0070258460865100375
+        },
+        {
+          "circular_distance": 2316,
+          "deltas": [
+            2316,
+            56470
+          ],
+          "normalized_contribution": 0.006598579080791106
+        },
+        {
+          "circular_distance": 2152,
+          "deltas": [
+            2152,
+            56634
+          ],
+          "normalized_contribution": 0.006141104735396157
+        },
+        {
+          "circular_distance": 2438,
+          "deltas": [
+            2438,
+            56348
+          ],
+          "normalized_contribution": 0.004026014008764551
+        },
+        {
+          "circular_distance": 2262,
+          "deltas": [
+            2262,
+            56524
+          ],
+          "normalized_contribution": 0.0036116213624878433
+        },
+        {
+          "circular_distance": 2324,
+          "deltas": [
+            2324,
+            56462
+          ],
+          "normalized_contribution": 0.0033986710922317537
+        },
+        {
+          "circular_distance": 2242,
+          "deltas": [
+            2242,
+            56544
+          ],
+          "normalized_contribution": 0.003262937615115208
+        },
+        {
+          "circular_distance": 2254,
+          "deltas": [
+            2254,
+            56532
+          ],
+          "normalized_contribution": 0.0031924293506802237
+        },
+        {
+          "circular_distance": 2276,
+          "deltas": [
+            2276,
+            56510
+          ],
+          "normalized_contribution": 0.002931530911562418
+        },
+        {
+          "circular_distance": 2182,
+          "deltas": [
+            2182,
+            56604
+          ],
+          "normalized_contribution": 0.002836249044865628
+        }
+      ]
+    },
+    {
+      "band_metric": {
+        "absolute_over_diagonal": 0.28276502202017983,
+        "distance_count": 430,
+        "distance_range": [
+          2151,
+          2580
+        ],
+        "negative_over_diagonal": -0.15130098386488305,
+        "positive_fraction_of_absolute": 0.46492326814705776,
+        "positive_over_diagonal": 0.13146403815529675,
+        "total_over_diagonal": -0.019836945709586298
+      },
+      "diagonal_half_contribution": 28872797556320.266,
+      "negative_abs_concentration": {
+        "top_10_fraction": 0.3986728968985461,
+        "top_1_fraction": 0.0683648644397995,
+        "top_25_fraction": 0.5933214503921721,
+        "top_3_fraction": 0.19361643586867605,
+        "top_50_fraction": 0.7629264726024316,
+        "top_5_fraction": 0.26867261651703117
+      },
+      "negative_distance_count": 225,
+      "positive_concentration": {
+        "top_10_fraction": 0.3570756753890549,
+        "top_1_fraction": 0.05642603020336191,
+        "top_25_fraction": 0.5499079248804098,
+        "top_3_fraction": 0.15020813374107975,
+        "top_50_fraction": 0.7242986857932688,
+        "top_5_fraction": 0.22793523809013658
+      },
+      "positive_distance_count": 205,
+      "reduced_denominator": 40755,
+      "role": "replacement",
+      "top_negative_distances": [
+        {
+          "circular_distance": 2299,
+          "deltas": [
+            2299,
+            38456
+          ],
+          "normalized_contribution": -0.010343671251531022
+        },
+        {
+          "circular_distance": 2574,
+          "deltas": [
+            2574,
+            38181
+          ],
+          "normalized_contribution": -0.010200374514482165
+        },
+        {
+          "circular_distance": 2470,
+          "deltas": [
+            2470,
+            38285
+          ],
+          "normalized_contribution": -0.008750311473329534
+        },
+        {
+          "circular_distance": 2503,
+          "deltas": [
+            2503,
+            38252
+          ],
+          "normalized_contribution": -0.0058737579285440536
+        },
+        {
+          "circular_distance": 2576,
+          "deltas": [
+            2576,
+            38179
+          ],
+          "normalized_contribution": -0.005482316048692476
+        },
+        {
+          "circular_distance": 2449,
+          "deltas": [
+            2449,
+            38306
+          ],
+          "normalized_contribution": -0.005112478254079439
+        },
+        {
+          "circular_distance": 2224,
+          "deltas": [
+            2224,
+            38531
+          ],
+          "normalized_contribution": -0.004774327011937723
+        },
+        {
+          "circular_distance": 2486,
+          "deltas": [
+            2486,
+            38269
+          ],
+          "normalized_contribution": -0.003374314222984979
+        },
+        {
+          "circular_distance": 2226,
+          "deltas": [
+            2226,
+            38529
+          ],
+          "normalized_contribution": -0.0033136915629612693
+        },
+        {
+          "circular_distance": 2253,
+          "deltas": [
+            2253,
+            38502
+          ],
+          "normalized_contribution": -0.00309435927247045
+        }
+      ],
+      "top_positive_distances": [
+        {
+          "circular_distance": 2201,
+          "deltas": [
+            2201,
+            38554
+          ],
+          "normalized_contribution": 0.007417993787606697
+        },
+        {
+          "circular_distance": 2580,
+          "deltas": [
+            2580,
+            38175
+          ],
+          "normalized_contribution": 0.006257382373847881
+        },
+        {
+          "circular_distance": 2526,
+          "deltas": [
+            2526,
+            38229
+          ],
+          "normalized_contribution": 0.006071591663918649
+        },
+        {
+          "circular_distance": 2222,
+          "deltas": [
+            2222,
+            38533
+          ],
+          "normalized_contribution": 0.00556346507932659
+        },
+        {
+          "circular_distance": 2220,
+          "deltas": [
+            2220,
+            38535
+          ],
+          "normalized_contribution": 0.00465485393251855
+        },
+        {
+          "circular_distance": 2451,
+          "deltas": [
+            2451,
+            38304
+          ],
+          "normalized_contribution": 0.0036768768312913816
+        },
+        {
+          "circular_distance": 2518,
+          "deltas": [
+            2518,
+            38237
+          ],
+          "normalized_contribution": 0.003649155910388887
+        },
+        {
+          "circular_distance": 2199,
+          "deltas": [
+            2199,
+            38556
+          ],
+          "normalized_contribution": 0.003371652265821774
+        },
+        {
+          "circular_distance": 2428,
+          "deltas": [
+            2428,
+            38327
+          ],
+          "normalized_contribution": 0.003349202663619767
+        },
+        {
+          "circular_distance": 2274,
+          "deltas": [
+            2274,
+            38481
+          ],
+          "normalized_contribution": 0.0029304357053348924
+        }
+      ]
+    },
+    {
+      "band_metric": {
+        "absolute_over_diagonal": 0.30917594697099016,
+        "distance_count": 430,
+        "distance_range": [
+          2151,
+          2580
+        ],
+        "negative_over_diagonal": -0.1330998774350211,
+        "positive_fraction_of_absolute": 0.569501189406853,
+        "positive_over_diagonal": 0.17607606953596902,
+        "total_over_diagonal": 0.04297619210094791
+      },
+      "diagonal_half_contribution": 43845697056636.55,
+      "negative_abs_concentration": {
+        "top_10_fraction": 0.4529534720013795,
+        "top_1_fraction": 0.07367117732223874,
+        "top_25_fraction": 0.6357953539332019,
+        "top_3_fraction": 0.1977642065083163,
+        "top_50_fraction": 0.7813825477522509,
+        "top_5_fraction": 0.3024288821203647
+      },
+      "negative_distance_count": 221,
+      "positive_concentration": {
+        "top_10_fraction": 0.4697541945097403,
+        "top_1_fraction": 0.06717947588754644,
+        "top_25_fraction": 0.6810412295107078,
+        "top_3_fraction": 0.17634213119901598,
+        "top_50_fraction": 0.823328665210054,
+        "top_5_fraction": 0.27375281326009876
+      },
+      "positive_distance_count": 209,
+      "reduced_denominator": 62985,
+      "role": "replacement",
+      "top_negative_distances": [
+        {
+          "circular_distance": 2487,
+          "deltas": [
+            2487,
+            60498
+          ],
+          "normalized_contribution": -0.009805624672083683
+        },
+        {
+          "circular_distance": 2536,
+          "deltas": [
+            2536,
+            60449
+          ],
+          "normalized_contribution": -0.008622340015809641
+        },
+        {
+          "circular_distance": 2414,
+          "deltas": [
+            2414,
+            60571
+          ],
+          "normalized_contribution": -0.00789442695939778
+        },
+        {
+          "circular_distance": 2464,
+          "deltas": [
+            2464,
+            60521
+          ],
+          "normalized_contribution": -0.007721317009535808
+        },
+        {
+          "circular_distance": 2417,
+          "deltas": [
+            2417,
+            60568
+          ],
+          "normalized_contribution": -0.006209538486204069
+        },
+        {
+          "circular_distance": 2274,
+          "deltas": [
+            2274,
+            60711
+          ],
+          "normalized_contribution": -0.005638998348394735
+        },
+        {
+          "circular_distance": 2488,
+          "deltas": [
+            2488,
+            60497
+          ],
+          "normalized_contribution": -0.005061925089037325
+        },
+        {
+          "circular_distance": 2415,
+          "deltas": [
+            2415,
+            60570
+          ],
+          "normalized_contribution": -0.003901228375468287
+        },
+        {
+          "circular_distance": 2440,
+          "deltas": [
+            2440,
+            60545
+          ],
+          "normalized_contribution": -0.0028074093507721716
+        },
+        {
+          "circular_distance": 2397,
+          "deltas": [
+            2397,
+            60588
+          ],
+          "normalized_contribution": -0.002625243300447374
+        }
+      ],
+      "top_positive_distances": [
+        {
+          "circular_distance": 2321,
+          "deltas": [
+            2321,
+            60664
+          ],
+          "normalized_contribution": 0.011828698067765582
+        },
+        {
+          "circular_distance": 2346,
+          "deltas": [
+            2346,
+            60639
+          ],
+          "normalized_contribution": 0.009960709843064044
+        },
+        {
+          "circular_distance": 2368,
+          "deltas": [
+            2368,
+            60617
+          ],
+          "normalized_contribution": 0.009260221444289283
+        },
+        {
+          "circular_distance": 2298,
+          "deltas": [
+            2298,
+            60687
+          ],
+          "normalized_contribution": 0.008647021870234703
+        },
+        {
+          "circular_distance": 2511,
+          "deltas": [
+            2511,
+            60474
+          ],
+          "normalized_contribution": 0.008504668157898677
+        },
+        {
+          "circular_distance": 2439,
+          "deltas": [
+            2439,
+            60546
+          ],
+          "normalized_contribution": 0.00751259415039604
+        },
+        {
+          "circular_distance": 2156,
+          "deltas": [
+            2156,
+            60829
+          ],
+          "normalized_contribution": 0.007319910943151074
+        },
+        {
+          "circular_distance": 2416,
+          "deltas": [
+            2416,
+            60569
+          ],
+          "normalized_contribution": 0.007254797126149286
+        },
+        {
+          "circular_distance": 2179,
+          "deltas": [
+            2179,
+            60806
+          ],
+          "normalized_contribution": 0.007099785335727736
+        },
+        {
+          "circular_distance": 2508,
+          "deltas": [
+            2508,
+            60477
+          ],
+          "normalized_contribution": 0.005324065278633731
+        }
+      ]
+    },
+    {
+      "band_metric": {
+        "absolute_over_diagonal": 0.07185472836528888,
+        "distance_count": 430,
+        "distance_range": [
+          2151,
+          2580
+        ],
+        "negative_over_diagonal": -0.04225557258375755,
+        "positive_fraction_of_absolute": 0.4119305222484133,
+        "positive_over_diagonal": 0.029599155781531324,
+        "total_over_diagonal": -0.012656416802226221
+      },
+      "diagonal_half_contribution": 22271465382173.652,
+      "negative_abs_concentration": {
+        "top_10_fraction": 0.5799020683164788,
+        "top_1_fraction": 0.1507457151622651,
+        "top_25_fraction": 0.7875563089202402,
+        "top_3_fraction": 0.32926195118022844,
+        "top_50_fraction": 0.9228755957792946,
+        "top_5_fraction": 0.44048170904959333
+      },
+      "negative_distance_count": 225,
+      "positive_concentration": {
+        "top_10_fraction": 0.41424096639071706,
+        "top_1_fraction": 0.056546613661566075,
+        "top_25_fraction": 0.7381148790235499,
+        "top_3_fraction": 0.14658290902758875,
+        "top_50_fraction": 0.92944090559741,
+        "top_5_fraction": 0.23294772601044955
+      },
+      "positive_distance_count": 205,
+      "reduced_denominator": 49742,
+      "role": "replacement",
+      "top_negative_distances": [
+        {
+          "circular_distance": 2560,
+          "deltas": [
+            2560,
+            47182
+          ],
+          "normalized_contribution": -0.0063698465087295335
+        },
+        {
+          "circular_distance": 2574,
+          "deltas": [
+            2574,
+            47168
+          ],
+          "normalized_contribution": -0.00381668448774429
+        },
+        {
+          "circular_distance": 2546,
+          "deltas": [
+            2546,
+            47196
+          ],
+          "normalized_contribution": -0.003726621280691954
+        },
+        {
+          "circular_distance": 2532,
+          "deltas": [
+            2532,
+            47210
+          ],
+          "normalized_contribution": -0.0024500934458257955
+        },
+        {
+          "circular_distance": 2216,
+          "deltas": [
+            2216,
+            47526
+          ],
+          "normalized_contribution": -0.0022495611055710907
+        },
+        {
+          "circular_distance": 2394,
+          "deltas": [
+            2394,
+            47348
+          ],
+          "normalized_contribution": -0.0014907915225679466
+        },
+        {
+          "circular_distance": 2188,
+          "deltas": [
+            2188,
+            47554
+          ],
+          "normalized_contribution": -0.001268852691322786
+        },
+        {
+          "circular_distance": 2464,
+          "deltas": [
+            2464,
+            47278
+          ],
+          "normalized_contribution": -0.0010770783922599005
+        },
+        {
+          "circular_distance": 2262,
+          "deltas": [
+            2262,
+            47480
+          ],
+          "normalized_contribution": -0.001035619174509429
+        },
+        {
+          "circular_distance": 2232,
+          "deltas": [
+            2232,
+            47510
+          ],
+          "normalized_contribution": -0.0010189453299953737
+        }
+      ],
+      "top_positive_distances": [
+        {
+          "circular_distance": 2460,
+          "deltas": [
+            2460,
+            47282
+          ],
+          "normalized_contribution": 0.0016737320266867616
+        },
+        {
+          "circular_distance": 2218,
+          "deltas": [
+            2218,
+            47524
+          ],
+          "normalized_contribution": 0.0013371220825367106
+        },
+        {
+          "circular_distance": 2260,
+          "deltas": [
+            2260,
+            47482
+          ],
+          "normalized_contribution": 0.0013278762499941612
+        },
+        {
+          "circular_distance": 2176,
+          "deltas": [
+            2176,
+            47566
+          ],
+          "normalized_contribution": 0.0012847769545434888
+        },
+        {
+          "circular_distance": 2458,
+          "deltas": [
+            2458,
+            47284
+          ],
+          "normalized_contribution": 0.0012715487173756508
+        },
+        {
+          "circular_distance": 2404,
+          "deltas": [
+            2404,
+            47338
+          ],
+          "normalized_contribution": 0.0011356607798983626
+        },
+        {
+          "circular_distance": 2402,
+          "deltas": [
+            2402,
+            47340
+          ],
+          "normalized_contribution": 0.001127837258762448
+        },
+        {
+          "circular_distance": 2164,
+          "deltas": [
+            2164,
+            47578
+          ],
+          "normalized_contribution": 0.0011234646468181715
+        },
+        {
+          "circular_distance": 2432,
+          "deltas": [
+            2432,
+            47310
+          ],
+          "normalized_contribution": 0.0011089406699660417
+        },
+        {
+          "circular_distance": 2174,
+          "deltas": [
+            2174,
+            47568
+          ],
+          "normalized_contribution": 0.0008702235087091183
+        }
+      ]
+    },
+    {
+      "band_metric": {
+        "absolute_over_diagonal": 0.11879686397169932,
+        "distance_count": 430,
+        "distance_range": [
+          2151,
+          2580
+        ],
+        "negative_over_diagonal": -0.058355187593712304,
+        "positive_fraction_of_absolute": 0.5087817502689792,
+        "positive_over_diagonal": 0.060441676377987016,
+        "total_over_diagonal": 0.0020864887842747155
+      },
+      "diagonal_half_contribution": 22409869469989.832,
+      "negative_abs_concentration": {
+        "top_10_fraction": 0.36855618548141866,
+        "top_1_fraction": 0.10006765960897109,
+        "top_25_fraction": 0.593282010077381,
+        "top_3_fraction": 0.17893841374983,
+        "top_50_fraction": 0.7701318842253665,
+        "top_5_fraction": 0.24017306122144452
+      },
+      "negative_distance_count": 216,
+      "positive_concentration": {
+        "top_10_fraction": 0.4204303844972752,
+        "top_1_fraction": 0.10680347907679823,
+        "top_25_fraction": 0.5967982873557817,
+        "top_3_fraction": 0.24280764525881235,
+        "top_50_fraction": 0.7697856303476704,
+        "top_5_fraction": 0.3182018487687003
+      },
+      "positive_distance_count": 214,
+      "reduced_denominator": 53295,
+      "role": "replacement",
+      "top_negative_distances": [
+        {
+          "circular_distance": 2175,
+          "deltas": [
+            2175,
+            51120
+          ],
+          "normalized_contribution": -0.005839467048545256
+        },
+        {
+          "circular_distance": 2372,
+          "deltas": [
+            2372,
+            50923
+          ],
+          "normalized_contribution": -0.0023682320786925387
+        },
+        {
+          "circular_distance": 2161,
+          "deltas": [
+            2161,
+            51134
+          ],
+          "normalized_contribution": -0.0022342855748548455
+        },
+        {
+          "circular_distance": 2319,
+          "deltas": [
+            2319,
+            50976
+          ],
+          "normalized_contribution": -0.0017980062052770768
+        },
+        {
+          "circular_distance": 2188,
+          "deltas": [
+            2188,
+            51107
+          ],
+          "normalized_contribution": -0.001775353135163828
+        },
+        {
+          "circular_distance": 2565,
+          "deltas": [
+            2565,
+            50730
+          ],
+          "normalized_contribution": -0.0016598245526949615
+        },
+        {
+          "circular_distance": 2259,
+          "deltas": [
+            2259,
+            51036
+          ],
+          "normalized_contribution": -0.0016446209244315969
+        },
+        {
+          "circular_distance": 2190,
+          "deltas": [
+            2190,
+            51105
+          ],
+          "normalized_contribution": -0.0014986535413109355
+        },
+        {
+          "circular_distance": 2158,
+          "deltas": [
+            2158,
+            51137
+          ],
+          "normalized_contribution": -0.001419422223177788
+        },
+        {
+          "circular_distance": 2381,
+          "deltas": [
+            2381,
+            50914
+          ],
+          "normalized_contribution": -0.0012693000584423871
+        }
+      ],
+      "top_positive_distances": [
+        {
+          "circular_distance": 2160,
+          "deltas": [
+            2160,
+            51135
+          ],
+          "normalized_contribution": 0.006455381318402946
+        },
+        {
+          "circular_distance": 2183,
+          "deltas": [
+            2183,
+            51112
+          ],
+          "normalized_contribution": 0.005175371707902368
+        },
+        {
+          "circular_distance": 2198,
+          "deltas": [
+            2198,
+            51097
+          ],
+          "normalized_contribution": 0.003044948090528896
+        },
+        {
+          "circular_distance": 2244,
+          "deltas": [
+            2244,
+            51051
+          ],
+          "normalized_contribution": 0.0024156871060181783
+        },
+        {
+          "circular_distance": 2206,
+          "deltas": [
+            2206,
+            51089
+          ],
+          "normalized_contribution": 0.0021412649433025606
+        },
+        {
+          "circular_distance": 2364,
+          "deltas": [
+            2364,
+            50931
+          ],
+          "normalized_contribution": 0.001412408542906112
+        },
+        {
+          "circular_distance": 2184,
+          "deltas": [
+            2184,
+            51111
+          ],
+          "normalized_contribution": 0.0013018266016428324
+        },
+        {
+          "circular_distance": 2304,
+          "deltas": [
+            2304,
+            50991
+          ],
+          "normalized_contribution": 0.0012609671196768676
+        },
+        {
+          "circular_distance": 2550,
+          "deltas": [
+            2550,
+            50745
+          ],
+          "normalized_contribution": 0.0011149247560362536
+        },
+        {
+          "circular_distance": 2373,
+          "deltas": [
+            2373,
+            50922
+          ],
+          "normalized_contribution": 0.0010887370528399464
+        }
+      ]
+    },
+    {
+      "band_metric": {
+        "absolute_over_diagonal": 0.07413614513107636,
+        "distance_count": 430,
+        "distance_range": [
+          2151,
+          2580
+        ],
+        "negative_over_diagonal": -0.0379175691926963,
+        "positive_fraction_of_absolute": 0.4885413973756504,
+        "positive_over_diagonal": 0.036218575938380064,
+        "total_over_diagonal": -0.0016989932543162382
+      },
+      "diagonal_half_contribution": 21974856736265.05,
+      "negative_abs_concentration": {
+        "top_10_fraction": 0.6589395334154274,
+        "top_1_fraction": 0.24311784633784786,
+        "top_25_fraction": 0.8518668603813129,
+        "top_3_fraction": 0.40114978539318963,
+        "top_50_fraction": 0.9522025681049671,
+        "top_5_fraction": 0.49965453099557167
+      },
+      "negative_distance_count": 212,
+      "positive_concentration": {
+        "top_10_fraction": 0.6559518336703379,
+        "top_1_fraction": 0.3135088355501658,
+        "top_25_fraction": 0.822236642743451,
+        "top_3_fraction": 0.4573684048991074,
+        "top_50_fraction": 0.935010253277748,
+        "top_5_fraction": 0.549258118334757
+      },
+      "positive_distance_count": 218,
+      "reduced_denominator": 34034,
+      "role": "replacement",
+      "top_negative_distances": [
+        {
+          "circular_distance": 2274,
+          "deltas": [
+            2274,
+            31760
+          ],
+          "normalized_contribution": -0.009218437760494653
+        },
+        {
+          "circular_distance": 2574,
+          "deltas": [
+            2574,
+            31460
+          ],
+          "normalized_contribution": -0.003259128176985905
+        },
+        {
+          "circular_distance": 2198,
+          "deltas": [
+            2198,
+            31836
+          ],
+          "normalized_contribution": -0.0027330588068009824
+        },
+        {
+          "circular_distance": 2188,
+          "deltas": [
+            2188,
+            31846
+          ],
+          "normalized_contribution": -0.0019060878234557843
+        },
+        {
+          "circular_distance": 2352,
+          "deltas": [
+            2352,
+            31682
+          ],
+          "normalized_contribution": -0.0018289726837314839
+        },
+        {
+          "circular_distance": 2428,
+          "deltas": [
+            2428,
+            31606
+          ],
+          "normalized_contribution": -0.0017130524510063092
+        },
+        {
+          "circular_distance": 2580,
+          "deltas": [
+            2580,
+            31454
+          ],
+          "normalized_contribution": -0.0013660066407745006
+        },
+        {
+          "circular_distance": 2172,
+          "deltas": [
+            2172,
+            31862
+          ],
+          "normalized_contribution": -0.0010062080270427662
+        },
+        {
+          "circular_distance": 2276,
+          "deltas": [
+            2276,
+            31758
+          ],
+          "normalized_contribution": -0.000998480724946484
+        },
+        {
+          "circular_distance": 2570,
+          "deltas": [
+            2570,
+            31464
+          ],
+          "normalized_contribution": -0.0009559522568436188
+        }
+      ],
+      "top_positive_distances": [
+        {
+          "circular_distance": 2576,
+          "deltas": [
+            2576,
+            31458
+          ],
+          "normalized_contribution": 0.011354843567726787
+        },
+        {
+          "circular_distance": 2196,
+          "deltas": [
+            2196,
+            31838
+          ],
+          "normalized_contribution": 0.0030596684607455834
+        },
+        {
+          "circular_distance": 2578,
+          "deltas": [
+            2578,
+            31456
+          ],
+          "normalized_contribution": 0.0021507202761817112
+        },
+        {
+          "circular_distance": 2156,
+          "deltas": [
+            2156,
+            31878
+          ],
+          "normalized_contribution": 0.0017482846189115146
+        },
+        {
+          "circular_distance": 2422,
+          "deltas": [
+            2422,
+            31612
+          ],
+          "normalized_contribution": 0.0015798299451135448
+        },
+        {
+          "circular_distance": 2206,
+          "deltas": [
+            2206,
+            31828
+          ],
+          "normalized_contribution": 0.0010621352824761198
+        },
+        {
+          "circular_distance": 2166,
+          "deltas": [
+            2166,
+            31868
+          ],
+          "normalized_contribution": 0.0010087172772280223
+        },
+        {
+          "circular_distance": 2190,
+          "deltas": [
+            2190,
+            31844
+          ],
+          "normalized_contribution": 0.0007341398238322515
+        },
+        {
+          "circular_distance": 2554,
+          "deltas": [
+            2554,
+            31480
+          ],
+          "normalized_contribution": 0.0005460938328597151
+        },
+        {
+          "circular_distance": 2204,
+          "deltas": [
+            2204,
+            31830
+          ],
+          "normalized_contribution": 0.0005132082146335297
+        }
+      ]
+    },
+    {
+      "band_metric": {
+        "absolute_over_diagonal": 0.13671352687528826,
+        "distance_count": 430,
+        "distance_range": [
+          2151,
+          2580
+        ],
+        "negative_over_diagonal": -0.061906378028117916,
+        "positive_fraction_of_absolute": 0.5471817643575996,
+        "positive_over_diagonal": 0.07480714884717034,
+        "total_over_diagonal": 0.012900770819052427
+      },
+      "diagonal_half_contribution": 24223579373024.215,
+      "negative_abs_concentration": {
+        "top_10_fraction": 0.4064386373441321,
+        "top_1_fraction": 0.12110086708715537,
+        "top_25_fraction": 0.6561846815499196,
+        "top_3_fraction": 0.2186254474456883,
+        "top_50_fraction": 0.8062500440533548,
+        "top_5_fraction": 0.2763462181406186
+      },
+      "negative_distance_count": 221,
+      "positive_concentration": {
+        "top_10_fraction": 0.4753309549289258,
+        "top_1_fraction": 0.14820613897937218,
+        "top_25_fraction": 0.6820512685140121,
+        "top_3_fraction": 0.2675540424336064,
+        "top_50_fraction": 0.8298504530802735,
+        "top_5_fraction": 0.33303328687379347
+      },
+      "positive_distance_count": 209,
+      "reduced_denominator": 36465,
+      "role": "replacement",
+      "top_negative_distances": [
+        {
+          "circular_distance": 2210,
+          "deltas": [
+            2210,
+            34255
+          ],
+          "normalized_contribution": -0.007496916057430303
+        },
+        {
+          "circular_distance": 2219,
+          "deltas": [
+            2219,
+            34246
+          ],
+          "normalized_contribution": -0.003711982996249273
+        },
+        {
+          "circular_distance": 2277,
+          "deltas": [
+            2277,
+            34188
+          ],
+          "normalized_contribution": -0.0023254105424596284
+        },
+        {
+          "circular_distance": 2338,
+          "deltas": [
+            2338,
+            34127
+          ],
+          "normalized_contribution": -0.0018571695075684765
+        },
+        {
+          "circular_distance": 2251,
+          "deltas": [
+            2251,
+            34214
+          ],
+          "normalized_contribution": -0.0017161143431461885
+        },
+        {
+          "circular_distance": 2309,
+          "deltas": [
+            2309,
+            34156
+          ],
+          "normalized_contribution": -0.0016868055461567138
+        },
+        {
+          "circular_distance": 2352,
+          "deltas": [
+            2352,
+            34113
+          ],
+          "normalized_contribution": -0.0016377293331526447
+        },
+        {
+          "circular_distance": 2358,
+          "deltas": [
+            2358,
+            34107
+          ],
+          "normalized_contribution": -0.0016104238498492157
+        },
+        {
+          "circular_distance": 2297,
+          "deltas": [
+            2297,
+            34168
+          ],
+          "normalized_contribution": -0.0015834274641383726
+        },
+        {
+          "circular_distance": 2196,
+          "deltas": [
+            2196,
+            34269
+          ],
+          "normalized_contribution": -0.0015351642885081485
+        }
+      ],
+      "top_positive_distances": [
+        {
+          "circular_distance": 2193,
+          "deltas": [
+            2193,
+            34272
+          ],
+          "normalized_contribution": 0.011086878698694309
+        },
+        {
+          "circular_distance": 2355,
+          "deltas": [
+            2355,
+            34110
+          ],
+          "normalized_contribution": 0.005047648321446985
+        },
+        {
+          "circular_distance": 2329,
+          "deltas": [
+            2329,
+            34136
+          ],
+          "normalized_contribution": 0.0038804280568516293
+        },
+        {
+          "circular_distance": 2283,
+          "deltas": [
+            2283,
+            34182
+          ],
+          "normalized_contribution": 0.002556820271996411
+        },
+        {
+          "circular_distance": 2271,
+          "deltas": [
+            2271,
+            34194
+          ],
+          "normalized_contribution": 0.0023414953132409122
+        },
+        {
+          "circular_distance": 2280,
+          "deltas": [
+            2280,
+            34185
+          ],
+          "normalized_contribution": 0.0023287050980926737
+        },
+        {
+          "circular_distance": 2164,
+          "deltas": [
+            2164,
+            34301
+          ],
+          "normalized_contribution": 0.002315944686176079
+        },
+        {
+          "circular_distance": 2295,
+          "deltas": [
+            2295,
+            34170
+          ],
+          "normalized_contribution": 0.00214602236802186
+        },
+        {
+          "circular_distance": 2217,
+          "deltas": [
+            2217,
+            34248
+          ],
+          "normalized_contribution": 0.001988536365456487
+        },
+        {
+          "circular_distance": 2170,
+          "deltas": [
+            2170,
+            34295
+          ],
+          "normalized_contribution": 0.001865674317058424
+        }
+      ]
+    },
+    {
+      "band_metric": {
+        "absolute_over_diagonal": 0.1580309230896141,
+        "distance_count": 430,
+        "distance_range": [
+          2151,
+          2580
+        ],
+        "negative_over_diagonal": -0.07653006269835937,
+        "positive_fraction_of_absolute": 0.5157272943665482,
+        "positive_over_diagonal": 0.08150086039125475,
+        "total_over_diagonal": 0.004970797692895379
+      },
+      "diagonal_half_contribution": 11896071468706.367,
+      "negative_abs_concentration": {
+        "top_10_fraction": 0.6244522456889094,
+        "top_1_fraction": 0.21984101945826512,
+        "top_25_fraction": 0.8333251282459668,
+        "top_3_fraction": 0.38983297065975137,
+        "top_50_fraction": 0.9527148249628142,
+        "top_5_fraction": 0.47819124780290545
+      },
+      "negative_distance_count": 193,
+      "positive_concentration": {
+        "top_10_fraction": 0.6802358887778605,
+        "top_1_fraction": 0.21563066548900606,
+        "top_25_fraction": 0.8480523412902545,
+        "top_3_fraction": 0.4649828502954741,
+        "top_50_fraction": 0.9478303334030729,
+        "top_5_fraction": 0.555059145076306
+      },
+      "positive_distance_count": 237,
+      "reduced_denominator": 35530,
+      "role": "replacement",
+      "top_negative_distances": [
+        {
+          "circular_distance": 2284,
+          "deltas": [
+            2284,
+            33246
+          ],
+          "normalized_contribution": -0.01682444700281227
+        },
+        {
+          "circular_distance": 2238,
+          "deltas": [
+            2238,
+            33292
+          ],
+          "normalized_contribution": -0.006854163555556196
+        },
+        {
+          "circular_distance": 2168,
+          "deltas": [
+            2168,
+            33362
+          ],
+          "normalized_contribution": -0.006155331128109996
+        },
+        {
+          "circular_distance": 2228,
+          "deltas": [
+            2228,
+            33302
+          ],
+          "normalized_contribution": -0.003962764222768792
+        },
+        {
+          "circular_distance": 2218,
+          "deltas": [
+            2218,
+            33312
+          ],
+          "normalized_contribution": -0.002799300266915801
+        },
+        {
+          "circular_distance": 2264,
+          "deltas": [
+            2264,
+            33266
+          ],
+          "normalized_contribution": -0.0026757896211868507
+        },
+        {
+          "circular_distance": 2200,
+          "deltas": [
+            2200,
+            33330
+          ],
+          "normalized_contribution": -0.002532155502980047
+        },
+        {
+          "circular_distance": 2258,
+          "deltas": [
+            2258,
+            33272
+          ],
+          "normalized_contribution": -0.002214010153713929
+        },
+        {
+          "circular_distance": 2304,
+          "deltas": [
+            2304,
+            33226
+          ],
+          "normalized_contribution": -0.002087539842054723
+        },
+        {
+          "circular_distance": 2172,
+          "deltas": [
+            2172,
+            33358
+          ],
+          "normalized_contribution": -0.0016838682186049454
+        }
+      ],
+      "top_positive_distances": [
+        {
+          "circular_distance": 2178,
+          "deltas": [
+            2178,
+            33352
+          ],
+          "normalized_contribution": 0.017574084764092834
+        },
+        {
+          "circular_distance": 2274,
+          "deltas": [
+            2274,
+            33256
+          ],
+          "normalized_contribution": 0.013902527427403041
+        },
+        {
+          "circular_distance": 2192,
+          "deltas": [
+            2192,
+            33338
+          ],
+          "normalized_contribution": 0.006419890174763266
+        },
+        {
+          "circular_distance": 2248,
+          "deltas": [
+            2248,
+            33282
+          ],
+          "normalized_contribution": 0.0045067220471036165
+        },
+        {
+          "circular_distance": 2194,
+          "deltas": [
+            2194,
+            33336
+          ],
+          "normalized_contribution": 0.0028345734783904774
+        },
+        {
+          "circular_distance": 2294,
+          "deltas": [
+            2294,
+            33236
+          ],
+          "normalized_contribution": 0.002726015419989118
+        },
+        {
+          "circular_distance": 2254,
+          "deltas": [
+            2254,
+            33276
+          ],
+          "normalized_contribution": 0.0022023804581234436
+        },
+        {
+          "circular_distance": 2188,
+          "deltas": [
+            2188,
+            33342
+          ],
+          "normalized_contribution": 0.0018247105066623306
+        },
+        {
+          "circular_distance": 2214,
+          "deltas": [
+            2214,
+            33316
+          ],
+          "normalized_contribution": 0.001743774712489427
+        },
+        {
+          "circular_distance": 2210,
+          "deltas": [
+            2210,
+            33320
+          ],
+          "normalized_contribution": 0.0017051312153879372
+        }
+      ]
+    },
+    {
+      "band_metric": {
+        "absolute_over_diagonal": 0.18249284208022148,
+        "distance_count": 430,
+        "distance_range": [
+          2151,
+          2580
+        ],
+        "negative_over_diagonal": -0.10092366185048894,
+        "positive_fraction_of_absolute": 0.44697194311805283,
+        "positive_over_diagonal": 0.08156918022973256,
+        "total_over_diagonal": -0.019354481620756384
+      },
+      "diagonal_half_contribution": 9588909394612.44,
+      "negative_abs_concentration": {
+        "top_10_fraction": 0.39875595779867595,
+        "top_1_fraction": 0.1041439180502695,
+        "top_25_fraction": 0.6356656388979774,
+        "top_3_fraction": 0.20080034199917218,
+        "top_50_fraction": 0.8482484827482538,
+        "top_5_fraction": 0.28032262431311644
+      },
+      "negative_distance_count": 226,
+      "positive_concentration": {
+        "top_10_fraction": 0.4330916739249646,
+        "top_1_fraction": 0.12072957606996544,
+        "top_25_fraction": 0.6656915443247395,
+        "top_3_fraction": 0.22180257957653182,
+        "top_50_fraction": 0.8608022295364735,
+        "top_5_fraction": 0.2925084292417322
+      },
+      "positive_distance_count": 204,
+      "reduced_denominator": 41990,
+      "role": "replacement",
+      "top_negative_distances": [
+        {
+          "circular_distance": 2558,
+          "deltas": [
+            2558,
+            39432
+          ],
+          "normalized_contribution": -0.01051058556909043
+        },
+        {
+          "circular_distance": 2496,
+          "deltas": [
+            2496,
+            39494
+          ],
+          "normalized_contribution": -0.005190062385939174
+        },
+        {
+          "circular_distance": 2276,
+          "deltas": [
+            2276,
+            39714
+          ],
+          "normalized_contribution": -0.004564857860357383
+        },
+        {
+          "circular_distance": 2258,
+          "deltas": [
+            2258,
+            39732
+          ],
+          "normalized_contribution": -0.004285944204294575
+        },
+        {
+          "circular_distance": 2212,
+          "deltas": [
+            2212,
+            39778
+          ],
+          "normalized_contribution": -0.0037397357255370516
+        },
+        {
+          "circular_distance": 2240,
+          "deltas": [
+            2240,
+            39750
+          ],
+          "normalized_contribution": -0.0025132035614938647
+        },
+        {
+          "circular_distance": 2470,
+          "deltas": [
+            2470,
+            39520
+          ],
+          "normalized_contribution": -0.0024845180549087943
+        },
+        {
+          "circular_distance": 2314,
+          "deltas": [
+            2314,
+            39676
+          ],
+          "normalized_contribution": -0.0024590793987701903
+        },
+        {
+          "circular_distance": 2196,
+          "deltas": [
+            2196,
+            39794
+          ],
+          "normalized_contribution": -0.0022907922947224177
+        },
+        {
+          "circular_distance": 2526,
+          "deltas": [
+            2526,
+            39464
+          ],
+          "normalized_contribution": -0.002205132390627525
+        }
+      ],
+      "top_positive_distances": [
+        {
+          "circular_distance": 2290,
+          "deltas": [
+            2290,
+            39700
+          ],
+          "normalized_contribution": 0.009847812549510218
+        },
+        {
+          "circular_distance": 2242,
+          "deltas": [
+            2242,
+            39748
+          ],
+          "normalized_contribution": 0.0047891781644503716
+        },
+        {
+          "circular_distance": 2574,
+          "deltas": [
+            2574,
+            39416
+          ],
+          "normalized_contribution": 0.0034552638749371306
+        },
+        {
+          "circular_distance": 2560,
+          "deltas": [
+            2560,
+            39430
+          ],
+          "normalized_contribution": 0.0029849702288781738
+        },
+        {
+          "circular_distance": 2416,
+          "deltas": [
+            2416,
+            39574
+          ],
+          "normalized_contribution": 0.0027824479657589355
+        },
+        {
+          "circular_distance": 2310,
+          "deltas": [
+            2310,
+            39680
+          ],
+          "normalized_contribution": 0.0027489182827694263
+        },
+        {
+          "circular_distance": 2514,
+          "deltas": [
+            2514,
+            39476
+          ],
+          "normalized_contribution": 0.0024898416131058565
+        },
+        {
+          "circular_distance": 2306,
+          "deltas": [
+            2306,
+            39684
+          ],
+          "normalized_contribution": 0.0024141389067555124
+        },
+        {
+          "circular_distance": 2244,
+          "deltas": [
+            2244,
+            39746
+          ],
+          "normalized_contribution": 0.00202736852897359
+        },
+        {
+          "circular_distance": 2352,
+          "deltas": [
+            2352,
+            39638
+          ],
+          "normalized_contribution": 0.0017869926912427835
+        }
+      ]
+    },
+    {
+      "band_metric": {
+        "absolute_over_diagonal": 0.12969280230600783,
+        "distance_count": 430,
+        "distance_range": [
+          2151,
+          2580
+        ],
+        "negative_over_diagonal": -0.060368408075422444,
+        "positive_fraction_of_absolute": 0.5345276915754795,
+        "positive_over_diagonal": 0.0693243942305854,
+        "total_over_diagonal": 0.008955986155162948
+      },
+      "diagonal_half_contribution": 28683313563140.617,
+      "negative_abs_concentration": {
+        "top_10_fraction": 0.5008522944000379,
+        "top_1_fraction": 0.11095434281718485,
+        "top_25_fraction": 0.7391537813620673,
+        "top_3_fraction": 0.2619240590804912,
+        "top_50_fraction": 0.8924611647474139,
+        "top_5_fraction": 0.3401158605821724
+      },
+      "negative_distance_count": 223,
+      "positive_concentration": {
+        "top_10_fraction": 0.5131879404095466,
+        "top_1_fraction": 0.0709082670703801,
+        "top_25_fraction": 0.7318166188583273,
+        "top_3_fraction": 0.20906113144298485,
+        "top_50_fraction": 0.9026821054433832,
+        "top_5_fraction": 0.32281639234103204
+      },
+      "positive_distance_count": 207,
+      "reduced_denominator": 38038,
+      "role": "replacement",
+      "top_negative_distances": [
+        {
+          "circular_distance": 2276,
+          "deltas": [
+            2276,
+            35762
+          ],
+          "normalized_contribution": -0.006698137044928132
+        },
+        {
+          "circular_distance": 2414,
+          "deltas": [
+            2414,
+            35624
+          ],
+          "normalized_contribution": -0.005271009107520615
+        },
+        {
+          "circular_distance": 2410,
+          "deltas": [
+            2410,
+            35628
+          ],
+          "normalized_contribution": -0.003842792330893406
+        },
+        {
+          "circular_distance": 2420,
+          "deltas": [
+            2420,
+            35618
+          ],
+          "normalized_contribution": -0.002407029280549071
+        },
+        {
+          "circular_distance": 2554,
+          "deltas": [
+            2554,
+            35484
+          ],
+          "normalized_contribution": -0.002313285300656849
+        },
+        {
+          "circular_distance": 2284,
+          "deltas": [
+            2284,
+            35754
+          ],
+          "normalized_contribution": -0.0022705419393280533
+        },
+        {
+          "circular_distance": 2478,
+          "deltas": [
+            2478,
+            35560
+          ],
+          "normalized_contribution": -0.002206886825719264
+        },
+        {
+          "circular_distance": 2274,
+          "deltas": [
+            2274,
+            35764
+          ],
+          "normalized_contribution": -0.0017929630588894084
+        },
+        {
+          "circular_distance": 2268,
+          "deltas": [
+            2268,
+            35770
+          ],
+          "normalized_contribution": -0.0017732342469350662
+        },
+        {
+          "circular_distance": 2364,
+          "deltas": [
+            2364,
+            35674
+          ],
+          "normalized_contribution": -0.0016597765584332393
+        }
+      ],
+      "top_positive_distances": [
+        {
+          "circular_distance": 2340,
+          "deltas": [
+            2340,
+            35698
+          ],
+          "normalized_contribution": 0.004915672660594667
+        },
+        {
+          "circular_distance": 2416,
+          "deltas": [
+            2416,
+            35622
+          ],
+          "normalized_contribution": 0.0049021697961096665
+        },
+        {
+          "circular_distance": 2344,
+          "deltas": [
+            2344,
+            35694
+          ],
+          "normalized_contribution": 0.00467519383774138
+        },
+        {
+          "circular_distance": 2272,
+          "deltas": [
+            2272,
+            35766
+          ],
+          "normalized_contribution": 0.00411251196849889
+        },
+        {
+          "circular_distance": 2330,
+          "deltas": [
+            2330,
+            35708
+          ],
+          "normalized_contribution": 0.00377350258380043
+        },
+        {
+          "circular_distance": 2412,
+          "deltas": [
+            2412,
+            35626
+          ],
+          "normalized_contribution": 0.003758624371378788
+        },
+        {
+          "circular_distance": 2550,
+          "deltas": [
+            2550,
+            35488
+          ],
+          "normalized_contribution": 0.003078175325532827
+        },
+        {
+          "circular_distance": 2350,
+          "deltas": [
+            2350,
+            35688
+          ],
+          "normalized_contribution": 0.002191079374010738
+        },
+        {
+          "circular_distance": 2346,
+          "deltas": [
+            2346,
+            35692
+          ],
+          "normalized_contribution": 0.002178963526966479
+        },
+        {
+          "circular_distance": 2480,
+          "deltas": [
+            2480,
+            35558
+          ],
+          "normalized_contribution": 0.001990549650699707
+        }
+      ]
+    }
+  ],
+  "schema_version": 1,
+  "separating_contiguous_micro_blocks": [
+    {
+      "adverse_positive_fraction": 0.3308184344637563,
+      "adverse_total_over_diagonal": -0.06938600852154445,
+      "block_name": "50A_to_58A",
+      "distance_count": 344,
+      "distance_range": [
+        2151,
+        2494
+      ],
+      "minimum_replacement_positive_fraction": 0.3894660685424342,
+      "minimum_replacement_positive_fraction_denominator": 34034,
+      "minimum_replacement_total_denominator": 40755,
+      "minimum_replacement_total_over_diagonal": -0.020347091952061046,
+      "positive_fraction_gap": 0.0586476340786779,
+      "positive_fraction_separates": true,
+      "positive_fraction_separator": 0.36014225150309526,
+      "separates_by_both_share_and_total": true,
+      "total_gap": 0.0490389165694834,
+      "total_pressure_separates": true,
+      "total_separator": -0.04486655023680275
+    },
+    {
+      "adverse_positive_fraction": 0.37047500447094334,
+      "adverse_total_over_diagonal": -0.08597078804878477,
+      "block_name": "50A_to_60A",
+      "distance_count": 430,
+      "distance_range": [
+        2151,
+        2580
+      ],
+      "minimum_replacement_positive_fraction": 0.4119305222484133,
+      "minimum_replacement_positive_fraction_denominator": 49742,
+      "minimum_replacement_total_denominator": 40755,
+      "minimum_replacement_total_over_diagonal": -0.019836945709586298,
+      "positive_fraction_gap": 0.041455517777469975,
+      "positive_fraction_separates": true,
+      "positive_fraction_separator": 0.3912027633596783,
+      "separates_by_both_share_and_total": true,
+      "total_gap": 0.06613384233919847,
+      "total_pressure_separates": true,
+      "total_separator": -0.05290386687918554
+    },
+    {
+      "adverse_positive_fraction": 0.32620670282295067,
+      "adverse_total_over_diagonal": -0.06959010829946993,
+      "block_name": "51A_to_58A",
+      "distance_count": 301,
+      "distance_range": [
+        2194,
+        2494
+      ],
+      "minimum_replacement_positive_fraction": 0.3387445307628665,
+      "minimum_replacement_positive_fraction_denominator": 34034,
+      "minimum_replacement_total_denominator": 40755,
+      "minimum_replacement_total_over_diagonal": -0.02931014205693773,
+      "positive_fraction_gap": 0.012537827939915813,
+      "positive_fraction_separates": true,
+      "positive_fraction_separator": 0.3324756167929086,
+      "separates_by_both_share_and_total": true,
+      "total_gap": 0.0402799662425322,
+      "total_pressure_separates": true,
+      "total_separator": -0.04945012517820383
+    },
+    {
+      "adverse_positive_fraction": 0.36824022665778683,
+      "adverse_total_over_diagonal": -0.08617488782671025,
+      "block_name": "51A_to_60A",
+      "distance_count": 387,
+      "distance_range": [
+        2194,
+        2580
+      ],
+      "minimum_replacement_positive_fraction": 0.38990056495830916,
+      "minimum_replacement_positive_fraction_denominator": 49742,
+      "minimum_replacement_total_denominator": 40755,
+      "minimum_replacement_total_over_diagonal": -0.02879999581446298,
+      "positive_fraction_gap": 0.02166033830052233,
+      "positive_fraction_separates": true,
+      "positive_fraction_separator": 0.379070395808048,
+      "separates_by_both_share_and_total": true,
+      "total_gap": 0.05737489201224727,
+      "total_pressure_separates": true,
+      "total_separator": -0.05748744182058661
+    },
+    {
+      "adverse_positive_fraction": 0.3674835184332014,
+      "adverse_total_over_diagonal": -0.08314828930362621,
+      "block_name": "52A_to_60A",
+      "distance_count": 344,
+      "distance_range": [
+        2237,
+        2580
+      ],
+      "minimum_replacement_positive_fraction": 0.3877944871180993,
+      "minimum_replacement_positive_fraction_denominator": 49742,
+      "minimum_replacement_total_denominator": 40755,
+      "minimum_replacement_total_over_diagonal": -0.03435848070991356,
+      "positive_fraction_gap": 0.0203109686848979,
+      "positive_fraction_separates": true,
+      "positive_fraction_separator": 0.3776390027756503,
+      "separates_by_both_share_and_total": true,
+      "total_gap": 0.048789808593712646,
+      "total_pressure_separates": true,
+      "total_separator": -0.05875338500676988
+    },
+    {
+      "adverse_positive_fraction": 0.3108991955430433,
+      "adverse_total_over_diagonal": -0.0668104119063413,
+      "block_name": "53A_to_58A",
+      "distance_count": 215,
+      "distance_range": [
+        2280,
+        2494
+      ],
+      "minimum_replacement_positive_fraction": 0.3224393903935958,
+      "minimum_replacement_positive_fraction_denominator": 35530,
+      "minimum_replacement_total_denominator": 40755,
+      "minimum_replacement_total_over_diagonal": -0.033644452583680214,
+      "positive_fraction_gap": 0.011540194850552521,
+      "positive_fraction_separates": true,
+      "positive_fraction_separator": 0.3166692929683196,
+      "separates_by_both_share_and_total": true,
+      "total_gap": 0.03316595932266108,
+      "total_pressure_separates": true,
+      "total_separator": -0.05022743224501075
+    },
+    {
+      "adverse_positive_fraction": 0.3878854229130893,
+      "adverse_total_over_diagonal": -0.020351933123895327,
+      "block_name": "54A_to_57A",
+      "distance_count": 129,
+      "distance_range": [
+        2323,
+        2451
+      ],
+      "minimum_replacement_positive_fraction": 0.39925883345884705,
+      "minimum_replacement_positive_fraction_denominator": 58786,
+      "minimum_replacement_total_denominator": 58786,
+      "minimum_replacement_total_over_diagonal": -0.011414311890516811,
+      "positive_fraction_gap": 0.011373410545757745,
+      "positive_fraction_separates": true,
+      "positive_fraction_separator": 0.3935721281859682,
+      "separates_by_both_share_and_total": true,
+      "total_gap": 0.008937621233378516,
+      "total_pressure_separates": true,
+      "total_separator": -0.01588312250720607
+    },
+    {
+      "adverse_positive_fraction": 0.3086246334881832,
+      "adverse_total_over_diagonal": -0.06452445673028838,
+      "block_name": "54A_to_58A",
+      "distance_count": 172,
+      "distance_range": [
+        2323,
+        2494
+      ],
+      "minimum_replacement_positive_fraction": 0.34842624912715203,
+      "minimum_replacement_positive_fraction_denominator": 40755,
+      "minimum_replacement_total_denominator": 40755,
+      "minimum_replacement_total_over_diagonal": -0.024261165789208526,
+      "positive_fraction_gap": 0.039801615638968835,
+      "positive_fraction_separates": true,
+      "positive_fraction_separator": 0.3285254413076676,
+      "separates_by_both_share_and_total": true,
+      "total_gap": 0.04026329094107985,
+      "total_pressure_separates": true,
+      "total_separator": -0.04439281125974845
+    },
+    {
+      "adverse_positive_fraction": 0.39244377261072894,
+      "adverse_total_over_diagonal": -0.047321311049094754,
+      "block_name": "54A_to_59A",
+      "distance_count": 215,
+      "distance_range": [
+        2323,
+        2537
+      ],
+      "minimum_replacement_positive_fraction": 0.4325741086382761,
+      "minimum_replacement_positive_fraction_denominator": 58786,
+      "minimum_replacement_total_denominator": 40755,
+      "minimum_replacement_total_over_diagonal": -0.010764186325307751,
+      "positive_fraction_gap": 0.040130336027547175,
+      "positive_fraction_separates": true,
+      "positive_fraction_separator": 0.4125089406245025,
+      "separates_by_both_share_and_total": true,
+      "total_gap": 0.036557124723787,
+      "total_pressure_separates": true,
+      "total_separator": -0.029042748687201254
+    },
+    {
+      "adverse_positive_fraction": 0.36270665806631586,
+      "adverse_total_over_diagonal": -0.0811092362575287,
+      "block_name": "54A_to_60A",
+      "distance_count": 258,
+      "distance_range": [
+        2323,
+        2580
+      ],
+      "minimum_replacement_positive_fraction": 0.3631973590601818,
+      "minimum_replacement_positive_fraction_denominator": 49742,
+      "minimum_replacement_total_denominator": 40755,
+      "minimum_replacement_total_over_diagonal": -0.023751019546733778,
+      "positive_fraction_gap": 0.0004907009938659446,
+      "positive_fraction_separates": true,
+      "positive_fraction_separator": 0.36295200856324883,
+      "separates_by_both_share_and_total": true,
+      "total_gap": 0.05735821671079491,
+      "total_pressure_separates": true,
+      "total_separator": -0.05243012790213124
+    },
+    {
+      "adverse_positive_fraction": 0.29923742162918465,
+      "adverse_total_over_diagonal": -0.06559900553509983,
+      "block_name": "55A_to_58A",
+      "distance_count": 129,
+      "distance_range": [
+        2366,
+        2494
+      ],
+      "minimum_replacement_positive_fraction": 0.3251310914458341,
+      "minimum_replacement_positive_fraction_denominator": 40755,
+      "minimum_replacement_total_denominator": 40755,
+      "minimum_replacement_total_over_diagonal": -0.02375274645421147,
+      "positive_fraction_gap": 0.025893669816649423,
+      "positive_fraction_separates": true,
+      "positive_fraction_separator": 0.31218425653750936,
+      "separates_by_both_share_and_total": true,
+      "total_gap": 0.04184625908088836,
+      "total_pressure_separates": true,
+      "total_separator": -0.044675875994655646
+    },
+    {
+      "adverse_positive_fraction": 0.3499897444932947,
+      "adverse_total_over_diagonal": -0.012952981896268192,
+      "block_name": "56A_to_57A",
+      "distance_count": 43,
+      "distance_range": [
+        2409,
+        2451
+      ],
+      "minimum_replacement_positive_fraction": 0.35676993975148935,
+      "minimum_replacement_positive_fraction_denominator": 58786,
+      "minimum_replacement_total_denominator": 58786,
+      "minimum_replacement_total_over_diagonal": -0.004524876775502186,
+      "positive_fraction_gap": 0.006780195258194677,
+      "positive_fraction_separates": true,
+      "positive_fraction_separator": 0.35337984212239204,
+      "separates_by_both_share_and_total": true,
+      "total_gap": 0.008428105120766007,
+      "total_pressure_separates": true,
+      "total_separator": -0.008738929335885189
+    },
+    {
+      "adverse_positive_fraction": 0.26392574746028347,
+      "adverse_total_over_diagonal": -0.057125505502661246,
+      "block_name": "56A_to_58A",
+      "distance_count": 86,
+      "distance_range": [
+        2409,
+        2494
+      ],
+      "minimum_replacement_positive_fraction": 0.3055515148922263,
+      "minimum_replacement_positive_fraction_denominator": 40755,
+      "minimum_replacement_total_denominator": 40755,
+      "minimum_replacement_total_over_diagonal": -0.023310151551005336,
+      "positive_fraction_gap": 0.04162576743194285,
+      "positive_fraction_separates": true,
+      "positive_fraction_separator": 0.28473863117625486,
+      "separates_by_both_share_and_total": true,
+      "total_gap": 0.03381535395165591,
+      "total_pressure_separates": true,
+      "total_separator": -0.04021782852683329
+    },
+    {
+      "adverse_positive_fraction": 0.3842116774339366,
+      "adverse_total_over_diagonal": -0.03992235982146762,
+      "block_name": "56A_to_59A",
+      "distance_count": 129,
+      "distance_range": [
+        2409,
+        2537
+      ],
+      "minimum_replacement_positive_fraction": 0.4075904352785,
+      "minimum_replacement_positive_fraction_denominator": 41990,
+      "minimum_replacement_total_denominator": 62985,
+      "minimum_replacement_total_over_diagonal": -0.016432412263453346,
+      "positive_fraction_gap": 0.02337875784456339,
+      "positive_fraction_separates": true,
+      "positive_fraction_separator": 0.3959010563562183,
+      "separates_by_both_share_and_total": true,
+      "total_gap": 0.023489947558014274,
+      "total_pressure_separates": true,
+      "total_separator": -0.028177386042460485
+    },
+    {
+      "adverse_positive_fraction": 0.21617650950023864,
+      "adverse_total_over_diagonal": -0.04417252360639306,
+      "block_name": "57A_to_58A",
+      "distance_count": 43,
+      "distance_range": [
+        2452,
+        2494
+      ],
+      "minimum_replacement_positive_fraction": 0.22204669495211413,
+      "minimum_replacement_positive_fraction_denominator": 40755,
+      "minimum_replacement_total_denominator": 40755,
+      "minimum_replacement_total_over_diagonal": -0.019713725141397635,
+      "positive_fraction_gap": 0.0058701854518754815,
+      "positive_fraction_separates": true,
+      "positive_fraction_separator": 0.21911160222617637,
+      "separates_by_both_share_and_total": true,
+      "total_gap": 0.024458798464995424,
+      "total_pressure_separates": true,
+      "total_separator": -0.03194312437389535
+    }
+  ],
+  "short_block_positive_share_theorem_proved": false,
+  "short_block_pressure_theorem_proved": false,
+  "source_commit": "a252fe1a2244140dbd43839d35bc648604da14a4",
+  "source_far_band_slice_balance_audit": "evidence\\mobius-moment-square-degree5-q46189-far-band-slice-balance-audit.json",
+  "source_one_coordinate_ledger": "evidence\\mobius-moment-square-degree5-q46189-one-coordinate-ratio-ledger-audit.json",
+  "status": "AUDIT_q46189_50a60a_distance_profile",
+  "strict_central_goldbach_theorem_proved": false
+}

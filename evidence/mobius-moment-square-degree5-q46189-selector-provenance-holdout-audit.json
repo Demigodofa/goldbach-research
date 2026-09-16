@@ -1,0 +1,464 @@
+{
+  "candidate_next_action": {
+    "falsifier": "A fresh source-admissible replacement denominator that fails the predeclared 50A..60A separator, or a natural geometry rule that selects a failing slice, demotes this lane to a fitted artifact.",
+    "mechanism": "The 50A..60A slice was selected post-hoc, but it is stable under leave-one-replacement-denominator-out selection in the finite replacement family.  A theorem route still needs a predeclared selector from active-kernel, conductor, or residual geometry, or fresh conductors not used in the slice discovery.",
+    "name": "predeclared natural selector or fresh-conductor holdout",
+    "novelty_label": "new-to-this-task",
+    "prediction": "If the 50A..60A effect is real structure, a predeclared geometry rule or fresh source-admissible conductors should select or pass a nearby short block without reusing the original slice scan.",
+    "smallest_next_test": "Freeze a non-post-hoc selector rule before looking at new conductors, then run a fresh replacement-denominator holdout."
+  },
+  "classification": {
+    "coarse_selector_leave_one_out_survives": true,
+    "finite_selected_family_diagnostic_only": true,
+    "natural_selector_theorem_proved": false,
+    "nested_microblock_leave_one_out_survives": true,
+    "post_hoc_selector": true,
+    "selector_supported_only_as_finite_hypothesis": true
+  },
+  "coordinate00_residue_gap_sign_theorem_proved": false,
+  "decision": "Kevin's objection is correct: 50A..60A is post-hoc because it was chosen after examining slices.  The finite evidence does not become a theorem.  However, it is not merely supported by the weakest included replacement row: in leave-one-denominator-out selection, the coarse 10A selector chooses 50A..60A in all 10 folds and every held-out denominator clears the selected share and total tests.  This supports 50A..60A only as a finite hypothesis requiring a predeclared natural selector or fresh held-out conductors.",
+  "distance_slice_positive_share_theorem_proved": false,
+  "distance_slice_pressure_theorem_proved": false,
+  "finite_diagnostic_only": true,
+  "finite_selector_provenance_holdout_audit_only": true,
+  "fixture": {
+    "active_row_start": 43,
+    "divisor_range": [
+      3,
+      19
+    ],
+    "ell_freeze": 64,
+    "prime_modulus": 379,
+    "replacement_denominators": [
+      58786,
+      40755,
+      62985,
+      49742,
+      53295,
+      34034,
+      36465,
+      35530,
+      41990,
+      38038
+    ],
+    "row_count_A": 43,
+    "scale_modulus": 229,
+    "target_label": "00,12"
+  },
+  "fresh_conductor_holdout_proved": false,
+  "goldbach_proved": false,
+  "leave_one_denominator_out": {
+    "coarse_10A_far_band_slices": {
+      "all_heldout_rows_pass": true,
+      "candidate_count": 9,
+      "heldout_pass_count": 10,
+      "heldout_row_count": 10,
+      "minimum_heldout_positive_fraction_gap": 0.041455517777469975,
+      "minimum_heldout_total_gap": 0.06613384233919847,
+      "rows": [
+        {
+          "heldout_denominator": 58786,
+          "heldout_passes_selected_block": true,
+          "heldout_positive_fraction": 0.4837815135559915,
+          "heldout_positive_fraction_gap": 0.11330650908504819,
+          "heldout_total_gap": 0.08027720793996823,
+          "heldout_total_over_diagonal": -0.00569358010881654,
+          "selected_block": "50A_to_60A",
+          "selected_distance_range": [
+            2151,
+            2580
+          ],
+          "training_min_share_denominator": 49742,
+          "training_min_total_denominator": 40755,
+          "training_positive_fraction_gap": 0.041455517777469975,
+          "training_total_gap": 0.06613384233919847
+        },
+        {
+          "heldout_denominator": 40755,
+          "heldout_passes_selected_block": true,
+          "heldout_positive_fraction": 0.46492326814705776,
+          "heldout_positive_fraction_gap": 0.09444826367611442,
+          "heldout_total_gap": 0.06613384233919847,
+          "heldout_total_over_diagonal": -0.019836945709586298,
+          "selected_block": "50A_to_60A",
+          "selected_distance_range": [
+            2151,
+            2580
+          ],
+          "training_min_share_denominator": 49742,
+          "training_min_total_denominator": 41990,
+          "training_positive_fraction_gap": 0.041455517777469975,
+          "training_total_gap": 0.06661630642802839
+        },
+        {
+          "heldout_denominator": 62985,
+          "heldout_passes_selected_block": true,
+          "heldout_positive_fraction": 0.569501189406853,
+          "heldout_positive_fraction_gap": 0.19902618493590968,
+          "heldout_total_gap": 0.1289469801497327,
+          "heldout_total_over_diagonal": 0.04297619210094791,
+          "selected_block": "50A_to_60A",
+          "selected_distance_range": [
+            2151,
+            2580
+          ],
+          "training_min_share_denominator": 49742,
+          "training_min_total_denominator": 40755,
+          "training_positive_fraction_gap": 0.041455517777469975,
+          "training_total_gap": 0.06613384233919847
+        },
+        {
+          "heldout_denominator": 49742,
+          "heldout_passes_selected_block": true,
+          "heldout_positive_fraction": 0.4119305222484133,
+          "heldout_positive_fraction_gap": 0.041455517777469975,
+          "heldout_total_gap": 0.07331437124655855,
+          "heldout_total_over_diagonal": -0.012656416802226221,
+          "selected_block": "50A_to_60A",
+          "selected_distance_range": [
+            2151,
+            2580
+          ],
+          "training_min_share_denominator": 41990,
+          "training_min_total_denominator": 40755,
+          "training_positive_fraction_gap": 0.07649693864710949,
+          "training_total_gap": 0.06613384233919847
+        },
+        {
+          "heldout_denominator": 53295,
+          "heldout_passes_selected_block": true,
+          "heldout_positive_fraction": 0.5087817502689792,
+          "heldout_positive_fraction_gap": 0.13830674579803587,
+          "heldout_total_gap": 0.08805727683305949,
+          "heldout_total_over_diagonal": 0.0020864887842747155,
+          "selected_block": "50A_to_60A",
+          "selected_distance_range": [
+            2151,
+            2580
+          ],
+          "training_min_share_denominator": 49742,
+          "training_min_total_denominator": 40755,
+          "training_positive_fraction_gap": 0.041455517777469975,
+          "training_total_gap": 0.06613384233919847
+        },
+        {
+          "heldout_denominator": 34034,
+          "heldout_passes_selected_block": true,
+          "heldout_positive_fraction": 0.4885413973756504,
+          "heldout_positive_fraction_gap": 0.11806639290470705,
+          "heldout_total_gap": 0.08427179479446853,
+          "heldout_total_over_diagonal": -0.0016989932543162382,
+          "selected_block": "50A_to_60A",
+          "selected_distance_range": [
+            2151,
+            2580
+          ],
+          "training_min_share_denominator": 49742,
+          "training_min_total_denominator": 40755,
+          "training_positive_fraction_gap": 0.041455517777469975,
+          "training_total_gap": 0.06613384233919847
+        },
+        {
+          "heldout_denominator": 36465,
+          "heldout_passes_selected_block": true,
+          "heldout_positive_fraction": 0.5471817643575996,
+          "heldout_positive_fraction_gap": 0.17670675988665624,
+          "heldout_total_gap": 0.0988715588678372,
+          "heldout_total_over_diagonal": 0.012900770819052427,
+          "selected_block": "50A_to_60A",
+          "selected_distance_range": [
+            2151,
+            2580
+          ],
+          "training_min_share_denominator": 49742,
+          "training_min_total_denominator": 40755,
+          "training_positive_fraction_gap": 0.041455517777469975,
+          "training_total_gap": 0.06613384233919847
+        },
+        {
+          "heldout_denominator": 35530,
+          "heldout_passes_selected_block": true,
+          "heldout_positive_fraction": 0.5157272943665482,
+          "heldout_positive_fraction_gap": 0.14525228989560485,
+          "heldout_total_gap": 0.09094158574168015,
+          "heldout_total_over_diagonal": 0.004970797692895379,
+          "selected_block": "50A_to_60A",
+          "selected_distance_range": [
+            2151,
+            2580
+          ],
+          "training_min_share_denominator": 49742,
+          "training_min_total_denominator": 40755,
+          "training_positive_fraction_gap": 0.041455517777469975,
+          "training_total_gap": 0.06613384233919847
+        },
+        {
+          "heldout_denominator": 41990,
+          "heldout_passes_selected_block": true,
+          "heldout_positive_fraction": 0.44697194311805283,
+          "heldout_positive_fraction_gap": 0.07649693864710949,
+          "heldout_total_gap": 0.06661630642802839,
+          "heldout_total_over_diagonal": -0.019354481620756384,
+          "selected_block": "50A_to_60A",
+          "selected_distance_range": [
+            2151,
+            2580
+          ],
+          "training_min_share_denominator": 49742,
+          "training_min_total_denominator": 40755,
+          "training_positive_fraction_gap": 0.041455517777469975,
+          "training_total_gap": 0.06613384233919847
+        },
+        {
+          "heldout_denominator": 38038,
+          "heldout_passes_selected_block": true,
+          "heldout_positive_fraction": 0.5345276915754795,
+          "heldout_positive_fraction_gap": 0.1640526871045362,
+          "heldout_total_gap": 0.09492677420394773,
+          "heldout_total_over_diagonal": 0.008955986155162948,
+          "selected_block": "50A_to_60A",
+          "selected_distance_range": [
+            2151,
+            2580
+          ],
+          "training_min_share_denominator": 49742,
+          "training_min_total_denominator": 40755,
+          "training_positive_fraction_gap": 0.041455517777469975,
+          "training_total_gap": 0.06613384233919847
+        }
+      ],
+      "selected_block_counts": {
+        "50A_to_60A": 10
+      },
+      "selector_family": "coarse_10A_far_band_slices"
+    },
+    "contiguous_microblocks_inside_50A_to_60A": {
+      "all_heldout_rows_pass": true,
+      "candidate_count": 55,
+      "heldout_pass_count": 10,
+      "heldout_row_count": 10,
+      "minimum_heldout_positive_fraction_gap": 0.006780195258194677,
+      "minimum_heldout_total_gap": 0.008428105120766007,
+      "rows": [
+        {
+          "heldout_denominator": 58786,
+          "heldout_passes_selected_block": true,
+          "heldout_positive_fraction": 0.35676993975148935,
+          "heldout_positive_fraction_gap": 0.006780195258194677,
+          "heldout_total_gap": 0.008428105120766007,
+          "heldout_total_over_diagonal": -0.004524876775502186,
+          "selected_block": "56A_to_57A",
+          "selected_distance_range": [
+            2409,
+            2451
+          ],
+          "training_min_share_denominator": 38038,
+          "training_min_total_denominator": 38038,
+          "training_positive_fraction_gap": 0.0738398709735989,
+          "training_total_gap": 0.009148446727180098
+        },
+        {
+          "heldout_denominator": 40755,
+          "heldout_passes_selected_block": true,
+          "heldout_positive_fraction": 0.3055515148922263,
+          "heldout_positive_fraction_gap": 0.04162576743194285,
+          "heldout_total_gap": 0.03381535395165591,
+          "heldout_total_over_diagonal": -0.023310151551005336,
+          "selected_block": "56A_to_58A",
+          "selected_distance_range": [
+            2409,
+            2494
+          ],
+          "training_min_share_denominator": 62985,
+          "training_min_total_denominator": 62985,
+          "training_positive_fraction_gap": 0.14120465370344043,
+          "training_total_gap": 0.037592835919932024
+        },
+        {
+          "heldout_denominator": 62985,
+          "heldout_passes_selected_block": true,
+          "heldout_positive_fraction": 0.5739115825160978,
+          "heldout_positive_fraction_gap": 0.24309314805234145,
+          "heldout_total_gap": 0.10767362904678504,
+          "heldout_total_over_diagonal": 0.038287620525240595,
+          "selected_block": "50A_to_58A",
+          "selected_distance_range": [
+            2151,
+            2494
+          ],
+          "training_min_share_denominator": 34034,
+          "training_min_total_denominator": 40755,
+          "training_positive_fraction_gap": 0.0586476340786779,
+          "training_total_gap": 0.0490389165694834
+        },
+        {
+          "heldout_denominator": 49742,
+          "heldout_passes_selected_block": true,
+          "heldout_positive_fraction": 0.4119305222484133,
+          "heldout_positive_fraction_gap": 0.041455517777469975,
+          "heldout_total_gap": 0.07331437124655855,
+          "heldout_total_over_diagonal": -0.012656416802226221,
+          "selected_block": "50A_to_60A",
+          "selected_distance_range": [
+            2151,
+            2580
+          ],
+          "training_min_share_denominator": 41990,
+          "training_min_total_denominator": 40755,
+          "training_positive_fraction_gap": 0.07649693864710949,
+          "training_total_gap": 0.06613384233919847
+        },
+        {
+          "heldout_denominator": 53295,
+          "heldout_passes_selected_block": true,
+          "heldout_positive_fraction": 0.5126311021508914,
+          "heldout_positive_fraction_gap": 0.18181266768713505,
+          "heldout_total_gap": 0.07199923672102322,
+          "heldout_total_over_diagonal": 0.0026132281994787716,
+          "selected_block": "50A_to_58A",
+          "selected_distance_range": [
+            2151,
+            2494
+          ],
+          "training_min_share_denominator": 34034,
+          "training_min_total_denominator": 40755,
+          "training_positive_fraction_gap": 0.0586476340786779,
+          "training_total_gap": 0.0490389165694834
+        },
+        {
+          "heldout_denominator": 34034,
+          "heldout_passes_selected_block": true,
+          "heldout_positive_fraction": 0.3894660685424342,
+          "heldout_positive_fraction_gap": 0.0586476340786779,
+          "heldout_total_gap": 0.058457216688029084,
+          "heldout_total_over_diagonal": -0.010928791833515361,
+          "selected_block": "50A_to_58A",
+          "selected_distance_range": [
+            2151,
+            2494
+          ],
+          "training_min_share_denominator": 40755,
+          "training_min_total_denominator": 40755,
+          "training_positive_fraction_gap": 0.11918133598513025,
+          "training_total_gap": 0.0490389165694834
+        },
+        {
+          "heldout_denominator": 36465,
+          "heldout_passes_selected_block": true,
+          "heldout_positive_fraction": 0.5430484836948283,
+          "heldout_positive_fraction_gap": 0.21223004923107197,
+          "heldout_total_gap": 0.08082027166712145,
+          "heldout_total_over_diagonal": 0.011434263145577007,
+          "selected_block": "50A_to_58A",
+          "selected_distance_range": [
+            2151,
+            2494
+          ],
+          "training_min_share_denominator": 34034,
+          "training_min_total_denominator": 40755,
+          "training_positive_fraction_gap": 0.0586476340786779,
+          "training_total_gap": 0.0490389165694834
+        },
+        {
+          "heldout_denominator": 35530,
+          "heldout_passes_selected_block": true,
+          "heldout_positive_fraction": 0.5297833382622175,
+          "heldout_positive_fraction_gap": 0.19896490379846116,
+          "heldout_total_gap": 0.078062689600946,
+          "heldout_total_over_diagonal": 0.008676681079401555,
+          "selected_block": "50A_to_58A",
+          "selected_distance_range": [
+            2151,
+            2494
+          ],
+          "training_min_share_denominator": 34034,
+          "training_min_total_denominator": 40755,
+          "training_positive_fraction_gap": 0.0586476340786779,
+          "training_total_gap": 0.0490389165694834
+        },
+        {
+          "heldout_denominator": 41990,
+          "heldout_passes_selected_block": true,
+          "heldout_positive_fraction": 0.4636802485325121,
+          "heldout_positive_fraction_gap": 0.1328618140687558,
+          "heldout_total_gap": 0.05974483498453757,
+          "heldout_total_over_diagonal": -0.009641173537006876,
+          "selected_block": "50A_to_58A",
+          "selected_distance_range": [
+            2151,
+            2494
+          ],
+          "training_min_share_denominator": 34034,
+          "training_min_total_denominator": 40755,
+          "training_positive_fraction_gap": 0.0586476340786779,
+          "training_total_gap": 0.0490389165694834
+        },
+        {
+          "heldout_denominator": 38038,
+          "heldout_passes_selected_block": true,
+          "heldout_positive_fraction": 0.518037815330809,
+          "heldout_positive_fraction_gap": 0.18721938086705264,
+          "heldout_total_gap": 0.07363469404627486,
+          "heldout_total_over_diagonal": 0.004248685524730416,
+          "selected_block": "50A_to_58A",
+          "selected_distance_range": [
+            2151,
+            2494
+          ],
+          "training_min_share_denominator": 34034,
+          "training_min_total_denominator": 40755,
+          "training_positive_fraction_gap": 0.0586476340786779,
+          "training_total_gap": 0.0490389165694834
+        }
+      ],
+      "selected_block_counts": {
+        "50A_to_58A": 7,
+        "50A_to_60A": 1,
+        "56A_to_57A": 1,
+        "56A_to_58A": 1
+      },
+      "selector_family": "contiguous_microblocks_inside_50A_to_60A"
+    }
+  },
+  "natural_selector_theorem_proved": false,
+  "question": "Was 50A..60A a post-hoc selector, and does a leave-one-replacement-denominator-out audit support or weaken it?",
+  "replacement_residue_gap_bound_theorem_proved": false,
+  "schema_version": 1,
+  "selected_50A_to_60A_full_family_metric": {
+    "adverse_positive_fraction": 0.37047500447094334,
+    "adverse_total_over_diagonal": -0.08597078804878477,
+    "block_name": "50A_to_60A",
+    "distance_count": 430,
+    "distance_range": [
+      2151,
+      2580
+    ],
+    "minimum_replacement_positive_fraction": 0.4119305222484133,
+    "minimum_replacement_positive_fraction_denominator": 49742,
+    "minimum_replacement_total_denominator": 40755,
+    "minimum_replacement_total_over_diagonal": -0.019836945709586298,
+    "positive_fraction_gap": 0.041455517777469975,
+    "positive_fraction_separates": true,
+    "positive_fraction_separator": 0.3912027633596783,
+    "separates_by_both_share_and_total": true,
+    "total_gap": 0.06613384233919847,
+    "total_pressure_separates": true,
+    "total_separator": -0.05290386687918554
+  },
+  "selector_provenance": {
+    "coarse_10A_slice_boundaries_natural_from_active_scale_A": true,
+    "coarse_10A_slice_choice_was_post_hoc": true,
+    "heldout_conductor_count": 10,
+    "heldout_conductors_available": true,
+    "microblock_choice_inside_50A_to_60A_was_nested_post_hoc": true,
+    "natural_conductor_geometry_selector_proved": false,
+    "selected_coarse_slice": "50A_to_60A",
+    "selected_coarse_slice_not_predeclared_acceptance_condition": true
+  },
+  "source_commit": "a252fe1a2244140dbd43839d35bc648604da14a4",
+  "source_distance_profile_audit": "evidence\\mobius-moment-square-degree5-q46189-50a60a-distance-profile-audit.json",
+  "source_far_band_slice_balance_audit": "evidence\\mobius-moment-square-degree5-q46189-far-band-slice-balance-audit.json",
+  "source_one_coordinate_ledger": "evidence\\mobius-moment-square-degree5-q46189-one-coordinate-ratio-ledger-audit.json",
+  "status": "AUDIT_q46189_selector_provenance_holdout",
+  "strict_central_goldbach_theorem_proved": false
+}
