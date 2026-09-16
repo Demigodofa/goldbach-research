@@ -6,6 +6,47 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS route now has a raw witness identity audit:
+
+```text
+tools/build_q286_wbss_raw_witness_identity_audit.py
+notes/q286-wbss-raw-witness-identity-audit.md
+evidence/q286-wbss-raw-witness-identity-audit.json
+```
+
+Result:
+
+```text
+checked rows:                    348
+target range:        1036248..1155862
+zero pair-count rows:              0
+zero total-weight rows:            0
+positive raw witness rows:       348 / 348
+positive raw adverse-gap rows:   348 / 348
+minimum raw witness target:        1059514
+minimum raw witness:    286929.1729900493
+```
+
+Decision: `TARGET_direct_raw_q286_WBSS_witness_lower_bound`.  The exact raw
+identity is
+
+```text
+W_phi(N) = T_N * <mu_N,phi_N>
+```
+
+with `T_N` the strict-central log-pair mass.  If `T_N=0`, the raw sum is empty
+and equals `0`; therefore a direct theorem `W_phi(N)>0` would force
+strict-central support without first assuming the normalized measure `mu_N`.
+
+This repairs the logical target, not the theorem.  The live bridge is a
+universal, pointwise, unnormalized lower bound `W_phi(N)>0` for every
+sufficiently large covered even `N`, followed by finite remainder
+verification.  No raw witness theorem, positive-mass theorem, pointwise
+adverse-drag theorem, q286 threshold theorem, strict-central Goldbach theorem,
+or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286-WBSS route now has a rawization-obligation correction:
 
 ```text

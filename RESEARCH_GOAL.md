@@ -6,6 +6,50 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS route now has a raw witness identity audit:
+`tools/build_q286_wbss_raw_witness_identity_audit.py` generated
+`evidence/q286-wbss-raw-witness-identity-audit.json`, with explanation in
+`notes/q286-wbss-raw-witness-identity-audit.md`.
+
+Question: after correcting the positive-mass problem, does the current
+q286-WBSS data have an exact unnormalized form whose strict positivity would
+force support?
+
+Answer: yes as a finite identity target, not as a theorem.  For every checked
+row, the normalized witness scales by the strict-central log-pair mass:
+
+```text
+W_phi(N) = T_N * <mu_N,phi_N>
+```
+
+where `T_N=sum log(p)log(N-p)` over strict-central prime pairs.  If `T_N=0`,
+the raw sum is empty and equals `0`; therefore a direct theorem
+`W_phi(N)>0` would be non-circular and would force at least one strict-central
+prime pair.
+
+Finite calibration:
+
+```text
+checked rows:                    348
+target range:        1036248..1155862
+zero pair-count rows:              0
+zero total-weight rows:            0
+positive raw witness rows:       348 / 348
+positive raw adverse-gap rows:   348 / 348
+minimum raw witness target:        1059514
+minimum raw witness:    286929.1729900493
+```
+
+Decision: `TARGET_direct_raw_q286_WBSS_witness_lower_bound`.  Rawization
+repairs the logical bridge target, but it does not prove the bridge.  The
+live theorem target is a universal, pointwise, unnormalized lower bound
+`W_phi(N)>0` for every sufficiently large covered even `N`, followed by a
+finite remainder check.  No raw witness theorem, positive-mass theorem,
+pointwise adverse-drag theorem, q286 threshold theorem, strict-central
+Goldbach theorem, or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286-WBSS route now has a rawization-obligation correction:
 `tools/build_q286_wbss_rawization_obligation_audit.py` generated
 `evidence/q286-wbss-rawization-obligation-audit.json`, with explanation in
