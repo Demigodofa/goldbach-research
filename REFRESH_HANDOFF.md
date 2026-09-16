@@ -6,6 +6,44 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The source-start denominator lane now has a clearance-family audit for the
+unnormalized margin ledger:
+
+```text
+tools/build_mobius_moment_square_degree5_source_margin_clearance_family_audit.py
+notes/mobius-moment-square-degree5-source-margin-clearance-family-audit.md
+evidence/mobius-moment-square-degree5-source-margin-clearance-family-audit.json
+```
+
+Result:
+
+```text
+status:                                      AUDIT_degree5_source_margin_clearance_family
+scales:                                      229, 251, 293, 331, 353, 379
+tight blocks:                                (229,379), (251,379), (293,461), (331,599), (353,599), (379,599)
+negative denominator family counts:
+  near_1_to_2:                               17
+  middle_2_to_3:                              1
+  far_3_plus:                                 0
+near-threshold negative fraction:             0.9444444444444444
+all negative denominators near threshold:     false
+all middle/far positive dominates near leak:  true
+all middle/far net dominates near leak:       true
+max near negative / middle-far positive:      0.0009319007678001933
+```
+
+Decision: the cleaner guess that all adverse denominator mass is
+near-threshold is finitely false: the six-block fixture has one middle-band
+adverse exception at `M=229`, `p=379`, `Q=46189`, with
+`Q/(p*A)=2.8342026139780327`.  The useful theorem-shaped target is weaker and
+more realistic: prove a clearance-family ledger where low-clearance leakage is
+paid by net middle/far higher-clearance mass.  This is finite clearance-family
+evidence only, not a clearance-family theorem, not a denominator-margin
+theorem, not a prime-block theorem, not a source-start theorem, not a
+strict-central Goldbach theorem, and not a Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The source-start lane now has a denominator decomposition for the unnormalized
 theorem margin:
 

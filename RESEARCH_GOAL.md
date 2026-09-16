@@ -6,6 +6,39 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The source-start denominator lane now has a clearance-family audit for the
+unnormalized margin ledger:
+`tools/build_mobius_moment_square_degree5_source_margin_clearance_family_audit.py`
+generated
+`evidence/mobius-moment-square-degree5-source-margin-clearance-family-audit.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-source-margin-clearance-family-audit.md`.
+
+Question: for the tightest checked source-start prime blocks, how does adverse
+denominator mass split by clearance above the cutoff `p*A`, where `A` is the
+source row count, and is low-clearance leakage dominated by higher-clearance
+mass?
+
+Answer: the attractive stronger guess, "all adverse denominators are
+near-threshold," is false.  Across the six tight blocks, negative denominator
+family counts are `near_1_to_2 -> 17`, `middle_2_to_3 -> 1`, and
+`far_3_plus -> 0`; the only middle-band adverse exception is at `M=229`,
+`p=379`, `Q=46189`, with `Q/(p*A)=2.8342026139780327`.  But the useful
+weaker fact survives: middle-plus-far higher-clearance positive and net margin
+both dominate near-threshold adverse leakage on all six tight blocks.  The
+largest near-leakage to middle/far-positive ratio is
+`0.0009319007678001933`.
+
+Decision: the theorem-shaped denominator target should not require individual
+denominator positivity, and should not claim all adverse mass lies in
+`p*A < Q < 2*p*A`.  The better target is a clearance-family ledger: bound
+low-clearance leakage by net middle/far higher-clearance mass.  This is finite
+clearance-family evidence only, not a clearance-family theorem, not a
+denominator-margin theorem, not a prime-block theorem, not a source-start
+theorem, not a strict-central Goldbach theorem, and not a Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The source-start lane now has a denominator decomposition for the
 unnormalized theorem margin:
 `tools/build_mobius_moment_square_degree5_source_margin_denominator_audit.py`
