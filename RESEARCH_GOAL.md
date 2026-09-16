@@ -6,6 +6,39 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 direct-witness/anti-landing route now has a source-theorem budget
+audit:
+`tools/build_q286_anti_landing_source_budget_audit.py` generated
+`evidence/q286-anti-landing-source-budget-audit.json`, with explanation in
+`notes/q286-anti-landing-source-budget-audit.md`.
+
+Question: if a future source-backed binary-prime theorem tries to prove the
+coefficient-weighted anti-landing inequality
+`positive_rescue_contribution > negative_rescue_drag`, how sharp must it be?
+
+Answer: near-sharp.  On the `196` post-discovery rows, the tightest row is
+target `94856`:
+
+```text
+tightest P/D:                         1.0191444227555964
+tightest positive-loss budget:        0.018784773474983696
+tightest negative-inflation budget:   0.019144422755596365
+tightest symmetric budget:            0.009481452906409388
+rows needing sub-1% symmetric control: 1 / 196
+rows needing sub-5% symmetric control: 2 / 196
+mass-majority failures:              18 / 196
+```
+
+Decision: `HOLD_anti_landing_requires_near_sharp_source_control`.  Broad
+uniformity, mass-majority, and loose AP-count inputs cannot pay this bridge.
+A proof following this route needs a sharp coefficient-weighted signed
+binary-prime landing estimate, or the project should pivot to a different
+direct witness argument.  This proves no anti-landing theorem, signed
+binary-prime correlation theorem, q286 threshold theorem, strict-central
+Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286-WBSS route now has an adverse-drag versus direct-witness route audit:
 `tools/build_q286_wbss_adverse_drag_vs_direct_witness_route_audit.py`
 generated
