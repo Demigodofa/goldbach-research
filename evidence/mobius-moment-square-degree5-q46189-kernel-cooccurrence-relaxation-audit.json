@@ -1,0 +1,237 @@
+{
+  "bucket_names": [
+    "near_1_to_A",
+    "middle_A_to_10A",
+    "far_10A_to_100A",
+    "tail_over_100A"
+  ],
+  "candidate_next_action": {
+    "falsifier": "If a source-admissible nonadverse packet has full bucket geometry reaching <= -1, the overpayment-exclusion route fails.",
+    "mechanism": "Pairwise and three-way bucket constraints remain too loose; the surviving bound likely depends on the arithmetic packet shape, such as high-prime support, small-prime replacement pair, or exact source-conductor pair geometry.",
+    "name": "full packet geometry invariant",
+    "novelty_label": "new-to-this-task",
+    "prediction": "A feature tied to packet arithmetic should separate the all-high Q46189 overpayment packet from every nonadverse replacement packet more directly than low-order bucket relaxations.",
+    "smallest_next_test": "Group rows by high-prime support and replacement small-prime pair, then test whether those factor-geometry classes explain the off-diagonal minimum."
+  },
+  "classification": {
+    "box_relaxation_fails": true,
+    "finite_relaxation_audit_only": true,
+    "full_packet_geometry_or_stronger_invariant_required": true,
+    "low_order_cooccurrence_insufficient": true,
+    "pair_cooccurrence_relaxation_fails": true,
+    "triple_cooccurrence_relaxation_fails": true
+  },
+  "coordinate00_residue_gap_sign_theorem_proved": false,
+  "decision": "Low-order bucket co-occurrence is still insufficient.  The true finite rows have minimum q=38038 at about -0.847293, but the pairwise relaxation reaches about -1.283873 and the pair+triple relaxation reaches about -1.046482.  The next route needs full packet geometry or a sharper arithmetic invariant.",
+  "finite_diagnostic_only": true,
+  "finite_kernel_cooccurrence_relaxation_audit_only": true,
+  "fixture": {
+    "active_row_start": 43,
+    "adverse_denominator": 46189,
+    "divisor_range": [
+      3,
+      19
+    ],
+    "ell_freeze": 64,
+    "prime_modulus": 379,
+    "row_count_A": 43,
+    "scale_modulus": 229,
+    "sign_identity": "ratio_minus_half = 0.5 * (1 + off_diagonal_total / diagonal_half)",
+    "target_label": "00,12"
+  },
+  "full_packet_geometry_bound_theorem_proved": false,
+  "goldbach_proved": false,
+  "observed_true_nonadverse_boundary": {
+    "minimum_denominator": 38038,
+    "minimum_total": -0.8472931845861708,
+    "target_bound": -1.0
+  },
+  "pair_subset_bounds": [
+    {
+      "bucket_subset": [
+        "near_1_to_A",
+        "middle_A_to_10A"
+      ],
+      "maximum_denominator": 25935,
+      "maximum_sum": 0.7267511645941793,
+      "minimum_denominator": 38038,
+      "minimum_sum": -0.9182976011533681
+    },
+    {
+      "bucket_subset": [
+        "near_1_to_A",
+        "far_10A_to_100A"
+      ],
+      "maximum_denominator": 24871,
+      "maximum_sum": 0.9327836918080459,
+      "minimum_denominator": 21318,
+      "minimum_sum": -0.5255500507457538
+    },
+    {
+      "bucket_subset": [
+        "near_1_to_A",
+        "tail_over_100A"
+      ],
+      "maximum_denominator": 25935,
+      "maximum_sum": 0.596117902326301,
+      "minimum_denominator": 21318,
+      "minimum_sum": -0.46116757022404054
+    },
+    {
+      "bucket_subset": [
+        "middle_A_to_10A",
+        "far_10A_to_100A"
+      ],
+      "maximum_denominator": 43890,
+      "maximum_sum": 0.5348700775511186,
+      "minimum_denominator": 38038,
+      "minimum_sum": -0.9185789211298325
+    },
+    {
+      "bucket_subset": [
+        "middle_A_to_10A",
+        "tail_over_100A"
+      ],
+      "maximum_denominator": 39270,
+      "maximum_sum": 0.311850836511114,
+      "minimum_denominator": 38038,
+      "minimum_sum": -0.8904026431804962
+    },
+    {
+      "bucket_subset": [
+        "far_10A_to_100A",
+        "tail_over_100A"
+      ],
+      "maximum_denominator": 29393,
+      "maximum_sum": 0.3465904930129601,
+      "minimum_denominator": 67830,
+      "minimum_sum": -0.36557555293421246
+    }
+  ],
+  "pairwise_cooccurrence_bound_theorem_proved": false,
+  "question": "Do observed pairwise or three-way distance-bucket co-occurrence constraints imply the nonadverse off-diagonal bound > -1?",
+  "relaxations": {
+    "box_only": {
+      "include_upper_bounds": false,
+      "minimum_relaxed_total": -1.8966400770509377,
+      "passes_target_minus_one": false,
+      "relaxed_bucket_vector": {
+        "far_10A_to_100A": -0.3917777860671962,
+        "middle_A_to_10A": -0.939992990438763,
+        "near_1_to_A": -0.41527096393053714,
+        "tail_over_100A": -0.14959833661444127
+      },
+      "subset_sizes": []
+    },
+    "pair_and_triple_lower": {
+      "include_upper_bounds": false,
+      "minimum_relaxed_total": -1.0464818684588788,
+      "passes_target_minus_one": false,
+      "relaxed_bucket_vector": {
+        "far_10A_to_100A": -0.17777461456377774,
+        "middle_A_to_10A": -0.5416156226933466,
+        "near_1_to_A": -0.17749329458731322,
+        "tail_over_100A": -0.14959833661444127
+      },
+      "subset_sizes": [
+        2,
+        3
+      ]
+    },
+    "pair_and_triple_lower_upper": {
+      "include_upper_bounds": true,
+      "minimum_relaxed_total": -1.0464818684588788,
+      "passes_target_minus_one": false,
+      "relaxed_bucket_vector": {
+        "far_10A_to_100A": -0.17777461456377763,
+        "middle_A_to_10A": -0.5416156226933467,
+        "near_1_to_A": -0.17749329458731322,
+        "tail_over_100A": -0.14959833661444127
+      },
+      "subset_sizes": [
+        2,
+        3
+      ]
+    },
+    "pair_lower": {
+      "include_upper_bounds": false,
+      "minimum_relaxed_total": -1.2838731540875807,
+      "passes_target_minus_one": false,
+      "relaxed_bucket_vector": {
+        "far_10A_to_100A": -0.21597721631977118,
+        "middle_A_to_10A": -0.7026017048100613,
+        "near_1_to_A": -0.21569589634330677,
+        "tail_over_100A": -0.14959833661444127
+      },
+      "subset_sizes": [
+        2
+      ]
+    },
+    "pair_lower_upper": {
+      "include_upper_bounds": true,
+      "minimum_relaxed_total": -1.2838731540875807,
+      "passes_target_minus_one": false,
+      "relaxed_bucket_vector": {
+        "far_10A_to_100A": -0.21597721631977118,
+        "middle_A_to_10A": -0.7026017048100613,
+        "near_1_to_A": -0.21569589634330677,
+        "tail_over_100A": -0.14959833661444127
+      },
+      "subset_sizes": [
+        2
+      ]
+    }
+  },
+  "schema_version": 1,
+  "source_commit": "6f9286e7667f3a0c6ce5fe035c6f5265231e758e",
+  "source_packet_kernel_sign_landscape_audit": "evidence\\mobius-moment-square-degree5-q46189-packet-kernel-sign-landscape-audit.json",
+  "status": "AUDIT_q46189_kernel_cooccurrence_relaxation",
+  "strict_central_goldbach_theorem_proved": false,
+  "triple_cooccurrence_bound_theorem_proved": false,
+  "triple_subset_bounds": [
+    {
+      "bucket_subset": [
+        "near_1_to_A",
+        "middle_A_to_10A",
+        "far_10A_to_100A"
+      ],
+      "maximum_denominator": 25935,
+      "maximum_sum": 0.8012732661762143,
+      "minimum_denominator": 38038,
+      "minimum_sum": -0.8968835318444376
+    },
+    {
+      "bucket_subset": [
+        "near_1_to_A",
+        "middle_A_to_10A",
+        "tail_over_100A"
+      ],
+      "maximum_denominator": 25935,
+      "maximum_sum": 0.6612672873941725,
+      "minimum_denominator": 38038,
+      "minimum_sum": -0.8687072538951013
+    },
+    {
+      "bucket_subset": [
+        "near_1_to_A",
+        "far_10A_to_100A",
+        "tail_over_100A"
+      ],
+      "maximum_denominator": 24871,
+      "maximum_sum": 0.8917102074108364,
+      "minimum_denominator": 21318,
+      "minimum_sum": -0.5714466570392572
+    },
+    {
+      "bucket_subset": [
+        "middle_A_to_10A",
+        "far_10A_to_100A",
+        "tail_over_100A"
+      ],
+      "maximum_denominator": 43890,
+      "maximum_sum": 0.5133318267246525,
+      "minimum_denominator": 38038,
+      "minimum_sum": -0.8689885738715657
+    }
+  ]
+}

@@ -6,6 +6,33 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The `Q=46189` replacement-family lane now has a kernel co-occurrence
+relaxation audit:
+`tools/build_mobius_moment_square_degree5_q46189_kernel_cooccurrence_relaxation_audit.py`
+generated
+`evidence/mobius-moment-square-degree5-q46189-kernel-cooccurrence-relaxation-audit.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-q46189-kernel-cooccurrence-relaxation-audit.md`.
+
+Question: do observed pairwise or three-way distance-bucket co-occurrence
+constraints imply the nonadverse off-diagonal bound `> -1`?
+
+Answer: no.  The true checked same-row nonadverse minimum is still
+`q=38038` at `-0.8472931845861708`, safely above `-1`.  But the box
+relaxation gives `-1.8966400770509377`, pairwise bucket co-occurrence still
+relaxes to `-1.2838731540875807`, and pair-plus-triple bucket co-occurrence
+still relaxes to `-1.0464818684588788`.  Adding observed upper bounds does
+not improve those minima.
+
+Decision: low-order bucket co-occurrence is still insufficient.  The next
+route must use full packet geometry or a sharper arithmetic invariant, such
+as high-prime support, small-prime replacement pair, or exact source-conductor
+pair geometry.  This proves no pairwise co-occurrence bound theorem, triple
+co-occurrence bound theorem, full packet geometry theorem, coordinate-`00`
+residue-gap sign theorem, strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The `Q=46189` replacement-family lane now has a kernel-envelope obstruction
 audit:
 `tools/build_mobius_moment_square_degree5_q46189_kernel_envelope_obstruction_audit.py`

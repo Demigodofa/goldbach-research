@@ -6,6 +6,39 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The `Q=46189` replacement-family lane now has a kernel co-occurrence
+relaxation audit:
+
+```text
+tools/build_mobius_moment_square_degree5_q46189_kernel_cooccurrence_relaxation_audit.py
+notes/mobius-moment-square-degree5-q46189-kernel-cooccurrence-relaxation-audit.md
+evidence/mobius-moment-square-degree5-q46189-kernel-cooccurrence-relaxation-audit.json
+```
+
+Result:
+
+```text
+true weakest nonadverse q:           38038
+true weakest nonadverse total:       -0.8472931845861708
+target lower bound:                  -1.0
+box relaxation minimum:              -1.8966400770509377
+pair lower relaxation minimum:       -1.2838731540875807
+pair lower+upper relaxation minimum: -1.2838731540875807
+pair+triple lower minimum:           -1.0464818684588788
+pair+triple lower+upper minimum:     -1.0464818684588788
+```
+
+Decision: low-order bucket co-occurrence is still insufficient.  Pairwise
+constraints and even pair-plus-triple constraints relax below the required
+`-1` boundary, while the actual checked rows survive.  The next route must
+use full packet geometry or a sharper arithmetic invariant, such as
+high-prime support, small-prime replacement pair, or exact source-conductor
+pair geometry.  This proves no pairwise co-occurrence bound theorem, triple
+co-occurrence bound theorem, full packet geometry theorem, coordinate-`00`
+residue-gap sign theorem, strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The `Q=46189` replacement-family lane now has a kernel-envelope obstruction
 audit:
 
