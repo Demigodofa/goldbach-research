@@ -6,6 +6,38 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The source-start moving-prime lane now has a sigma-band stress audit:
+
+```text
+tools/build_mobius_moment_square_degree5_moving_prime_band_audit.py
+notes/mobius-moment-square-degree5-moving-prime-band-audit.md
+evidence/mobius-moment-square-degree5-moving-prime-band-audit.json
+```
+
+Result:
+
+```text
+prime blocks:       357
+dominance rows:    1428
+all bands positive: true
+
+sigma_1_00_1_25: blocks 97, rows 388, min slack 0.4168496626998832  at M=229, p=283
+sigma_1_25_1_50: blocks 83, rows 332, min slack 0.426291195360443   at M=331, p=479
+sigma_1_50_1_75: blocks 93, rows 372, min slack 0.40189096624031384 at M=229, p=379
+sigma_1_75_2_00: blocks 84, rows 336, min slack 0.40479256047704726 at M=331, p=599
+```
+
+Decision: after the fixed-prime obstruction, the seven-sweep fixture does not
+support an endpoint-only simplification either.  Endpoint bands pass, but the
+high endpoint band minimum is close to the global minimum.  The next analytic
+target should be sigma-banded moving prime-block lower-frame control across
+the full interval `sigma in [1,2]`.  This is finite band evidence only, not a
+sigma-band theorem, not a moving-prime theorem, not a prime-block theorem, not
+a source-start theorem, not a strict-central Goldbach theorem, and not a
+Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The source-start morphology lane now has a fixed-prime horizon obstruction:
 
 ```text

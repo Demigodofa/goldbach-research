@@ -1,0 +1,235 @@
+{
+  "all_bands_have_positive_block_slack": true,
+  "band_definitions": [
+    {
+      "lower_inclusive": 1.0,
+      "name": "sigma_1_00_1_25",
+      "upper_exclusive": 1.25
+    },
+    {
+      "lower_inclusive": 1.25,
+      "name": "sigma_1_25_1_50",
+      "upper_exclusive": 1.5
+    },
+    {
+      "lower_inclusive": 1.5,
+      "name": "sigma_1_50_1_75",
+      "upper_exclusive": 1.75
+    },
+    {
+      "lower_inclusive": 1.75,
+      "name": "sigma_1_75_2_00",
+      "upper_exclusive": 2.01
+    }
+  ],
+  "band_summaries": {
+    "sigma_1_00_1_25": {
+      "band": "sigma_1_00_1_25",
+      "block_count": 97,
+      "minimum_block_slack": 0.4168496626998832,
+      "minimum_row_slack": 0.4168496626998832,
+      "row_count": 388,
+      "weakest_block": {
+        "band": "sigma_1_00_1_25",
+        "labels_by_slack": [
+          "00,12",
+          "01,02",
+          "TOTAL",
+          "01,11"
+        ],
+        "minimum_slack": 0.4168496626998832,
+        "prime_modulus": 283,
+        "scale_modulus": 229,
+        "sigma_p_over_M": 1.2358078602620088,
+        "weakest_label": "00,12"
+      },
+      "weakest_label_counts": {
+        "00,12": 39,
+        "01,02": 37,
+        "01,11": 21
+      },
+      "weakest_row": {
+        "active_over_full_ratio": 0.9168496626998832,
+        "band": "sigma_1_00_1_25",
+        "dominance_slack_above_one_half": 0.4168496626998832,
+        "label": "00,12",
+        "prime_modulus": 283,
+        "scale_modulus": 229,
+        "sigma_p_over_M": 1.2358078602620088
+      }
+    },
+    "sigma_1_25_1_50": {
+      "band": "sigma_1_25_1_50",
+      "block_count": 83,
+      "minimum_block_slack": 0.426291195360443,
+      "minimum_row_slack": 0.426291195360443,
+      "row_count": 332,
+      "weakest_block": {
+        "band": "sigma_1_25_1_50",
+        "labels_by_slack": [
+          "00,12",
+          "TOTAL",
+          "01,02",
+          "01,11"
+        ],
+        "minimum_slack": 0.426291195360443,
+        "prime_modulus": 479,
+        "scale_modulus": 331,
+        "sigma_p_over_M": 1.447129909365559,
+        "weakest_label": "00,12"
+      },
+      "weakest_label_counts": {
+        "00,12": 29,
+        "01,02": 16,
+        "01,11": 38
+      },
+      "weakest_row": {
+        "active_over_full_ratio": 0.926291195360443,
+        "band": "sigma_1_25_1_50",
+        "dominance_slack_above_one_half": 0.426291195360443,
+        "label": "00,12",
+        "prime_modulus": 479,
+        "scale_modulus": 331,
+        "sigma_p_over_M": 1.447129909365559
+      }
+    },
+    "sigma_1_50_1_75": {
+      "band": "sigma_1_50_1_75",
+      "block_count": 93,
+      "minimum_block_slack": 0.40189096624031384,
+      "minimum_row_slack": 0.40189096624031384,
+      "row_count": 372,
+      "weakest_block": {
+        "band": "sigma_1_50_1_75",
+        "labels_by_slack": [
+          "00,12",
+          "01,11",
+          "TOTAL",
+          "01,02"
+        ],
+        "minimum_slack": 0.40189096624031384,
+        "prime_modulus": 379,
+        "scale_modulus": 229,
+        "sigma_p_over_M": 1.6550218340611353,
+        "weakest_label": "00,12"
+      },
+      "weakest_label_counts": {
+        "00,12": 58,
+        "01,02": 23,
+        "01,11": 12
+      },
+      "weakest_row": {
+        "active_over_full_ratio": 0.9018909662403138,
+        "band": "sigma_1_50_1_75",
+        "dominance_slack_above_one_half": 0.40189096624031384,
+        "label": "00,12",
+        "prime_modulus": 379,
+        "scale_modulus": 229,
+        "sigma_p_over_M": 1.6550218340611353
+      }
+    },
+    "sigma_1_75_2_00": {
+      "band": "sigma_1_75_2_00",
+      "block_count": 84,
+      "minimum_block_slack": 0.40479256047704726,
+      "minimum_row_slack": 0.40479256047704726,
+      "row_count": 336,
+      "weakest_block": {
+        "band": "sigma_1_75_2_00",
+        "labels_by_slack": [
+          "00,12",
+          "TOTAL",
+          "01,11",
+          "01,02"
+        ],
+        "minimum_slack": 0.40479256047704726,
+        "prime_modulus": 599,
+        "scale_modulus": 331,
+        "sigma_p_over_M": 1.809667673716012,
+        "weakest_label": "00,12"
+      },
+      "weakest_label_counts": {
+        "00,12": 37,
+        "01,02": 28,
+        "01,11": 19
+      },
+      "weakest_row": {
+        "active_over_full_ratio": 0.9047925604770473,
+        "band": "sigma_1_75_2_00",
+        "dominance_slack_above_one_half": 0.40479256047704726,
+        "label": "00,12",
+        "prime_modulus": 599,
+        "scale_modulus": 331,
+        "sigma_p_over_M": 1.809667673716012
+      }
+    }
+  },
+  "candidate_next_theorem_target": {
+    "falsifier": "A future complete sweep with a nonpositive block in any sigma band falsifies the current finite moving-band target.",
+    "mechanism": "Prove source-start prime-block lower-frame control uniformly over sigma=p/M bands covering [1,2], rather than fixing one prime or discarding endpoints.",
+    "name": "sigma-banded moving prime-block lower-frame control",
+    "novelty_label": "new-to-this-task",
+    "prediction": "Future complete sweeps should keep positive slack in each sigma band, with stress moving among bands rather than locking to a fixed prime."
+  },
+  "decision": "The seven-sweep fixture does not support reducing the theorem target to a fixed prime or to endpoint removal.  All sigma bands pass, but endpoint bands still contain relatively small slacks.  The next analytic target should be sigma-banded moving prime-block control across the whole interval [1,2].",
+  "dominance_row_count": 1428,
+  "endpoint_bands_have_no_failures": true,
+  "endpoint_minimum_block_slack": 0.40479256047704726,
+  "endpoint_only_simplification_supported": false,
+  "finite_band_audit_only": true,
+  "goldbach_proved": false,
+  "interior_bands_have_no_failures": true,
+  "interior_minimum_block_slack": 0.40189096624031384,
+  "moving_prime_block_theorem_proved": false,
+  "overall_weakest_block": {
+    "band": "sigma_1_50_1_75",
+    "labels_by_slack": [
+      "00,12",
+      "01,11",
+      "TOTAL",
+      "01,02"
+    ],
+    "minimum_slack": 0.40189096624031384,
+    "prime_modulus": 379,
+    "scale_modulus": 229,
+    "sigma_p_over_M": 1.6550218340611353,
+    "weakest_label": "00,12"
+  },
+  "overall_weakest_row": {
+    "active_over_full_ratio": 0.9018909662403138,
+    "band": "sigma_1_50_1_75",
+    "dominance_slack_above_one_half": 0.40189096624031384,
+    "label": "00,12",
+    "prime_modulus": 379,
+    "scale_modulus": 229,
+    "sigma_p_over_M": 1.6550218340611353
+  },
+  "prime_block_count": 357,
+  "prime_block_theorem_proved": false,
+  "question": "After fixed-prime stress is obstructed, where do the moving source-start prime-block stresses sit in sigma=p/M, and can endpoint bands be safely treated as irrelevant?",
+  "scale_count": 7,
+  "scales": [
+    229,
+    251,
+    293,
+    331,
+    353,
+    379,
+    383
+  ],
+  "schema_version": 1,
+  "sigma_band_theorem_proved": false,
+  "source_commit": "e076519ed3284a7d4ae9550bfbbb62a417436a64",
+  "source_start_theorem_proved": false,
+  "source_sweeps": [
+    "evidence\\mobius-moment-square-degree5-source-start-m229-full-prime-sweep.json",
+    "evidence\\mobius-moment-square-degree5-source-start-m251-full-prime-sweep.json",
+    "evidence\\mobius-moment-square-degree5-source-start-m293-full-prime-sweep.json",
+    "evidence\\mobius-moment-square-degree5-source-start-m331-full-prime-sweep.json",
+    "evidence\\mobius-moment-square-degree5-source-start-m353-full-prime-sweep.json",
+    "evidence\\mobius-moment-square-degree5-source-start-m379-full-prime-sweep.json",
+    "evidence\\mobius-moment-square-degree5-source-start-m383-full-prime-sweep.json"
+  ],
+  "status": "AUDIT_degree5_moving_prime_band_stress",
+  "strict_central_goldbach_theorem_proved": false
+}

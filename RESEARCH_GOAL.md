@@ -6,6 +6,36 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The source-start moving-prime lane now has a sigma-band stress audit:
+`tools/build_mobius_moment_square_degree5_moving_prime_band_audit.py`
+generated
+`evidence/mobius-moment-square-degree5-moving-prime-band-audit.json`, with
+explanation in
+`notes/mobius-moment-square-degree5-moving-prime-band-audit.md`.
+
+Question: after fixed-prime stress is obstructed, where do the moving
+source-start prime-block stresses sit in `sigma=p/M`, and can endpoint bands
+be treated as irrelevant?
+
+Answer: all four sigma bands stay positive across seven complete sweeps, but
+the endpoint bands are not safely ignorable.  The audit covers `357` prime
+blocks and `1428` dominance rows.  Band minima are:
+`sigma_1_00_1_25 -> 0.4168496626998832` at `M=229`, `p=283`;
+`sigma_1_25_1_50 -> 0.426291195360443` at `M=331`, `p=479`;
+`sigma_1_50_1_75 -> 0.40189096624031384` at `M=229`, `p=379`;
+and `sigma_1_75_2_00 -> 0.40479256047704726` at `M=331`, `p=599`.
+The global weakest block is in the `1.50..1.75` band, but the high endpoint
+band minimum is close to it.
+
+Decision: the seven-sweep fixture does not support a fixed-prime theorem
+target or an endpoint-only simplification.  The next analytic target should be
+sigma-banded moving prime-block lower-frame control across the full interval
+`sigma in [1,2]`.  This is finite band evidence only, not a sigma-band theorem,
+not a moving-prime theorem, not a prime-block theorem, not a source-start
+theorem, not a strict-central Goldbach theorem, and not a Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The source-start morphology lane now has a fixed-prime horizon obstruction:
 `tools/build_mobius_moment_square_degree5_fixed_prime_horizon_obstruction.py`
 generated
