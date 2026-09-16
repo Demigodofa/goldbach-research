@@ -6,6 +6,43 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 residual support-packet route now has a fixed rescue-core audit:
+
+```text
+tools/build_q286_residual_support_packet_rescue_core_audit.py
+notes/q286-residual-support-packet-rescue-core-audit.md
+evidence/q286-residual-support-packet-rescue-core-audit.json
+```
+
+Result on the five actual full-positive frozen rows:
+
+```text
+minimum certifying core size:      5
+unique size-5 certifying core:     11x13, 5, 5x7, 5x7x13, 7
+tight row:                         94856
+aligned action:                    0.1140460717392141
+core signed action:                0.05669981666180788
+tail adverse envelope:             0.17016598888754483
+rescue-core margin:                0.0005798995134771445
+relative core budget:              0.010227537717379533
+tail packet count:                 10
+```
+
+Decision:
+`HOLD_minimal_rescue_core_is_near_sharp_finite_fit`.  The five-packet rescue
+core is real finite structure: no fixed core of size `0..4` certifies all five
+positive rows, and exactly one size-`5` core does.  It is still not a theorem
+route by itself.  The omitted-tail envelope is fitted to the five positive
+rows, and the tight row leaves only about `0.00058` absolute margin, or about
+`1.02%` relative room on the core.  The next proof object is either a
+source-backed lower bound for this fixed rescue core plus a universal
+adverse-tail bound, or a broader signed support-packet package.  This proves no
+rescue-core theorem, support-packet theorem, character-sum theorem, signed
+binary-prime correlation theorem, q286 threshold theorem, strict-central
+Goldbach theorem, or Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 residual route now has a support-packet character budget audit:
 
 ```text

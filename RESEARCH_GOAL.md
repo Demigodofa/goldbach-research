@@ -6,6 +6,47 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 residual support-packet route now has a fixed rescue-core audit:
+`tools/build_q286_residual_support_packet_rescue_core_audit.py` generated
+`evidence/q286-residual-support-packet-rescue-core-audit.json`, with
+explanation in `notes/q286-residual-support-packet-rescue-core-audit.md`.
+
+Question: can a smaller fixed signed rescue core certify the positive rows if
+every omitted packet is paid by a finite adverse-tail envelope?
+
+Answer: yes, but only as a near-sharp finite-fit HOLD.  No fixed core of size
+`0..4` certifies all five actual full-positive frozen rows.  Exactly one
+size-`5` core certifies them:
+
+```text
+11x13, 5, 5x7, 5x7x13, 7
+```
+
+The tight row is again `94856`:
+
+```text
+aligned action:                 0.1140460717392141
+core signed action:             0.05669981666180788
+tail adverse envelope:          0.17016598888754483
+rescue-core margin:             0.0005798995134771445
+relative core budget:           0.010227537717379533
+tail packet count:              10
+```
+
+Decision:
+`HOLD_minimal_rescue_core_is_near_sharp_finite_fit`.  The five-packet rescue
+core is a real finite structure worth preserving, but it does not supply a
+robust theorem bridge by itself.  The tail envelope is fitted to the five
+positive rows, and the tight margin is only about `0.00058`, or `1.02%`
+relative room on the core.  The next proof object is either a source-backed
+lower bound for this fixed rescue core plus a universal adverse-tail bound, or
+a broader signed support-packet package.  This proves no rescue-core theorem,
+support-packet theorem, character-sum theorem, signed binary-prime correlation
+theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach
+proof.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 residual route now has a support-packet character budget audit:
 `tools/build_q286_residual_character_support_packet_budget_audit.py`
 generated
