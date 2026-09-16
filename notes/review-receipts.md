@@ -4,6 +4,55 @@ Owner: Rill. Purpose: preserve the reasoning and validation that support claimed
 results, including corrections that change future execution. No raw model
 reasoning is retained. Model agreement is not a proof by itself.
 
+## Global reflection-thinning input obstruction, 2026-09-16
+
+A separate fresh-context read-only Sol reviewer
+(`01a0ac77-40a0-7ba3-8051-283483c59905`) returned PASS with no material
+math, source, scope, code or runtime findings for the ONE-GLOBAL-SEQUENCE
+construction in `notes/reflection-thinning-linear-input-obstruction.md`,
+`reflection_thinning.py` and its tests. This was review of a supplied
+derivation, not blind discovery. An initial verdict covered only the earlier
+target-indexed version; it was not used to certify the later strengthening.
+The final review explicitly checked all-modulus concentration, geometric
+gluing, partial-block moments, global progression prefixes and mixed transfer.
+
+The theorem constructs one sequence `0<=a<=2Lambda` with the available
+PNT/Bombieri-Vinogradov inputs and every fixed leading moment, but zero
+central pair mass at infinitely many selected targets. The aggregate AP
+perturbation is `O(X^(3/4)log(X)^(3/2))`. The resulting cutoff residual
+reaches `-H+O_J(N/log(N)^J)` there. The reviewer checked the primary
+Goldston-Yildirim statement (1.30), without extending its distribution level.
+The concentration proof itself is elementary and written in the note.
+
+The lead ran 10 focused tests and the 85-test combined regression suite;
+50 new/affected tests also pass under optimized Python. The reviewer ran
+the 10 focused tests in both modes, a 37-test related suite, and 260100
+exact prefix identities in an exhaustive fixture check. These checks cover
+finite algebra and implementation, not the infinite existence theorem.
+No repository-wide test run is claimed. Two later wording clarifications
+explicitly display the absolute pointwise moment bound already used in the
+reviewed proof and identify the globally defined domain and decision.
+
+Local Qwen received an exact-file bounded variance/window question after
+strict readiness passed. Its first answer dropped the pair covariance and
+wrote a false indicator inequality. A linked correction fixed the expansion
+but wrongly called the sign constant and confused prefix membership with
+central membership. A final bounded correction reproduced the expansion
+then wrongly claimed distinct endpoints cannot both belong to a prefix.
+Rill rejected these explanations and closed the advisory lane without
+promotion. All three answers were untruncated, with native tools disabled
+and zero tool calls. The existing negative-covariance test explicitly places
+both endpoints in one residue-prefix; the proof uses
+`Var(sigma*(uI-vJ))=(uI-vJ)^2=u^2I+v^2J-2uvIJ` for a uniform random sign.
+The helper added no accepted mathematical result or verification savings.
+
+Global consistency is achieved, but exact `Lambda` values, the frozen Mobius
+identity, actual long coefficients/periodic-envelope theorem and lower-order
+moment data are NOT preserved. This is an obstruction only to the specified
+relaxation, not a Goldbach counterexample or a general parity-barrier theorem.
+The actual pointwise gate, effective threshold, q286 and Q46189 gaps remain
+open. The full prove-or-disprove goal stays active.
+
 ## Full residual periodic envelope and interval gap, 2026-09-16
 
 A separate fresh-context read-only Sol review

@@ -6,6 +6,46 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+One global reflection-thinned sequence now separates the retained one-prime
+statistics from the missing pair margin. See
+`notes/reflection-thinning-linear-input-obstruction.md`.
+The analytical construction gives a single nonnegative sequence
+`0<=a(n)<=2Lambda(n)` on actual prime-power support, with
+
+```text
+sum_(q<=sqrt X) max_(r,x<=X)
+ |sum_(n<=x,n=r mod q)[a(n)-Lambda(n)]|
+    << X^(3/4)log(X)^(3/2),
+|sum_(n<=X)[a(n)^k-Lambda(n)^k]| <<_k X log(X)^(k-2)  (fixed k>=2),
+C_(N_j)(a,a)=0                                      (infinitely many N_j).
+```
+
+Thus the sequence inherits PNT, the available Bombieri-Vinogradov estimates,
+every fixed leading one-point moment, and the previous leading ordinary Gram
+data. The proof chooses one orientation per colliding reflected pair,
+deletes the midpoint, proves simultaneous all-modulus concentration, and
+glues widely separated central intervals. It uses no randomness assumption
+about primes and no finite search to prove existence.
+
+For every fixed cutoff exponent below `1/2`, `F=a-A_R` therefore satisfies
+`C_(N_j)(F,F)=-H(N_j)+O_(theta,J)(N_j/log(N_j)^J)`.
+This excludes a fixed positive gap derived SOLELY from those named relaxed
+inputs, even with global consistency. It is not a Goldbach counterexample:
+the weights differ from `Lambda`, the full frozen Mobius identity is lost,
+and the actual long coefficients and periodic-envelope theorem are not
+preserved. Lower-order moment information at scale `N` is also not retained.
+
+Separate mathematical/source review passed the global construction. Ten
+new tests, 85 combined tests and 50 affected tests under optimized Python
+pass; details and rejected helper advice are in `notes/review-receipts.md`.
+The actual pointwise `E_D` bound, effective starting point and Goldbach
+remain OPEN. Preserve q286 missing mass, Q46189 transfer and finite-cutoff
+obstructions. Choose ONE next question by mathematical value; do not repeat
+these relaxed statistics without a demonstrated use of a distinguishing
+arithmetic ingredient. The full prove-or-disprove objective stays active.
+
+## Actual residual periodic-envelope checkpoint, 2026-09-16
+
 The ACTUAL long residual now has a universally negligible complete-period
 envelope. See `notes/residual-periodic-envelope-and-window-gap.md`.
 For fixed `0<theta<1/2`, `R=floor(N^theta)` and

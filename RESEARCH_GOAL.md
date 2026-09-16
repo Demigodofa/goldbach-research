@@ -6,6 +6,31 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+A global reflection-thinning construction analytically falsifies a specific
+logical shortcut: `notes/reflection-thinning-linear-input-obstruction.md`.
+One sequence `0<=a<=2Lambda`, supported on actual prime powers, inherits
+PNT, available Bombieri-Vinogradov estimates, all fixed leading one-point
+moments and the leading ordinary Gram data, but has zero central reflected
+pair mass at infinitely many targets. The sum of maximal progression-prefix
+perturbations through `q<=sqrt X` is `O(X^(3/4)log(X)^(3/2))`.
+This is a proved construction using concentration and disjoint-window
+gluing, not a finite simulation or a target-inconsistent family.
+
+Consequently its cutoff residual reaches `-H+O_J(N/log(N)^J)` along those
+targets. The named relaxed inputs alone cannot force a fixed positive gap.
+The exact prime weights, full frozen Mobius identity, actual long residual
+coefficients/periodic theorem and lower-order moment terms are not retained.
+This does NOT falsify Goldbach or the full actual-arithmetic route.
+
+The changed next action is to require an explicit use of information this
+countermodel loses, rather than combine the same leading statistics again.
+Separate review passed; 10 new tests, 85 combined and 50 optimized affected
+tests pass. The full prove-or-disprove goal and freedom to choose a better
+bounded question remain active; the actual pointwise bound and effective
+starting point are still OPEN.
+
+## Actual residual periodic-envelope evidence, 2026-09-16
+
 The complete-period part of the actual long residual has been bounded
 uniformly, including the absolute envelope across Ramanujan conductors:
 `notes/residual-periodic-envelope-and-window-gap.md`. For the full divisor
