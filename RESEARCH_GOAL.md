@@ -6,6 +6,37 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The q286-WBSS route now has a zero-residue component-phase audit:
+`tools/build_q286_wbss_k286_zero_residue_component_phase_audit.py` generated
+`evidence/q286-wbss-k286-zero-residue-component-phase-audit.json`, with
+explanation in
+`notes/q286-wbss-k286-zero-residue-component-phase-audit.md`.
+
+Question: on the `18` zero-lane rows where aggregate active-character `L2`
+exceeds the sufficient local cap, which modulus carries the Cauchy threat and
+which modulus actually realizes adverse drag?
+
+Answer: modulus `286` dominates the Cauchy threat on all `18/18` violating
+rows, but actual adverse drag is distributed: `154 -> 6`, `286 -> 5`,
+`70 -> 4`, and `130 -> 3` dominant-adverse rows.  On these same rows, the
+aggregate Cauchy threat mean is `1.1189916481072606`, raw adverse mean is
+`0.06125731999751208`, and aggregate directional-efficiency mean is
+`0.05468085899942172`.  For modulus `286` alone, Cauchy threat mean is
+`0.7672836478772077`, actual adverse mean is `0.029285134674525884`, and
+directional-efficiency mean is `0.03794725356022015`; the modulus `286`
+component is adverse on `8` rows and rescue on `10`.
+
+Decision: `DIAGNOSTIC_zero_residue_component_phase_nonalignment`.  The next
+theorem-shaped target is a `K_286` phase-oscillation or coefficient-direction
+nonalignment estimate, not another aggregate `L2` estimate.  A proof still
+needs a universal, pointwise, unnormalized analytical estimate showing adverse
+drag below local main for every sufficiently large `N`.  No component theorem,
+phase-mode theorem, coefficient-direction nonalignment theorem, universal
+pointwise raw estimate, q286 threshold theorem, strict-central Goldbach
+theorem, or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-16
+
 The q286-WBSS route now has a zero-residue directional-slack audit:
 `tools/build_q286_wbss_k286_zero_residue_directional_slack_audit.py`
 generated

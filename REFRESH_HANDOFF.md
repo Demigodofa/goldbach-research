@@ -6,6 +6,47 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The q286-WBSS route now has a zero-residue component-phase audit:
+
+```text
+tools/build_q286_wbss_k286_zero_residue_component_phase_audit.py
+notes/q286-wbss-k286-zero-residue-component-phase-audit.md
+evidence/q286-wbss-k286-zero-residue-component-phase-audit.json
+```
+
+Question: on the `18` zero-lane rows where aggregate active-character `L2`
+exceeds the sufficient local cap, which modulus carries the Cauchy threat and
+which modulus actually realizes adverse drag?
+
+Result:
+
+```text
+L2-cap-violating zero-lane rows:        18
+dominant Cauchy-threat modulus:         286 on 18 / 18 rows
+dominant actual-adverse modulus counts: 154 -> 6
+                                      : 286 -> 5
+                                      : 70  -> 4
+                                      : 130 -> 3
+aggregate Cauchy threat mean:           1.1189916481072606
+aggregate raw adverse mean:             0.06125731999751208
+aggregate directional efficiency mean:  0.05468085899942172
+modulus 286 Cauchy threat mean:         0.7672836478772077
+modulus 286 actual adverse mean:        0.029285134674525884
+modulus 286 directional efficiency:     0.03794725356022015
+modulus 286 adverse/rescue split:       8 adverse, 10 rescue
+```
+
+Decision: `DIAGNOSTIC_zero_residue_component_phase_nonalignment`.  The next
+theorem-shaped target is a `K_286` phase-oscillation or coefficient-direction
+nonalignment estimate, not another aggregate `L2` estimate.  A proof still
+needs a universal, pointwise, unnormalized analytical estimate showing adverse
+drag below local main for every sufficiently large `N`.  No component theorem,
+phase-mode theorem, coefficient-direction nonalignment theorem, universal
+pointwise raw estimate, q286 threshold theorem, strict-central Goldbach
+theorem, or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-16
+
 The q286-WBSS route now has a zero-residue directional-slack audit:
 
 ```text
