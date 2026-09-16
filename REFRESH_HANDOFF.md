@@ -6,6 +6,41 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The ACTUAL reflected residual now localizes to arguments coprime to N.
+See `notes/nonunit-residual-localization.md`. For every fixed
+`0<theta<1/2`, `R=floor(N^theta)`, and `D_R=Lambda-A_R`,
+
+```text
+C_bad(D,D) := sum_(N/3<n<2N/3,(n,N)>1)D_R(n)D_R(N-n)
+           = O_(theta,J)(N/log(N)^J)  for every fixed J>0,
+Delta_0(N) = sum_(N/3<n<2N/3,(n,N)=1)D_R(n)D_R(N-n)
+              + O_(theta,J)(N/log(N)^J).
+```
+
+This is an analytical estimate for an actual part of the arithmetic sum,
+not another artificial-model refinement. On multiples of squarefree g|N,
+`A_R(gm)=sum_(h|g)mu(h)F_(R/h)^(g)(m)`. The excluded-prime reflected
+densities have common main `(g/phi(g))S_2(N)` uniformly for `g<=sqrt R`;
+the alternating cutoffs cancel it. Exact inclusion-exclusion handles
+overlapping divisibility sets. Harmonic divisor multiplicity preserves the
+source's exponential savings; large g and prime-power exceptions have
+power-saving bounds. Odd reduced targets N/g and the prime midpoint remain.
+
+The result bounds the SIGNED nonunit argument sum, not its absolute mass
+or each divisor tuple. Individual terms need not vanish: at N=60,R=7,n=30,
+the actual residual is log(7/5). Do not delete noncoprime divisor pairs
+individually from the old CRT discrepancy. The coprime argument sum still
+needs the pointwise lower bound `>=-(1-epsilon)H`; it is OPEN.
+
+Eleven focused tests, 104 combined and 69 optimized affected tests pass;
+separate review is recorded in `notes/review-receipts.md`. The full
+prove-or-disprove goal, effective-threshold and finite-remainder obligations,
+q286 missing mass, Q46189 transfer and earlier model/L2 boundaries remain.
+Choose ONE next bounded question for mathematical value, not another
+status-only audit. No Qwen; use a bounded spawned reviewer when useful.
+
+## Second-moment rigidity checkpoint, 2026-09-16
+
 The missing scale-N second-moment information now has an exact boundary.
 See `notes/reflection-thinning-second-moment-rigidity.md`. For
 `0<=a<=2Lambda`, `delta=a-Lambda`, local prefix discrepancy `eta_N`,

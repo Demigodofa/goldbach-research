@@ -6,6 +6,29 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+An actual part of the residual correlation is now controlled:
+`notes/nonunit-residual-localization.md`. For every fixed cutoff exponent
+below 1/2, the signed strict-central contribution with gcd(n,N)>1 is
+`O_(theta,J)(N/log(N)^J)` for every fixed J. The open Delta_0 estimate
+therefore reduces to the same residual product on gcd(n,N)=1 alone.
+
+The proof uses the exact Mobius cutoff-difference identity on multiples of
+g|N, a target-uniform excluded-prime density estimate, cancellation of their
+common leading term, full inclusion-exclusion and explicit large-g bounds.
+It does not assert small absolute nonunit mass or allow independent removal
+of divisor tuples. Odd reduced targets and prime-power/midpoint exceptions
+are accounted for. This is a new-to-this-task analytical deduction, not a
+historical novelty claim or a finite fit.
+
+Eleven new tests, 104 combined and 69 optimized affected tests pass; separate
+review is recorded in the review receipts. The favorable pointwise bound on
+the remaining coprime sum, effective threshold, finite remainder and
+Goldbach proof/disproof remain open. Preserve all prior q286, Q46189,
+finite-cutoff L2 and reflection-thinning limitations. The full objective
+stays active, with freedom to choose the next mathematically valuable step.
+
+## Second-moment rigidity evidence, 2026-09-16
+
 The quadratic price of the previous countermodel is now quantified:
 `notes/reflection-thinning-second-moment-rigidity.md`. For prime-supported
 `0<=a<=2Lambda` with accurate first-moment prefixes, the second-moment

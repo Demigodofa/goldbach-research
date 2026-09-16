@@ -4,6 +4,46 @@ Owner: Rill. Purpose: preserve the reasoning and validation that support claimed
 results, including corrections that change future execution. No raw model
 reasoning is retained. Model agreement is not a proof by itself.
 
+## Actual nonunit residual localization, 2026-09-16
+
+A separate fresh-context read-only Sol reviewer
+(`01a0ac9c-c2aa-7192-93ce-db1c0fc80947`) returned consolidated PASS with
+no material findings for `notes/nonunit-residual-localization.md`, its exact
+helper and eleven tests. This was a supplied-proof/source review, not blind
+discovery. Kevin's no-Qwen research instruction was followed.
+
+The reviewer checked Goldston-Yildirim Lemma 2.1 and (2.25) directly, the
+fixed uniformity ratios, excluded-prime Euler main `(g/phi(g))S_2(N)`,
+cutoff cancellation, and both common-divisor tails. It explicitly retained
+odd reduced targets `M=N/g`, repeated prime factors of N, exact strict
+endpoints and the prime midpoint exception. No mathematical correction
+was required.
+
+The accepted estimate is
+`sum_(n in I_N,(n,N)>1)D_R(n)D_R(N-n)=O_(theta,J)(N/log(N)^J)`
+for each fixed `0<theta<1/2` and J>0, uniformly through sufficiently large
+even targets. The proof uses inclusion-exclusion, not an overlapping prime
+union bound, and accumulates source errors with the essential harmonic
+factor `sum_(g|rad(N))tau(g)^2/g<=L^4`. A bare subpower divisor-count
+factor against the exponential source error would not be sufficient.
+
+The remaining Delta_0 estimate now concerns only gcd(n,N)=1 arguments.
+This does not bound absolute nonunit mass, establish a favorable sign on
+the coprime part, or permit removal of individual noncoprime divisor tuples
+from the old global CRT expansion. The exact N=60,R=7,n=30 residual
+`log(7/5)` records that individual terms need not vanish.
+
+The lead ran 11 focused tests, 104 combined tests, and 69 optimized affected
+tests successfully. The reviewer separately ran all 11 focused tests in
+normal and optimized modes. These are finite algebra and edge-case checks,
+not proof by computation of the analytical estimate; no repository-wide
+test run or effective numerical starting threshold is claimed.
+
+The full prove-or-disprove goal remains active. The unit-core one-sided
+lower bound, effective threshold, finite remainder, q286 missing-mass and
+Q46189 transfer obligations are still open. Earlier L2 and countermodel
+limitations remain unchanged.
+
 ## Reflection-thinning second-moment rigidity, 2026-09-16
 
 A separate fresh-context read-only Sol reviewer
