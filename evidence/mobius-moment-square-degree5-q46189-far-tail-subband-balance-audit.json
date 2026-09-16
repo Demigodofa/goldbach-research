@@ -1,0 +1,450 @@
+{
+  "adverse_row": {
+    "far_band": {
+      "absolute_over_diagonal": 4.028434371448554,
+      "negative_over_diagonal": -2.2524980381716113,
+      "positive_fraction_of_absolute": 0.4408502583196725,
+      "positive_over_diagonal": 1.7759363332769427,
+      "total_over_diagonal": -0.47656170489466876
+    },
+    "half_margin": -112967899058.92188,
+    "middle_band": {
+      "absolute_over_diagonal": 2.728125120371595,
+      "negative_over_diagonal": -1.5060833019227289,
+      "positive_fraction_of_absolute": 0.4479419984529204,
+      "positive_over_diagonal": 1.2220418184488662,
+      "total_over_diagonal": -0.2840414834738627
+    },
+    "near_band": {
+      "absolute_over_diagonal": 0.45284305779433903,
+      "negative_over_diagonal": -0.2952902968421639,
+      "positive_fraction_of_absolute": 0.347919126152815,
+      "positive_over_diagonal": 0.15755276095217513,
+      "total_over_diagonal": -0.13773753588998874
+    },
+    "ratio_minus_half": -0.002690962765227678,
+    "reduced_denominator": 46189,
+    "role": "q46189_adverse",
+    "tail_band": {
+      "absolute_over_diagonal": 3.2999757293444234,
+      "negative_over_diagonal": -1.7035084653081793,
+      "positive_fraction_of_absolute": 0.4837815168881257,
+      "positive_over_diagonal": 1.596467264036244,
+      "total_over_diagonal": -0.10704120127193549
+    }
+  },
+  "candidate_next_action": {
+    "falsifier": "A source-admissible replacement row with far-band positive share or total pressure at or below the finite separator falsifies this narrowed target.",
+    "mechanism": "The source-admissible replacement rows keep enough positive mass in the far band A*10..A*100 to avoid the Q=46189 overpayment.",
+    "name": "far-band signed-balance lower bound",
+    "novelty_label": "new-to-this-task",
+    "prediction": "A theorem route should first target the far band alone; tail control is not the finite separator.",
+    "smallest_next_test": "Classify the residue distances contributing positive far-band mass and test whether their distribution differs structurally from Q=46189."
+  },
+  "classification": {
+    "far_positive_share_separates_finite_family": true,
+    "far_total_pressure_separates_finite_family": true,
+    "finite_selected_family_diagnostic_only": true,
+    "tail_positive_share_separates": false,
+    "tail_total_pressure_separates": false
+  },
+  "coordinate00_residue_gap_sign_theorem_proved": false,
+  "decision": "The broad signed-balance separator localizes to the far band.  Tail is a non-separator: q=40755 is worse than Q=46189 in tail positive share and tail total.  The next theorem-shaped target is therefore a far-band signed-balance lower bound.",
+  "far_band_positive_share_theorem_proved": false,
+  "far_band_pressure_theorem_proved": false,
+  "far_tail_positive_share_theorem_proved": false,
+  "finite_diagnostic_only": true,
+  "finite_far_tail_subband_balance_audit_only": true,
+  "fixture": {
+    "active_row_start": 43,
+    "divisor_range": [
+      3,
+      19
+    ],
+    "ell_freeze": 64,
+    "prime_modulus": 379,
+    "replacement_row_count": 10,
+    "row_count_A": 43,
+    "scale_modulus": 229,
+    "target_label": "00,12"
+  },
+  "goldbach_proved": false,
+  "question": "Does the far-tail positive-share separator localize to the far band, the tail band, or only their combination?",
+  "replacement_residue_gap_bound_theorem_proved": false,
+  "replacement_rows": [
+    {
+      "far_band": {
+        "absolute_over_diagonal": 3.3209824108538144,
+        "negative_over_diagonal": -1.77478923900573,
+        "positive_fraction_of_absolute": 0.46558306565994817,
+        "positive_over_diagonal": 1.5461931718480844,
+        "total_over_diagonal": -0.2285960671576456
+      },
+      "half_margin": 22640808441778.984,
+      "middle_band": {
+        "absolute_over_diagonal": 1.1686103541245656,
+        "negative_over_diagonal": -0.6631852734044686,
+        "positive_fraction_of_absolute": 0.43250094348062074,
+        "positive_over_diagonal": 0.505425080720097,
+        "total_over_diagonal": -0.15776019268437164
+      },
+      "near_band": {
+        "absolute_over_diagonal": 0.1701255952164196,
+        "negative_over_diagonal": -0.11682116685689181,
+        "positive_fraction_of_absolute": 0.3133239786271921,
+        "positive_over_diagonal": 0.05330442835952778,
+        "total_over_diagonal": -0.06351673849736401
+      },
+      "ratio_minus_half": 0.25818734746688266,
+      "reduced_denominator": 62985,
+      "role": "replacement",
+      "tail_band": {
+        "absolute_over_diagonal": 2.5145583732242134,
+        "negative_over_diagonal": -1.274155339975533,
+        "positive_fraction_of_absolute": 0.4932886213566848,
+        "positive_over_diagonal": 1.2404030332486802,
+        "total_over_diagonal": -0.03375230672685273
+      }
+    },
+    {
+      "far_band": {
+        "absolute_over_diagonal": 2.1251735079345373,
+        "negative_over_diagonal": -1.133528811712631,
+        "positive_fraction_of_absolute": 0.4666182278856321,
+        "positive_over_diagonal": 0.9916446962219061,
+        "total_over_diagonal": -0.14188411549072466
+      },
+      "half_margin": 17270923935307.371,
+      "middle_band": {
+        "absolute_over_diagonal": 1.3384908492425889,
+        "negative_over_diagonal": -0.6432288974044874,
+        "positive_fraction_of_absolute": 0.5194372096242039,
+        "positive_over_diagonal": 0.6952619518381014,
+        "total_over_diagonal": 0.05203305443361395
+      },
+      "near_band": {
+        "absolute_over_diagonal": 0.27373175847317366,
+        "negative_over_diagonal": -0.21441842878211176,
+        "positive_fraction_of_absolute": 0.21668413640383188,
+        "positive_over_diagonal": 0.05931332969106193,
+        "total_over_diagonal": -0.15510509909104986
+      },
+      "ratio_minus_half": 0.3564899239156324,
+      "reduced_denominator": 36465,
+      "role": "replacement",
+      "tail_band": {
+        "absolute_over_diagonal": 1.4778181084495328,
+        "negative_over_diagonal": -0.7599410502350537,
+        "positive_fraction_of_absolute": 0.48576821065458914,
+        "positive_over_diagonal": 0.7178770582144791,
+        "total_over_diagonal": -0.04206399202057472
+      }
+    },
+    {
+      "far_band": {
+        "absolute_over_diagonal": 2.0120011221716374,
+        "negative_over_diagonal": -1.0550638586048324,
+        "positive_fraction_of_absolute": 0.4756146768615826,
+        "positive_over_diagonal": 0.9569372635668049,
+        "total_over_diagonal": -0.09812659503802762
+      },
+      "half_margin": 10141287433917.113,
+      "middle_band": {
+        "absolute_over_diagonal": 1.5910041797658838,
+        "negative_over_diagonal": -0.7605568496741,
+        "positive_fraction_of_absolute": 0.5219642667525765,
+        "positive_over_diagonal": 0.830447330091784,
+        "total_over_diagonal": 0.06989048041768406
+      },
+      "near_band": {
+        "absolute_over_diagonal": 0.1739600075794809,
+        "negative_over_diagonal": -0.10729361679807402,
+        "positive_fraction_of_absolute": 0.38322825866139126,
+        "positive_over_diagonal": 0.06666639078140689,
+        "total_over_diagonal": -0.040627226016667115
+      },
+      "ratio_minus_half": 0.42624522980526125,
+      "reduced_denominator": 35530,
+      "role": "replacement",
+      "tail_band": {
+        "absolute_over_diagonal": 1.6274410898915188,
+        "negative_over_diagonal": -0.8530436448219927,
+        "positive_fraction_of_absolute": 0.4758374664862035,
+        "positive_over_diagonal": 0.7743974450695261,
+        "total_over_diagonal": -0.07864619975246682
+      }
+    },
+    {
+      "far_band": {
+        "absolute_over_diagonal": 1.8468808947076345,
+        "negative_over_diagonal": -0.9681662147239792,
+        "positive_fraction_of_absolute": 0.4757830797327934,
+        "positive_over_diagonal": 0.8787146799836553,
+        "total_over_diagonal": -0.0894515347403241
+      },
+      "half_margin": 4477969972929.314,
+      "middle_band": {
+        "absolute_over_diagonal": 1.6656716254427488,
+        "negative_over_diagonal": -1.0489462087468882,
+        "positive_fraction_of_absolute": 0.3702563021879719,
+        "positive_over_diagonal": 0.6167254166958608,
+        "total_over_diagonal": -0.43222079205102754
+      },
+      "near_band": {
+        "absolute_over_diagonal": 0.14693068143800359,
+        "negative_over_diagonal": -0.08041431005534297,
+        "positive_fraction_of_absolute": 0.4527057979427309,
+        "positive_over_diagonal": 0.06651637138266062,
+        "total_over_diagonal": -0.013897938672682353
+      },
+      "ratio_minus_half": 0.23349735557232798,
+      "reduced_denominator": 41990,
+      "role": "replacement",
+      "tail_band": {
+        "absolute_over_diagonal": 1.6698344775590102,
+        "negative_over_diagonal": -0.8336347504751599,
+        "positive_fraction_of_absolute": 0.5007680331922598,
+        "positive_over_diagonal": 0.8361997270838503,
+        "total_over_diagonal": 0.0025649766086904445
+      }
+    },
+    {
+      "far_band": {
+        "absolute_over_diagonal": 2.858692662836234,
+        "negative_over_diagonal": -1.4513689462075003,
+        "positive_fraction_of_absolute": 0.49229626357681494,
+        "positive_over_diagonal": 1.4073237166287336,
+        "total_over_diagonal": -0.044045229578766436
+      },
+      "half_margin": 22672587901461.613,
+      "middle_band": {
+        "absolute_over_diagonal": 1.7546883300461524,
+        "negative_over_diagonal": -0.8982711246997015,
+        "positive_fraction_of_absolute": 0.4880736884617709,
+        "positive_over_diagonal": 0.8564172053464508,
+        "total_over_diagonal": -0.041853919353250814
+      },
+      "near_band": {
+        "absolute_over_diagonal": 0.19507624763505305,
+        "negative_over_diagonal": -0.03951028764066695,
+        "positive_fraction_of_absolute": 0.7974623352680925,
+        "positive_over_diagonal": 0.1555659599943861,
+        "total_over_diagonal": 0.11605567235371916
+      },
+      "ratio_minus_half": 0.5090053014564777,
+      "reduced_denominator": 49742,
+      "role": "replacement",
+      "tail_band": {
+        "absolute_over_diagonal": 2.191272555205185,
+        "negative_over_diagonal": -1.101709237856966,
+        "positive_fraction_of_absolute": 0.4972285691983192,
+        "positive_over_diagonal": 1.089563317348219,
+        "total_over_diagonal": -0.012145920508746796
+      }
+    },
+    {
+      "far_band": {
+        "absolute_over_diagonal": 4.430440320387034,
+        "negative_over_diagonal": -2.229104666561412,
+        "positive_fraction_of_absolute": 0.4968661114101901,
+        "positive_over_diagonal": 2.2013356538256224,
+        "total_over_diagonal": -0.027769012735789186
+      },
+      "half_margin": 19417467655118.87,
+      "middle_band": {
+        "absolute_over_diagonal": 1.9323058269410178,
+        "negative_over_diagonal": -0.9773863510793389,
+        "positive_fraction_of_absolute": 0.49418651154894383,
+        "positive_over_diagonal": 0.9549194758616788,
+        "total_over_diagonal": -0.022466875217660068
+      },
+      "near_band": {
+        "absolute_over_diagonal": 0.3222160134402258,
+        "negative_over_diagonal": -0.19979260559236442,
+        "positive_fraction_of_absolute": 0.37994203497453466,
+        "positive_over_diagonal": 0.1224234078478614,
+        "total_over_diagonal": -0.07736919774450304
+      },
+      "ratio_minus_half": 0.4332347334981528,
+      "reduced_denominator": 53295,
+      "role": "replacement",
+      "tail_band": {
+        "absolute_over_diagonal": 3.6232841008832795,
+        "negative_over_diagonal": -1.8146047740945106,
+        "positive_fraction_of_absolute": 0.4991823098685116,
+        "positive_over_diagonal": 1.8086793267887686,
+        "total_over_diagonal": -0.00592544730574173
+      }
+    },
+    {
+      "far_band": {
+        "absolute_over_diagonal": 1.7565617242168423,
+        "negative_over_diagonal": -0.867573827453956,
+        "positive_fraction_of_absolute": 0.5060954502804271,
+        "positive_over_diagonal": 0.8889878967628864,
+        "total_over_diagonal": 0.021414069308930563
+      },
+      "half_margin": 4380137469743.5,
+      "middle_band": {
+        "absolute_over_diagonal": 1.8908632854831806,
+        "negative_over_diagonal": -1.4154281379609719,
+        "positive_fraction_of_absolute": 0.25143814001376563,
+        "positive_over_diagonal": 0.47543514752220883,
+        "total_over_diagonal": -0.939992990438763
+      },
+      "near_band": {
+        "absolute_over_diagonal": 0.15014223491297055,
+        "negative_over_diagonal": -0.06422342281378782,
+        "positive_fraction_of_absolute": 0.5722494549850365,
+        "positive_over_diagonal": 0.08591881209918273,
+        "total_over_diagonal": 0.02169538928539489
+      },
+      "ratio_minus_half": 0.07635340770691468,
+      "reduced_denominator": 38038,
+      "role": "replacement",
+      "tail_band": {
+        "absolute_over_diagonal": 1.179491744837103,
+        "negative_over_diagonal": -0.5649506987894181,
+        "positive_fraction_of_absolute": 0.5210219136654982,
+        "positive_over_diagonal": 0.6145410460476849,
+        "total_over_diagonal": 0.04959034725826683
+      }
+    },
+    {
+      "far_band": {
+        "absolute_over_diagonal": 1.529828754973804,
+        "negative_over_diagonal": -0.7337116964140044,
+        "positive_fraction_of_absolute": 0.5203961920387827,
+        "positive_over_diagonal": 0.7961170585597996,
+        "total_over_diagonal": 0.0624053621457953
+      },
+      "half_margin": 19140744261593.41,
+      "middle_band": {
+        "absolute_over_diagonal": 1.3224166130138655,
+        "negative_over_diagonal": -0.7370241797300742,
+        "positive_fraction_of_absolute": 0.4426686926971127,
+        "positive_over_diagonal": 0.5853924332837914,
+        "total_over_diagonal": -0.15163174644628283
+      },
+      "near_band": {
+        "absolute_over_diagonal": 0.11740580134866396,
+        "negative_over_diagonal": -0.07473678278422421,
+        "positive_fraction_of_absolute": 0.3634319435180561,
+        "positive_over_diagonal": 0.042669018564439755,
+        "total_over_diagonal": -0.03206776421978444
+      },
+      "ratio_minus_half": 0.43551465411843815,
+      "reduced_denominator": 34034,
+      "role": "replacement",
+      "tail_band": {
+        "absolute_over_diagonal": 1.046802304012585,
+        "negative_over_diagonal": -0.5272394236277184,
+        "positive_fraction_of_absolute": 0.4963333366704361,
+        "positive_over_diagonal": 0.5195628803848665,
+        "total_over_diagonal": -0.007676543242851826
+      }
+    },
+    {
+      "far_band": {
+        "absolute_over_diagonal": 2.387607434998305,
+        "negative_over_diagonal": -1.0938584359045245,
+        "positive_fraction_of_absolute": 0.5418600143933205,
+        "positive_over_diagonal": 1.2937489990937807,
+        "total_over_diagonal": 0.1998905631892564
+      },
+      "half_margin": 33119492017959.594,
+      "middle_band": {
+        "absolute_over_diagonal": 1.8795157503389628,
+        "negative_over_diagonal": -0.906466346925697,
+        "positive_fraction_of_absolute": 0.5177128221659119,
+        "positive_over_diagonal": 0.9730494034132657,
+        "total_over_diagonal": 0.06658305648756882
+      },
+      "near_band": {
+        "absolute_over_diagonal": 0.19362629858170174,
+        "negative_over_diagonal": -0.09868227572060581,
+        "positive_fraction_of_absolute": 0.4903467326316407,
+        "positive_over_diagonal": 0.09494402286109593,
+        "total_over_diagonal": -0.0037382528595098696
+      },
+      "ratio_minus_half": 0.5735414442150191,
+      "reduced_denominator": 40755,
+      "role": "replacement",
+      "tail_band": {
+        "absolute_over_diagonal": 1.864279377528999,
+        "negative_over_diagonal": -0.9899659279581381,
+        "positive_fraction_of_absolute": 0.46898198848807515,
+        "positive_over_diagonal": 0.8743134495708609,
+        "total_over_diagonal": -0.11565247838727731
+      }
+    },
+    {
+      "far_band": {
+        "absolute_over_diagonal": 2.5068197551307545,
+        "negative_over_diagonal": -1.0422500980056693,
+        "positive_fraction_of_absolute": 0.5842341293695024,
+        "positive_over_diagonal": 1.4645696571250855,
+        "total_over_diagonal": 0.42231955911941577
+      },
+      "half_margin": 41739143826365.67,
+      "middle_band": {
+        "absolute_over_diagonal": 0.7825684154881586,
+        "negative_over_diagonal": -0.49065760266354136,
+        "positive_fraction_of_absolute": 0.3730163485355157,
+        "positive_over_diagonal": 0.2919108128246172,
+        "total_over_diagonal": -0.19874678983892413
+      },
+      "near_band": {
+        "absolute_over_diagonal": 0.16623608363833453,
+        "negative_over_diagonal": -0.12708785038429812,
+        "positive_fraction_of_absolute": 0.23549780767939543,
+        "positive_over_diagonal": 0.0391482332540364,
+        "total_over_diagonal": -0.08793961713026172
+      },
+      "ratio_minus_half": 0.5246550671421382,
+      "reduced_denominator": 58786,
+      "role": "replacement",
+      "tail_band": {
+        "absolute_over_diagonal": 1.7987833632842016,
+        "negative_over_diagonal": -0.9425531905750768,
+        "positive_fraction_of_absolute": 0.47600516559472056,
+        "positive_over_diagonal": 0.8562301727091248,
+        "total_over_diagonal": -0.08632301786595199
+      }
+    }
+  ],
+  "schema_version": 1,
+  "separation_summary": {
+    "adverse_below_far_positive_fraction_separator": true,
+    "adverse_below_far_total_separator": true,
+    "adverse_far_positive_fraction": 0.4408502583196725,
+    "adverse_far_total_over_diagonal": -0.47656170489466876,
+    "all_replacements_above_far_positive_fraction_separator": true,
+    "all_replacements_above_far_total_separator": true,
+    "far_positive_fraction_gap": 0.024732807340275664,
+    "far_positive_fraction_separator": 0.45321666198981037,
+    "far_total_gap": 0.24796563773702315,
+    "far_total_separator": -0.35257888602615717,
+    "minimum_replacement_far_positive_fraction": 0.46558306565994817,
+    "minimum_replacement_far_positive_fraction_denominator": 62985,
+    "minimum_replacement_far_total_denominator": 62985,
+    "minimum_replacement_far_total_over_diagonal": -0.2285960671576456
+  },
+  "source_commit": "480f08d718a6a62e975d85fd6d9ebb3fea5f2073",
+  "source_far_tail_sign_budget_audit": "evidence\\mobius-moment-square-degree5-q46189-far-tail-sign-budget-audit.json",
+  "source_one_coordinate_ledger": "evidence\\mobius-moment-square-degree5-q46189-one-coordinate-ratio-ledger-audit.json",
+  "status": "AUDIT_q46189_far_tail_subband_balance",
+  "strict_central_goldbach_theorem_proved": false,
+  "tail_band_pressure_theorem_proved": false,
+  "tail_non_separator": {
+    "adverse_tail_positive_fraction": 0.4837815168881257,
+    "adverse_tail_total_over_diagonal": -0.10704120127193549,
+    "minimum_replacement_tail_positive_fraction": 0.46898198848807515,
+    "minimum_replacement_tail_positive_fraction_denominator": 40755,
+    "minimum_replacement_tail_total_denominator": 40755,
+    "minimum_replacement_tail_total_over_diagonal": -0.11565247838727731,
+    "reason": "Replacement q=40755 is worse than Q=46189 by both tail positive share and tail total, so the separator is not a tail-only effect.",
+    "tail_positive_fraction_separates": false,
+    "tail_total_separates": false
+  }
+}

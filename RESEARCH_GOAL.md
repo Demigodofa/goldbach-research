@@ -6,6 +6,37 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The `Q=46189` replacement-family lane now has a far-tail sub-band balance
+audit:
+`tools/build_mobius_moment_square_degree5_q46189_far_tail_subband_balance_audit.py`
+generated
+`evidence/mobius-moment-square-degree5-q46189-far-tail-subband-balance-audit.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-q46189-far-tail-subband-balance-audit.md`.
+
+Question: does the far-tail positive-share separator localize to the far band,
+the tail band, or only their combination?
+
+Answer: it localizes to the far band.  In the `10A..100A` distance band,
+`Q=46189` has positive share `0.4408502583196725`, while the lowest
+source-admissible replacement value is `0.46558306565994817`, at denominator
+`62985`, giving a finite positive-share gap `0.024732807340275664`.
+The far total pressure also separates: `Q=46189` has
+`-0.47656170489466876`, while the worst replacement has
+`-0.2285960671576456`, again at `62985`, giving gap
+`0.24796563773702315`.
+
+Decision: tail is a non-separator.  Replacement `q=40755` is worse than
+`Q=46189` by both tail positive share and tail total.  The theorem-shaped
+target narrows from combined far+tail signed balance to a far-band
+signed-balance lower bound.  This remains finite selected-family evidence
+only; it proves no far-band positive-share theorem, far-band pressure theorem,
+tail-band pressure theorem, far-tail positive-share theorem, replacement
+residue-gap bound theorem, coordinate-`00` residue-gap sign theorem,
+strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The `Q=46189` replacement-family lane now has a far-tail sign-budget audit:
 `tools/build_mobius_moment_square_degree5_q46189_far_tail_sign_budget_audit.py`
 generated
