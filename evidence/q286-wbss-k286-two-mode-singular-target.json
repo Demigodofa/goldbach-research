@@ -1,0 +1,432 @@
+{
+  "answer": "The principal-normalized K_286 coefficient matrix decomposes as K=sum_j sigma_j u_j vh_j.  The first two singular values are 3.597046733129315 and 2.8233430589589674, carrying 0.9760410444893588 of coefficient energy.  Thus the exact proof target can be split into two leading moment functionals mu_1, mu_2 and a residual with coefficient L2 norm 0.7164353938945424.",
+  "candidate": {
+    "falsifier": "If mu_1 and mu_2 require the same pointwise binary-prime AP control as all 50 active characters, the two-mode split is descriptive only.",
+    "mechanism": "Replace broad character control by two explicit separable singular moment functionals and a small residual coefficient tail.",
+    "name": "K_286 two singular moment target",
+    "novelty_label": "new-to-this-task",
+    "prediction": "If the singular compression is proof-relevant, mu_1 and mu_2 should have a fixed-modulus AP or reflection structure that is stronger than the full 50-character package.",
+    "smallest_next_test": "Inspect mu_1 and mu_2 as residue weights on U_11 x U_13 and test whether target reflection or character parity forces a one-sided sign relation."
+  },
+  "decision": "TARGET_k286_two_mode_singular_target_unproved.  The two leading singular moment functionals are now an exact target: prove a one-sided lower bound for Re(sigma_1*mu_1+sigma_2*mu_2), plus a residual cap, instead of paying all active K_286 characters independently.  This proves no such moment theorem.",
+  "goldbach_proved": false,
+  "k286_pointwise_lower_bound_proved": false,
+  "major_minor_arc_estimate_proved": false,
+  "mode_rows": [
+    {
+      "left_vector_top_entries_mod_11": [
+        {
+          "character_exponent": 5,
+          "coefficient": {
+            "imag": -0.05820038554679004,
+            "real": 0.49872446960832445
+          },
+          "energy_fraction": 0.25211338146389956
+        },
+        {
+          "character_exponent": 3,
+          "coefficient": {
+            "imag": 0.04623768076997422,
+            "real": 0.44528792280927026
+          },
+          "energy_fraction": 0.20041925732278065
+        },
+        {
+          "character_exponent": 7,
+          "coefficient": {
+            "imag": -0.14752772390551525,
+            "real": 0.4226757953822735
+          },
+          "energy_fraction": 0.20041925732277946
+        },
+        {
+          "character_exponent": 9,
+          "coefficient": {
+            "imag": -0.09591808006560154,
+            "real": 0.4053686888029218
+          },
+          "energy_fraction": 0.17352405194527123
+        },
+        {
+          "character_exponent": 1,
+          "coefficient": {
+            "imag": 0.0,
+            "real": 0.4165621825673434
+          },
+          "energy_fraction": 0.17352405194526874
+        }
+      ],
+      "mode_index": 1,
+      "mode_moment_definition": "mu_j(N)=sum_{alpha=1..9,beta=1..11} u_j(alpha)*vh_j(beta)*delta_{alpha,beta}(N).",
+      "normalized_mode_frobenius_norm": 0.9999999999999999,
+      "right_vector_top_entries_mod_13": [
+        {
+          "character_exponent": 5,
+          "coefficient": {
+            "imag": 0.3577016588080413,
+            "real": -0.26859157934409295
+          },
+          "energy_fraction": 0.20009191320857853
+        },
+        {
+          "character_exponent": 7,
+          "coefficient": {
+            "imag": -0.4099360147713508,
+            "real": -0.17900943271783448
+          },
+          "energy_fraction": 0.20009191320857805
+        },
+        {
+          "character_exponent": 1,
+          "coefficient": {
+            "imag": -0.3754085630220585,
+            "real": -0.14804453750922586
+          },
+          "energy_fraction": 0.16284877427660743
+        },
+        {
+          "character_exponent": 11,
+          "coefficient": {
+            "imag": 0.33123201032117694,
+            "real": -0.23050841549756013
+          },
+          "energy_fraction": 0.16284877427660407
+        },
+        {
+          "character_exponent": 3,
+          "coefficient": {
+            "imag": 0.039424609818777503,
+            "real": 0.3681100550860486
+          },
+          "energy_fraction": 0.13705931251481657
+        }
+      ],
+      "scaled_mode_l1": 19.59477468729403,
+      "scaled_mode_l2": 3.5970467331293134,
+      "scaled_mode_linf": 0.8079022122683024,
+      "singular_energy_fraction": 0.6039569391646825,
+      "singular_value": 3.597046733129314,
+      "top_scaled_character_pair_coefficients": [
+        {
+          "character_label_11_13": [
+            5,
+            5
+          ],
+          "mode_coefficient": {
+            "imag": 0.6979231201066288,
+            "real": -0.40695122927526
+          },
+          "mode_coefficient_abs": 0.8079022122683024
+        },
+        {
+          "character_label_11_13": [
+            5,
+            7
+          ],
+          "mode_coefficient": {
+            "imag": -0.6979231201066157,
+            "real": -0.40695122927528043
+          },
+          "mode_coefficient_abs": 0.8079022122683014
+        },
+        {
+          "character_label_11_13": [
+            5,
+            1
+          ],
+          "mode_coefficient": {
+            "imag": -0.6424655937507705,
+            "real": -0.34417390805761733
+          },
+          "mode_coefficient_abs": 0.7288468413467835
+        },
+        {
+          "character_label_11_13": [
+            5,
+            11
+          ],
+          "mode_coefficient": {
+            "imag": 0.6424655937507687,
+            "real": -0.34417390805760484
+          },
+          "mode_coefficient_abs": 0.728846841346776
+        },
+        {
+          "character_label_11_13": [
+            3,
+            5
+          ],
+          "mode_coefficient": {
+            "imag": 0.5282665167098257,
+            "real": -0.48970151621778263
+          },
+          "mode_coefficient_abs": 0.7203284581791336
+        },
+        {
+          "character_label_11_13": [
+            3,
+            7
+          ],
+          "mode_coefficient": {
+            "imag": -0.6863760028668409,
+            "real": -0.21854306292185302
+          },
+          "mode_coefficient_abs": 0.7203284581791327
+        },
+        {
+          "character_label_11_13": [
+            7,
+            5
+          ],
+          "mode_coefficient": {
+            "imag": 0.6863760028668501,
+            "real": -0.2185430629218199
+          },
+          "mode_coefficient_abs": 0.7203284581791314
+        },
+        {
+          "character_label_11_13": [
+            7,
+            7
+          ],
+          "mode_coefficient": {
+            "imag": -0.5282665167098001,
+            "real": -0.4897015162178058
+          },
+          "mode_coefficient_abs": 0.7203284581791306
+        }
+      ]
+    },
+    {
+      "left_vector_top_entries_mod_11": [
+        {
+          "character_exponent": 8,
+          "coefficient": {
+            "imag": 0.3662079920482562,
+            "real": -0.35319211753378527
+          },
+          "energy_fraction": 0.25885296532801483
+        },
+        {
+          "character_exponent": 2,
+          "coefficient": {
+            "imag": 0.4395609800987177,
+            "real": -0.2562013077692366
+          },
+          "energy_fraction": 0.25885296532801233
+        },
+        {
+          "character_exponent": 4,
+          "coefficient": {
+            "imag": 0.40432275599137146,
+            "real": -0.27869363763734056
+          },
+          "energy_fraction": 0.24114703467199142
+        },
+        {
+          "character_exponent": 6,
+          "coefficient": {
+            "imag": 0.37825553687627406,
+            "real": -0.3131609546134757
+          },
+          "energy_fraction": 0.2411470346719817
+        },
+        {
+          "character_exponent": 3,
+          "coefficient": {
+            "imag": -1.1379786002407855e-14,
+            "real": -1.4432899320127035e-15
+          },
+          "energy_fraction": 1.3158261528844695e-28
+        }
+      ],
+      "mode_index": 2,
+      "mode_moment_definition": "mu_j(N)=sum_{alpha=1..9,beta=1..11} u_j(alpha)*vh_j(beta)*delta_{alpha,beta}(N).",
+      "normalized_mode_frobenius_norm": 0.9999999999999999,
+      "right_vector_top_entries_mod_13": [
+        {
+          "character_exponent": 4,
+          "coefficient": {
+            "imag": 0.42118431628673725,
+            "real": -0.17709370262670016
+          },
+          "energy_fraction": 0.20875840779596044
+        },
+        {
+          "character_exponent": 8,
+          "coefficient": {
+            "imag": -0.05571909603572226,
+            "real": 0.45349067259748727
+          },
+          "energy_fraction": 0.20875840779595942
+        },
+        {
+          "character_exponent": 6,
+          "coefficient": {
+            "imag": -0.361569212382563,
+            "real": -0.2734504658709293
+          },
+          "energy_fraction": 0.2055074526279752
+        },
+        {
+          "character_exponent": 2,
+          "coefficient": {
+            "imag": -0.07570873232128075,
+            "real": 0.427499770456499
+          },
+          "energy_fraction": 0.1884878658900547
+        },
+        {
+          "character_exponent": 10,
+          "coefficient": {
+            "imag": 0.3907325261386793,
+            "real": -0.18925104730842576
+          },
+          "energy_fraction": 0.18848786589004973
+        }
+      ],
+      "scaled_mode_l1": 12.620819420477737,
+      "scaled_mode_l2": 2.8233430589589674,
+      "scaled_mode_linf": 0.6563148211704958,
+      "singular_energy_fraction": 0.3720841053246763,
+      "singular_value": 2.823343058958968,
+      "top_scaled_character_pair_coefficients": [
+        {
+          "character_label_11_13": [
+            8,
+            4
+          ],
+          "mode_coefficient": {
+            "imag": -0.6031002674700645,
+            "real": -0.2588806904069839
+          },
+          "mode_coefficient_abs": 0.6563148211704959
+        },
+        {
+          "character_label_11_13": [
+            8,
+            8
+          ],
+          "mode_coefficient": {
+            "imag": 0.5244400787390142,
+            "real": -0.39460327963699765
+          },
+          "mode_coefficient_abs": 0.6563148211704943
+        },
+        {
+          "character_label_11_13": [
+            2,
+            4
+          ],
+          "mode_coefficient": {
+            "imag": -0.5244400787389945,
+            "real": -0.3946032796370213
+          },
+          "mode_coefficient_abs": 0.6563148211704928
+        },
+        {
+          "character_label_11_13": [
+            2,
+            8
+          ],
+          "mode_coefficient": {
+            "imag": 0.6031002674700725,
+            "real": -0.25888069040695366
+          },
+          "mode_coefficient_abs": 0.6563148211704913
+        },
+        {
+          "character_label_11_13": [
+            8,
+            6
+          ],
+          "mode_coefficient": {
+            "imag": 0.07782163913112686,
+            "real": 0.6465175651766388
+          },
+          "mode_coefficient_abs": 0.6511844359311614
+        },
+        {
+          "character_label_11_13": [
+            2,
+            6
+          ],
+          "mode_coefficient": {
+            "imag": -0.07782163913113821,
+            "real": 0.6465175651766343
+          },
+          "mode_coefficient_abs": 0.6511844359311582
+        },
+        {
+          "character_label_11_13": [
+            4,
+            4
+          ],
+          "mode_coefficient": {
+            "imag": -0.5335678028469146,
+            "real": -0.34145374122771505
+          },
+          "mode_coefficient_abs": 0.6334708025104925
+        },
+        {
+          "character_label_11_13": [
+            4,
+            8
+          ],
+          "mode_coefficient": {
+            "imag": 0.5615210250643555,
+            "real": -0.2932224344144915
+          },
+          "mode_coefficient_abs": 0.6334708025104909
+        }
+      ]
+    }
+  ],
+  "notation": {
+    "character_indices": "alpha=1..9 for nontrivial mod-11 character exponents and beta=1..11 for nontrivial mod-13 character exponents.",
+    "exact_functional": "Re sum_{alpha,beta} kappa_{alpha,beta} delta_{alpha,beta}(N) = Re sum_j sigma_j*mu_j(N).",
+    "normalized_moment": "delta_{alpha,beta}(N)=D^P_{alpha,beta}(N)/P0_a(N).",
+    "singular_moment": "mu_j(N)=sum_{alpha,beta}u_j(alpha)*vh_j(beta)*delta_{alpha,beta}(N).",
+    "svd_decomposition": "kappa_{alpha,beta}=sum_j sigma_j*u_j(alpha)*vh_j(beta)."
+  },
+  "q286_threshold_theorem_proved": false,
+  "question": "What exact two singular moment functionals replace generic K_286 character control?",
+  "receipt": "q286-wbss-k286-two-mode-singular-target",
+  "residual_singular_moment_cap_proved": false,
+  "schema_version": 1,
+  "singular_values": [
+    3.597046733129314,
+    2.823343058958968,
+    0.4880839573581543,
+    0.46086042737666233,
+    0.18028281452943226,
+    0.15040802769528105,
+    0.07038793483650002,
+    0.04823289589693844,
+    0.01600153260288783
+  ],
+  "source_commit": "6b6df46a9afdb39615a41e05f300845960581fb8",
+  "sources": {
+    "k286_coefficient_norm_burden": "evidence\\q286-wbss-k286-coefficient-norm-burden.json",
+    "k286_coefficient_norm_burden_status": "TARGET_k286_coefficient_norm_burden_unproved"
+  },
+  "status": "TARGET_k286_two_mode_singular_target_unproved",
+  "status_boundary": "Two-mode singular theorem-target audit only; not a theorem.  No twisted binary-prime moment estimate, K_286 lower bound, major/minor arc estimate, pointwise centered-error estimate, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof is established.",
+  "strict_central_goldbach_theorem_proved": false,
+  "sufficient_two_mode_split": {
+    "global_l2_moment_cap": 0.038004233097145394,
+    "statement": "If the residual singular moments have L2 norm at most the global cap 0.038004233097145394, then it is sufficient to prove Re(sigma_1*mu_1(N)+sigma_2*mu_2(N)) >= -0.14867615917424493 for every sufficiently large covered even N.",
+    "tail_adverse_bound_under_global_cap": 0.027227577708613365,
+    "two_mode_floor_required_if_tail_has_global_cap": -0.14867615917424493
+  },
+  "top_two_summary": {
+    "full_reconstruction_relative_error": 1.3813185031761283e-15,
+    "tail_l2": 0.7164353938945424,
+    "top_two_energy_fraction": 0.9760410444893588,
+    "top_two_l2": 4.572746573875274,
+    "total_l2": 4.628530101718351
+  },
+  "twisted_prime_pair_moment_theorem_proved": false,
+  "two_mode_pointwise_lower_bound_proved": false,
+  "universal_pointwise_bound_proved": false
+}

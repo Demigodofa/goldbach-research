@@ -6,6 +6,54 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The q286-WBSS route now has an exact two-mode singular moment target for the
+dominant `K_286` bucket:
+
+```text
+tools/build_q286_wbss_k286_two_mode_singular_target.py
+notes/q286-wbss-k286-two-mode-singular-target.md
+evidence/q286-wbss-k286-two-mode-singular-target.json
+```
+
+Question: what exact two singular moment functionals replace generic `K_286`
+character control?
+
+Identity:
+
+```text
+kappa_{alpha,beta}
+  = sum_j sigma_j * u_j(alpha) * vh_j(beta)
+
+mu_j(N)
+  = sum_{alpha,beta} u_j(alpha) * vh_j(beta)
+    * delta_{alpha,beta}(N)
+
+Re sum_{alpha,beta} kappa_{alpha,beta} delta_{alpha,beta}(N)
+  = Re sum_j sigma_j * mu_j(N)
+```
+
+Pinned values:
+
+```text
+sigma_1:                         3.597046733129315
+sigma_2:                         2.8233430589589674
+top-two coefficient L2:          4.572746573875274
+residual coefficient L2:         0.7164353938945424
+top-two energy fraction:         0.9760410444893588
+residual tail cost under cap:    0.02722757770861337
+two-mode sufficient floor:      -0.14867615917424493
+```
+
+Decision: `TARGET_k286_two_mode_singular_target_unproved`.  The next
+proof-shaped target is now exact: prove a one-sided lower bound for
+`Re(sigma_1*mu_1+sigma_2*mu_2)`, plus a residual cap, instead of paying all
+active `K_286` characters independently.  No twisted binary-prime moment
+estimate, `K_286` lower bound, major/minor arc estimate, pointwise
+centered-error estimate, q286 threshold theorem, strict-central Goldbach
+theorem, or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-16
+
 The q286-WBSS route now has an exact coefficient/norm burden for the dominant
 `K_286` bucket:
 
