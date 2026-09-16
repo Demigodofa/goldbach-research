@@ -6,6 +6,44 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The metric-soft moment-square route now has a weak-scale degree-`5`
+ell-freeze perturbation stress audit:
+`tools/build_mobius_moment_square_degree5_ell_freeze_perturbation_stress.py`
+generated
+`evidence/mobius-moment-square-degree5-ell-freeze-perturbation-stress.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-ell-freeze-perturbation-stress.md`.
+
+Question: does the weak-block active/full dominance result depend
+delicately on the exact logarithmic coefficient freeze `ell_freeze=52`?
+
+Answer: no finite falsifier was found for the local perturbation
+`ell_freeze=50..54`.  For each of the five coefficient freezes, all `29`
+prime rows in `[167,334]` were checked across the three degree-`5`
+components `(00,12)`, `(01,02)`, `(01,11)` and the degree-`5` total.  All
+`580/580` dominance rows clear the signed `1/2` threshold, with `435`
+component rows and `145` degree-`5` total rows having positive slack.  The
+global weakest row is still prime `181`, component `(00,12)`, now recorded
+at `ell_freeze=53`, with active/full ratio `0.5563677490893759` and slack
+`0.05636774908937592` above `1/2`.
+
+Decision: `STRESS_degree5_ell_freeze_perturbation_dominance`.  This reduces
+the concern that the weak-block dominance result is only an exact
+logarithmic `ell_freeze=52` coefficient fit.  It does not test translations
+of the active row set, because this implementation's active rows are
+determined by `row_count`; `ell_freeze` enters the lifted polynomial
+coordinates through `log(modulus * ell_freeze)`.  This is finite
+coefficient-freeze perturbation evidence only.  No pointwise universal
+adverse-drag estimate, L2 logical bridge, ell-freeze dominance theorem,
+checked-scale dominance theorem, primewise dominance theorem, degree-`5`
+coefficient theorem, robust-margin universal theorem, coefficient-family
+theorem, universal Sturm-certificate theorem, half-frame curve-positivity
+theorem, uniform active/full lower-frame theorem, Mobius covariance theorem,
+signed prime-correlation estimate, q286 theorem, strict-central Goldbach
+theorem, or Goldbach proof is established.
+
+## Latest continuation evidence, 2026-09-16
+
 The metric-soft moment-square route now has an adjacent-scale degree-`5`
 active/full dominance stress audit:
 `tools/build_mobius_moment_square_degree5_forward_scale_dominance_stress.py`

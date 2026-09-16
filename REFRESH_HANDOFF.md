@@ -6,6 +6,49 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The metric-soft moment-square route now has a weak-scale degree-`5`
+ell-freeze perturbation stress audit:
+
+```text
+tools/build_mobius_moment_square_degree5_ell_freeze_perturbation_stress.py
+notes/mobius-moment-square-degree5-ell-freeze-perturbation-stress.md
+evidence/mobius-moment-square-degree5-ell-freeze-perturbation-stress.json
+```
+
+Result:
+
+```text
+status:                      STRESS_degree5_ell_freeze_perturbation_dominance
+scale:                       M=167
+base ell_freeze:             52
+tested ell_freezes:          50, 51, 52, 53, 54
+prime count per ell:         29
+component rows:              435
+degree-5 total rows:         145
+all dominance rows:          580
+dominance slacks:            +580 / 0 / 0
+failure rows:                0
+weakest row:                 ell=53, p=181, (00,12)
+weakest active/full ratio:   0.5563677490893759
+weakest slack above 1/2:     0.05636774908937592
+```
+
+Decision: the weak-block dominance result survives the local logarithmic
+coefficient-freeze perturbation `ell_freeze=50..54`; no finite falsifier was
+found.  The important boundary is that `ell_freeze` in this implementation
+enters the lifted polynomial coordinates through `log(modulus * ell_freeze)`,
+while the active row set is still determined by `row_count`.  So this is not
+an active-window translation test.  It reduces exact-fit concern around the
+coefficient freeze, but it is still finite perturbation evidence only; no
+pointwise universal adverse-drag estimate, L2 logical bridge, ell-freeze
+dominance theorem, checked-scale dominance theorem, primewise dominance
+theorem, degree-`5` coefficient theorem, robust-margin universal theorem,
+uniform active/full lower frame, Mobius covariance theorem, signed
+prime-correlation estimate, q286 theorem, strict-central Goldbach theorem, or
+Goldbach proof is established.
+
+## Latest active checkpoint note, 2026-09-16
+
 The metric-soft moment-square route now has an adjacent-scale degree-`5`
 active/full dominance stress audit:
 
