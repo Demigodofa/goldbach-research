@@ -6,6 +6,34 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The source-start lane now has a prospective full `M=353` prime-row sweep:
+`tools/build_mobius_moment_square_degree5_source_start_m353_full_prime_sweep.py`
+generated
+`evidence/mobius-moment-square-degree5-source-start-m353-full-prime-sweep.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-source-start-m353-full-prime-sweep.md`.
+
+Question: after the stress-morphology audit suggested coherent prime blocks
+as the right finite object, does the next fresh full sweep preserve signed
+dominance and prime-block morphology?
+
+Answer: yes as finite evidence.  All `56` prime rows in `[353,706]` were
+checked, giving `168` component rows and `56` degree-5 total rows.  All `224`
+rows pass `full < 0` and `active/full > 1/2`.  The weakest row is `M=353`,
+`p=599`, component `(00,12)`, with ratio `0.9109632447421941` and slack
+`0.41096324474219414`.
+
+Decision: five complete fresh source-start scales now survive (`M=229`,
+`M=251`, `M=293`, `M=331`, and `M=353`).  The prospective morphology test did
+not produce a split-block falsifier: the top four stress rows form one
+coherent `p=599` prime block containing `(00,12)`, `TOTAL`, `(01,11)`, and
+`(01,02)`.  Fixed-prime tracking remains downgraded for `p=379` and `p=461`;
+`p=599` persists from `M=331` to `M=353` as the tightest prime block.  This is
+not a prime-block theorem, not a source-start theorem, not a source-window
+theorem, not a strict-central Goldbach theorem, and not a Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The source-start lane now has a stress-morphology audit across the four
 complete fresh-scale sweeps:
 `tools/build_mobius_moment_square_degree5_source_start_stress_morphology_audit.py`
