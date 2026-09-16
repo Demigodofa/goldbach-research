@@ -1,0 +1,351 @@
+{
+  "axial_failure_scales": [
+    149,
+    167,
+    191
+  ],
+  "axial_scales": [
+    127,
+    149,
+    167,
+    191
+  ],
+  "axial_schur_results": [
+    {
+      "actual_selector_angle_degrees": 60.912673267452014,
+      "axial_standalone_schur_certificate": true,
+      "axial_trial_value": 0.011223180916842601,
+      "determinant_axial_distance": 0.0128246653667984,
+      "divisor_range": [
+        3,
+        13
+      ],
+      "moment_curve_parameter": 0.2795716513419446,
+      "moment_curve_projective_distance": 4.166667001461609e-05,
+      "nonaxial_energy_error": 0.005427450063227916,
+      "nonaxial_error_over_axial_trial_value": 0.4835928515669702,
+      "nonaxial_error_over_schur_margin": 0.9364565402210663,
+      "normalized_absolute_determinant": 0.9992599265347035,
+      "prime_count": 24,
+      "row_count": 28,
+      "scale_modulus": 127,
+      "schur_margin": 0.005795730853614067
+    },
+    {
+      "actual_selector_angle_degrees": 87.0777096796911,
+      "axial_standalone_schur_certificate": false,
+      "axial_trial_value": 0.009103068830599526,
+      "determinant_axial_distance": 0.013359859629783172,
+      "divisor_range": [
+        3,
+        15
+      ],
+      "moment_curve_parameter": 0.2706386698508524,
+      "moment_curve_projective_distance": 2.6137647432121346e-05,
+      "nonaxial_energy_error": 0.006818331142429386,
+      "nonaxial_error_over_axial_trial_value": 0.7490145652321002,
+      "nonaxial_error_over_schur_margin": 2.984294948930046,
+      "normalized_absolute_determinant": 0.9991968734127611,
+      "prime_count": 28,
+      "row_count": 32,
+      "scale_modulus": 149,
+      "schur_margin": 0.002284737688167837
+    },
+    {
+      "actual_selector_angle_degrees": 88.32423633789487,
+      "axial_standalone_schur_certificate": false,
+      "axial_trial_value": 0.013350272227588889,
+      "determinant_axial_distance": 0.01807842189990601,
+      "divisor_range": [
+        3,
+        16
+      ],
+      "moment_curve_parameter": 0.2681177784447311,
+      "moment_curve_projective_distance": 3.5175761283063655e-05,
+      "nonaxial_energy_error": 0.012555216399842709,
+      "nonaxial_error_over_axial_trial_value": 0.9404464707391386,
+      "nonaxial_error_over_schur_margin": 15.791616087433386,
+      "normalized_absolute_determinant": 0.9985294682751723,
+      "prime_count": 29,
+      "row_count": 35,
+      "scale_modulus": 167,
+      "schur_margin": 0.0007950558277460829
+    },
+    {
+      "actual_selector_angle_degrees": 83.05214584555739,
+      "axial_standalone_schur_certificate": false,
+      "axial_trial_value": 0.5558378474087675,
+      "determinant_axial_distance": 0.05985056667973165,
+      "divisor_range": [
+        3,
+        17
+      ],
+      "moment_curve_parameter": 0.2754926875062338,
+      "moment_curve_projective_distance": 0.00010322096105434436,
+      "nonaxial_energy_error": 0.4202967503844778,
+      "nonaxial_error_over_axial_trial_value": 0.7561499317540863,
+      "nonaxial_error_over_schur_margin": 3.1008805418566903,
+      "normalized_absolute_determinant": 0.9839046724710913,
+      "prime_count": 33,
+      "row_count": 38,
+      "scale_modulus": 191,
+      "schur_margin": 0.13554109702427297
+    }
+  ],
+  "axial_standalone_certificate_falsified_on_checked_scales": true,
+  "decision": "The axial moment-curve geometry remains useful structure, but it is not a standalone certificate: at several checked scales the nonaxial energy exceeds the Schur margin.  The active theorem target should be a rank-aware positive-range lower frame with nullspace control, not a naive full-PD whitening statement.",
+  "finite_diagnostic_only": true,
+  "full_pd_whitened_gershgorin_results": [
+    {
+      "exception_message": "full matrix must have a positive diagonal",
+      "exception_type": "ValueError",
+      "ok": false,
+      "scale_modulus": 83
+    },
+    {
+      "exception_message": "full matrix must have a positive diagonal",
+      "exception_type": "ValueError",
+      "ok": false,
+      "scale_modulus": 101
+    },
+    {
+      "exact_largest_generalized_eigenvalue": 1.1462894236938728,
+      "exact_smallest_generalized_eigenvalue": 0.8768802946823543,
+      "gershgorin_lower_edges": [
+        0.7454313024194685,
+        0.8995795091150711,
+        0.8243971312709568,
+        0.901182721257233,
+        0.836743946666825,
+        0.825981762830186
+      ],
+      "gershgorin_lower_frame_bound": 0.7454313024194685,
+      "gershgorin_radii": [
+        0.18359268623825353,
+        0.17069385953801786,
+        0.13928678651099813,
+        0.16732108318255223,
+        0.1250113391608858,
+        0.13613833186986368
+      ],
+      "ok": true,
+      "one_half_lower_frame_certified": true,
+      "scale_modulus": 127,
+      "whitened_diagonal": [
+        0.9290239886577221,
+        1.070273368653089,
+        0.963683917781955,
+        1.0685038044397852,
+        0.9617552858277107,
+        0.9621200947000497
+      ]
+    },
+    {
+      "exact_largest_generalized_eigenvalue": 1.0923606276930156,
+      "exact_smallest_generalized_eigenvalue": 0.9344345921816696,
+      "gershgorin_lower_edges": [
+        0.920146634771535,
+        0.9520969395694538,
+        0.9216045913657003,
+        0.8816324505787028,
+        0.8767772487228211,
+        1.023977252864592
+      ],
+      "gershgorin_lower_frame_bound": 0.8767772487228211,
+      "gershgorin_radii": [
+        0.10378941024883526,
+        0.049066914098136793,
+        0.07380065898555266,
+        0.12035460043806934,
+        0.1241210710962648,
+        0.05127286991907343
+      ],
+      "ok": true,
+      "one_half_lower_frame_certified": true,
+      "scale_modulus": 149,
+      "whitened_diagonal": [
+        1.0239360450203703,
+        1.0011638536675906,
+        0.9954052503512529,
+        1.001987051016772,
+        1.000898319819086,
+        1.0752501227836655
+      ]
+    },
+    {
+      "exception_message": "full matrix must be positive definite",
+      "exception_type": "ValueError",
+      "ok": false,
+      "scale_modulus": 167
+    },
+    {
+      "exact_largest_generalized_eigenvalue": 1.081170419480754,
+      "exact_smallest_generalized_eigenvalue": 0.9726898127803636,
+      "gershgorin_lower_edges": [
+        1.0162304695976934,
+        0.9721970990853426,
+        0.9839351009207051,
+        0.9161221465932605,
+        0.9792161878146874,
+        0.9963582703113929
+      ],
+      "gershgorin_lower_frame_bound": 0.9161221465932605,
+      "gershgorin_radii": [
+        0.03949297388025519,
+        0.06063310115323217,
+        0.05542242010730214,
+        0.07034851607910975,
+        0.03780012091269769,
+        0.013711728700485093
+      ],
+      "ok": true,
+      "one_half_lower_frame_certified": true,
+      "scale_modulus": 191,
+      "whitened_diagonal": [
+        1.0557234434779486,
+        1.0328302002385747,
+        1.0393575210280073,
+        0.9864706626723703,
+        1.0170163087273851,
+        1.010069999011878
+      ]
+    }
+  ],
+  "full_pd_whitening_acceptance_condition_falsified_on_checked_scales": true,
+  "full_pd_whitening_failure_scales": [
+    83,
+    101,
+    167
+  ],
+  "goldbach_proved": false,
+  "largest_moment_curve_projective_distance": 0.00010322096105434436,
+  "largest_nonaxial_error_over_schur_margin": 15.791616087433386,
+  "lower_frame_scales": [
+    83,
+    101,
+    127,
+    149,
+    167,
+    191
+  ],
+  "mobius_covariance_theorem_proved": false,
+  "positive_range_minimum_checked_eigenvalue": 0.8511480691308368,
+  "positive_range_nonvacuous_scales": [
+    127,
+    149,
+    167,
+    191
+  ],
+  "positive_range_one_half_survives_checked_nonvacuous_scales": true,
+  "positive_range_results": [
+    {
+      "active_positive_full_null_direction": false,
+      "divisor_range": [
+        3,
+        10
+      ],
+      "full_denominator_nullity": 6,
+      "full_denominator_rank": 0,
+      "largest_full_nullspace_active_eigenvalue": 0.0,
+      "positive_range_largest_generalized_eigenvalue": 0.0,
+      "positive_range_nonvacuous": false,
+      "positive_range_one_half_certified": false,
+      "positive_range_smallest_generalized_eigenvalue": Infinity,
+      "prime_count": 16,
+      "row_count": 21,
+      "scale_modulus": 83
+    },
+    {
+      "active_positive_full_null_direction": false,
+      "divisor_range": [
+        3,
+        12
+      ],
+      "full_denominator_nullity": 6,
+      "full_denominator_rank": 0,
+      "largest_full_nullspace_active_eigenvalue": 0.0,
+      "positive_range_largest_generalized_eigenvalue": 0.0,
+      "positive_range_nonvacuous": false,
+      "positive_range_one_half_certified": false,
+      "positive_range_smallest_generalized_eigenvalue": Infinity,
+      "prime_count": 21,
+      "row_count": 24,
+      "scale_modulus": 101
+    },
+    {
+      "active_positive_full_null_direction": false,
+      "divisor_range": [
+        3,
+        13
+      ],
+      "full_denominator_nullity": 0,
+      "full_denominator_rank": 6,
+      "largest_full_nullspace_active_eigenvalue": 0.0,
+      "positive_range_largest_generalized_eigenvalue": 1.1462894236938723,
+      "positive_range_nonvacuous": true,
+      "positive_range_one_half_certified": true,
+      "positive_range_smallest_generalized_eigenvalue": 0.8768802946823542,
+      "prime_count": 24,
+      "row_count": 28,
+      "scale_modulus": 127
+    },
+    {
+      "active_positive_full_null_direction": false,
+      "divisor_range": [
+        3,
+        15
+      ],
+      "full_denominator_nullity": 0,
+      "full_denominator_rank": 6,
+      "largest_full_nullspace_active_eigenvalue": 0.0,
+      "positive_range_largest_generalized_eigenvalue": 1.0923606276930158,
+      "positive_range_nonvacuous": true,
+      "positive_range_one_half_certified": true,
+      "positive_range_smallest_generalized_eigenvalue": 0.9344345921816697,
+      "prime_count": 28,
+      "row_count": 32,
+      "scale_modulus": 149
+    },
+    {
+      "active_positive_full_null_direction": false,
+      "divisor_range": [
+        3,
+        16
+      ],
+      "full_denominator_nullity": 1,
+      "full_denominator_rank": 5,
+      "largest_full_nullspace_active_eigenvalue": 1.0452818500758559e-12,
+      "positive_range_largest_generalized_eigenvalue": 1.0707482781550195,
+      "positive_range_nonvacuous": true,
+      "positive_range_one_half_certified": true,
+      "positive_range_smallest_generalized_eigenvalue": 0.8511480691308368,
+      "prime_count": 29,
+      "row_count": 35,
+      "scale_modulus": 167
+    },
+    {
+      "active_positive_full_null_direction": false,
+      "divisor_range": [
+        3,
+        17
+      ],
+      "full_denominator_nullity": 0,
+      "full_denominator_rank": 6,
+      "largest_full_nullspace_active_eigenvalue": 0.0,
+      "positive_range_largest_generalized_eigenvalue": 1.0811704194807543,
+      "positive_range_nonvacuous": true,
+      "positive_range_one_half_certified": true,
+      "positive_range_smallest_generalized_eigenvalue": 0.9726898127803637,
+      "prime_count": 33,
+      "row_count": 38,
+      "scale_modulus": 191
+    }
+  ],
+  "q286_reactivated": false,
+  "question": "Does the six-coordinate active/full frontier reduce to a full-PD whitened Gershgorin theorem or an axial Schur-response certificate, or must the theorem be rank-aware on the positive range?",
+  "signed_prime_correlation_proved": false,
+  "smallest_moment_curve_projective_distance": 2.6137647432121346e-05,
+  "status": "FALSIFY_axial_schur_compression_as_standalone_certificate__TARGET_positive_range_active_full_lower_frame",
+  "target_lower_frame_constant": 0.5,
+  "uniform_active_full_lower_frame_proved": false
+}

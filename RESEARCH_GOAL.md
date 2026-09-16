@@ -6,6 +6,44 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The Mobius six-coordinate lower-frame target now has a rank-aware diagnostic
+and an axial-compression falsifier:
+`tools/build_mobius_positive_range_lower_frame_axial_falsifier.py`
+generated
+`evidence/mobius-positive-range-lower-frame-axial-falsifier.json`, with
+explanation in
+`notes/mobius-positive-range-lower-frame-axial-falsifier.md`.
+
+Question: does the active/full lower-frame route reduce to a full-positive
+definite whitened Gershgorin theorem or to the axial Schur-response
+compression?
+
+Answer: no.  The checked nonvacuous positive-range comparisons survive the
+one-half lower-frame target at `M=127`, `149`, `167`, and `191`, with minimum
+checked positive-range eigenvalue `0.8511480691308368`.  But the stronger
+full-positive-definite whitening condition fails at `M=83`, `101`, and `167`.
+At `M=167`, the full Gram has rank `5`, nullity `1`, and no positive active
+direction in the full nullspace, while the positive-range lower-frame minimum
+is still `0.8511480691308368`.
+
+The axial moment-curve structure remains visually and algebraically real, but
+it is not a standalone certificate.  The nonaxial energy exceeds the Schur
+margin at `M=149`, `167`, and `191`; the largest checked ratio is
+`15.791616087433386`.  This falsifies the acceptance condition
+`nonaxial energy error < Schur margin` even though the moment-curve
+projective distances remain small.
+
+Decision:
+`FALSIFY_axial_schur_compression_as_standalone_certificate__TARGET_positive_range_active_full_lower_frame`.
+The active theorem target is now a rank-aware positive-range active/full lower
+frame plus nullspace control.  The axial Schur-response and moment-curve
+alignment remain coordinate heuristics, not proof engines.  This is finite
+diagnostic evidence only; no uniform active/full lower-frame theorem, Mobius
+covariance theorem, signed prime-correlation estimate, q286 theorem,
+strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-16
+
 The post-q286 Mobius frontier has been reconciled with the older incomplete
 boundary-operator chain:
 `tools/build_post_q286_mobius_frontier_reconciliation.py` generated

@@ -6,6 +6,39 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The Mobius active/full lower-frame target now has a rank-aware finite
+diagnostic and an axial-compression falsifier:
+
+```text
+tools/build_mobius_positive_range_lower_frame_axial_falsifier.py
+notes/mobius-positive-range-lower-frame-axial-falsifier.md
+evidence/mobius-positive-range-lower-frame-axial-falsifier.json
+```
+
+Result:
+
+```text
+status: FALSIFY_axial_schur_compression_as_standalone_certificate__TARGET_positive_range_active_full_lower_frame
+positive-range nonvacuous scales:      127, 149, 167, 191
+minimum checked positive-range eigen:  0.8511480691308368
+full-PD whitening failure scales:      83, 101, 167
+axial standalone failure scales:       149, 167, 191
+largest nonaxial error / Schur margin: 15.791616087433386
+moment-curve distance range:           0.000026137647432121346..0.00010322096105434436
+```
+
+Decision: the lower-frame route should be stated on the positive range of the
+full Gram matrix, with nullspace control.  A naive full-positive-definite
+whitening theorem is too strong for the checked scales, and the axial
+Schur-response pattern is not a standalone certificate because the nonaxial
+energy can exceed the Schur margin.  The axial/moment-curve geometry remains
+useful coordinate structure, not an acceptance condition.  No uniform
+active/full lower frame, Mobius covariance theorem, signed prime-correlation
+estimate, q286 theorem, strict-central Goldbach theorem, or Goldbach proof is
+established.
+
+## Previous active checkpoint note, 2026-09-16
+
 The post-q286 Mobius frontier has been reconciled with the existing
 incomplete-boundary operator chain:
 
