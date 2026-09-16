@@ -6,6 +6,38 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The moment-square support question now has a metric audit:
+
+```text
+mobius_moment_square_metric.py
+tools/build_mobius_moment_square_metric_audit.py
+notes/mobius-moment-square-metric-audit.md
+evidence/mobius-moment-square-metric-audit.json
+```
+
+Result:
+
+```text
+status: TARGET_metric_aware_moment_square_soft_direction
+checked scales:                         127, 149, 167, 191
+minimum raw moment-square energy:        0.9381026269590562
+maximum equilibrated moment-square min:  6.394855572842169e-11
+maximum equilibrated/raw ratio:          1.554579512179816e-11
+equilibrated t range:                    0.2678068447008048..0.27603534765337445
+```
+
+Decision: moment-square support activation is metric-aware.  Raw Euclidean
+moment-square full energy is positive on the checked nonvacuous scales, but
+the diagonal-equilibrated quotient still has near-null moment-square
+directions.  The next proof target must control this equilibrated soft
+direction; a raw support lower bound is not the right theorem object.  This is
+finite diagnostic evidence only; no support-activation theorem, uniform
+active/full lower frame, Mobius covariance theorem, signed prime-correlation
+estimate, q286 theorem, strict-central Goldbach theorem, or Goldbach proof is
+established.
+
+## Previous active checkpoint note, 2026-09-16
+
 The `M=167` null-coupling attention point now has a moment-square nullspace
 audit:
 

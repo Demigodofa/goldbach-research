@@ -6,6 +6,32 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The moment-square support target now has a metric audit:
+`tools/build_mobius_moment_square_metric_audit.py` generated
+`evidence/mobius-moment-square-metric-audit.json`, with explanation in
+`notes/mobius-moment-square-metric-audit.md`.
+
+Question: is moment-square support activation a raw full-energy lower-bound
+problem, or does the soft direction only appear in the diagonal-equilibrated
+metric used by the rank-aware quotient?
+
+Answer: it is metric-aware.  On checked nonvacuous scales `M=127`, `149`,
+`167`, and `191`, the raw Euclidean moment-square energy is positive; the
+minimum checked raw value is `0.9381026269590562`.  But in the
+diagonal-equilibrated quotient metric, the moment-square curve has near-null
+minima on every checked scale; the largest checked equilibrated minimum is
+only `6.394855572842169e-11`.
+
+Decision: `TARGET_metric_aware_moment_square_soft_direction`.  The next proof
+obligation is to control the diagonal-equilibrated moment-square soft
+direction.  A raw Euclidean support lower bound is not the right theorem
+object.  This is finite diagnostic evidence only; no support-activation
+theorem, uniform active/full lower-frame theorem, Mobius covariance theorem,
+signed prime-correlation estimate, q286 theorem, strict-central Goldbach
+theorem, or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-16
+
 The `M=167` rank-deficient lower-frame attention point now has a moment-square
 nullspace audit:
 `tools/build_mobius_moment_square_nullspace_audit.py` generated

@@ -1,0 +1,100 @@
+{
+  "decision": "Moment-square support activation is metric-aware.  The raw Euclidean moment-square energy is positive on the checked nonvacuous scales, but the diagonal-equilibrated quotient has near-null minima throughout.  A proof must control this equilibrated soft direction, not only raw full-energy support.",
+  "equilibrated_parameters": [
+    0.27603534765337445,
+    0.2698749461997662,
+    0.2698106456761942,
+    0.2678068447008048
+  ],
+  "finite_diagnostic_only": true,
+  "goldbach_proved": false,
+  "maximum_equilibrated_moment_square_minimum": 6.394855572842169e-11,
+  "maximum_equilibrated_over_raw_minimum": 1.554579512179816e-11,
+  "minimum_raw_moment_square_minimum": 0.9381026269590562,
+  "mobius_covariance_theorem_proved": false,
+  "q286_reactivated": false,
+  "question": "Is moment-square support activation a raw Euclidean support problem, or does it depend on the diagonal-equilibrated metric used by the rank-aware lower-frame quotient?",
+  "scale_results": [
+    {
+      "coordinate_scale_maximum": 3.387111047324827e-05,
+      "coordinate_scale_minimum": 1.3358050791581654e-07,
+      "divisor_range": [
+        3,
+        13
+      ],
+      "equilibrated_moment_square_minimum": 3.399727863609262e-11,
+      "equilibrated_moment_square_parameter": 0.27603534765337445,
+      "equilibrated_over_raw_minimum": 1.554579512179816e-11,
+      "full_diagonal_maximum": 56042024943708.25,
+      "full_diagonal_minimum": 871647982.5821629,
+      "prime_count": 24,
+      "raw_moment_square_minimum": 2.1869115326511652,
+      "raw_moment_square_parameter": 0.27569473962900104,
+      "row_count": 28,
+      "scale_modulus": 127
+    },
+    {
+      "coordinate_scale_maximum": 1.4322659323113808e-05,
+      "coordinate_scale_minimum": 6.939477994018082e-08,
+      "divisor_range": [
+        3,
+        15
+      ],
+      "equilibrated_moment_square_minimum": 5.318977967228153e-12,
+      "equilibrated_moment_square_parameter": 0.2698749461997662,
+      "equilibrated_over_raw_minimum": 4.081767272863523e-12,
+      "full_diagonal_maximum": 207656913306946.88,
+      "full_diagonal_minimum": 4874753682.7466135,
+      "prime_count": 28,
+      "raw_moment_square_minimum": 1.3031066231016835,
+      "raw_moment_square_parameter": 0.2697189630175887,
+      "row_count": 32,
+      "scale_modulus": 149
+    },
+    {
+      "coordinate_scale_maximum": 1.358794991089011e-05,
+      "coordinate_scale_minimum": 6.369376144248254e-08,
+      "divisor_range": [
+        3,
+        16
+      ],
+      "equilibrated_moment_square_minimum": 3.2957447749809375e-12,
+      "equilibrated_moment_square_parameter": 0.2698106456761942,
+      "equilibrated_over_raw_minimum": 3.513202799212267e-12,
+      "full_diagonal_maximum": 246493916946816.03,
+      "full_diagonal_minimum": 5416167981.685569,
+      "prime_count": 29,
+      "raw_moment_square_minimum": 0.9381026269590562,
+      "raw_moment_square_parameter": 0.26957902955803636,
+      "row_count": 35,
+      "scale_modulus": 167
+    },
+    {
+      "coordinate_scale_maximum": 4.148064911637052e-06,
+      "coordinate_scale_minimum": 1.924101347086802e-08,
+      "divisor_range": [
+        3,
+        17
+      ],
+      "equilibrated_moment_square_minimum": 6.394855572842169e-11,
+      "equilibrated_moment_square_parameter": 0.2678068447008048,
+      "equilibrated_over_raw_minimum": 3.324469279041601e-13,
+      "full_diagonal_maximum": 2701121456083147.0,
+      "full_diagonal_minimum": 58117766025.81999,
+      "prime_count": 33,
+      "raw_moment_square_minimum": 192.357186548757,
+      "raw_moment_square_parameter": 0.26718590922018454,
+      "row_count": 38,
+      "scale_modulus": 191
+    }
+  ],
+  "scales": [
+    127,
+    149,
+    167,
+    191
+  ],
+  "signed_prime_correlation_proved": false,
+  "status": "TARGET_metric_aware_moment_square_soft_direction",
+  "uniform_active_full_lower_frame_proved": false
+}
