@@ -6,6 +6,47 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The research record now has a route-pattern atlas and a three-candidate
+synthesis audit:
+
+```text
+tools/build_goldbach_route_pattern_atlas.py
+notes/goldbach-route-pattern-atlas.md
+evidence/goldbach-route-pattern-atlas.json
+tools/build_goldbach_three_candidate_synthesis_audit.py
+notes/goldbach-three-candidate-synthesis-audit.md
+evidence/goldbach-three-candidate-synthesis-audit.json
+```
+
+Result:
+
+```text
+route-pattern families:                   6
+synthesis attempts:                       3
+attempt 1: raw adverse-envelope margin    live candidate, unproved
+attempt 2: source-gap curvature sign      falsified as universal sign rule
+attempt 2 valid predictions:              32
+attempt 2 matches:                        13
+attempt 2 mismatches:                     19
+attempt 3: route-closure pressure score   triage statistic only
+```
+
+Decision: the all-data step-back does not support another scalar visual dot
+or fitted threshold.  It supports theorem-type narrowing.  Finite data keeps
+killing normalized, fitted, small-Fourier, and scalar replacement shortcuts.
+The live proof lens remains a raw pointwise inequality, especially a raw
+adverse-envelope margin
+`Delta_raw(N) = L_raw(N) - sum_d max(0, -E_raw,d(N)) > 0`; the live
+replacement-packet lens remains input-side source-block matrix topology.  The
+new source-gap curvature formula was worth trying and mostly failed
+(`13/32` matches), so it is preserved as a failed single-feature baseline for
+the next all-row source-block interaction sign audit.  No Goldbach
+counterexample was found, and no universal raw pointwise theorem,
+source-gap curvature theorem, route-closure theorem, strict-central Goldbach
+theorem, or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-16
+
 The `Q=46189` replacement-family lane now has a source-factor pattern map
 audit:
 

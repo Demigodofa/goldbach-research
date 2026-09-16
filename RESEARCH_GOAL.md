@@ -6,6 +6,42 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The research record now has a route-pattern atlas plus a three-candidate
+synthesis audit:
+`tools/build_goldbach_route_pattern_atlas.py` generated
+`evidence/goldbach-route-pattern-atlas.json`, and
+`tools/build_goldbach_three_candidate_synthesis_audit.py` generated
+`evidence/goldbach-three-candidate-synthesis-audit.json`, with notes in
+`notes/goldbach-route-pattern-atlas.md` and
+`notes/goldbach-three-candidate-synthesis-audit.md`.
+
+Question: after stepping back across the accumulated data, can new
+arithmetical or statistical objects be assembled slowly from the current
+patterns, and do any earn the next test?
+
+Answer: three objects were tried.  The raw adverse-envelope margin remains a
+live but unproved theorem-shaped target:
+`Delta_raw(N) = L_raw(N) - sum_d max(0, -E_raw,d(N))`, with target
+`Delta_raw(N) > 0` for all sufficiently large `N`.  The source-gap curvature
+sign rule was a genuine new-to-this-task arithmetic trial but failed as a
+universal one-number predictor: across the `34` replacement rows it made `32`
+valid predictions and matched only `13`, with `19` mismatches.  The
+route-closure pressure score is only a triage statistic; it favors raw
+pointwise estimates and input-side invariants, while penalizing normalization
+dependence, fitted constants, high-mode diffusion, and post-hoc selectors.
+
+Decision: the step-back map says the best proof lens remains raw pointwise
+inequality, while the best disproof lens is to keep killing cheap bridges.
+No counterexample to Goldbach was found.  The failed source-gap curvature
+attempt should be preserved as a baseline so it is not rediscovered and
+over-promoted.  The next evidence-bearing step remains the all-row
+source-block interaction sign audit, carrying curvature as a failed
+single-feature baseline.  This proves no universal raw pointwise theorem,
+source-gap curvature theorem, route-closure theorem, strict-central Goldbach
+theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The `Q=46189` replacement-family lane now has a source-factor pattern map
 audit:
 `tools/build_mobius_moment_square_degree5_q46189_source_factor_pattern_map_audit.py`

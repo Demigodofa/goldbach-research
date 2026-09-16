@@ -1,0 +1,343 @@
+{
+  "attempts": [
+    {
+      "attempt": 1,
+      "current_evidence": [
+        "The disconnected componentwise finite envelope survives the 232-row horizon: the sum of separately worst observed adverse modulus contributions stays below every checked local main term.  This sharpens the next theorem target from rowwise adverse drag to per-modulus adverse supremum control, while preserving the boundary that all constants here are finite-data evidence only.  Goldbach remains open.",
+        "The q286-WBSS route now has a non-circular raw sufficient inequality target: A_raw_-(N)<L_raw(N).  The checked rows satisfy it, but this is finite calibration only.  A Goldbach-yielding bridge still needs a universal pointwise raw adverse-drag theorem or another direct raw witness lower bound."
+      ],
+      "falsifier": "A correctly raw row with Delta_raw(N) <= 0, or a proof that E_raw,d cannot be bounded independently of the unknown prime-pair mass, kills this as a standalone bridge.",
+      "formula": "Delta_raw(N) = L_raw(N) - sum_d max(0, -E_raw,d(N)); target Delta_raw(N) > 0 for all sufficiently large N.",
+      "goldbach_proved": false,
+      "mechanism": "Separate each projected modulus' harmful signed contribution, throw away helpful terms, and ask whether raw local main still beats the disconnected adverse envelope.",
+      "name": "raw adverse-envelope margin",
+      "next_test": "Define the raw E_raw,d and L_raw objects explicitly and check whether the existing finite component envelope is an artifact of normalization.",
+      "prediction": "The normalized finite component-envelope margin should continue pointing to a raw per-modulus adverse supremum theorem, not a cancellation-dependent theorem.",
+      "state": "live_candidate_unproved"
+    },
+    {
+      "attempt": 2,
+      "current_evidence": {
+        "checked_row_count": 34,
+        "match_count": 13,
+        "mismatch_count": 19,
+        "mismatches": [
+          {
+            "actual_sign": -1,
+            "first_cross_non_middle": -0.018376606093243986,
+            "matched": false,
+            "predicted_sign": 1,
+            "reduced_denominator": 16302,
+            "source_gap_curvature": -52,
+            "source_gaps": [
+              181,
+              131,
+              29
+            ]
+          },
+          {
+            "actual_sign": -1,
+            "first_cross_non_middle": -0.02247213196547758,
+            "matched": false,
+            "predicted_sign": 1,
+            "reduced_denominator": 17017,
+            "source_gap_curvature": -24,
+            "source_gaps": [
+              144,
+              96,
+              24
+            ]
+          },
+          {
+            "actual_sign": 1,
+            "first_cross_non_middle": 0.03353056657513931,
+            "matched": false,
+            "predicted_sign": -1,
+            "reduced_denominator": 17765,
+            "source_gap_curvature": 112,
+            "source_gaps": [
+              268,
+              124,
+              92
+            ]
+          },
+          {
+            "actual_sign": 1,
+            "first_cross_non_middle": 0.009780209369645305,
+            "matched": false,
+            "predicted_sign": -1,
+            "reduced_denominator": 19635,
+            "source_gap_curvature": 60,
+            "source_gaps": [
+              178,
+              82,
+              46
+            ]
+          },
+          {
+            "actual_sign": 1,
+            "first_cross_non_middle": 0.2549310116477996,
+            "matched": false,
+            "predicted_sign": -1,
+            "reduced_denominator": 20995,
+            "source_gap_curvature": 60,
+            "source_gaps": [
+              258,
+              162,
+              126
+            ]
+          },
+          {
+            "actual_sign": 1,
+            "first_cross_non_middle": 0.016947501595329054,
+            "matched": false,
+            "predicted_sign": -1,
+            "reduced_denominator": 21945,
+            "source_gap_curvature": 32,
+            "source_gaps": [
+              208,
+              104,
+              32
+            ]
+          },
+          {
+            "actual_sign": 1,
+            "first_cross_non_middle": 0.36578333900294374,
+            "matched": false,
+            "predicted_sign": -1,
+            "reduced_denominator": 23205,
+            "source_gap_curvature": 8,
+            "source_gaps": [
+              164,
+              116,
+              76
+            ]
+          },
+          {
+            "actual_sign": 1,
+            "first_cross_non_middle": 0.003937906587411451,
+            "matched": false,
+            "predicted_sign": -1,
+            "reduced_denominator": 24871,
+            "source_gap_curvature": 120,
+            "source_gaps": [
+              246,
+              90,
+              54
+            ]
+          },
+          {
+            "actual_sign": 1,
+            "first_cross_non_middle": 0.030167244199141133,
+            "matched": false,
+            "predicted_sign": -1,
+            "reduced_denominator": 25194,
+            "source_gap_curvature": 62,
+            "source_gaps": [
+              245,
+              145,
+              107
+            ]
+          },
+          {
+            "actual_sign": 1,
+            "first_cross_non_middle": 0.012026082544214181,
+            "matched": false,
+            "predicted_sign": -1,
+            "reduced_denominator": 27170,
+            "source_gap_curvature": 26,
+            "source_gaps": [
+              137,
+              79,
+              47
+            ]
+          },
+          {
+            "actual_sign": 1,
+            "first_cross_non_middle": 0.007014231615162661,
+            "matched": false,
+            "predicted_sign": -1,
+            "reduced_denominator": 29393,
+            "source_gap_curvature": 64,
+            "source_gaps": [
+              232,
+              128,
+              88
+            ]
+          },
+          {
+            "actual_sign": 1,
+            "first_cross_non_middle": 0.13320250675077683,
+            "matched": false,
+            "predicted_sign": -1,
+            "reduced_denominator": 30030,
+            "source_gap_curvature": 2,
+            "source_gaps": [
+              67,
+              41,
+              17
+            ]
+          },
+          {
+            "actual_sign": 1,
+            "first_cross_non_middle": 0.02456445045377404,
+            "matched": false,
+            "predicted_sign": -1,
+            "reduced_denominator": 33915,
+            "source_gap_curvature": 8,
+            "source_gaps": [
+              218,
+              166,
+              122
+            ]
+          },
+          {
+            "actual_sign": 1,
+            "first_cross_non_middle": 0.010546337685298258,
+            "matched": false,
+            "predicted_sign": -1,
+            "reduced_denominator": 35530,
+            "source_gap_curvature": 138,
+            "source_gaps": [
+              213,
+              39,
+              3
+            ]
+          },
+          {
+            "actual_sign": -1,
+            "first_cross_non_middle": -0.05606148443133309,
+            "matched": false,
+            "predicted_sign": 1,
+            "reduced_denominator": 39270,
+            "source_gap_curvature": -22,
+            "source_gaps": [
+              101,
+              73,
+              23
+            ]
+          },
+          {
+            "actual_sign": -1,
+            "first_cross_non_middle": -0.03322979999874694,
+            "matched": false,
+            "predicted_sign": 1,
+            "reduced_denominator": 43890,
+            "source_gap_curvature": -70,
+            "source_gaps": [
+              131,
+              101,
+              1
+            ]
+          },
+          {
+            "actual_sign": -1,
+            "first_cross_non_middle": -0.027403214694301365,
+            "matched": false,
+            "predicted_sign": 1,
+            "reduced_denominator": 46410,
+            "source_gap_curvature": -2,
+            "source_gaps": [
+              73,
+              43,
+              11
+            ]
+          },
+          {
+            "actual_sign": 1,
+            "first_cross_non_middle": 0.054639427449771634,
+            "matched": false,
+            "predicted_sign": -1,
+            "reduced_denominator": 49742,
+            "source_gap_curvature": 40,
+            "source_gaps": [
+              169,
+              79,
+              29
+            ]
+          },
+          {
+            "actual_sign": 1,
+            "first_cross_non_middle": 0.057796188507037285,
+            "matched": false,
+            "predicted_sign": -1,
+            "reduced_denominator": 58786,
+            "source_gap_curvature": 60,
+            "source_gaps": [
+              141,
+              45,
+              9
+            ]
+          }
+        ],
+        "q38038": {
+          "actual_sign": 1,
+          "first_cross_non_middle": 0.08681182947394983,
+          "matched": true,
+          "predicted_sign": 1,
+          "reduced_denominator": 38038,
+          "source_gap_curvature": -36,
+          "source_gaps": [
+            123,
+            93,
+            27
+          ]
+        },
+        "q41990": {
+          "actual_sign": -1,
+          "first_cross_non_middle": -0.17235321354798228,
+          "matched": true,
+          "predicted_sign": -1,
+          "reduced_denominator": 41990,
+          "source_gap_curvature": 70,
+          "source_gaps": [
+            193,
+            77,
+            31
+          ]
+        },
+        "valid_prediction_count": 32
+      },
+      "falsifier": "All-row mismatch rate materially above noise; observed 19 mismatches among 32 valid rows.",
+      "formula": "For ordered mirror source blocks (u_i,v_i), set g_i=v_i-u_i and kappa=g_1-2*g_2+g_3.  Trial rule: sign(first cross-block non-middle) = -sign(kappa).",
+      "goldbach_proved": false,
+      "mechanism": "The q=38038 versus q=41990 split suggested that accelerating or decelerating contraction of source gaps might control whether the first off-diagonal block pays or drags.",
+      "name": "source-gap curvature sign rule",
+      "next_test": "Do not promote kappa alone.  Use it only, if at all, as one feature inside the fuller source-block interaction audit.",
+      "prediction": "If the one-number curvature were structural, it would predict first cross-block non-middle sign across the replacement landscape.",
+      "state": "falsified_as_universal_sign_rule"
+    },
+    {
+      "attempt": 3,
+      "current_evidence": {
+        "atlas_read": "The strongest shape across the record is not a pretty point cloud.  It is a narrowing of theorem type: finite data keeps killing scalar or normalized shortcuts, while the live routes ask for raw pointwise inequalities or exact input-side matrix invariants.  A linked plot/table may help inspect anomalies, but only if it is indexed by theorem obligation and falsifier, not by residue labels masquerading as geometry.",
+        "q286_raw_adverse_drag_score": 3,
+        "q46189_source_block_matrix_score": 3,
+        "residual_absorption_constant_score": 0,
+        "small_fourier_mode_shortcut_score": -1
+      },
+      "falsifier": "If this score repeatedly selects lanes that add no new falsifier, no sharper theorem obligation, and no failed candidate to retire, it is bookkeeping rather than math.",
+      "formula": "score(route)=raw_pointwise + input_side_invariant + predeclared_falsifier + finite_margin - normalization_dependency - fitted_constant - high_mode_diffusion - posthoc_selector.",
+      "goldbach_proved": false,
+      "mechanism": "The research record has a repeated failure mode: a route looks good finitely, then loses theorem value when it depends on normalization, fitted constants, many hidden Fourier modes, or post-hoc selectors.  This score keeps that penalty explicit while choosing the next test.",
+      "name": "route-closure pressure score",
+      "next_test": "Use the score to justify the all-row source-block interaction audit over another scalar or visual map.",
+      "prediction": "The next useful work should come from routes scoring high because they are raw or input-side and falsifiable, not from routes scoring high only because finite data looks clean.",
+      "state": "triage_statistic_only"
+    }
+  ],
+  "candidate_next_action": "Build the all-row source-block interaction sign audit, carrying source-gap curvature as a failed single-feature baseline.",
+  "decision": "Attempt 1 remains the clean q286 proof-shaped target but still requires raw definitions and a universal theorem.  Attempt 2 was a real new arithmetic statistic and failed as a universal one-number sign rule, which is useful because it blocks a cheap overfit.  Attempt 3 is only a route-selection statistic; it says to spend the next work on raw pointwise estimates or input-side matrix invariants, not more fitted scalar dots.",
+  "finite_synthesis_only": true,
+  "goldbach_proved": false,
+  "new_to_this_task_candidate_synthesis": true,
+  "question": "Can three new-to-this-task arithmetic or statistical objects be assembled from the current patterns, and do any earn a next test?",
+  "route_closure_score_theorem_proved": false,
+  "schema_version": 1,
+  "source_atlas": "evidence\\goldbach-route-pattern-atlas.json",
+  "source_commit": "7cfb2ed6fa43335353e40de0f9c06a253e7702f0",
+  "source_gap_curvature_theorem_proved": false,
+  "status": "AUDIT_goldbach_three_candidate_synthesis",
+  "strict_central_goldbach_theorem_proved": false,
+  "universal_raw_pointwise_theorem_proved": false
+}
