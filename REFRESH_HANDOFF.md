@@ -6,6 +6,43 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The `Q=46189` replacement-family lane now has an all-row source-block sign
+audit:
+
+```text
+tools/build_mobius_moment_square_degree5_q46189_source_block_sign_audit.py
+notes/mobius-moment-square-degree5-q46189-source-block-sign-audit.md
+evidence/mobius-moment-square-degree5-q46189-source-block-sign-audit.json
+```
+
+Result:
+
+```text
+replacement rows:                         34
+source-block count distribution:          {3: 32, 5: 2}
+non-3x3 rows:                             [17290, 22610]
+first off-diagonal positive signs:        20
+first off-diagonal negative signs:        14
+curvature baseline matches:               13 / 32
+curvature baseline mismatches:            19 / 32
+best single-feature rule:                 predict + if third_small < 184.5
+best single-feature matches:              23 / 32
+best single-feature mismatches:           9 / 32
+```
+
+Decision: the simple source-block sign invariant is not earned.  The all-row
+audit falsifies the uniform `3x3` premise, because rows `17290` and `22610`
+have five source blocks.  The failed source-gap curvature formula remains a
+failed baseline, and the best one-feature input-side threshold is only a weak
+finite classifier.  The source-block matrix remains useful as a diagnostic
+object, but any theorem-shaped next step must be a variable-size matrix
+invariant or a predeclared restriction to a genuine three-block subfamily.
+This proves no source-block interaction sign theorem, source-factor isolation
+theorem, replacement-packet compensation theorem, strict-central Goldbach
+theorem, or Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The research record now has a route-pattern atlas and a three-candidate
 synthesis audit:
 

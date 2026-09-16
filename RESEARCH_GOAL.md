@@ -6,6 +6,35 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The `Q=46189` replacement-family lane now has an all-row source-block sign
+audit:
+`tools/build_mobius_moment_square_degree5_q46189_source_block_sign_audit.py`
+generated
+`evidence/mobius-moment-square-degree5-q46189-source-block-sign-audit.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-q46189-source-block-sign-audit.md`.
+
+Question: across all `34` replacement rows, can input-side source-block
+topology predict the sign of the first off-diagonal non-middle interaction?
+
+Answer: not as a simple theorem target.  The uniform `3x3` premise is false
+on the checked landscape: `32` rows have three source blocks, but rows `17290`
+and `22610` have five.  The first off-diagonal non-middle signs are mixed:
+`20` positive and `14` negative.  The failed source-gap curvature baseline
+remains failed on the `32` three-block rows, with `13/32` matches and
+`19/32` mismatches.  The best one-feature input-side threshold found here is
+`third_small < 184.5`, with only `23/32` matches and `9/32` mismatches.
+
+Decision: do not promote a first-off-diagonal source-block sign invariant.
+The source-block matrix remains useful, but the next theorem-shaped step must
+be a variable-size matrix invariant or a predeclared restriction to a genuine
+three-block subfamily.  This is finite diagnostic evidence only.  It proves
+no source-block interaction sign theorem, source-factor isolation theorem,
+replacement-packet compensation theorem, strict-central Goldbach theorem, or
+Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The research record now has a route-pattern atlas plus a three-candidate
 synthesis audit:
 `tools/build_goldbach_route_pattern_atlas.py` generated

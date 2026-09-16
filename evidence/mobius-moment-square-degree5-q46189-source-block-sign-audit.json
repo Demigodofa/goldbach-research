@@ -1,0 +1,3466 @@
+{
+  "best_rule": {
+    "accuracy": 0.71875,
+    "feature": "third_small",
+    "match_count": 23,
+    "mismatch_count": 9,
+    "mismatch_denominators": [
+      16302,
+      17017,
+      21318,
+      24310,
+      35530,
+      40755,
+      49742,
+      51870,
+      58786
+    ],
+    "polarity": -1,
+    "rule": "predict + if third_small < 184.5",
+    "threshold": 184.5,
+    "valid_row_count": 32
+  },
+  "best_single_feature_rules": [
+    {
+      "accuracy": 0.71875,
+      "feature": "third_small",
+      "match_count": 23,
+      "mismatch_count": 9,
+      "mismatch_denominators": [
+        16302,
+        17017,
+        21318,
+        24310,
+        35530,
+        40755,
+        49742,
+        51870,
+        58786
+      ],
+      "polarity": -1,
+      "rule": "predict + if third_small < 184.5",
+      "threshold": 184.5,
+      "valid_row_count": 32
+    },
+    {
+      "accuracy": 0.6764705882352942,
+      "feature": "second_small",
+      "match_count": 23,
+      "mismatch_count": 11,
+      "mismatch_denominators": [
+        16302,
+        17017,
+        17290,
+        21318,
+        22610,
+        24310,
+        35530,
+        40755,
+        49742,
+        51870,
+        58786
+      ],
+      "polarity": -1,
+      "rule": "predict + if second_small < 159.5",
+      "threshold": 159.5,
+      "valid_row_count": 34
+    },
+    {
+      "accuracy": 0.6764705882352942,
+      "feature": "first_small",
+      "match_count": 23,
+      "mismatch_count": 11,
+      "mismatch_denominators": [
+        16302,
+        17017,
+        17290,
+        21318,
+        22610,
+        24310,
+        36465,
+        41990,
+        49742,
+        51870,
+        58786
+      ],
+      "polarity": -1,
+      "rule": "predict + if first_small < 148.5",
+      "threshold": 148.5,
+      "valid_row_count": 34
+    },
+    {
+      "accuracy": 0.6764705882352942,
+      "feature": "first_gap",
+      "match_count": 23,
+      "mismatch_count": 11,
+      "mismatch_denominators": [
+        16302,
+        17017,
+        17290,
+        21318,
+        22610,
+        30030,
+        34034,
+        38038,
+        41990,
+        51870,
+        53295
+      ],
+      "polarity": 1,
+      "rule": "predict + if first_gap > 134.0",
+      "threshold": 134.0,
+      "valid_row_count": 34
+    },
+    {
+      "accuracy": 0.6875,
+      "feature": "third_small",
+      "match_count": 22,
+      "mismatch_count": 10,
+      "mismatch_denominators": [
+        16302,
+        17017,
+        21318,
+        24310,
+        36465,
+        39270,
+        40755,
+        49742,
+        51870,
+        58786
+      ],
+      "polarity": -1,
+      "rule": "predict + if third_small < 188.5",
+      "threshold": 188.5,
+      "valid_row_count": 32
+    },
+    {
+      "accuracy": 0.6875,
+      "feature": "third_small",
+      "match_count": 22,
+      "mismatch_count": 10,
+      "mismatch_denominators": [
+        16302,
+        17017,
+        21318,
+        24310,
+        36465,
+        39270,
+        41990,
+        49742,
+        51870,
+        58786
+      ],
+      "polarity": -1,
+      "rule": "predict + if third_small < 202.0",
+      "threshold": 202.0,
+      "valid_row_count": 32
+    },
+    {
+      "accuracy": 0.6875,
+      "feature": "third_small",
+      "match_count": 22,
+      "mismatch_count": 10,
+      "mismatch_denominators": [
+        16302,
+        17017,
+        21318,
+        24310,
+        36465,
+        39270,
+        41990,
+        43890,
+        46410,
+        53295
+      ],
+      "polarity": -1,
+      "rule": "predict + if third_small < 242.5",
+      "threshold": 242.5,
+      "valid_row_count": 32
+    },
+    {
+      "accuracy": 0.6875,
+      "feature": "third_large",
+      "match_count": 22,
+      "mismatch_count": 10,
+      "mismatch_denominators": [
+        16302,
+        17017,
+        21318,
+        24310,
+        33915,
+        36465,
+        39270,
+        41990,
+        43890,
+        46410
+      ],
+      "polarity": -1,
+      "rule": "predict + if third_large < 251.0",
+      "threshold": 251.0,
+      "valid_row_count": 32
+    },
+    {
+      "accuracy": 0.6875,
+      "feature": "third_gap",
+      "match_count": 22,
+      "mismatch_count": 10,
+      "mismatch_denominators": [
+        19019,
+        21318,
+        30030,
+        34034,
+        35530,
+        38038,
+        40755,
+        49742,
+        53295,
+        58786
+      ],
+      "polarity": 1,
+      "rule": "predict + if third_gap > 31.5",
+      "threshold": 31.5,
+      "valid_row_count": 32
+    },
+    {
+      "accuracy": 0.6470588235294118,
+      "feature": "support_count",
+      "match_count": 22,
+      "mismatch_count": 12,
+      "mismatch_denominators": [
+        16302,
+        17017,
+        17290,
+        21318,
+        22610,
+        24310,
+        30030,
+        36465,
+        41990,
+        51870,
+        53295,
+        62985
+      ],
+      "polarity": -1,
+      "rule": "predict + if support_count < 3.5",
+      "threshold": 3.5,
+      "valid_row_count": 34
+    },
+    {
+      "accuracy": 0.6470588235294118,
+      "feature": "second_small",
+      "match_count": 22,
+      "mismatch_count": 12,
+      "mismatch_denominators": [
+        17017,
+        21318,
+        22610,
+        24310,
+        36465,
+        39270,
+        41990,
+        43890,
+        46410,
+        53295,
+        62985,
+        67830
+      ],
+      "polarity": 1,
+      "rule": "predict + if second_small > 81.5",
+      "threshold": 81.5,
+      "valid_row_count": 34
+    },
+    {
+      "accuracy": 0.6470588235294118,
+      "feature": "second_large",
+      "match_count": 22,
+      "mismatch_count": 12,
+      "mismatch_denominators": [
+        16302,
+        17017,
+        17290,
+        21318,
+        22610,
+        24310,
+        33915,
+        36465,
+        39270,
+        41990,
+        43890,
+        46410
+      ],
+      "polarity": -1,
+      "rule": "predict + if second_large < 275.5",
+      "threshold": 275.5,
+      "valid_row_count": 34
+    }
+  ],
+  "candidate_next_action": {
+    "falsifier": "If no input-side variable-size matrix statistic beats the weak single-feature stumps while preserving a predeclared falsifier, this Q46189 sign-invariant lane should sleep.",
+    "mechanism": "The correct object is not a uniform 3x3 first-cross sign rule over all replacement rows.  Any surviving theorem target must either restrict to a predeclared three-block subfamily or handle variable-size source-block matrices.",
+    "name": "variable-size source-block matrix invariant or sleep",
+    "novelty_label": "new-to-this-task",
+    "prediction": "A real invariant should predict a row-level matrix margin, not just the first off-diagonal sign, and should explain the five-block negative rows without fitting to bucket outputs.",
+    "smallest_next_test": "Test a full-matrix input-side statistic against the signed row margin, using the best single-feature stump and failed curvature rule as baselines."
+  },
+  "classification": {
+    "all_rows_have_3x3_source_block_matrix": false,
+    "finite_source_block_sign_audit_only": true,
+    "single_feature_input_side_sign_rule_established": false,
+    "source_block_interaction_sign_theorem_proved": false,
+    "source_gap_curvature_universal_sign_rule_falsified": true
+  },
+  "curvature_baseline": {
+    "match_count": 13,
+    "mismatch_count": 19,
+    "mismatch_denominators": [
+      16302,
+      17017,
+      17765,
+      19635,
+      20995,
+      21945,
+      23205,
+      24871,
+      25194,
+      27170,
+      29393,
+      30030,
+      33915,
+      35530,
+      39270,
+      43890,
+      46410,
+      49742,
+      58786
+    ],
+    "valid_row_count": 32
+  },
+  "decision": "The all-row audit does not establish an input-side sign rule.  The earlier 3x3 assumption fails on the checked landscape: 32 rows have three source blocks, but rows 17290 and 22610 have five.  The failed source-gap curvature baseline remains failed with 13 matches and 19 mismatches on the 32 three-block rows.  The best single-feature input-side threshold reaches only 23/32 matches, so it is a weak finite classifier, not a theorem target.  The source-block matrix remains useful as a diagnostic object, but the first-off-diagonal sign invariant should not be promoted without a stronger variable-size matrix theorem.",
+  "finite_diagnostic_only": true,
+  "first_off_diagonal_sign_counts": {
+    "missing": 0,
+    "negative": 14,
+    "positive": 20,
+    "zero": 0
+  },
+  "goldbach_proved": false,
+  "non_three_block_rows": [
+    17290,
+    22610
+  ],
+  "question": "Across all 34 Q46189 replacement rows, can input-side source-block topology predict the sign of the first off-diagonal non-middle interaction?",
+  "replacement_packet_compensation_theorem_proved": false,
+  "row_count": 34,
+  "rows": [
+    {
+      "aggregate_middle_A_to_10A": -0.056411765972949605,
+      "aggregate_non_middle_sum": -0.32288859756102084,
+      "features": {
+        "block_count": 3,
+        "first_gap": 181,
+        "first_gap_drop": 50,
+        "first_large": 247,
+        "first_large_step": -38,
+        "first_small": 66,
+        "first_small_step": 12,
+        "large_middle_offset": 14.0,
+        "middle_gap_excess": 26.0,
+        "missing_count": 0,
+        "second_gap": 131,
+        "second_gap_drop": 102,
+        "second_large": 209,
+        "second_small": 78,
+        "small_middle_offset": -12.0,
+        "small_over_missing_product": null,
+        "source_gap_curvature": -52,
+        "support_count": 0,
+        "third_gap": 29,
+        "third_large": 143,
+        "third_small": 114
+      },
+      "first_off_diagonal_interaction": {
+        "interaction_count": 2,
+        "left_block": [
+          [
+            66,
+            247
+          ],
+          [
+            247,
+            66
+          ]
+        ],
+        "middle_A_to_10A": 0.02049179547523236,
+        "non_middle_sum": -0.018376606093243986,
+        "right_block": [
+          [
+            78,
+            209
+          ],
+          [
+            209,
+            78
+          ]
+        ],
+        "total": 0.002115189381988377
+      },
+      "first_off_diagonal_non_middle_sign": -1,
+      "missing_high_primes": [],
+      "reduced_denominator": 16302,
+      "small_prime_support": [],
+      "source_blocks": [
+        [
+          66,
+          247
+        ],
+        [
+          78,
+          209
+        ],
+        [
+          114,
+          143
+        ]
+      ],
+      "source_gaps": [
+        181,
+        131,
+        29
+      ]
+    },
+    {
+      "aggregate_middle_A_to_10A": -0.22609314514475773,
+      "aggregate_non_middle_sum": 0.12026149330121008,
+      "features": {
+        "block_count": 3,
+        "first_gap": 144,
+        "first_gap_drop": 48,
+        "first_large": 221,
+        "first_large_step": -34,
+        "first_small": 77,
+        "first_small_step": 14,
+        "large_middle_offset": 5.0,
+        "middle_gap_excess": 12.0,
+        "missing_count": 1,
+        "second_gap": 96,
+        "second_gap_drop": 72,
+        "second_large": 187,
+        "second_small": 91,
+        "small_middle_offset": -7.0,
+        "small_over_missing_product": 0.3684210526315789,
+        "source_gap_curvature": -24,
+        "support_count": 1,
+        "third_gap": 24,
+        "third_large": 143,
+        "third_small": 119
+      },
+      "first_off_diagonal_interaction": {
+        "interaction_count": 2,
+        "left_block": [
+          [
+            77,
+            221
+          ],
+          [
+            221,
+            77
+          ]
+        ],
+        "middle_A_to_10A": 0.009188637850891978,
+        "non_middle_sum": -0.02247213196547758,
+        "right_block": [
+          [
+            91,
+            187
+          ],
+          [
+            187,
+            91
+          ]
+        ],
+        "total": -0.013283494114585601
+      },
+      "first_off_diagonal_non_middle_sign": -1,
+      "missing_high_primes": [
+        19
+      ],
+      "reduced_denominator": 17017,
+      "small_prime_support": [
+        7
+      ],
+      "source_blocks": [
+        [
+          77,
+          221
+        ],
+        [
+          91,
+          187
+        ],
+        [
+          119,
+          143
+        ]
+      ],
+      "source_gaps": [
+        144,
+        96,
+        24
+      ]
+    },
+    {
+      "aggregate_middle_A_to_10A": -0.19276289267127256,
+      "aggregate_non_middle_sum": -0.08334772237125168,
+      "features": {
+        "block_count": 5,
+        "first_gap": 201,
+        "first_gap_drop": 24,
+        "first_large": 266,
+        "first_large_step": -19,
+        "first_small": 65,
+        "first_small_step": 5,
+        "missing_count": 2,
+        "second_gap": 177,
+        "second_large": 247,
+        "second_small": 70,
+        "small_over_missing_product": 0.37433155080213903,
+        "support_count": 3
+      },
+      "first_off_diagonal_interaction": {
+        "interaction_count": 2,
+        "left_block": [
+          [
+            65,
+            266
+          ],
+          [
+            266,
+            65
+          ]
+        ],
+        "middle_A_to_10A": -0.09326177443058832,
+        "non_middle_sum": -0.15076643058885553,
+        "right_block": [
+          [
+            70,
+            247
+          ],
+          [
+            247,
+            70
+          ]
+        ],
+        "total": -0.24402820501944383
+      },
+      "first_off_diagonal_non_middle_sign": -1,
+      "missing_high_primes": [
+        11,
+        17
+      ],
+      "reduced_denominator": 17290,
+      "small_prime_support": [
+        2,
+        5,
+        7
+      ],
+      "source_blocks": [
+        [
+          65,
+          266
+        ],
+        [
+          70,
+          247
+        ],
+        [
+          91,
+          190
+        ],
+        [
+          95,
+          182
+        ],
+        [
+          130,
+          133
+        ]
+      ],
+      "source_gaps": [
+        201,
+        177,
+        99,
+        87,
+        3
+      ]
+    },
+    {
+      "aggregate_middle_A_to_10A": -0.2877707648415571,
+      "aggregate_non_middle_sum": -0.20575547772953362,
+      "features": {
+        "block_count": 3,
+        "first_gap": 268,
+        "first_gap_drop": 144,
+        "first_large": 323,
+        "first_large_step": -114,
+        "first_small": 55,
+        "first_small_step": 30,
+        "large_middle_offset": -46.0,
+        "middle_gap_excess": -56.0,
+        "missing_count": 1,
+        "second_gap": 124,
+        "second_gap_drop": 32,
+        "second_large": 209,
+        "second_small": 85,
+        "small_middle_offset": 10.0,
+        "small_over_missing_product": 0.38461538461538464,
+        "source_gap_curvature": 112,
+        "support_count": 1,
+        "third_gap": 92,
+        "third_large": 187,
+        "third_small": 95
+      },
+      "first_off_diagonal_interaction": {
+        "interaction_count": 2,
+        "left_block": [
+          [
+            55,
+            323
+          ],
+          [
+            323,
+            55
+          ]
+        ],
+        "middle_A_to_10A": -0.27651952676530234,
+        "non_middle_sum": 0.03353056657513931,
+        "right_block": [
+          [
+            85,
+            209
+          ],
+          [
+            209,
+            85
+          ]
+        ],
+        "total": -0.24298896019016303
+      },
+      "first_off_diagonal_non_middle_sign": 1,
+      "missing_high_primes": [
+        13
+      ],
+      "reduced_denominator": 17765,
+      "small_prime_support": [
+        5
+      ],
+      "source_blocks": [
+        [
+          55,
+          323
+        ],
+        [
+          85,
+          209
+        ],
+        [
+          95,
+          187
+        ]
+      ],
+      "source_gaps": [
+        268,
+        124,
+        92
+      ]
+    },
+    {
+      "aggregate_middle_A_to_10A": -0.11885798278690261,
+      "aggregate_non_middle_sum": -0.13825297378454104,
+      "features": {
+        "block_count": 3,
+        "first_gap": 170,
+        "first_gap_drop": 52,
+        "first_large": 247,
+        "first_large_step": -38,
+        "first_small": 77,
+        "first_small_step": 14,
+        "large_middle_offset": 14.0,
+        "middle_gap_excess": 28.0,
+        "missing_count": 1,
+        "second_gap": 118,
+        "second_gap_drop": 108,
+        "second_large": 209,
+        "second_small": 91,
+        "small_middle_offset": -14.0,
+        "small_over_missing_product": 0.4117647058823529,
+        "source_gap_curvature": -56,
+        "support_count": 1,
+        "third_gap": 10,
+        "third_large": 143,
+        "third_small": 133
+      },
+      "first_off_diagonal_interaction": {
+        "interaction_count": 2,
+        "left_block": [
+          [
+            77,
+            247
+          ],
+          [
+            247,
+            77
+          ]
+        ],
+        "middle_A_to_10A": -0.03674837760132407,
+        "non_middle_sum": 0.12323985498862675,
+        "right_block": [
+          [
+            91,
+            209
+          ],
+          [
+            209,
+            91
+          ]
+        ],
+        "total": 0.08649147738730266
+      },
+      "first_off_diagonal_non_middle_sign": 1,
+      "missing_high_primes": [
+        17
+      ],
+      "reduced_denominator": 19019,
+      "small_prime_support": [
+        7
+      ],
+      "source_blocks": [
+        [
+          77,
+          247
+        ],
+        [
+          91,
+          209
+        ],
+        [
+          133,
+          143
+        ]
+      ],
+      "source_gaps": [
+        170,
+        118,
+        10
+      ]
+    },
+    {
+      "aggregate_middle_A_to_10A": 0.10283468067983875,
+      "aggregate_non_middle_sum": 0.09405255039236418,
+      "features": {
+        "block_count": 3,
+        "first_gap": 178,
+        "first_gap_drop": 96,
+        "first_large": 255,
+        "first_large_step": -68,
+        "first_small": 77,
+        "first_small_step": 28,
+        "large_middle_offset": -23.0,
+        "middle_gap_excess": -30.0,
+        "missing_count": 2,
+        "second_gap": 82,
+        "second_gap_drop": 36,
+        "second_large": 187,
+        "second_small": 105,
+        "small_middle_offset": 7.0,
+        "small_over_missing_product": 0.4251012145748988,
+        "source_gap_curvature": 60,
+        "support_count": 3,
+        "third_gap": 46,
+        "third_large": 165,
+        "third_small": 119
+      },
+      "first_off_diagonal_interaction": {
+        "interaction_count": 2,
+        "left_block": [
+          [
+            77,
+            255
+          ],
+          [
+            255,
+            77
+          ]
+        ],
+        "middle_A_to_10A": 0.036718655067340567,
+        "non_middle_sum": 0.009780209369645305,
+        "right_block": [
+          [
+            105,
+            187
+          ],
+          [
+            187,
+            105
+          ]
+        ],
+        "total": 0.04649886443698588
+      },
+      "first_off_diagonal_non_middle_sign": 1,
+      "missing_high_primes": [
+        13,
+        19
+      ],
+      "reduced_denominator": 19635,
+      "small_prime_support": [
+        3,
+        5,
+        7
+      ],
+      "source_blocks": [
+        [
+          77,
+          255
+        ],
+        [
+          105,
+          187
+        ],
+        [
+          119,
+          165
+        ]
+      ],
+      "source_gaps": [
+        178,
+        82,
+        46
+      ]
+    },
+    {
+      "aggregate_middle_A_to_10A": -0.338868156104304,
+      "aggregate_non_middle_sum": 0.29948909223595443,
+      "features": {
+        "block_count": 3,
+        "first_gap": 258,
+        "first_gap_drop": 96,
+        "first_large": 323,
+        "first_large_step": -76,
+        "first_small": 65,
+        "first_small_step": 20,
+        "large_middle_offset": -25.0,
+        "middle_gap_excess": -30.0,
+        "missing_count": 1,
+        "second_gap": 162,
+        "second_gap_drop": 36,
+        "second_large": 247,
+        "second_small": 85,
+        "small_middle_offset": 5.0,
+        "small_over_missing_product": 0.45454545454545453,
+        "source_gap_curvature": 60,
+        "support_count": 1,
+        "third_gap": 126,
+        "third_large": 221,
+        "third_small": 95
+      },
+      "first_off_diagonal_interaction": {
+        "interaction_count": 2,
+        "left_block": [
+          [
+            65,
+            323
+          ],
+          [
+            323,
+            65
+          ]
+        ],
+        "middle_A_to_10A": 0.051374213817178244,
+        "non_middle_sum": 0.2549310116477996,
+        "right_block": [
+          [
+            85,
+            247
+          ],
+          [
+            247,
+            85
+          ]
+        ],
+        "total": 0.30630522546497785
+      },
+      "first_off_diagonal_non_middle_sign": 1,
+      "missing_high_primes": [
+        11
+      ],
+      "reduced_denominator": 20995,
+      "small_prime_support": [
+        5
+      ],
+      "source_blocks": [
+        [
+          65,
+          323
+        ],
+        [
+          85,
+          247
+        ],
+        [
+          95,
+          221
+        ]
+      ],
+      "source_gaps": [
+        258,
+        162,
+        126
+      ]
+    },
+    {
+      "aggregate_middle_A_to_10A": -0.1891059052848317,
+      "aggregate_non_middle_sum": -0.5714466570392572,
+      "features": {
+        "block_count": 3,
+        "first_gap": 257,
+        "first_gap_drop": 150,
+        "first_large": 323,
+        "first_large_step": -114,
+        "first_small": 66,
+        "first_small_step": 36,
+        "large_middle_offset": -46.0,
+        "middle_gap_excess": -58.0,
+        "missing_count": 1,
+        "second_gap": 107,
+        "second_gap_drop": 34,
+        "second_large": 209,
+        "second_small": 102,
+        "small_middle_offset": 12.0,
+        "small_over_missing_product": 0.46153846153846156,
+        "source_gap_curvature": 116,
+        "support_count": 2,
+        "third_gap": 73,
+        "third_large": 187,
+        "third_small": 114
+      },
+      "first_off_diagonal_interaction": {
+        "interaction_count": 2,
+        "left_block": [
+          [
+            66,
+            323
+          ],
+          [
+            323,
+            66
+          ]
+        ],
+        "middle_A_to_10A": 0.2226029697297524,
+        "non_middle_sum": -0.2767405729907437,
+        "right_block": [
+          [
+            102,
+            209
+          ],
+          [
+            209,
+            102
+          ]
+        ],
+        "total": -0.054137603260991325
+      },
+      "first_off_diagonal_non_middle_sign": -1,
+      "missing_high_primes": [
+        13
+      ],
+      "reduced_denominator": 21318,
+      "small_prime_support": [
+        2,
+        3
+      ],
+      "source_blocks": [
+        [
+          66,
+          323
+        ],
+        [
+          102,
+          209
+        ],
+        [
+          114,
+          187
+        ]
+      ],
+      "source_gaps": [
+        257,
+        107,
+        73
+      ]
+    },
+    {
+      "aggregate_middle_A_to_10A": -0.020966909790831056,
+      "aggregate_non_middle_sum": -0.017802244793257864,
+      "features": {
+        "block_count": 3,
+        "first_gap": 208,
+        "first_gap_drop": 104,
+        "first_large": 285,
+        "first_large_step": -76,
+        "first_small": 77,
+        "first_small_step": 28,
+        "large_middle_offset": -16.0,
+        "middle_gap_excess": -16.0,
+        "missing_count": 2,
+        "second_gap": 104,
+        "second_gap_drop": 72,
+        "second_large": 209,
+        "second_small": 105,
+        "small_middle_offset": 0.0,
+        "small_over_missing_product": 0.4751131221719457,
+        "source_gap_curvature": 32,
+        "support_count": 3,
+        "third_gap": 32,
+        "third_large": 165,
+        "third_small": 133
+      },
+      "first_off_diagonal_interaction": {
+        "interaction_count": 2,
+        "left_block": [
+          [
+            77,
+            285
+          ],
+          [
+            285,
+            77
+          ]
+        ],
+        "middle_A_to_10A": 0.18544382226063993,
+        "non_middle_sum": 0.016947501595329054,
+        "right_block": [
+          [
+            105,
+            209
+          ],
+          [
+            209,
+            105
+          ]
+        ],
+        "total": 0.20239132385596897
+      },
+      "first_off_diagonal_non_middle_sign": 1,
+      "missing_high_primes": [
+        13,
+        17
+      ],
+      "reduced_denominator": 21945,
+      "small_prime_support": [
+        3,
+        5,
+        7
+      ],
+      "source_blocks": [
+        [
+          77,
+          285
+        ],
+        [
+          105,
+          209
+        ],
+        [
+          133,
+          165
+        ]
+      ],
+      "source_gaps": [
+        208,
+        104,
+        32
+      ]
+    },
+    {
+      "aggregate_middle_A_to_10A": -0.42005833170570367,
+      "aggregate_non_middle_sum": 0.010390332729237471,
+      "features": {
+        "block_count": 5,
+        "first_gap": 253,
+        "first_gap_drop": 72,
+        "first_large": 323,
+        "first_large_step": -57,
+        "first_small": 70,
+        "first_small_step": 15,
+        "missing_count": 2,
+        "second_gap": 181,
+        "second_large": 266,
+        "second_small": 85,
+        "small_over_missing_product": 0.48951048951048953,
+        "support_count": 3
+      },
+      "first_off_diagonal_interaction": {
+        "interaction_count": 2,
+        "left_block": [
+          [
+            70,
+            323
+          ],
+          [
+            323,
+            70
+          ]
+        ],
+        "middle_A_to_10A": -0.049090215207362994,
+        "non_middle_sum": -0.004050397361538718,
+        "right_block": [
+          [
+            85,
+            266
+          ],
+          [
+            266,
+            85
+          ]
+        ],
+        "total": -0.053140612568901714
+      },
+      "first_off_diagonal_non_middle_sign": -1,
+      "missing_high_primes": [
+        11,
+        13
+      ],
+      "reduced_denominator": 22610,
+      "small_prime_support": [
+        2,
+        5,
+        7
+      ],
+      "source_blocks": [
+        [
+          70,
+          323
+        ],
+        [
+          85,
+          266
+        ],
+        [
+          95,
+          238
+        ],
+        [
+          119,
+          190
+        ],
+        [
+          133,
+          170
+        ]
+      ],
+      "source_gaps": [
+        253,
+        181,
+        143,
+        71,
+        37
+      ]
+    },
+    {
+      "aggregate_middle_A_to_10A": 0.05388962059818308,
+      "aggregate_non_middle_sum": 0.5997660152510392,
+      "features": {
+        "block_count": 3,
+        "first_gap": 164,
+        "first_gap_drop": 48,
+        "first_large": 255,
+        "first_large_step": -34,
+        "first_small": 91,
+        "first_small_step": 14,
+        "large_middle_offset": -4.0,
+        "middle_gap_excess": -4.0,
+        "missing_count": 2,
+        "second_gap": 116,
+        "second_gap_drop": 40,
+        "second_large": 221,
+        "second_small": 105,
+        "small_middle_offset": 0.0,
+        "small_over_missing_product": 0.5023923444976076,
+        "source_gap_curvature": 8,
+        "support_count": 3,
+        "third_gap": 76,
+        "third_large": 195,
+        "third_small": 119
+      },
+      "first_off_diagonal_interaction": {
+        "interaction_count": 2,
+        "left_block": [
+          [
+            91,
+            255
+          ],
+          [
+            255,
+            91
+          ]
+        ],
+        "middle_A_to_10A": -0.019027755939238895,
+        "non_middle_sum": 0.36578333900294374,
+        "right_block": [
+          [
+            105,
+            221
+          ],
+          [
+            221,
+            105
+          ]
+        ],
+        "total": 0.3467555830637048
+      },
+      "first_off_diagonal_non_middle_sign": 1,
+      "missing_high_primes": [
+        11,
+        19
+      ],
+      "reduced_denominator": 23205,
+      "small_prime_support": [
+        3,
+        5,
+        7
+      ],
+      "source_blocks": [
+        [
+          91,
+          255
+        ],
+        [
+          105,
+          221
+        ],
+        [
+          119,
+          195
+        ]
+      ],
+      "source_gaps": [
+        164,
+        116,
+        76
+      ]
+    },
+    {
+      "aggregate_middle_A_to_10A": -0.3292272129018169,
+      "aggregate_non_middle_sum": 0.0663272839306549,
+      "features": {
+        "block_count": 3,
+        "first_gap": 111,
+        "first_gap_drop": 54,
+        "first_large": 221,
+        "first_large_step": -34,
+        "first_small": 110,
+        "first_small_step": 20,
+        "large_middle_offset": -8.5,
+        "middle_gap_excess": -12.0,
+        "missing_count": 0,
+        "second_gap": 57,
+        "second_gap_drop": 30,
+        "second_large": 187,
+        "second_small": 130,
+        "small_middle_offset": 3.5,
+        "small_over_missing_product": null,
+        "source_gap_curvature": 24,
+        "support_count": 0,
+        "third_gap": 27,
+        "third_large": 170,
+        "third_small": 143
+      },
+      "first_off_diagonal_interaction": {
+        "interaction_count": 2,
+        "left_block": [
+          [
+            110,
+            221
+          ],
+          [
+            221,
+            110
+          ]
+        ],
+        "middle_A_to_10A": 0.05119039439266633,
+        "non_middle_sum": -0.05058553874539342,
+        "right_block": [
+          [
+            130,
+            187
+          ],
+          [
+            187,
+            130
+          ]
+        ],
+        "total": 0.0006048556472729089
+      },
+      "first_off_diagonal_non_middle_sign": -1,
+      "missing_high_primes": [],
+      "reduced_denominator": 24310,
+      "small_prime_support": [],
+      "source_blocks": [
+        [
+          110,
+          221
+        ],
+        [
+          130,
+          187
+        ],
+        [
+          143,
+          170
+        ]
+      ],
+      "source_gaps": [
+        111,
+        57,
+        27
+      ]
+    },
+    {
+      "aggregate_middle_A_to_10A": -0.3070122384519499,
+      "aggregate_non_middle_sum": 0.8917102074108364,
+      "features": {
+        "block_count": 3,
+        "first_gap": 246,
+        "first_gap_drop": 156,
+        "first_large": 323,
+        "first_large_step": -114,
+        "first_small": 77,
+        "first_small_step": 42,
+        "large_middle_offset": -46.0,
+        "middle_gap_excess": -60.0,
+        "missing_count": 1,
+        "second_gap": 90,
+        "second_gap_drop": 36,
+        "second_large": 209,
+        "second_small": 119,
+        "small_middle_offset": 14.0,
+        "small_over_missing_product": 0.5384615384615384,
+        "source_gap_curvature": 120,
+        "support_count": 1,
+        "third_gap": 54,
+        "third_large": 187,
+        "third_small": 133
+      },
+      "first_off_diagonal_interaction": {
+        "interaction_count": 2,
+        "left_block": [
+          [
+            77,
+            323
+          ],
+          [
+            323,
+            77
+          ]
+        ],
+        "middle_A_to_10A": -0.14374616115835143,
+        "non_middle_sum": 0.003937906587411451,
+        "right_block": [
+          [
+            119,
+            209
+          ],
+          [
+            209,
+            119
+          ]
+        ],
+        "total": -0.13980825457093998
+      },
+      "first_off_diagonal_non_middle_sign": 1,
+      "missing_high_primes": [
+        13
+      ],
+      "reduced_denominator": 24871,
+      "small_prime_support": [
+        7
+      ],
+      "source_blocks": [
+        [
+          77,
+          323
+        ],
+        [
+          119,
+          209
+        ],
+        [
+          133,
+          187
+        ]
+      ],
+      "source_gaps": [
+        246,
+        90,
+        54
+      ]
+    },
+    {
+      "aggregate_middle_A_to_10A": -0.32416562700386536,
+      "aggregate_non_middle_sum": 0.10181380407012787,
+      "features": {
+        "block_count": 3,
+        "first_gap": 245,
+        "first_gap_drop": 100,
+        "first_large": 323,
+        "first_large_step": -76,
+        "first_small": 78,
+        "first_small_step": 24,
+        "large_middle_offset": -25.0,
+        "middle_gap_excess": -31.0,
+        "missing_count": 1,
+        "second_gap": 145,
+        "second_gap_drop": 38,
+        "second_large": 247,
+        "second_small": 102,
+        "small_middle_offset": 6.0,
+        "small_over_missing_product": 0.5454545454545454,
+        "source_gap_curvature": 62,
+        "support_count": 2,
+        "third_gap": 107,
+        "third_large": 221,
+        "third_small": 114
+      },
+      "first_off_diagonal_interaction": {
+        "interaction_count": 2,
+        "left_block": [
+          [
+            78,
+            323
+          ],
+          [
+            323,
+            78
+          ]
+        ],
+        "middle_A_to_10A": 0.004182570960445833,
+        "non_middle_sum": 0.030167244199141133,
+        "right_block": [
+          [
+            102,
+            247
+          ],
+          [
+            247,
+            102
+          ]
+        ],
+        "total": 0.034349815159586974
+      },
+      "first_off_diagonal_non_middle_sign": 1,
+      "missing_high_primes": [
+        11
+      ],
+      "reduced_denominator": 25194,
+      "small_prime_support": [
+        2,
+        3
+      ],
+      "source_blocks": [
+        [
+          78,
+          323
+        ],
+        [
+          102,
+          247
+        ],
+        [
+          114,
+          221
+        ]
+      ],
+      "source_gaps": [
+        245,
+        145,
+        107
+      ]
+    },
+    {
+      "aggregate_middle_A_to_10A": 0.06514938506787141,
+      "aggregate_non_middle_sum": 0.670640003908336,
+      "features": {
+        "block_count": 3,
+        "first_gap": 194,
+        "first_gap_drop": 52,
+        "first_large": 285,
+        "first_large_step": -38,
+        "first_small": 91,
+        "first_small_step": 14,
+        "large_middle_offset": 7.0,
+        "middle_gap_excess": 14.0,
+        "missing_count": 2,
+        "second_gap": 142,
+        "second_gap_drop": 80,
+        "second_large": 247,
+        "second_small": 105,
+        "small_middle_offset": -7.0,
+        "small_over_missing_product": 0.5614973262032086,
+        "source_gap_curvature": -28,
+        "support_count": 3,
+        "third_gap": 62,
+        "third_large": 195,
+        "third_small": 133
+      },
+      "first_off_diagonal_interaction": {
+        "interaction_count": 2,
+        "left_block": [
+          [
+            91,
+            285
+          ],
+          [
+            285,
+            91
+          ]
+        ],
+        "middle_A_to_10A": -0.12914590428936168,
+        "non_middle_sum": 0.0711969683693239,
+        "right_block": [
+          [
+            105,
+            247
+          ],
+          [
+            247,
+            105
+          ]
+        ],
+        "total": -0.0579489359200378
+      },
+      "first_off_diagonal_non_middle_sign": 1,
+      "missing_high_primes": [
+        11,
+        17
+      ],
+      "reduced_denominator": 25935,
+      "small_prime_support": [
+        3,
+        5,
+        7
+      ],
+      "source_blocks": [
+        [
+          91,
+          285
+        ],
+        [
+          105,
+          247
+        ],
+        [
+          133,
+          195
+        ]
+      ],
+      "source_gaps": [
+        194,
+        142,
+        62
+      ]
+    },
+    {
+      "aggregate_middle_A_to_10A": 0.2041031533958293,
+      "aggregate_non_middle_sum": -0.02929650386800091,
+      "features": {
+        "block_count": 3,
+        "first_gap": 137,
+        "first_gap_drop": 58,
+        "first_large": 247,
+        "first_large_step": -38,
+        "first_small": 110,
+        "first_small_step": 20,
+        "large_middle_offset": -9.5,
+        "middle_gap_excess": -13.0,
+        "missing_count": 1,
+        "second_gap": 79,
+        "second_gap_drop": 32,
+        "second_large": 209,
+        "second_small": 130,
+        "small_middle_offset": 3.5,
+        "small_over_missing_product": 0.5882352941176471,
+        "source_gap_curvature": 26,
+        "support_count": 2,
+        "third_gap": 47,
+        "third_large": 190,
+        "third_small": 143
+      },
+      "first_off_diagonal_interaction": {
+        "interaction_count": 2,
+        "left_block": [
+          [
+            110,
+            247
+          ],
+          [
+            247,
+            110
+          ]
+        ],
+        "middle_A_to_10A": 0.15869316721728166,
+        "non_middle_sum": 0.012026082544214181,
+        "right_block": [
+          [
+            130,
+            209
+          ],
+          [
+            209,
+            130
+          ]
+        ],
+        "total": 0.17071924976149583
+      },
+      "first_off_diagonal_non_middle_sign": 1,
+      "missing_high_primes": [
+        17
+      ],
+      "reduced_denominator": 27170,
+      "small_prime_support": [
+        2,
+        5
+      ],
+      "source_blocks": [
+        [
+          110,
+          247
+        ],
+        [
+          130,
+          209
+        ],
+        [
+          143,
+          190
+        ]
+      ],
+      "source_gaps": [
+        137,
+        79,
+        47
+      ]
+    },
+    {
+      "aggregate_middle_A_to_10A": -0.2900192147151626,
+      "aggregate_non_middle_sum": 0.3685871755510863,
+      "features": {
+        "block_count": 3,
+        "first_gap": 232,
+        "first_gap_drop": 104,
+        "first_large": 323,
+        "first_large_step": -76,
+        "first_small": 91,
+        "first_small_step": 28,
+        "large_middle_offset": -25.0,
+        "middle_gap_excess": -32.0,
+        "missing_count": 1,
+        "second_gap": 128,
+        "second_gap_drop": 40,
+        "second_large": 247,
+        "second_small": 119,
+        "small_middle_offset": 7.0,
+        "small_over_missing_product": 0.6363636363636364,
+        "source_gap_curvature": 64,
+        "support_count": 1,
+        "third_gap": 88,
+        "third_large": 221,
+        "third_small": 133
+      },
+      "first_off_diagonal_interaction": {
+        "interaction_count": 2,
+        "left_block": [
+          [
+            91,
+            323
+          ],
+          [
+            323,
+            91
+          ]
+        ],
+        "middle_A_to_10A": -0.124824280172916,
+        "non_middle_sum": 0.007014231615162661,
+        "right_block": [
+          [
+            119,
+            247
+          ],
+          [
+            247,
+            119
+          ]
+        ],
+        "total": -0.11781004855775334
+      },
+      "first_off_diagonal_non_middle_sign": 1,
+      "missing_high_primes": [
+        11
+      ],
+      "reduced_denominator": 29393,
+      "small_prime_support": [
+        7
+      ],
+      "source_blocks": [
+        [
+          91,
+          323
+        ],
+        [
+          119,
+          247
+        ],
+        [
+          133,
+          221
+        ]
+      ],
+      "source_gaps": [
+        232,
+        128,
+        88
+      ]
+    },
+    {
+      "aggregate_middle_A_to_10A": -0.15586283973604548,
+      "aggregate_non_middle_sum": 0.5384353930390923,
+      "features": {
+        "block_count": 3,
+        "first_gap": 67,
+        "first_gap_drop": 26,
+        "first_large": 210,
+        "first_large_step": -15,
+        "first_small": 143,
+        "first_small_step": 11,
+        "large_middle_offset": -1.0,
+        "middle_gap_excess": -1.0,
+        "missing_count": 2,
+        "second_gap": 41,
+        "second_gap_drop": 24,
+        "second_large": 195,
+        "second_small": 154,
+        "small_middle_offset": 0.0,
+        "small_over_missing_product": 0.6501547987616099,
+        "source_gap_curvature": 2,
+        "support_count": 4,
+        "third_gap": 17,
+        "third_large": 182,
+        "third_small": 165
+      },
+      "first_off_diagonal_interaction": {
+        "interaction_count": 2,
+        "left_block": [
+          [
+            143,
+            210
+          ],
+          [
+            210,
+            143
+          ]
+        ],
+        "middle_A_to_10A": -0.004144786594721307,
+        "non_middle_sum": 0.13320250675077683,
+        "right_block": [
+          [
+            154,
+            195
+          ],
+          [
+            195,
+            154
+          ]
+        ],
+        "total": 0.12905772015605554
+      },
+      "first_off_diagonal_non_middle_sign": 1,
+      "missing_high_primes": [
+        17,
+        19
+      ],
+      "reduced_denominator": 30030,
+      "small_prime_support": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "source_blocks": [
+        [
+          143,
+          210
+        ],
+        [
+          154,
+          195
+        ],
+        [
+          165,
+          182
+        ]
+      ],
+      "source_gaps": [
+        67,
+        41,
+        17
+      ]
+    },
+    {
+      "aggregate_middle_A_to_10A": -0.13726011679965214,
+      "aggregate_non_middle_sum": 0.04117247676325242,
+      "features": {
+        "block_count": 3,
+        "first_gap": 218,
+        "first_gap_drop": 52,
+        "first_large": 323,
+        "first_large_step": -38,
+        "first_small": 105,
+        "first_small_step": 14,
+        "large_middle_offset": -4.0,
+        "middle_gap_excess": -4.0,
+        "missing_count": 2,
+        "second_gap": 166,
+        "second_gap_drop": 44,
+        "second_large": 285,
+        "second_small": 119,
+        "small_middle_offset": 0.0,
+        "small_over_missing_product": 0.7342657342657343,
+        "source_gap_curvature": 8,
+        "support_count": 3,
+        "third_gap": 122,
+        "third_large": 255,
+        "third_small": 133
+      },
+      "first_off_diagonal_interaction": {
+        "interaction_count": 2,
+        "left_block": [
+          [
+            105,
+            323
+          ],
+          [
+            323,
+            105
+          ]
+        ],
+        "middle_A_to_10A": -0.050524642520489146,
+        "non_middle_sum": 0.02456445045377404,
+        "right_block": [
+          [
+            119,
+            285
+          ],
+          [
+            285,
+            119
+          ]
+        ],
+        "total": -0.025960192066715113
+      },
+      "first_off_diagonal_non_middle_sign": 1,
+      "missing_high_primes": [
+        11,
+        13
+      ],
+      "reduced_denominator": 33915,
+      "small_prime_support": [
+        3,
+        5,
+        7
+      ],
+      "source_blocks": [
+        [
+          105,
+          323
+        ],
+        [
+          119,
+          285
+        ],
+        [
+          133,
+          255
+        ]
+      ],
+      "source_gaps": [
+        218,
+        166,
+        122
+      ]
+    },
+    {
+      "aggregate_middle_A_to_10A": -0.15163174644628274,
+      "aggregate_non_middle_sum": 0.022661054683159067,
+      "features": {
+        "block_count": 3,
+        "first_gap": 95,
+        "first_gap_drop": 28,
+        "first_large": 238,
+        "first_large_step": -17,
+        "first_small": 143,
+        "first_small_step": 11,
+        "large_middle_offset": 8.5,
+        "middle_gap_excess": 17.0,
+        "missing_count": 0,
+        "second_gap": 67,
+        "second_gap_drop": 62,
+        "second_large": 221,
+        "second_small": 154,
+        "small_middle_offset": -8.5,
+        "small_over_missing_product": null,
+        "source_gap_curvature": -34,
+        "support_count": 0,
+        "third_gap": 5,
+        "third_large": 187,
+        "third_small": 182
+      },
+      "first_off_diagonal_interaction": {
+        "interaction_count": 2,
+        "left_block": [
+          [
+            143,
+            238
+          ],
+          [
+            238,
+            143
+          ]
+        ],
+        "middle_A_to_10A": -0.09881232524890005,
+        "non_middle_sum": 0.01956257735083282,
+        "right_block": [
+          [
+            154,
+            221
+          ],
+          [
+            221,
+            154
+          ]
+        ],
+        "total": -0.07924974789806721
+      },
+      "first_off_diagonal_non_middle_sign": 1,
+      "missing_high_primes": [],
+      "reduced_denominator": 34034,
+      "small_prime_support": [],
+      "source_blocks": [
+        [
+          143,
+          238
+        ],
+        [
+          154,
+          221
+        ],
+        [
+          182,
+          187
+        ]
+      ],
+      "source_gaps": [
+        95,
+        67,
+        5
+      ]
+    },
+    {
+      "aggregate_middle_A_to_10A": 0.06989048041768418,
+      "aggregate_non_middle_sum": -0.2174000208071616,
+      "features": {
+        "block_count": 3,
+        "first_gap": 213,
+        "first_gap_drop": 174,
+        "first_large": 323,
+        "first_large_step": -114,
+        "first_small": 110,
+        "first_small_step": 60,
+        "large_middle_offset": -47.5,
+        "middle_gap_excess": -69.0,
+        "missing_count": 0,
+        "second_gap": 39,
+        "second_gap_drop": 36,
+        "second_large": 209,
+        "second_small": 170,
+        "small_middle_offset": 21.5,
+        "small_over_missing_product": null,
+        "source_gap_curvature": 138,
+        "support_count": 0,
+        "third_gap": 3,
+        "third_large": 190,
+        "third_small": 187
+      },
+      "first_off_diagonal_interaction": {
+        "interaction_count": 2,
+        "left_block": [
+          [
+            110,
+            323
+          ],
+          [
+            323,
+            110
+          ]
+        ],
+        "middle_A_to_10A": -0.12099562137090931,
+        "non_middle_sum": 0.010546337685298258,
+        "right_block": [
+          [
+            170,
+            209
+          ],
+          [
+            209,
+            170
+          ]
+        ],
+        "total": -0.11044928368561105
+      },
+      "first_off_diagonal_non_middle_sign": 1,
+      "missing_high_primes": [],
+      "reduced_denominator": 35530,
+      "small_prime_support": [],
+      "source_blocks": [
+        [
+          110,
+          323
+        ],
+        [
+          170,
+          209
+        ],
+        [
+          187,
+          190
+        ]
+      ],
+      "source_gaps": [
+        213,
+        39,
+        3
+      ]
+    },
+    {
+      "aggregate_middle_A_to_10A": 0.05203305443361395,
+      "aggregate_non_middle_sum": -0.3390532066023492,
+      "features": {
+        "block_count": 3,
+        "first_gap": 112,
+        "first_gap_drop": 56,
+        "first_large": 255,
+        "first_large_step": -34,
+        "first_small": 143,
+        "first_small_step": 22,
+        "large_middle_offset": -4.0,
+        "middle_gap_excess": -4.0,
+        "missing_count": 1,
+        "second_gap": 56,
+        "second_gap_drop": 48,
+        "second_large": 221,
+        "second_small": 165,
+        "small_middle_offset": 0.0,
+        "small_over_missing_product": 0.7894736842105263,
+        "source_gap_curvature": 8,
+        "support_count": 2,
+        "third_gap": 8,
+        "third_large": 195,
+        "third_small": 187
+      },
+      "first_off_diagonal_interaction": {
+        "interaction_count": 2,
+        "left_block": [
+          [
+            143,
+            255
+          ],
+          [
+            255,
+            143
+          ]
+        ],
+        "middle_A_to_10A": 0.11447294478497361,
+        "non_middle_sum": -0.2851043183028381,
+        "right_block": [
+          [
+            165,
+            221
+          ],
+          [
+            221,
+            165
+          ]
+        ],
+        "total": -0.17063137351786445
+      },
+      "first_off_diagonal_non_middle_sign": -1,
+      "missing_high_primes": [
+        19
+      ],
+      "reduced_denominator": 36465,
+      "small_prime_support": [
+        3,
+        5
+      ],
+      "source_blocks": [
+        [
+          143,
+          255
+        ],
+        [
+          165,
+          221
+        ],
+        [
+          187,
+          195
+        ]
+      ],
+      "source_gaps": [
+        112,
+        56,
+        8
+      ]
+    },
+    {
+      "aggregate_middle_A_to_10A": -0.939992990438763,
+      "aggregate_non_middle_sum": 0.09269980585259228,
+      "features": {
+        "block_count": 3,
+        "first_gap": 123,
+        "first_gap_drop": 30,
+        "first_large": 266,
+        "first_large_step": -19,
+        "first_small": 143,
+        "first_small_step": 11,
+        "large_middle_offset": 9.5,
+        "middle_gap_excess": 18.0,
+        "missing_count": 1,
+        "second_gap": 93,
+        "second_gap_drop": 66,
+        "second_large": 247,
+        "second_small": 154,
+        "small_middle_offset": -8.5,
+        "small_over_missing_product": 0.8235294117647058,
+        "source_gap_curvature": -36,
+        "support_count": 2,
+        "third_gap": 27,
+        "third_large": 209,
+        "third_small": 182
+      },
+      "first_off_diagonal_interaction": {
+        "interaction_count": 2,
+        "left_block": [
+          [
+            143,
+            266
+          ],
+          [
+            266,
+            143
+          ]
+        ],
+        "middle_A_to_10A": -0.9680777579360889,
+        "non_middle_sum": 0.08681182947394983,
+        "right_block": [
+          [
+            154,
+            247
+          ],
+          [
+            247,
+            154
+          ]
+        ],
+        "total": -0.8812659284621391
+      },
+      "first_off_diagonal_non_middle_sign": 1,
+      "missing_high_primes": [
+        17
+      ],
+      "reduced_denominator": 38038,
+      "small_prime_support": [
+        2,
+        7
+      ],
+      "source_blocks": [
+        [
+          143,
+          266
+        ],
+        [
+          154,
+          247
+        ],
+        [
+          182,
+          209
+        ]
+      ],
+      "source_gaps": [
+        123,
+        93,
+        27
+      ]
+    },
+    {
+      "aggregate_middle_A_to_10A": 0.3087148923658454,
+      "aggregate_non_middle_sum": -0.11151793203414968,
+      "features": {
+        "block_count": 3,
+        "first_gap": 101,
+        "first_gap_drop": 28,
+        "first_large": 255,
+        "first_large_step": -17,
+        "first_small": 154,
+        "first_small_step": 11,
+        "large_middle_offset": 5.5,
+        "middle_gap_excess": 11.0,
+        "missing_count": 2,
+        "second_gap": 73,
+        "second_gap_drop": 50,
+        "second_large": 238,
+        "second_small": 165,
+        "small_middle_offset": -5.5,
+        "small_over_missing_product": 0.8502024291497976,
+        "source_gap_curvature": -22,
+        "support_count": 4,
+        "third_gap": 23,
+        "third_large": 210,
+        "third_small": 187
+      },
+      "first_off_diagonal_interaction": {
+        "interaction_count": 2,
+        "left_block": [
+          [
+            154,
+            255
+          ],
+          [
+            255,
+            154
+          ]
+        ],
+        "middle_A_to_10A": 0.2509403874646311,
+        "non_middle_sum": -0.05606148443133309,
+        "right_block": [
+          [
+            165,
+            238
+          ],
+          [
+            238,
+            165
+          ]
+        ],
+        "total": 0.19487890303329797
+      },
+      "first_off_diagonal_non_middle_sign": -1,
+      "missing_high_primes": [
+        13,
+        19
+      ],
+      "reduced_denominator": 39270,
+      "small_prime_support": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "source_blocks": [
+        [
+          154,
+          255
+        ],
+        [
+          165,
+          238
+        ],
+        [
+          187,
+          210
+        ]
+      ],
+      "source_gaps": [
+        101,
+        73,
+        23
+      ]
+    },
+    {
+      "aggregate_middle_A_to_10A": 0.06658305648756867,
+      "aggregate_non_middle_sum": 0.0804998319424691,
+      "features": {
+        "block_count": 3,
+        "first_gap": 142,
+        "first_gap_drop": 60,
+        "first_large": 285,
+        "first_large_step": -38,
+        "first_small": 143,
+        "first_small_step": 22,
+        "large_middle_offset": 0.0,
+        "middle_gap_excess": 4.0,
+        "missing_count": 1,
+        "second_gap": 82,
+        "second_gap_drop": 68,
+        "second_large": 247,
+        "second_small": 165,
+        "small_middle_offset": -4.0,
+        "small_over_missing_product": 0.8823529411764706,
+        "source_gap_curvature": -8,
+        "support_count": 2,
+        "third_gap": 14,
+        "third_large": 209,
+        "third_small": 195
+      },
+      "first_off_diagonal_interaction": {
+        "interaction_count": 2,
+        "left_block": [
+          [
+            143,
+            285
+          ],
+          [
+            285,
+            143
+          ]
+        ],
+        "middle_A_to_10A": 0.05759535981302088,
+        "non_middle_sum": 0.1511883561224868,
+        "right_block": [
+          [
+            165,
+            247
+          ],
+          [
+            247,
+            165
+          ]
+        ],
+        "total": 0.20878371593550765
+      },
+      "first_off_diagonal_non_middle_sign": 1,
+      "missing_high_primes": [
+        17
+      ],
+      "reduced_denominator": 40755,
+      "small_prime_support": [
+        3,
+        5
+      ],
+      "source_blocks": [
+        [
+          143,
+          285
+        ],
+        [
+          165,
+          247
+        ],
+        [
+          195,
+          209
+        ]
+      ],
+      "source_gaps": [
+        142,
+        82,
+        14
+      ]
+    },
+    {
+      "aggregate_middle_A_to_10A": -0.43222079205102754,
+      "aggregate_non_middle_sum": -0.10078449680431602,
+      "features": {
+        "block_count": 3,
+        "first_gap": 193,
+        "first_gap_drop": 116,
+        "first_large": 323,
+        "first_large_step": -76,
+        "first_small": 130,
+        "first_small_step": 40,
+        "large_middle_offset": -25.0,
+        "middle_gap_excess": -35.0,
+        "missing_count": 1,
+        "second_gap": 77,
+        "second_gap_drop": 46,
+        "second_large": 247,
+        "second_small": 170,
+        "small_middle_offset": 10.0,
+        "small_over_missing_product": 0.9090909090909091,
+        "source_gap_curvature": 70,
+        "support_count": 2,
+        "third_gap": 31,
+        "third_large": 221,
+        "third_small": 190
+      },
+      "first_off_diagonal_interaction": {
+        "interaction_count": 2,
+        "left_block": [
+          [
+            130,
+            323
+          ],
+          [
+            323,
+            130
+          ]
+        ],
+        "middle_A_to_10A": -0.07507696020668778,
+        "non_middle_sum": -0.17235321354798228,
+        "right_block": [
+          [
+            170,
+            247
+          ],
+          [
+            247,
+            170
+          ]
+        ],
+        "total": -0.24743017375467005
+      },
+      "first_off_diagonal_non_middle_sign": -1,
+      "missing_high_primes": [
+        11
+      ],
+      "reduced_denominator": 41990,
+      "small_prime_support": [
+        2,
+        5
+      ],
+      "source_blocks": [
+        [
+          130,
+          323
+        ],
+        [
+          170,
+          247
+        ],
+        [
+          190,
+          221
+        ]
+      ],
+      "source_gaps": [
+        193,
+        77,
+        31
+      ]
+    },
+    {
+      "aggregate_middle_A_to_10A": 0.17648250408716462,
+      "aggregate_non_middle_sum": 0.2477456480875578,
+      "features": {
+        "block_count": 3,
+        "first_gap": 131,
+        "first_gap_drop": 30,
+        "first_large": 285,
+        "first_large_step": -19,
+        "first_small": 154,
+        "first_small_step": 11,
+        "large_middle_offset": 18.5,
+        "middle_gap_excess": 35.0,
+        "missing_count": 2,
+        "second_gap": 101,
+        "second_gap_drop": 100,
+        "second_large": 266,
+        "second_small": 165,
+        "small_middle_offset": -16.5,
+        "small_over_missing_product": 0.9502262443438914,
+        "source_gap_curvature": -70,
+        "support_count": 4,
+        "third_gap": 1,
+        "third_large": 210,
+        "third_small": 209
+      },
+      "first_off_diagonal_interaction": {
+        "interaction_count": 2,
+        "left_block": [
+          [
+            154,
+            285
+          ],
+          [
+            285,
+            154
+          ]
+        ],
+        "middle_A_to_10A": 0.17423614402088372,
+        "non_middle_sum": -0.03322979999874694,
+        "right_block": [
+          [
+            165,
+            266
+          ],
+          [
+            266,
+            165
+          ]
+        ],
+        "total": 0.1410063440221368
+      },
+      "first_off_diagonal_non_middle_sign": -1,
+      "missing_high_primes": [
+        13,
+        17
+      ],
+      "reduced_denominator": 43890,
+      "small_prime_support": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "source_blocks": [
+        [
+          154,
+          285
+        ],
+        [
+          165,
+          266
+        ],
+        [
+          209,
+          210
+        ]
+      ],
+      "source_gaps": [
+        131,
+        101,
+        1
+      ]
+    },
+    {
+      "aggregate_middle_A_to_10A": -0.2887717073900284,
+      "aggregate_non_middle_sum": -0.27801564279602464,
+      "features": {
+        "block_count": 3,
+        "first_gap": 73,
+        "first_gap_drop": 30,
+        "first_large": 255,
+        "first_large_step": -17,
+        "first_small": 182,
+        "first_small_step": 13,
+        "large_middle_offset": 0.0,
+        "middle_gap_excess": 1.0,
+        "missing_count": 2,
+        "second_gap": 43,
+        "second_gap_drop": 32,
+        "second_large": 238,
+        "second_small": 195,
+        "small_middle_offset": -1.0,
+        "small_over_missing_product": 1.0047846889952152,
+        "source_gap_curvature": -2,
+        "support_count": 4,
+        "third_gap": 11,
+        "third_large": 221,
+        "third_small": 210
+      },
+      "first_off_diagonal_interaction": {
+        "interaction_count": 2,
+        "left_block": [
+          [
+            182,
+            255
+          ],
+          [
+            255,
+            182
+          ]
+        ],
+        "middle_A_to_10A": 0.00018885965502378157,
+        "non_middle_sum": -0.027403214694301365,
+        "right_block": [
+          [
+            195,
+            238
+          ],
+          [
+            238,
+            195
+          ]
+        ],
+        "total": -0.027214355039277584
+      },
+      "first_off_diagonal_non_middle_sign": -1,
+      "missing_high_primes": [
+        11,
+        19
+      ],
+      "reduced_denominator": 46410,
+      "small_prime_support": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "source_blocks": [
+        [
+          182,
+          255
+        ],
+        [
+          195,
+          238
+        ],
+        [
+          210,
+          221
+        ]
+      ],
+      "source_gaps": [
+        73,
+        43,
+        11
+      ]
+    },
+    {
+      "aggregate_middle_A_to_10A": -0.041853919353250814,
+      "aggregate_non_middle_sum": 0.059864522266205936,
+      "features": {
+        "block_count": 3,
+        "first_gap": 169,
+        "first_gap_drop": 90,
+        "first_large": 323,
+        "first_large_step": -57,
+        "first_small": 154,
+        "first_small_step": 33,
+        "large_middle_offset": -14.5,
+        "middle_gap_excess": -20.0,
+        "missing_count": 1,
+        "second_gap": 79,
+        "second_gap_drop": 50,
+        "second_large": 266,
+        "second_small": 187,
+        "small_middle_offset": 5.5,
+        "small_over_missing_product": 1.0769230769230769,
+        "source_gap_curvature": 40,
+        "support_count": 2,
+        "third_gap": 29,
+        "third_large": 238,
+        "third_small": 209
+      },
+      "first_off_diagonal_interaction": {
+        "interaction_count": 2,
+        "left_block": [
+          [
+            154,
+            323
+          ],
+          [
+            323,
+            154
+          ]
+        ],
+        "middle_A_to_10A": 0.1712000759878593,
+        "non_middle_sum": 0.054639427449771634,
+        "right_block": [
+          [
+            187,
+            266
+          ],
+          [
+            266,
+            187
+          ]
+        ],
+        "total": 0.22583950343763093
+      },
+      "first_off_diagonal_non_middle_sign": 1,
+      "missing_high_primes": [
+        13
+      ],
+      "reduced_denominator": 49742,
+      "small_prime_support": [
+        2,
+        7
+      ],
+      "source_blocks": [
+        [
+          154,
+          323
+        ],
+        [
+          187,
+          266
+        ],
+        [
+          209,
+          238
+        ]
+      ],
+      "source_gaps": [
+        169,
+        79,
+        29
+      ]
+    },
+    {
+      "aggregate_middle_A_to_10A": -0.24020794846524463,
+      "aggregate_non_middle_sum": 0.5251404820370212,
+      "features": {
+        "block_count": 3,
+        "first_gap": 103,
+        "first_gap_drop": 32,
+        "first_large": 285,
+        "first_large_step": -19,
+        "first_small": 182,
+        "first_small_step": 13,
+        "large_middle_offset": 0.0,
+        "middle_gap_excess": 1.0,
+        "missing_count": 2,
+        "second_gap": 71,
+        "second_gap_drop": 34,
+        "second_large": 266,
+        "second_small": 195,
+        "small_middle_offset": -1.0,
+        "small_over_missing_product": 1.1229946524064172,
+        "source_gap_curvature": -2,
+        "support_count": 4,
+        "third_gap": 37,
+        "third_large": 247,
+        "third_small": 210
+      },
+      "first_off_diagonal_interaction": {
+        "interaction_count": 2,
+        "left_block": [
+          [
+            182,
+            285
+          ],
+          [
+            285,
+            182
+          ]
+        ],
+        "middle_A_to_10A": -0.041542500991530104,
+        "non_middle_sum": 0.08296532710322618,
+        "right_block": [
+          [
+            195,
+            266
+          ],
+          [
+            266,
+            195
+          ]
+        ],
+        "total": 0.04142282611169607
+      },
+      "first_off_diagonal_non_middle_sign": 1,
+      "missing_high_primes": [
+        11,
+        17
+      ],
+      "reduced_denominator": 51870,
+      "small_prime_support": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "source_blocks": [
+        [
+          182,
+          285
+        ],
+        [
+          195,
+          266
+        ],
+        [
+          210,
+          247
+        ]
+      ],
+      "source_gaps": [
+        103,
+        71,
+        37
+      ]
+    },
+    {
+      "aggregate_middle_A_to_10A": -0.022466875217659926,
+      "aggregate_non_middle_sum": -0.11106365778603407,
+      "features": {
+        "block_count": 3,
+        "first_gap": 158,
+        "first_gap_drop": 60,
+        "first_large": 323,
+        "first_large_step": -38,
+        "first_small": 165,
+        "first_small_step": 22,
+        "large_middle_offset": -4.0,
+        "middle_gap_excess": -4.0,
+        "missing_count": 1,
+        "second_gap": 98,
+        "second_gap_drop": 52,
+        "second_large": 285,
+        "second_small": 187,
+        "small_middle_offset": 0.0,
+        "small_over_missing_product": 1.1538461538461537,
+        "source_gap_curvature": 8,
+        "support_count": 2,
+        "third_gap": 46,
+        "third_large": 255,
+        "third_small": 209
+      },
+      "first_off_diagonal_interaction": {
+        "interaction_count": 2,
+        "left_block": [
+          [
+            165,
+            323
+          ],
+          [
+            323,
+            165
+          ]
+        ],
+        "middle_A_to_10A": -0.10541597412936428,
+        "non_middle_sum": -0.13439919463471822,
+        "right_block": [
+          [
+            187,
+            285
+          ],
+          [
+            285,
+            187
+          ]
+        ],
+        "total": -0.2398151687640825
+      },
+      "first_off_diagonal_non_middle_sign": -1,
+      "missing_high_primes": [
+        13
+      ],
+      "reduced_denominator": 53295,
+      "small_prime_support": [
+        3,
+        5
+      ],
+      "source_blocks": [
+        [
+          165,
+          323
+        ],
+        [
+          187,
+          285
+        ],
+        [
+          209,
+          255
+        ]
+      ],
+      "source_gaps": [
+        158,
+        98,
+        46
+      ]
+    },
+    {
+      "aggregate_middle_A_to_10A": -0.1987467898389241,
+      "aggregate_non_middle_sum": 0.24805692412320215,
+      "features": {
+        "block_count": 3,
+        "first_gap": 141,
+        "first_gap_drop": 96,
+        "first_large": 323,
+        "first_large_step": -57,
+        "first_small": 182,
+        "first_small_step": 39,
+        "large_middle_offset": -19.0,
+        "middle_gap_excess": -30.0,
+        "missing_count": 1,
+        "second_gap": 45,
+        "second_gap_drop": 36,
+        "second_large": 266,
+        "second_small": 221,
+        "small_middle_offset": 11.0,
+        "small_over_missing_product": 1.2727272727272727,
+        "source_gap_curvature": 60,
+        "support_count": 2,
+        "third_gap": 9,
+        "third_large": 247,
+        "third_small": 238
+      },
+      "first_off_diagonal_interaction": {
+        "interaction_count": 2,
+        "left_block": [
+          [
+            182,
+            323
+          ],
+          [
+            323,
+            182
+          ]
+        ],
+        "middle_A_to_10A": -0.018362090865039104,
+        "non_middle_sum": 0.057796188507037285,
+        "right_block": [
+          [
+            221,
+            266
+          ],
+          [
+            266,
+            221
+          ]
+        ],
+        "total": 0.03943409764199818
+      },
+      "first_off_diagonal_non_middle_sign": 1,
+      "missing_high_primes": [
+        11
+      ],
+      "reduced_denominator": 58786,
+      "small_prime_support": [
+        2,
+        7
+      ],
+      "source_blocks": [
+        [
+          182,
+          323
+        ],
+        [
+          221,
+          266
+        ],
+        [
+          238,
+          247
+        ]
+      ],
+      "source_gaps": [
+        141,
+        45,
+        9
+      ]
+    },
+    {
+      "aggregate_middle_A_to_10A": -0.1577601926843717,
+      "aggregate_non_middle_sum": -0.3258651123818623,
+      "features": {
+        "block_count": 3,
+        "first_gap": 128,
+        "first_gap_drop": 64,
+        "first_large": 323,
+        "first_large_step": -38,
+        "first_small": 195,
+        "first_small_step": 26,
+        "large_middle_offset": -4.0,
+        "middle_gap_excess": -4.0,
+        "missing_count": 1,
+        "second_gap": 64,
+        "second_gap_drop": 56,
+        "second_large": 285,
+        "second_small": 221,
+        "small_middle_offset": 0.0,
+        "small_over_missing_product": 1.3636363636363635,
+        "source_gap_curvature": 8,
+        "support_count": 2,
+        "third_gap": 8,
+        "third_large": 255,
+        "third_small": 247
+      },
+      "first_off_diagonal_interaction": {
+        "interaction_count": 2,
+        "left_block": [
+          [
+            195,
+            323
+          ],
+          [
+            323,
+            195
+          ]
+        ],
+        "middle_A_to_10A": -0.02951978693333577,
+        "non_middle_sum": -0.018495392889181818,
+        "right_block": [
+          [
+            221,
+            285
+          ],
+          [
+            285,
+            221
+          ]
+        ],
+        "total": -0.04801517982251759
+      },
+      "first_off_diagonal_non_middle_sign": -1,
+      "missing_high_primes": [
+        11
+      ],
+      "reduced_denominator": 62985,
+      "small_prime_support": [
+        3,
+        5
+      ],
+      "source_blocks": [
+        [
+          195,
+          323
+        ],
+        [
+          221,
+          285
+        ],
+        [
+          247,
+          255
+        ]
+      ],
+      "source_gaps": [
+        128,
+        64,
+        8
+      ]
+    },
+    {
+      "aggregate_middle_A_to_10A": -0.07939141932343322,
+      "aggregate_non_middle_sum": -0.35129616505347927,
+      "features": {
+        "block_count": 3,
+        "first_gap": 113,
+        "first_gap_drop": 66,
+        "first_large": 323,
+        "first_large_step": -38,
+        "first_small": 210,
+        "first_small_step": 28,
+        "large_middle_offset": -9.5,
+        "middle_gap_excess": -15.0,
+        "missing_count": 2,
+        "second_gap": 47,
+        "second_gap_drop": 36,
+        "second_large": 285,
+        "second_small": 238,
+        "small_middle_offset": 5.5,
+        "small_over_missing_product": 1.4685314685314685,
+        "source_gap_curvature": 30,
+        "support_count": 4,
+        "third_gap": 11,
+        "third_large": 266,
+        "third_small": 255
+      },
+      "first_off_diagonal_interaction": {
+        "interaction_count": 2,
+        "left_block": [
+          [
+            210,
+            323
+          ],
+          [
+            323,
+            210
+          ]
+        ],
+        "middle_A_to_10A": 0.01707941360458671,
+        "non_middle_sum": -0.024588478145437888,
+        "right_block": [
+          [
+            238,
+            285
+          ],
+          [
+            285,
+            238
+          ]
+        ],
+        "total": -0.007509064540851172
+      },
+      "first_off_diagonal_non_middle_sign": -1,
+      "missing_high_primes": [
+        11,
+        13
+      ],
+      "reduced_denominator": 67830,
+      "small_prime_support": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "source_blocks": [
+        [
+          210,
+          323
+        ],
+        [
+          238,
+          285
+        ],
+        [
+          255,
+          266
+        ]
+      ],
+      "source_gaps": [
+        113,
+        47,
+        11
+      ]
+    }
+  ],
+  "schema_version": 1,
+  "source_block_count_distribution": {
+    "3": 32,
+    "5": 2
+  },
+  "source_block_interaction_sign_theorem_proved": false,
+  "source_commit": "b8ffb83012d0da449498da3fc2c4fada6986039f",
+  "source_factor_isolation_theorem_proved": false,
+  "source_pattern_map": "evidence\\mobius-moment-square-degree5-q46189-source-factor-pattern-map-audit.json",
+  "source_synthesis_audit": "evidence\\goldbach-three-candidate-synthesis-audit.json",
+  "status": "AUDIT_q46189_source_block_sign",
+  "strict_central_goldbach_theorem_proved": false,
+  "tracked_rows": {
+    "17290": {
+      "aggregate_middle_A_to_10A": -0.19276289267127256,
+      "aggregate_non_middle_sum": -0.08334772237125168,
+      "features": {
+        "block_count": 5,
+        "first_gap": 201,
+        "first_gap_drop": 24,
+        "first_large": 266,
+        "first_large_step": -19,
+        "first_small": 65,
+        "first_small_step": 5,
+        "missing_count": 2,
+        "second_gap": 177,
+        "second_large": 247,
+        "second_small": 70,
+        "small_over_missing_product": 0.37433155080213903,
+        "support_count": 3
+      },
+      "first_off_diagonal_interaction": {
+        "interaction_count": 2,
+        "left_block": [
+          [
+            65,
+            266
+          ],
+          [
+            266,
+            65
+          ]
+        ],
+        "middle_A_to_10A": -0.09326177443058832,
+        "non_middle_sum": -0.15076643058885553,
+        "right_block": [
+          [
+            70,
+            247
+          ],
+          [
+            247,
+            70
+          ]
+        ],
+        "total": -0.24402820501944383
+      },
+      "first_off_diagonal_non_middle_sign": -1,
+      "missing_high_primes": [
+        11,
+        17
+      ],
+      "reduced_denominator": 17290,
+      "small_prime_support": [
+        2,
+        5,
+        7
+      ],
+      "source_blocks": [
+        [
+          65,
+          266
+        ],
+        [
+          70,
+          247
+        ],
+        [
+          91,
+          190
+        ],
+        [
+          95,
+          182
+        ],
+        [
+          130,
+          133
+        ]
+      ],
+      "source_gaps": [
+        201,
+        177,
+        99,
+        87,
+        3
+      ]
+    },
+    "22610": {
+      "aggregate_middle_A_to_10A": -0.42005833170570367,
+      "aggregate_non_middle_sum": 0.010390332729237471,
+      "features": {
+        "block_count": 5,
+        "first_gap": 253,
+        "first_gap_drop": 72,
+        "first_large": 323,
+        "first_large_step": -57,
+        "first_small": 70,
+        "first_small_step": 15,
+        "missing_count": 2,
+        "second_gap": 181,
+        "second_large": 266,
+        "second_small": 85,
+        "small_over_missing_product": 0.48951048951048953,
+        "support_count": 3
+      },
+      "first_off_diagonal_interaction": {
+        "interaction_count": 2,
+        "left_block": [
+          [
+            70,
+            323
+          ],
+          [
+            323,
+            70
+          ]
+        ],
+        "middle_A_to_10A": -0.049090215207362994,
+        "non_middle_sum": -0.004050397361538718,
+        "right_block": [
+          [
+            85,
+            266
+          ],
+          [
+            266,
+            85
+          ]
+        ],
+        "total": -0.053140612568901714
+      },
+      "first_off_diagonal_non_middle_sign": -1,
+      "missing_high_primes": [
+        11,
+        13
+      ],
+      "reduced_denominator": 22610,
+      "small_prime_support": [
+        2,
+        5,
+        7
+      ],
+      "source_blocks": [
+        [
+          70,
+          323
+        ],
+        [
+          85,
+          266
+        ],
+        [
+          95,
+          238
+        ],
+        [
+          119,
+          190
+        ],
+        [
+          133,
+          170
+        ]
+      ],
+      "source_gaps": [
+        253,
+        181,
+        143,
+        71,
+        37
+      ]
+    },
+    "38038": {
+      "aggregate_middle_A_to_10A": -0.939992990438763,
+      "aggregate_non_middle_sum": 0.09269980585259228,
+      "features": {
+        "block_count": 3,
+        "first_gap": 123,
+        "first_gap_drop": 30,
+        "first_large": 266,
+        "first_large_step": -19,
+        "first_small": 143,
+        "first_small_step": 11,
+        "large_middle_offset": 9.5,
+        "middle_gap_excess": 18.0,
+        "missing_count": 1,
+        "second_gap": 93,
+        "second_gap_drop": 66,
+        "second_large": 247,
+        "second_small": 154,
+        "small_middle_offset": -8.5,
+        "small_over_missing_product": 0.8235294117647058,
+        "source_gap_curvature": -36,
+        "support_count": 2,
+        "third_gap": 27,
+        "third_large": 209,
+        "third_small": 182
+      },
+      "first_off_diagonal_interaction": {
+        "interaction_count": 2,
+        "left_block": [
+          [
+            143,
+            266
+          ],
+          [
+            266,
+            143
+          ]
+        ],
+        "middle_A_to_10A": -0.9680777579360889,
+        "non_middle_sum": 0.08681182947394983,
+        "right_block": [
+          [
+            154,
+            247
+          ],
+          [
+            247,
+            154
+          ]
+        ],
+        "total": -0.8812659284621391
+      },
+      "first_off_diagonal_non_middle_sign": 1,
+      "missing_high_primes": [
+        17
+      ],
+      "reduced_denominator": 38038,
+      "small_prime_support": [
+        2,
+        7
+      ],
+      "source_blocks": [
+        [
+          143,
+          266
+        ],
+        [
+          154,
+          247
+        ],
+        [
+          182,
+          209
+        ]
+      ],
+      "source_gaps": [
+        123,
+        93,
+        27
+      ]
+    },
+    "41990": {
+      "aggregate_middle_A_to_10A": -0.43222079205102754,
+      "aggregate_non_middle_sum": -0.10078449680431602,
+      "features": {
+        "block_count": 3,
+        "first_gap": 193,
+        "first_gap_drop": 116,
+        "first_large": 323,
+        "first_large_step": -76,
+        "first_small": 130,
+        "first_small_step": 40,
+        "large_middle_offset": -25.0,
+        "middle_gap_excess": -35.0,
+        "missing_count": 1,
+        "second_gap": 77,
+        "second_gap_drop": 46,
+        "second_large": 247,
+        "second_small": 170,
+        "small_middle_offset": 10.0,
+        "small_over_missing_product": 0.9090909090909091,
+        "source_gap_curvature": 70,
+        "support_count": 2,
+        "third_gap": 31,
+        "third_large": 221,
+        "third_small": 190
+      },
+      "first_off_diagonal_interaction": {
+        "interaction_count": 2,
+        "left_block": [
+          [
+            130,
+            323
+          ],
+          [
+            323,
+            130
+          ]
+        ],
+        "middle_A_to_10A": -0.07507696020668778,
+        "non_middle_sum": -0.17235321354798228,
+        "right_block": [
+          [
+            170,
+            247
+          ],
+          [
+            247,
+            170
+          ]
+        ],
+        "total": -0.24743017375467005
+      },
+      "first_off_diagonal_non_middle_sign": -1,
+      "missing_high_primes": [
+        11
+      ],
+      "reduced_denominator": 41990,
+      "small_prime_support": [
+        2,
+        5
+      ],
+      "source_blocks": [
+        [
+          130,
+          323
+        ],
+        [
+          170,
+          247
+        ],
+        [
+          190,
+          221
+        ]
+      ],
+      "source_gaps": [
+        193,
+        77,
+        31
+      ]
+    }
+  }
+}
