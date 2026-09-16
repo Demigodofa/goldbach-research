@@ -6,6 +6,34 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The source-start lane now has a full `M=331` prime-row sweep:
+`tools/build_mobius_moment_square_degree5_source_start_m331_full_prime_sweep.py`
+generated
+`evidence/mobius-moment-square-degree5-source-start-m331-full-prime-sweep.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-source-start-m331-full-prime-sweep.md`.
+
+Question: after the `M=331` sentinel audit survived with `p=461` as the
+weakest sentinel row, do all canonical source-start prime rows in `[331,662]`
+survive, and is `p=461` actually global?
+
+Answer: yes on dominance, no on the `p=461` global-stress interpretation.
+All `55` prime rows in `[331,662]` were checked, giving `165` component rows
+and `55` degree-5 total rows.  All `220` rows pass `full < 0` and
+`active/full > 1/2`.  The weakest row is `M=331`, `p=599`, component
+`(00,12)`, with ratio `0.9047925604770473` and slack
+`0.40479256047704726`.  The `p=461` row remains positive but has looser slack
+`0.4702648688514812`.
+
+Decision: four complete fresh source-start scales now survive (`M=229`,
+`M=251`, `M=293`, and `M=331`).  The sentinel audit's `p=461` interpretation
+is downgraded as a global weakest-row rule at `M=331`; future stress tracking
+should include the high-tail interior cluster around `p=599` and `p=647`.
+This is not a universal source-start theorem, not a source-window theorem, not
+a strict-central Goldbach theorem, and not a Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The source-start lane now has an `M=331` sentinel audit:
 `tools/build_mobius_moment_square_degree5_source_start_m331_sentinel_audit.py`
 generated
