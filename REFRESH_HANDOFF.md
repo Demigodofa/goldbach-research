@@ -6,6 +6,40 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The Mobius lower-frame target now has an explicit rank-aware quotient
+obligation:
+
+```text
+mobius_rank_aware_lower_frame.py
+tools/build_mobius_rank_aware_lower_frame_obligation.py
+notes/mobius-rank-aware-lower-frame-obligation.md
+evidence/mobius-rank-aware-lower-frame-obligation.json
+```
+
+Result:
+
+```text
+status: TARGET_rank_aware_positive_range_lower_frame_plus_support_activation
+vacuous pre-support scales:       83, 101
+nonvacuous scales:                127, 149, 167, 191
+rank-deficient nonvacuous scales: 167
+minimum quotient eigenvalue:      0.8511480691308368
+quotient minima above one-half:   true
+full null-coupling attention:     167
+```
+
+Decision: after the axial shortcut failed, the precise theorem target is
+support activation of the full Gram, harmlessness/control of full-null
+directions and their active coupling, and a Schur-minimized positive-range
+quotient lower bound at least `1/2`.  The quotient minimum survives at
+`M=167`, but the rank-deficient scale still requires exact null-coupling
+control rather than a naive numerical full-PD whitening certificate.  It is finite
+diagnostic evidence only; no uniform active/full lower frame, Mobius
+covariance theorem, signed prime-correlation estimate, q286 theorem,
+strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-16
+
 The Mobius active/full lower-frame target now has a rank-aware finite
 diagnostic and an axial-compression falsifier:
 

@@ -1,0 +1,198 @@
+{
+  "finite_diagnostic_only": true,
+  "goldbach_proved": false,
+  "maximum_full_null_active_eigenvalue": 1.0452818500758559e-12,
+  "maximum_null_coupling_to_active_null_norm": 3.4467540535129906e-08,
+  "minimum_checked_quotient_eigenvalue": 0.8511480691308368,
+  "minimum_raw_positive_range_eigenvalue": 0.8511480691308368,
+  "mobius_covariance_theorem_proved": false,
+  "nonvacuous_scales": [
+    127,
+    149,
+    167,
+    191
+  ],
+  "null_coupling_attention_scales": [
+    167
+  ],
+  "one_half_certified_nonvacuous_scales": [
+    127,
+    149,
+    191
+  ],
+  "one_half_fully_certified_with_null_coupling_tolerance": false,
+  "one_half_survives_checked_nonvacuous_quotient_minima": true,
+  "q286_reactivated": false,
+  "question": "After axial compression failed, what is the exact finite linear-algebra theorem obligation for the Mobius active/full lower-frame route?",
+  "quotient_above_one_half_nonvacuous_scales": [
+    127,
+    149,
+    167,
+    191
+  ],
+  "rank_deficient_nonvacuous_scales": [
+    167
+  ],
+  "scale_results": [
+    {
+      "active_positive_full_null_direction": false,
+      "dimension": 6,
+      "divisor_range": [
+        3,
+        10
+      ],
+      "full_null_active_maximum": 0.0,
+      "full_null_active_minimum": 0.0,
+      "full_nullity": 6,
+      "full_rank": 0,
+      "null_coupling_to_active_null_norm": 0.0,
+      "one_half_lower_frame_certified_with_null_coupling_tolerance": false,
+      "positive_range_nonvacuous": false,
+      "prime_count": 16,
+      "quotient_minimum_exceeds_target": false,
+      "rank_aware_quotient_checked": true,
+      "raw_positive_range_minimum": Infinity,
+      "row_count": 21,
+      "scale_modulus": 83,
+      "schur_minimized_positive_range_minimum": Infinity,
+      "target_lower_frame_constant": 0.5,
+      "uniform_active_full_lower_frame_proved": false
+    },
+    {
+      "active_positive_full_null_direction": false,
+      "dimension": 6,
+      "divisor_range": [
+        3,
+        12
+      ],
+      "full_null_active_maximum": 0.0,
+      "full_null_active_minimum": 0.0,
+      "full_nullity": 6,
+      "full_rank": 0,
+      "null_coupling_to_active_null_norm": 0.0,
+      "one_half_lower_frame_certified_with_null_coupling_tolerance": false,
+      "positive_range_nonvacuous": false,
+      "prime_count": 21,
+      "quotient_minimum_exceeds_target": false,
+      "rank_aware_quotient_checked": true,
+      "raw_positive_range_minimum": Infinity,
+      "row_count": 24,
+      "scale_modulus": 101,
+      "schur_minimized_positive_range_minimum": Infinity,
+      "target_lower_frame_constant": 0.5,
+      "uniform_active_full_lower_frame_proved": false
+    },
+    {
+      "active_positive_full_null_direction": false,
+      "dimension": 6,
+      "divisor_range": [
+        3,
+        13
+      ],
+      "full_null_active_maximum": 0.0,
+      "full_null_active_minimum": 0.0,
+      "full_nullity": 0,
+      "full_rank": 6,
+      "null_coupling_to_active_null_norm": 0.0,
+      "one_half_lower_frame_certified_with_null_coupling_tolerance": true,
+      "positive_range_nonvacuous": true,
+      "prime_count": 24,
+      "quotient_minimum_exceeds_target": true,
+      "rank_aware_quotient_checked": true,
+      "raw_positive_range_minimum": 0.8768804393955434,
+      "row_count": 28,
+      "scale_modulus": 127,
+      "schur_minimized_positive_range_minimum": 0.8768804393955434,
+      "target_lower_frame_constant": 0.5,
+      "uniform_active_full_lower_frame_proved": false
+    },
+    {
+      "active_positive_full_null_direction": false,
+      "dimension": 6,
+      "divisor_range": [
+        3,
+        15
+      ],
+      "full_null_active_maximum": 0.0,
+      "full_null_active_minimum": 0.0,
+      "full_nullity": 0,
+      "full_rank": 6,
+      "null_coupling_to_active_null_norm": 0.0,
+      "one_half_lower_frame_certified_with_null_coupling_tolerance": true,
+      "positive_range_nonvacuous": true,
+      "prime_count": 28,
+      "quotient_minimum_exceeds_target": true,
+      "rank_aware_quotient_checked": true,
+      "raw_positive_range_minimum": 0.9344362067689549,
+      "row_count": 32,
+      "scale_modulus": 149,
+      "schur_minimized_positive_range_minimum": 0.9344362067689549,
+      "target_lower_frame_constant": 0.5,
+      "uniform_active_full_lower_frame_proved": false
+    },
+    {
+      "active_positive_full_null_direction": false,
+      "dimension": 6,
+      "divisor_range": [
+        3,
+        16
+      ],
+      "full_null_active_maximum": 1.0452818500758559e-12,
+      "full_null_active_minimum": 1.0452818500758559e-12,
+      "full_nullity": 1,
+      "full_rank": 5,
+      "null_coupling_to_active_null_norm": 3.4467540535129906e-08,
+      "one_half_lower_frame_certified_with_null_coupling_tolerance": false,
+      "positive_range_nonvacuous": true,
+      "prime_count": 29,
+      "quotient_minimum_exceeds_target": true,
+      "rank_aware_quotient_checked": true,
+      "raw_positive_range_minimum": 0.8511480691308368,
+      "row_count": 35,
+      "scale_modulus": 167,
+      "schur_minimized_positive_range_minimum": 0.8511480691308368,
+      "target_lower_frame_constant": 0.5,
+      "uniform_active_full_lower_frame_proved": false
+    },
+    {
+      "active_positive_full_null_direction": false,
+      "dimension": 6,
+      "divisor_range": [
+        3,
+        17
+      ],
+      "full_null_active_maximum": 0.0,
+      "full_null_active_minimum": 0.0,
+      "full_nullity": 0,
+      "full_rank": 6,
+      "null_coupling_to_active_null_norm": 0.0,
+      "one_half_lower_frame_certified_with_null_coupling_tolerance": true,
+      "positive_range_nonvacuous": true,
+      "prime_count": 33,
+      "quotient_minimum_exceeds_target": true,
+      "rank_aware_quotient_checked": true,
+      "raw_positive_range_minimum": 0.9726898075469944,
+      "row_count": 38,
+      "scale_modulus": 191,
+      "schur_minimized_positive_range_minimum": 0.9726898075469944,
+      "target_lower_frame_constant": 0.5,
+      "uniform_active_full_lower_frame_proved": false
+    }
+  ],
+  "scales": [
+    83,
+    101,
+    127,
+    149,
+    167,
+    191
+  ],
+  "signed_prime_correlation_proved": false,
+  "status": "TARGET_rank_aware_positive_range_lower_frame_plus_support_activation",
+  "theorem_obligation": "Prove eventual support activation of the full Gram, prove any full-null directions and their active coupling are harmless, and prove a positive-range Schur-minimized quotient lower bound at least 1/2.  This is the rank-aware replacement for full-PD whitening.",
+  "uniform_active_full_lower_frame_proved": false,
+  "vacuous_pre_support_scales": [
+    83,
+    101
+  ]
+}

@@ -6,6 +6,36 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The Mobius active/full lower-frame route now has its rank-aware quotient
+obligation stated and tested:
+`tools/build_mobius_rank_aware_lower_frame_obligation.py` generated
+`evidence/mobius-rank-aware-lower-frame-obligation.json`, with explanation in
+`notes/mobius-rank-aware-lower-frame-obligation.md`.
+
+Question: after full-positive-definite whitening and axial compression both
+failed as acceptance conditions, what exact theorem shape remains?
+
+Answer: compare active and full quadratic forms on the positive range of the
+full form, after Schur-minimizing over harmless full-null coordinates.  The
+checked nonvacuous scales are `M=127`, `149`, `167`, and `191`; all stay above
+the one-half quotient target.  The minimum checked quotient eigenvalue is
+`0.8511480691308368`.  The pre-support scales `M=83` and `101` are vacuous
+for this six-coordinate quotient, and `M=167` is the rank-deficient
+nonvacuous scale.  Its quotient minimum survives, but it carries the exact
+null-coupling attention point for a proof-level theorem.
+
+Decision:
+`TARGET_rank_aware_positive_range_lower_frame_plus_support_activation`.
+The next proof obligation is support activation of the full Gram,
+harmlessness/control of full-null directions and their active coupling, and a
+Schur-minimized
+positive-range quotient lower bound at least `1/2`.  This is finite diagnostic
+evidence only; no uniform active/full lower-frame theorem, Mobius covariance
+theorem, signed prime-correlation estimate, q286 theorem, strict-central
+Goldbach theorem, or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-16
+
 The Mobius six-coordinate lower-frame target now has a rank-aware diagnostic
 and an axial-compression falsifier:
 `tools/build_mobius_positive_range_lower_frame_axial_falsifier.py`
