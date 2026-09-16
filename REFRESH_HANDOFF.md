@@ -6,6 +6,44 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 residual structural-mask route now has a signed-tail bridge audit:
+
+```text
+tools/build_q286_residual_structural_mask_signed_tail_bridge_audit.py
+notes/q286-residual-structural-mask-signed-tail-bridge-audit.md
+evidence/q286-residual-structural-mask-signed-tail-bridge-audit.json
+```
+
+Result:
+
+```text
+two-subcube all-row adverse-tail margin:  -0.3385081689657937
+two-subcube signed-tail budget:            0.07569390912763455
+two-subcube tight target:                              94856
+support-size <=2 all-row adverse-tail margin:
+                                             -0.18722458212180332
+support-size <=2 signed-tail budget:          0.24152101169573884
+support-size <=2 tight target:                            94856
+full 15-packet signed budget:                 0.055452588891044076
+L2 observed zero pair rows:                   0 / 348
+L2 row-local cap failures:                  120 / 348
+```
+
+Decision:
+`HOLD_signed_tail_bridge_requires_external_pointwise_theorem`.  The
+unqualified adverse-tail route remains rejected.  Signed-tail control is now
+the sharper theorem target, and the support-size `<= 2` mask is the cleaner
+finite target if this lane is pursued.  The zero-mass check is clean on the
+finite L2 observed rows, but the non-circular analytic bridge is not
+confirmed.  The missing object is a universal, pointwise, unnormalized signed
+packet/tail estimate strong enough to imply `AdverseDrag(N) < LocalMain(N)` or
+the corresponding signed lower bound for every sufficiently large eligible
+even `N`.  This proves no signed-tail theorem, non-circular aggregate L2
+bridge, structural-mask theorem, q286 threshold theorem, strict-central
+Goldbach theorem, or Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 residual structural-mask route now has an all-row tail-stress audit:
 
 ```text

@@ -6,6 +6,53 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 residual structural-mask route now has a signed-tail bridge audit:
+`tools/build_q286_residual_structural_mask_signed_tail_bridge_audit.py`
+generated
+`evidence/q286-residual-structural-mask-signed-tail-bridge-audit.json`, with
+explanation in
+`notes/q286-residual-structural-mask-signed-tail-bridge-audit.md`.
+
+Question: after the all-row adverse-tail envelope failed, is there still a
+non-circular theorem-shaped target if the omitted structural tail is kept as a
+signed packet sum?
+
+Answer: yes as a sharper target, but still only as a HOLD.  The adverse-tail
+route fails hard, while signed-tail control gives finite error budgets:
+
+```text
+two-subcube all-row adverse-tail margin:  -0.3385081689657937
+two-subcube signed-tail budget:            0.07569390912763455
+two-subcube tight target:                              94856
+support-size <=2 all-row adverse-tail margin:
+                                             -0.18722458212180332
+support-size <=2 signed-tail budget:          0.24152101169573884
+support-size <=2 tight target:                            94856
+full 15-packet signed budget:                 0.055452588891044076
+```
+
+The earlier q286-WBSS L2 observed-moment audit is also now explicitly folded
+into the bridge boundary: it confirms no zero strict-central pair mass on its
+`348` checked rows (`zero_pair_count = 0`, `zero_actual_mass_count = 0`), but
+it does **not** confirm the non-circular analytic bridge.  The same audit has
+`120` row-local L2 cap failures, so the L2 target remains an external
+pointwise twisted binary-prime moment theorem requirement, not established
+arithmetic closure.
+
+Decision:
+`HOLD_signed_tail_bridge_requires_external_pointwise_theorem`.  The next proof
+object should not be an unqualified adverse-envelope theorem.  It should be a
+universal, pointwise, unnormalized signed packet/tail estimate for a
+mathematically named class, strong enough to imply `AdverseDrag(N) <
+LocalMain(N)` or the corresponding signed lower bound for every sufficiently
+large eligible even `N`.  The support-size `<= 2` mask is now the cleaner
+finite theorem target than the two-subcube mask if a signed-tail theorem is
+pursued.  This proves no signed-tail theorem, non-circular aggregate L2
+bridge, structural-mask theorem, q286 threshold theorem, strict-central
+Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 residual structural-mask route now has an all-row tail-stress audit:
 `tools/build_q286_residual_structural_mask_tail_stress_audit.py` generated
 `evidence/q286-residual-structural-mask-tail-stress-audit.json`, with
