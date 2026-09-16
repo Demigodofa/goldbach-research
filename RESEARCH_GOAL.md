@@ -6,6 +6,40 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The `Q=46189` replacement-family lane now has a source-factor pattern map
+audit:
+`tools/build_mobius_moment_square_degree5_q46189_source_factor_pattern_map_audit.py`
+generated
+`evidence/mobius-moment-square-degree5-q46189-source-factor-pattern-map-audit.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-q46189-source-factor-pattern-map-audit.md`.
+
+Question: after the replacement audits, which patterns survive a step-back
+map, and which tempting scalar dots should be eliminated?
+
+Answer: the plain middle-loss threshold, small/missing product monotonicity,
+and missing-high-prime-alone explanations are eliminated as theorem targets.
+The surviving finite pattern is matrix-shaped.  For `q=38038`, the aggregate
+middle contribution is `-0.939992990438763` and the non-middle contribution
+is `0.09269980585259228`; its first two source-block interaction has middle
+mass `-0.9680777579360889` but positive non-middle payment
+`0.08681182947394983`.  For `q=41990`, the aggregate middle contribution is
+`-0.43222079205102754` and the non-middle contribution is
+`-0.10078449680431602`; its analogous first-block interaction has middle mass
+`-0.07507696020668778` and negative non-middle mass
+`-0.17235321354798228`.
+
+Decision: do not add more scalar dots to the map as if they were theorem
+objects.  The next evidence-bearing step is an all-row source-block
+interaction sign audit: compute the ordered `3x3` source-block matrix for all
+`34` replacement rows and test whether input-side block topology predicts the
+sign of the first off-diagonal non-middle term.  This is finite diagnostic
+evidence only.  It proves no source-block interaction sign theorem,
+source-factor isolation theorem, replacement-packet compensation theorem,
+strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The `Q=46189` replacement-family lane now has a middle-loss condition gap
 audit:
 `tools/build_mobius_moment_square_degree5_q46189_middle_loss_condition_gap_audit.py`
