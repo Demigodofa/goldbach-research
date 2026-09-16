@@ -6,6 +6,36 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The narrowed source-start lane now has a fresh first-prime-row holdout:
+
+```text
+tools/build_mobius_moment_square_degree5_source_start_fresh_prime_row_holdout.py
+notes/mobius-moment-square-degree5-source-start-fresh-prime-row-holdout.md
+evidence/mobius-moment-square-degree5-source-start-fresh-prime-row-holdout.json
+```
+
+Result:
+
+```text
+status:                         HOLDOUT_degree5_source_start_fresh_first_prime_rows
+fresh scales:                   229, 251, 293
+prime rows checked:             3
+component rows:                 9
+degree-5 total rows:            3
+all rows pass signed dominance: true
+minimum slack above one half:   0.49593901217024683
+weakest row:                    M=251, p=251, (01,02)
+weakest active/full ratio:      0.9959390121702468
+full fresh-scale sweep done:    false
+```
+
+Decision: the narrowed reachable lane survives this fresh first-prime-row
+holdout.  This is a thin finite holdout only, not a full fresh-scale sweep,
+not a source-start theorem, not a source-window theorem, not an endpoint-swap
+theorem, not a strict-central Goldbach theorem, and not a Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The source-window lane now has a reachability reconciliation after the
 start-`1` puncture correction:
 
