@@ -6,6 +6,42 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+Graph/visual curiosity is useful only as an evidence lens, not as an
+assignment to make more artifacts.
+
+```text
+notes/goldbach-graph-curiosity-readonly-signal.md
+evidence/goldbach-semantic-route-graph.json
+```
+
+Read-only inspection of the existing route graph and its machine sources
+found one useful shape signal:
+
+```text
+useful signal:       source-window geometry is alive but thin
+strongest fact:      0 canonical source-start failures across 6 scales
+translated failure:  M=149, p=163, active row start 1, component (00,12)
+source start there:  32, inside passing interval 2..64
+weakest source row:  M=167, p=181, component (00,12)
+weakest source slack: 0.056367749089376695
+churn signal:        normalized aggregate L2 finite scans
+L2 violations:       120 row-local, 301 global-minimum
+live bridge:         universal pointwise raw adverse-drag
+```
+
+Decision: future Rill awakenings should not build graphs, heat maps, or 3D
+views merely because Kevin wondered aloud about them.  Use graph-shaped views
+only when they expose a theorem obligation, falsifier, low-return loop, or
+thin frontier that changes the next action.  Current curiosity outcome:
+source-window/admissible-window geometry is worth theorem or falsifier work;
+more normalized finite `L2` scans are churn unless replaced by a strict raw
+pointwise theorem attempt; more finite adverse-drag passes are calibration,
+not acceptance.  No visualization theorem, source-window theorem, aggregate
+`L2` theorem, raw adverse-drag theorem, q286 threshold theorem,
+strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Latest active checkpoint note, 2026-09-16
+
 The route now has a derived semantic route graph:
 
 ```text

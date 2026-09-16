@@ -6,6 +6,40 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+Graph/visual curiosity is now preserved as a boundary and a signal, not as a
+standing request to build visuals.
+
+Question: did the existing semantic route graph reveal anything that should
+guide future work, without manufacturing a heat map or graph artifact merely
+because Kevin suggested one?
+
+Answer: yes, but narrowly.  The useful shape signal is the split between
+loop-back/churn lanes and a thin live frontier.  Normalized aggregate `L2`
+finite scans loop back to HOLD under unchanged conditions: zero-mass sanity is
+finite, the raw strict `L2` shape is non-circular only as a theorem shape, and
+the observed normalized lane already has `120` row-local cap violations and
+`301` global-minimum cap violations.  The source-window lane is different:
+the broad all-translation statement is finitely falsified by one translated
+row at `M=149`, `p=163`, active row start `1`, component `(00,12)`, but all
+canonical source starts pass across the six checked scales.  At that failing
+scale the canonical source start is `32`, inside the source-connected passing
+interval `2..64`.  The weakest canonical source row remains `M=167`, `p=181`,
+component `(00,12)`, with active/full ratio `0.5563677490893767` and slack
+`0.056367749089376695`.
+
+Decision: future Rill awakenings should use graph, heat-map, 3D scatterplot,
+or table lenses only when they expose a theorem obligation, falsifier target,
+low-return loop, thin frontier, or changed condition for reviving a held
+route.  Do not build a visual merely because Kevin mused about one.  Current
+guidance: source-window/admissible-window geometry is worth theorem or
+falsifier work; normalized finite `L2` scans are churn unless changed to a
+strict raw pointwise theorem attempt; finite adverse-drag passes are
+calibration/falsifier evidence only.  This proves no visualization theorem,
+source-window theorem, aggregate `L2` theorem, raw adverse-drag theorem, q286
+threshold theorem, strict-central Goldbach theorem, or Goldbach proof.
+
+## Latest continuation evidence, 2026-09-16
+
 The route now has a derived semantic route graph:
 `tools/build_goldbach_semantic_route_graph.py` generated
 `evidence/goldbach-semantic-route-graph.json`, with explanation in
