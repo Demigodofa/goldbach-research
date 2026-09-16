@@ -6,6 +6,46 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The q286-WBSS route now has a zero-mass / aggregate-`L2` logical bridge audit:
+
+```text
+tools/build_q286_wbss_zero_mass_l2_logical_bridge_audit.py
+notes/q286-wbss-zero-mass-l2-logical-bridge-audit.md
+evidence/q286-wbss-zero-mass-l2-logical-bridge-audit.json
+```
+
+Question: is the q286 aggregate `L2` target actually confirmed as a
+non-circular bridge, or did only the arithmetic zero-mass sanity check pass?
+
+Result:
+
+```text
+status:                         HOLD_l2_logical_bridge_not_confirmed
+checked rows:                    348
+zero pair-count rows:              0
+zero actual-mass rows:             0
+raw strict L2 shape non-circular: true
+logical bridge confirmed:        false
+global-min L2 cap violations:      301
+row-local L2 cap violations:       120
+worst row-local ratio target:  1089544
+worst row-local ratio:        1.5570989543984672
+```
+
+Decision: the zero-mass arithmetic sanity check is confirmed on the checked
+rows, and the raw strict aggregate-`L2` theorem shape is non-circular in
+principle.  But the logical bridge is not confirmed.  The repository still
+lacks the universal pointwise raw twisted binary-prime moment theorem, and
+the observed normalized `L2` cap fails on many finite rows.  Future `L2` work
+must stay raw and strict, proving a universal pointwise unnormalized estimate
+such as `C2*sqrt(sum|D_raw_{d,chi}(N)|^2) < T_N*M(a)`, or directly prove
+`W_phi(N)>0`; otherwise it is only conditional on a separate positive-mass
+theorem.  No aggregate `L2` theorem, raw twisted binary-prime theorem,
+signed-weight circle-method estimate, positive-mass theorem, q286 threshold
+theorem, strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-16
+
 The q286-WBSS route now has a `K_286` quarter-residual lift-depth stress:
 
 ```text

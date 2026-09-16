@@ -1,0 +1,80 @@
+{
+  "acceptance_condition": {
+    "finite_evidence_is_acceptance_condition": false,
+    "invalid_substitutes": [
+      "checked-row zero-mass sanity",
+      "normalized L2 cap after assuming T_N>0",
+      "finite L2 observations",
+      "fitted residual constants",
+      "almost-all or averaged AP-Goldbach estimates"
+    ],
+    "required_for_acceptance": "Prove a universal pointwise unnormalized estimate such as C2*sqrt(sum|D_raw_{d,chi}(N)|^2) < T_N*M(a), or directly prove W_phi(N)>0, for every sufficiently large covered N; then verify the finite remainder."
+  },
+  "aggregate_l2_theorem_proved": false,
+  "answer": "The zero-mass arithmetic sanity check is confirmed on the checked rows, and the raw strict aggregate-L2 theorem shape is non-circular in principle.  The bridge itself is not confirmed: the repository still lacks the required universal pointwise raw twisted binary-prime moment theorem, and the normalized observed L2 cap fails on many checked rows.",
+  "candidate": {
+    "falsifier": "If a proposed L2 proof starts by assuming or separately proving T_N>0 before q286 enters, the q286 L2 lane has collapsed to a conditional distribution tool.",
+    "mechanism": "Gate future q286 L2 work on whether it proves a strict raw inequality that fails at zero support, instead of normalizing by mass first.",
+    "name": "raw aggregate-L2 logical bridge gate",
+    "novelty_label": "new-to-this-task",
+    "prediction": "A real bridge will create strict-central support inside the raw inequality; a merely normalized estimate will need positive mass imported first.",
+    "smallest_next_action": "Attempt the signed-weight major-arc local-factor decomposition and mark whether its positive term is raw or only T_N times a conditional normalized mean."
+  },
+  "coefficient_l2_target": {
+    "aggregate_coefficient_l2": 5.525106448699807,
+    "global_minimum_local_main_cap": 0.10930746469603118,
+    "normalized_equivalent_when_mass_positive": "sqrt(sum|D_{d,chi}(N)|^2) < 0.10930746469603118 using normalized moments.",
+    "raw_sufficient_statement": "For every sufficiently large covered even N, prove C2*sqrt(sum_{d,chi}|D_raw_{d,chi}(N)|^2) < T_N*M(a)."
+  },
+  "decision": "HOLD_l2_logical_bridge_not_confirmed.  The zero-mass arithmetic audit is good on the checked rows, and the raw strict aggregate L2 target is non-circular as a theorem shape.  But the logical bridge is not established: no universal pointwise raw L2 moment theorem is proved, and the observed normalized cap has finite violations.  Future L2 work must stay raw and strict or be labeled conditional on a separate positive-mass theorem.",
+  "goldbach_proved": false,
+  "l2_bridge_classification": {
+    "current_hold": "HOLD_for_strict_raw_binary_pair_estimate",
+    "logical_bridge_confirmed": false,
+    "raw_strict_aggregate_l2_shape_is_noncircular": true,
+    "reason_bridge_not_confirmed": "No pointwise raw twisted binary-prime moment theorem is proved.  The existing observed L2 audit is finite and falsifies treating the displayed normalized cap as already valid on the checked scale.",
+    "why_raw_strict_shape_is_noncircular": "If T_N=0 then every raw character moment is zero and both sides are zero, so the strict inequality fails; a proof of the strict inequality therefore creates strict-central support."
+  },
+  "observed_l2_failures": {
+    "global_min_cap_exceeding_row_count": 301,
+    "max_target_exceeding_row_local_cap": 1155862,
+    "row_count": 348,
+    "row_local_cap_exceeding_row_count": 120,
+    "worst_row_local_l2_cap": 0.13475610600578378,
+    "worst_row_local_ratio": 1.5570989543984672,
+    "worst_row_local_ratio_target": 1089544,
+    "worst_row_observed_aggregate_l2": 0.20982859176041493
+  },
+  "positive_mass_theorem_proved": false,
+  "q286_threshold_theorem_proved": false,
+  "question": "Is the q286 aggregate L2 target actually confirmed as a non-circular bridge, or did only the arithmetic zero-mass sanity check pass?",
+  "raw_twisted_binary_prime_theorem_proved": false,
+  "receipt": "q286-wbss-zero-mass-l2-logical-bridge-audit",
+  "schema_version": 1,
+  "signed_weight_circle_method_estimate_proved": false,
+  "source_commit": "c11cba5c495c25b66e74c15fe69f157f3914764b",
+  "sources": {
+    "multiplicative_character_l2_payment_audit": "evidence\\q286-wbss-multiplicative-character-l2-payment-audit.json",
+    "multiplicative_character_l2_payment_status": "HOLD_aggregate_character_l2_bound_required",
+    "observed_l2_moment_audit": "evidence\\q286-wbss-multiplicative-character-l2-observed-moment-audit.json",
+    "observed_l2_moment_status": "HOLD_l2_cap_requires_boundary_or_stronger_theorem",
+    "raw_character_expansion_status": "TARGET_raw_character_expanded_q286_WBSS_theorem",
+    "raw_character_expansion_target": "evidence\\q286-wbss-raw-character-expansion-target.json",
+    "signed_weight_circle_status": "TARGET_bespoke_signed_weight_circle_method_or_collapse",
+    "signed_weight_circle_target": "evidence\\q286-wbss-signed-weight-circle-target.json",
+    "strict_raw_gap_analytic_hold": "evidence\\q286-wbss-strict-raw-gap-analytic-hold.json",
+    "strict_raw_gap_analytic_hold_status": "HOLD_for_strict_raw_binary_pair_estimate"
+  },
+  "status": "HOLD_l2_logical_bridge_not_confirmed",
+  "status_boundary": "Logical bridge audit only.  No aggregate L2 theorem, raw twisted binary-prime theorem, signed-weight circle-method estimate, positive-mass theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof is established.",
+  "strict_central_goldbach_theorem_proved": false,
+  "zero_mass_check": {
+    "arithmetic_sanity_confirmed_on_checked_rows": true,
+    "checked_row_count": 348,
+    "nonunit_actual_mass_sum_count": 0,
+    "nonunit_uniform_mass_sum_count": 0,
+    "scope": "finite checked rows only; this does not prove positive mass or any universal theorem",
+    "zero_actual_mass_count": 0,
+    "zero_pair_count": 0
+  }
+}
