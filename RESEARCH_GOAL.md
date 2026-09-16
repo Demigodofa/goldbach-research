@@ -6,6 +6,40 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The translated puncture now has a reduced-denominator cause audit:
+`tools/build_mobius_moment_square_degree5_puncture_denominator_cause_audit.py`
+generated
+`evidence/mobius-moment-square-degree5-puncture-denominator-cause-audit.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-puncture-denominator-cause-audit.md`.
+
+Question: can the isolated translated puncture be localized to reduced
+denominator contributions, or is it diffuse across the active-window Gram?
+
+Answer: it is denominator-local enough to change the next theorem target.  For
+`M=149`, `p=163`, component `(00,12)`, only four reduced denominators
+contribute: `6006`, `10010`, `15015`, and `30030`.  The half-frame totals are
+`-26177271852.077156` at start `0`, `595626329.758812` at failing start `1`,
+`-5063730056.479225` at start `2`, and `-259493747123.1459` at source start
+`32`.  The failure relative to left neighbor start `0` is dominated by
+`q=30030`, with half-frame delta `19921005797.544876`.  The failure relative
+to right neighbor start `2` is not the same single-denominator story:
+`q=10010` worsens by `4244153577.419586`, `q=6006` worsens by
+`2575530739.718094`, and `q=30030` improves by `-1099884470.825592`.
+
+Decision: source-window/admissible-window work should inspect reduced-
+denominator phase structure, not just row-start distance.  This finite audit
+blocks both a distance-only translated-window rule and a one-denominator
+explanation.  Candidate mechanism: denominator-phase source admissibility.
+Falsifier: a future puncture whose failure margin is diffuse across many
+reduced denominators, or whose source start shares the same adverse
+denominator-phase profile.  This proves no denominator-phase theorem,
+source-window implication theorem, source-admissible window theorem,
+phase-curve theorem, pointwise universal adverse-drag estimate, q286 threshold
+theorem, strict-central Goldbach theorem, or Goldbach proof.
+
+## Latest continuation evidence, 2026-09-16
+
 The metric-soft source-window route now has a translated puncture audit:
 `tools/build_mobius_moment_square_degree5_translated_puncture_audit.py`
 generated

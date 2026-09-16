@@ -1,0 +1,380 @@
+{
+  "answer": "The puncture is denominator-local enough to change the next target.  For M=149, p=163, component (00,12), only four reduced denominators contribute: 6006, 10010, 15015, and 30030.  The failure relative to left neighbor start 0 is dominated by reduced denominator 30030; the failure relative to right neighbor start 2 is dominated by 10010 and 6006, partly offset by 30030.",
+  "candidate": {
+    "falsifier": "A new puncture whose failure margin is diffuse across many reduced denominators, or whose source start shares the same adverse denominator-phase profile, would falsify this finite mechanism.",
+    "mechanism": "Passing source windows may be governed by phase alignment among a small reduced-denominator family rather than by monotone distance from the source start.",
+    "name": "denominator-phase source admissibility",
+    "novelty_label": "new-to-this-task",
+    "prediction": "Future translated punctures, if found, should localize to a small reduced-denominator transition ledger, and source starts should avoid the adverse phase combination."
+  },
+  "decision": "A future arithmetic source-admissibility theorem should inspect reduced-denominator phase structure, not only row-start distance. The finite cause is not a single universal denominator obstruction: left and right neighbor comparisons localize to different dominant denominators.  This keeps the source-window lane alive as a denominator-phase theorem target, while blocking a simple distance-only or one-denominator explanation.",
+  "denominator_phase_theorem_proved": false,
+  "finite_denominator_cause_audit_only": true,
+  "finite_diagnostic_only": true,
+  "goldbach_proved": false,
+  "left_neighbor_dominant_denominator": 30030,
+  "phase_curve_theorem_proved": false,
+  "pointwise_universal_adverse_drag_estimate_proved": false,
+  "puncture_count": 1,
+  "puncture_summaries": [
+    {
+      "denominator_rows_by_start": {
+        "0": [
+          {
+            "active_contribution": -13568172088.886587,
+            "active_over_full_ratio": 0.7846230256427483,
+            "active_row_start": 0,
+            "full_contribution": -17292599943.484703,
+            "half_frame_contribution": -4921872117.144236,
+            "reduced_denominator": 6006,
+            "residue_cell_count": 1440
+          },
+          {
+            "active_contribution": -38533558988.70409,
+            "active_over_full_ratio": 0.8459615679007598,
+            "active_row_start": 0,
+            "full_contribution": -45550011313.54525,
+            "half_frame_contribution": -15758553331.931461,
+            "reduced_denominator": 10010,
+            "residue_cell_count": 2880
+          },
+          {
+            "active_contribution": -31896137971.149456,
+            "active_over_full_ratio": 0.8056290078302677,
+            "active_row_start": 0,
+            "full_contribution": -39591595711.09861,
+            "half_frame_contribution": -12100340115.600151,
+            "reduced_denominator": 15015,
+            "residue_cell_count": 5760
+          },
+          {
+            "active_contribution": -94643512291.99023,
+            "active_over_full_ratio": 0.46738919019343944,
+            "active_row_start": 0,
+            "full_contribution": -202494012009.17786,
+            "half_frame_contribution": 6603493712.598694,
+            "reduced_denominator": 30030,
+            "residue_cell_count": 5760
+          }
+        ],
+        "1": [
+          {
+            "active_contribution": -9876022787.578968,
+            "active_over_full_ratio": 0.5711126620551895,
+            "active_row_start": 1,
+            "full_contribution": -17292599943.484703,
+            "half_frame_contribution": -1229722815.8366165,
+            "reduced_denominator": 6006,
+            "residue_cell_count": 1440
+          },
+          {
+            "active_contribution": -39222496741.91898,
+            "active_over_full_ratio": 0.8610864324912989,
+            "active_row_start": 1,
+            "full_contribution": -45550011313.54525,
+            "half_frame_contribution": -16447491085.146358,
+            "reduced_denominator": 10010,
+            "residue_cell_count": 2880
+          },
+          {
+            "active_contribution": -28047457134.951088,
+            "active_over_full_ratio": 0.7084194670913104,
+            "active_row_start": 1,
+            "full_contribution": -39591595711.09861,
+            "half_frame_contribution": -8251659279.401783,
+            "reduced_denominator": 15015,
+            "residue_cell_count": 5760
+          },
+          {
+            "active_contribution": -74722506494.44536,
+            "active_over_full_ratio": 0.36901094384489075,
+            "active_row_start": 1,
+            "full_contribution": -202494012009.17786,
+            "half_frame_contribution": 26524499510.14357,
+            "reduced_denominator": 30030,
+            "residue_cell_count": 5760
+          }
+        ],
+        "2": [
+          {
+            "active_contribution": -12451553527.297062,
+            "active_over_full_ratio": 0.7200509794935959,
+            "active_row_start": 2,
+            "full_contribution": -17292599943.484703,
+            "half_frame_contribution": -3805253555.5547104,
+            "reduced_denominator": 6006,
+            "residue_cell_count": 1440
+          },
+          {
+            "active_contribution": -43466650319.33857,
+            "active_over_full_ratio": 0.9542621190614908,
+            "active_row_start": 2,
+            "full_contribution": -45550011313.54525,
+            "half_frame_contribution": -20691644662.565945,
+            "reduced_denominator": 10010,
+            "residue_cell_count": 2880
+          },
+          {
+            "active_contribution": -27987013674.877037,
+            "active_over_full_ratio": 0.7068927930841522,
+            "active_row_start": 2,
+            "full_contribution": -39591595711.09861,
+            "half_frame_contribution": -8191215819.327732,
+            "reduced_denominator": 15015,
+            "residue_cell_count": 5760
+          },
+          {
+            "active_contribution": -73622622023.61977,
+            "active_over_full_ratio": 0.36357925497709476,
+            "active_row_start": 2,
+            "full_contribution": -202494012009.17786,
+            "half_frame_contribution": 27624383980.969162,
+            "reduced_denominator": 30030,
+            "residue_cell_count": 5760
+          }
+        ],
+        "32": [
+          {
+            "active_contribution": -11431007916.209646,
+            "active_over_full_ratio": 0.661034659540394,
+            "active_row_start": 32,
+            "full_contribution": -17292599943.484703,
+            "half_frame_contribution": -2784707944.4672947,
+            "reduced_denominator": 6006,
+            "residue_cell_count": 1440
+          },
+          {
+            "active_contribution": -54041980235.65798,
+            "active_over_full_ratio": 1.1864317631813073,
+            "active_row_start": 32,
+            "full_contribution": -45550011313.54525,
+            "half_frame_contribution": -31266974578.885357,
+            "reduced_denominator": 10010,
+            "residue_cell_count": 2880
+          },
+          {
+            "active_contribution": -52561245198.261734,
+            "active_over_full_ratio": 1.3275859245937738,
+            "active_row_start": 32,
+            "full_contribution": -39591595711.09861,
+            "half_frame_contribution": -32765447342.71243,
+            "reduced_denominator": 15015,
+            "residue_cell_count": 5760
+          },
+          {
+            "active_contribution": -293923623261.66974,
+            "active_over_full_ratio": 1.4515176046210587,
+            "active_row_start": 32,
+            "full_contribution": -202494012009.17786,
+            "half_frame_contribution": -192676617257.0808,
+            "reduced_denominator": 30030,
+            "residue_cell_count": 5760
+          }
+        ]
+      },
+      "divisor_range": [
+        3,
+        15
+      ],
+      "dominant_left_neighbor_worsening_denominator": 30030,
+      "dominant_right_neighbor_worsening_denominator": 10010,
+      "dominant_source_gap_denominator": 30030,
+      "ell_freeze": 48,
+      "failure_start": 1,
+      "label": "00,12",
+      "left_neighbor_start": 0,
+      "left_neighbor_transition": [
+        {
+          "active_at_comparison": -94643512291.99023,
+          "active_at_failure": -74722506494.44536,
+          "failure_minus_comparison_active": 19921005797.544876,
+          "failure_minus_comparison_half_frame": 19921005797.544876,
+          "half_frame_at_comparison": 6603493712.598694,
+          "half_frame_at_failure": 26524499510.14357,
+          "reduced_denominator": 30030,
+          "residue_cell_count": 5760,
+          "signed_share_of_total_delta": 0.7440735650748581
+        },
+        {
+          "active_at_comparison": -31896137971.149456,
+          "active_at_failure": -28047457134.951088,
+          "failure_minus_comparison_active": 3848680836.198368,
+          "failure_minus_comparison_half_frame": 3848680836.198368,
+          "half_frame_at_comparison": -12100340115.600151,
+          "half_frame_at_failure": -8251659279.401783,
+          "reduced_denominator": 15015,
+          "residue_cell_count": 5760,
+          "signed_share_of_total_delta": 0.14375286568002188
+        },
+        {
+          "active_at_comparison": -13568172088.886587,
+          "active_at_failure": -9876022787.578968,
+          "failure_minus_comparison_active": 3692149301.307619,
+          "failure_minus_comparison_half_frame": 3692149301.307619,
+          "half_frame_at_comparison": -4921872117.144236,
+          "half_frame_at_failure": -1229722815.8366165,
+          "reduced_denominator": 6006,
+          "residue_cell_count": 1440,
+          "signed_share_of_total_delta": 0.13790622428066276
+        },
+        {
+          "active_at_comparison": -38533558988.70409,
+          "active_at_failure": -39222496741.91898,
+          "failure_minus_comparison_active": -688937753.2148972,
+          "failure_minus_comparison_half_frame": -688937753.2148972,
+          "half_frame_at_comparison": -15758553331.931461,
+          "half_frame_at_failure": -16447491085.146358,
+          "reduced_denominator": 10010,
+          "residue_cell_count": 2880,
+          "signed_share_of_total_delta": -0.025732655035542843
+        }
+      ],
+      "left_neighbor_transition_total_delta": 26772898181.835968,
+      "prime_modulus": 163,
+      "reduced_denominator_count": 4,
+      "reduced_denominators": [
+        6006,
+        10010,
+        15015,
+        30030
+      ],
+      "right_neighbor_start": 2,
+      "right_neighbor_transition": [
+        {
+          "active_at_comparison": -43466650319.33857,
+          "active_at_failure": -39222496741.91898,
+          "failure_minus_comparison_active": 4244153577.419586,
+          "failure_minus_comparison_half_frame": 4244153577.419586,
+          "half_frame_at_comparison": -20691644662.565945,
+          "half_frame_at_failure": -16447491085.146358,
+          "reduced_denominator": 10010,
+          "residue_cell_count": 2880,
+          "signed_share_of_total_delta": 0.7499357325755582
+        },
+        {
+          "active_at_comparison": -12451553527.297062,
+          "active_at_failure": -9876022787.578968,
+          "failure_minus_comparison_active": 2575530739.718094,
+          "failure_minus_comparison_half_frame": 2575530739.718094,
+          "half_frame_at_comparison": -3805253555.5547104,
+          "half_frame_at_failure": -1229722815.8366165,
+          "reduced_denominator": 6006,
+          "residue_cell_count": 1440,
+          "signed_share_of_total_delta": 0.4550925165237977
+        },
+        {
+          "active_at_comparison": -73622622023.61977,
+          "active_at_failure": -74722506494.44536,
+          "failure_minus_comparison_active": -1099884470.825592,
+          "failure_minus_comparison_half_frame": -1099884470.825592,
+          "half_frame_at_comparison": 27624383980.969162,
+          "half_frame_at_failure": 26524499510.14357,
+          "reduced_denominator": 30030,
+          "residue_cell_count": 5760,
+          "signed_share_of_total_delta": -0.19434797806694093
+        },
+        {
+          "active_at_comparison": -27987013674.877037,
+          "active_at_failure": -28047457134.951088,
+          "failure_minus_comparison_active": -60443460.0740509,
+          "failure_minus_comparison_half_frame": -60443460.0740509,
+          "half_frame_at_comparison": -8191215819.327732,
+          "half_frame_at_failure": -8251659279.401783,
+          "reduced_denominator": 15015,
+          "residue_cell_count": 5760,
+          "signed_share_of_total_delta": -0.010680271032414992
+        }
+      ],
+      "right_neighbor_transition_total_delta": 5659356386.238037,
+      "row_count": 32,
+      "scale_modulus": 149,
+      "source_active_row_start": 32,
+      "source_start_transition": [
+        {
+          "active_at_comparison": -293923623261.66974,
+          "active_at_failure": -74722506494.44536,
+          "failure_minus_comparison_active": 219201116767.22437,
+          "failure_minus_comparison_half_frame": 219201116767.22437,
+          "half_frame_at_comparison": -192676617257.0808,
+          "half_frame_at_failure": 26524499510.14357,
+          "reduced_denominator": 30030,
+          "residue_cell_count": 5760,
+          "signed_share_of_total_delta": 0.8427915137675391
+        },
+        {
+          "active_at_comparison": -52561245198.261734,
+          "active_at_failure": -28047457134.951088,
+          "failure_minus_comparison_active": 24513788063.310646,
+          "failure_minus_comparison_half_frame": 24513788063.310646,
+          "half_frame_at_comparison": -32765447342.71243,
+          "half_frame_at_failure": -8251659279.401783,
+          "reduced_denominator": 15015,
+          "residue_cell_count": 5760,
+          "signed_share_of_total_delta": 0.09425140188493493
+        },
+        {
+          "active_at_comparison": -54041980235.65798,
+          "active_at_failure": -39222496741.91898,
+          "failure_minus_comparison_active": 14819483493.738998,
+          "failure_minus_comparison_half_frame": 14819483493.738998,
+          "half_frame_at_comparison": -31266974578.885357,
+          "half_frame_at_failure": -16447491085.146358,
+          "reduced_denominator": 10010,
+          "residue_cell_count": 2880,
+          "signed_share_of_total_delta": 0.056978427442067006
+        },
+        {
+          "active_at_comparison": -11431007916.209646,
+          "active_at_failure": -9876022787.578968,
+          "failure_minus_comparison_active": 1554985128.6306782,
+          "failure_minus_comparison_half_frame": 1554985128.6306782,
+          "half_frame_at_comparison": -2784707944.4672947,
+          "half_frame_at_failure": -1229722815.8366165,
+          "reduced_denominator": 6006,
+          "residue_cell_count": 1440,
+          "signed_share_of_total_delta": 0.005978656905458865
+        }
+      ],
+      "source_start_transition_total_delta": 260089373452.9047,
+      "totals_by_start": {
+        "0": {
+          "active_contribution": -178641381340.73038,
+          "active_over_full_ratio": 0.5858473247896593,
+          "dominates_one_half_signed_full": true,
+          "full_contribution": -304928218977.3064,
+          "half_frame_contribution": -26177271852.077156
+        },
+        "1": {
+          "active_contribution": -151868483158.8944,
+          "active_over_full_ratio": 0.4980466670754302,
+          "dominates_one_half_signed_full": false,
+          "full_contribution": -304928218977.3064,
+          "half_frame_contribution": 595626329.758812
+        },
+        "2": {
+          "active_contribution": -157527839545.13245,
+          "active_over_full_ratio": 0.516606301881349,
+          "dominates_one_half_signed_full": true,
+          "full_contribution": -304928218977.3064,
+          "half_frame_contribution": -5063730056.479225
+        },
+        "32": {
+          "active_contribution": -411957856611.7991,
+          "active_over_full_ratio": 1.3509994515871886,
+          "dominates_one_half_signed_full": true,
+          "full_contribution": -304928218977.3064,
+          "half_frame_contribution": -259493747123.1459
+        }
+      }
+    }
+  ],
+  "q286_threshold_theorem_proved": false,
+  "question": "Can the isolated translated puncture be localized to reduced denominator contributions, or is it diffuse across the active window Gram?",
+  "right_neighbor_dominant_denominator": 10010,
+  "source_admissible_window_theorem_proved": false,
+  "source_gap_dominant_denominator": 30030,
+  "source_puncture_audit": "evidence\\mobius-moment-square-degree5-translated-puncture-audit.json",
+  "source_window_implication_theorem_proved": false,
+  "status": "AUDIT_degree5_puncture_denominator_cause",
+  "strict_central_goldbach_theorem_proved": false
+}

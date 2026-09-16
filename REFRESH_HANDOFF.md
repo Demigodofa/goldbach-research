@@ -6,6 +6,44 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The translated puncture now has a reduced-denominator cause audit:
+
+```text
+tools/build_mobius_moment_square_degree5_puncture_denominator_cause_audit.py
+notes/mobius-moment-square-degree5-puncture-denominator-cause-audit.md
+evidence/mobius-moment-square-degree5-puncture-denominator-cause-audit.json
+```
+
+Result:
+
+```text
+status:                         AUDIT_degree5_puncture_denominator_cause
+puncture:                       M=149, p=163, (00,12), start 1
+reduced denominators:            6006, 10010, 15015, 30030
+start 0 half-frame:             -26177271852.077156
+start 1 half-frame:                595626329.758812
+start 2 half-frame:              -5063730056.479225
+source start 32 half-frame:    -259493747123.1459
+left-neighbor dominant q:        30030
+right-neighbor dominant q:       10010
+source-gap dominant q:           30030
+```
+
+Decision: the isolated puncture is denominator-local enough to change the
+next theorem target.  Source-window/admissible-window work should inspect
+reduced-denominator phase structure, not just distance from the source start.
+But the finite cause is not a simple one-denominator obstruction: the failure
+relative to start `0` is dominated by `q=30030`, while the failure relative to
+start `2` is dominated by `q=10010` and `q=6006`, partly offset by `q=30030`.
+Candidate mechanism: denominator-phase source admissibility.  Falsifier: a
+future puncture whose failure margin is diffuse across many reduced
+denominators, or whose source start shares the same adverse denominator-phase
+profile.  This proves no denominator-phase theorem, source-window implication
+theorem, source-admissible window theorem, phase-curve theorem, q286 theorem,
+strict-central Goldbach theorem, or Goldbach proof.
+
+## Latest active checkpoint note, 2026-09-16
+
 The metric-soft source-window route now has a translated puncture audit:
 
 ```text
