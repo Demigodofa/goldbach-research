@@ -6,6 +6,45 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The metric-soft moment-square route now has a weak-scale degree-`5`
+active-window phase-curve sweep:
+`tools/build_mobius_moment_square_degree5_weak_scale_phase_curve_sweep.py`
+generated
+`evidence/mobius-moment-square-degree5-weak-scale-phase-curve-sweep.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-weak-scale-phase-curve-sweep.md`.
+
+Question: across every weak-scale prime row, does sweeping active row start
+over the extended local band `0..70` expose a concrete active/full dominance
+failure?
+
+Answer: no finite falsifier was found.  For `M=167`, `ell_freeze=52`, all
+`8236/8236` checked rows clear the signed `1/2` threshold: `6177`
+component rows and `2059` degree-`5` total rows have positive slack across
+all `29` primes in `[167,334]` and all `71` active row starts.  The weakest
+row remains prime `181`, component `(00,12)`, active row start `44`, with
+active/full ratio `0.5370450115638492` and slack
+`0.037045011563849206` above `1/2`.  The next closest prime summary is
+prime `257`, also component `(00,12)`, active row start `55`, with slack
+`0.039203922377775924`.
+
+Decision: `SWEEP_degree5_weak_scale_active_window_phase_curve`.  This is
+useful curve-family evidence for the active-window theorem target, and it
+keeps the same worst row found by the weakest-prime sweep.  It is not a
+period theorem: the phase periods are controlled by reduced denominators
+inside the exact residue expansion, not by the prime or row count alone.
+This is finite weak-scale phase-curve evidence only.  No pointwise universal
+adverse-drag estimate, L2 logical bridge, phase-curve theorem,
+active-window translation theorem, checked-scale dominance theorem,
+primewise dominance theorem, degree-`5` coefficient theorem,
+robust-margin universal theorem, coefficient-family theorem, universal
+Sturm-certificate theorem, half-frame curve-positivity theorem, uniform
+active/full lower-frame theorem, Mobius covariance theorem, signed
+prime-correlation estimate, q286 theorem, strict-central Goldbach theorem,
+or Goldbach proof is established.
+
+## Latest continuation evidence, 2026-09-16
+
 The metric-soft moment-square route now has a weakest-prime degree-`5`
 active-window phase-curve sweep:
 `tools/build_mobius_moment_square_degree5_weak_prime_phase_curve_sweep.py`

@@ -6,6 +6,49 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The metric-soft moment-square route now has a weak-scale degree-`5`
+active-window phase-curve sweep:
+
+```text
+tools/build_mobius_moment_square_degree5_weak_scale_phase_curve_sweep.py
+notes/mobius-moment-square-degree5-weak-scale-phase-curve-sweep.md
+evidence/mobius-moment-square-degree5-weak-scale-phase-curve-sweep.json
+```
+
+Result:
+
+```text
+status:                      SWEEP_degree5_weak_scale_active_window_phase_curve
+scale:                       M=167
+ell_freeze:                  52
+primes checked:              29
+tested active row starts:    0..70
+component rows:              6177
+degree-5 total rows:         2059
+all dominance rows:          8236
+dominance slacks:            +8236 / 0 / 0
+failure rows:                0
+weakest row:                 start=44, p=181, (00,12)
+weakest active/full ratio:   0.5370450115638492
+weakest slack above 1/2:     0.037045011563849206
+next closest prime summary:  p=257, start=55, (00,12), slack=0.039203922377775924
+```
+
+Decision: the weak-scale extended local phase-curve sweep survives; no
+finite falsifier was found across all `29` weak-scale primes and row starts
+`0..70`.  The same row found by the weakest-prime sweep remains the global
+weakest point.  It is not a period theorem: the phase periods are controlled
+by reduced denominators inside the exact residue expansion, not by the prime
+or row count alone.  This remains finite phase-curve evidence only; no
+pointwise universal adverse-drag estimate, L2 logical bridge, phase-curve
+theorem, active-window translation theorem, checked-scale dominance theorem,
+primewise dominance theorem, degree-`5` coefficient theorem,
+robust-margin universal theorem, uniform active/full lower frame, Mobius
+covariance theorem, signed prime-correlation estimate, q286 theorem,
+strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Latest active checkpoint note, 2026-09-16
+
 The metric-soft moment-square route now has a weakest-prime degree-`5`
 active-window phase-curve sweep:
 
