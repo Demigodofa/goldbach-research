@@ -1,0 +1,1075 @@
+{
+  "answer": "The zero-residue lane is not worse than the all-residue global budget under the crude residue-L1 payment.  Its tightest period residues are 9724 and 286 mod 10010, with local main about 0.714001940193 and uniform cap about 0.00191440934, which is about 1.18225 times looser than the global all-residue cap 0.001619294659.",
+  "binary_prime_moment_theorem_proved": false,
+  "candidate": {
+    "falsifier": "If the zero-lane caps are all looser than the global cap, then the no-reflection-discount geometry is not visible in this crude residue-L1 payment.",
+    "mechanism": "Separate the necessary N==0 mod 286 lane into its 35 period residues and compute the exact local-main/L1 payment for each rather than inheriting the all-residue worst case.",
+    "name": "zero-residue raw discrepancy payment schedule",
+    "novelty_label": "new-to-this-task",
+    "prediction": "If zero-residue is the true analytic bottleneck in a blunt L1 theorem, its uniform cap should be tighter than the global all-residue cap.",
+    "smallest_next_action": "Stop treating blunt residue-L1 as the active explanation for the K_286 obstruction; target signed character moments or a direct raw witness theorem for N==0 mod 286."
+  },
+  "coefficient_l1_budget": {
+    "global_all_residue_uniform_cap": 0.0016192946592982506,
+    "l1_norm_by_modulus": {
+      "130": 7.137019529057295,
+      "154": 84.29326326706732,
+      "286": 248.78706848859338,
+      "70": 32.74465079141701
+    },
+    "total_l1_norm": 372.962002076135
+  },
+  "comparison_to_global_budget": {
+    "global_all_residue_cap": 0.0016192946592982506,
+    "interpretation": "Under the blunt residue-L1 sufficient condition, the zero-residue no-reflection-discount lane is not the worst analytic payment.  Therefore the K_286 reflection obstruction is not captured by this crude total-L1 budget; a proof still needs signed/character moment control or a direct raw witness estimate.",
+    "zero_lane_is_worse_than_global_l1_budget": false,
+    "zero_lane_tightest_cap": 0.0019144093398749697,
+    "zero_lane_tightest_cap_relaxation_factor": 1.1822489062642942
+  },
+  "decision": "TARGET_zero_residue_raw_discrepancy_budget_schedule_unproved.  The exact zero-residue L1 payment schedule is now pinned.  It does not prove any prime-pair discrepancy theorem, but it shows that the zero lane is not worse than the global all-residue cap under the crude residue-L1 sufficient condition.  The K_286 no-reflection-discount difficulty therefore needs a sharper signed/character or direct raw-witness theorem, not more blunt L1 calibration.",
+  "definitions": {
+    "role": "A sufficient theorem-payment schedule, not a necessary condition and not finite acceptance.",
+    "uniform_residue_error_cap": "eta_a=local_main(a)/sum_d ||c_d||_1.  If every projected residue discrepancy in the four-modulus package is bounded by eta_a for N in this period class, then A_raw_-(N)<L_raw(N) follows after raw scaling by T_N."
+  },
+  "goldbach_proved": false,
+  "q286_threshold_theorem_proved": false,
+  "question": "For the necessary N == 0 mod 286 lane, what exact uniform residue-discrepancy payment would be sufficient for the raw adverse-drag theorem?",
+  "receipt": "q286-wbss-k286-zero-residue-raw-budget-schedule",
+  "schema_version": 1,
+  "source_commit": "bce4d6a62c34c18c94b4c98e6d2d69b66d9a9953",
+  "sources": {
+    "four_modulus_projection_formula": "evidence\\q286-wbss-four-modulus-projection-formula.json",
+    "four_modulus_projection_formula_source_commit": "b2745218566ec5e2c5a85af2f608b509bc31c292",
+    "zero_residue_raw_horizon_probe": "evidence\\q286-wbss-k286-zero-residue-raw-horizon-probe.json",
+    "zero_residue_raw_horizon_probe_source_commit": "8790882f70ed11fc5a506a01e1c9ccab1a521203"
+  },
+  "status": "TARGET_zero_residue_raw_discrepancy_budget_schedule_unproved",
+  "status_boundary": "Coefficient-payment schedule only.  No zero-residue raw adverse-drag theorem, no universal pointwise raw estimate, no binary-prime moment theorem, no q286 threshold theorem, no strict-central Goldbach theorem, and no Goldbach proof is established.",
+  "strict_central_goldbach_theorem_proved": false,
+  "universal_pointwise_raw_bound_proved": false,
+  "zero_residue_raw_adverse_drag_theorem_proved": false,
+  "zero_residue_schedule": {
+    "cap_relaxation_vs_global_summary": {
+      "count": 35,
+      "maximum": 2.105401805543233,
+      "mean": 1.6558062936701334,
+      "minimum": 1.1822489062642942
+    },
+    "local_main_summary": {
+      "count": 35,
+      "maximum": 1.2715266354475274,
+      "mean": 0.9999999999999963,
+      "minimum": 0.7140019401930207
+    },
+    "loosest_budget_row": {
+      "admissible_unit_count": 1800,
+      "cap_relaxation_factor_vs_global_cap": 2.105401805543233,
+      "local_uniform_main_term": 1.2715266354475274,
+      "per_modulus_equal_caps": {
+        "130": 0.17815933251558289,
+        "154": 0.01508455819795391,
+        "286": 0.005110903244176558,
+        "70": 0.038831583318665853
+      },
+      "period_residue_index": 6,
+      "probe_summary": {
+        "largest_raw_adverse_drag_ratio": 0.013351396644989492,
+        "probe_row_count": 2,
+        "smallest_raw_adverse_gate_gap_over_target": 0.7234693385867842,
+        "targets": [
+          1162876,
+          1172886
+        ],
+        "tightest_raw_adverse_gate_gap": 841305.1305784453
+      },
+      "reflection_orbit_count": 900,
+      "target_mod_286": 0,
+      "target_residue": 1716,
+      "total_l1_norm": 372.962002076135,
+      "uniform_residue_error_cap": 0.0034092658993930512
+    },
+    "period": 10010,
+    "period_residue_count": 35,
+    "rows": [
+      {
+        "admissible_unit_count": 2880,
+        "cap_relaxation_factor_vs_global_cap": 1.6558062936701337,
+        "local_uniform_main_term": 0.9999999999999964,
+        "per_modulus_equal_caps": {
+          "130": 0.1401145108162655,
+          "154": 0.011863344248895489,
+          "286": 0.004019501520216053,
+          "70": 0.030539339276206768
+        },
+        "period_residue_index": 0,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.03377718461466521,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.854774524529886,
+          "targets": [
+            1161160,
+            1171170
+          ],
+          "tightest_raw_adverse_gate_gap": 992529.9869031224
+        },
+        "reflection_orbit_count": 1440,
+        "target_mod_286": 0,
+        "target_residue": 0,
+        "total_l1_norm": 372.962002076135,
+        "uniform_residue_error_cap": 0.0026812382881724784
+      },
+      {
+        "admissible_unit_count": 1800,
+        "cap_relaxation_factor_vs_global_cap": 1.1822489062643005,
+        "local_uniform_main_term": 0.7140019401930244,
+        "per_modulus_equal_caps": {
+          "130": 0.10004203257201043,
+          "154": 0.008470450810889167,
+          "286": 0.0028699318840430836,
+          "70": 0.021805147495424743
+        },
+        "period_residue_index": 1,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.07188421512485618,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.3646688618455568,
+          "targets": [
+            1161446,
+            1171456
+          ],
+          "tightest_raw_adverse_gate_gap": 423543.19091507455
+        },
+        "reflection_orbit_count": 900,
+        "target_mod_286": 0,
+        "target_residue": 286,
+        "total_l1_norm": 372.962002076135,
+        "uniform_residue_error_cap": 0.0019144093398749799
+      },
+      {
+        "admissible_unit_count": 1800,
+        "cap_relaxation_factor_vs_global_cap": 1.921661885122243,
+        "local_uniform_main_term": 1.1605595971391238,
+        "per_modulus_equal_caps": {
+          "130": 0.16261124022627108,
+          "154": 0.01376811802222094,
+          "286": 0.004664871065002055,
+          "70": 0.035442723287289674
+        },
+        "period_residue_index": 2,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.029044477614093372,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.6401772921134062,
+          "targets": [
+            1161732,
+            1171742
+          ],
+          "tightest_raw_adverse_gate_gap": 750122.6206155468
+        },
+        "reflection_orbit_count": 900,
+        "target_mod_286": 0,
+        "target_residue": 572,
+        "total_l1_norm": 372.962002076135,
+        "uniform_residue_error_cap": 0.0031117368275554564
+      },
+      {
+        "admissible_unit_count": 1800,
+        "cap_relaxation_factor_vs_global_cap": 1.8020522774712517,
+        "local_uniform_main_term": 1.088323123520055,
+        "per_modulus_equal_caps": {
+          "130": 0.15248986206204312,
+          "154": 0.012911151868351666,
+          "286": 0.00437451644947516,
+          "70": 0.033236669111320165
+        },
+        "period_residue_index": 3,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.026842539761857395,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.6136659711175283,
+          "targets": [
+            1162018,
+            1172028
+          ],
+          "tightest_raw_adverse_gate_gap": 713090.904426048
+        },
+        "reflection_orbit_count": 900,
+        "target_mod_286": 0,
+        "target_residue": 858,
+        "total_l1_norm": 372.962002076135,
+        "uniform_residue_error_cap": 0.0029180536286854473
+      },
+      {
+        "admissible_unit_count": 1800,
+        "cap_relaxation_factor_vs_global_cap": 1.6301989624120683,
+        "local_uniform_main_term": 0.9845348267149583,
+        "per_modulus_equal_caps": {
+          "130": 0.1379476156267436,
+          "154": 0.011679875574346259,
+          "286": 0.003957339232686438,
+          "70": 0.030067043102289658
+        },
+        "period_residue_index": 4,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.01702964406778403,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.523772848290187,
+          "targets": [
+            1162304,
+            1172314
+          ],
+          "tightest_raw_adverse_gate_gap": 610781.6275685012
+        },
+        "reflection_orbit_count": 900,
+        "target_mod_286": 0,
+        "target_residue": 1144,
+        "total_l1_norm": 372.962002076135,
+        "uniform_residue_error_cap": 0.0026397724734274117
+      },
+      {
+        "admissible_unit_count": 2400,
+        "cap_relaxation_factor_vs_global_cap": 1.7429444409482404,
+        "local_uniform_main_term": 1.052625809921858,
+        "per_modulus_equal_caps": {
+          "130": 0.14748815042977692,
+          "154": 0.012487662348375474,
+          "286": 0.004231031043199577,
+          "70": 0.03214649674009567
+        },
+        "period_residue_index": 5,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.09193039689512138,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.6782962808590807,
+          "targets": [
+            1162590,
+            1172600
+          ],
+          "tightest_raw_adverse_gate_gap": 795370.218935358
+        },
+        "reflection_orbit_count": 1200,
+        "target_mod_286": 0,
+        "target_residue": 1430,
+        "total_l1_norm": 372.962002076135,
+        "uniform_residue_error_cap": 0.002822340624681061
+      },
+      {
+        "admissible_unit_count": 1800,
+        "cap_relaxation_factor_vs_global_cap": 2.105401805543233,
+        "local_uniform_main_term": 1.2715266354475274,
+        "per_modulus_equal_caps": {
+          "130": 0.17815933251558289,
+          "154": 0.01508455819795391,
+          "286": 0.005110903244176558,
+          "70": 0.038831583318665853
+        },
+        "period_residue_index": 6,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.013351396644989492,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.7234693385867842,
+          "targets": [
+            1162876,
+            1172886
+          ],
+          "tightest_raw_adverse_gate_gap": 841305.1305784453
+        },
+        "reflection_orbit_count": 900,
+        "target_mod_286": 0,
+        "target_residue": 1716,
+        "total_l1_norm": 372.962002076135,
+        "uniform_residue_error_cap": 0.0034092658993930512
+      },
+      {
+        "admissible_unit_count": 2160,
+        "cap_relaxation_factor_vs_global_cap": 1.704633818577033,
+        "local_uniform_main_term": 1.0294886697155052,
+        "per_modulus_equal_caps": {
+          "130": 0.14424630134807645,
+          "154": 0.01221317848917255,
+          "286": 0.00413803127296669,
+          "70": 0.0314399037654527
+        },
+        "period_residue_index": 7,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.12493163822322251,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.5763607671664476,
+          "targets": [
+            1163162,
+            1173172
+          ],
+          "tightest_raw_adverse_gate_gap": 676170.3139381956
+        },
+        "reflection_orbit_count": 1080,
+        "target_mod_286": 0,
+        "target_residue": 2002,
+        "total_l1_norm": 372.962002076135,
+        "uniform_residue_error_cap": 0.0027603044384809728
+      },
+      {
+        "admissible_unit_count": 1800,
+        "cap_relaxation_factor_vs_global_cap": 1.455747410531643,
+        "local_uniform_main_term": 0.8791773627728756,
+        "per_modulus_equal_caps": {
+          "130": 0.12318550610565629,
+          "154": 0.010429983710410734,
+          "286": 0.0035338547462051267,
+          "70": 0.02684949576568166
+        },
+        "period_residue_index": 8,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.08707983939541787,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.4263412458331265,
+          "targets": [
+            1163448,
+            1173458
+          ],
+          "tightest_raw_adverse_gate_gap": 500293.54565284896
+        },
+        "reflection_orbit_count": 900,
+        "target_mod_286": 0,
+        "target_residue": 2288,
+        "total_l1_norm": 372.962002076135,
+        "uniform_residue_error_cap": 0.0023572840071611474
+      },
+      {
+        "admissible_unit_count": 1800,
+        "cap_relaxation_factor_vs_global_cap": 1.649024102203212,
+        "local_uniform_main_term": 0.9959039946321894,
+        "per_modulus_equal_caps": {
+          "130": 0.1395406010278544,
+          "154": 0.01181475192717187,
+          "286": 0.00400303762041334,
+          "70": 0.03041424997860214
+        },
+        "period_residue_index": 9,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.02461712739769897,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.5317998675808855,
+          "targets": [
+            1163734,
+            1173744
+          ],
+          "tightest_raw_adverse_gate_gap": 618873.5870993742
+        },
+        "reflection_orbit_count": 900,
+        "target_mod_286": 0,
+        "target_residue": 2574,
+        "total_l1_norm": 372.962002076135,
+        "uniform_residue_error_cap": 0.0026702559217517538
+      },
+      {
+        "admissible_unit_count": 2400,
+        "cap_relaxation_factor_vs_global_cap": 1.683026035379554,
+        "local_uniform_main_term": 1.0164389650005987,
+        "per_modulus_equal_caps": {
+          "130": 0.1424178483556506,
+          "154": 0.012058365349793179,
+          "286": 0.004085577965026753,
+          "70": 0.03104137440570985
+        },
+        "period_residue_index": 10,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.011065579356252424,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.7144503564707354,
+          "targets": [
+            1164020,
+            1174030
+          ],
+          "tightest_raw_adverse_gate_gap": 837217.7859663985
+        },
+        "reflection_orbit_count": 1200,
+        "target_mod_286": 0,
+        "target_residue": 2860,
+        "total_l1_norm": 372.962002076135,
+        "uniform_residue_error_cap": 0.0027253150705500205
+      },
+      {
+        "admissible_unit_count": 1800,
+        "cap_relaxation_factor_vs_global_cap": 1.5984234548647456,
+        "local_uniform_main_term": 0.9653444735505845,
+        "per_modulus_equal_caps": {
+          "130": 0.13525876868072598,
+          "154": 0.01145221380849941,
+          "286": 0.003880203578968754,
+          "70": 0.029480982396172615
+        },
+        "period_residue_index": 11,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.08575219869721368,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.4602908050968767,
+          "targets": [
+            1164306,
+            1174316
+          ],
+          "tightest_raw_adverse_gate_gap": 540526.8570781439
+        },
+        "reflection_orbit_count": 900,
+        "target_mod_286": 0,
+        "target_residue": 3146,
+        "total_l1_norm": 372.962002076135,
+        "uniform_residue_error_cap": 0.002588318563759541
+      },
+      {
+        "admissible_unit_count": 1800,
+        "cap_relaxation_factor_vs_global_cap": 1.9245163951756645,
+        "local_uniform_main_term": 1.1622835367474789,
+        "per_modulus_equal_caps": {
+          "130": 0.16285278918117252,
+          "154": 0.013788569711259161,
+          "286": 0.004671800442878599,
+          "70": 0.03549537126388092
+        },
+        "period_residue_index": 12,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.028405904949750784,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.5921342934147351,
+          "targets": [
+            1164592,
+            1174602
+          ],
+          "tightest_raw_adverse_gate_gap": 689594.8610364532
+        },
+        "reflection_orbit_count": 900,
+        "target_mod_286": 0,
+        "target_residue": 3432,
+        "total_l1_norm": 372.962002076135,
+        "uniform_residue_error_cap": 0.003116359120439875
+      },
+      {
+        "admissible_unit_count": 1800,
+        "cap_relaxation_factor_vs_global_cap": 1.4223954963912628,
+        "local_uniform_main_term": 0.8590349618967111,
+        "per_modulus_equal_caps": {
+          "130": 0.12036326346022737,
+          "154": 0.01019102747481754,
+          "286": 0.003452892335262582,
+          "70": 0.026234360151487106
+        },
+        "period_residue_index": 13,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.024905839472471367,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.44468808659967557,
+          "targets": [
+            1164878,
+            1174888
+          ],
+          "tightest_raw_adverse_gate_gap": 522458.6966889196
+        },
+        "reflection_orbit_count": 900,
+        "target_mod_286": 0,
+        "target_residue": 3718,
+        "total_l1_norm": 372.962002076135,
+        "uniform_residue_error_cap": 0.002303277430716256
+      },
+      {
+        "admissible_unit_count": 2160,
+        "cap_relaxation_factor_vs_global_cap": 1.606978768763232,
+        "local_uniform_main_term": 0.9705113302844863,
+        "per_modulus_equal_caps": {
+          "130": 0.13598272028445435,
+          "154": 0.011513510008618413,
+          "286": 0.0039009717674654107,
+          "70": 0.0296387747869608
+        },
+        "period_residue_index": 14,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.06720773777985746,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.5772649031483029,
+          "targets": [
+            1165164,
+            1175174
+          ],
+          "tightest_raw_adverse_gate_gap": 678386.7052924037
+        },
+        "reflection_orbit_count": 1080,
+        "target_mod_286": 0,
+        "target_residue": 4004,
+        "total_l1_norm": 372.962002076135,
+        "uniform_residue_error_cap": 0.00260217213786398
+      },
+      {
+        "admissible_unit_count": 2400,
+        "cap_relaxation_factor_vs_global_cap": 1.541448404682609,
+        "local_uniform_main_term": 0.9309352250775341,
+        "per_modulus_equal_caps": {
+          "130": 0.13043753366336916,
+          "154": 0.011044005048517831,
+          "286": 0.0037418955524218356,
+          "70": 0.028430146682814825
+        },
+        "period_residue_index": 15,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.05963270623949938,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.6432240597150543,
+          "targets": [
+            1165450,
+            1175460
+          ],
+          "tightest_raw_adverse_gate_gap": 749645.48039491
+        },
+        "reflection_orbit_count": 1200,
+        "target_mod_286": 0,
+        "target_residue": 4290,
+        "total_l1_norm": 372.962002076135,
+        "uniform_residue_error_cap": 0.002496059169286357
+      },
+      {
+        "admissible_unit_count": 1800,
+        "cap_relaxation_factor_vs_global_cap": 1.4765753812918474,
+        "local_uniform_main_term": 0.8917561111686428,
+        "per_modulus_equal_caps": {
+          "130": 0.1249479712838101,
+          "154": 0.010579209732849964,
+          "286": 0.0035844150445043283,
+          "70": 0.02723364243061004
+        },
+        "period_residue_index": 16,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.11736994278866014,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.4300984530919524,
+          "targets": [
+            1165736,
+            1175746
+          ],
+          "tightest_raw_adverse_gate_gap": 505686.53582905064
+        },
+        "reflection_orbit_count": 900,
+        "target_mod_286": 0,
+        "target_residue": 4576,
+        "total_l1_norm": 372.962002076135,
+        "uniform_residue_error_cap": 0.0023910106289771666
+      },
+      {
+        "admissible_unit_count": 1800,
+        "cap_relaxation_factor_vs_global_cap": 1.7014294467701394,
+        "local_uniform_main_term": 1.0275534362167902,
+        "per_modulus_equal_caps": {
+          "130": 0.14397514705308873,
+          "154": 0.012190220147975299,
+          "286": 0.004130252598976632,
+          "70": 0.031380803013056756
+        },
+        "period_residue_index": 17,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.07919984903062546,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.5368343307109897,
+          "targets": [
+            1156012,
+            1166022
+          ],
+          "tightest_raw_adverse_gate_gap": 620586.9283138727
+        },
+        "reflection_orbit_count": 900,
+        "target_mod_286": 0,
+        "target_residue": 4862,
+        "total_l1_norm": 372.962002076135,
+        "uniform_residue_error_cap": 0.002755115616327664
+      },
+      {
+        "admissible_unit_count": 1800,
+        "cap_relaxation_factor_vs_global_cap": 1.701429446770134,
+        "local_uniform_main_term": 1.0275534362167869,
+        "per_modulus_equal_caps": {
+          "130": 0.14397514705308825,
+          "154": 0.012190220147975259,
+          "286": 0.004130252598976618,
+          "70": 0.03138080301305666
+        },
+        "period_residue_index": 18,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.15135513988955193,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.46060523229678013,
+          "targets": [
+            1156298,
+            1166308
+          ],
+          "tightest_raw_adverse_gate_gap": 537207.567269593
+        },
+        "reflection_orbit_count": 900,
+        "target_mod_286": 0,
+        "target_residue": 5148,
+        "total_l1_norm": 372.962002076135,
+        "uniform_residue_error_cap": 0.0027551156163276554
+      },
+      {
+        "admissible_unit_count": 1800,
+        "cap_relaxation_factor_vs_global_cap": 1.4765753812918407,
+        "local_uniform_main_term": 0.8917561111686388,
+        "per_modulus_equal_caps": {
+          "130": 0.12494797128380954,
+          "154": 0.010579209732849915,
+          "286": 0.003584415044504312,
+          "70": 0.027233642430609918
+        },
+        "period_residue_index": 19,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.046226856741346425,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.46793905211168757,
+          "targets": [
+            1156584,
+            1166594
+          ],
+          "tightest_raw_adverse_gate_gap": 545894.890559182
+        },
+        "reflection_orbit_count": 900,
+        "target_mod_286": 0,
+        "target_residue": 5434,
+        "total_l1_norm": 372.962002076135,
+        "uniform_residue_error_cap": 0.002391010628977156
+      },
+      {
+        "admissible_unit_count": 2400,
+        "cap_relaxation_factor_vs_global_cap": 1.5414484046826087,
+        "local_uniform_main_term": 0.9309352250775339,
+        "per_modulus_equal_caps": {
+          "130": 0.13043753366336913,
+          "154": 0.01104400504851783,
+          "286": 0.0037418955524218347,
+          "70": 0.02843014668281482
+        },
+        "period_residue_index": 20,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.014178749295538695,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.6599138172520348,
+          "targets": [
+            1156870,
+            1166880
+          ],
+          "tightest_raw_adverse_gate_gap": 763434.4977643614
+        },
+        "reflection_orbit_count": 1200,
+        "target_mod_286": 0,
+        "target_residue": 5720,
+        "total_l1_norm": 372.962002076135,
+        "uniform_residue_error_cap": 0.0024960591692863568
+      },
+      {
+        "admissible_unit_count": 2160,
+        "cap_relaxation_factor_vs_global_cap": 1.6069787687632362,
+        "local_uniform_main_term": 0.9705113302844889,
+        "per_modulus_equal_caps": {
+          "130": 0.1359827202844547,
+          "154": 0.011513510008618442,
+          "286": 0.003900971767465421,
+          "70": 0.029638774786960875
+        },
+        "period_residue_index": 21,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.06438587637196298,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.5834894642523427,
+          "targets": [
+            1157156,
+            1167166
+          ],
+          "tightest_raw_adverse_gate_gap": 681029.0640335499
+        },
+        "reflection_orbit_count": 1080,
+        "target_mod_286": 0,
+        "target_residue": 6006,
+        "total_l1_norm": 372.962002076135,
+        "uniform_residue_error_cap": 0.002602172137863987
+      },
+      {
+        "admissible_unit_count": 1800,
+        "cap_relaxation_factor_vs_global_cap": 1.422395496391261,
+        "local_uniform_main_term": 0.85903496189671,
+        "per_modulus_equal_caps": {
+          "130": 0.12036326346022722,
+          "154": 0.010191027474817527,
+          "286": 0.0034528923352625776,
+          "70": 0.026234360151487075
+        },
+        "period_residue_index": 22,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.14315762283762526,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.3922367471994087,
+          "targets": [
+            1157442,
+            1167452
+          ],
+          "tightest_raw_adverse_gate_gap": 457917.5749914441
+        },
+        "reflection_orbit_count": 900,
+        "target_mod_286": 0,
+        "target_residue": 6292,
+        "total_l1_norm": 372.962002076135,
+        "uniform_residue_error_cap": 0.0023032774307162533
+      },
+      {
+        "admissible_unit_count": 1800,
+        "cap_relaxation_factor_vs_global_cap": 1.9245163951756583,
+        "local_uniform_main_term": 1.162283536747475,
+        "per_modulus_equal_caps": {
+          "130": 0.162852789181172,
+          "154": 0.013788569711259116,
+          "286": 0.004671800442878584,
+          "70": 0.035495371263880804
+        },
+        "period_residue_index": 23,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.19197367421871855,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.5204928208740214,
+          "targets": [
+            1157728,
+            1167738
+          ],
+          "tightest_raw_adverse_gate_gap": 602589.112524839
+        },
+        "reflection_orbit_count": 900,
+        "target_mod_286": 0,
+        "target_residue": 6578,
+        "total_l1_norm": 372.962002076135,
+        "uniform_residue_error_cap": 0.003116359120439865
+      },
+      {
+        "admissible_unit_count": 1800,
+        "cap_relaxation_factor_vs_global_cap": 1.598423454864746,
+        "local_uniform_main_term": 0.965344473550585,
+        "per_modulus_equal_caps": {
+          "130": 0.13525876868072603,
+          "154": 0.011452213808499416,
+          "286": 0.003880203578968756,
+          "70": 0.02948098239617263
+        },
+        "period_residue_index": 24,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.12219411450246964,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.45079961189423406,
+          "targets": [
+            1158014,
+            1168024
+          ],
+          "tightest_raw_adverse_gate_gap": 522032.26176808955
+        },
+        "reflection_orbit_count": 900,
+        "target_mod_286": 0,
+        "target_residue": 6864,
+        "total_l1_norm": 372.962002076135,
+        "uniform_residue_error_cap": 0.0025883185637595417
+      },
+      {
+        "admissible_unit_count": 2400,
+        "cap_relaxation_factor_vs_global_cap": 1.6830260353795492,
+        "local_uniform_main_term": 1.0164389650005958,
+        "per_modulus_equal_caps": {
+          "130": 0.1424178483556502,
+          "154": 0.012058365349793146,
+          "286": 0.004085577965026742,
+          "70": 0.03104137440570976
+        },
+        "period_residue_index": 25,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.06024397394421116,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.7199136258922489,
+          "targets": [
+            1158300,
+            1168310
+          ],
+          "tightest_raw_adverse_gate_gap": 841082.2882661733
+        },
+        "reflection_orbit_count": 1200,
+        "target_mod_286": 0,
+        "target_residue": 7150,
+        "total_l1_norm": 372.962002076135,
+        "uniform_residue_error_cap": 0.0027253150705500127
+      },
+      {
+        "admissible_unit_count": 1800,
+        "cap_relaxation_factor_vs_global_cap": 1.6490241022032155,
+        "local_uniform_main_term": 0.9959039946321914,
+        "per_modulus_equal_caps": {
+          "130": 0.13954060102785468,
+          "154": 0.011814751927171893,
+          "286": 0.0040030376204133475,
+          "70": 0.030414249978602204
+        },
+        "period_residue_index": 26,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.03235351226737984,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.5235742706780225,
+          "targets": [
+            1158586,
+            1168596
+          ],
+          "tightest_raw_adverse_gate_gap": 606605.8199677675
+        },
+        "reflection_orbit_count": 900,
+        "target_mod_286": 0,
+        "target_residue": 7436,
+        "total_l1_norm": 372.962002076135,
+        "uniform_residue_error_cap": 0.0026702559217517594
+      },
+      {
+        "admissible_unit_count": 1800,
+        "cap_relaxation_factor_vs_global_cap": 1.4557474105316437,
+        "local_uniform_main_term": 0.8791773627728761,
+        "per_modulus_equal_caps": {
+          "130": 0.12318550610565634,
+          "154": 0.01042998371041074,
+          "286": 0.0035338547462051284,
+          "70": 0.026849495765681675
+        },
+        "period_residue_index": 27,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.22064948972651888,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.3655535486494789,
+          "targets": [
+            1158872,
+            1168882
+          ],
+          "tightest_raw_adverse_gate_gap": 423629.7720305189
+        },
+        "reflection_orbit_count": 900,
+        "target_mod_286": 0,
+        "target_residue": 7722,
+        "total_l1_norm": 372.962002076135,
+        "uniform_residue_error_cap": 0.0023572840071611487
+      },
+      {
+        "admissible_unit_count": 2160,
+        "cap_relaxation_factor_vs_global_cap": 1.7046338185770318,
+        "local_uniform_main_term": 1.0294886697155043,
+        "per_modulus_equal_caps": {
+          "130": 0.1442463013480763,
+          "154": 0.01221317848917254,
+          "286": 0.004138031272966687,
+          "70": 0.03143990376545267
+        },
+        "period_residue_index": 28,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.06944001687810132,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.6559116413552586,
+          "targets": [
+            1159158,
+            1169168
+          ],
+          "tightest_raw_adverse_gate_gap": 766870.901900045
+        },
+        "reflection_orbit_count": 1080,
+        "target_mod_286": 0,
+        "target_residue": 8008,
+        "total_l1_norm": 372.962002076135,
+        "uniform_residue_error_cap": 0.0027603044384809706
+      },
+      {
+        "admissible_unit_count": 1800,
+        "cap_relaxation_factor_vs_global_cap": 2.1054018055432318,
+        "local_uniform_main_term": 1.2715266354475268,
+        "per_modulus_equal_caps": {
+          "130": 0.1781593325155828,
+          "154": 0.015084558197953901,
+          "286": 0.005110903244176556,
+          "70": 0.03883158331866583
+        },
+        "period_residue_index": 29,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.041224171451363784,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.6904969042249955,
+          "targets": [
+            1159444,
+            1169454
+          ],
+          "tightest_raw_adverse_gate_gap": 800592.4926222457
+        },
+        "reflection_orbit_count": 900,
+        "target_mod_286": 0,
+        "target_residue": 8294,
+        "total_l1_norm": 372.962002076135,
+        "uniform_residue_error_cap": 0.0034092658993930495
+      },
+      {
+        "admissible_unit_count": 2400,
+        "cap_relaxation_factor_vs_global_cap": 1.7429444409482404,
+        "local_uniform_main_term": 1.052625809921858,
+        "per_modulus_equal_caps": {
+          "130": 0.14748815042977692,
+          "154": 0.012487662348375474,
+          "286": 0.004231031043199577,
+          "70": 0.03214649674009567
+        },
+        "period_residue_index": 30,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.10897134658207613,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.6539827792510609,
+          "targets": [
+            1159730,
+            1169740
+          ],
+          "tightest_raw_adverse_gate_gap": 758443.4485808328
+        },
+        "reflection_orbit_count": 1200,
+        "target_mod_286": 0,
+        "target_residue": 8580,
+        "total_l1_norm": 372.962002076135,
+        "uniform_residue_error_cap": 0.002822340624681061
+      },
+      {
+        "admissible_unit_count": 1800,
+        "cap_relaxation_factor_vs_global_cap": 1.6301989624120767,
+        "local_uniform_main_term": 0.9845348267149635,
+        "per_modulus_equal_caps": {
+          "130": 0.13794761562674432,
+          "154": 0.011679875574346322,
+          "286": 0.0039573392326864585,
+          "70": 0.030067043102289814
+        },
+        "period_residue_index": 31,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.05274747291730541,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.49992005831067493,
+          "targets": [
+            1160016,
+            1170026
+          ],
+          "tightest_raw_adverse_gate_gap": 584919.4661450058
+        },
+        "reflection_orbit_count": 900,
+        "target_mod_286": 0,
+        "target_residue": 8866,
+        "total_l1_norm": 372.962002076135,
+        "uniform_residue_error_cap": 0.0026397724734274256
+      },
+      {
+        "admissible_unit_count": 1800,
+        "cap_relaxation_factor_vs_global_cap": 1.802052277471249,
+        "local_uniform_main_term": 1.0883231235200534,
+        "per_modulus_equal_caps": {
+          "130": 0.1524898620620429,
+          "154": 0.012911151868351647,
+          "286": 0.004374516449475154,
+          "70": 0.033236669111320116
+        },
+        "period_residue_index": 32,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.053782253929293804,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.5444797382209255,
+          "targets": [
+            1160302,
+            1170312
+          ],
+          "tightest_raw_adverse_gate_gap": 631760.9292172163
+        },
+        "reflection_orbit_count": 900,
+        "target_mod_286": 0,
+        "target_residue": 9152,
+        "total_l1_norm": 372.962002076135,
+        "uniform_residue_error_cap": 0.002918053628685443
+      },
+      {
+        "admissible_unit_count": 1800,
+        "cap_relaxation_factor_vs_global_cap": 1.9216618851222416,
+        "local_uniform_main_term": 1.160559597139123,
+        "per_modulus_equal_caps": {
+          "130": 0.16261124022627094,
+          "154": 0.01376811802222093,
+          "286": 0.004664871065002052,
+          "70": 0.035442723287289646
+        },
+        "period_residue_index": 33,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.09605566935487937,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.5555301602037079,
+          "targets": [
+            1160588,
+            1170598
+          ],
+          "tightest_raw_adverse_gate_gap": 650302.4944741401
+        },
+        "reflection_orbit_count": 900,
+        "target_mod_286": 0,
+        "target_residue": 9438,
+        "total_l1_norm": 372.962002076135,
+        "uniform_residue_error_cap": 0.003111736827555454
+      },
+      {
+        "admissible_unit_count": 1800,
+        "cap_relaxation_factor_vs_global_cap": 1.1822489062642942,
+        "local_uniform_main_term": 0.7140019401930207,
+        "per_modulus_equal_caps": {
+          "130": 0.1000420325720099,
+          "154": 0.008470450810889122,
+          "286": 0.0028699318840430684,
+          "70": 0.02180514749542463
+        },
+        "period_residue_index": 34,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.05421652008207941,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.3771973169181768,
+          "targets": [
+            1160874,
+            1170884
+          ],
+          "tightest_raw_adverse_gate_gap": 441654.30322242255
+        },
+        "reflection_orbit_count": 900,
+        "target_mod_286": 0,
+        "target_residue": 9724,
+        "total_l1_norm": 372.962002076135,
+        "uniform_residue_error_cap": 0.0019144093398749697
+      }
+    ],
+    "target_mod_286": 0,
+    "tightest_budget_row": {
+      "admissible_unit_count": 1800,
+      "cap_relaxation_factor_vs_global_cap": 1.1822489062642942,
+      "local_uniform_main_term": 0.7140019401930207,
+      "per_modulus_equal_caps": {
+        "130": 0.1000420325720099,
+        "154": 0.008470450810889122,
+        "286": 0.0028699318840430684,
+        "70": 0.02180514749542463
+      },
+      "period_residue_index": 34,
+      "probe_summary": {
+        "largest_raw_adverse_drag_ratio": 0.05421652008207941,
+        "probe_row_count": 2,
+        "smallest_raw_adverse_gate_gap_over_target": 0.3771973169181768,
+        "targets": [
+          1160874,
+          1170884
+        ],
+        "tightest_raw_adverse_gate_gap": 441654.30322242255
+      },
+      "reflection_orbit_count": 900,
+      "target_mod_286": 0,
+      "target_residue": 9724,
+      "total_l1_norm": 372.962002076135,
+      "uniform_residue_error_cap": 0.0019144093398749697
+    },
+    "uniform_cap_summary": {
+      "count": 35,
+      "maximum": 0.0034092658993930512,
+      "mean": 0.002681238288172478,
+      "minimum": 0.0019144093398749697
+    }
+  }
+}

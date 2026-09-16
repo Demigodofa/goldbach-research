@@ -6,6 +6,44 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The q286-WBSS route now has an exact raw theorem-payment schedule for the
+unique `K_286` no-reflection-discount lane:
+
+```text
+tools/build_q286_wbss_k286_zero_residue_raw_budget_schedule.py
+notes/q286-wbss-k286-zero-residue-raw-budget-schedule.md
+evidence/q286-wbss-k286-zero-residue-raw-budget-schedule.json
+```
+
+Question: for the necessary `N == 0 mod 286` lane, what exact uniform
+residue-discrepancy payment would be sufficient for the raw adverse-drag
+theorem?
+
+Result:
+
+```text
+period residues checked:            35
+total coefficient L1:                372.962002076135
+global all-residue cap:              0.0016192946592982506
+zero-lane local-main minimum:        0.7140019401930207
+zero-lane local-main maximum:        1.2715266354475274
+zero-lane cap minimum:               0.0019144093398749697
+zero-lane cap maximum:               0.0034092658993930512
+tightest zero-lane residue:          9724 mod 10010
+loosest zero-lane residue:           1716 mod 10010
+tightest/global cap factor:          1.1822489062642942
+```
+
+Decision: `TARGET_zero_residue_raw_discrepancy_budget_schedule_unproved`.
+The `K_286` no-reflection-discount difficulty is not captured by plain
+total-`L1` size.  A proof still needs sharper signed/character moment control
+or a direct raw witness estimate for the zero lane.  No zero-residue raw
+adverse-drag theorem, universal pointwise raw estimate, binary-prime moment
+theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach
+proof is established.
+
+## Previous active checkpoint note, 2026-09-16
+
 The q286-WBSS route now has a targeted raw-horizon probe for the unique
 `K_286` no-reflection-discount residue:
 
