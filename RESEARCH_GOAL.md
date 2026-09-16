@@ -6,6 +6,33 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The q286 route now has a cap homogeneity boundary audit:
+`tools/build_q286_cap_homogeneity_boundary_audit.py` generated
+`evidence/q286-cap-homogeneity-boundary-audit.json`, with explanation in
+`notes/q286-cap-homogeneity-boundary-audit.md`.
+
+Question: does a universal per-modulus cap such as
+`max(0,-U_d(N)) <= k*T_N` cross the zero-mass barrier, or is it only a
+conditional homogeneous estimate?
+
+Answer: it is only homogeneous cap control by itself.  A normalized cap
+`max(0,-E_d(N)) <= k` is conditional on existing mass because `E_d=U_d/T_N`.
+A raw homogeneous cap `max(0,-U_d(N)) <= k*T_N` is well-defined at zero
+support, but that is precisely why it cannot be the standalone bridge: at
+`T_N=0` every component cap reads `0<=0`, while the required strict raw gap
+`A_raw_-(N)<L_raw(N)` reads `0<0` and does not follow.
+
+Decision: the finite cap window from the previous audit remains useful for
+target selection, but homogeneous caps alone must not be promoted as a
+Goldbach-yielding bridge.  The standalone non-circular targets remain direct
+`A_raw_-(N)<L_raw(N)` or `W_phi(N)>0`; otherwise the cap route must be labeled
+as a two-theorem package with independent positive strict-central mass plus
+one-sided projection control.  This proves no homogeneous cap bridge,
+per-modulus supremum theorem, positive-mass theorem, raw adverse-envelope
+theorem, strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The q286 route now has a one-sided per-modulus cap sensitivity audit:
 `tools/build_q286_one_sided_cap_sensitivity_audit.py` generated
 `evidence/q286-one-sided-cap-sensitivity-audit.json`, with explanation in

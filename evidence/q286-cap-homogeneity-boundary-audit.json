@@ -1,0 +1,109 @@
+{
+  "cap_window_inherited": {
+    "finite_fit_examples": {
+      ".125": {
+        "cap": 0.125,
+        "classification": "fits_finite_and_theorem_sufficient_if_universal",
+        "margin_to_min_local_main": 0.21724542380284395,
+        "observed_fit_on_232_rows": true,
+        "sum_four_equal_caps": 0.5,
+        "universal_equal_cap_would_be_sufficient_if_proved": true
+      },
+      ".126": {
+        "cap": 0.126,
+        "classification": "fits_finite_and_theorem_sufficient_if_universal",
+        "margin_to_min_local_main": 0.21324542380284395,
+        "observed_fit_on_232_rows": true,
+        "sum_four_equal_caps": 0.504,
+        "universal_equal_cap_would_be_sufficient_if_proved": true
+      },
+      ".13": {
+        "cap": 0.13,
+        "classification": "fits_finite_and_theorem_sufficient_if_universal",
+        "margin_to_min_local_main": 0.19724542380284393,
+        "observed_fit_on_232_rows": true,
+        "sum_four_equal_caps": 0.52,
+        "universal_equal_cap_would_be_sufficient_if_proved": true
+      }
+    },
+    "observed_floor": 0.12228599640255161,
+    "strict_equal_cap_ceiling": 0.179311355950711
+  },
+  "decision": "Universal per-modulus caps remain useful theorem-shaping data, but a homogeneous cap max(0,-U_d)<=k*T_N is not a standalone Goldbach bridge.  At zero support the cap is true while the strict raw gap is false.  The cap route must therefore be labeled either as a component of a direct strict raw-gap proof or as a two-theorem package with independent positive mass.",
+  "decision_table": [
+    {
+      "decision": "calibration_only",
+      "reason": "They remain fitted finite cap candidates only.  No universal per-modulus supremum theorem or one-sided signed concentration theorem is established.",
+      "route": "finite caps .125/.126/.13"
+    },
+    {
+      "decision": "not_standalone",
+      "reason": "It is compatible with T_N=0 and therefore cannot by itself imply a strict positive raw quantity.",
+      "route": "universal homogeneous cap max(0,-U_d)<=k*T_N"
+    },
+    {
+      "decision": "standalone_target",
+      "reason": "At zero support, T_N=0, every Pi_raw, D_raw, U_d, A_raw_-, L_raw, and W_phi vanishes.  The strict inequalities therefore become false 0<0 or 0>0 statements; proving one would force strict-central support.",
+      "route": "strict raw adverse gap"
+    },
+    {
+      "decision": "two_theorem_bridge",
+      "reason": "The strict raw-gap correction converts the q286-WBSS bridge into a HOLD for a pointwise raw binary-prime estimate.  The repository currently has no theorem proving the needed direct signed sum, positive mass plus one-sided projection control, or fixed-modulus binary-prime convolution bound.  Future finite rows are useful only as falsifiers or calibration for a predeclared theorem implication.",
+      "route": "positive mass plus cap control"
+    }
+  ],
+  "finite_logic_audit_only": true,
+  "goldbach_proved": false,
+  "homogeneous_cap_standalone_bridge_proved": false,
+  "logical_forms": {
+    "direct_raw_witness": {
+      "bridge_status": "still_unproved",
+      "classification": "standalone_noncircular_theorem_shape",
+      "statement": "W_phi(N)>0.",
+      "zero_mass_status": "false at zero support because the raw witness sum is empty and equals zero."
+    },
+    "normalized_cap": {
+      "bridge_status": "not_standalone_goldbach_bridge",
+      "classification": "conditional_distribution_estimate",
+      "statement": "max(0,-E_d(N)) <= k for each d, with E_d=U_d/T_N.",
+      "zero_mass_status": "undefined or conditional, because E_d is normalized by T_N or mu_N."
+    },
+    "positive_mass_plus_caps": {
+      "bridge_status": "unproved_and_mass_input_is_goldbach_strength",
+      "classification": "two_theorem_bridge",
+      "statement": "Prove T_N>=P(N)>0, then prove homogeneous or normalized one-sided caps whose sum is below M(a).",
+      "zero_mass_status": "crosses the barrier only through the independent positive-mass theorem."
+    },
+    "raw_homogeneous_cap": {
+      "bridge_status": "useful only after positive mass, or as a component in a separate proof of the strict raw gap",
+      "classification": "homogeneous_cap_control",
+      "statement": "max(0,-U_d(N)) <= k*T_N for each d, with sum_d k_d < M(a).",
+      "zero_mass_status": "true but non-creative at T_N=0: both sides of every component cap are zero, and A_raw_-(N)<L_raw(N) becomes 0<0, which does not follow."
+    },
+    "strict_raw_gap": {
+      "bridge_status": "still_unproved",
+      "classification": "standalone_noncircular_theorem_shape",
+      "statement": "A_raw_-(N) < L_raw(N).",
+      "zero_mass_status": "false at T_N=0 because both sides are zero; a proof of this strict statement would force support."
+    }
+  },
+  "per_modulus_supremum_theorem_proved": false,
+  "positive_mass_theorem_proved": false,
+  "question": "Does a universal per-modulus cap such as max(0,-U_d)<=k*T_N cross the zero-mass barrier, or is it only a conditional homogeneous estimate?",
+  "raw_adverse_envelope_theorem_proved": false,
+  "raw_witness_theorem_proved": false,
+  "route_correction": {
+    "cap_sensitivity_still_useful": true,
+    "corrected_next_obligation": "Either prove the strict raw gap A_raw_-(N)<L_raw(N) directly, prove W_phi(N)>0 directly, or explicitly label the cap route as positive-mass plus one-sided projection control.  Do not present homogeneous caps alone as a Goldbach-yielding bridge.",
+    "what_changed": "The cap window remains a useful finite target selector, but its theorem form must not silently normalize by T_N or rely on T_N>0."
+  },
+  "schema_version": 1,
+  "source_commit": "301256ff38524243c1a7f0bf1e6653f42339c99c",
+  "source_receipts": {
+    "one_sided_cap_sensitivity": "evidence\\q286-one-sided-cap-sensitivity-audit.json",
+    "raw_sum_expansion_ledger": "evidence\\q286-raw-sum-expansion-ledger.json",
+    "strict_raw_gap_analytic_hold": "evidence\\q286-wbss-strict-raw-gap-analytic-hold.json"
+  },
+  "status": "AUDIT_q286_cap_homogeneity_boundary",
+  "strict_central_goldbach_theorem_proved": false
+}
