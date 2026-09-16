@@ -1,0 +1,107 @@
+{
+  "answer": "Only the finite decomposition is confirmed.  A non-circular bridge would require independent pointwise estimates bounding near-threshold adverse leakage above and middle/far clearance margin below, uniformly in the moving prime block.",
+  "candidate_next_action": {
+    "falsifier": "A source-admissible block where independent middle/far lower bounds cannot exceed near-adverse upper bounds falsifies this proof route, even if the exact finite ledger is positive.",
+    "mechanism": "Bound adverse near-threshold denominator phases and middle/far clearance margin by separate analytic estimates, then compare them pointwise.",
+    "name": "independent near-vs-middlefar denominator bounds",
+    "novelty_label": "new-to-this-task",
+    "prediction": "If the finite pattern is structural, the first successful bound will not need the all-negative-near shortcut and will keep endpoint sigma bands in scope.",
+    "smallest_next_test": "For the M=229,p=379 middle-band exception, derive an exact symbolic or interval upper bound for the lone adverse middle-family denominator Q=46189 and compare it to the positive middle/far ledger without using total positivity."
+  },
+  "clearance_family_theorem_proved": false,
+  "decision": "HOLD_clearance_logical_bridge_not_confirmed.  The clearance family split is useful finite structure, but the theorem bridge requires independent pointwise unnormalized estimates.  Future work should target near-adverse upper bounds and middle/far lower bounds, not broader finite scans or the false all-negative-near shortcut.",
+  "finite_evidence": {
+    "all_band_minima_clearance_positive": true,
+    "all_tight_source_blocks_clearance_positive": true,
+    "band_maximum_ratio": 0.0016400172796714467,
+    "band_minimum_blocks_checked": 4,
+    "finite_decomposition_confirmed": true,
+    "maximum_near_negative_over_middle_far_positive": 0.0016400172796714467,
+    "negative_denominator_family_counts": {
+      "band_holdout": {
+        "far_3_plus": 0,
+        "middle_2_to_3": 1,
+        "near_1_to_2": 17
+      },
+      "tight_source_blocks": {
+        "far_3_plus": 0,
+        "middle_2_to_3": 1,
+        "near_1_to_2": 17
+      }
+    },
+    "source_maximum_ratio": 0.0009319007678001933,
+    "tight_source_blocks_checked": 6
+  },
+  "goldbach_proved": false,
+  "invalid_substitutes": [
+    "finite clearance ratios",
+    "the false all-negative-near shortcut",
+    "total denominator margin already known positive",
+    "a fitted residual constant",
+    "a normalized estimate that assumes positive Goldbach mass first"
+  ],
+  "logical_bridge_classification": {
+    "current_hold": "HOLD_for_independent_pointwise_clearance_estimates",
+    "false_all_negative_near_shortcut_confirmed": true,
+    "finite_evidence_is_acceptance_condition": false,
+    "logical_bridge_confirmed": false,
+    "non_circular_theorem_shape_defined": true,
+    "why_not_confirmed": "The receipts compute exact signed family sums from the target ledger.  They do not prove an independent upper bound for adverse near-threshold terms or an independent lower bound for middle/far terms."
+  },
+  "moving_prime_block_theorem_proved": false,
+  "pointwise_unnormalized_target": {
+    "margin_components": {
+      "A_near": "sum_{p*A < Q < 2*p*A} max(0,-m_Q(M,p,ell))",
+      "G_middle_far": "sum_{Q >= 2*p*A} m_Q(M,p,ell)",
+      "m_Q": "m_Q(M,p,ell)=full_Q(M,p,ell)/2-active_Q(M,p,ell) for each reduced denominator Q"
+    },
+    "source_parameters": "For source scale M, moving prime p in [M,2M], row count A=int((M**(1/.59))**.41), and component label ell.",
+    "sufficient_pointwise_inequality": "G_middle_far(M,p,ell) > A_near(M,p,ell) for every sufficiently large source-admissible row, with finite remainder checked separately.",
+    "why_this_is_stronger_than_total_margin": "Near-positive terms are discarded.  Proving the inequality from independent estimates would imply positive total margin without assuming it."
+  },
+  "prime_block_theorem_proved": false,
+  "question": "Does the sigma-band clearance evidence already provide a non-circular theorem bridge, or only a finite decomposition of the same signed margin ledger?",
+  "receipt": "mobius-moment-square-degree5-clearance-logical-bridge",
+  "required_independent_obligations": [
+    {
+      "id": "moving_prime_sigma_coverage",
+      "not_supplied_by": "finite seven-sweep moving-band audit",
+      "statement": "Cover every sufficiently large source-admissible prime block p in [M,2M] by sigma bands, including endpoints."
+    },
+    {
+      "id": "near_adverse_upper_bound",
+      "not_supplied_by": "observed near-negative sums",
+      "statement": "Prove a pointwise upper bound for A_near(M,p,ell) without using total margin positivity."
+    },
+    {
+      "id": "middle_far_lower_bound",
+      "not_supplied_by": "observed middle/far exact ledger sums",
+      "statement": "Prove a pointwise lower bound for G_middle_far(M,p,ell) without reusing the target positivity claim."
+    },
+    {
+      "id": "comparison_margin",
+      "not_supplied_by": "finite safety ratio alone",
+      "statement": "Show lower_bound(G_middle_far) exceeds upper_bound(A_near) by an explicit positive margin."
+    },
+    {
+      "id": "finite_remainder",
+      "not_supplied_by": "current theorem-shaped holdout",
+      "statement": "After a threshold theorem, verify all smaller source scales by exact computation."
+    }
+  ],
+  "schema_version": 1,
+  "sigma_band_theorem_proved": false,
+  "source_commit": "fcd324427f5bd777873a8ac91d25151269ca816b",
+  "source_start_theorem_proved": false,
+  "sources": {
+    "band_clearance_holdout": "evidence\\mobius-moment-square-degree5-band-clearance-holdout.json",
+    "band_clearance_status": "HOLDOUT_degree5_band_clearance_family",
+    "moving_prime_band_audit": "evidence\\mobius-moment-square-degree5-moving-prime-band-audit.json",
+    "moving_prime_band_status": "AUDIT_degree5_moving_prime_band_stress",
+    "source_clearance_family_audit": "evidence\\mobius-moment-square-degree5-source-margin-clearance-family-audit.json",
+    "source_clearance_family_status": "AUDIT_degree5_source_margin_clearance_family"
+  },
+  "status": "HOLD_clearance_logical_bridge_not_confirmed",
+  "status_boundary": "Logical bridge audit only.  No source-start theorem, prime-block theorem, moving-prime theorem, sigma-band theorem, clearance-family theorem, strict-central Goldbach theorem, or Goldbach proof is established.",
+  "strict_central_goldbach_theorem_proved": false
+}

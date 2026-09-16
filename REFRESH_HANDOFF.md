@@ -6,6 +6,48 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The source-start moving-prime lane now has a clearance logical-bridge audit:
+
+```text
+tools/build_mobius_moment_square_degree5_clearance_logical_bridge_audit.py
+notes/mobius-moment-square-degree5-clearance-logical-bridge-audit.md
+evidence/mobius-moment-square-degree5-clearance-logical-bridge-audit.json
+```
+
+Result:
+
+```text
+finite decomposition confirmed:                      true
+logical bridge confirmed:                            false
+finite evidence is acceptance condition:             false
+max near negative / middle-far positive:             0.0016400172796714467
+false all-negative-near shortcut confirmed:          true
+current hold: HOLD_for_independent_pointwise_clearance_estimates
+```
+
+Pointwise target:
+
+```text
+m_Q(M,p,ell) = full_Q(M,p,ell)/2 - active_Q(M,p,ell)
+A_near       = sum_{p*A < Q < 2*p*A} max(0,-m_Q(M,p,ell))
+G_middle_far = sum_{Q >= 2*p*A} m_Q(M,p,ell)
+
+prove G_middle_far(M,p,ell) > A_near(M,p,ell)
+```
+
+Decision: the clearance family split is useful finite structure, but the
+theorem bridge requires independent pointwise unnormalized estimates.  Future
+work should target near-adverse upper bounds and middle/far lower bounds, not
+broader finite scans or the false all-negative-near shortcut.  The smallest
+next test is the `M=229`, `p=379` middle-band exception: derive an exact
+symbolic or interval upper bound for adverse denominator `Q=46189` and compare
+it to the positive middle/far ledger without using total positivity.  This
+proves no source-start theorem, prime-block theorem, moving-prime theorem,
+sigma-band theorem, clearance-family theorem, strict-central Goldbach theorem,
+or Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The source-start moving-prime lane now has a sigma-band clearance holdout:
 
 ```text

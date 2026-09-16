@@ -6,6 +6,40 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The source-start moving-prime lane now has a clearance logical-bridge audit:
+`tools/build_mobius_moment_square_degree5_clearance_logical_bridge_audit.py`
+generated
+`evidence/mobius-moment-square-degree5-clearance-logical-bridge-audit.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-clearance-logical-bridge-audit.md`.
+
+Question: does the sigma-band clearance evidence already provide a
+non-circular theorem bridge, or only a finite decomposition of the same signed
+margin ledger?
+
+Answer: only the finite decomposition is confirmed.  The logical bridge is
+not confirmed.  The maximum finite
+`near_negative_abs / middle_far_positive_margin_sum` is still
+`0.0016400172796714467`, and the finite clearance split survives both the
+four band-minimum blocks and the six tight source blocks.  But the receipts
+compute exact signed family sums from the target ledger; they do not prove an
+independent upper bound for near-threshold adverse leakage or an independent
+lower bound for middle/far clearance margin.
+
+Decision: the next theorem-shaped target is now explicit and unnormalized.
+For `m_Q=full_Q/2-active_Q`, prove pointwise that
+`G_middle_far(M,p,ell) > A_near(M,p,ell)`, where
+`A_near=sum_{p*A<Q<2*p*A} max(0,-m_Q)` and
+`G_middle_far=sum_{Q>=2*p*A} m_Q`, with source-admissible moving primes
+`p in [M,2M]` and endpoint sigma bands included.  Future work should target
+independent near-adverse upper bounds and middle/far lower bounds, not broader
+finite scans or the false all-negative-near shortcut.  This proves no
+source-start theorem, prime-block theorem, moving-prime theorem, sigma-band
+theorem, clearance-family theorem, strict-central Goldbach theorem, or
+Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The source-start moving-prime lane now has a sigma-band clearance holdout:
 `tools/build_mobius_moment_square_degree5_band_clearance_holdout.py`
 generated
