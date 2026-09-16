@@ -6,6 +6,57 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 residual support-packet route now has a structural-mask audit:
+`tools/build_q286_residual_support_packet_structural_mask_audit.py` generated
+`evidence/q286-residual-support-packet-structural-mask-audit.json`, with
+explanation in `notes/q286-residual-support-packet-structural-mask-audit.md`.
+
+Question: is the unique five-packet rescue core a natural support-lattice
+structure, or is there a better theorem-shaped structural mask?
+
+Answer: the five-packet core is not closure-natural, but a broader
+two-subcube structural mask survives finitely.  The five-packet core has `5`
+downward and `16` upward support-lattice closure violations.  No nontrivial
+one-subcube mask certifies all five positive rows; the only one-subcube
+certificate is the full `15`-packet mask.
+
+The smallest certifying two-subcube rule is:
+
+```text
+(7=0 and 11=1) OR (11=0 and 13=0)
+```
+
+It keeps seven packets:
+
+```text
+11, 11x13, 5, 5x11, 5x11x13, 5x7, 7
+```
+
+At the tight row `94856`:
+
+```text
+two-subcube tight margin:        0.005504640544899547
+two-subcube relative budget:     0.09076413199496625
+two-subcube tail envelope:       0.16918918294282279
+support-size <=2 tight margin:   0.004018492886067315
+support-size <=2 relative budget:0.022998983525494825
+```
+
+Decision:
+`CANDIDATE_two_subcube_structural_mask_survives_finitely`.  The next finite
+theorem-shaped object should not be the unique five-packet core; it is too
+closure-unnatural and too near-sharp.  A broader structural support-lattice
+mask is more plausible, especially the two-subcube rule above.  This remains
+finite evidence only: the adverse tail is still fitted to the five positive
+rows, and no source-backed signed binary-prime correlation estimate is proved.
+The next proof object is a source theorem for a structural support-lattice mask
+plus a universal adverse-tail estimate, or a broader signed support-packet
+package.  This proves no structural-mask theorem, support-packet theorem,
+character-sum theorem, signed binary-prime correlation theorem, q286 threshold
+theorem, strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 residual support-packet route now has a fixed rescue-core audit:
 `tools/build_q286_residual_support_packet_rescue_core_audit.py` generated
 `evidence/q286-residual-support-packet-rescue-core-audit.json`, with

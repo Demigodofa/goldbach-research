@@ -6,6 +6,54 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 residual support-packet route now has a structural-mask audit:
+
+```text
+tools/build_q286_residual_support_packet_structural_mask_audit.py
+notes/q286-residual-support-packet-structural-mask-audit.md
+evidence/q286-residual-support-packet-structural-mask-audit.json
+```
+
+Result:
+
+```text
+five-core downward closure violations:      5
+five-core upward closure violations:       16
+one-subcube certifying masks:               1
+only one-subcube certificate:               full 15-packet mask
+two-subcube certifying masks:              19
+smallest certifying two-subcube rule:
+  (7=0 and 11=1) OR (11=0 and 13=0)
+two-subcube mask size:                      7
+two-subcube tight row:                  94856
+two-subcube tight margin:       0.005504640544899547
+two-subcube relative budget:    0.09076413199496625
+support-size <=2 tight margin:  0.004018492886067315
+support-size <=2 relative budget:
+                               0.022998983525494825
+```
+
+Decision:
+`CANDIDATE_two_subcube_structural_mask_survives_finitely`.  The unique
+five-packet rescue core is not closure-natural and remains near-sharp.  A
+broader seven-packet structural mask is a better finite theorem-shaped target:
+
+```text
+(7=0 and 11=1) OR (11=0 and 13=0)
+```
+
+The natural `support size <= 2` mask also certifies, though with a smaller
+relative budget.  This is still finite evidence only: the adverse tail is
+fitted to the five positive rows, and no source-backed signed binary-prime
+correlation estimate is established.  The next proof object is a source theorem
+for a structural support-lattice mask plus a universal adverse-tail estimate,
+or a broader signed support-packet package.  This proves no structural-mask
+theorem, support-packet theorem, character-sum theorem, signed binary-prime
+correlation theorem, q286 threshold theorem, strict-central Goldbach theorem,
+or Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 residual support-packet route now has a fixed rescue-core audit:
 
 ```text
