@@ -6,6 +6,56 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The q286-WBSS route now has a centered-support inequality ledger:
+
+```text
+tools/build_q286_wbss_centered_support_inequality_ledger.py
+notes/q286-wbss-centered-support-inequality-ledger.md
+evidence/q286-wbss-centered-support-inequality-ledger.json
+```
+
+Question: what exact lower-modulus centered signed-correlation bounds would
+keep the q286 centered error above the positive local factor?
+
+Answer: a sufficient raw theorem target is now explicit.  Let `P0_a(N)` be the
+ordinary strict-central binary-prime principal main scale produced inside the
+same raw major/minor arc proof.  For each support bucket `B`, prove
+
+```text
+K_B(N) >= -beta_B * P0_a(N)
+```
+
+for `B in {286,154,70,tail}`, with
+
+```text
+sum_B beta_B < m_a / principal_mean
+```
+
+for every sufficiently large covered `N`, before any division by actual
+`T_N`.
+
+Ledger budget:
+
+```text
+weakest local factor ratio:       0.6039353780830684
+allocated negative budget total:  0.5435418402747616
+unallocated reserve:              0.060393537808306826
+dominant_286:                     modulus 286
+dominant_154:                     modulus 154
+dominant_70:                      modulus 70
+tail:                             moduli 10,14,22,26,130
+```
+
+Decision: `TARGET_centered_support_inequality_ledger_open`.  A future theorem
+attempt must pay the raw lower bounds for `286`, `154`, `70`, and the tail, or
+replace this sufficient ledger with a sharper source-backed inequality.  This
+is a theorem-obligation ledger only.  It proves no source theorem fit,
+major/minor arc estimate, pointwise centered-error estimate, signed
+prime-correlation theorem, positive-mass theorem, q286 threshold theorem,
+strict-central Goldbach theorem, or Goldbach proof.
+
+## Latest active checkpoint note, 2026-09-16
+
 The q286-WBSS route now has a major-arc local-factor collapse audit:
 
 ```text

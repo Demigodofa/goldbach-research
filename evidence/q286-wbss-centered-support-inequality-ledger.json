@@ -1,0 +1,146 @@
+{
+  "answer": "It is enough, but not proved, to bound the raw centered contributions from the dominant 286, 154, 70 supports and the tail below an allocated negative budget whose sum is strictly smaller than the weakest local factor ratio.  The ledger fixes one explicit 10 percent reserve budget so future theorem attempts have a non-moving target.",
+  "bucket_obligations": [
+    {
+      "allocated_negative_budget_ratio": 0.1759037368828583,
+      "bucket": "dominant_286",
+      "budget_formula": "Prove component_raw(N) >= -allocated_negative_budget_ratio * P0_a(N), where P0_a(N) is the ordinary strict-central principal main scale produced inside the same raw circle-method argument.",
+      "character_count": 99,
+      "coefficient_local_ratio_largest_positive": 0.32238123219333403,
+      "coefficient_local_ratio_max_abs_sum": 0.32238123219333403,
+      "coefficient_local_ratio_worst_negative": -0.06866808148863456,
+      "energy_fraction": 0.70082890257693,
+      "natural_moduli": [
+        286
+      ],
+      "sufficient_raw_lower_bound_normalized": -0.1759037368828583,
+      "support_labels": [
+        "11x13"
+      ]
+    },
+    {
+      "allocated_negative_budget_ratio": 0.08427753550519382,
+      "bucket": "dominant_154",
+      "budget_formula": "Prove component_raw(N) >= -allocated_negative_budget_ratio * P0_a(N), where P0_a(N) is the ordinary strict-central principal main scale produced inside the same raw circle-method argument.",
+      "character_count": 45,
+      "coefficient_local_ratio_largest_positive": 0.13823806568251215,
+      "coefficient_local_ratio_max_abs_sum": 0.15445661487268547,
+      "coefficient_local_ratio_worst_negative": -0.15445661487268547,
+      "energy_fraction": 0.15893232135172436,
+      "natural_moduli": [
+        154
+      ],
+      "sufficient_raw_lower_bound_normalized": -0.08427753550519382,
+      "support_labels": [
+        "7x11"
+      ]
+    },
+    {
+      "allocated_negative_budget_ratio": 0.20193008318147818,
+      "bucket": "dominant_70",
+      "budget_formula": "Prove component_raw(N) >= -allocated_negative_budget_ratio * P0_a(N), where P0_a(N) is the ordinary strict-central principal main scale produced inside the same raw circle-method argument.",
+      "character_count": 15,
+      "coefficient_local_ratio_largest_positive": 0.3700800800855026,
+      "coefficient_local_ratio_max_abs_sum": 0.3700800800855026,
+      "coefficient_local_ratio_worst_negative": -0.18744461516900335,
+      "energy_fraction": 0.13627165529397434,
+      "natural_moduli": [
+        70
+      ],
+      "sufficient_raw_lower_bound_normalized": -0.20193008318147818,
+      "support_labels": [
+        "5x7"
+      ]
+    },
+    {
+      "allocated_negative_budget_ratio": 0.0814304847052313,
+      "bucket": "tail",
+      "budget_formula": "Prove component_raw(N) >= -allocated_negative_budget_ratio * P0_a(N), where P0_a(N) is the ordinary strict-central principal main scale produced inside the same raw circle-method argument.",
+      "character_count": 61,
+      "coefficient_local_ratio_largest_positive": 0.052625809921861826,
+      "coefficient_local_ratio_max_abs_sum": 0.1492387851592658,
+      "coefficient_local_ratio_worst_negative": -0.06906477492246256,
+      "energy_fraction": 0.003967120777371179,
+      "natural_moduli": [
+        10,
+        14,
+        22,
+        26,
+        130
+      ],
+      "sufficient_raw_lower_bound_normalized": -0.0814304847052313,
+      "support_labels": [
+        "7",
+        "13",
+        "5x13",
+        "5",
+        "11"
+      ]
+    }
+  ],
+  "budget_model": {
+    "allocated_negative_budget_total": 0.5435418402747616,
+    "budget_passes_weakest_local_factor": true,
+    "name": "coefficient_max_abs_proportional_with_10_percent_reserve",
+    "novelty_label": "new-to-this-task",
+    "safety_reserve_fraction": 0.1,
+    "unallocated_reserve_ratio": 0.06039353780830681,
+    "weakest_local_factor_ratio": 0.6039353780830684,
+    "why_this_model": "Allocate a fixed sufficient budget in proportion to finite coefficient-side max-absolute local contribution sizes.  It is deliberately stronger than the rowwise finite behavior and exists only to make the next theorem target explicit."
+  },
+  "candidate": {
+    "falsifier": "A source-backed theorem that cannot reach these raw lower bounds, or a counterfamily forcing any bucket below its allocated budget infinitely often, leaves q286 open or collapses it to conditional distribution control.",
+    "mechanism": "Replace a vague signed-correlation theorem with four raw lower-bound obligations whose total negative allowance is strictly less than the weakest positive local factor.",
+    "name": "centered-support raw inequality ledger",
+    "novelty_label": "new-to-this-task",
+    "prediction": "If the q286 lane can close, the dominant lower-modulus supports 286, 154, and 70 should admit pointwise raw correlation bounds below their allocated budgets, with a small combined tail bound.",
+    "smallest_next_test": "Attempt source-fitting for the four raw bucket inequalities: dominant_286, dominant_154, dominant_70, and tail."
+  },
+  "decision": "TARGET_centered_support_inequality_ledger_open.  The exact q286 next theorem target is now a four-bucket raw inequality ledger: prove component lower bounds for moduli 286, 154, 70, and the tail whose allocated beta values sum to 0.5435418402747616 < weakest local factor 0.6039353780830684.  This is stronger than finite row evidence and proves no pointwise centered-error theorem.",
+  "goldbach_proved": false,
+  "major_minor_arc_estimate_proved": false,
+  "pointwise_centered_error_estimate_proved": false,
+  "positive_mass_theorem_proved": false,
+  "q286_threshold_theorem_proved": false,
+  "question": "What exact lower-modulus centered signed-correlation bounds would keep the q286-WBSS centered error above the positive local factor?",
+  "raw_objects": {
+    "component_raw_contribution": "K_B(N)=sum_{u in A_a}(W_N(u)-P0_a(N)/|A_a|)*Phi_B(u) for support bucket B, expressed before any division by actual T_N.",
+    "local_factor": "m_a_ratio = m_a / principal_mean, with weakest checked coefficient value 0.6039353780830684.",
+    "ordinary_principal_scale": "P0_a(N): the ordinary strict-central binary-prime principal main scale for N == a mod 10010, produced inside the same raw major/minor arc proof.",
+    "sufficient_ledger_inequality": "For every sufficiently large covered N, prove K_B(N) >= -beta_B*P0_a(N) for B in {286,154,70,tail}, with sum_B beta_B < m_a_ratio for the target residue.",
+    "zero_mass_boundary": "The ledger is not a normalized T_N statement.  If a proof first assumes actual T_N>0, it collapses to conditional distribution control."
+  },
+  "receipt": "q286-wbss-centered-support-inequality-ledger",
+  "schema_version": 1,
+  "signed_prime_correlation_estimate_proved": false,
+  "source_commit": "e1d9e25ac15faa52d090ab74cd82a32a25b44ba6",
+  "source_theorem_fit_proved": false,
+  "sources": {
+    "centered_character_burden_audit": "evidence\\q286-centered-character-burden-audit.json",
+    "major_arc_local_factor_collapse_audit": "evidence\\q286-wbss-major-arc-local-factor-collapse-audit.json",
+    "major_arc_local_factor_status": "LOCAL_FACTOR_principal_term_is_T_N_dependent_centered_error_open"
+  },
+  "status": "TARGET_centered_support_inequality_ledger_open",
+  "status_boundary": "Theorem-obligation ledger only; this is not a theorem.  No source theorem fit, major/minor arc estimate, pointwise centered-error estimate, signed prime-correlation theorem, positive-mass theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof is established.",
+  "strict_central_goldbach_theorem_proved": false,
+  "tail_detail": {
+    "tail_allocated_negative_budget_ratio": 0.0814304847052313,
+    "tail_bound_required": "Either prove a combined tail lower bound at this budget, or split the tail supports 14,26,130,10,22 into separate raw bounds whose beta values sum no larger than the tail budget.",
+    "tail_energy_fraction": 0.003967120777371179,
+    "tail_natural_moduli": [
+      10,
+      14,
+      22,
+      26,
+      130
+    ],
+    "tail_supports": [
+      "7",
+      "13",
+      "5x13",
+      "5",
+      "11"
+    ]
+  },
+  "universal_pointwise_bound_proved": false
+}
