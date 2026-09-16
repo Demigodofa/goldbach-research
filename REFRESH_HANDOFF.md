@@ -6,6 +6,41 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The source-start morphology lane now has a fixed-prime horizon obstruction:
+
+```text
+tools/build_mobius_moment_square_degree5_fixed_prime_horizon_obstruction.py
+notes/mobius-moment-square-degree5-fixed-prime-horizon-obstruction.md
+evidence/mobius-moment-square-degree5-fixed-prime-horizon-obstruction.json
+```
+
+Result:
+
+```text
+weakest prime counts through seven sweeps: 379 -> 2, 461 -> 1, 599 -> 4
+observed p=599 weak scales:               331, 353, 379, 383
+p=599 admissible integer scales:          300..599
+p=599 first impossible integer scale:     600
+fixed-prime universal target obstructed:  true
+```
+
+Calculation:
+
+```text
+p=599 in [M,2M]
+iff M <= 599 <= 2M
+iff ceil(599/2)=300 <= M <= 599
+```
+
+Decision: `p=599` remains useful finite morphology but cannot be a universal
+fixed-prime theorem target.  Any sufficiently-large source-start theorem must
+either control every prime block `p in [M,2M]` or control a moving stress block
+`p=p(M)`.  This proves only the elementary fixed-prime horizon obstruction,
+not a moving-prime theorem, not a prime-block theorem, not a source-start
+theorem, not a strict-central Goldbach theorem, and not a Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The source-start lane now has a full fresh `M=383` prime-row sweep and a
 matching denominator clearance-family holdout:
 

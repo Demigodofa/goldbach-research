@@ -1,0 +1,132 @@
+{
+  "answer": "NO",
+  "candidate_replacement_theorem_target": {
+    "falsifier": "A proposed fixed-prime theorem target is false as a sufficiently-large statement once M exceeds that prime.",
+    "mechanism": "Prove source-start dominance for every prime block p in [M,2M], or prove existence/control of a moving stress block p=p(M), instead of tracking one fixed prime.",
+    "name": "moving source-start prime-block lower-frame control",
+    "novelty_label": "new-to-this-task",
+    "prediction": "The persistent p=599 block can remain diagnostic only while M <= 599.  Any sufficiently-large theorem must either move the stress prime with M or control all prime blocks."
+  },
+  "decision": "The p=599 persistence is useful finite morphology but cannot be a universal fixed-prime theorem target: p=599 is admissible only for integer scales 300..599 and is impossible for every M>=600.  The live target must be moving prime-block control or all-prime-block control.",
+  "elementary_interval_obstruction_proved": true,
+  "finite_morphology_input_only": true,
+  "fixed_prime_horizons": {
+    "379": {
+      "admissibility_condition": "ceil(p/2) <= M <= p",
+      "calculation": "For fixed p=379, p in [M,2M] iff M <= 379 <= 2M, equivalently ceil(379/2)=190 <= M <= 379.  For every M >= 380, p=379 is outside the source-start prime interval.",
+      "first_impossible_integer_scale_M": 380,
+      "integer_scale_count": 190,
+      "maximum_integer_scale_M": 379,
+      "minimum_integer_scale_M": 190,
+      "prime_modulus": 379
+    },
+    "461": {
+      "admissibility_condition": "ceil(p/2) <= M <= p",
+      "calculation": "For fixed p=461, p in [M,2M] iff M <= 461 <= 2M, equivalently ceil(461/2)=231 <= M <= 461.  For every M >= 462, p=461 is outside the source-start prime interval.",
+      "first_impossible_integer_scale_M": 462,
+      "integer_scale_count": 231,
+      "maximum_integer_scale_M": 461,
+      "minimum_integer_scale_M": 231,
+      "prime_modulus": 461
+    },
+    "599": {
+      "admissibility_condition": "ceil(p/2) <= M <= p",
+      "calculation": "For fixed p=599, p in [M,2M] iff M <= 599 <= 2M, equivalently ceil(599/2)=300 <= M <= 599.  For every M >= 600, p=599 is outside the source-start prime interval.",
+      "first_impossible_integer_scale_M": 600,
+      "integer_scale_count": 300,
+      "maximum_integer_scale_M": 599,
+      "minimum_integer_scale_M": 300,
+      "prime_modulus": 599
+    }
+  },
+  "fixed_prime_stress_theorem_proved": false,
+  "fixed_prime_universal_target_obstructed": true,
+  "goldbach_proved": false,
+  "moving_prime_block_theorem_proved": false,
+  "p599_first_impossible_integer_scale_M": 600,
+  "p599_integer_admissible_scale_span": [
+    300,
+    599
+  ],
+  "p599_observed_scale_span": [
+    331,
+    383
+  ],
+  "p599_observed_weak_scales": [
+    331,
+    353,
+    379,
+    383
+  ],
+  "prime_block_theorem_proved": false,
+  "question": "Can the persistent finite p=599 stress diagnostic be promoted into a fixed-prime theorem target for all sufficiently large source scales M?",
+  "schema_version": 1,
+  "source_commit": "015176f8088abfa4f860b8b878f07edcd494be88",
+  "source_morphology_audit": "evidence\\mobius-moment-square-degree5-source-start-stress-morphology-audit.json",
+  "source_start_theorem_proved": false,
+  "status": "AUDIT_degree5_fixed_prime_horizon_obstruction",
+  "strict_central_goldbach_theorem_proved": false,
+  "weakest_prime_counts": {
+    "379": 2,
+    "461": 1,
+    "599": 4
+  },
+  "weakest_sequence": [
+    {
+      "minimum_slack": 0.40189096624031384,
+      "scale_modulus": 229,
+      "weakest_label": "00,12",
+      "weakest_prime_modulus": 379,
+      "weakest_prime_over_scale": 1.6550218340611353,
+      "weakest_tail_fraction": 0.34497816593886466
+    },
+    {
+      "minimum_slack": 0.43435333637430296,
+      "scale_modulus": 251,
+      "weakest_label": "00,12",
+      "weakest_prime_modulus": 379,
+      "weakest_prime_over_scale": 1.5099601593625498,
+      "weakest_tail_fraction": 0.4900398406374502
+    },
+    {
+      "minimum_slack": 0.4257305726250574,
+      "scale_modulus": 293,
+      "weakest_label": "00,12",
+      "weakest_prime_modulus": 461,
+      "weakest_prime_over_scale": 1.5733788395904438,
+      "weakest_tail_fraction": 0.42662116040955633
+    },
+    {
+      "minimum_slack": 0.40479256047704726,
+      "scale_modulus": 331,
+      "weakest_label": "00,12",
+      "weakest_prime_modulus": 599,
+      "weakest_prime_over_scale": 1.809667673716012,
+      "weakest_tail_fraction": 0.1903323262839879
+    },
+    {
+      "minimum_slack": 0.41096324474219414,
+      "scale_modulus": 353,
+      "weakest_label": "00,12",
+      "weakest_prime_modulus": 599,
+      "weakest_prime_over_scale": 1.6968838526912182,
+      "weakest_tail_fraction": 0.3031161473087819
+    },
+    {
+      "minimum_slack": 0.4246854972346972,
+      "scale_modulus": 379,
+      "weakest_label": "00,12",
+      "weakest_prime_modulus": 599,
+      "weakest_prime_over_scale": 1.5804749340369393,
+      "weakest_tail_fraction": 0.41952506596306066
+    },
+    {
+      "minimum_slack": 0.4215742230435717,
+      "scale_modulus": 383,
+      "weakest_label": "00,12",
+      "weakest_prime_modulus": 599,
+      "weakest_prime_over_scale": 1.5639686684073106,
+      "weakest_tail_fraction": 0.4360313315926893
+    }
+  ]
+}

@@ -6,6 +6,32 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The source-start morphology lane now has a fixed-prime horizon obstruction:
+`tools/build_mobius_moment_square_degree5_fixed_prime_horizon_obstruction.py`
+generated
+`evidence/mobius-moment-square-degree5-fixed-prime-horizon-obstruction.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-fixed-prime-horizon-obstruction.md`.
+
+Question: can the persistent finite `p=599` stress diagnostic be promoted into
+a fixed-prime theorem target for all sufficiently large source scales `M`?
+
+Answer: no.  The seven-scale morphology audit has weakest prime counts
+`379 -> 2`, `461 -> 1`, and `599 -> 4`, with observed `p=599` weak scales
+`331`, `353`, `379`, and `383`.  But a fixed prime `p0` belongs to the
+source-start prime interval `[M,2M]` exactly for
+`ceil(p0/2) <= M <= p0`.  Therefore `p=599` is admissible only for integer
+scales `300..599`, and is impossible for every `M >= 600`.
+
+Decision: `p=599` remains useful finite morphology but cannot be a universal
+fixed-prime theorem target.  Any sufficiently-large source-start theorem must
+either control every prime block `p in [M,2M]` or control a moving stress block
+`p=p(M)`.  This proves only the elementary fixed-prime horizon obstruction,
+not a moving-prime theorem, not a prime-block theorem, not a source-start
+theorem, not a strict-central Goldbach theorem, and not a Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The source-start lane now has a full fresh `M=383` prime-row sweep and a
 matching denominator clearance-family holdout:
 `tools/build_mobius_moment_square_degree5_source_start_m383_full_prime_sweep.py`
