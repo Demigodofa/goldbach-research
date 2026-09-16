@@ -6,6 +6,50 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 residual support-order route now has a period-lift holdout:
+`tools/build_q286_residual_support_order_period_lift_holdout.py` generated
+`evidence/q286-residual-support-order-period-lift-holdout.json`, with
+explanation in
+`notes/q286-residual-support-order-period-lift-holdout.md`.
+
+Question: does the support-size `<= 2` low-order base plus high-order signed
+tail split survive changed prime-pair masses when the same seven residues are
+lifted forward by full periods?
+
+Answer: yes on the first eight forward period-lifts.  The split was not
+changed or refit:
+
+```text
+target = original_target + k * 10010,  k = 1..8
+holdout rows:                                  56
+actual full positive rows:                     56 / 56
+low-order base positive rows:                  56 / 56
+low-order/full sign mismatches:                 0
+tight low-order base target:               124886
+tight low-order base:          0.3739719483114472
+tight full action:             0.39426181470078336
+worst adverse/base target:                 164926
+worst high-order adverse/base ratio:
+                               0.13266261119465184
+holdout high-order adverse envelope:
+                               0.06972227681175086
+holdout envelope margin at tight base:
+                               0.30424967149969634
+```
+
+Decision:
+`CANDIDATE_period_lift_support_order_bridge_survives_holdout`.  This supports
+an eventual-threshold hypothesis for the support-order split: the original
+fixture contains the hard stress, while the first eight forward period-lifts of
+the same residues show much larger low-order bases and much smaller high-order
+tail ratios.  On the lifted holdout only, even the disconnected high-order
+adverse envelope stays below every low-order base.  This is still finite
+evidence only.  It proves no eventual-threshold theorem, low-order base
+theorem, high-order tail domination theorem, q286 threshold theorem,
+strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 residual route now has a support-order sign bridge audit:
 `tools/build_q286_residual_support_order_sign_bridge_audit.py` generated
 `evidence/q286-residual-support-order-sign-bridge-audit.json`, with
