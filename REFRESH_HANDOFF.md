@@ -6,6 +6,62 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 residual support-order route now has a raw-bound phase-space stress
+locator:
+
+```text
+tools/build_q286_residual_support_order_raw_bound_phase_space.py
+notes/q286-residual-support-order-raw-bound-phase-space.md
+evidence/q286-residual-support-order-raw-bound-phase-space.json
+evidence/q286-residual-support-order-raw-bound-phase-space.html
+```
+
+Visual coordinates:
+
+```text
+x           = log(N)
+y           = ordered strict-central prime-pair count
+z           = raw pointwise margin
+alternate z = adverse drag / raw low-order base
+color       = target mod 286
+brightness  = raw pointwise margin as distance from failure
+```
+
+Result:
+
+```text
+checked rows:                         224
+positive raw-margin rows:             224
+raw domination failures:                0
+negative high-order tail rows:        100
+nonnegative high-order tail rows:     124
+tightest raw-margin target:         44168
+tightest raw margin:    471324043.51697165
+largest adverse-ratio target:      164926
+largest adverse / low: 0.13266261119465184
+smallest pair-count target:         24148
+minimum ordered central pair count:   106
+```
+
+Finite shape correlations:
+
+```text
+corr(log N, log raw margin):             0.9456990848108981
+corr(pair count, log raw margin):        0.8915845948837736
+corr(log total weight, log raw margin):  0.980275224825557
+```
+
+Decision: `CALIBRATION_raw_bound_phase_space_stress_locator`.  The HTML view
+is a linked local navigator for stress rows and exact row details.  It helps
+orient the next analytic attempt, but it is finite calibration only and not an
+acceptance condition.  The current theorem-shaped route is still a universal
+pointwise raw witness lower bound, or a structured raw adverse-ratio theorem
+whose hypotheses do not assume strict-central support.  No raw lower-bound
+theorem, positive-mass theorem, q286 threshold theorem, strict-central
+Goldbach theorem, or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 residual support-order route now has a single raw-bound target
 classifier:
 

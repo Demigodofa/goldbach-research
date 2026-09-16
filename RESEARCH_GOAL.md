@@ -6,6 +6,63 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 residual support-order route now has a raw-bound phase-space stress
+locator:
+`tools/build_q286_residual_support_order_raw_bound_phase_space.py`
+generated
+`evidence/q286-residual-support-order-raw-bound-phase-space.json` and the
+linked local view
+`evidence/q286-residual-support-order-raw-bound-phase-space.html`, with
+explanation in
+`notes/q286-residual-support-order-raw-bound-phase-space.md`.
+
+Coordinates:
+
+```text
+x           = log(N)
+y           = ordered strict-central prime-pair count
+z           = raw pointwise margin
+alternate z = adverse drag / raw low-order base
+color       = target mod 286
+brightness  = raw pointwise margin as distance from failure
+```
+
+Finite diagnostics:
+
+```text
+checked rows:                         224
+positive raw-margin rows:             224
+raw domination failures:                0
+negative high-order tail rows:        100
+nonnegative high-order tail rows:     124
+tightest raw-margin target:         44168
+tightest raw margin:    471324043.51697165
+largest adverse-ratio target:      164926
+largest adverse / low: 0.13266261119465184
+smallest pair-count target:         24148
+minimum ordered central pair count:   106
+```
+
+Finite shape correlations:
+
+```text
+corr(log N, log raw margin):             0.9456990848108981
+corr(pair count, log raw margin):        0.8915845948837736
+corr(log total weight, log raw margin):  0.980275224825557
+```
+
+Decision: `CALIBRATION_raw_bound_phase_space_stress_locator`.  The local view
+is a stress-row navigator for the raw theorem target, not proof evidence.  The
+tightest checked raw margin is target `44168`, and the largest adverse/low
+ratio is target `164926`.  The finite alignment between raw margin and
+strict-central total weight suggests the next analytic route should target a
+pointwise raw witness lower bound or a structured adverse-ratio bound in raw
+scale.  This proves no raw lower-bound theorem, positive-mass theorem, raw
+pointwise estimate, q286 threshold theorem, strict-central Goldbach theorem,
+or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 residual support-order route now has a single raw-bound target
 classifier:
 `tools/build_q286_residual_support_order_single_raw_bound_target.py`
