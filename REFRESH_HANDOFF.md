@@ -6,6 +6,42 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 residual route now has a full-character triangle source-budget audit:
+
+```text
+tools/build_q286_residual_character_triangle_budget_audit.py
+notes/q286-residual-character-triangle-budget-audit.md
+evidence/q286-residual-character-triangle-budget-audit.json
+```
+
+Result on the seven frozen signed-pair operator targets:
+
+```text
+actual full-positive rows:          5
+triangle-certified positive rows:   4
+active character count:             2859 .. 2879 of 2880
+coefficient L1 burden:              34.558554300574116 .. 43.42360885557793
+tight target:                       94856
+uniform per-character budget:       0.003300082253073864
+max actual character discrepancy:   0.12748865801232862
+actual / budget ratio:              38.63196376198781
+triangle / aligned ratio:           12.887401532971005
+```
+
+Decision:
+`HOLD_full_character_triangle_route_too_broad`.  The full-character triangle
+route certifies the four easy later positive rows but fails on `94856`, where
+the bridge is actually tight.  Zero-extending the target-specific residual
+activates essentially the whole period character basis and demands independent
+per-channel discrepancy control far stronger than the actual row's character
+scale.  The next proof object must preserve signed structure between channels,
+use a smaller residual dictionary, or source a genuinely one-sided estimate for
+`<nu_N,h_a>`.  This proves no character-sum theorem, signed binary-prime
+correlation theorem, q286 threshold theorem, strict-central Goldbach theorem,
+or Goldbach proof.
+
+## Latest active checkpoint note, 2026-09-15
+
 The q286 orthogonal-residual route now has a residual sign-split budget audit:
 
 ```text

@@ -6,6 +6,43 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 residual route now has a full-character triangle source-budget audit:
+`tools/build_q286_residual_character_triangle_budget_audit.py` generated
+`evidence/q286-residual-character-triangle-budget-audit.json`, with
+explanation in `notes/q286-residual-character-triangle-budget-audit.md`.
+
+Question: can the residual lower-tail target
+`aligned(N)+<nu_N,h_a> > 0` be proved by expanding `h_a` into all period
+characters modulo `10010` and bounding every character discrepancy
+independently?
+
+Answer: no, not as a viable acceptance condition.  On the seven frozen
+signed-pair operator targets:
+
+```text
+actual full-positive rows:          5
+triangle-certified positive rows:   4
+active character count:             2859 .. 2879 of 2880
+coefficient L1 burden:              34.558554300574116 .. 43.42360885557793
+tight target:                       94856
+uniform per-character budget:       0.003300082253073864
+max actual character discrepancy:   0.12748865801232862
+actual / budget ratio:              38.63196376198781
+triangle / aligned ratio:           12.887401532971005
+```
+
+Decision: `HOLD_full_character_triangle_route_too_broad`.  The triangle route
+certifies the four easy later positive rows but fails on the tight row where
+the theorem is needed.  Zero-extending the residual activates essentially the
+whole character basis and asks for independent channel control far stronger
+than the actual row's character scale.  The next proof object must preserve
+signed structure between channels, use a smaller residual dictionary, or
+source a genuinely one-sided estimate for `<nu_N,h_a>`.  This proves no
+character-sum theorem, signed binary-prime correlation theorem, q286 threshold
+theorem, strict-central Goldbach theorem, or Goldbach proof.
+
+## Latest continuation evidence, 2026-09-15
+
 The q286 orthogonal-residual route now has a residual sign-split source-budget
 audit:
 `tools/build_q286_orthogonal_residual_sign_split_budget_audit.py` generated
