@@ -6,6 +6,58 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The source-start lane now has a full `M=379` prime-row sweep and the
+stress-morphology audit is consolidated through six complete scales:
+
+```text
+tools/build_mobius_moment_square_degree5_source_start_m379_full_prime_sweep.py
+notes/mobius-moment-square-degree5-source-start-m379-full-prime-sweep.md
+evidence/mobius-moment-square-degree5-source-start-m379-full-prime-sweep.json
+tools/build_mobius_moment_square_degree5_source_start_stress_morphology_audit.py
+notes/mobius-moment-square-degree5-source-start-stress-morphology-audit.md
+evidence/mobius-moment-square-degree5-source-start-stress-morphology-audit.json
+```
+
+Result:
+
+```text
+status:                         SWEEP_degree5_source_start_m379_full_prime_rows
+scale:                          379
+prime interval:                 379..758
+prime rows checked:             60
+component rows:                 180
+degree-5 total rows:            60
+all rows pass signed dominance: true
+minimum slack above one half:   0.4246854972346972
+weakest row:                    M=379, p=599, (00,12)
+weakest active/full ratio:      0.9246854972346972
+tightest prime block:           p=599
+```
+
+Consolidated morphology:
+
+```text
+scales:                         229, 251, 293, 331, 353, 379
+prime rows by scale:            39, 42, 45, 55, 56, 60
+weakest primes:                 379, 379, 461, 599, 599, 599
+weakest label counts:           (00,12) -> 6
+single fixed-prime rule:        false
+tightest rows form prime block: true
+p=599 current diagnostic:       M=331, M=353, and M=379
+candidate next target:          source-start prime-block lower-frame control
+```
+
+Decision: the `M=379` finite morphology falsifier did not fire.  All six
+complete source-start sweeps pass signed dominance, and the tightest rows
+remain coherent prime blocks.  The live theorem-shaped target remains
+source-start prime-block lower-frame control.  The prime `p=599` is now a
+durable current diagnostic across `M=331`, `M=353`, and `M=379`, but this is
+finite evidence only, not a fixed-prime rule, not a prime-block theorem, not a
+source-start theorem, not a source-window theorem, not a strict-central
+Goldbach theorem, and not a Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The source-start stress-morphology audit is now consolidated through the full
 `M=353` sweep:
 

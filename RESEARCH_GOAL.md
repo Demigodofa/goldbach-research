@@ -6,6 +6,42 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The source-start lane now has a full `M=379` prime-row sweep and the
+stress-morphology audit is consolidated through six complete scales:
+`tools/build_mobius_moment_square_degree5_source_start_m379_full_prime_sweep.py`
+generated
+`evidence/mobius-moment-square-degree5-source-start-m379-full-prime-sweep.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-source-start-m379-full-prime-sweep.md`.
+The consolidated audit is
+`tools/build_mobius_moment_square_degree5_source_start_stress_morphology_audit.py`
+and
+`evidence/mobius-moment-square-degree5-source-start-stress-morphology-audit.json`.
+
+Question: does the first full-scale falsifier named by the five-scale
+morphology audit, `M=379`, split the tightest rows across unrelated primes or
+isolate one component far below its prime companions?
+
+Answer: no as finite evidence.  All `60` prime rows in `[379,758]` were
+checked, giving `180` component rows and `60` degree-5 total rows.  All `240`
+rows pass `full < 0` and `active/full > 1/2`.  The weakest row is `M=379`,
+`p=599`, component `(00,12)`, with ratio `0.9246854972346972` and slack
+`0.4246854972346972`.  The top four stress rows form one coherent `p=599`
+prime block: `(00,12)`, `TOTAL`, `(01,11)`, and `(01,02)`.
+
+Decision: the `M=379` finite morphology falsifier did not fire.  The
+six-scale morphology audit now covers `M=229`, `M=251`, `M=293`, `M=331`,
+`M=353`, and `M=379`; all six pass signed dominance and all six have coherent
+tightest prime blocks.  The weakest primes are `379`, `379`, `461`, `599`,
+`599`, and `599`.  The live theorem-shaped target remains source-start
+prime-block lower-frame control.  The prime `p=599` is now a durable current
+diagnostic across `M=331`, `M=353`, and `M=379`, but this is still not a
+fixed-prime rule, not a prime-block theorem, not a source-start theorem, not a
+source-window theorem, not a strict-central Goldbach theorem, and not a
+Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The source-start stress-morphology audit is now consolidated through the full
 `M=353` sweep:
 `tools/build_mobius_moment_square_degree5_source_start_stress_morphology_audit.py`
