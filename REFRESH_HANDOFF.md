@@ -6,6 +6,54 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS route now has a strict raw-gap obligation audit:
+
+```text
+tools/build_q286_wbss_strict_raw_gap_obligation.py
+notes/q286-wbss-strict-raw-gap-obligation.md
+evidence/q286-wbss-strict-raw-gap-obligation.json
+```
+
+The exact bridge variable is
+
+```text
+G_raw(N) = L_raw(N) - A_raw_-(N).
+```
+
+A homogeneous estimate
+
+```text
+A_raw_-(N) <= rho * L_raw(N), rho < 1
+```
+
+is not enough by itself, because if strict-central support is empty then
+`L_raw(N)=A_raw_-(N)=0` and the homogeneous estimate is still true.  The proof
+must either prove `G_raw(N)>0` directly or pair a ratio theorem with an
+independent positive raw-local-main or positive-mass theorem.
+
+Finite calibration:
+
+```text
+checked rows:                        348
+positive strict raw-gap rows:        348 / 348
+nonpositive strict raw-gap rows:       0
+tightest strict raw-gap target:  1059514
+tightest strict raw gap:        286929.1729900494
+smallest G_raw/N target:        1141274
+smallest G_raw/N:               0.26310340793692394
+smallest G_raw/T_N target:      1141274
+smallest G_raw/T_N:             0.5992601478393073
+```
+
+Decision: `TARGET_strict_raw_q286_WBSS_gap_lower_bound`.  The live theorem
+target is `G_raw(N)>=eta(N)>0` for every sufficiently large covered even `N`,
+followed by finite remainder verification.  The fitted finite scale constants
+are not universal bounds.  No strict raw-gap theorem, raw adverse-drag theorem,
+positive-mass theorem, q286 threshold theorem, strict-central Goldbach theorem,
+or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286-WBSS route now has a raw adverse-drag theorem-target audit:
 
 ```text

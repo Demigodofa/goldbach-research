@@ -6,6 +6,55 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS route now has a strict raw-gap obligation audit:
+`tools/build_q286_wbss_strict_raw_gap_obligation.py` generated
+`evidence/q286-wbss-strict-raw-gap-obligation.json`, with explanation in
+`notes/q286-wbss-strict-raw-gap-obligation.md`.
+
+Question: after rawizing the q286-WBSS adverse-drag target, is a homogeneous
+ratio bound enough, or does the bridge require a strict positive raw gap?
+
+Answer: a strict positive raw gap is the actual bridge.  Define
+
+```text
+G_raw(N) = L_raw(N) - A_raw_-(N).
+```
+
+A homogeneous estimate like
+
+```text
+A_raw_-(N) <= rho * L_raw(N), rho < 1
+```
+
+is not enough by itself.  If strict-central support is empty, then `T_N=0`,
+`L_raw(N)=0`, and `A_raw_-(N)=0`; the homogeneous estimate is still true and
+only gives `G_raw(N)>=0`.  A witness requires either a direct theorem
+`G_raw(N)>0` or a ratio theorem plus an independent positive raw-local-main or
+positive-mass theorem.
+
+Finite calibration:
+
+```text
+checked rows:                        348
+positive strict raw-gap rows:        348 / 348
+nonpositive strict raw-gap rows:       0
+tightest strict raw-gap target:  1059514
+tightest strict raw gap:        286929.1729900494
+smallest G_raw/N target:        1141274
+smallest G_raw/N:               0.26310340793692394
+smallest G_raw/T_N target:      1141274
+smallest G_raw/T_N:             0.5992601478393073
+```
+
+Decision: `TARGET_strict_raw_q286_WBSS_gap_lower_bound`.  The live theorem
+target is a direct lower bound `G_raw(N)>=eta(N)>0` for every sufficiently
+large covered even `N`, followed by finite remainder verification.  The fitted
+finite scale constants are not universal bounds.  No strict raw-gap theorem,
+raw adverse-drag theorem, positive-mass theorem, q286 threshold theorem,
+strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286-WBSS route now has a raw adverse-drag theorem-target audit:
 `tools/build_q286_wbss_raw_adverse_drag_theorem_target.py` generated
 `evidence/q286-wbss-raw-adverse-drag-theorem-target.json`, with explanation in
