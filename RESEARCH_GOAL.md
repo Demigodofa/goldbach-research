@@ -6,6 +6,39 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The metric-soft moment-square route now has a serialized Sturm margin-window
+audit: `tools/build_mobius_moment_square_sturm_margin_window_audit.py`
+generated
+`evidence/mobius-moment-square-sturm-margin-window-audit.json`, with
+explanation in
+`notes/mobius-moment-square-sturm-margin-window-audit.md`.
+
+Question: how much actual serialized-coefficient margin separates the tight
+`427/1000` certificate from the robust `21/50` certificate, and which row
+controls the window?
+
+Answer: the controlling scale is `M=167`.  With decimal coefficients
+rationalized as `Rational(str(x))`, the source-curve serialized polynomial
+has critical margin about `0.4270105091865797085`, only
+`0.0000105091865797085` above `427/1000`.  The independently serialized
+coefficient-provenance polynomial has critical margin about
+`0.4269818990580671773`, about `0.0000181009419328227` below `427/1000`.
+The robust `21/50` margin still leaves about `0.0069818990580671773` of
+provenance slack.
+
+Decision: `MEASURE_serialized_sturm_margin_window`.  The theorem target should
+not be "finite evidence acceptance."  A real route must prove a universal,
+pointwise, unnormalized lower bound such as `P_M(t) >= 21/50` for the actual
+coefficient family, or prove a Sturm variation-count theorem at that margin
+from exact coefficient formulas.  This is finite serialized margin-window
+evidence only.  No critical-margin theorem, robust-margin universal theorem,
+coefficient-family theorem, universal Sturm-certificate theorem, half-frame
+curve-positivity theorem, uniform active/full lower-frame theorem, Mobius
+covariance theorem, signed prime-correlation estimate, q286 theorem,
+strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-16
+
 The metric-soft moment-square route now has a robust Sturm-chamber audit:
 `tools/build_mobius_moment_square_robust_sturm_chamber_audit.py` generated
 `evidence/mobius-moment-square-robust-sturm-chamber-audit.json`, with

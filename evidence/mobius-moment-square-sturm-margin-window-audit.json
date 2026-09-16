@@ -1,0 +1,537 @@
+{
+  "all_provenance_serialized_root_free_at_robust_margin": true,
+  "all_provenance_serialized_root_free_at_tight_margin": false,
+  "all_source_curve_serialized_root_free_at_robust_margin": true,
+  "all_source_curve_serialized_root_free_at_tight_margin": true,
+  "coefficient_family_theorem_proved": false,
+  "coefficient_interpretation": "Each decimal coefficient is rationalized with Rational(str(x)) before Sturm/root-count and high-precision stationary-point calculation.  This audits serialized polynomial families, not an exact symbolic active/full Gram theorem.",
+  "coefficient_provenance_audit": "evidence\\mobius-moment-square-coefficient-provenance-audit.json",
+  "critical_margin_bracket_denominator": 1000000,
+  "critical_margin_theorem_proved": false,
+  "decision": "The controlling scale is M=167.  The rationalized source-curve serialized polynomial has critical margin about 0.42701050918658, barely above 427/1000.  The independently serialized coefficient-provenance polynomial has critical margin about 0.42698189905807, about 1.81e-5 below 427/1000.  The robust 21/50 margin still leaves about 0.006981899 of provenance slack.  A universal route must therefore prove an unnormalized pointwise lower bound with explicit coefficient control, not rely on the tight rounded margin.",
+  "finite_diagnostic_only": true,
+  "finite_serialized_margin_window_only": true,
+  "goldbach_proved": false,
+  "largest_provenance_below_source_gap_row": {
+    "both_serializations_root_free_at_robust_margin": true,
+    "both_serializations_root_free_at_tight_margin": false,
+    "coefficient_provenance_serialized": {
+      "coefficient_family": "coefficient_provenance_serialized",
+      "critical_margin_ceiling_1e6_rational": "213491/500000",
+      "critical_margin_ceiling_1e6_root_count": 2,
+      "critical_margin_estimate": 0.42698189905806716,
+      "critical_margin_estimate_decimal": "0.4269818990580671772500833131131551507996",
+      "critical_margin_floor_1e6_rational": "426981/1000000",
+      "critical_margin_floor_1e6_root_count": 0,
+      "minimizing_parameter_estimate": 0.2698348111375526,
+      "minimizing_parameter_estimate_decimal": "0.269834811137552579806790342068",
+      "robust_margin_root_count": 0,
+      "scale_modulus": 167,
+      "slack_above_robust_margin": 0.0069818990580671775,
+      "slack_above_robust_margin_decimal": "0.006981899058067177250083313113155150799648",
+      "slack_above_tight_margin": -1.810094193282275e-05,
+      "slack_above_tight_margin_decimal": "-0.00001810094193282274991668688684484920035234",
+      "smallest_stationary_evaluations": [
+        {
+          "parameter_decimal": "0.269834811137552579806790342068",
+          "value_decimal": "0.4269818990580671772500833131131551507996"
+        },
+        {
+          "parameter_decimal": "0",
+          "value_decimal": "3069418123.926627600000000000000000000000"
+        }
+      ],
+      "tight_margin_root_count": 2
+    },
+    "provenance_minus_source_critical_margin": -2.861012851257394e-05,
+    "scale_modulus": 167,
+    "source_curve_serialized": {
+      "coefficient_family": "source_curve_serialized",
+      "critical_margin_ceiling_1e6_rational": "427011/1000000",
+      "critical_margin_ceiling_1e6_root_count": 2,
+      "critical_margin_estimate": 0.42701050918657973,
+      "critical_margin_estimate_decimal": "0.4270105091865797085059178151338425127274",
+      "critical_margin_floor_1e6_rational": "42701/100000",
+      "critical_margin_floor_1e6_root_count": 0,
+      "minimizing_parameter_estimate": 0.2698347933802375,
+      "minimizing_parameter_estimate_decimal": "0.269834793380237521632973056401",
+      "robust_margin_root_count": 0,
+      "scale_modulus": 167,
+      "slack_above_robust_margin": 0.007010509186579708,
+      "slack_above_robust_margin_decimal": "0.007010509186579708505917815133842512727439",
+      "slack_above_tight_margin": 1.0509186579708506e-05,
+      "slack_above_tight_margin_decimal": "0.00001050918657970850591781513384251272743899",
+      "smallest_stationary_evaluations": [
+        {
+          "parameter_decimal": "0.269834793380237521632973056401",
+          "value_decimal": "0.4270105091865797085059178151338425127274"
+        },
+        {
+          "parameter_decimal": "0",
+          "value_decimal": "3069418123.926627600000000000000000000000"
+        }
+      ],
+      "tight_margin_root_count": 0
+    }
+  },
+  "mobius_covariance_theorem_proved": false,
+  "moment_square_half_frame_curve_positivity_theorem_proved": false,
+  "q286_reactivated": false,
+  "question": "How much actual serialized-coefficient margin separates the tight 427/1000 Sturm certificate from the robust 21/50 certificate, and which row controls the window?",
+  "robust_margin": 0.42,
+  "robust_margin_rational": "21/50",
+  "robust_margin_universal_theorem_proved": false,
+  "scale_results": [
+    {
+      "both_serializations_root_free_at_robust_margin": true,
+      "both_serializations_root_free_at_tight_margin": true,
+      "coefficient_provenance_serialized": {
+        "coefficient_family": "coefficient_provenance_serialized",
+        "critical_margin_ceiling_1e6_rational": "491623/500000",
+        "critical_margin_ceiling_1e6_root_count": 2,
+        "critical_margin_estimate": 0.9832450876941614,
+        "critical_margin_estimate_decimal": "0.9832450876941613851186059027019914360570",
+        "critical_margin_floor_1e6_rational": "196649/200000",
+        "critical_margin_floor_1e6_root_count": 0,
+        "minimizing_parameter_estimate": 0.27616367607187214,
+        "minimizing_parameter_estimate_decimal": "0.276163676071872119990494621451",
+        "robust_margin_root_count": 0,
+        "scale_modulus": 127,
+        "slack_above_robust_margin": 0.5632450876941614,
+        "slack_above_robust_margin_decimal": "0.5632450876941613851186059027019914360570",
+        "slack_above_tight_margin": 0.5562450876941614,
+        "slack_above_tight_margin_decimal": "0.5562450876941613851186059027019914360570",
+        "smallest_stationary_evaluations": [
+          {
+            "parameter_decimal": "0.276163676071872119990494621451",
+            "value_decimal": "0.9832450876941613851186059027019914360570"
+          },
+          {
+            "parameter_decimal": "0.219920411376707168648086724834",
+            "value_decimal": "25.50821924821533435379962946451114263018"
+          },
+          {
+            "parameter_decimal": "0.238415463385290199017639663772",
+            "value_decimal": "53.24079016218561965518768286739356245592"
+          },
+          {
+            "parameter_decimal": "0",
+            "value_decimal": "409164750.8537718000000000000000000000000"
+          }
+        ],
+        "tight_margin_root_count": 0
+      },
+      "provenance_minus_source_critical_margin": 2.148088381836999e-06,
+      "scale_modulus": 127,
+      "source_curve_serialized": {
+        "coefficient_family": "source_curve_serialized",
+        "critical_margin_ceiling_1e6_rational": "983243/1000000",
+        "critical_margin_ceiling_1e6_root_count": 2,
+        "critical_margin_estimate": 0.9832429396057796,
+        "critical_margin_estimate_decimal": "0.9832429396057796161696904790196353454360",
+        "critical_margin_floor_1e6_rational": "491621/500000",
+        "critical_margin_floor_1e6_root_count": 0,
+        "minimizing_parameter_estimate": 0.2761636776273832,
+        "minimizing_parameter_estimate_decimal": "0.276163677627383191383085558130",
+        "robust_margin_root_count": 0,
+        "scale_modulus": 127,
+        "slack_above_robust_margin": 0.5632429396057796,
+        "slack_above_robust_margin_decimal": "0.5632429396057796161696904790196353454360",
+        "slack_above_tight_margin": 0.5562429396057796,
+        "slack_above_tight_margin_decimal": "0.5562429396057796161696904790196353454360",
+        "smallest_stationary_evaluations": [
+          {
+            "parameter_decimal": "0.276163677627383191383085558130",
+            "value_decimal": "0.9832429396057796161696904790196353454360"
+          },
+          {
+            "parameter_decimal": "0.219920411395804378197516570078",
+            "value_decimal": "25.50821956782471252755562719330479900956"
+          },
+          {
+            "parameter_decimal": "0.238415463255023862540059132631",
+            "value_decimal": "53.24079003087770493613329832577965932706"
+          },
+          {
+            "parameter_decimal": "0",
+            "value_decimal": "409164750.8537718000000000000000000000000"
+          }
+        ],
+        "tight_margin_root_count": 0
+      }
+    },
+    {
+      "both_serializations_root_free_at_robust_margin": true,
+      "both_serializations_root_free_at_tight_margin": true,
+      "coefficient_provenance_serialized": {
+        "coefficient_family": "coefficient_provenance_serialized",
+        "critical_margin_ceiling_1e6_rational": "667891/1000000",
+        "critical_margin_ceiling_1e6_root_count": 2,
+        "critical_margin_estimate": 0.6678905689472365,
+        "critical_margin_estimate_decimal": "0.6678905689472364958830011966935997002158",
+        "critical_margin_floor_1e6_rational": "66789/100000",
+        "critical_margin_floor_1e6_root_count": 0,
+        "minimizing_parameter_estimate": 0.2696996000676497,
+        "minimizing_parameter_estimate_decimal": "0.269699600067649710983196657994",
+        "robust_margin_root_count": 0,
+        "scale_modulus": 149,
+        "slack_above_robust_margin": 0.2478905689472365,
+        "slack_above_robust_margin_decimal": "0.2478905689472364958830011966935997002158",
+        "slack_above_tight_margin": 0.24089056894723648,
+        "slack_above_tight_margin_decimal": "0.2408905689472364958830011966935997002158",
+        "smallest_stationary_evaluations": [
+          {
+            "parameter_decimal": "0.269699600067649710983196657994",
+            "value_decimal": "0.6678905689472364958830011966935997002158"
+          },
+          {
+            "parameter_decimal": "0",
+            "value_decimal": "2832507255.884388400000000000000000000000"
+          }
+        ],
+        "tight_margin_root_count": 0
+      },
+      "provenance_minus_source_critical_margin": -2.853852203132945e-05,
+      "scale_modulus": 149,
+      "source_curve_serialized": {
+        "coefficient_family": "source_curve_serialized",
+        "critical_margin_ceiling_1e6_rational": "8349/12500",
+        "critical_margin_ceiling_1e6_root_count": 2,
+        "critical_margin_estimate": 0.6679191074692679,
+        "critical_margin_estimate_decimal": "0.6679191074692678893771366600229711776952",
+        "critical_margin_floor_1e6_rational": "667919/1000000",
+        "critical_margin_floor_1e6_root_count": 0,
+        "minimizing_parameter_estimate": 0.26969959261170434,
+        "minimizing_parameter_estimate_decimal": "0.269699592611704349217895871181",
+        "robust_margin_root_count": 0,
+        "scale_modulus": 149,
+        "slack_above_robust_margin": 0.2479191074692679,
+        "slack_above_robust_margin_decimal": "0.2479191074692678893771366600229711776952",
+        "slack_above_tight_margin": 0.2409191074692679,
+        "slack_above_tight_margin_decimal": "0.2409191074692678893771366600229711776952",
+        "smallest_stationary_evaluations": [
+          {
+            "parameter_decimal": "0.269699592611704349217895871181",
+            "value_decimal": "0.6679191074692678893771366600229711776952"
+          },
+          {
+            "parameter_decimal": "0",
+            "value_decimal": "2832507255.884388400000000000000000000000"
+          }
+        ],
+        "tight_margin_root_count": 0
+      }
+    },
+    {
+      "both_serializations_root_free_at_robust_margin": true,
+      "both_serializations_root_free_at_tight_margin": false,
+      "coefficient_provenance_serialized": {
+        "coefficient_family": "coefficient_provenance_serialized",
+        "critical_margin_ceiling_1e6_rational": "213491/500000",
+        "critical_margin_ceiling_1e6_root_count": 2,
+        "critical_margin_estimate": 0.42698189905806716,
+        "critical_margin_estimate_decimal": "0.4269818990580671772500833131131551507996",
+        "critical_margin_floor_1e6_rational": "426981/1000000",
+        "critical_margin_floor_1e6_root_count": 0,
+        "minimizing_parameter_estimate": 0.2698348111375526,
+        "minimizing_parameter_estimate_decimal": "0.269834811137552579806790342068",
+        "robust_margin_root_count": 0,
+        "scale_modulus": 167,
+        "slack_above_robust_margin": 0.0069818990580671775,
+        "slack_above_robust_margin_decimal": "0.006981899058067177250083313113155150799648",
+        "slack_above_tight_margin": -1.810094193282275e-05,
+        "slack_above_tight_margin_decimal": "-0.00001810094193282274991668688684484920035234",
+        "smallest_stationary_evaluations": [
+          {
+            "parameter_decimal": "0.269834811137552579806790342068",
+            "value_decimal": "0.4269818990580671772500833131131551507996"
+          },
+          {
+            "parameter_decimal": "0",
+            "value_decimal": "3069418123.926627600000000000000000000000"
+          }
+        ],
+        "tight_margin_root_count": 2
+      },
+      "provenance_minus_source_critical_margin": -2.861012851257394e-05,
+      "scale_modulus": 167,
+      "source_curve_serialized": {
+        "coefficient_family": "source_curve_serialized",
+        "critical_margin_ceiling_1e6_rational": "427011/1000000",
+        "critical_margin_ceiling_1e6_root_count": 2,
+        "critical_margin_estimate": 0.42701050918657973,
+        "critical_margin_estimate_decimal": "0.4270105091865797085059178151338425127274",
+        "critical_margin_floor_1e6_rational": "42701/100000",
+        "critical_margin_floor_1e6_root_count": 0,
+        "minimizing_parameter_estimate": 0.2698347933802375,
+        "minimizing_parameter_estimate_decimal": "0.269834793380237521632973056401",
+        "robust_margin_root_count": 0,
+        "scale_modulus": 167,
+        "slack_above_robust_margin": 0.007010509186579708,
+        "slack_above_robust_margin_decimal": "0.007010509186579708505917815133842512727439",
+        "slack_above_tight_margin": 1.0509186579708506e-05,
+        "slack_above_tight_margin_decimal": "0.00001050918657970850591781513384251272743899",
+        "smallest_stationary_evaluations": [
+          {
+            "parameter_decimal": "0.269834793380237521632973056401",
+            "value_decimal": "0.4270105091865797085059178151338425127274"
+          },
+          {
+            "parameter_decimal": "0",
+            "value_decimal": "3069418123.926627600000000000000000000000"
+          }
+        ],
+        "tight_margin_root_count": 0
+      }
+    },
+    {
+      "both_serializations_root_free_at_robust_margin": true,
+      "both_serializations_root_free_at_tight_margin": true,
+      "coefficient_provenance_serialized": {
+        "coefficient_family": "coefficient_provenance_serialized",
+        "critical_margin_ceiling_1e6_rational": "3533721/31250",
+        "critical_margin_ceiling_1e6_root_count": 2,
+        "critical_margin_estimate": 113.07907165836853,
+        "critical_margin_estimate_decimal": "113.0790716583685324808509758763761193455",
+        "critical_margin_floor_1e6_rational": "113079071/1000000",
+        "critical_margin_floor_1e6_root_count": 0,
+        "minimizing_parameter_estimate": 0.2670275581245118,
+        "minimizing_parameter_estimate_decimal": "0.267027558124511765353981541971",
+        "robust_margin_root_count": 0,
+        "scale_modulus": 191,
+        "slack_above_robust_margin": 112.65907165836853,
+        "slack_above_robust_margin_decimal": "112.6590716583685324808509758763761193455",
+        "slack_above_tight_margin": 112.65207165836853,
+        "slack_above_tight_margin_decimal": "112.6520716583685324808509758763761193455",
+        "smallest_stationary_evaluations": [
+          {
+            "parameter_decimal": "0.267027558124511765353981541971",
+            "value_decimal": "113.0790716583685324808509758763761193455"
+          },
+          {
+            "parameter_decimal": "0",
+            "value_decimal": "29686075999.42738300000000000000000000000"
+          }
+        ],
+        "tight_margin_root_count": 0
+      },
+      "provenance_minus_source_critical_margin": 0.000142607433801345,
+      "scale_modulus": 191,
+      "source_curve_serialized": {
+        "coefficient_family": "source_curve_serialized",
+        "critical_margin_ceiling_1e6_rational": "11307893/100000",
+        "critical_margin_ceiling_1e6_root_count": 2,
+        "critical_margin_estimate": 113.07892905093473,
+        "critical_margin_estimate_decimal": "113.0789290509347325279731747600733771551",
+        "critical_margin_floor_1e6_rational": "113078929/1000000",
+        "critical_margin_floor_1e6_root_count": 0,
+        "minimizing_parameter_estimate": 0.2670275585066331,
+        "minimizing_parameter_estimate_decimal": "0.267027558506633111863400503986",
+        "robust_margin_root_count": 0,
+        "scale_modulus": 191,
+        "slack_above_robust_margin": 112.65892905093473,
+        "slack_above_robust_margin_decimal": "112.6589290509347325279731747600733771551",
+        "slack_above_tight_margin": 112.65192905093473,
+        "slack_above_tight_margin_decimal": "112.6519290509347325279731747600733771551",
+        "smallest_stationary_evaluations": [
+          {
+            "parameter_decimal": "0.267027558506633111863400503986",
+            "value_decimal": "113.0789290509347325279731747600733771551"
+          },
+          {
+            "parameter_decimal": "0",
+            "value_decimal": "29686075999.42738300000000000000000000000"
+          }
+        ],
+        "tight_margin_root_count": 0
+      }
+    },
+    {
+      "both_serializations_root_free_at_robust_margin": true,
+      "both_serializations_root_free_at_tight_margin": true,
+      "coefficient_provenance_serialized": {
+        "coefficient_family": "coefficient_provenance_serialized",
+        "critical_margin_ceiling_1e6_rational": "61901049/1000000",
+        "critical_margin_ceiling_1e6_root_count": 2,
+        "critical_margin_estimate": 61.9010488953201,
+        "critical_margin_estimate_decimal": "61.90104889532010357563310777642999196749",
+        "critical_margin_floor_1e6_rational": "7737631/125000",
+        "critical_margin_floor_1e6_root_count": 0,
+        "minimizing_parameter_estimate": 0.26117496181824235,
+        "minimizing_parameter_estimate_decimal": "0.261174961818242340458693486618",
+        "robust_margin_root_count": 0,
+        "scale_modulus": 211,
+        "slack_above_robust_margin": 61.4810488953201,
+        "slack_above_robust_margin_decimal": "61.48104889532010357563310777642999196749",
+        "slack_above_tight_margin": 61.4740488953201,
+        "slack_above_tight_margin_decimal": "61.47404889532010357563310777642999196749",
+        "smallest_stationary_evaluations": [
+          {
+            "parameter_decimal": "0.261174961818242340458693486618",
+            "value_decimal": "61.90104889532010357563310777642999196749"
+          },
+          {
+            "parameter_decimal": "0",
+            "value_decimal": "33484190165.95782500000000000000000000000"
+          }
+        ],
+        "tight_margin_root_count": 0
+      },
+      "provenance_minus_source_critical_margin": 0.0,
+      "scale_modulus": 211,
+      "source_curve_serialized": {
+        "coefficient_family": "source_curve_serialized",
+        "critical_margin_ceiling_1e6_rational": "61901049/1000000",
+        "critical_margin_ceiling_1e6_root_count": 2,
+        "critical_margin_estimate": 61.9010488953201,
+        "critical_margin_estimate_decimal": "61.90104889532010357563310777642999196749",
+        "critical_margin_floor_1e6_rational": "7737631/125000",
+        "critical_margin_floor_1e6_root_count": 0,
+        "minimizing_parameter_estimate": 0.26117496181824235,
+        "minimizing_parameter_estimate_decimal": "0.261174961818242340458693486618",
+        "robust_margin_root_count": 0,
+        "scale_modulus": 211,
+        "slack_above_robust_margin": 61.4810488953201,
+        "slack_above_robust_margin_decimal": "61.48104889532010357563310777642999196749",
+        "slack_above_tight_margin": 61.4740488953201,
+        "slack_above_tight_margin_decimal": "61.47404889532010357563310777642999196749",
+        "smallest_stationary_evaluations": [
+          {
+            "parameter_decimal": "0.261174961818242340458693486618",
+            "value_decimal": "61.90104889532010357563310777642999196749"
+          },
+          {
+            "parameter_decimal": "0",
+            "value_decimal": "33484190165.95782500000000000000000000000"
+          }
+        ],
+        "tight_margin_root_count": 0
+      }
+    },
+    {
+      "both_serializations_root_free_at_robust_margin": true,
+      "both_serializations_root_free_at_tight_margin": true,
+      "coefficient_provenance_serialized": {
+        "coefficient_family": "coefficient_provenance_serialized",
+        "critical_margin_ceiling_1e6_rational": "23427433/500000",
+        "critical_margin_ceiling_1e6_root_count": 2,
+        "critical_margin_estimate": 46.854865275956385,
+        "critical_margin_estimate_decimal": "46.85486527595638726592541306373847723140",
+        "critical_margin_floor_1e6_rational": "9370973/200000",
+        "critical_margin_floor_1e6_root_count": 0,
+        "minimizing_parameter_estimate": 0.2601269979604132,
+        "minimizing_parameter_estimate_decimal": "0.260126997960413244968551220234",
+        "robust_margin_root_count": 0,
+        "scale_modulus": 227,
+        "slack_above_robust_margin": 46.43486527595639,
+        "slack_above_robust_margin_decimal": "46.43486527595638726592541306373847723140",
+        "slack_above_tight_margin": 46.427865275956385,
+        "slack_above_tight_margin_decimal": "46.42786527595638726592541306373847723140",
+        "smallest_stationary_evaluations": [
+          {
+            "parameter_decimal": "0.260126997960413244968551220234",
+            "value_decimal": "46.85486527595638726592541306373847723140"
+          },
+          {
+            "parameter_decimal": "0",
+            "value_decimal": "36782480184.94864000000000000000000000000"
+          }
+        ],
+        "tight_margin_root_count": 0
+      },
+      "provenance_minus_source_critical_margin": 0.0001760176793297319,
+      "scale_modulus": 227,
+      "source_curve_serialized": {
+        "coefficient_family": "source_curve_serialized",
+        "critical_margin_ceiling_1e6_rational": "4685469/100000",
+        "critical_margin_ceiling_1e6_root_count": 2,
+        "critical_margin_estimate": 46.854689258277055,
+        "critical_margin_estimate_decimal": "46.85468925827705204921670761007305179145",
+        "critical_margin_floor_1e6_rational": "46854689/1000000",
+        "critical_margin_floor_1e6_root_count": 0,
+        "minimizing_parameter_estimate": 0.2601269995849172,
+        "minimizing_parameter_estimate_decimal": "0.260126999584917192434504334568",
+        "robust_margin_root_count": 0,
+        "scale_modulus": 227,
+        "slack_above_robust_margin": 46.434689258277054,
+        "slack_above_robust_margin_decimal": "46.43468925827705204921670761007305179145",
+        "slack_above_tight_margin": 46.42768925827705,
+        "slack_above_tight_margin_decimal": "46.42768925827705204921670761007305179145",
+        "smallest_stationary_evaluations": [
+          {
+            "parameter_decimal": "0.260126999584917192434504334568",
+            "value_decimal": "46.85468925827705204921670761007305179145"
+          },
+          {
+            "parameter_decimal": "0",
+            "value_decimal": "36782480184.94864000000000000000000000000"
+          }
+        ],
+        "tight_margin_root_count": 0
+      }
+    }
+  ],
+  "signed_prime_correlation_proved": false,
+  "source_curve_audit": "evidence\\mobius-moment-square-half-frame-curve-audit.json",
+  "status": "MEASURE_serialized_sturm_margin_window",
+  "tight_margin": 0.427,
+  "tight_margin_rational": "427/1000",
+  "uniform_active_full_lower_frame_proved": false,
+  "universal_sturm_certificate_theorem_proved": false,
+  "weakest_provenance_serialized_margin": {
+    "coefficient_family": "coefficient_provenance_serialized",
+    "critical_margin_ceiling_1e6_rational": "213491/500000",
+    "critical_margin_ceiling_1e6_root_count": 2,
+    "critical_margin_estimate": 0.42698189905806716,
+    "critical_margin_estimate_decimal": "0.4269818990580671772500833131131551507996",
+    "critical_margin_floor_1e6_rational": "426981/1000000",
+    "critical_margin_floor_1e6_root_count": 0,
+    "minimizing_parameter_estimate": 0.2698348111375526,
+    "minimizing_parameter_estimate_decimal": "0.269834811137552579806790342068",
+    "robust_margin_root_count": 0,
+    "scale_modulus": 167,
+    "slack_above_robust_margin": 0.0069818990580671775,
+    "slack_above_robust_margin_decimal": "0.006981899058067177250083313113155150799648",
+    "slack_above_tight_margin": -1.810094193282275e-05,
+    "slack_above_tight_margin_decimal": "-0.00001810094193282274991668688684484920035234",
+    "smallest_stationary_evaluations": [
+      {
+        "parameter_decimal": "0.269834811137552579806790342068",
+        "value_decimal": "0.4269818990580671772500833131131551507996"
+      },
+      {
+        "parameter_decimal": "0",
+        "value_decimal": "3069418123.926627600000000000000000000000"
+      }
+    ],
+    "tight_margin_root_count": 2
+  },
+  "weakest_source_curve_serialized_margin": {
+    "coefficient_family": "source_curve_serialized",
+    "critical_margin_ceiling_1e6_rational": "427011/1000000",
+    "critical_margin_ceiling_1e6_root_count": 2,
+    "critical_margin_estimate": 0.42701050918657973,
+    "critical_margin_estimate_decimal": "0.4270105091865797085059178151338425127274",
+    "critical_margin_floor_1e6_rational": "42701/100000",
+    "critical_margin_floor_1e6_root_count": 0,
+    "minimizing_parameter_estimate": 0.2698347933802375,
+    "minimizing_parameter_estimate_decimal": "0.269834793380237521632973056401",
+    "robust_margin_root_count": 0,
+    "scale_modulus": 167,
+    "slack_above_robust_margin": 0.007010509186579708,
+    "slack_above_robust_margin_decimal": "0.007010509186579708505917815133842512727439",
+    "slack_above_tight_margin": 1.0509186579708506e-05,
+    "slack_above_tight_margin_decimal": "0.00001050918657970850591781513384251272743899",
+    "smallest_stationary_evaluations": [
+      {
+        "parameter_decimal": "0.269834793380237521632973056401",
+        "value_decimal": "0.4270105091865797085059178151338425127274"
+      },
+      {
+        "parameter_decimal": "0",
+        "value_decimal": "3069418123.926627600000000000000000000000"
+      }
+    ],
+    "tight_margin_root_count": 0
+  }
+}

@@ -6,6 +6,44 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The metric-soft moment-square route now has a serialized Sturm margin-window
+audit:
+
+```text
+tools/build_mobius_moment_square_sturm_margin_window_audit.py
+notes/mobius-moment-square-sturm-margin-window-audit.md
+evidence/mobius-moment-square-sturm-margin-window-audit.json
+```
+
+Result:
+
+```text
+status: MEASURE_serialized_sturm_margin_window
+tight margin:                          427/1000
+robust margin:                         21/50
+controlling scale:                     M=167
+source serialized critical margin:     0.4270105091865797085
+source slack above 427/1000:           0.0000105091865797085
+provenance serialized critical margin: 0.4269818990580671773
+provenance slack above 427/1000:      -0.0000181009419328227
+provenance slack above 21/50:          0.0069818990580671773
+```
+
+Decision: the robust `21/50` certificate has usable serialized-coefficient
+room, but `427/1000` is too close to coefficient serialization noise to be a
+safe theorem target unless exact coefficient formulas are derived and carried
+symbolically.  The live theorem target is a universal, pointwise,
+unnormalized lower bound such as `P_M(t) >= 21/50` for the actual coefficient
+family, or a Sturm variation-count theorem at that margin from exact
+coefficient formulas.  This is finite serialized margin-window evidence only;
+no critical-margin theorem, robust-margin universal theorem, coefficient-family
+theorem, universal Sturm-certificate theorem, half-frame curve-positivity
+theorem, uniform active/full lower frame, Mobius covariance theorem, signed
+prime-correlation estimate, q286 theorem, strict-central Goldbach theorem, or
+Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-16
+
 The metric-soft moment-square route now has a robust Sturm-chamber audit:
 
 ```text
