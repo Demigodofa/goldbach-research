@@ -6,6 +6,32 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The metric-soft moment-square route now has a whole-curve half-frame audit:
+`tools/build_mobius_moment_square_half_frame_curve_audit.py` generated
+`evidence/mobius-moment-square-half-frame-curve-audit.json`, with explanation
+in `notes/mobius-moment-square-half-frame-curve-audit.md`.
+
+Question: is the entire moment-square half-frame polynomial
+`y(t)^T(active - 0.5*full)y(t)` positive on the checked scales, not merely
+positive at selected soft directions?
+
+Answer: yes on the checked scales `M=127`, `149`, `167`, `191`, `211`, and
+`227`.  The half-frame polynomial is positive at every computed real-line
+minimum.  The weakest value is `0.427001953125` at `M=167`, with minimizing
+parameter `0.26983489124712867` and positive leading coefficient
+`122048235269918.23`.
+
+Decision: `TARGET_moment_square_half_frame_curve_positivity`.  The strongest
+current theorem-shaped target is positivity of the explicit degree-8 form
+`P_M(t) = y(t)^T(active_M - 0.5*full_M)y(t)` in the intended universal regime,
+or a legitimate scale where its real-line minimum is nonpositive.  This is
+finite diagnostic evidence only.  No half-frame curve-positivity theorem,
+moment-square half-frame payment theorem, uniform active/full lower-frame
+theorem, Mobius covariance theorem, signed prime-correlation estimate, q286
+theorem, strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-16
+
 The metric-soft moment-square direction now has an unnormalized payment-margin
 audit:
 `tools/build_mobius_moment_square_payment_margin_audit.py` generated

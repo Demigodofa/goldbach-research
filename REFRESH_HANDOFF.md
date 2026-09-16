@@ -6,6 +6,37 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The metric-soft moment-square route now has a whole-curve half-frame audit:
+
+```text
+tools/build_mobius_moment_square_half_frame_curve_audit.py
+notes/mobius-moment-square-half-frame-curve-audit.md
+evidence/mobius-moment-square-half-frame-curve-audit.json
+```
+
+Result:
+
+```text
+status: TARGET_moment_square_half_frame_curve_positivity
+checked scales:                         127, 149, 167, 191, 211, 227
+all curve minima positive:              true
+minimum half-frame curve value:         0.427001953125
+weakest scale:                          167
+weakest parameter:                      0.26983489124712867
+weakest leading coefficient:            122048235269918.23
+```
+
+Decision: the strongest current theorem-shaped target is positivity of the
+explicit degree-8 form
+`P_M(t) = y(t)^T(active_M - 0.5*full_M)y(t)` in the intended universal regime,
+or a legitimate scale where its real-line minimum is nonpositive.  This is
+finite diagnostic evidence only; no half-frame curve-positivity theorem,
+moment-square half-frame payment theorem, uniform active/full lower frame,
+Mobius covariance theorem, signed prime-correlation estimate, q286 theorem,
+strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-16
+
 The metric-soft moment-square direction now has an unnormalized
 payment-margin audit:
 

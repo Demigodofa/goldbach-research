@@ -1,0 +1,278 @@
+{
+  "all_half_frame_curve_minima_positive": true,
+  "decision": "The checked half-frame payment is positive on the whole moment-square curve.  This is a stronger theorem target than testing selected soft parameters: prove positivity of the degree-8 polynomial y(t)^T(active-one_half*full)y(t), or find a legitimate scale where its real-line minimum is nonpositive.",
+  "finite_diagnostic_only": true,
+  "goldbach_proved": false,
+  "minimum_half_frame_curve_value": 0.427001953125,
+  "mobius_covariance_theorem_proved": false,
+  "moment_square_half_frame_curve_positivity_theorem_proved": false,
+  "moment_square_half_frame_payment_theorem_proved": false,
+  "q286_reactivated": false,
+  "question": "Is the entire moment-square half-frame polynomial y(t)^T(active-one_half*full)y(t) positive on the checked scales, not merely positive at selected soft directions?",
+  "scale_results": [
+    {
+      "divisor_range": [
+        3,
+        13
+      ],
+      "half_frame_curve_degree": 8,
+      "half_frame_curve_leading_coefficient": 25112636384695.914,
+      "half_frame_curve_minimizing_parameter": 0.2761636698862329,
+      "half_frame_curve_minimum": 0.9832426309585571,
+      "half_frame_curve_minimum_positive": true,
+      "polynomial_coefficients_low_to_high": [
+        409164750.8537718,
+        -13014290127.091686,
+        181008279747.1293,
+        -1437794980031.7236,
+        7133652574704.219,
+        -22637000479951.0,
+        44863366934725.88,
+        -50767569783152.76,
+        25112636384695.914
+      ],
+      "prime_count": 24,
+      "row_count": 28,
+      "scale_modulus": 127,
+      "smallest_evaluations": [
+        {
+          "parameter": 0.2761636698862329,
+          "value": 0.9832426309585571
+        },
+        {
+          "parameter": 0.21992041136022286,
+          "value": 25.508219838142395
+        },
+        {
+          "parameter": 0.2384154637719182,
+          "value": 53.24078953266144
+        },
+        {
+          "parameter": 0.0,
+          "value": 409164750.8537718
+        }
+      ]
+    },
+    {
+      "divisor_range": [
+        3,
+        15
+      ],
+      "half_frame_curve_degree": 8,
+      "half_frame_curve_leading_coefficient": 104510118428268.05,
+      "half_frame_curve_minimizing_parameter": 0.26969967515077853,
+      "half_frame_curve_minimum": 0.6679186820983887,
+      "half_frame_curve_minimum_positive": true,
+      "polynomial_coefficients_low_to_high": [
+        2832507255.8843884,
+        -83297757046.71063,
+        1075656502402.1453,
+        -7966740456891.942,
+        37013642429565.39,
+        -110456426035622.06,
+        206741484794555.56,
+        -221870653608829.0,
+        104510118428268.05
+      ],
+      "prime_count": 28,
+      "row_count": 32,
+      "scale_modulus": 149,
+      "smallest_evaluations": [
+        {
+          "parameter": 0.26969967515077853,
+          "value": 0.6679186820983887
+        },
+        {
+          "parameter": 0.0,
+          "value": 2832507255.8843884
+        }
+      ]
+    },
+    {
+      "divisor_range": [
+        3,
+        16
+      ],
+      "half_frame_curve_degree": 8,
+      "half_frame_curve_leading_coefficient": 122048235269918.23,
+      "half_frame_curve_minimizing_parameter": 0.26983489124712867,
+      "half_frame_curve_minimum": 0.427001953125,
+      "half_frame_curve_minimum_positive": true,
+      "polynomial_coefficients_low_to_high": [
+        3069418123.9266276,
+        -91340273081.367,
+        1192711682477.329,
+        -8926068026611.982,
+        41873923728148.734,
+        -126085079418913.08,
+        237951061280450.12,
+        -257309087542639.3,
+        122048235269918.23
+      ],
+      "prime_count": 29,
+      "row_count": 35,
+      "scale_modulus": 167,
+      "smallest_evaluations": [
+        {
+          "parameter": 0.26983489124712867,
+          "value": 0.427001953125
+        },
+        {
+          "parameter": 0.0,
+          "value": 3069418123.9266276
+        }
+      ]
+    },
+    {
+      "divisor_range": [
+        3,
+        17
+      ],
+      "half_frame_curve_degree": 8,
+      "half_frame_curve_leading_coefficient": 1245588730436919.5,
+      "half_frame_curve_minimizing_parameter": 0.2670275343507519,
+      "half_frame_curve_minimum": 113.0789680480957,
+      "half_frame_curve_minimum_positive": true,
+      "polynomial_coefficients_low_to_high": [
+        29686075999.427383,
+        -890720741049.2983,
+        11724256495119.723,
+        -88414816969603.38,
+        417760808001945.5,
+        -1266294507257135.5,
+        2404260623034259.5,
+        -2613849277687568.5,
+        1245588730436919.5
+      ],
+      "prime_count": 33,
+      "row_count": 38,
+      "scale_modulus": 191,
+      "smallest_evaluations": [
+        {
+          "parameter": 0.2670275343507519,
+          "value": 113.0789680480957
+        },
+        {
+          "parameter": 0.0,
+          "value": 29686075999.427383
+        }
+      ]
+    },
+    {
+      "divisor_range": [
+        3,
+        18
+      ],
+      "half_frame_curve_degree": 8,
+      "half_frame_curve_leading_coefficient": 1527678085432902.2,
+      "half_frame_curve_minimizing_parameter": 0.2611749300409263,
+      "half_frame_curve_minimum": 61.90129852294922,
+      "half_frame_curve_minimum_positive": true,
+      "polynomial_coefficients_low_to_high": [
+        33484190165.957825,
+        -1017246890918.2881,
+        13549392221279.361,
+        -103337936371369.1,
+        493531599259431.56,
+        -1511233815343435.8,
+        2897029558597892.0,
+        -3178346689045317.5,
+        1527678085432902.2
+      ],
+      "prime_count": 36,
+      "row_count": 41,
+      "scale_modulus": 211,
+      "smallest_evaluations": [
+        {
+          "parameter": 0.2611749300409263,
+          "value": 61.90129852294922
+        },
+        {
+          "parameter": 0.0,
+          "value": 33484190165.957825
+        }
+      ]
+    },
+    {
+      "divisor_range": [
+        3,
+        18
+      ],
+      "half_frame_curve_degree": 8,
+      "half_frame_curve_leading_coefficient": 1776187484493652.0,
+      "half_frame_curve_minimizing_parameter": 0.2601269275971193,
+      "half_frame_curve_minimum": 46.85480499267578,
+      "half_frame_curve_minimum_positive": true,
+      "polynomial_coefficients_low_to_high": [
+        36782480184.94864,
+        -1126978872683.9539,
+        15132740340334.785,
+        -116301896827122.89,
+        559493552162600.3,
+        -1725018585245504.0,
+        3328378802774947.5,
+        -3674031267947996.0,
+        1776187484493652.0
+      ],
+      "prime_count": 39,
+      "row_count": 43,
+      "scale_modulus": 227,
+      "smallest_evaluations": [
+        {
+          "parameter": 0.2601269275971193,
+          "value": 46.85480499267578
+        },
+        {
+          "parameter": 0.0,
+          "value": 36782480184.94864
+        }
+      ]
+    }
+  ],
+  "scales": [
+    127,
+    149,
+    167,
+    191,
+    211,
+    227
+  ],
+  "signed_prime_correlation_proved": false,
+  "status": "TARGET_moment_square_half_frame_curve_positivity",
+  "uniform_active_full_lower_frame_proved": false,
+  "weakest_half_frame_curve_row": {
+    "divisor_range": [
+      3,
+      16
+    ],
+    "half_frame_curve_degree": 8,
+    "half_frame_curve_leading_coefficient": 122048235269918.23,
+    "half_frame_curve_minimizing_parameter": 0.26983489124712867,
+    "half_frame_curve_minimum": 0.427001953125,
+    "half_frame_curve_minimum_positive": true,
+    "polynomial_coefficients_low_to_high": [
+      3069418123.9266276,
+      -91340273081.367,
+      1192711682477.329,
+      -8926068026611.982,
+      41873923728148.734,
+      -126085079418913.08,
+      237951061280450.12,
+      -257309087542639.3,
+      122048235269918.23
+    ],
+    "prime_count": 29,
+    "row_count": 35,
+    "scale_modulus": 167,
+    "smallest_evaluations": [
+      {
+        "parameter": 0.26983489124712867,
+        "value": 0.427001953125
+      },
+      {
+        "parameter": 0.0,
+        "value": 3069418123.9266276
+      }
+    ]
+  }
+}
