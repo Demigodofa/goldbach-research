@@ -6,6 +6,48 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The metric-soft moment-square route now has a weak-block primewise
+degree-`5` sign-localization audit:
+
+```text
+tools/build_mobius_moment_square_degree5_primewise_sign_audit.py
+notes/mobius-moment-square-degree5-primewise-sign-audit.md
+evidence/mobius-moment-square-degree5-primewise-sign-audit.json
+```
+
+Result:
+
+```text
+status: CHECK_degree5_primewise_sign_localization
+weak block:                                  M=167
+prime count:                                 29
+row count / ell freeze:                      35 / 52
+divisor range:                               3..16
+all prime degree-5 totals negative:          true
+all prime component contributors negative:   true
+degree-5 total sign counts:                  +0 / 0 / -29
+(00,12) sign counts:                         +0 / 0 / -29
+(01,02) sign counts:                         +0 / 0 / -29
+(01,11) sign counts:                         +0 / 0 / -29
+least adverse prime:                         p=181, total -163275425149.23624
+most adverse prime:                          p=241, total -10722072932468.744
+maximum aggregate-match float delta:          0.015625
+```
+
+Decision: the weak-block degree-`5` burden is not explained by cancellation
+between favorable and adverse prime rows.  Every checked prime row already
+pushes all three degree-`5` component entries in the adverse direction.  The
+next theorem-shaped target can therefore be a local one-prime sign or
+dominance lemma for `(00,12)`, `(01,02)`, and `(01,11)` under the weak-block
+parameter rules.  This is finite weak-block primewise evidence only; no
+primewise sign theorem, degree-`5` coefficient theorem, robust-margin
+universal theorem, coefficient-family theorem, universal Sturm-certificate
+theorem, half-frame curve-positivity theorem, uniform active/full lower
+frame, Mobius covariance theorem, signed prime-correlation estimate, q286
+theorem, strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-16
+
 The metric-soft moment-square route now has a weak-row degree-`5` coefficient
 burden audit:
 

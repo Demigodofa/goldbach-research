@@ -6,6 +6,39 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The metric-soft moment-square route now has a weak-block primewise
+degree-`5` sign-localization audit:
+`tools/build_mobius_moment_square_degree5_primewise_sign_audit.py` generated
+`evidence/mobius-moment-square-degree5-primewise-sign-audit.json`, with
+explanation in
+`notes/mobius-moment-square-degree5-primewise-sign-audit.md`.
+
+Question: does the weak `M=167` degree-`5` adverse burden come from
+aggregate cancellation among primes, or does each prime row already push the
+three degree-`5` Gram entries in the adverse direction?
+
+Answer: every one of the `29` primes in `[167,334]` has a negative
+degree-`5` half-frame total, and every checked prime has all three component
+contributors `(00,12)`, `(01,02)`, and `(01,11)` negative.  The sign counts
+for the total and for each component are `positive 0`, `zero 0`,
+`negative 29`.  The component totals match the prior aggregate burden within
+ordinary float summation tolerance; the largest delta from the prior receipt
+is `0.015625`.
+
+Decision: `CHECK_degree5_primewise_sign_localization`.  The weak-block
+degree-`5` burden is not hiding favorable/adverse cancellation across prime
+rows.  The next theorem-shaped target can be even more local: derive a
+one-prime sign or dominance lemma for the `(00,12)`, `(01,02)`, and
+`(01,11)` active/full Gram entries under the weak-block parameter rules.
+This is finite weak-block primewise evidence only.  No primewise sign
+theorem, degree-`5` coefficient theorem, robust-margin universal theorem,
+coefficient-family theorem, universal Sturm-certificate theorem, half-frame
+curve-positivity theorem, uniform active/full lower-frame theorem, Mobius
+covariance theorem, signed prime-correlation estimate, q286 theorem,
+strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-16
+
 The metric-soft moment-square route now has a weak-row degree-`5` coefficient
 burden audit:
 `tools/build_mobius_moment_square_degree5_burden_audit.py` generated

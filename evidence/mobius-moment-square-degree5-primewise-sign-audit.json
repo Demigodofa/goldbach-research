@@ -1,0 +1,1038 @@
+{
+  "all_prime_component_contributors_negative": true,
+  "all_prime_degree5_totals_negative": true,
+  "coefficient_family_theorem_proved": false,
+  "component_total_minus_prior_burden": {
+    "00,12": 0.01171875,
+    "01,02": 0.0,
+    "01,11": 0.015625
+  },
+  "component_totals": {
+    "00,12": {
+      "half_frame_total": -17833463267559.574,
+      "largest_value": -18146573639.82254,
+      "sign_counts": {
+        "negative": 29,
+        "positive": 0,
+        "zero": 0
+      },
+      "smallest_value": -1518744614431.926
+    },
+    "01,02": {
+      "half_frame_total": -36071645892875.484,
+      "largest_value": -47931291245.62683,
+      "sign_counts": {
+        "negative": 29,
+        "positive": 0,
+        "zero": 0
+      },
+      "smallest_value": -3065097788651.251
+    },
+    "01,11": {
+      "half_frame_total": -72179970258478.0,
+      "largest_value": -97197560263.78687,
+      "sign_counts": {
+        "negative": 29,
+        "positive": 0,
+        "zero": 0
+      },
+      "smallest_value": -6138230529385.566
+    }
+  },
+  "component_totals_match_prior_burden_within_float_tolerance": true,
+  "decision": "The weak M=167 block passes the primewise sign-localization test: every checked prime has all three degree-5 component contributions negative, and every prime's degree-5 total is negative.  The aggregate weak-row burden is therefore not explained by cancellation among favorable and adverse prime rows.  A theorem-shaped next step may try to prove a local one-prime sign or dominance lemma for these three entries.",
+  "degree5_coefficient_theorem_proved": false,
+  "degree5_total_sign_counts": {
+    "negative": 29,
+    "positive": 0,
+    "zero": 0
+  },
+  "divisor_range": [
+    3,
+    16
+  ],
+  "ell_freeze": 52,
+  "falsifier": "A single prime with a positive degree-5 half-frame total, or a positive half-frame contribution in one of the three degree-5 Gram entries, would falsify this finite localization test.",
+  "finite_diagnostic_only": true,
+  "finite_primewise_sign_diagnostic_only": true,
+  "goldbach_proved": false,
+  "least_adverse_prime_row": {
+    "all_three_contributors_negative": true,
+    "contributors": [
+      {
+        "active_contribution": -179112497709.71338,
+        "full_contribution": -321931848139.7817,
+        "half_frame_contribution": -18146573639.82254,
+        "left_label": "00",
+        "multiplicity": 2,
+        "right_label": "12"
+      },
+      {
+        "active_contribution": -384454630213.1787,
+        "full_contribution": -673046677935.1038,
+        "half_frame_contribution": -47931291245.62683,
+        "left_label": "01",
+        "multiplicity": 2,
+        "right_label": "02"
+      },
+      {
+        "active_contribution": -772049146130.9596,
+        "full_contribution": -1349703171734.3455,
+        "half_frame_contribution": -97197560263.78687,
+        "left_label": "01",
+        "multiplicity": 2,
+        "right_label": "11"
+      }
+    ],
+    "degree5_half_frame_total": -163275425149.23624,
+    "prime_modulus": 181
+  },
+  "maximum_abs_component_total_delta_from_prior_burden": 0.015625,
+  "mobius_covariance_theorem_proved": false,
+  "moment_square_half_frame_curve_positivity_theorem_proved": false,
+  "most_adverse_prime_row": {
+    "all_three_contributors_negative": true,
+    "contributors": [
+      {
+        "active_contribution": -2389792657941.026,
+        "full_contribution": -1742096087018.1997,
+        "half_frame_contribution": -1518744614431.926,
+        "left_label": "00",
+        "multiplicity": 2,
+        "right_label": "12"
+      },
+      {
+        "active_contribution": -4836825550698.985,
+        "full_contribution": -3543455524095.4683,
+        "half_frame_contribution": -3065097788651.251,
+        "left_label": "01",
+        "multiplicity": 2,
+        "right_label": "02"
+      },
+      {
+        "active_contribution": -9687803174253.139,
+        "full_contribution": -7099145289735.1455,
+        "half_frame_contribution": -6138230529385.566,
+        "left_label": "01",
+        "multiplicity": 2,
+        "right_label": "11"
+      }
+    ],
+    "degree5_half_frame_total": -10722072932468.744,
+    "prime_modulus": 241
+  },
+  "prediction": "If a pointwise degree-5 theorem is plausible at this weak row, then decomposing the aggregate over primes should not reveal sign cancellation that the block sum was hiding.",
+  "prime_count": 29,
+  "prime_rows": [
+    {
+      "all_three_contributors_negative": true,
+      "contributors": [
+        {
+          "active_contribution": -454690624312.85913,
+          "full_contribution": -361303745988.1851,
+          "half_frame_contribution": -274038751318.76657,
+          "left_label": "00",
+          "multiplicity": 2,
+          "right_label": "12"
+        },
+        {
+          "active_contribution": -937921013540.8206,
+          "full_contribution": -743972168262.3325,
+          "half_frame_contribution": -565934929409.6543,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "02"
+        },
+        {
+          "active_contribution": -1882798105436.5918,
+          "full_contribution": -1494939939976.2297,
+          "half_frame_contribution": -1135328135448.477,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "11"
+        }
+      ],
+      "degree5_half_frame_total": -1975301816176.898,
+      "prime_modulus": 167
+    },
+    {
+      "all_three_contributors_negative": true,
+      "contributors": [
+        {
+          "active_contribution": -332859772023.4607,
+          "full_contribution": -366079469292.85266,
+          "half_frame_contribution": -149820037377.03436,
+          "left_label": "00",
+          "multiplicity": 2,
+          "right_label": "12"
+        },
+        {
+          "active_contribution": -691816156667.751,
+          "full_contribution": -758851141979.2764,
+          "half_frame_contribution": -312390585678.1128,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "02"
+        },
+        {
+          "active_contribution": -1388472338832.285,
+          "full_contribution": -1521802190768.4194,
+          "half_frame_contribution": -627571243448.0752,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "11"
+        }
+      ],
+      "degree5_half_frame_total": -1089781866503.2224,
+      "prime_modulus": 173
+    },
+    {
+      "all_three_contributors_negative": true,
+      "contributors": [
+        {
+          "active_contribution": -338330497495.5596,
+          "full_contribution": -338960589956.00226,
+          "half_frame_contribution": -168850202517.55844,
+          "left_label": "00",
+          "multiplicity": 2,
+          "right_label": "12"
+        },
+        {
+          "active_contribution": -712968373116.2252,
+          "full_contribution": -707046290624.2474,
+          "half_frame_contribution": -359445227804.1015,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "02"
+        },
+        {
+          "active_contribution": -1430529789855.5496,
+          "full_contribution": -1417903541949.2441,
+          "half_frame_contribution": -721578018880.9275,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "11"
+        }
+      ],
+      "degree5_half_frame_total": -1249873449202.5874,
+      "prime_modulus": 179
+    },
+    {
+      "all_three_contributors_negative": true,
+      "contributors": [
+        {
+          "active_contribution": -179112497709.71338,
+          "full_contribution": -321931848139.7817,
+          "half_frame_contribution": -18146573639.82254,
+          "left_label": "00",
+          "multiplicity": 2,
+          "right_label": "12"
+        },
+        {
+          "active_contribution": -384454630213.1787,
+          "full_contribution": -673046677935.1038,
+          "half_frame_contribution": -47931291245.62683,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "02"
+        },
+        {
+          "active_contribution": -772049146130.9596,
+          "full_contribution": -1349703171734.3455,
+          "half_frame_contribution": -97197560263.78687,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "11"
+        }
+      ],
+      "degree5_half_frame_total": -163275425149.23624,
+      "prime_modulus": 181
+    },
+    {
+      "all_three_contributors_negative": true,
+      "contributors": [
+        {
+          "active_contribution": -231782380602.048,
+          "full_contribution": -242058055244.5779,
+          "half_frame_contribution": -110753352979.75905,
+          "left_label": "00",
+          "multiplicity": 2,
+          "right_label": "12"
+        },
+        {
+          "active_contribution": -492350930208.6936,
+          "full_contribution": -508125219869.52264,
+          "half_frame_contribution": -238288320273.93228,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "02"
+        },
+        {
+          "active_contribution": -989503339905.8159,
+          "full_contribution": -1020870973349.22,
+          "half_frame_contribution": -479067853231.20593,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "11"
+        }
+      ],
+      "degree5_half_frame_total": -828109526484.8972,
+      "prime_modulus": 191
+    },
+    {
+      "all_three_contributors_negative": true,
+      "contributors": [
+        {
+          "active_contribution": -234340468905.51648,
+          "full_contribution": -236614201028.83612,
+          "half_frame_contribution": -116033368391.09842,
+          "left_label": "00",
+          "multiplicity": 2,
+          "right_label": "12"
+        },
+        {
+          "active_contribution": -491926990597.13184,
+          "full_contribution": -496186965291.12964,
+          "half_frame_contribution": -243833507951.56702,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "02"
+        },
+        {
+          "active_contribution": -987236027117.6057,
+          "full_contribution": -997137126113.1799,
+          "half_frame_contribution": -488667464061.01575,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "11"
+        }
+      ],
+      "degree5_half_frame_total": -848534340403.6812,
+      "prime_modulus": 193
+    },
+    {
+      "all_three_contributors_negative": true,
+      "contributors": [
+        {
+          "active_contribution": -228187882493.188,
+          "full_contribution": -248078468142.8443,
+          "half_frame_contribution": -104148648421.76584,
+          "left_label": "00",
+          "multiplicity": 2,
+          "right_label": "12"
+        },
+        {
+          "active_contribution": -479811992487.8657,
+          "full_contribution": -517957078829.4444,
+          "half_frame_contribution": -220833453073.14352,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "02"
+        },
+        {
+          "active_contribution": -962800493856.9331,
+          "full_contribution": -1040742834044.9453,
+          "half_frame_contribution": -442429076834.46045,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "11"
+        }
+      ],
+      "degree5_half_frame_total": -767411178329.3699,
+      "prime_modulus": 197
+    },
+    {
+      "all_three_contributors_negative": true,
+      "contributors": [
+        {
+          "active_contribution": -403975360462.7613,
+          "full_contribution": -274061326070.7844,
+          "half_frame_contribution": -266944697427.36908,
+          "left_label": "00",
+          "multiplicity": 2,
+          "right_label": "12"
+        },
+        {
+          "active_contribution": -826459522836.0023,
+          "full_contribution": -570055050172.8092,
+          "half_frame_contribution": -541431997749.5977,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "02"
+        },
+        {
+          "active_contribution": -1658139084794.358,
+          "full_contribution": -1144470861209.6653,
+          "half_frame_contribution": -1085903654189.5253,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "11"
+        }
+      ],
+      "degree5_half_frame_total": -1894280349366.4922,
+      "prime_modulus": 199
+    },
+    {
+      "all_three_contributors_negative": true,
+      "contributors": [
+        {
+          "active_contribution": -465010008390.7804,
+          "full_contribution": -473098985648.4342,
+          "half_frame_contribution": -228460515566.5633,
+          "left_label": "00",
+          "multiplicity": 2,
+          "right_label": "12"
+        },
+        {
+          "active_contribution": -943601333144.9636,
+          "full_contribution": -963896763716.3945,
+          "half_frame_contribution": -461652951286.76636,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "02"
+        },
+        {
+          "active_contribution": -1888835462691.5972,
+          "full_contribution": -1929505657385.973,
+          "half_frame_contribution": -924082633998.6107,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "11"
+        }
+      ],
+      "degree5_half_frame_total": -1614196100851.9404,
+      "prime_modulus": 211
+    },
+    {
+      "all_three_contributors_negative": true,
+      "contributors": [
+        {
+          "active_contribution": -1062378529681.875,
+          "full_contribution": -968102762939.5934,
+          "half_frame_contribution": -578327148212.0784,
+          "left_label": "00",
+          "multiplicity": 2,
+          "right_label": "12"
+        },
+        {
+          "active_contribution": -2156833210607.1038,
+          "full_contribution": -1968918785090.6697,
+          "half_frame_contribution": -1172373818061.769,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "02"
+        },
+        {
+          "active_contribution": -4322660574190.0044,
+          "full_contribution": -3944439656146.8027,
+          "half_frame_contribution": -2350440746116.603,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "11"
+        }
+      ],
+      "degree5_half_frame_total": -4101141712390.45,
+      "prime_modulus": 223
+    },
+    {
+      "all_three_contributors_negative": true,
+      "contributors": [
+        {
+          "active_contribution": -1658102471886.765,
+          "full_contribution": -1168639255286.146,
+          "half_frame_contribution": -1073782844243.6919,
+          "left_label": "00",
+          "multiplicity": 2,
+          "right_label": "12"
+        },
+        {
+          "active_contribution": -3349419103952.4136,
+          "full_contribution": -2375330592130.245,
+          "half_frame_contribution": -2161753807887.291,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "02"
+        },
+        {
+          "active_contribution": -6708625080135.564,
+          "full_contribution": -4759923616668.565,
+          "half_frame_contribution": -4328663271801.2817,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "11"
+        }
+      ],
+      "degree5_half_frame_total": -7564199923932.265,
+      "prime_modulus": 227
+    },
+    {
+      "all_three_contributors_negative": true,
+      "contributors": [
+        {
+          "active_contribution": -1300146626938.059,
+          "full_contribution": -1262296358566.2449,
+          "half_frame_contribution": -668998447654.9366,
+          "left_label": "00",
+          "multiplicity": 2,
+          "right_label": "12"
+        },
+        {
+          "active_contribution": -2642960700695.655,
+          "full_contribution": -2565663006746.9043,
+          "half_frame_contribution": -1360129197322.2026,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "02"
+        },
+        {
+          "active_contribution": -5297343154378.716,
+          "full_contribution": -5141870811779.109,
+          "half_frame_contribution": -2726407748489.161,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "11"
+        }
+      ],
+      "degree5_half_frame_total": -4755535393466.301,
+      "prime_modulus": 229
+    },
+    {
+      "all_three_contributors_negative": true,
+      "contributors": [
+        {
+          "active_contribution": -1618588468804.5432,
+          "full_contribution": -1462549242713.7512,
+          "half_frame_contribution": -887313847447.6676,
+          "left_label": "00",
+          "multiplicity": 2,
+          "right_label": "12"
+        },
+        {
+          "active_contribution": -3287551176616.905,
+          "full_contribution": -2972856691148.391,
+          "half_frame_contribution": -1801122831042.7092,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "02"
+        },
+        {
+          "active_contribution": -6588240743083.015,
+          "full_contribution": -5958343835127.693,
+          "half_frame_contribution": -3609068825519.168,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "11"
+        }
+      ],
+      "degree5_half_frame_total": -6297505504009.545,
+      "prime_modulus": 233
+    },
+    {
+      "all_three_contributors_negative": true,
+      "contributors": [
+        {
+          "active_contribution": -1970906138447.3462,
+          "full_contribution": -1692788541543.1172,
+          "half_frame_contribution": -1124511867675.7876,
+          "left_label": "00",
+          "multiplicity": 2,
+          "right_label": "12"
+        },
+        {
+          "active_contribution": -3999436459208.39,
+          "full_contribution": -3442711896182.0693,
+          "half_frame_contribution": -2278080511117.3555,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "02"
+        },
+        {
+          "active_contribution": -8008288833369.077,
+          "full_contribution": -6897875321700.781,
+          "half_frame_contribution": -4559351172518.687,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "11"
+        }
+      ],
+      "degree5_half_frame_total": -7961943551311.83,
+      "prime_modulus": 239
+    },
+    {
+      "all_three_contributors_negative": true,
+      "contributors": [
+        {
+          "active_contribution": -2389792657941.026,
+          "full_contribution": -1742096087018.1997,
+          "half_frame_contribution": -1518744614431.926,
+          "left_label": "00",
+          "multiplicity": 2,
+          "right_label": "12"
+        },
+        {
+          "active_contribution": -4836825550698.985,
+          "full_contribution": -3543455524095.4683,
+          "half_frame_contribution": -3065097788651.251,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "02"
+        },
+        {
+          "active_contribution": -9687803174253.139,
+          "full_contribution": -7099145289735.1455,
+          "half_frame_contribution": -6138230529385.566,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "11"
+        }
+      ],
+      "degree5_half_frame_total": -10722072932468.744,
+      "prime_modulus": 241
+    },
+    {
+      "all_three_contributors_negative": true,
+      "contributors": [
+        {
+          "active_contribution": -2405030366018.5146,
+          "full_contribution": -1890747218038.0564,
+          "half_frame_contribution": -1459656756999.4863,
+          "left_label": "00",
+          "multiplicity": 2,
+          "right_label": "12"
+        },
+        {
+          "active_contribution": -4858752446802.938,
+          "full_contribution": -3837174684157.172,
+          "half_frame_contribution": -2940165104724.3525,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "02"
+        },
+        {
+          "active_contribution": -9725391673324.291,
+          "full_contribution": -7683047660037.64,
+          "half_frame_contribution": -5883867843305.471,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "11"
+        }
+      ],
+      "degree5_half_frame_total": -10283689705029.309,
+      "prime_modulus": 251
+    },
+    {
+      "all_three_contributors_negative": true,
+      "contributors": [
+        {
+          "active_contribution": -1538971515725.1777,
+          "full_contribution": -1991209155097.2734,
+          "half_frame_contribution": -543366938176.541,
+          "left_label": "00",
+          "multiplicity": 2,
+          "right_label": "12"
+        },
+        {
+          "active_contribution": -3128303508105.6025,
+          "full_contribution": -4029845134356.9346,
+          "half_frame_contribution": -1113380940927.1353,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "02"
+        },
+        {
+          "active_contribution": -6254807847399.833,
+          "full_contribution": -8065055359531.847,
+          "half_frame_contribution": -2222280167633.9097,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "11"
+        }
+      ],
+      "degree5_half_frame_total": -3879028046737.586,
+      "prime_modulus": 257
+    },
+    {
+      "all_three_contributors_negative": true,
+      "contributors": [
+        {
+          "active_contribution": -1843423959025.674,
+          "full_contribution": -2035924598256.5361,
+          "half_frame_contribution": -825461659897.406,
+          "left_label": "00",
+          "multiplicity": 2,
+          "right_label": "12"
+        },
+        {
+          "active_contribution": -3720153348207.384,
+          "full_contribution": -4111726007976.0596,
+          "half_frame_contribution": -1664290344219.354,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "02"
+        },
+        {
+          "active_contribution": -7448363618989.725,
+          "full_contribution": -8225641506702.192,
+          "half_frame_contribution": -3335542865638.6284,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "11"
+        }
+      ],
+      "degree5_half_frame_total": -5825294869755.389,
+      "prime_modulus": 263
+    },
+    {
+      "all_three_contributors_negative": true,
+      "contributors": [
+        {
+          "active_contribution": -2096245750027.1394,
+          "full_contribution": -1991316484346.0684,
+          "half_frame_contribution": -1100587507854.1052,
+          "left_label": "00",
+          "multiplicity": 2,
+          "right_label": "12"
+        },
+        {
+          "active_contribution": -4217766038517.333,
+          "full_contribution": -4014998301179.9233,
+          "half_frame_contribution": -2210266887927.371,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "02"
+        },
+        {
+          "active_contribution": -8433453421606.9375,
+          "full_contribution": -8029793323372.138,
+          "half_frame_contribution": -4418556759920.869,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "11"
+        }
+      ],
+      "degree5_half_frame_total": -7729411155702.346,
+      "prime_modulus": 269
+    },
+    {
+      "all_three_contributors_negative": true,
+      "contributors": [
+        {
+          "active_contribution": -1991145723904.545,
+          "full_contribution": -1960780156063.5261,
+          "half_frame_contribution": -1010755645872.7819,
+          "left_label": "00",
+          "multiplicity": 2,
+          "right_label": "12"
+        },
+        {
+          "active_contribution": -4017018995203.0786,
+          "full_contribution": -3950946755747.5513,
+          "half_frame_contribution": -2041545617329.303,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "02"
+        },
+        {
+          "active_contribution": -8036758267901.732,
+          "full_contribution": -7901040031366.293,
+          "half_frame_contribution": -4086238252218.586,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "11"
+        }
+      ],
+      "degree5_half_frame_total": -7138539515420.671,
+      "prime_modulus": 271
+    },
+    {
+      "all_three_contributors_negative": true,
+      "contributors": [
+        {
+          "active_contribution": -1909293636907.287,
+          "full_contribution": -1795450482437.419,
+          "half_frame_contribution": -1011568395688.5776,
+          "left_label": "00",
+          "multiplicity": 2,
+          "right_label": "12"
+        },
+        {
+          "active_contribution": -3840622247038.148,
+          "full_contribution": -3614623768322.5215,
+          "half_frame_contribution": -2033310362876.8872,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "02"
+        },
+        {
+          "active_contribution": -7681769779186.194,
+          "full_contribution": -7227403087960.68,
+          "half_frame_contribution": -4068068235205.8545,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "11"
+        }
+      ],
+      "degree5_half_frame_total": -7112946993771.319,
+      "prime_modulus": 277
+    },
+    {
+      "all_three_contributors_negative": true,
+      "contributors": [
+        {
+          "active_contribution": -1751893225909.9048,
+          "full_contribution": -1588880271576.6187,
+          "half_frame_contribution": -957453090121.5955,
+          "left_label": "00",
+          "multiplicity": 2,
+          "right_label": "12"
+        },
+        {
+          "active_contribution": -3523912573129.5815,
+          "full_contribution": -3203786159569.1025,
+          "half_frame_contribution": -1922019493345.0303,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "02"
+        },
+        {
+          "active_contribution": -7043205572672.124,
+          "full_contribution": -6405653232815.827,
+          "half_frame_contribution": -3840378956264.2104,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "11"
+        }
+      ],
+      "degree5_half_frame_total": -6719851539730.836,
+      "prime_modulus": 281
+    },
+    {
+      "all_three_contributors_negative": true,
+      "contributors": [
+        {
+          "active_contribution": -1530799427286.5806,
+          "full_contribution": -1473014723202.63,
+          "half_frame_contribution": -794292065685.2656,
+          "left_label": "00",
+          "multiplicity": 2,
+          "right_label": "12"
+        },
+        {
+          "active_contribution": -3089699367270.502,
+          "full_contribution": -2972837515933.9688,
+          "half_frame_contribution": -1603280609303.5176,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "02"
+        },
+        {
+          "active_contribution": -6177848302598.407,
+          "full_contribution": -5943810328708.61,
+          "half_frame_contribution": -3205943138244.102,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "11"
+        }
+      ],
+      "degree5_half_frame_total": -5603515813232.885,
+      "prime_modulus": 283
+    },
+    {
+      "all_three_contributors_negative": true,
+      "contributors": [
+        {
+          "active_contribution": -1161490809786.4316,
+          "full_contribution": -1097059342640.3677,
+          "half_frame_contribution": -612961138466.2478,
+          "left_label": "00",
+          "multiplicity": 2,
+          "right_label": "12"
+        },
+        {
+          "active_contribution": -2336925723973.8643,
+          "full_contribution": -2209348487382.148,
+          "half_frame_contribution": -1232251480282.7903,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "02"
+        },
+        {
+          "active_contribution": -4668071091680.591,
+          "full_contribution": -4415900536270.685,
+          "half_frame_contribution": -2460120823545.2485,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "11"
+        }
+      ],
+      "degree5_half_frame_total": -4305333442294.2866,
+      "prime_modulus": 293
+    },
+    {
+      "all_three_contributors_negative": true,
+      "contributors": [
+        {
+          "active_contribution": -750980231880.6318,
+          "full_contribution": -835133809988.914,
+          "half_frame_contribution": -333413326886.17487,
+          "left_label": "00",
+          "multiplicity": 2,
+          "right_label": "12"
+        },
+        {
+          "active_contribution": -1508790278336.094,
+          "full_contribution": -1678410969371.313,
+          "half_frame_contribution": -669584793650.4375,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "02"
+        },
+        {
+          "active_contribution": -3015895153265.8726,
+          "full_contribution": -3355130649722.4634,
+          "half_frame_contribution": -1338329828404.6409,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "11"
+        }
+      ],
+      "degree5_half_frame_total": -2341327948941.2534,
+      "prime_modulus": 307
+    },
+    {
+      "all_three_contributors_negative": true,
+      "contributors": [
+        {
+          "active_contribution": -1040831390752.4515,
+          "full_contribution": -848553471229.0638,
+          "half_frame_contribution": -616554655137.9197,
+          "left_label": "00",
+          "multiplicity": 2,
+          "right_label": "12"
+        },
+        {
+          "active_contribution": -2090833383590.2227,
+          "full_contribution": -1705115549237.1296,
+          "half_frame_contribution": -1238275608971.6577,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "02"
+        },
+        {
+          "active_contribution": -4176604078857.7026,
+          "full_contribution": -3406497942747.2593,
+          "half_frame_contribution": -2473355107484.073,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "11"
+        }
+      ],
+      "degree5_half_frame_total": -4328185371593.6504,
+      "prime_modulus": 311
+    },
+    {
+      "all_three_contributors_negative": true,
+      "contributors": [
+        {
+          "active_contribution": -626304067719.3453,
+          "full_contribution": -903744477974.1671,
+          "half_frame_contribution": -174431828732.26178,
+          "left_label": "00",
+          "multiplicity": 2,
+          "right_label": "12"
+        },
+        {
+          "active_contribution": -1259428706139.06,
+          "full_contribution": -1816846049553.089,
+          "half_frame_contribution": -351005681362.5155,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "02"
+        },
+        {
+          "active_contribution": -2516635207822.746,
+          "full_contribution": -3627805929693.6626,
+          "half_frame_contribution": -702732242975.9148,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "11"
+        }
+      ],
+      "degree5_half_frame_total": -1228169753070.6921,
+      "prime_modulus": 313
+    },
+    {
+      "all_three_contributors_negative": true,
+      "contributors": [
+        {
+          "active_contribution": -791468840050.0011,
+          "full_contribution": -1000703036606.3627,
+          "half_frame_contribution": -291117321746.81976,
+          "left_label": "00",
+          "multiplicity": 2,
+          "right_label": "12"
+        },
+        {
+          "active_contribution": -1594629627223.5156,
+          "full_contribution": -2013274637603.6824,
+          "half_frame_contribution": -587992308421.6744,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "02"
+        },
+        {
+          "active_contribution": -3181548493368.9297,
+          "full_contribution": -4016678043348.239,
+          "half_frame_contribution": -1173209471694.8103,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "11"
+        }
+      ],
+      "degree5_half_frame_total": -2052319101863.3044,
+      "prime_modulus": 317
+    },
+    {
+      "all_three_contributors_negative": true,
+      "contributors": [
+        {
+          "active_contribution": -1534313041040.2964,
+          "full_contribution": -1442690044103.4705,
+          "half_frame_contribution": -812968018988.5612,
+          "left_label": "00",
+          "multiplicity": 2,
+          "right_label": "12"
+        },
+        {
+          "active_contribution": -3086023311186.029,
+          "full_contribution": -2904093740415.3076,
+          "half_frame_contribution": -1633976440978.375,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "02"
+        },
+        {
+          "active_contribution": -6154557369309.417,
+          "full_contribution": -5794397475108.567,
+          "half_frame_contribution": -3257358631755.1333,
+          "left_label": "01",
+          "multiplicity": 2,
+          "right_label": "11"
+        }
+      ],
+      "degree5_half_frame_total": -5704303091722.069,
+      "prime_modulus": 331
+    }
+  ],
+  "primewise_sign_theorem_proved": false,
+  "q286_reactivated": false,
+  "question": "In the weak M=167 block, is the degree-5 burden hidden in an aggregate prime-block cancellation, or does each prime already push the three active/full Gram entries in the adverse direction?",
+  "robust_margin_universal_theorem_proved": false,
+  "row_count": 35,
+  "scale_modulus": 167,
+  "signed_prime_correlation_proved": false,
+  "source_degree5_burden_audit": "evidence\\mobius-moment-square-degree5-burden-audit.json",
+  "status": "CHECK_degree5_primewise_sign_localization",
+  "uniform_active_full_lower_frame_proved": false,
+  "universal_sturm_certificate_theorem_proved": false
+}
