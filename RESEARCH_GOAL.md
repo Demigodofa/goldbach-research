@@ -6,6 +6,37 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The q286-WBSS route now has a zero-residue directional-slack audit:
+`tools/build_q286_wbss_k286_zero_residue_directional_slack_audit.py`
+generated
+`evidence/q286-wbss-k286-zero-residue-directional-slack-audit.json`, with
+explanation in
+`notes/q286-wbss-k286-zero-residue-directional-slack-audit.md`.
+
+Question: after plain aggregate active-character `L2` failed as the bridge, is
+the finite zero-lane survival explained by directional slack between the Cauchy
+`L2` threat and the actual adverse coefficient direction?
+
+Answer: yes as a finite diagnostic, not as a theorem.  On the `18` rows that
+violate the local aggregate `L2` cap, the Cauchy threat ratio averages
+`1.1189916481072606`, but the actual raw adverse ratio averages only
+`0.06125731999751208`, for mean directional efficiency
+`0.05468085899942172`.  The largest L2-threat row is target `1171456`, residue
+`286 mod 10010`, with Cauchy threat ratio `1.354153874306624` but actual raw
+adverse ratio `0.024989313695990587`, so its directional efficiency is only
+`0.018453821364123796`.
+
+Decision: `DIAGNOSTIC_zero_residue_directional_slack_observed`.  The next
+theorem-shaped target is a coefficient-direction nonalignment estimate or a
+direct raw witness theorem, not another aggregate norm budget.  A proof still
+needs a universal, pointwise, unnormalized analytical estimate showing adverse
+drag below local main for every sufficiently large `N`.  No coefficient-
+direction nonalignment theorem, signed/phase-aware theorem, universal
+pointwise raw estimate, q286 threshold theorem, strict-central Goldbach
+theorem, or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-16
+
 The q286-WBSS route now has a zero-residue observed character-moment audit:
 `tools/build_q286_wbss_k286_zero_residue_observed_character_moment_audit.py`
 generated

@@ -6,6 +6,45 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The q286-WBSS route now has a zero-residue directional-slack audit:
+
+```text
+tools/build_q286_wbss_k286_zero_residue_directional_slack_audit.py
+notes/q286-wbss-k286-zero-residue-directional-slack-audit.md
+evidence/q286-wbss-k286-zero-residue-directional-slack-audit.json
+```
+
+Question: after plain aggregate active-character `L2` failed as the bridge, is
+the finite zero-lane survival explained by directional slack between the Cauchy
+`L2` threat and the actual adverse coefficient direction?
+
+Result:
+
+```text
+finite zero-lane rows:                      70
+local aggregate L2 cap violations:          18 / 70
+raw adverse gate positive rows:             70 / 70
+violating-row Cauchy threat mean:            1.1189916481072606
+violating-row raw adverse mean:              0.06125731999751208
+violating-row directional efficiency mean:   0.05468085899942172
+largest L2-threat target:                    1171456
+largest L2-threat residue:                   286 mod 10010
+largest L2-threat ratio:                     1.354153874306624
+largest L2-threat actual adverse ratio:      0.024989313695990587
+largest L2-threat directional efficiency:    0.018453821364123796
+```
+
+Decision: `DIAGNOSTIC_zero_residue_directional_slack_observed`.  The next
+theorem-shaped target is a coefficient-direction nonalignment estimate or a
+direct raw witness theorem, not another aggregate norm budget.  A proof still
+needs a universal, pointwise, unnormalized analytical estimate showing adverse
+drag below local main for every sufficiently large `N`.  No coefficient-
+direction nonalignment theorem, signed/phase-aware theorem, universal
+pointwise raw estimate, q286 threshold theorem, strict-central Goldbach
+theorem, or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-16
+
 The q286-WBSS route now has a zero-residue observed character-moment audit:
 
 ```text
