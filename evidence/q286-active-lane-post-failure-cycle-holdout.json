@@ -1,0 +1,332 @@
+{
+  "active_lane_theorem_proved": false,
+  "active_selector_count": 1,
+  "active_selector_validation": {
+    "maximum_first_three_delta": 1.1102230246251565e-16,
+    "maximum_first_two_delta": 1.1102230246251565e-16,
+    "maximum_full_delta": 1.1102230246251565e-16,
+    "rows": [
+      {
+        "direct_first_three_modes_to_principal_ratio": -0.33872363964153773,
+        "direct_first_two_modes_to_principal_ratio": -0.3407986748203169,
+        "direct_full_action_to_principal_ratio": 0.850347883440006,
+        "first_three_delta": 1.1102230246251565e-16,
+        "first_two_delta": 1.1102230246251565e-16,
+        "full_delta": 1.1102230246251565e-16,
+        "target": 650476
+      }
+    ],
+    "validated_target_count": 1
+  },
+  "active_targets": [
+    650476
+  ],
+  "active_targets_already_in_source_summary": [
+    650476
+  ],
+  "active_targets_not_in_source_summary": [],
+  "all_active_targets_have_positive_strict_margin": true,
+  "calibrated_constants": {
+    "channel_bound": 0.05885324711081062,
+    "channel_l1_to_principal": 15.262957606760978,
+    "driver_floor": -0.10172538432746947
+  },
+  "calibration_targets": [
+    14138,
+    1222142,
+    1323632,
+    1379072
+  ],
+  "candidate": {
+    "falsifier": "Any active-selector row in either predeclared cycle with nonpositive strict coupled slack falsifies the finite post-failure pass candidate.",
+    "mechanism": "Use a full q286 denominator cycle immediately after the largest source-summary failure, plus a full cycle after the source-summary maximum, to separate phase evidence from active-selector rarity.",
+    "name": "post-failure full-cycle active-lane holdout",
+    "novelty_label": "new-to-this-task",
+    "prediction": "If the phase suffix is real, active rows after 647392 should not reintroduce nonpositive frozen coupled slack.  If the later cycle is zero-hit, the evidence points more toward active-selector rarity than to a robust closure-margin theorem.",
+    "smallest_test": "Fast-scan the two full cycles, direct-validate every active hit, and run the frozen component-pair identity only on the active hits."
+  },
+  "closure_rows": [
+    {
+      "active_selector": true,
+      "channel_margin_contribution_to_strict_closure": 0.35037194097924085,
+      "channel_margin_to_calibrated_linf_bound": 0.02295570426167192,
+      "combined_floor_driver_to_principal_ratio": -0.055505112040024285,
+      "complement_to_principal_ratio": 1.1890715230815436,
+      "driver_margin_to_calibrated_floor": 0.046220272287445185,
+      "first_three_modes_to_principal_ratio": -0.3387236396415376,
+      "first_three_tail": true,
+      "first_two_active": true,
+      "first_two_modes_to_principal_ratio": -0.3407986748203168,
+      "full_action_to_principal_ratio": 0.8503478834400059,
+      "maximum_normalized_real_channel_sum": 0.0358975428491387,
+      "passed_predicates": [
+        "first_two_active",
+        "first_three_tail",
+        "complement_positive",
+        "complement_floor",
+        "full_positive"
+      ],
+      "positive_by_reconstructed_identity": true,
+      "small_support_to_principal_ratio": -0.0905783927975337,
+      "strict_closure_margin_positive": true,
+      "strict_closure_margin_to_calibrated_endpoint": 0.39659221326668603,
+      "target": 650476,
+      "target_mod_13": 8,
+      "target_mod_143": 112,
+      "target_mod_286": 112,
+      "window_name": "first_full_cycle_after_largest_source_failure"
+    }
+  ],
+  "component_pair": [
+    [
+      5,
+      7
+    ],
+    [
+      7,
+      11
+    ]
+  ],
+  "decision": "The first full cycle after the largest source-summary failure contains exactly one active-selector row, target 650476, and it has positive frozen coupled slack.  The first full cycle after the source-summary maximum contains zero active-selector rows.  This gives no fresh nonpositive strict-slack falsifier, but the genuinely later cycle is support-starved, so the result supports active-selector rarity as the next theorem obligation more than a phase-transition closure theorem.",
+  "first_three_tail_count": 1,
+  "generated_from_commit": "a21a57cf4e6211ce2beca6754bd88b4efba88544",
+  "goldbach_proved": false,
+  "maximum_target": 965842,
+  "nonpositive_strict_margin_targets": [],
+  "phase_transition_theorem_proved": false,
+  "pointwise_adverse_drag_theorem_proved": false,
+  "positive_strict_margin_targets": [
+    650476
+  ],
+  "predeclared_windows": {
+    "largest_source_summary_failure_target": 647392,
+    "largest_source_summary_target": 955832,
+    "targets_per_full_q286_cycle": 5005,
+    "windows": {
+      "first_full_cycle_after_largest_source_failure": 647394,
+      "first_full_cycle_after_source_summary_maximum": 955834
+    }
+  },
+  "receipt": "q286-active-lane-post-failure-cycle-holdout",
+  "scanned_target_count": 10010,
+  "schema_version": 1,
+  "selector": {
+    "first_three_modes_to_principal_ratio": "< -0.3",
+    "first_two_modes_to_principal_ratio": "< -0.2"
+  },
+  "setup_seconds": 23.0839902000007,
+  "sources": {
+    "closure_function": "q286_lower_support_component_pair_action_identity_receipt",
+    "fast_selector": "tools.build_q286_prime_indexed_row_filter_order_audit.optimized_filter_row",
+    "source_summary_commit": "fd7638d3b6d1922158ab5b4419cba170956b5830",
+    "source_summary_coupled_slack": "evidence\\q286-active-lane-source-summary-coupled-slack-audit.json"
+  },
+  "status_boundary": "Finite predeclared cycle audit only.  Target 650476 was already present in the source-summary suffix; the later full cycle adds zero-hit denominator evidence, not a new strict-slack row.  This proves no phase transition theorem, active-lane theorem, pointwise adverse-drag theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof.",
+  "strict_margin_summary": {
+    "count": 1,
+    "maximum": 0.39659221326668603,
+    "mean": 0.39659221326668603,
+    "minimum": 0.39659221326668603
+  },
+  "window_summaries": [
+    {
+      "active_rows": [
+        {
+          "active_selector": true,
+          "complement_to_principal_ratio": 1.1890715230815436,
+          "first_three_modes_to_principal_ratio": -0.3387236396415376,
+          "first_three_tail": true,
+          "first_two_active": true,
+          "first_two_modes_to_principal_ratio": -0.3407986748203168,
+          "full_action_to_principal_ratio": 0.8503478834400059,
+          "passed_predicates": [
+            "first_two_active",
+            "first_three_tail",
+            "complement_positive",
+            "complement_floor",
+            "full_positive"
+          ],
+          "small_support_to_principal_ratio": -0.0905783927975337,
+          "target": 650476,
+          "target_mod_13": 8,
+          "target_mod_143": 112,
+          "target_mod_286": 112,
+          "window_name": "first_full_cycle_after_largest_source_failure"
+        }
+      ],
+      "active_selector_count": 1,
+      "active_targets": [
+        650476
+      ],
+      "end": 657402,
+      "first_three_tail_count": 1,
+      "first_three_tail_rows": [
+        {
+          "active_selector": true,
+          "complement_to_principal_ratio": 1.1890715230815436,
+          "first_three_modes_to_principal_ratio": -0.3387236396415376,
+          "first_three_tail": true,
+          "first_two_active": true,
+          "first_two_modes_to_principal_ratio": -0.3407986748203168,
+          "full_action_to_principal_ratio": 0.8503478834400059,
+          "passed_predicates": [
+            "first_two_active",
+            "first_three_tail",
+            "complement_positive",
+            "complement_floor",
+            "full_positive"
+          ],
+          "small_support_to_principal_ratio": -0.0905783927975337,
+          "target": 650476,
+          "target_mod_13": 8,
+          "target_mod_143": 112,
+          "target_mod_286": 112,
+          "window_name": "first_full_cycle_after_largest_source_failure"
+        }
+      ],
+      "minimum_first_three_row": {
+        "active_selector": true,
+        "complement_to_principal_ratio": 1.1890715230815436,
+        "first_three_modes_to_principal_ratio": -0.3387236396415376,
+        "first_three_tail": true,
+        "first_two_active": true,
+        "first_two_modes_to_principal_ratio": -0.3407986748203168,
+        "full_action_to_principal_ratio": 0.8503478834400059,
+        "passed_predicates": [
+          "first_two_active",
+          "first_three_tail",
+          "complement_positive",
+          "complement_floor",
+          "full_positive"
+        ],
+        "small_support_to_principal_ratio": -0.0905783927975337,
+        "target": 650476,
+        "target_mod_13": 8,
+        "target_mod_143": 112,
+        "target_mod_286": 112,
+        "window_name": "first_full_cycle_after_largest_source_failure"
+      },
+      "minimum_first_two_row": {
+        "active_selector": true,
+        "complement_to_principal_ratio": 1.1890715230815436,
+        "first_three_modes_to_principal_ratio": -0.3387236396415376,
+        "first_three_tail": true,
+        "first_two_active": true,
+        "first_two_modes_to_principal_ratio": -0.3407986748203168,
+        "full_action_to_principal_ratio": 0.8503478834400059,
+        "passed_predicates": [
+          "first_two_active",
+          "first_three_tail",
+          "complement_positive",
+          "complement_floor",
+          "full_positive"
+        ],
+        "small_support_to_principal_ratio": -0.0905783927975337,
+        "target": 650476,
+        "target_mod_13": 8,
+        "target_mod_143": 112,
+        "target_mod_286": 112,
+        "window_name": "first_full_cycle_after_largest_source_failure"
+      },
+      "minimum_full_row": {
+        "active_selector": false,
+        "complement_to_principal_ratio": 0.6009721047907454,
+        "first_three_modes_to_principal_ratio": -0.23608103677401893,
+        "first_three_tail": false,
+        "first_two_active": true,
+        "first_two_modes_to_principal_ratio": -0.21672653638365114,
+        "full_action_to_principal_ratio": 0.36489106801672644,
+        "passed_predicates": [
+          "first_two_active",
+          "complement_positive",
+          "complement_floor",
+          "full_positive"
+        ],
+        "small_support_to_principal_ratio": -0.09473911222649628,
+        "target": 655066,
+        "target_mod_13": 9,
+        "target_mod_143": 126,
+        "target_mod_286": 126,
+        "window_name": "first_full_cycle_after_largest_source_failure"
+      },
+      "name": "first_full_cycle_after_largest_source_failure",
+      "scanned_target_count": 5005,
+      "seconds": 6.749056100001326,
+      "start": 647394
+    },
+    {
+      "active_rows": [],
+      "active_selector_count": 0,
+      "active_targets": [],
+      "end": 965842,
+      "first_three_tail_count": 0,
+      "first_three_tail_rows": [],
+      "minimum_first_three_row": {
+        "active_selector": false,
+        "complement_to_principal_ratio": 1.1684289580196412,
+        "first_three_modes_to_principal_ratio": -0.26659716030658176,
+        "first_three_tail": false,
+        "first_two_active": true,
+        "first_two_modes_to_principal_ratio": -0.2655781770827934,
+        "full_action_to_principal_ratio": 0.9018317977130594,
+        "passed_predicates": [
+          "first_two_active",
+          "complement_positive",
+          "complement_floor",
+          "full_positive"
+        ],
+        "small_support_to_principal_ratio": 0.043409487936546906,
+        "target": 957722,
+        "target_mod_13": 12,
+        "target_mod_143": 51,
+        "target_mod_286": 194,
+        "window_name": "first_full_cycle_after_source_summary_maximum"
+      },
+      "minimum_first_two_row": {
+        "active_selector": false,
+        "complement_to_principal_ratio": 1.1684289580196412,
+        "first_three_modes_to_principal_ratio": -0.26659716030658176,
+        "first_three_tail": false,
+        "first_two_active": true,
+        "first_two_modes_to_principal_ratio": -0.2655781770827934,
+        "full_action_to_principal_ratio": 0.9018317977130594,
+        "passed_predicates": [
+          "first_two_active",
+          "complement_positive",
+          "complement_floor",
+          "full_positive"
+        ],
+        "small_support_to_principal_ratio": 0.043409487936546906,
+        "target": 957722,
+        "target_mod_13": 12,
+        "target_mod_143": 51,
+        "target_mod_286": 194,
+        "window_name": "first_full_cycle_after_source_summary_maximum"
+      },
+      "minimum_full_row": {
+        "active_selector": false,
+        "complement_to_principal_ratio": 0.4989682087355831,
+        "first_three_modes_to_principal_ratio": -0.004334252126775469,
+        "first_three_tail": false,
+        "first_two_active": false,
+        "first_two_modes_to_principal_ratio": -0.002550433415273827,
+        "full_action_to_principal_ratio": 0.49463395660880766,
+        "passed_predicates": [
+          "complement_positive",
+          "complement_floor",
+          "full_positive"
+        ],
+        "small_support_to_principal_ratio": -0.14560922970563195,
+        "target": 956836,
+        "target_mod_13": 10,
+        "target_mod_143": 23,
+        "target_mod_286": 166,
+        "window_name": "first_full_cycle_after_source_summary_maximum"
+      },
+      "name": "first_full_cycle_after_source_summary_maximum",
+      "scanned_target_count": 5005,
+      "seconds": 8.583292700001039,
+      "start": 955834
+    }
+  ]
+}

@@ -6,6 +6,41 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 component-pair route now has a predeclared post-failure full-cycle
+holdout:
+`tools/build_q286_active_lane_post_failure_cycle_holdout.py` generated
+`evidence/q286-active-lane-post-failure-cycle-holdout.json`, with explanation
+in `notes/q286-active-lane-post-failure-cycle-holdout.md`.
+
+Question: after the largest source-summary coupled-slack failure at `647392`,
+do full q286 denominator cycles produce active-selector rows that reintroduce
+nonpositive frozen coupled slack?
+
+Answer: the first full post-failure cycle has exactly one active-selector row,
+target `650476`, and it has positive frozen coupled slack.  The first full
+cycle after the source-summary maximum `955832` has zero active-selector rows.
+
+```text
+scanned targets:                    10010
+first-three tail rows:                  1
+active-selector rows:                   1
+active target:                     650476
+strict coupled-slack margin:       0.39659221326668603
+later full-cycle active rows:           0
+```
+
+Decision:
+`HOLD_post_failure_cycle_supports_rarity_not_phase_theorem`.  The audit gives
+no fresh nonpositive strict-slack falsifier, but its only active row was
+already present in the source-summary suffix, while the genuinely later cycle
+is support-starved.  This points the theorem-shaped next step toward
+active-selector rarity or a direct non-circular pointwise estimate, not toward
+accepting a finite phase transition theorem.  No phase transition theorem,
+active-lane theorem, pointwise adverse-drag theorem, q286 threshold theorem,
+strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 component-pair route now has a phase/sparsity audit derived from the
 source-summary coupled-slack receipt:
 `tools/build_q286_active_lane_phase_sparsity_audit.py` generated

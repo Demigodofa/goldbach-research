@@ -6,6 +6,39 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 component-pair route now has a post-failure full-cycle holdout:
+
+```text
+tools/build_q286_active_lane_post_failure_cycle_holdout.py
+notes/q286-active-lane-post-failure-cycle-holdout.md
+evidence/q286-active-lane-post-failure-cycle-holdout.json
+```
+
+Result:
+
+```text
+scanned targets:                    10010
+first-three tail rows:                  1
+active-selector rows:                   1
+active target:                     650476
+strict coupled-slack margin:       0.39659221326668603
+later full-cycle active rows:           0
+```
+
+Decision:
+`HOLD_post_failure_cycle_supports_rarity_not_phase_theorem`.  The first full
+q286 cycle after the largest source-summary failure contains one active row,
+`650476`, and it survives the frozen coupled-slack scalar.  The first full
+cycle after the source-summary maximum is support-starved.  Because `650476`
+was already present in the sparse source-summary suffix, this is not a fresh
+strict-slack row; it is stronger denominator evidence that the next theorem
+obligation is active-selector rarity or a direct non-circular pointwise
+estimate.  This proves no phase transition theorem, active-lane theorem,
+pointwise adverse-drag theorem, q286 threshold theorem, strict-central
+Goldbach theorem, or Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 component-pair route now has a phase/sparsity audit derived from the
 source-summary coupled-slack receipt.
 
