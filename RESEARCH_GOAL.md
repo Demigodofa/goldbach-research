@@ -6,6 +6,36 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The `Q=46189` replacement-family lane now has a kernel-envelope obstruction
+audit:
+`tools/build_mobius_moment_square_degree5_q46189_kernel_envelope_obstruction_audit.py`
+generated
+`evidence/mobius-moment-square-degree5-q46189-kernel-envelope-obstruction-audit.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-q46189-kernel-envelope-obstruction-audit.md`.
+
+Question: could the finite nonadverse bound
+`off_diagonal_total / diagonal_half > -1` be proved by independent
+per-bucket or per-ranked-gap lower bounds?
+
+Answer: no, not in that simple disconnected form.  The true checked
+same-row nonadverse minimum is `q=38038` at `-0.8472931845861708`, safely
+above `-1`.  But if each distance bucket is allowed to contribute its own
+separately worst observed value, the disconnected bucket envelope sums to
+`-1.8966400770509377`.  The disconnected top-negative rank envelope also
+falls below the target, summing to `-1.4111403765125132`.  The worst bucket
+contributors occur on different denominators: `21318`, `38038`, `67830`,
+and `19019`.
+
+Decision: independent component caps are too weak.  The active theorem-shaped
+target must use co-occurrence, factor geometry, or another structured
+correlation controlling which bad buckets or gap ranks can happen together
+inside one packet.  This proves no simple bucket bound theorem, simple rank
+bound theorem, co-occurrence kernel bound theorem, coordinate-`00` residue-gap
+sign theorem, strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The `Q=46189` replacement-family lane now has a packet-kernel sign landscape
 audit:
 `tools/build_mobius_moment_square_degree5_q46189_packet_kernel_sign_landscape_audit.py`

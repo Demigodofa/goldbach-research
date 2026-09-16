@@ -1,0 +1,217 @@
+{
+  "bucket_componentwise_envelope": {
+    "bucket_count": 4,
+    "disconnected_worst_sum": -1.8966400770509377,
+    "rows": [
+      {
+        "bucket": "near_1_to_A",
+        "distance_range": [
+          1,
+          43
+        ],
+        "worst_contribution_over_diagonal_half": -0.41527096393053714,
+        "worst_denominator": 21318,
+        "worst_role": "unused_same_source_denominator"
+      },
+      {
+        "bucket": "middle_A_to_10A",
+        "distance_range": [
+          44,
+          430
+        ],
+        "worst_contribution_over_diagonal_half": -0.939992990438763,
+        "worst_denominator": 38038,
+        "worst_role": "original_replacement"
+      },
+      {
+        "bucket": "far_10A_to_100A",
+        "distance_range": [
+          431,
+          4300
+        ],
+        "worst_contribution_over_diagonal_half": -0.3917777860671962,
+        "worst_denominator": 67830,
+        "worst_role": "unused_same_source_denominator"
+      },
+      {
+        "bucket": "tail_over_100A",
+        "distance_range": [
+          4301,
+          9509
+        ],
+        "worst_contribution_over_diagonal_half": -0.14959833661444127,
+        "worst_denominator": 19019,
+        "worst_role": "unused_same_source_denominator"
+      }
+    ]
+  },
+  "candidate_next_action": {
+    "falsifier": "A source-admissible nonadverse packet whose co-occurring bucket/gap profile reaches <= -1 would falsify the overpayment-exclusion theorem target.",
+    "mechanism": "The per-component minima occur on different denominators; a useful theorem must constrain which adverse buckets or gap ranks can be simultaneously bad inside one packet.",
+    "name": "co-occurrence constrained kernel envelope",
+    "novelty_label": "new-to-this-task",
+    "prediction": "A same-row or factor-geometry constrained envelope should stay above -1, unlike the disconnected componentwise envelopes.",
+    "smallest_next_test": "Build a co-occurrence matrix over bucket contributions and top negative ranks, then test whether the convex same-row envelope stays above -1."
+  },
+  "classification": {
+    "bucket_componentwise_envelope_refutes_simple_bucket_bound": true,
+    "cooccurrence_or_structured_correlation_required": true,
+    "finite_obstruction_audit_only": true,
+    "top_negative_rank_envelope_refutes_simple_rank_bound": true,
+    "true_rows_survive_but_disconnected_envelopes_fail": true
+  },
+  "cooccurrence_kernel_bound_theorem_proved": false,
+  "coordinate00_residue_gap_sign_theorem_proved": false,
+  "decision": "Simple independent component bounds are too weak.  The worst nonadverse row is q=38038 at about -0.847293, but disconnected bucket minima sum to a value below -1 and disconnected ranked negative-gap minima also fall below -1.  Any theorem route must use co-occurrence, factor geometry, or another structured correlation; it cannot just prove separate bucket or rank lower bounds.",
+  "finite_diagnostic_only": true,
+  "finite_kernel_envelope_obstruction_audit_only": true,
+  "fixture": {
+    "active_row_start": 43,
+    "adverse_denominator": 46189,
+    "divisor_range": [
+      3,
+      19
+    ],
+    "ell_freeze": 64,
+    "prime_modulus": 379,
+    "row_count_A": 43,
+    "scale_modulus": 229,
+    "sign_identity": "ratio_minus_half = 0.5 * (1 + off_diagonal_total / diagonal_half)",
+    "target_label": "00,12"
+  },
+  "goldbach_proved": false,
+  "observed_true_nonadverse_boundary": {
+    "minimum_nonadverse_denominator": 38038,
+    "minimum_nonadverse_off_diagonal_over_diagonal_half": -0.8472931845861708,
+    "target_bound": -1.0
+  },
+  "question": "Could the finite nonadverse bound off_diagonal/diagonal_half > -1 be proved by independent per-bucket or per-ranked-gap lower bounds?",
+  "schema_version": 1,
+  "simple_bucket_bound_theorem_proved": false,
+  "simple_rank_bound_theorem_proved": false,
+  "source_commit": "30923b72ae905b1d7028557085a7351a63a67093",
+  "source_packet_kernel_sign_landscape_audit": "evidence\\mobius-moment-square-degree5-q46189-packet-kernel-sign-landscape-audit.json",
+  "status": "AUDIT_q46189_kernel_envelope_obstruction",
+  "strict_central_goldbach_theorem_proved": false,
+  "top_negative_rank_componentwise_envelope": {
+    "disconnected_worst_sum": -1.4111403765125132,
+    "rank_count": 8,
+    "rows": [
+      {
+        "circular_distance": 68,
+        "deltas": [
+          68,
+          37970
+        ],
+        "rank": 1,
+        "worst_contribution_over_diagonal_half": -0.4983022129718098,
+        "worst_denominator": 38038,
+        "worst_role": "original_replacement"
+      },
+      {
+        "circular_distance": 174,
+        "deltas": [
+          174,
+          22436
+        ],
+        "rank": 2,
+        "worst_contribution_over_diagonal_half": -0.3002261975042994,
+        "worst_denominator": 22610,
+        "worst_role": "unused_same_source_denominator"
+      },
+      {
+        "circular_distance": 106,
+        "deltas": [
+          106,
+          21212
+        ],
+        "rank": 3,
+        "worst_contribution_over_diagonal_half": -0.1639663784411621,
+        "worst_denominator": 21318,
+        "worst_role": "unused_same_source_denominator"
+      },
+      {
+        "circular_distance": 288,
+        "deltas": [
+          288,
+          21030
+        ],
+        "rank": 4,
+        "worst_contribution_over_diagonal_half": -0.12363548588965691,
+        "worst_denominator": 21318,
+        "worst_role": "unused_same_source_denominator"
+      },
+      {
+        "circular_distance": 180,
+        "deltas": [
+          180,
+          21138
+        ],
+        "rank": 5,
+        "worst_contribution_over_diagonal_half": -0.08888161382881948,
+        "worst_denominator": 21318,
+        "worst_role": "unused_same_source_denominator"
+      },
+      {
+        "circular_distance": 194,
+        "deltas": [
+          194,
+          24677
+        ],
+        "rank": 6,
+        "worst_contribution_over_diagonal_half": -0.08424660609739608,
+        "worst_denominator": 24871,
+        "worst_role": "unused_same_source_denominator"
+      },
+      {
+        "circular_distance": 36,
+        "deltas": [
+          36,
+          24835
+        ],
+        "rank": 7,
+        "worst_contribution_over_diagonal_half": -0.07807664053341984,
+        "worst_denominator": 24871,
+        "worst_role": "unused_same_source_denominator"
+      },
+      {
+        "circular_distance": 179,
+        "deltas": [
+          179,
+          24692
+        ],
+        "rank": 8,
+        "worst_contribution_over_diagonal_half": -0.0738052412459497,
+        "worst_denominator": 24871,
+        "worst_role": "unused_same_source_denominator"
+      }
+    ]
+  },
+  "top_negative_same_row_prefix_summaries": [
+    {
+      "prefix_count": 1,
+      "worst_denominator": 38038,
+      "worst_prefix_sum": -0.4983022129718098
+    },
+    {
+      "prefix_count": 2,
+      "worst_denominator": 38038,
+      "worst_prefix_sum": -0.6623790163165522
+    },
+    {
+      "prefix_count": 3,
+      "worst_denominator": 38038,
+      "worst_prefix_sum": -0.7933128018961708
+    },
+    {
+      "prefix_count": 5,
+      "worst_denominator": 21318,
+      "worst_prefix_sum": -0.9169354948856401
+    },
+    {
+      "prefix_count": 8,
+      "worst_denominator": 21318,
+      "worst_prefix_sum": -1.1190989901709218
+    }
+  ]
+}

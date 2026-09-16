@@ -6,6 +6,36 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The `Q=46189` replacement-family lane now has a kernel-envelope obstruction
+audit:
+
+```text
+tools/build_mobius_moment_square_degree5_q46189_kernel_envelope_obstruction_audit.py
+notes/mobius-moment-square-degree5-q46189-kernel-envelope-obstruction-audit.md
+evidence/mobius-moment-square-degree5-q46189-kernel-envelope-obstruction-audit.json
+```
+
+Result:
+
+```text
+true weakest nonadverse q:                  38038
+true weakest nonadverse off/diag-half:      -0.8472931845861708
+target lower bound:                         -1.0
+disconnected bucket-minimum sum:            -1.8966400770509377
+disconnected top-negative rank-minimum sum: -1.4111403765125132
+worst bucket denominators:                  21318, 38038, 67830, 19019
+```
+
+Decision: simple independent component bounds are too weak.  The true checked
+same-row minimum survives above `-1`, but disconnected bucket and ranked-gap
+worst cases both fall below `-1`.  The next theorem route must use
+co-occurrence, factor geometry, or another structured correlation between
+adverse components.  This proves no simple bucket bound theorem, simple rank
+bound theorem, co-occurrence kernel bound theorem, coordinate-`00`
+residue-gap sign theorem, strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The `Q=46189` replacement-family lane now has a packet-kernel sign landscape
 audit:
 
