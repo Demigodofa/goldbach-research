@@ -1,0 +1,78 @@
+{
+  "active_null_energy": 1.0452667763081322e-12,
+  "active_positive_null_coupling_norm": 3.44675405351299e-08,
+  "active_positive_null_coupling_vector": [
+    -5.8225975122839706e-12,
+    4.10658329698621e-11,
+    5.775661354818422e-11,
+    -9.772833847732088e-09,
+    3.3052957704171604e-08
+  ],
+  "best_parameter": 0.26688993201398403,
+  "decision": "The checked M=167 full-null direction is almost a rank-one symmetric square on the moment-square curve.  The next theorem target is not generic nullspace control alone; it should analyze support activation and coupling near moment-square null directions.",
+  "divisor_range": [
+    3,
+    16
+  ],
+  "equilibrated_full_null_vector": [
+    0.13977403834559596,
+    0.5493303523504592,
+    0.27139356870942816,
+    0.5430897087697488,
+    0.5401887763385442,
+    0.13525741088938545
+  ],
+  "finite_diagnostic_only": true,
+  "full_eigenvalues": [
+    1.0560652362343666e-12,
+    9.397209286231152e-09,
+    3.492523702407465e-05,
+    4.471779642030934e-05,
+    0.06189329218599029,
+    5.938027055382299
+  ],
+  "full_null_energy": 1.0558310456719664e-12,
+  "goldbach_proved": false,
+  "infinite_parameter_selected": false,
+  "mobius_covariance_theorem_proved": false,
+  "moment_square_projection_unit": [
+    0.004878230600448123,
+    0.018278061535092007,
+    0.06848539170122875,
+    0.06848539170122875,
+    0.25660537729703636,
+    0.9614651828964128
+  ],
+  "nearly_rank_one_positive_semidefinite": true,
+  "original_coordinate_full_null_vector": [
+    0.00489331985458091,
+    0.01830421768664804,
+    0.06851064939367979,
+    0.06850899605200018,
+    0.2565725584352243,
+    0.9614698859939855
+  ],
+  "prime_count": 29,
+  "projective_moment_square_correlation": 0.9999999983969288,
+  "projective_moment_square_distance": 5.6622814065029987e-05,
+  "q286_reactivated": false,
+  "question": "Is the M=167 null-coupling attention point generic nullspace noise, or does its full-null direction have moment-square structure?",
+  "real_stationary_parameters": [
+    -12.730180034275111,
+    0.26688993201398403
+  ],
+  "row_count": 35,
+  "scale_modulus": 167,
+  "second_over_largest_eigenvalue": 4.773492818229947e-05,
+  "signed_prime_correlation_proved": false,
+  "smallest_over_largest_eigenvalue": 3.9115257750081936e-09,
+  "status": "TARGET_moment_square_nullspace_support_activation",
+  "symmetric_matrix_determinant": 2.069095037141516e-13,
+  "symmetric_matrix_eigenvalues": [
+    4.047736057350726e-09,
+    4.9397192070947344e-05,
+    1.0348228006607594
+  ],
+  "symmetric_matrix_trace": 1.0348722019005667,
+  "uniform_active_full_lower_frame_proved": false
+}

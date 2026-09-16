@@ -6,6 +6,34 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The `M=167` rank-deficient lower-frame attention point now has a moment-square
+nullspace audit:
+`tools/build_mobius_moment_square_nullspace_audit.py` generated
+`evidence/mobius-moment-square-nullspace-audit.json`, with explanation in
+`notes/mobius-moment-square-nullspace-audit.md`.
+
+Question: is the full-null direction at the only checked rank-deficient
+nonvacuous scale generic, or does it have exploitable structure?
+
+Answer: it has structure.  In original six symmetric coordinates, the
+`M=167` full-null direction is within projective distance
+`5.6622814065029987e-05` of the moment-square curve
+`(t^4,t^3,t^2,t^2,t,1)` at `t=0.26688993201398403`, with correlation
+`0.9999999983969288`.  As a symmetric matrix it is nearly rank one; the
+second/largest eigenvalue ratio is `4.773492818229947e-05`.  The active
+positive/null coupling norm remains the attention term
+`3.4467540535129906e-08`.
+
+Decision: `TARGET_moment_square_nullspace_support_activation`.  The next proof
+obligation is no longer generic nullspace control alone; it should analyze
+support activation and active coupling near moment-square null directions.
+This is finite diagnostic evidence only.  No support-activation theorem,
+uniform active/full lower-frame theorem, Mobius covariance theorem, signed
+prime-correlation estimate, q286 theorem, strict-central Goldbach theorem, or
+Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-16
+
 The Mobius active/full lower-frame route now has its rank-aware quotient
 obligation stated and tested:
 `tools/build_mobius_rank_aware_lower_frame_obligation.py` generated

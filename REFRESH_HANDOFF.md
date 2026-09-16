@@ -6,6 +6,39 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The `M=167` null-coupling attention point now has a moment-square nullspace
+audit:
+
+```text
+mobius_moment_square_nullspace.py
+tools/build_mobius_moment_square_nullspace_audit.py
+notes/mobius-moment-square-nullspace-audit.md
+evidence/mobius-moment-square-nullspace-audit.json
+```
+
+Result:
+
+```text
+status: TARGET_moment_square_nullspace_support_activation
+moment-square parameter:             0.26688993201398403
+moment-square projective distance:   5.6622814065029987e-05
+moment-square correlation:           0.9999999983969288
+matrix second/largest eigen ratio:   4.773492818229947e-05
+active-positive/null coupling norm:  3.4467540535129906e-08
+active null energy:                  1.0452667763081322e-12
+```
+
+Decision: the checked full-null issue is structured, not generic.  The
+rank-deficient `M=167` null direction is almost the symmetric square of the
+moment curve `(t^2,t,1)`.  The active theorem target should therefore analyze
+support activation and coupling near moment-square null directions.  This is
+finite diagnostic evidence only; no support-activation theorem, uniform
+active/full lower frame, Mobius covariance theorem, signed prime-correlation
+estimate, q286 theorem, strict-central Goldbach theorem, or Goldbach proof is
+established.
+
+## Previous active checkpoint note, 2026-09-16
+
 The Mobius lower-frame target now has an explicit rank-aware quotient
 obligation:
 
