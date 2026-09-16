@@ -6,6 +6,47 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The narrowed source-start lane now has a fresh prime-span holdout:
+
+```text
+tools/build_mobius_moment_square_degree5_source_start_fresh_prime_span_holdout.py
+notes/mobius-moment-square-degree5-source-start-fresh-prime-span-holdout.md
+evidence/mobius-moment-square-degree5-source-start-fresh-prime-span-holdout.json
+```
+
+Result:
+
+```text
+status:                         HOLDOUT_degree5_source_start_fresh_prime_span_rows
+fresh scales:                   229, 251, 293
+sampled prime rows:             low, mid, high
+prime rows checked:             9
+component rows:                 27
+degree-5 total rows:            9
+all rows pass signed dominance: true
+minimum slack above one half:   0.44127127965726143
+weakest row:                    M=229, p=347, (00,12)
+weakest active/full ratio:      0.9412712796572614
+full fresh-scale sweep done:    false
+```
+
+Selected primes:
+
+```text
+M=229: low 229, mid 347, high 457
+M=251: low 251, mid 373, high 499
+M=293: low 293, mid 439, high 577
+```
+
+Decision: the narrowed reachable lane survives this stronger fresh sample.
+The interior row `M=229`, `p=347` is weaker than the first-prime-only rows, so
+future source-start work should not assume the first prime row is worst.  This
+is finite holdout evidence only, not a full fresh-scale sweep, not a
+source-start theorem, not a source-window theorem, not an endpoint-swap
+theorem, not a strict-central Goldbach theorem, and not a Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The narrowed source-start lane now has a fresh first-prime-row holdout:
 
 ```text

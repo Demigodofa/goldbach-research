@@ -1,0 +1,902 @@
+{
+  "active_window_translation_theorem_proved": false,
+  "all_dominance_slack_sign_counts": {
+    "negative": 0,
+    "positive": 36,
+    "zero": 0
+  },
+  "all_rows_dominate_one_half_signed_full": true,
+  "component_row_count": 27,
+  "decision": "The fresh prime-span source-start holdout survives on scales 229, 251, and 293.  All 36 component and total rows have positive active/full dominance slack above one half.  This is not a full fresh-scale sweep and proves no universal theorem.",
+  "degree5_total_row_count": 9,
+  "dominance_row_count": 36,
+  "endpoint_swap_theorem_proved": false,
+  "falsifier": "Any sampled fresh canonical source-start component or total row with negative full contribution and active/full ratio at or below one half falsifies this prime-span holdout.",
+  "finite_diagnostic_only": true,
+  "finite_holdout_only": true,
+  "fresh_prime_span_holdout_only": true,
+  "fresh_scale_count": 3,
+  "fresh_scales": [
+    229,
+    251,
+    293
+  ],
+  "full_fresh_scale_sweep_completed": false,
+  "goldbach_proved": false,
+  "minimum_dominance_slack_above_one_half": 0.44127127965726143,
+  "prediction": "If the narrowed source-start lane is not just a first-prime artifact, low, mid, and high prime rows at fresh scales should retain positive signed active/full slack.",
+  "prime_row_count": 9,
+  "prior_checked_scales": [
+    127,
+    149,
+    167,
+    191,
+    211,
+    227
+  ],
+  "question": "Do fresh canonical source-start rows still satisfy signed active/full dominance when each fresh scale samples low, mid, and high prime rows rather than only the first prime row?",
+  "scale_results": [
+    {
+      "all_rows_dominate_one_half_signed_full": true,
+      "dominance_row_count": 12,
+      "minimum_dominance_slack_above_one_half": 0.44127127965726143,
+      "prime_row_count": 3,
+      "prime_rows": [
+        {
+          "all_rows_dominate_one_half_signed_full": true,
+          "canonical_source_start": 43,
+          "component_rows": [
+            {
+              "active_contribution": -29914130067265.17,
+              "active_contribution_negative": true,
+              "active_over_full_ratio": 1.011476958844971,
+              "dominance_slack_above_one_half": 0.511476958844971,
+              "dominates_one_half_signed_full": true,
+              "full_contribution": -29574702424684.8,
+              "full_contribution_negative": true,
+              "half_frame_contribution": -15126778854922.771,
+              "label": "00,12",
+              "prime_modulus": 229,
+              "scale_modulus": 229
+            },
+            {
+              "active_contribution": -60714344880997.46,
+              "active_contribution_negative": true,
+              "active_over_full_ratio": 1.010838507998244,
+              "dominance_slack_above_one_half": 0.510838507998244,
+              "dominates_one_half_signed_full": true,
+              "full_contribution": -60063347805407.24,
+              "full_contribution_negative": true,
+              "half_frame_contribution": -30682670978293.84,
+              "label": "01,02",
+              "prime_modulus": 229,
+              "scale_modulus": 229
+            },
+            {
+              "active_contribution": -121176063431584.67,
+              "active_contribution_negative": true,
+              "active_over_full_ratio": 1.0111613979317131,
+              "dominance_slack_above_one_half": 0.5111613979317131,
+              "dominates_one_half_signed_full": true,
+              "full_contribution": -119838498264911.08,
+              "full_contribution_negative": true,
+              "half_frame_contribution": -61256814299129.13,
+              "label": "01,11",
+              "prime_modulus": 229,
+              "scale_modulus": 229
+            }
+          ],
+          "degree5_total_row": {
+            "active_contribution": -211804538379847.3,
+            "active_contribution_negative": true,
+            "active_over_full_ratio": 1.0111133675896886,
+            "dominance_slack_above_one_half": 0.5111133675896886,
+            "dominates_one_half_signed_full": true,
+            "full_contribution": -209476548495003.12,
+            "full_contribution_negative": true,
+            "half_frame_contribution": -107066264132345.75,
+            "label": "TOTAL",
+            "prime_modulus": 229,
+            "scale_modulus": 229
+          },
+          "divisor_range": [
+            3,
+            19
+          ],
+          "ell_freeze": 64,
+          "minimum_dominance_slack_above_one_half": 0.510838507998244,
+          "prime_modulus": 229,
+          "row_count": 43,
+          "scale_modulus": 229,
+          "span_position": "low",
+          "weakest_dominance_row": {
+            "active_contribution": -60714344880997.46,
+            "active_contribution_negative": true,
+            "active_over_full_ratio": 1.010838507998244,
+            "dominance_slack_above_one_half": 0.510838507998244,
+            "dominates_one_half_signed_full": true,
+            "full_contribution": -60063347805407.24,
+            "full_contribution_negative": true,
+            "half_frame_contribution": -30682670978293.84,
+            "label": "01,02",
+            "prime_modulus": 229,
+            "scale_modulus": 229
+          }
+        },
+        {
+          "all_rows_dominate_one_half_signed_full": true,
+          "canonical_source_start": 43,
+          "component_rows": [
+            {
+              "active_contribution": -62005195333219.05,
+              "active_contribution_negative": true,
+              "active_over_full_ratio": 0.9412712796572614,
+              "dominance_slack_above_one_half": 0.44127127965726143,
+              "dominates_one_half_signed_full": true,
+              "full_contribution": -65873884259802.945,
+              "full_contribution_negative": true,
+              "half_frame_contribution": -29068253203317.574,
+              "label": "00,12",
+              "prime_modulus": 347,
+              "scale_modulus": 229
+            },
+            {
+              "active_contribution": -124956409462885.81,
+              "active_contribution_negative": true,
+              "active_over_full_ratio": 0.9415498333418243,
+              "dominance_slack_above_one_half": 0.4415498333418243,
+              "dominates_one_half_signed_full": true,
+              "full_contribution": -132713537869132.73,
+              "full_contribution_negative": true,
+              "half_frame_contribution": -58599640528319.445,
+              "label": "01,02",
+              "prime_modulus": 347,
+              "scale_modulus": 229
+            },
+            {
+              "active_contribution": -250163187442601.06,
+              "active_contribution_negative": true,
+              "active_over_full_ratio": 0.9414150837227132,
+              "dominance_slack_above_one_half": 0.4414150837227132,
+              "dominates_one_half_signed_full": true,
+              "full_contribution": -265731016814985.25,
+              "full_contribution_negative": true,
+              "half_frame_contribution": -117297679035108.44,
+              "label": "01,11",
+              "prime_modulus": 347,
+              "scale_modulus": 229
+            }
+          ],
+          "degree5_total_row": {
+            "active_contribution": -437124792238705.94,
+            "active_contribution_negative": true,
+            "active_over_full_ratio": 0.9414331966504148,
+            "dominance_slack_above_one_half": 0.4414331966504148,
+            "dominates_one_half_signed_full": true,
+            "full_contribution": -464318438943920.94,
+            "full_contribution_negative": true,
+            "half_frame_contribution": -204965572766745.47,
+            "label": "TOTAL",
+            "prime_modulus": 347,
+            "scale_modulus": 229
+          },
+          "divisor_range": [
+            3,
+            19
+          ],
+          "ell_freeze": 64,
+          "minimum_dominance_slack_above_one_half": 0.44127127965726143,
+          "prime_modulus": 347,
+          "row_count": 43,
+          "scale_modulus": 229,
+          "span_position": "mid",
+          "weakest_dominance_row": {
+            "active_contribution": -62005195333219.05,
+            "active_contribution_negative": true,
+            "active_over_full_ratio": 0.9412712796572614,
+            "dominance_slack_above_one_half": 0.44127127965726143,
+            "dominates_one_half_signed_full": true,
+            "full_contribution": -65873884259802.945,
+            "full_contribution_negative": true,
+            "half_frame_contribution": -29068253203317.574,
+            "label": "00,12",
+            "prime_modulus": 347,
+            "scale_modulus": 229
+          }
+        },
+        {
+          "all_rows_dominate_one_half_signed_full": true,
+          "canonical_source_start": 43,
+          "component_rows": [
+            {
+              "active_contribution": -67361664369377.51,
+              "active_contribution_negative": true,
+              "active_over_full_ratio": 1.002192393097568,
+              "dominance_slack_above_one_half": 0.502192393097568,
+              "dominates_one_half_signed_full": true,
+              "full_contribution": -67214304192807.36,
+              "full_contribution_negative": true,
+              "half_frame_contribution": -33754512272973.83,
+              "label": "00,12",
+              "prime_modulus": 457,
+              "scale_modulus": 229
+            },
+            {
+              "active_contribution": -135765599109105.78,
+              "active_contribution_negative": true,
+              "active_over_full_ratio": 1.0020053625812149,
+              "dominance_slack_above_one_half": 0.5020053625812149,
+              "dominates_one_half_signed_full": true,
+              "full_contribution": -135493884742659.42,
+              "full_contribution_negative": true,
+              "half_frame_contribution": -68018656737776.07,
+              "label": "01,02",
+              "prime_modulus": 457,
+              "scale_modulus": 229
+            },
+            {
+              "active_contribution": -271456329108149.22,
+              "active_contribution_negative": true,
+              "active_over_full_ratio": 1.0020424065942597,
+              "dominance_slack_above_one_half": 0.5020424065942597,
+              "dominates_one_half_signed_full": true,
+              "full_contribution": -270903034963135.53,
+              "full_contribution_negative": true,
+              "half_frame_contribution": -136004811626581.45,
+              "label": "01,11",
+              "prime_modulus": 457,
+              "scale_modulus": 229
+            }
+          ],
+          "degree5_total_row": {
+            "active_contribution": -474583592586632.5,
+            "active_contribution_negative": true,
+            "active_over_full_ratio": 1.002053094688141,
+            "dominance_slack_above_one_half": 0.502053094688141,
+            "dominates_one_half_signed_full": true,
+            "full_contribution": -473611223898602.3,
+            "full_contribution_negative": true,
+            "half_frame_contribution": -237777980637331.34,
+            "label": "TOTAL",
+            "prime_modulus": 457,
+            "scale_modulus": 229
+          },
+          "divisor_range": [
+            3,
+            19
+          ],
+          "ell_freeze": 64,
+          "minimum_dominance_slack_above_one_half": 0.5020053625812149,
+          "prime_modulus": 457,
+          "row_count": 43,
+          "scale_modulus": 229,
+          "span_position": "high",
+          "weakest_dominance_row": {
+            "active_contribution": -135765599109105.78,
+            "active_contribution_negative": true,
+            "active_over_full_ratio": 1.0020053625812149,
+            "dominance_slack_above_one_half": 0.5020053625812149,
+            "dominates_one_half_signed_full": true,
+            "full_contribution": -135493884742659.42,
+            "full_contribution_negative": true,
+            "half_frame_contribution": -68018656737776.07,
+            "label": "01,02",
+            "prime_modulus": 457,
+            "scale_modulus": 229
+          }
+        }
+      ],
+      "scale_modulus": 229,
+      "selected_primes": [
+        {
+          "prime_modulus": 229,
+          "span_position": "low"
+        },
+        {
+          "prime_modulus": 347,
+          "span_position": "mid"
+        },
+        {
+          "prime_modulus": 457,
+          "span_position": "high"
+        }
+      ],
+      "weakest_dominance_row": {
+        "active_contribution": -62005195333219.05,
+        "active_contribution_negative": true,
+        "active_over_full_ratio": 0.9412712796572614,
+        "dominance_slack_above_one_half": 0.44127127965726143,
+        "dominates_one_half_signed_full": true,
+        "full_contribution": -65873884259802.945,
+        "full_contribution_negative": true,
+        "half_frame_contribution": -29068253203317.574,
+        "label": "00,12",
+        "prime_modulus": 347,
+        "scale_modulus": 229
+      }
+    },
+    {
+      "all_rows_dominate_one_half_signed_full": true,
+      "dominance_row_count": 12,
+      "minimum_dominance_slack_above_one_half": 0.45927524645490014,
+      "prime_row_count": 3,
+      "prime_rows": [
+        {
+          "all_rows_dominate_one_half_signed_full": true,
+          "canonical_source_start": 46,
+          "component_rows": [
+            {
+              "active_contribution": -33525789495602.77,
+              "active_contribution_negative": true,
+              "active_over_full_ratio": 0.9962909782505123,
+              "dominance_slack_above_one_half": 0.49629097825051227,
+              "dominates_one_half_signed_full": true,
+              "full_contribution": -33650600304013.676,
+              "full_contribution_negative": true,
+              "half_frame_contribution": -16700489343595.932,
+              "label": "00,12",
+              "prime_modulus": 251,
+              "scale_modulus": 251
+            },
+            {
+              "active_contribution": -67989641462658.56,
+              "active_contribution_negative": true,
+              "active_over_full_ratio": 0.9959390121702468,
+              "dominance_slack_above_one_half": 0.49593901217024683,
+              "dominates_one_half_signed_full": true,
+              "full_contribution": -68266872400652.93,
+              "full_contribution_negative": true,
+              "half_frame_contribution": -33856205262332.098,
+              "label": "01,02",
+              "prime_modulus": 251,
+              "scale_modulus": 251
+            },
+            {
+              "active_contribution": -135895466044883.92,
+              "active_contribution_negative": true,
+              "active_over_full_ratio": 0.9960107837366754,
+              "dominance_slack_above_one_half": 0.4960107837366754,
+              "dominates_one_half_signed_full": true,
+              "full_contribution": -136439753729425.34,
+              "full_contribution_negative": true,
+              "half_frame_contribution": -67675589180171.25,
+              "label": "01,11",
+              "prime_modulus": 251,
+              "scale_modulus": 251
+            }
+          ],
+          "degree5_total_row": {
+            "active_contribution": -237410897003145.25,
+            "active_contribution_negative": true,
+            "active_over_full_ratio": 0.9960297850201393,
+            "dominance_slack_above_one_half": 0.4960297850201393,
+            "dominates_one_half_signed_full": true,
+            "full_contribution": -238357226434091.94,
+            "full_contribution_negative": true,
+            "half_frame_contribution": -118232283786099.28,
+            "label": "TOTAL",
+            "prime_modulus": 251,
+            "scale_modulus": 251
+          },
+          "divisor_range": [
+            4,
+            20
+          ],
+          "ell_freeze": 69,
+          "minimum_dominance_slack_above_one_half": 0.49593901217024683,
+          "prime_modulus": 251,
+          "row_count": 46,
+          "scale_modulus": 251,
+          "span_position": "low",
+          "weakest_dominance_row": {
+            "active_contribution": -67989641462658.56,
+            "active_contribution_negative": true,
+            "active_over_full_ratio": 0.9959390121702468,
+            "dominance_slack_above_one_half": 0.49593901217024683,
+            "dominates_one_half_signed_full": true,
+            "full_contribution": -68266872400652.93,
+            "full_contribution_negative": true,
+            "half_frame_contribution": -33856205262332.098,
+            "label": "01,02",
+            "prime_modulus": 251,
+            "scale_modulus": 251
+          }
+        },
+        {
+          "all_rows_dominate_one_half_signed_full": true,
+          "canonical_source_start": 46,
+          "component_rows": [
+            {
+              "active_contribution": -66486537499542.18,
+              "active_contribution_negative": true,
+              "active_over_full_ratio": 0.9592752464549001,
+              "dominance_slack_above_one_half": 0.45927524645490014,
+              "dominates_one_half_signed_full": true,
+              "full_contribution": -69309134938329.73,
+              "full_contribution_negative": true,
+              "half_frame_contribution": -31831970030377.316,
+              "label": "00,12",
+              "prime_modulus": 373,
+              "scale_modulus": 251
+            },
+            {
+              "active_contribution": -134082678627481.58,
+              "active_contribution_negative": true,
+              "active_over_full_ratio": 0.9593434769487269,
+              "dominance_slack_above_one_half": 0.4593434769487269,
+              "dominates_one_half_signed_full": true,
+              "full_contribution": -139765039164015.45,
+              "full_contribution_negative": true,
+              "half_frame_contribution": -64200159045473.85,
+              "label": "01,02",
+              "prime_modulus": 373,
+              "scale_modulus": 251
+            },
+            {
+              "active_contribution": -267983162652484.25,
+              "active_contribution_negative": true,
+              "active_over_full_ratio": 0.9593479803346412,
+              "dominance_slack_above_one_half": 0.4593479803346412,
+              "dominates_one_half_signed_full": true,
+              "full_contribution": -279338851121577.34,
+              "full_contribution_negative": true,
+              "half_frame_contribution": -128313737091695.58,
+              "label": "01,11",
+              "prime_modulus": 373,
+              "scale_modulus": 251
+            }
+          ],
+          "degree5_total_row": {
+            "active_contribution": -468552378779508.0,
+            "active_contribution_negative": true,
+            "active_over_full_ratio": 0.9593363702057106,
+            "dominance_slack_above_one_half": 0.4593363702057106,
+            "dominates_one_half_signed_full": true,
+            "full_contribution": -488413025223922.5,
+            "full_contribution_negative": true,
+            "half_frame_contribution": -224345866167546.75,
+            "label": "TOTAL",
+            "prime_modulus": 373,
+            "scale_modulus": 251
+          },
+          "divisor_range": [
+            4,
+            20
+          ],
+          "ell_freeze": 69,
+          "minimum_dominance_slack_above_one_half": 0.45927524645490014,
+          "prime_modulus": 373,
+          "row_count": 46,
+          "scale_modulus": 251,
+          "span_position": "mid",
+          "weakest_dominance_row": {
+            "active_contribution": -66486537499542.18,
+            "active_contribution_negative": true,
+            "active_over_full_ratio": 0.9592752464549001,
+            "dominance_slack_above_one_half": 0.45927524645490014,
+            "dominates_one_half_signed_full": true,
+            "full_contribution": -69309134938329.73,
+            "full_contribution_negative": true,
+            "half_frame_contribution": -31831970030377.316,
+            "label": "00,12",
+            "prime_modulus": 373,
+            "scale_modulus": 251
+          }
+        },
+        {
+          "all_rows_dominate_one_half_signed_full": true,
+          "canonical_source_start": 46,
+          "component_rows": [
+            {
+              "active_contribution": -70847481569134.72,
+              "active_contribution_negative": true,
+              "active_over_full_ratio": 1.0670201155184413,
+              "dominance_slack_above_one_half": 0.5670201155184413,
+              "dominates_one_half_signed_full": true,
+              "full_contribution": -66397512604260.04,
+              "full_contribution_negative": true,
+              "half_frame_contribution": -37648725267004.7,
+              "label": "00,12",
+              "prime_modulus": 499,
+              "scale_modulus": 251
+            },
+            {
+              "active_contribution": -142670442361629.22,
+              "active_contribution_negative": true,
+              "active_over_full_ratio": 1.066811119721,
+              "dominance_slack_above_one_half": 0.566811119721,
+              "dominates_one_half_signed_full": true,
+              "full_contribution": -133735428628585.55,
+              "full_contribution_negative": true,
+              "half_frame_contribution": -75802728047336.44,
+              "label": "01,02",
+              "prime_modulus": 499,
+              "scale_modulus": 251
+            },
+            {
+              "active_contribution": -284925864243986.94,
+              "active_contribution_negative": true,
+              "active_over_full_ratio": 1.0667922973842674,
+              "dominance_slack_above_one_half": 0.5667922973842674,
+              "dominates_one_half_signed_full": true,
+              "full_contribution": -267086540597090.8,
+              "full_contribution_negative": true,
+              "half_frame_contribution": -151382593945441.53,
+              "label": "01,11",
+              "prime_modulus": 499,
+              "scale_modulus": 251
+            }
+          ],
+          "degree5_total_row": {
+            "active_contribution": -498443788174750.9,
+            "active_contribution_negative": true,
+            "active_over_full_ratio": 1.0668300607297447,
+            "dominance_slack_above_one_half": 0.5668300607297447,
+            "dominates_one_half_signed_full": true,
+            "full_contribution": -467219481829936.4,
+            "full_contribution_negative": true,
+            "half_frame_contribution": -264834047259782.7,
+            "label": "TOTAL",
+            "prime_modulus": 499,
+            "scale_modulus": 251
+          },
+          "divisor_range": [
+            4,
+            20
+          ],
+          "ell_freeze": 69,
+          "minimum_dominance_slack_above_one_half": 0.5667922973842674,
+          "prime_modulus": 499,
+          "row_count": 46,
+          "scale_modulus": 251,
+          "span_position": "high",
+          "weakest_dominance_row": {
+            "active_contribution": -284925864243986.94,
+            "active_contribution_negative": true,
+            "active_over_full_ratio": 1.0667922973842674,
+            "dominance_slack_above_one_half": 0.5667922973842674,
+            "dominates_one_half_signed_full": true,
+            "full_contribution": -267086540597090.8,
+            "full_contribution_negative": true,
+            "half_frame_contribution": -151382593945441.53,
+            "label": "01,11",
+            "prime_modulus": 499,
+            "scale_modulus": 251
+          }
+        }
+      ],
+      "scale_modulus": 251,
+      "selected_primes": [
+        {
+          "prime_modulus": 251,
+          "span_position": "low"
+        },
+        {
+          "prime_modulus": 373,
+          "span_position": "mid"
+        },
+        {
+          "prime_modulus": 499,
+          "span_position": "high"
+        }
+      ],
+      "weakest_dominance_row": {
+        "active_contribution": -66486537499542.18,
+        "active_contribution_negative": true,
+        "active_over_full_ratio": 0.9592752464549001,
+        "dominance_slack_above_one_half": 0.45927524645490014,
+        "dominates_one_half_signed_full": true,
+        "full_contribution": -69309134938329.73,
+        "full_contribution_negative": true,
+        "half_frame_contribution": -31831970030377.316,
+        "label": "00,12",
+        "prime_modulus": 373,
+        "scale_modulus": 251
+      }
+    },
+    {
+      "all_rows_dominate_one_half_signed_full": true,
+      "dominance_row_count": 12,
+      "minimum_dominance_slack_above_one_half": 0.47422456383580003,
+      "prime_row_count": 3,
+      "prime_rows": [
+        {
+          "all_rows_dominate_one_half_signed_full": true,
+          "canonical_source_start": 51,
+          "component_rows": [
+            {
+              "active_contribution": -105071687281957.39,
+              "active_contribution_negative": true,
+              "active_over_full_ratio": 1.0129169432510705,
+              "dominance_slack_above_one_half": 0.5129169432510705,
+              "dominates_one_half_signed_full": true,
+              "full_contribution": -103731789641821.98,
+              "full_contribution_negative": true,
+              "half_frame_contribution": -53205792461046.4,
+              "label": "00,12",
+              "prime_modulus": 293,
+              "scale_modulus": 293
+            },
+            {
+              "active_contribution": -212098926520107.94,
+              "active_contribution_negative": true,
+              "active_over_full_ratio": 1.012646777477323,
+              "dominance_slack_above_one_half": 0.5126467774773229,
+              "dominates_one_half_signed_full": true,
+              "full_contribution": -209450058240922.66,
+              "full_contribution_negative": true,
+              "half_frame_contribution": -107373897399646.61,
+              "label": "01,02",
+              "prime_modulus": 293,
+              "scale_modulus": 293
+            },
+            {
+              "active_contribution": -425146697776778.4,
+              "active_contribution_negative": true,
+              "active_over_full_ratio": 1.0126508245590184,
+              "dominance_slack_above_one_half": 0.5126508245590184,
+              "dominates_one_half_signed_full": true,
+              "full_contribution": -419835433365610.56,
+              "full_contribution_negative": true,
+              "half_frame_contribution": -215228981093973.1,
+              "label": "01,11",
+              "prime_modulus": 293,
+              "scale_modulus": 293
+            }
+          ],
+          "degree5_total_row": {
+            "active_contribution": -742317311578843.8,
+            "active_contribution_negative": true,
+            "active_over_full_ratio": 1.0126873275274633,
+            "dominance_slack_above_one_half": 0.5126873275274633,
+            "dominates_one_half_signed_full": true,
+            "full_contribution": -733017281248355.2,
+            "full_contribution_negative": true,
+            "half_frame_contribution": -375808670954666.1,
+            "label": "TOTAL",
+            "prime_modulus": 293,
+            "scale_modulus": 293
+          },
+          "divisor_range": [
+            4,
+            21
+          ],
+          "ell_freeze": 76,
+          "minimum_dominance_slack_above_one_half": 0.5126467774773229,
+          "prime_modulus": 293,
+          "row_count": 51,
+          "scale_modulus": 293,
+          "span_position": "low",
+          "weakest_dominance_row": {
+            "active_contribution": -212098926520107.94,
+            "active_contribution_negative": true,
+            "active_over_full_ratio": 1.012646777477323,
+            "dominance_slack_above_one_half": 0.5126467774773229,
+            "dominates_one_half_signed_full": true,
+            "full_contribution": -209450058240922.66,
+            "full_contribution_negative": true,
+            "half_frame_contribution": -107373897399646.61,
+            "label": "01,02",
+            "prime_modulus": 293,
+            "scale_modulus": 293
+          }
+        },
+        {
+          "all_rows_dominate_one_half_signed_full": true,
+          "canonical_source_start": 51,
+          "component_rows": [
+            {
+              "active_contribution": -95151928029028.62,
+              "active_contribution_negative": true,
+              "active_over_full_ratio": 0.974285719520243,
+              "dominance_slack_above_one_half": 0.474285719520243,
+              "dominates_one_half_signed_full": true,
+              "full_contribution": -97663268713292.1,
+              "full_contribution_negative": true,
+              "half_frame_contribution": -46320293672382.58,
+              "label": "00,12",
+              "prime_modulus": 439,
+              "scale_modulus": 293
+            },
+            {
+              "active_contribution": -191910830397263.66,
+              "active_contribution_negative": true,
+              "active_over_full_ratio": 0.9742245638358,
+              "dominance_slack_above_one_half": 0.47422456383580003,
+              "dominates_one_half_signed_full": true,
+              "full_contribution": -196988289477793.47,
+              "full_contribution_negative": true,
+              "half_frame_contribution": -93416685658366.92,
+              "label": "01,02",
+              "prime_modulus": 439,
+              "scale_modulus": 293
+            },
+            {
+              "active_contribution": -383920219320198.25,
+              "active_contribution_negative": true,
+              "active_over_full_ratio": 0.9742537834343727,
+              "dominance_slack_above_one_half": 0.47425378343437274,
+              "dominates_one_half_signed_full": true,
+              "full_contribution": -394065925991920.7,
+              "full_contribution_negative": true,
+              "half_frame_contribution": -186887256324237.9,
+              "label": "01,11",
+              "prime_modulus": 439,
+              "scale_modulus": 293
+            }
+          ],
+          "degree5_total_row": {
+            "active_contribution": -670982977746490.5,
+            "active_contribution_negative": true,
+            "active_over_full_ratio": 0.9742499546711039,
+            "dominance_slack_above_one_half": 0.47424995467110387,
+            "dominates_one_half_signed_full": true,
+            "full_contribution": -688717484183006.2,
+            "full_contribution_negative": true,
+            "half_frame_contribution": -326624235654987.4,
+            "label": "TOTAL",
+            "prime_modulus": 439,
+            "scale_modulus": 293
+          },
+          "divisor_range": [
+            4,
+            21
+          ],
+          "ell_freeze": 76,
+          "minimum_dominance_slack_above_one_half": 0.47422456383580003,
+          "prime_modulus": 439,
+          "row_count": 51,
+          "scale_modulus": 293,
+          "span_position": "mid",
+          "weakest_dominance_row": {
+            "active_contribution": -191910830397263.66,
+            "active_contribution_negative": true,
+            "active_over_full_ratio": 0.9742245638358,
+            "dominance_slack_above_one_half": 0.47422456383580003,
+            "dominates_one_half_signed_full": true,
+            "full_contribution": -196988289477793.47,
+            "full_contribution_negative": true,
+            "half_frame_contribution": -93416685658366.92,
+            "label": "01,02",
+            "prime_modulus": 439,
+            "scale_modulus": 293
+          }
+        },
+        {
+          "all_rows_dominate_one_half_signed_full": true,
+          "canonical_source_start": 51,
+          "component_rows": [
+            {
+              "active_contribution": -141413879583474.84,
+              "active_contribution_negative": true,
+              "active_over_full_ratio": 1.0717997974675522,
+              "dominance_slack_above_one_half": 0.5717997974675522,
+              "dominates_one_half_signed_full": true,
+              "full_contribution": -131940573153314.12,
+              "full_contribution_negative": true,
+              "half_frame_contribution": -75443593006817.78,
+              "label": "00,12",
+              "prime_modulus": 577,
+              "scale_modulus": 293
+            },
+            {
+              "active_contribution": -284371730655022.44,
+              "active_contribution_negative": true,
+              "active_over_full_ratio": 1.0716682073911223,
+              "dominance_slack_above_one_half": 0.5716682073911223,
+              "dominates_one_half_signed_full": true,
+              "full_contribution": -265354266081382.84,
+              "full_contribution_negative": true,
+              "half_frame_contribution": -151694597614331.0,
+              "label": "01,02",
+              "prime_modulus": 577,
+              "scale_modulus": 293
+            },
+            {
+              "active_contribution": -568957920107735.2,
+              "active_contribution_negative": true,
+              "active_over_full_ratio": 1.0716074595183702,
+              "dominance_slack_above_one_half": 0.5716074595183702,
+              "dominates_one_half_signed_full": true,
+              "full_contribution": -530938745390454.06,
+              "full_contribution_negative": true,
+              "half_frame_contribution": -303488547412508.25,
+              "label": "01,11",
+              "prime_modulus": 577,
+              "scale_modulus": 293
+            }
+          ],
+          "degree5_total_row": {
+            "active_contribution": -994743530346232.5,
+            "active_contribution_negative": true,
+            "active_over_full_ratio": 1.0716521647381896,
+            "dominance_slack_above_one_half": 0.5716521647381896,
+            "dominates_one_half_signed_full": true,
+            "full_contribution": -928233584625151.0,
+            "full_contribution_negative": true,
+            "half_frame_contribution": -530626738033657.0,
+            "label": "TOTAL",
+            "prime_modulus": 577,
+            "scale_modulus": 293
+          },
+          "divisor_range": [
+            4,
+            21
+          ],
+          "ell_freeze": 76,
+          "minimum_dominance_slack_above_one_half": 0.5716074595183702,
+          "prime_modulus": 577,
+          "row_count": 51,
+          "scale_modulus": 293,
+          "span_position": "high",
+          "weakest_dominance_row": {
+            "active_contribution": -568957920107735.2,
+            "active_contribution_negative": true,
+            "active_over_full_ratio": 1.0716074595183702,
+            "dominance_slack_above_one_half": 0.5716074595183702,
+            "dominates_one_half_signed_full": true,
+            "full_contribution": -530938745390454.06,
+            "full_contribution_negative": true,
+            "half_frame_contribution": -303488547412508.25,
+            "label": "01,11",
+            "prime_modulus": 577,
+            "scale_modulus": 293
+          }
+        }
+      ],
+      "scale_modulus": 293,
+      "selected_primes": [
+        {
+          "prime_modulus": 293,
+          "span_position": "low"
+        },
+        {
+          "prime_modulus": 439,
+          "span_position": "mid"
+        },
+        {
+          "prime_modulus": 577,
+          "span_position": "high"
+        }
+      ],
+      "weakest_dominance_row": {
+        "active_contribution": -191910830397263.66,
+        "active_contribution_negative": true,
+        "active_over_full_ratio": 0.9742245638358,
+        "dominance_slack_above_one_half": 0.47422456383580003,
+        "dominates_one_half_signed_full": true,
+        "full_contribution": -196988289477793.47,
+        "full_contribution_negative": true,
+        "half_frame_contribution": -93416685658366.92,
+        "label": "01,02",
+        "prime_modulus": 439,
+        "scale_modulus": 293
+      }
+    }
+  ],
+  "schema_version": 1,
+  "source_commit": "9e72d5ddd12fd6761826d61d3119e9322a5404c6",
+  "source_start_theorem_proved": false,
+  "source_window_theorem_proved": false,
+  "span_positions": [
+    "low",
+    "mid",
+    "high"
+  ],
+  "status": "HOLDOUT_degree5_source_start_fresh_prime_span_rows",
+  "strict_central_goldbach_theorem_proved": false,
+  "threshold": 0.5,
+  "weakest_dominance_row": {
+    "active_contribution": -62005195333219.05,
+    "active_contribution_negative": true,
+    "active_over_full_ratio": 0.9412712796572614,
+    "dominance_slack_above_one_half": 0.44127127965726143,
+    "dominates_one_half_signed_full": true,
+    "full_contribution": -65873884259802.945,
+    "full_contribution_negative": true,
+    "half_frame_contribution": -29068253203317.574,
+    "label": "00,12",
+    "prime_modulus": 347,
+    "scale_modulus": 229
+  }
+}

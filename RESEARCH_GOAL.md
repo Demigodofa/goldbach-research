@@ -6,6 +6,32 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The narrowed source-start lane now has a fresh prime-span holdout:
+`tools/build_mobius_moment_square_degree5_source_start_fresh_prime_span_holdout.py`
+generated
+`evidence/mobius-moment-square-degree5-source-start-fresh-prime-span-holdout.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-source-start-fresh-prime-span-holdout.md`.
+
+Question: do fresh canonical source-start rows still satisfy signed
+active/full dominance when each fresh scale samples low, mid, and high prime
+rows rather than only the first prime row?
+
+Answer: yes as a finite prime-span holdout.  Fresh scales `229`, `251`, and
+`293` were sampled at low, mid, and high prime rows.  All `36` component and
+degree-5 total rows pass `full < 0` and `active/full > 1/2`.  The weakest row
+is `M=229`, `p=347`, component `(00,12)`, with active/full ratio
+`0.9412712796572614` and slack `0.44127127965726143`.
+
+Decision: the narrowed reachable lane survives this stronger fresh sample.
+The interior row `M=229`, `p=347` is weaker than the first-prime-only rows, so
+future source-start work should not assume the first prime row is worst.  This
+is not a full fresh-scale sweep, not a source-start theorem, not a
+source-window theorem, not an endpoint-swap theorem, not a strict-central
+Goldbach theorem, and not a Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The narrowed source-start lane now has a fresh first-prime-row holdout:
 `tools/build_mobius_moment_square_degree5_source_start_fresh_prime_row_holdout.py`
 generated
