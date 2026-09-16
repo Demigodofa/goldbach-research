@@ -6,6 +6,42 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The q286-WBSS route now has a `K_286` quarter-residual companion obligation
+audit:
+
+```text
+tools/build_q286_wbss_k286_quarter_residual_companion_obligation.py
+notes/q286-wbss-k286-quarter-residual-companion-obligation.md
+evidence/q286-wbss-k286-quarter-residual-companion-obligation.json
+```
+
+Question: after paying the `K_286` absolute envelope, does the companion
+adverse drag fit inside one quarter of the remaining local-main budget on the
+finite lift-depth fixture?
+
+Result:
+
+```text
+rows:                                      280
+quarter-residual surviving rows:          280 / 280
+quarter-residual nonpositive rows:          0 / 280
+max A_other / (M-H_286):                    0.24495753331096648
+min quarter margin ratio:                   0.0013845125869415692
+tight target:                               1201486
+tight target residue:                       286
+```
+
+Decision: `TARGET_k286_quarter_residual_companion_theorem_candidate`.  The
+finite fixture supports a sharper companion target:
+`A_other(N) <= (1/4)(M(N)-H_286(N))` after proving `H_286(N)<M(N)`.  The
+quarter is fragile finite calibration only, not a theorem constant.  No
+quarter-residual theorem, `K_286` absolute-envelope theorem, companion
+adverse-drag theorem, same-row tradeoff theorem, universal pointwise raw
+estimate, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach
+proof is established.
+
+## Previous active checkpoint note, 2026-09-16
+
 The q286-WBSS route now has a `K_286` absolute-envelope two-budget obligation
 audit:
 
