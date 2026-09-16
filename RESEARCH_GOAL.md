@@ -6,6 +6,39 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The q286 route now has a raw-sum expansion ledger:
+`tools/build_q286_raw_sum_expansion_ledger.py` generated
+`evidence/q286-raw-sum-expansion-ledger.json`, with explanation in
+`notes/q286-raw-sum-expansion-ledger.md`.
+
+Question: can `U_d(N)`, `W_phi(N)`, and the q286 adverse envelope be written
+as direct raw sums with no `mu_N` notation, while preserving the zero-mass
+and L2 bridge boundaries?
+
+Answer: yes as an arithmetic ledger and theorem target, not as a proof.  The
+theorem-ready objects are now recorded directly as raw sums:
+`T_N`, `Pi_raw_{N,d}(s)`, `U_d(N)=sum_s alpha_{d,s}
+(Pi_raw_{N,d}(s)-T_N U_{a,d}(s))`, `L_raw(N)=T_N M(a)`,
+`A_raw_-(N)=sum_d max(0,-U_d(N))`, and
+`W_phi(N)=L_raw(N)+sum_d U_d(N)`.  Equivalently,
+`U_d(N)=E_raw_d(N)=sum_chi c_hat_{d,chi}D_raw_{d,chi}(N)` with
+`D_raw_{d,chi}(N)=C_{d,chi}(N)-U_{a,d,chi}C_0(N)`.
+
+Decision: the q286 raw decomposition and zero-support non-circularity are
+confirmed as definitions, but no universal pointwise estimate is proved.  The
+L2 target remains only a raw candidate: the zero-mass check is an arithmetic
+sanity check, not a confirmed logical bridge, and the observed finite L2 cap
+still has violations.  q286 and Q46189 combine only as adverse-alignment
+language until a residual theorem expresses harmful Q46189 source-block mass
+as raw projected adverse mass plus a universally bounded residual.  The next
+proof obligation is still a universal, pointwise, unnormalized estimate such
+as `A_raw_-(N)<L_raw(N)` or direct `W_phi(N)>0`, plus an explicit finite
+remainder.  This proves no L2 bridge, q286/Q46189 combined theorem, raw
+adverse-envelope theorem, raw witness theorem, strict-central Goldbach
+theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The q286 route now has a raw adverse-envelope definition audit:
 `tools/build_q286_raw_adverse_envelope_definition_audit.py` generated
 `evidence/q286-raw-adverse-envelope-definition-audit.json`, with explanation

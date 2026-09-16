@@ -1,0 +1,170 @@
+{
+  "acceptance_condition": {
+    "acceptable_routes": [
+      "For every covered even N>=N0, prove sum_d max(0,-E_raw_d(N)) < T_N*M(a), or prove a sharper component/signed envelope that implies it.",
+      "Prove W_phi(N)=T_N*M(a)+sum_{d,chi}c_hat_{d,chi}D_raw_{d,chi}(N)>0 directly.",
+      "For every sufficiently large covered even N, prove C2*sqrt(sum_{d,chi}|D_raw_{d,chi}(N)|^2) < T_N*M(a)."
+    ],
+    "invalid_substitutes": [
+      "checked-row zero-mass sanity",
+      "normalized L2 cap after assuming T_N>0",
+      "finite L2 observations",
+      "fitted residual constants",
+      "almost-all or averaged AP-Goldbach estimates"
+    ],
+    "required_universal_estimate": "A universal, pointwise, unnormalized analytical estimate for every sufficiently large covered N, such as adverse_drag_raw(N)<local_main_raw(N), plus an explicit finite remainder.  Finite evidence is not an acceptance condition."
+  },
+  "decision": "The q286 raw objects can now be stated as a direct raw-sum ledger with no mu_N notation in the theorem-ready statements.  This confirms the arithmetic decomposition and the zero-support non-circularity of the strict raw targets, but it does not prove the universal pointwise estimate.  The L2 target remains a raw candidate only, not a confirmed logical bridge.  Q46189 combines with q286 as adverse-alignment language, not as a theorem input until a residual bridge is proved.",
+  "finite_calibration_summary": {
+    "all_checked_raw_gate_gaps_positive": true,
+    "finite_evidence_is_acceptance_condition": false,
+    "raw_adverse_drag_ratio_summary": {
+      "count": 348,
+      "maximum": 0.23148438379145228,
+      "mean": 0.04133330485045476,
+      "minimum": 0.0
+    },
+    "raw_adverse_gate_gap_summary": {
+      "count": 348,
+      "maximum": 1204304.8697911587,
+      "mean": 562330.5033423213,
+      "minimum": 286929.1729900494
+    },
+    "row_count": 348
+  },
+  "finite_ledger_only": true,
+  "goldbach_proved": false,
+  "l2_bridge_status": {
+    "classification": "target_only_not_acceptance_condition",
+    "logical_bridge_confirmed": false,
+    "observed_l2_failures": {
+      "global_min_cap_exceeding_row_count": 301,
+      "max_target_exceeding_row_local_cap": 1155862,
+      "row_count": 348,
+      "row_local_cap_exceeding_row_count": 120,
+      "worst_row_local_l2_cap": 0.13475610600578378,
+      "worst_row_local_ratio": 1.5570989543984672,
+      "worst_row_local_ratio_target": 1089544,
+      "worst_row_observed_aggregate_l2": 0.20982859176041493
+    },
+    "raw_l2_statement": "For every sufficiently large covered even N, prove C2*sqrt(sum_{d,chi}|D_raw_{d,chi}(N)|^2) < T_N*M(a).",
+    "reason": "HOLD_l2_logical_bridge_not_confirmed.  The zero-mass arithmetic audit is good on the checked rows, and the raw strict aggregate L2 target is non-circular as a theorem shape.  But the logical bridge is not established: no universal pointwise raw L2 moment theorem is proved, and the observed normalized cap has finite violations.  Future L2 work must stay raw and strict or be labeled conditional on a separate positive-mass theorem.",
+    "zero_mass_sanity_confirmed": true
+  },
+  "l2_logical_bridge_confirmed": false,
+  "logical_implication": {
+    "adverse_drag_route": "If A_raw_-(N)<L_raw(N), then sum_d U_d(N)>=-A_raw_-(N), so W_phi(N)=L_raw(N)+sum_d U_d(N)>0.",
+    "noncircular_conclusion": "At zero support, T_N=0, every Pi_raw, D_raw, U_d, A_raw_-, L_raw, and W_phi vanishes.  The strict inequalities therefore become false 0<0 or 0>0 statements; proving one would force strict-central support.",
+    "raw_witness_route": "Prove a direct raw weighted witness W_Phi(N)>0 for every sufficiently large covered even N.",
+    "zero_support_check": {
+      "conclusion": "The raw strict targets are non-circular theorem shapes: if proved for all sufficiently large covered N, they force strict-central prime-pair support.  They are not confirmed by the present arithmetic decomposition.",
+      "if_T_N_is_zero": "There are no strict-central prime pairs, so C_0(N)=0 and C_{d,chi}(N)=0 for every active character.  Therefore D_raw_{d,chi}(N)=0, E_raw_d(N)=0, W_phi(N)=0, and G_raw(N)=0.",
+      "strict_L2_target_at_zero_mass": "C2*sqrt(sum|D_raw|^2)<T_N*M(a) becomes 0<0, which is false.",
+      "strict_witness_at_zero_mass": "W_phi(N)>0 is false because W_phi(N)=0."
+    }
+  },
+  "positive_mass_theorem_proved": false,
+  "projection_formula_context": {
+    "boundary": "The normalized projection formula locates the coefficient span.  The theorem statement in this ledger uses the same coefficients inside raw sums.",
+    "moduli": [
+      70,
+      130,
+      154,
+      286
+    ],
+    "normalized_witness_formula": "A(N)=alpha_0+sum_d sum_s alpha_{d,s} Pi_{N,d}(s), where Pi_{N,d}(s) is the strict-central binary-prime residue mass of the left prime modulo d.",
+    "period": 10010,
+    "unit_coefficient_identity": "f(u)=alpha_0+sum_{d in {70,130,154,286}} sum_s alpha_{d,s} 1_{u == s mod d}"
+  },
+  "q286_q46189_bridge_read": {
+    "bridge_obligation": "To combine them as mathematics rather than analogy, express Q46189 harmful source-block mass as raw projected-channel adverse mass plus a residual with a universal pointwise bound.  No such residual theorem is currently present.",
+    "combined_proof_established": false,
+    "q286_role": "proof-shaped raw adverse-envelope instantiation after this ledger, still missing the universal pointwise estimate",
+    "q46189_best_input_feature": {
+      "feature": "missing_count",
+      "pearson": 0.32654799306706145
+    },
+    "q46189_best_matrix_feature": {
+      "feature": "tension_sum",
+      "pearson": -0.2169202637521853
+    },
+    "q46189_role": "diagnostic/falsifier language for harmful source-block mass; not a proof input",
+    "shared_schema": {
+      "formula_template": "Given a decomposition into channels C_N, define A_D(N)=sum_{c in C_N} max(0,-E_c(N)).  A sufficient bridge has the shape A_D(N) < B_D(N), where B_D(N) is a raw or local structural budget independent of already assuming the desired prime-pair support.",
+      "interpretation": "A counterexample-shaped obstruction would need harmful mass to align across all available channels strongly enough to beat the structural budget.  A proof would show that such coherent adverse alignment is impossible in the covered class.",
+      "name": "adverse alignment envelope",
+      "required_non_circularity": "B_D and E_c must be raw, or the route must separately prove the positive mass it conditions on.  A normalized channel statement alone is not a Goldbach bridge."
+    }
+  },
+  "q286_q46189_combined_theorem_proved": false,
+  "question": "Can U_d(N), W_phi(N), and the q286 adverse envelope be written as direct raw sums with no mu_N notation, while preserving the zero-mass and L2 bridge boundaries?",
+  "raw_adverse_envelope_theorem_proved": false,
+  "raw_sum_definitions_confirmed": true,
+  "raw_sum_ledger": {
+    "local_uniform_projected_mass_U_a_d": {
+      "boundary": "This is a coefficient/local model term.  It may be multiplied by T_N in a raw expression, but cannot create strict-central support by itself.",
+      "classification": "local_factor_not_pair_support",
+      "formula": "U_{a,d}(s) is the local-uniform projected mass for a=N mod 10010."
+    },
+    "raw_adverse_envelope_A_raw_minus": {
+      "classification": "one_sided_raw_envelope_unproved",
+      "formula": "A_raw_-(N)=sum_d max(0,-U_d(N)) for d in {70,130,154,286}."
+    },
+    "raw_character_moment": {
+      "circle_method_identity": "D_raw_{d,chi}(N)=C_{d,chi}(N)-U_{a,d,chi}*C_0(N).",
+      "classification": "raw_twisted_binary_prime_moment",
+      "formula": "D_raw_{d,chi}(N)=sum_s chi(s)*Delta_raw_{d,s}(N) over the active multiplicative characters for d in {70,130,154,286}."
+    },
+    "raw_left_residue_mass_Pi_raw": {
+      "classification": "raw_sum_by_residue",
+      "formula": "Pi_raw_{N,d}(s)=sum_{N/3<p<2N/3, p and N-p prime, p == s mod d} log(p)log(N-p).",
+      "source": "expanded from raw_projection_delta definition"
+    },
+    "raw_local_main_L_raw": {
+      "boundary": "L_raw vanishes when T_N=0.  It is a valid right-hand side for a strict raw theorem, but not a separate positive-mass theorem.",
+      "classification": "raw_form_but_T_N_factor",
+      "formula": "L_raw(N)=T_N*M(N), where M(N)=<u_a,phi_a> is the local q286-WBSS main term for a=N mod 10010."
+    },
+    "raw_modulus_error_U_d": {
+      "boundary": "The notation U_d=T_N*E_d is allowed only as shorthand after this direct raw discrepancy definition exists.",
+      "classification": "theorem_ready_raw_sum",
+      "formula": "U_d(N)=E_raw_d(N)=sum_s alpha_{d,s}*(Pi_raw_{N,d}(s)-T_N*U_{a,d}(s)); equivalently E_raw_d(N)=sum_chi c_hat_{d,chi}*D_raw_{d,chi}(N)."
+    },
+    "raw_projection_delta": {
+      "classification": "raw_discrepancy_vector",
+      "formula": "Delta_raw_{d,s}(N)=Pi_raw_{N,d}(s)-T_N*U_{a,d}(s), where Pi_raw_{N,d}(s) is the raw strict-central log-pair mass with left prime p == s mod d, and U_{a,d} is the local-uniform projected mass for a=N mod 10010."
+    },
+    "raw_witness_W_phi": {
+      "circle_method_identity": "W_phi(N)=C_0(N)*M(a)+sum_{d,chi} c_hat_{d,chi}*(C_{d,chi}(N)-U_{a,d,chi}*C_0(N)).",
+      "classification": "direct_raw_witness_sum",
+      "decomposition": "W_phi(N)=T_N*M(a)+sum_d E_raw_d(N).",
+      "direct_sum": "W_phi(N)=sum_{N/3<p<2N/3, p and N-p prime} log(p)log(N-p)*phi_a(p mod 10010)."
+    },
+    "strict_central_total_weight_T_N": {
+      "classification": "raw_sum_unknown_support",
+      "formula": "T_N=sum_{N/3<p<2N/3, p and N-p prime} log(p)log(N-p).",
+      "support_boundary": "If no strict-central prime pair exists, T_N=0.  The ledger does not assume T_N>0."
+    },
+    "strict_raw_gap": {
+      "classification": "noncircular_strict_target_unproved",
+      "formula": "G_raw(N)=T_N*M(a)-sum_d max(0,-E_raw_d(N))."
+    }
+  },
+  "raw_witness_theorem_proved": false,
+  "schema_version": 1,
+  "source_commit": "4541799aa37a26e15eeffab13b108e22d54dfdd0",
+  "source_receipts": {
+    "adverse_alignment_unification": "evidence\\goldbach-adverse-alignment-unification-audit.json",
+    "four_modulus_projection_formula": "evidence\\q286-wbss-four-modulus-projection-formula.json",
+    "q46189_source_matrix_margin": "evidence\\mobius-moment-square-degree5-q46189-source-matrix-margin-audit.json",
+    "raw_adverse_drag_theorem_target": "evidence\\q286-wbss-raw-adverse-drag-theorem-target.json",
+    "raw_character_circle_decomposition": "evidence\\q286-wbss-raw-character-circle-decomposition.json",
+    "raw_character_expansion_target": "evidence\\q286-wbss-raw-character-expansion-target.json",
+    "raw_witness_identity_audit": "evidence\\q286-wbss-raw-witness-identity-audit.json",
+    "rawization_obligation_audit": "evidence\\q286-wbss-rawization-obligation-audit.json",
+    "zero_mass_l2_logical_bridge_audit": "evidence\\q286-wbss-zero-mass-l2-logical-bridge-audit.json"
+  },
+  "status": "LEDGER_q286_raw_sum_expansion",
+  "strict_central_goldbach_theorem_proved": false,
+  "universal_raw_pointwise_theorem_proved": false
+}

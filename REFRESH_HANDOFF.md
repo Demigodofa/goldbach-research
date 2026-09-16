@@ -6,6 +6,55 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The q286 route now has a raw-sum expansion ledger:
+
+```text
+tools/build_q286_raw_sum_expansion_ledger.py
+notes/q286-raw-sum-expansion-ledger.md
+evidence/q286-raw-sum-expansion-ledger.json
+```
+
+Result:
+
+```text
+raw ledger rows:                         348
+max raw adverse ratio:                   0.23148438379145228
+min raw adverse gate gap:                286929.1729900494
+all checked raw gaps positive:           true
+L2 logical bridge confirmed:             false
+finite evidence is acceptance condition: false
+Goldbach proved:                         false
+```
+
+The theorem-ready raw q286 objects are now written without `mu_N`:
+
+```text
+T_N = sum_{N/3<p<2N/3, p and N-p prime} log(p)log(N-p)
+Pi_raw_{N,d}(s) = sum over the same pairs with p == s mod d
+U_d(N) = sum_s alpha_{d,s}(Pi_raw_{N,d}(s)-T_N U_{a,d}(s))
+L_raw(N) = T_N M(a)
+A_raw_-(N) = sum_d max(0,-U_d(N))
+W_phi(N) = L_raw(N)+sum_d U_d(N)
+```
+
+Equivalently,
+`U_d(N)=E_raw_d(N)=sum_chi c_hat_{d,chi}D_raw_{d,chi}(N)`,
+where `D_raw_{d,chi}(N)=C_{d,chi}(N)-U_{a,d,chi}C_0(N)`.
+
+Decision: the arithmetic decomposition and zero-support non-circularity are
+confirmed as a raw theorem target, but the universal pointwise estimate is
+not proved.  The L2 target is non-circular as a strict raw shape but is not a
+confirmed logical bridge.  q286 and Q46189 combine only as adverse-alignment
+language until a residual theorem maps Q46189 harmful source-block mass into
+raw projected adverse mass plus a universally bounded residual.  The live
+proof obligation remains a universal, pointwise, unnormalized estimate such as
+`A_raw_-(N)<L_raw(N)` or direct `W_phi(N)>0`, followed by an explicit finite
+remainder.  This proves no L2 bridge, q286/Q46189 combined theorem, raw
+adverse-envelope theorem, raw witness theorem, strict-central Goldbach
+theorem, or Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The q286 route now has a raw adverse-envelope definition audit:
 
 ```text
