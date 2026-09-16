@@ -6,6 +6,47 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The q286-WBSS route now has a `K_286` quarter-residual lift-depth stress:
+
+```text
+tools/build_q286_wbss_k286_quarter_residual_lift_depth_stress.py
+notes/q286-wbss-k286-quarter-residual-lift-depth-stress.md
+evidence/q286-wbss-k286-quarter-residual-lift-depth-stress.json
+```
+
+Question: does the fragile finite quarter-residual companion candidate survive
+if the zero-residue lift depth is doubled from `8` to `16` lifts over all `35`
+period classes?
+
+Result:
+
+```text
+rows:                                      560
+target range:                   1156012..1315886
+quarter-residual surviving rows:          560 / 560
+quarter-residual nonpositive rows:          0 / 560
+residual-payment route failed rows:         0 / 560
+A_other/(M-H_286) max:          0.24495753331096648
+quarter margin ratio min:       0.0013845125869415692
+tight target:                               1201486
+tight target residue:                           286
+```
+
+Decision: `PROBE_k286_quarter_residual_survives_lift_depth_stress`.  The
+quarter-residual companion candidate survives this `560`-row finite falsifier
+probe, and the tight row did not move.  The deeper stress exposes a larger
+raw `A_other/M = 0.10230465175850566`, but not on a row with a small enough
+post-`H_286` residual budget to beat the earlier quarter-residual maximum.
+The theorem-shaped obligation remains a universal pointwise analytic estimate
+`A_other(N) <= c(N)(M(N)-H_286(N))` with `c(N)<1` after proving
+`H_286(N)<M(N)`, plus finite remainder.  The finite `1/4` remains calibration
+only, not a theorem constant.  No quarter-residual theorem, `K_286`
+absolute-envelope theorem, companion adverse-drag theorem, same-row tradeoff
+theorem, universal pointwise raw estimate, q286 threshold theorem,
+strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-16
+
 The q286-WBSS route now has a `K_286` quarter-residual companion obligation
 audit:
 
