@@ -1,0 +1,129 @@
+{
+  "coefficient_family_theorem_proved": false,
+  "coefficient_provenance_audit": "evidence\\mobius-moment-square-coefficient-provenance-audit.json",
+  "decision": "The source curve coefficients remain root-free at margin 0.427, but the serialized coefficient-provenance reconstruction does not: M=167 has two real roots after the 0.427 shift.  The conservative margin 0.42 is root-free for both the source curve coefficients and the serialized provenance coefficients.  A universal proof must therefore use exact coefficient derivations or a robust margin, not rounded provenance floats at the tight margin.",
+  "finite_diagnostic_only": true,
+  "finite_serialization_sensitivity_only": true,
+  "goldbach_proved": false,
+  "margin_results": [
+    {
+      "failing_provenance_scales": [
+        167
+      ],
+      "margin": 0.427,
+      "margin_rational": "427/1000",
+      "provenance_serialized_all_root_free": false,
+      "rows": [
+        {
+          "provenance_serialized_real_root_count": 0,
+          "provenance_serialized_root_free": true,
+          "scale_modulus": 127,
+          "source_curve_real_root_count": 0,
+          "source_curve_root_free": true
+        },
+        {
+          "provenance_serialized_real_root_count": 0,
+          "provenance_serialized_root_free": true,
+          "scale_modulus": 149,
+          "source_curve_real_root_count": 0,
+          "source_curve_root_free": true
+        },
+        {
+          "provenance_serialized_real_root_count": 2,
+          "provenance_serialized_root_free": false,
+          "scale_modulus": 167,
+          "source_curve_real_root_count": 0,
+          "source_curve_root_free": true
+        },
+        {
+          "provenance_serialized_real_root_count": 0,
+          "provenance_serialized_root_free": true,
+          "scale_modulus": 191,
+          "source_curve_real_root_count": 0,
+          "source_curve_root_free": true
+        },
+        {
+          "provenance_serialized_real_root_count": 0,
+          "provenance_serialized_root_free": true,
+          "scale_modulus": 211,
+          "source_curve_real_root_count": 0,
+          "source_curve_root_free": true
+        },
+        {
+          "provenance_serialized_real_root_count": 0,
+          "provenance_serialized_root_free": true,
+          "scale_modulus": 227,
+          "source_curve_real_root_count": 0,
+          "source_curve_root_free": true
+        }
+      ],
+      "source_curve_all_root_free": true
+    },
+    {
+      "failing_provenance_scales": [],
+      "margin": 0.42,
+      "margin_rational": "21/50",
+      "provenance_serialized_all_root_free": true,
+      "rows": [
+        {
+          "provenance_serialized_real_root_count": 0,
+          "provenance_serialized_root_free": true,
+          "scale_modulus": 127,
+          "source_curve_real_root_count": 0,
+          "source_curve_root_free": true
+        },
+        {
+          "provenance_serialized_real_root_count": 0,
+          "provenance_serialized_root_free": true,
+          "scale_modulus": 149,
+          "source_curve_real_root_count": 0,
+          "source_curve_root_free": true
+        },
+        {
+          "provenance_serialized_real_root_count": 0,
+          "provenance_serialized_root_free": true,
+          "scale_modulus": 167,
+          "source_curve_real_root_count": 0,
+          "source_curve_root_free": true
+        },
+        {
+          "provenance_serialized_real_root_count": 0,
+          "provenance_serialized_root_free": true,
+          "scale_modulus": 191,
+          "source_curve_real_root_count": 0,
+          "source_curve_root_free": true
+        },
+        {
+          "provenance_serialized_real_root_count": 0,
+          "provenance_serialized_root_free": true,
+          "scale_modulus": 211,
+          "source_curve_real_root_count": 0,
+          "source_curve_root_free": true
+        },
+        {
+          "provenance_serialized_real_root_count": 0,
+          "provenance_serialized_root_free": true,
+          "scale_modulus": 227,
+          "source_curve_real_root_count": 0,
+          "source_curve_root_free": true
+        }
+      ],
+      "source_curve_all_root_free": true
+    }
+  ],
+  "mobius_covariance_theorem_proved": false,
+  "moment_square_half_frame_curve_positivity_theorem_proved": false,
+  "q286_reactivated": false,
+  "question": "Does the tight 0.427 Sturm margin survive when the polynomial is rebuilt from the serialized coefficient-provenance receipt, or is a more conservative cross-artifact margin required?",
+  "robust_margin_universal_theorem_proved": false,
+  "robust_provenance_serialized_margin_passes": true,
+  "robust_source_curve_margin_passes": true,
+  "signed_prime_correlation_proved": false,
+  "source_curve_audit": "evidence\\mobius-moment-square-half-frame-curve-audit.json",
+  "status": "FALSIFY_tight_margin_from_serialized_provenance_coefficients",
+  "tight_margin_serialized_provenance_theorem_proved": false,
+  "tight_provenance_serialized_margin_passes": false,
+  "tight_source_curve_margin_passes": true,
+  "uniform_active_full_lower_frame_proved": false,
+  "universal_sturm_certificate_theorem_proved": false
+}

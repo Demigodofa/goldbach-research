@@ -6,6 +6,37 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The metric-soft moment-square route now has a Sturm-margin sensitivity audit:
+`tools/build_mobius_moment_square_sturm_margin_sensitivity_audit.py`
+generated
+`evidence/mobius-moment-square-sturm-margin-sensitivity-audit.json`, with
+explanation in
+`notes/mobius-moment-square-sturm-margin-sensitivity-audit.md`.
+
+Question: does the tight `427/1000` Sturm margin survive when the polynomial
+is rebuilt from the serialized coefficient-provenance receipt?
+
+Answer: no.  The source curve coefficients remain root-free at margin
+`427/1000`, but the serialized coefficient-provenance reconstruction has
+`2` real roots at `M=167`.  The conservative margin `21/50` remains root-free
+for both the source curve coefficients and the serialized provenance
+coefficients on every checked scale.
+
+Decision:
+`FALSIFY_tight_margin_from_serialized_provenance_coefficients`.  Do not use
+rounded serialized provenance coefficients to carry the tight `0.427` Sturm
+margin.  The next theorem target must either derive exact coefficient formulas
+and prove the Sturm/sign certificate directly, or work with a margin robust to
+the available coefficient error.  This is finite serialization-sensitivity
+evidence only.  No robust-margin universal theorem, tight-margin
+serialized-provenance theorem, coefficient-family theorem, universal
+Sturm-certificate theorem, half-frame curve-positivity theorem, uniform
+active/full lower-frame theorem, Mobius covariance theorem, signed
+prime-correlation estimate, q286 theorem, strict-central Goldbach theorem, or
+Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-16
+
 The metric-soft moment-square route now has a coefficient-provenance audit:
 `tools/build_mobius_moment_square_coefficient_provenance_audit.py` generated
 `evidence/mobius-moment-square-coefficient-provenance-audit.json`, with
