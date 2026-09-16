@@ -6,6 +6,38 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The original divisor construction is now mapped exactly to the binary mass
+error in `notes/q286-q46189-complementary-divisor-mapping.md`.
+With `c_a=mu(a)log(N/a)`, its full divisor sum is exactly `Lambda(n)` for
+`n>1`, independent of the frozen scale when all divisors are retained.
+Splitting at `B=floor(N^(8/25))` gives
+`Delta_0=(N/3)(K_B-S)+E_B+2C(A_B,R_B)+C(R_B,R_B)-P_N`.
+The complementary CRT count requires both `gcd(a,b)|N` and its residue `r`;
+the proved universal bound is `|E_B|<=B^2 log(N)^2=o(N)`.
+The proper-prime-power correction `P_N` is also proved `o(N)`.
+
+Q46189 instead resolves frequency differences of centered same-argument
+block squares. It does not currently control the remaining main adjustment
+and long-divisor correlations. The note states the required one-sided
+pointwise bound before computation and maps it to the full q286 remainder.
+No universal prime-correlation estimate or Goldbach proof has been obtained.
+
+Curiosity follow-through: divisor switching exposes an outer `mu(n)` on
+squarefree inputs, removed by a diagonal square but retained as
+`mu(n)mu(N-n)` in a complementary product. This is an exact identity, not
+a randomness claim or an impossibility theorem; nonsquarefree inputs must
+be retained. Kevin explicitly says the route is not mandatory: follow a
+well-motivated hypothesis, not the previous path simply because it exists.
+Do not return to constant scans or status-only audits.
+
+Validation: thirteen new identity/obstruction tests and thirty-five adjacent
+tests pass (48 total). Math/review details are in `notes/review-receipts.md`.
+The full prove-or-disprove objective remains active. The next action may
+pursue the signed complementary kernel or another better-supported question;
+state what would change the mathematics before spending compute.
+
+## Independent local density checkpoint, 2026-09-16
+
 An exact CRT calculation and mass-direction obstruction are now recorded in
 `notes/q286-independent-local-density-and-mass-direction.md`, with reusable
 exact-arithmetic fixtures in `periodic_pair_local_density.py` and ten tests

@@ -4,6 +4,48 @@ Owner: Rill. Purpose: preserve the reasoning and validation that support claimed
 results, including corrections that change future execution. No raw model
 reasoning is retained. Model agreement is not a proof by itself.
 
+## Complementary-divisor mapping and sign check, 2026-09-16
+
+A separate read-only Sol review (`01a0ac33-64b3-78e3-bd5c-e1ec0de0cea8`)
+checked `notes/q286-q46189-complementary-divisor-mapping.md`, its original
+source-module links, `complementary_divisor_correlation.py`, and its tests.
+This was a fresh context given the proposed derivation, not blind discovery.
+The reviewer confirmed the full frozen Mobius identity for `n>1`, the
+complementary CRT residue and compatibility condition, the sharp inclusive
+endpoint-error bound, `|E_B|<=B^2 log(N)^2`, the prime-power correction,
+the exact `Delta_0` mapping, and the stated conditional epsilon gate.
+
+Four clarifications were incorporated: retain the uncontrolled main
+adjustment alongside the mixed/long terms; state the source's inclusive
+prime-modulus interval; define the ordered prime-only mass explicitly;
+and distinguish the source's selected `Q>mA` endpoint subsystem and
+six-dimensional matrix relaxation from realizable arithmetic squares.
+Failure of the relaxation is not impossibility for the Mobius family.
+
+The divisor-switching follow-through is also exact on its stated domains.
+The reviewer checked that the squarefree outer sign disappears from the
+diagonal square but survives in the complementary product, without any
+independence assertion. The `n=12`, `D=(2,7]` example falsifies extension
+of that factorization to all integers: its middle-band sum is `-log 2`,
+not zero. Nonsquarefree composites cannot be discarded as prime powers.
+
+Thirteen focused tests pass, also under `python -O`; the combined run with
+the prior local-density, cap-homogeneity, raw-sum, and original lcm source
+regressions passes 48 tests. One test directly compares original source
+code to the block-square formula. Two initial fixture bugs were corrected:
+unintended float division in a rational expected value, and using `N=100`
+when a nonzero proper-power example was required (`N=50`, `25+25`, is used).
+The analytical proofs are the written derivations, not these finite tests.
+A bounded local Qwen check returned a truncated opening only and contributes
+no review authority or mathematical evidence.
+
+Disposition: no constant scan or status-only audit. The short-short binary
+counting error and prime-power term have universal `o(N)` bounds at the
+named cutoff. The signed main adjustment plus mixed/long-divisor estimate
+remains OPEN; no Q46189 transfer, strict-central theorem, or Goldbach proof
+has been obtained. Kevin's route freedom is preserved: choose a question
+for mathematical value, not because a previous handoff prescribed it.
+
 ## Independent local density and the missing mass direction, 2026-09-16
 
 A separate read-only Sol review (`01a0ac24-41e4-7bf2-b6b4-8b6b09414af1`)

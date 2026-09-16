@@ -6,6 +6,24 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+An exact complementary-divisor mapping now isolates the missing mass error:
+`Delta_0=(N/3)(K_B-S)+E_B+2C(A_B,R_B)+C(R_B,R_B)-P_N`.
+See `notes/q286-q46189-complementary-divisor-mapping.md`. The elementary
+CRT bound `|E_B|<=B^2 log(N)^2` makes the short-short counting error `o(N)`
+at `B=N^.32`; the proper-prime-power correction is also `o(N)`. The signed
+main adjustment and long-divisor terms are still unbounded at the required
+pointwise scale. No Goldbach proof follows.
+
+The Q46189 source is a same-argument square construction, not this
+complementary operator. Its direct transfer is unestablished. Divisor
+switching reveals a sign-sensitive candidate for further thought, with
+explicit squarefree and nonsquarefree boundaries. Thirteen new tests and
+thirty-five adjacent tests pass. Kevin explicitly permits choosing a more
+promising route rather than mechanically following the proposed next step;
+preserve the full prove-or-disprove goal and demand mathematical value.
+
+## Independent local density checkpoint, 2026-09-16
+
 The local-density calculation now distinguishes an independent candidate
 main term from the exact observed-mass decomposition. See
 `notes/q286-independent-local-density-and-mass-direction.md`,
