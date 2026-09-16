@@ -6,6 +6,36 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The q286-WBSS route now has a zero-residue extended-lift `K_286` phase-band
+audit:
+`tools/build_q286_wbss_k286_zero_residue_extended_lift_phase_band_audit.py`
+generated
+`evidence/q286-wbss-k286-zero-residue-extended-lift-phase-band-audit.json`,
+with explanation in
+`notes/q286-wbss-k286-zero-residue-extended-lift-phase-band-audit.md`.
+
+Question: after the residue-only phase-pair rule failed, does the phase band
+seeded by the first two lifts cover later lifts on the four repeated
+zero-lane residue classes?
+
+Answer: no.  Extending residues `286`, `3718`, `4576`, and `7722` to `8` lifts
+each gives `32` rows and `24` future rows after the first two lifts.  The
+first-two-lift top-absolute bands cover only `3/24` future rows; top-adverse
+bands cover `5/24`; top-rescue bands cover `4/24`.  A single residue can need
+as many as `7` unique top-absolute pairs and `7` unique top-rescue pairs across
+only `8` lifts.  The top absolute pair fraction remains local and modest:
+mean `0.11641633995627859`, maximum `0.16050600038977816`.
+
+Decision: `DIAGNOSTIC_k286_small_phase_band_not_stable`.  The finite
+extended-lift check falsifies the small phase-band shortcut seeded by the first
+two lifts.  The next theorem-shaped target is a phase-envelope or
+concentration estimate over moving `K_286` phase pairs, not fixed labels.  No
+moving-band phase theorem, phase-envelope theorem, coefficient-direction
+nonalignment theorem, universal pointwise raw estimate, q286 threshold theorem,
+strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-16
+
 The q286-WBSS route now has a zero-residue `K_286` phase-pair lift-drift audit:
 `tools/build_q286_wbss_k286_zero_residue_phase_pair_lift_drift_audit.py`
 generated
