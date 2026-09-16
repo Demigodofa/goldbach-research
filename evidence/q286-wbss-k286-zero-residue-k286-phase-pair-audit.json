@@ -1,0 +1,5171 @@
+{
+  "answer": "No.  The most common top adverse conjugate pair appears on only 4 of 18 rows, the most common top rescue pair appears on only 4 of 18 rows, and the most common top absolute pair appears on only 3 of 18 rows.",
+  "candidate": {
+    "falsifier": "A larger, residue-complete sufficiently-large sample where one conjugate pair dominates the adverse or rescue top pair on most rows would revive a single-mode theorem target.",
+    "mechanism": "The relevant K_286 phase rescue is not carried by one fixed character pair; the leading adverse and rescue conjugate pairs drift with the target residue.  A theorem would need to exploit residue-dependent oscillation or a summed band of pairs, not a single-mode sign lemma.",
+    "name": "target-residue-dependent K286 conjugate-pair oscillation",
+    "novelty_label": "new-to-this-task",
+    "prediction": "Extending the zero-lane probe should continue to show moving top K_286 pairs unless a hidden residue-period class is isolated.",
+    "smallest_next_action": "Group top K_286 phase-pairs by target residue modulo 10010 and by lift index to test whether the drift is deterministic in residue rather than random-looking."
+  },
+  "coefficient_direction_nonalignment_theorem_proved": false,
+  "decision": "DIAGNOSTIC_k286_phase_pair_single_mode_falsified.  The K_286 component remains the right place to look, but the finite data does not support a single fixed conjugate phase-pair theorem.  The next theorem target is a target-residue-dependent oscillation or a band estimate over moving K_286 phase pairs.",
+  "finite_diagnostic": {
+    "finite_evidence_is_acceptance_condition": false,
+    "role": "falsifier for a single fixed K_286 phase-pair explanation; locator for a target-residue-dependent oscillation theorem",
+    "rows": [
+      {
+        "k286_component_is_adverse": true,
+        "k286_component_is_rescue": false,
+        "k286_signed_error": -0.039480429985924353,
+        "pair_count": 30,
+        "pair_real_abs_envelope": 0.34547296800331034,
+        "pair_real_cancellation_ratio": 0.11427936088344268,
+        "pair_real_sum": -0.03948042998592435,
+        "pair_reconstruction_error": 6.938893903907228e-18,
+        "pair_rows": [
+          {
+            "abs_complex_contribution_sum": 0.040905537916793994,
+            "canonical_frequency": [
+              4,
+              4
+            ],
+            "conjugate_frequency": [
+              6,
+              8
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "4,4|6,8",
+            "real_contribution": -0.040807097088207255
+          },
+          {
+            "abs_complex_contribution_sum": 0.038779258687455215,
+            "canonical_frequency": [
+              2,
+              10
+            ],
+            "conjugate_frequency": [
+              8,
+              2
+            ],
+            "imag_contribution": -3.469446951953614e-18,
+            "mode_count": 2,
+            "pair_label": "2,10|8,2",
+            "real_contribution": 0.03664595714389167
+          },
+          {
+            "abs_complex_contribution_sum": 0.03789097020685832,
+            "canonical_frequency": [
+              4,
+              8
+            ],
+            "conjugate_frequency": [
+              6,
+              4
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "4,8|6,4",
+            "real_contribution": 0.03525341273682571
+          },
+          {
+            "abs_complex_contribution_sum": 0.02157002009113619,
+            "canonical_frequency": [
+              3,
+              1
+            ],
+            "conjugate_frequency": [
+              7,
+              11
+            ],
+            "imag_contribution": -3.686287386450715e-18,
+            "mode_count": 2,
+            "pair_label": "3,1|7,11",
+            "real_contribution": -0.02144085426768004
+          },
+          {
+            "abs_complex_contribution_sum": 0.025270982127487143,
+            "canonical_frequency": [
+              3,
+              7
+            ],
+            "conjugate_frequency": [
+              7,
+              5
+            ],
+            "imag_contribution": 1.734723475976807e-18,
+            "mode_count": 2,
+            "pair_label": "3,7|7,5",
+            "real_contribution": 0.021164570643226972
+          },
+          {
+            "abs_complex_contribution_sum": 0.022477024209553415,
+            "canonical_frequency": [
+              5,
+              1
+            ],
+            "conjugate_frequency": [
+              5,
+              11
+            ],
+            "imag_contribution": -1.734723475976807e-18,
+            "mode_count": 2,
+            "pair_label": "5,1|5,11",
+            "real_contribution": -0.020235876346323803
+          },
+          {
+            "abs_complex_contribution_sum": 0.01686972973123791,
+            "canonical_frequency": [
+              3,
+              5
+            ],
+            "conjugate_frequency": [
+              7,
+              7
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "3,5|7,7",
+            "real_contribution": 0.01675076945903531
+          },
+          {
+            "abs_complex_contribution_sum": 0.016120704249795784,
+            "canonical_frequency": [
+              1,
+              11
+            ],
+            "conjugate_frequency": [
+              9,
+              1
+            ],
+            "imag_contribution": 1.3010426069826053e-18,
+            "mode_count": 2,
+            "pair_label": "1,11|9,1",
+            "real_contribution": 0.01609588681454103
+          },
+          {
+            "abs_complex_contribution_sum": 0.01916901332847806,
+            "canonical_frequency": [
+              4,
+              10
+            ],
+            "conjugate_frequency": [
+              6,
+              2
+            ],
+            "imag_contribution": 8.673617379884035e-19,
+            "mode_count": 2,
+            "pair_label": "4,10|6,2",
+            "real_contribution": -0.015805575155290876
+          },
+          {
+            "abs_complex_contribution_sum": 0.01624550457277675,
+            "canonical_frequency": [
+              2,
+              2
+            ],
+            "conjugate_frequency": [
+              8,
+              10
+            ],
+            "imag_contribution": 1.734723475976807e-18,
+            "mode_count": 2,
+            "pair_label": "2,2|8,10",
+            "real_contribution": -0.015229698930269679
+          },
+          {
+            "abs_complex_contribution_sum": 0.017665625257877675,
+            "canonical_frequency": [
+              1,
+              1
+            ],
+            "conjugate_frequency": [
+              9,
+              11
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "1,1|9,11",
+            "real_contribution": -0.014860219340786152
+          },
+          {
+            "abs_complex_contribution_sum": 0.015121738817903099,
+            "canonical_frequency": [
+              5,
+              5
+            ],
+            "conjugate_frequency": [
+              5,
+              7
+            ],
+            "imag_contribution": 2.168404344971009e-18,
+            "mode_count": 2,
+            "pair_label": "5,5|5,7",
+            "real_contribution": -0.014851949868654013
+          }
+        ],
+        "target": 1161446,
+        "target_mod_286": 0,
+        "target_residue": 286,
+        "top_abs_pair": {
+          "abs_complex_contribution_sum": 0.040905537916793994,
+          "canonical_frequency": [
+            4,
+            4
+          ],
+          "conjugate_frequency": [
+            6,
+            8
+          ],
+          "imag_contribution": 0.0,
+          "mode_count": 2,
+          "pair_label": "4,4|6,8",
+          "real_contribution": -0.040807097088207255
+        },
+        "top_abs_pair_fraction_of_envelope": 0.1181195082325985,
+        "top_adverse_pair": {
+          "abs_complex_contribution_sum": 0.040905537916793994,
+          "canonical_frequency": [
+            4,
+            4
+          ],
+          "conjugate_frequency": [
+            6,
+            8
+          ],
+          "imag_contribution": 0.0,
+          "mode_count": 2,
+          "pair_label": "4,4|6,8",
+          "real_contribution": -0.040807097088207255
+        },
+        "top_rescue_pair": {
+          "abs_complex_contribution_sum": 0.038779258687455215,
+          "canonical_frequency": [
+            2,
+            10
+          ],
+          "conjugate_frequency": [
+            8,
+            2
+          ],
+          "imag_contribution": -3.469446951953614e-18,
+          "mode_count": 2,
+          "pair_label": "2,10|8,2",
+          "real_contribution": 0.03664595714389167
+        }
+      },
+      {
+        "k286_component_is_adverse": true,
+        "k286_component_is_rescue": false,
+        "k286_signed_error": -0.013357217958263532,
+        "pair_count": 30,
+        "pair_real_abs_envelope": 0.4082344628604777,
+        "pair_real_cancellation_ratio": 0.032719476608295696,
+        "pair_real_sum": -0.013357217958263558,
+        "pair_reconstruction_error": 2.6020852139652106e-17,
+        "pair_rows": [
+          {
+            "abs_complex_contribution_sum": 0.04484959239599754,
+            "canonical_frequency": [
+              5,
+              1
+            ],
+            "conjugate_frequency": [
+              5,
+              11
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "5,1|5,11",
+            "real_contribution": -0.036653577582921405
+          },
+          {
+            "abs_complex_contribution_sum": 0.040364600813431975,
+            "canonical_frequency": [
+              3,
+              11
+            ],
+            "conjugate_frequency": [
+              7,
+              1
+            ],
+            "imag_contribution": 1.734723475976807e-18,
+            "mode_count": 2,
+            "pair_label": "3,11|7,1",
+            "real_contribution": -0.03546985638291715
+          },
+          {
+            "abs_complex_contribution_sum": 0.03520376373633688,
+            "canonical_frequency": [
+              4,
+              4
+            ],
+            "conjugate_frequency": [
+              6,
+              8
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "4,4|6,8",
+            "real_contribution": 0.033066653887385646
+          },
+          {
+            "abs_complex_contribution_sum": 0.03425228529888233,
+            "canonical_frequency": [
+              5,
+              5
+            ],
+            "conjugate_frequency": [
+              5,
+              7
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "5,5|5,7",
+            "real_contribution": 0.02901140328560917
+          },
+          {
+            "abs_complex_contribution_sum": 0.028458581127104206,
+            "canonical_frequency": [
+              3,
+              1
+            ],
+            "conjugate_frequency": [
+              7,
+              11
+            ],
+            "imag_contribution": 8.673617379884035e-19,
+            "mode_count": 2,
+            "pair_label": "3,1|7,11",
+            "real_contribution": 0.02613555803508476
+          },
+          {
+            "abs_complex_contribution_sum": 0.026948808962861722,
+            "canonical_frequency": [
+              3,
+              3
+            ],
+            "conjugate_frequency": [
+              7,
+              9
+            ],
+            "imag_contribution": -1.734723475976807e-18,
+            "mode_count": 2,
+            "pair_label": "3,3|7,9",
+            "real_contribution": -0.023960141968696697
+          },
+          {
+            "abs_complex_contribution_sum": 0.02370079425556396,
+            "canonical_frequency": [
+              1,
+              11
+            ],
+            "conjugate_frequency": [
+              9,
+              1
+            ],
+            "imag_contribution": -1.734723475976807e-18,
+            "mode_count": 2,
+            "pair_label": "1,11|9,1",
+            "real_contribution": -0.023029313988021383
+          },
+          {
+            "abs_complex_contribution_sum": 0.021750019995704657,
+            "canonical_frequency": [
+              1,
+              5
+            ],
+            "conjugate_frequency": [
+              9,
+              7
+            ],
+            "imag_contribution": -2.6020852139652106e-18,
+            "mode_count": 2,
+            "pair_label": "1,5|9,7",
+            "real_contribution": -0.021742702757300128
+          },
+          {
+            "abs_complex_contribution_sum": 0.02946167467760443,
+            "canonical_frequency": [
+              1,
+              7
+            ],
+            "conjugate_frequency": [
+              9,
+              5
+            ],
+            "imag_contribution": -1.734723475976807e-18,
+            "mode_count": 2,
+            "pair_label": "1,7|9,5",
+            "real_contribution": -0.02050577040954831
+          },
+          {
+            "abs_complex_contribution_sum": 0.03486346104728731,
+            "canonical_frequency": [
+              2,
+              4
+            ],
+            "conjugate_frequency": [
+              8,
+              8
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "2,4|8,8",
+            "real_contribution": 0.020328379635080128
+          },
+          {
+            "abs_complex_contribution_sum": 0.02179175363917541,
+            "canonical_frequency": [
+              3,
+              9
+            ],
+            "conjugate_frequency": [
+              7,
+              3
+            ],
+            "imag_contribution": -1.734723475976807e-18,
+            "mode_count": 2,
+            "pair_label": "3,9|7,3",
+            "real_contribution": -0.01958792166518075
+          },
+          {
+            "abs_complex_contribution_sum": 0.016736895280077716,
+            "canonical_frequency": [
+              1,
+              1
+            ],
+            "conjugate_frequency": [
+              9,
+              11
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "1,1|9,11",
+            "real_contribution": 0.015882755602132096
+          }
+        ],
+        "target": 1171456,
+        "target_mod_286": 0,
+        "target_residue": 286,
+        "top_abs_pair": {
+          "abs_complex_contribution_sum": 0.04484959239599754,
+          "canonical_frequency": [
+            5,
+            1
+          ],
+          "conjugate_frequency": [
+            5,
+            11
+          ],
+          "imag_contribution": 0.0,
+          "mode_count": 2,
+          "pair_label": "5,1|5,11",
+          "real_contribution": -0.036653577582921405
+        },
+        "top_abs_pair_fraction_of_envelope": 0.08978560341547769,
+        "top_adverse_pair": {
+          "abs_complex_contribution_sum": 0.04484959239599754,
+          "canonical_frequency": [
+            5,
+            1
+          ],
+          "conjugate_frequency": [
+            5,
+            11
+          ],
+          "imag_contribution": 0.0,
+          "mode_count": 2,
+          "pair_label": "5,1|5,11",
+          "real_contribution": -0.036653577582921405
+        },
+        "top_rescue_pair": {
+          "abs_complex_contribution_sum": 0.03520376373633688,
+          "canonical_frequency": [
+            4,
+            4
+          ],
+          "conjugate_frequency": [
+            6,
+            8
+          ],
+          "imag_contribution": 0.0,
+          "mode_count": 2,
+          "pair_label": "4,4|6,8",
+          "real_contribution": 0.033066653887385646
+        }
+      },
+      {
+        "k286_component_is_adverse": true,
+        "k286_component_is_rescue": false,
+        "k286_signed_error": -0.048644238759960205,
+        "pair_count": 30,
+        "pair_real_abs_envelope": 0.323179237744921,
+        "pair_real_cancellation_ratio": 0.15051783369312277,
+        "pair_real_sum": -0.048644238759960205,
+        "pair_reconstruction_error": 0.0,
+        "pair_rows": [
+          {
+            "abs_complex_contribution_sum": 0.05417634436245322,
+            "canonical_frequency": [
+              2,
+              2
+            ],
+            "conjugate_frequency": [
+              8,
+              10
+            ],
+            "imag_contribution": 1.0408340855860843e-17,
+            "mode_count": 2,
+            "pair_label": "2,2|8,10",
+            "real_contribution": -0.052229169042485535
+          },
+          {
+            "abs_complex_contribution_sum": 0.03359636792031317,
+            "canonical_frequency": [
+              4,
+              8
+            ],
+            "conjugate_frequency": [
+              6,
+              4
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "4,8|6,4",
+            "real_contribution": -0.031071187657076865
+          },
+          {
+            "abs_complex_contribution_sum": 0.0281940328603555,
+            "canonical_frequency": [
+              2,
+              6
+            ],
+            "conjugate_frequency": [
+              8,
+              6
+            ],
+            "imag_contribution": -6.071532165918825e-18,
+            "mode_count": 2,
+            "pair_label": "2,6|8,6",
+            "real_contribution": 0.027874644944972212
+          },
+          {
+            "abs_complex_contribution_sum": 0.024241805488221864,
+            "canonical_frequency": [
+              3,
+              11
+            ],
+            "conjugate_frequency": [
+              7,
+              1
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "3,11|7,1",
+            "real_contribution": 0.022349945954306935
+          },
+          {
+            "abs_complex_contribution_sum": 0.024208105288137983,
+            "canonical_frequency": [
+              1,
+              5
+            ],
+            "conjugate_frequency": [
+              9,
+              7
+            ],
+            "imag_contribution": -2.6020852139652106e-18,
+            "mode_count": 2,
+            "pair_label": "1,5|9,7",
+            "real_contribution": -0.02095891790748076
+          },
+          {
+            "abs_complex_contribution_sum": 0.024533058887259714,
+            "canonical_frequency": [
+              3,
+              1
+            ],
+            "conjugate_frequency": [
+              7,
+              11
+            ],
+            "imag_contribution": -8.673617379884035e-19,
+            "mode_count": 2,
+            "pair_label": "3,1|7,11",
+            "real_contribution": 0.01981394059109668
+          },
+          {
+            "abs_complex_contribution_sum": 0.02450736806378212,
+            "canonical_frequency": [
+              2,
+              8
+            ],
+            "conjugate_frequency": [
+              8,
+              4
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "2,8|8,4",
+            "real_contribution": -0.01684672753139795
+          },
+          {
+            "abs_complex_contribution_sum": 0.01543140421263585,
+            "canonical_frequency": [
+              4,
+              10
+            ],
+            "conjugate_frequency": [
+              6,
+              2
+            ],
+            "imag_contribution": 2.168404344971009e-18,
+            "mode_count": 2,
+            "pair_label": "4,10|6,2",
+            "real_contribution": -0.014080241487956991
+          },
+          {
+            "abs_complex_contribution_sum": 0.04676694718548555,
+            "canonical_frequency": [
+              1,
+              7
+            ],
+            "conjugate_frequency": [
+              9,
+              5
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "1,7|9,5",
+            "real_contribution": -0.014045976047807843
+          },
+          {
+            "abs_complex_contribution_sum": 0.023284136313686594,
+            "canonical_frequency": [
+              4,
+              2
+            ],
+            "conjugate_frequency": [
+              6,
+              10
+            ],
+            "imag_contribution": -3.469446951953614e-18,
+            "mode_count": 2,
+            "pair_label": "4,2|6,10",
+            "real_contribution": 0.012791638315670607
+          },
+          {
+            "abs_complex_contribution_sum": 0.014560634142186911,
+            "canonical_frequency": [
+              2,
+              10
+            ],
+            "conjugate_frequency": [
+              8,
+              2
+            ],
+            "imag_contribution": -8.673617379884035e-19,
+            "mode_count": 2,
+            "pair_label": "2,10|8,2",
+            "real_contribution": 0.011194069369404851
+          },
+          {
+            "abs_complex_contribution_sum": 0.011869351542363408,
+            "canonical_frequency": [
+              3,
+              7
+            ],
+            "conjugate_frequency": [
+              7,
+              5
+            ],
+            "imag_contribution": -1.3010426069826053e-18,
+            "mode_count": 2,
+            "pair_label": "3,7|7,5",
+            "real_contribution": 0.010890805575192914
+          }
+        ],
+        "target": 1173172,
+        "target_mod_286": 0,
+        "target_residue": 2002,
+        "top_abs_pair": {
+          "abs_complex_contribution_sum": 0.05417634436245322,
+          "canonical_frequency": [
+            2,
+            2
+          ],
+          "conjugate_frequency": [
+            8,
+            10
+          ],
+          "imag_contribution": 1.0408340855860843e-17,
+          "mode_count": 2,
+          "pair_label": "2,2|8,10",
+          "real_contribution": -0.052229169042485535
+        },
+        "top_abs_pair_fraction_of_envelope": 0.16161053354457436,
+        "top_adverse_pair": {
+          "abs_complex_contribution_sum": 0.05417634436245322,
+          "canonical_frequency": [
+            2,
+            2
+          ],
+          "conjugate_frequency": [
+            8,
+            10
+          ],
+          "imag_contribution": 1.0408340855860843e-17,
+          "mode_count": 2,
+          "pair_label": "2,2|8,10",
+          "real_contribution": -0.052229169042485535
+        },
+        "top_rescue_pair": {
+          "abs_complex_contribution_sum": 0.0281940328603555,
+          "canonical_frequency": [
+            2,
+            6
+          ],
+          "conjugate_frequency": [
+            8,
+            6
+          ],
+          "imag_contribution": -6.071532165918825e-18,
+          "mode_count": 2,
+          "pair_label": "2,6|8,6",
+          "real_contribution": 0.027874644944972212
+        }
+      },
+      {
+        "k286_component_is_adverse": true,
+        "k286_component_is_rescue": false,
+        "k286_signed_error": -0.0027093394115558205,
+        "pair_count": 30,
+        "pair_real_abs_envelope": 0.29807078053132524,
+        "pair_real_cancellation_ratio": 0.009089584046870686,
+        "pair_real_sum": -0.0027093394115558275,
+        "pair_reconstruction_error": 6.938893903907228e-18,
+        "pair_rows": [
+          {
+            "abs_complex_contribution_sum": 0.036596488954415175,
+            "canonical_frequency": [
+              3,
+              5
+            ],
+            "conjugate_frequency": [
+              7,
+              7
+            ],
+            "imag_contribution": -1.734723475976807e-18,
+            "mode_count": 2,
+            "pair_label": "3,5|7,7",
+            "real_contribution": 0.030971411876197133
+          },
+          {
+            "abs_complex_contribution_sum": 0.03588290837403492,
+            "canonical_frequency": [
+              3,
+              7
+            ],
+            "conjugate_frequency": [
+              7,
+              5
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "3,7|7,5",
+            "real_contribution": -0.02889019684889417
+          },
+          {
+            "abs_complex_contribution_sum": 0.028251408943966758,
+            "canonical_frequency": [
+              1,
+              9
+            ],
+            "conjugate_frequency": [
+              9,
+              3
+            ],
+            "imag_contribution": 1.5178830414797062e-18,
+            "mode_count": 2,
+            "pair_label": "1,9|9,3",
+            "real_contribution": 0.028250456658357327
+          },
+          {
+            "abs_complex_contribution_sum": 0.03083455483967,
+            "canonical_frequency": [
+              3,
+              9
+            ],
+            "conjugate_frequency": [
+              7,
+              3
+            ],
+            "imag_contribution": -6.938893903907228e-18,
+            "mode_count": 2,
+            "pair_label": "3,9|7,3",
+            "real_contribution": -0.02776804896050796
+          },
+          {
+            "abs_complex_contribution_sum": 0.039624610444783354,
+            "canonical_frequency": [
+              2,
+              4
+            ],
+            "conjugate_frequency": [
+              8,
+              8
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "2,4|8,8",
+            "real_contribution": -0.02259943491394177
+          },
+          {
+            "abs_complex_contribution_sum": 0.029937698619713626,
+            "canonical_frequency": [
+              1,
+              1
+            ],
+            "conjugate_frequency": [
+              9,
+              11
+            ],
+            "imag_contribution": -3.469446951953614e-18,
+            "mode_count": 2,
+            "pair_label": "1,1|9,11",
+            "real_contribution": 0.019137312640994643
+          },
+          {
+            "abs_complex_contribution_sum": 0.021829690821224768,
+            "canonical_frequency": [
+              5,
+              1
+            ],
+            "conjugate_frequency": [
+              5,
+              11
+            ],
+            "imag_contribution": -1.734723475976807e-18,
+            "mode_count": 2,
+            "pair_label": "5,1|5,11",
+            "real_contribution": 0.017659320156367515
+          },
+          {
+            "abs_complex_contribution_sum": 0.02993595942086421,
+            "canonical_frequency": [
+              4,
+              6
+            ],
+            "conjugate_frequency": [
+              6,
+              6
+            ],
+            "imag_contribution": -1.734723475976807e-18,
+            "mode_count": 2,
+            "pair_label": "4,6|6,6",
+            "real_contribution": 0.017020792872162786
+          },
+          {
+            "abs_complex_contribution_sum": 0.017788364333391996,
+            "canonical_frequency": [
+              3,
+              11
+            ],
+            "conjugate_frequency": [
+              7,
+              1
+            ],
+            "imag_contribution": 1.734723475976807e-18,
+            "mode_count": 2,
+            "pair_label": "3,11|7,1",
+            "real_contribution": -0.016851571602445995
+          },
+          {
+            "abs_complex_contribution_sum": 0.013240383828885854,
+            "canonical_frequency": [
+              2,
+              6
+            ],
+            "conjugate_frequency": [
+              8,
+              6
+            ],
+            "imag_contribution": -3.0357660829594124e-18,
+            "mode_count": 2,
+            "pair_label": "2,6|8,6",
+            "real_contribution": 0.013035113963391881
+          },
+          {
+            "abs_complex_contribution_sum": 0.03644806602783403,
+            "canonical_frequency": [
+              5,
+              3
+            ],
+            "conjugate_frequency": [
+              5,
+              9
+            ],
+            "imag_contribution": -1.0408340855860843e-17,
+            "mode_count": 2,
+            "pair_label": "5,3|5,9",
+            "real_contribution": -0.012144438896584897
+          },
+          {
+            "abs_complex_contribution_sum": 0.012612582260421442,
+            "canonical_frequency": [
+              2,
+              8
+            ],
+            "conjugate_frequency": [
+              8,
+              4
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "2,8|8,4",
+            "real_contribution": -0.01185822402531688
+          }
+        ],
+        "target": 1173458,
+        "target_mod_286": 0,
+        "target_residue": 2288,
+        "top_abs_pair": {
+          "abs_complex_contribution_sum": 0.036596488954415175,
+          "canonical_frequency": [
+            3,
+            5
+          ],
+          "conjugate_frequency": [
+            7,
+            7
+          ],
+          "imag_contribution": -1.734723475976807e-18,
+          "mode_count": 2,
+          "pair_label": "3,5|7,7",
+          "real_contribution": 0.030971411876197133
+        },
+        "top_abs_pair_fraction_of_envelope": 0.1039062326773162,
+        "top_adverse_pair": {
+          "abs_complex_contribution_sum": 0.03588290837403492,
+          "canonical_frequency": [
+            3,
+            7
+          ],
+          "conjugate_frequency": [
+            7,
+            5
+          ],
+          "imag_contribution": 0.0,
+          "mode_count": 2,
+          "pair_label": "3,7|7,5",
+          "real_contribution": -0.02889019684889417
+        },
+        "top_rescue_pair": {
+          "abs_complex_contribution_sum": 0.036596488954415175,
+          "canonical_frequency": [
+            3,
+            5
+          ],
+          "conjugate_frequency": [
+            7,
+            7
+          ],
+          "imag_contribution": -1.734723475976807e-18,
+          "mode_count": 2,
+          "pair_label": "3,5|7,7",
+          "real_contribution": 0.030971411876197133
+        }
+      },
+      {
+        "k286_component_is_adverse": true,
+        "k286_component_is_rescue": false,
+        "k286_signed_error": -0.043698421841737695,
+        "pair_count": 30,
+        "pair_real_abs_envelope": 0.337778002622147,
+        "pair_real_cancellation_ratio": 0.1293702417046399,
+        "pair_real_sum": -0.043698421841737646,
+        "pair_reconstruction_error": 4.85722573273506e-17,
+        "pair_rows": [
+          {
+            "abs_complex_contribution_sum": 0.04480110228367652,
+            "canonical_frequency": [
+              2,
+              10
+            ],
+            "conjugate_frequency": [
+              8,
+              2
+            ],
+            "imag_contribution": -2.6020852139652106e-18,
+            "mode_count": 2,
+            "pair_label": "2,10|8,2",
+            "real_contribution": 0.04261240553521972
+          },
+          {
+            "abs_complex_contribution_sum": 0.05363266470516439,
+            "canonical_frequency": [
+              1,
+              7
+            ],
+            "conjugate_frequency": [
+              9,
+              5
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "1,7|9,5",
+            "real_contribution": -0.034331474444878426
+          },
+          {
+            "abs_complex_contribution_sum": 0.03926937682939785,
+            "canonical_frequency": [
+              3,
+              3
+            ],
+            "conjugate_frequency": [
+              7,
+              9
+            ],
+            "imag_contribution": -8.673617379884035e-18,
+            "mode_count": 2,
+            "pair_label": "3,3|7,9",
+            "real_contribution": -0.032242285592803004
+          },
+          {
+            "abs_complex_contribution_sum": 0.045373736226294134,
+            "canonical_frequency": [
+              2,
+              6
+            ],
+            "conjugate_frequency": [
+              8,
+              6
+            ],
+            "imag_contribution": -3.469446951953614e-18,
+            "mode_count": 2,
+            "pair_label": "2,6|8,6",
+            "real_contribution": 0.027934946683090888
+          },
+          {
+            "abs_complex_contribution_sum": 0.02456283191050323,
+            "canonical_frequency": [
+              2,
+              4
+            ],
+            "conjugate_frequency": [
+              8,
+              8
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "2,4|8,8",
+            "real_contribution": -0.024523406033246813
+          },
+          {
+            "abs_complex_contribution_sum": 0.04407484143354807,
+            "canonical_frequency": [
+              1,
+              9
+            ],
+            "conjugate_frequency": [
+              9,
+              3
+            ],
+            "imag_contribution": 1.734723475976807e-17,
+            "mode_count": 2,
+            "pair_label": "1,9|9,3",
+            "real_contribution": 0.02375824568392209
+          },
+          {
+            "abs_complex_contribution_sum": 0.030307228462215847,
+            "canonical_frequency": [
+              4,
+              6
+            ],
+            "conjugate_frequency": [
+              6,
+              6
+            ],
+            "imag_contribution": 1.734723475976807e-18,
+            "mode_count": 2,
+            "pair_label": "4,6|6,6",
+            "real_contribution": -0.017631689300818258
+          },
+          {
+            "abs_complex_contribution_sum": 0.016060042654528754,
+            "canonical_frequency": [
+              3,
+              11
+            ],
+            "conjugate_frequency": [
+              7,
+              1
+            ],
+            "imag_contribution": 4.336808689942018e-18,
+            "mode_count": 2,
+            "pair_label": "3,11|7,1",
+            "real_contribution": 0.015173825778083093
+          },
+          {
+            "abs_complex_contribution_sum": 0.02818673111050003,
+            "canonical_frequency": [
+              3,
+              5
+            ],
+            "conjugate_frequency": [
+              7,
+              7
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "3,5|7,7",
+            "real_contribution": -0.014739959084090162
+          },
+          {
+            "abs_complex_contribution_sum": 0.015817111765404512,
+            "canonical_frequency": [
+              4,
+              10
+            ],
+            "conjugate_frequency": [
+              6,
+              2
+            ],
+            "imag_contribution": -5.637851296924623e-18,
+            "mode_count": 2,
+            "pair_label": "4,10|6,2",
+            "real_contribution": 0.014112670728194152
+          },
+          {
+            "abs_complex_contribution_sum": 0.02788994564735466,
+            "canonical_frequency": [
+              4,
+              8
+            ],
+            "conjugate_frequency": [
+              6,
+              4
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "4,8|6,4",
+            "real_contribution": -0.01347580746656314
+          },
+          {
+            "abs_complex_contribution_sum": 0.017955956796927866,
+            "canonical_frequency": [
+              2,
+              8
+            ],
+            "conjugate_frequency": [
+              8,
+              4
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "2,8|8,4",
+            "real_contribution": -0.01132621614559028
+          }
+        ],
+        "target": 1174316,
+        "target_mod_286": 0,
+        "target_residue": 3146,
+        "top_abs_pair": {
+          "abs_complex_contribution_sum": 0.04480110228367652,
+          "canonical_frequency": [
+            2,
+            10
+          ],
+          "conjugate_frequency": [
+            8,
+            2
+          ],
+          "imag_contribution": -2.6020852139652106e-18,
+          "mode_count": 2,
+          "pair_label": "2,10|8,2",
+          "real_contribution": 0.04261240553521972
+        },
+        "top_abs_pair_fraction_of_envelope": 0.1261550639900248,
+        "top_adverse_pair": {
+          "abs_complex_contribution_sum": 0.05363266470516439,
+          "canonical_frequency": [
+            1,
+            7
+          ],
+          "conjugate_frequency": [
+            9,
+            5
+          ],
+          "imag_contribution": 0.0,
+          "mode_count": 2,
+          "pair_label": "1,7|9,5",
+          "real_contribution": -0.034331474444878426
+        },
+        "top_rescue_pair": {
+          "abs_complex_contribution_sum": 0.04480110228367652,
+          "canonical_frequency": [
+            2,
+            10
+          ],
+          "conjugate_frequency": [
+            8,
+            2
+          ],
+          "imag_contribution": -2.6020852139652106e-18,
+          "mode_count": 2,
+          "pair_label": "2,10|8,2",
+          "real_contribution": 0.04261240553521972
+        }
+      },
+      {
+        "k286_component_is_adverse": false,
+        "k286_component_is_rescue": true,
+        "k286_signed_error": 0.04252494382890039,
+        "pair_count": 30,
+        "pair_real_abs_envelope": 0.26773514017219274,
+        "pair_real_cancellation_ratio": 0.1588321346295845,
+        "pair_real_sum": 0.042524943828900395,
+        "pair_reconstruction_error": 6.938893903907228e-18,
+        "pair_rows": [
+          {
+            "abs_complex_contribution_sum": 0.034176739998531006,
+            "canonical_frequency": [
+              3,
+              3
+            ],
+            "conjugate_frequency": [
+              7,
+              9
+            ],
+            "imag_contribution": -3.469446951953614e-18,
+            "mode_count": 2,
+            "pair_label": "3,3|7,9",
+            "real_contribution": -0.03017630220592585
+          },
+          {
+            "abs_complex_contribution_sum": 0.026105050991323587,
+            "canonical_frequency": [
+              2,
+              8
+            ],
+            "conjugate_frequency": [
+              8,
+              4
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "2,8|8,4",
+            "real_contribution": 0.025937803523092745
+          },
+          {
+            "abs_complex_contribution_sum": 0.027546025336941754,
+            "canonical_frequency": [
+              3,
+              7
+            ],
+            "conjugate_frequency": [
+              7,
+              5
+            ],
+            "imag_contribution": 1.734723475976807e-18,
+            "mode_count": 2,
+            "pair_label": "3,7|7,5",
+            "real_contribution": 0.020002084851904398
+          },
+          {
+            "abs_complex_contribution_sum": 0.033505713618011065,
+            "canonical_frequency": [
+              2,
+              2
+            ],
+            "conjugate_frequency": [
+              8,
+              10
+            ],
+            "imag_contribution": 1.734723475976807e-18,
+            "mode_count": 2,
+            "pair_label": "2,2|8,10",
+            "real_contribution": -0.018171322593203233
+          },
+          {
+            "abs_complex_contribution_sum": 0.020423144728393065,
+            "canonical_frequency": [
+              4,
+              4
+            ],
+            "conjugate_frequency": [
+              6,
+              8
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "4,4|6,8",
+            "real_contribution": 0.01662975828079808
+          },
+          {
+            "abs_complex_contribution_sum": 0.018857227394809897,
+            "canonical_frequency": [
+              3,
+              1
+            ],
+            "conjugate_frequency": [
+              7,
+              11
+            ],
+            "imag_contribution": 8.673617379884035e-19,
+            "mode_count": 2,
+            "pair_label": "3,1|7,11",
+            "real_contribution": 0.01638974451570354
+          },
+          {
+            "abs_complex_contribution_sum": 0.017084622755704007,
+            "canonical_frequency": [
+              1,
+              7
+            ],
+            "conjugate_frequency": [
+              9,
+              5
+            ],
+            "imag_contribution": 4.336808689942018e-19,
+            "mode_count": 2,
+            "pair_label": "1,7|9,5",
+            "real_contribution": -0.01575179461198148
+          },
+          {
+            "abs_complex_contribution_sum": 0.013942783695525363,
+            "canonical_frequency": [
+              1,
+              5
+            ],
+            "conjugate_frequency": [
+              9,
+              7
+            ],
+            "imag_contribution": -1.734723475976807e-18,
+            "mode_count": 2,
+            "pair_label": "1,5|9,7",
+            "real_contribution": -0.013929900717401914
+          },
+          {
+            "abs_complex_contribution_sum": 0.03798809769451497,
+            "canonical_frequency": [
+              5,
+              3
+            ],
+            "conjugate_frequency": [
+              5,
+              9
+            ],
+            "imag_contribution": -1.0408340855860843e-17,
+            "mode_count": 2,
+            "pair_label": "5,3|5,9",
+            "real_contribution": 0.011270690387205087
+          },
+          {
+            "abs_complex_contribution_sum": 0.01175500033266343,
+            "canonical_frequency": [
+              2,
+              10
+            ],
+            "conjugate_frequency": [
+              8,
+              2
+            ],
+            "imag_contribution": 8.673617379884035e-19,
+            "mode_count": 2,
+            "pair_label": "2,10|8,2",
+            "real_contribution": 0.00958956715947942
+          },
+          {
+            "abs_complex_contribution_sum": 0.013736585559804854,
+            "canonical_frequency": [
+              3,
+              11
+            ],
+            "conjugate_frequency": [
+              7,
+              1
+            ],
+            "imag_contribution": 3.469446951953614e-18,
+            "mode_count": 2,
+            "pair_label": "3,11|7,1",
+            "real_contribution": 0.009096001793289257
+          },
+          {
+            "abs_complex_contribution_sum": 0.012852947978114697,
+            "canonical_frequency": [
+              4,
+              2
+            ],
+            "conjugate_frequency": [
+              6,
+              10
+            ],
+            "imag_contribution": -1.734723475976807e-18,
+            "mode_count": 2,
+            "pair_label": "4,2|6,10",
+            "real_contribution": 0.009039766498041158
+          }
+        ],
+        "target": 1164878,
+        "target_mod_286": 0,
+        "target_residue": 3718,
+        "top_abs_pair": {
+          "abs_complex_contribution_sum": 0.034176739998531006,
+          "canonical_frequency": [
+            3,
+            3
+          ],
+          "conjugate_frequency": [
+            7,
+            9
+          ],
+          "imag_contribution": -3.469446951953614e-18,
+          "mode_count": 2,
+          "pair_label": "3,3|7,9",
+          "real_contribution": -0.03017630220592585
+        },
+        "top_abs_pair_fraction_of_envelope": 0.11270953146650114,
+        "top_adverse_pair": {
+          "abs_complex_contribution_sum": 0.034176739998531006,
+          "canonical_frequency": [
+            3,
+            3
+          ],
+          "conjugate_frequency": [
+            7,
+            9
+          ],
+          "imag_contribution": -3.469446951953614e-18,
+          "mode_count": 2,
+          "pair_label": "3,3|7,9",
+          "real_contribution": -0.03017630220592585
+        },
+        "top_rescue_pair": {
+          "abs_complex_contribution_sum": 0.026105050991323587,
+          "canonical_frequency": [
+            2,
+            8
+          ],
+          "conjugate_frequency": [
+            8,
+            4
+          ],
+          "imag_contribution": 0.0,
+          "mode_count": 2,
+          "pair_label": "2,8|8,4",
+          "real_contribution": 0.025937803523092745
+        }
+      },
+      {
+        "k286_component_is_adverse": false,
+        "k286_component_is_rescue": true,
+        "k286_signed_error": 0.012201530032716788,
+        "pair_count": 30,
+        "pair_real_abs_envelope": 0.4070164873113274,
+        "pair_real_cancellation_ratio": 0.02997797488086474,
+        "pair_real_sum": 0.012201530032716774,
+        "pair_reconstruction_error": 1.3877787807814457e-17,
+        "pair_rows": [
+          {
+            "abs_complex_contribution_sum": 0.06059807615434417,
+            "canonical_frequency": [
+              2,
+              10
+            ],
+            "conjugate_frequency": [
+              8,
+              2
+            ],
+            "imag_contribution": -3.469446951953614e-18,
+            "mode_count": 2,
+            "pair_label": "2,10|8,2",
+            "real_contribution": 0.05603980720358222
+          },
+          {
+            "abs_complex_contribution_sum": 0.04620944140682249,
+            "canonical_frequency": [
+              1,
+              5
+            ],
+            "conjugate_frequency": [
+              9,
+              7
+            ],
+            "imag_contribution": -4.336808689942018e-18,
+            "mode_count": 2,
+            "pair_label": "1,5|9,7",
+            "real_contribution": -0.04428464324765129
+          },
+          {
+            "abs_complex_contribution_sum": 0.03786402931075809,
+            "canonical_frequency": [
+              3,
+              1
+            ],
+            "conjugate_frequency": [
+              7,
+              11
+            ],
+            "imag_contribution": 2.168404344971009e-18,
+            "mode_count": 2,
+            "pair_label": "3,1|7,11",
+            "real_contribution": 0.037294906761655186
+          },
+          {
+            "abs_complex_contribution_sum": 0.03896422929440417,
+            "canonical_frequency": [
+              1,
+              11
+            ],
+            "conjugate_frequency": [
+              9,
+              1
+            ],
+            "imag_contribution": -3.469446951953614e-18,
+            "mode_count": 2,
+            "pair_label": "1,11|9,1",
+            "real_contribution": -0.0354845007973684
+          },
+          {
+            "abs_complex_contribution_sum": 0.02913943470348605,
+            "canonical_frequency": [
+              3,
+              5
+            ],
+            "conjugate_frequency": [
+              7,
+              7
+            ],
+            "imag_contribution": -2.6020852139652106e-18,
+            "mode_count": 2,
+            "pair_label": "3,5|7,7",
+            "real_contribution": 0.02909049345389061
+          },
+          {
+            "abs_complex_contribution_sum": 0.034491419562156005,
+            "canonical_frequency": [
+              2,
+              8
+            ],
+            "conjugate_frequency": [
+              8,
+              4
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "2,8|8,4",
+            "real_contribution": 0.021459465962408573
+          },
+          {
+            "abs_complex_contribution_sum": 0.023968892563878616,
+            "canonical_frequency": [
+              4,
+              6
+            ],
+            "conjugate_frequency": [
+              6,
+              6
+            ],
+            "imag_contribution": 3.469446951953614e-18,
+            "mode_count": 2,
+            "pair_label": "4,6|6,6",
+            "real_contribution": -0.021052093372491733
+          },
+          {
+            "abs_complex_contribution_sum": 0.01985723050879222,
+            "canonical_frequency": [
+              2,
+              6
+            ],
+            "conjugate_frequency": [
+              8,
+              6
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "2,6|8,6",
+            "real_contribution": 0.016884457396708602
+          },
+          {
+            "abs_complex_contribution_sum": 0.01760446468793772,
+            "canonical_frequency": [
+              2,
+              4
+            ],
+            "conjugate_frequency": [
+              8,
+              8
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "2,4|8,8",
+            "real_contribution": -0.01636725680377629
+          },
+          {
+            "abs_complex_contribution_sum": 0.018713365253855682,
+            "canonical_frequency": [
+              1,
+              9
+            ],
+            "conjugate_frequency": [
+              9,
+              3
+            ],
+            "imag_contribution": 4.336808689942018e-18,
+            "mode_count": 2,
+            "pair_label": "1,9|9,3",
+            "real_contribution": -0.015836192726741746
+          },
+          {
+            "abs_complex_contribution_sum": 0.018823536249229084,
+            "canonical_frequency": [
+              1,
+              1
+            ],
+            "conjugate_frequency": [
+              9,
+              11
+            ],
+            "imag_contribution": 2.6020852139652106e-18,
+            "mode_count": 2,
+            "pair_label": "1,1|9,11",
+            "real_contribution": 0.015388897559418656
+          },
+          {
+            "abs_complex_contribution_sum": 0.03453237434242969,
+            "canonical_frequency": [
+              4,
+              8
+            ],
+            "conjugate_frequency": [
+              6,
+              4
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "4,8|6,4",
+            "real_contribution": 0.013863679304995193
+          }
+        ],
+        "target": 1174888,
+        "target_mod_286": 0,
+        "target_residue": 3718,
+        "top_abs_pair": {
+          "abs_complex_contribution_sum": 0.06059807615434417,
+          "canonical_frequency": [
+            2,
+            10
+          ],
+          "conjugate_frequency": [
+            8,
+            2
+          ],
+          "imag_contribution": -3.469446951953614e-18,
+          "mode_count": 2,
+          "pair_label": "2,10|8,2",
+          "real_contribution": 0.05603980720358222
+        },
+        "top_abs_pair_fraction_of_envelope": 0.13768436648296584,
+        "top_adverse_pair": {
+          "abs_complex_contribution_sum": 0.04620944140682249,
+          "canonical_frequency": [
+            1,
+            5
+          ],
+          "conjugate_frequency": [
+            9,
+            7
+          ],
+          "imag_contribution": -4.336808689942018e-18,
+          "mode_count": 2,
+          "pair_label": "1,5|9,7",
+          "real_contribution": -0.04428464324765129
+        },
+        "top_rescue_pair": {
+          "abs_complex_contribution_sum": 0.06059807615434417,
+          "canonical_frequency": [
+            2,
+            10
+          ],
+          "conjugate_frequency": [
+            8,
+            2
+          ],
+          "imag_contribution": -3.469446951953614e-18,
+          "mode_count": 2,
+          "pair_label": "2,10|8,2",
+          "real_contribution": 0.05603980720358222
+        }
+      },
+      {
+        "k286_component_is_adverse": false,
+        "k286_component_is_rescue": true,
+        "k286_signed_error": 0.014616039486990475,
+        "pair_count": 30,
+        "pair_real_abs_envelope": 0.33378982803430524,
+        "pair_real_cancellation_ratio": 0.04378815128389203,
+        "pair_real_sum": 0.014616039486990464,
+        "pair_reconstruction_error": 1.0408340855860843e-17,
+        "pair_rows": [
+          {
+            "abs_complex_contribution_sum": 0.035890385519703236,
+            "canonical_frequency": [
+              3,
+              7
+            ],
+            "conjugate_frequency": [
+              7,
+              5
+            ],
+            "imag_contribution": 4.336808689942018e-19,
+            "mode_count": 2,
+            "pair_label": "3,7|7,5",
+            "real_contribution": -0.03519670882463426
+          },
+          {
+            "abs_complex_contribution_sum": 0.03724716164333193,
+            "canonical_frequency": [
+              3,
+              3
+            ],
+            "conjugate_frequency": [
+              7,
+              9
+            ],
+            "imag_contribution": 6.938893903907228e-18,
+            "mode_count": 2,
+            "pair_label": "3,3|7,9",
+            "real_contribution": 0.02965299684574884
+          },
+          {
+            "abs_complex_contribution_sum": 0.030558707395111566,
+            "canonical_frequency": [
+              2,
+              2
+            ],
+            "conjugate_frequency": [
+              8,
+              10
+            ],
+            "imag_contribution": -2.6020852139652106e-18,
+            "mode_count": 2,
+            "pair_label": "2,2|8,10",
+            "real_contribution": 0.027342552231097023
+          },
+          {
+            "abs_complex_contribution_sum": 0.02670780037529489,
+            "canonical_frequency": [
+              3,
+              11
+            ],
+            "conjugate_frequency": [
+              7,
+              1
+            ],
+            "imag_contribution": -8.673617379884035e-19,
+            "mode_count": 2,
+            "pair_label": "3,11|7,1",
+            "real_contribution": -0.026702130168762064
+          },
+          {
+            "abs_complex_contribution_sum": 0.030627873071701034,
+            "canonical_frequency": [
+              1,
+              9
+            ],
+            "conjugate_frequency": [
+              9,
+              3
+            ],
+            "imag_contribution": 6.938893903907228e-18,
+            "mode_count": 2,
+            "pair_label": "1,9|9,3",
+            "real_contribution": 0.02524320411040173
+          },
+          {
+            "abs_complex_contribution_sum": 0.026872670226027184,
+            "canonical_frequency": [
+              2,
+              10
+            ],
+            "conjugate_frequency": [
+              8,
+              2
+            ],
+            "imag_contribution": -1.734723475976807e-18,
+            "mode_count": 2,
+            "pair_label": "2,10|8,2",
+            "real_contribution": 0.022390428137908
+          },
+          {
+            "abs_complex_contribution_sum": 0.021930990098758592,
+            "canonical_frequency": [
+              5,
+              5
+            ],
+            "conjugate_frequency": [
+              5,
+              7
+            ],
+            "imag_contribution": 4.336808689942018e-18,
+            "mode_count": 2,
+            "pair_label": "5,5|5,7",
+            "real_contribution": -0.017188475897544155
+          },
+          {
+            "abs_complex_contribution_sum": 0.028281529789098755,
+            "canonical_frequency": [
+              3,
+              5
+            ],
+            "conjugate_frequency": [
+              7,
+              7
+            ],
+            "imag_contribution": -1.734723475976807e-18,
+            "mode_count": 2,
+            "pair_label": "3,5|7,7",
+            "real_contribution": 0.01703435669168039
+          },
+          {
+            "abs_complex_contribution_sum": 0.016206606135638527,
+            "canonical_frequency": [
+              3,
+              1
+            ],
+            "conjugate_frequency": [
+              7,
+              11
+            ],
+            "imag_contribution": 4.336808689942018e-19,
+            "mode_count": 2,
+            "pair_label": "3,1|7,11",
+            "real_contribution": -0.016183616836971282
+          },
+          {
+            "abs_complex_contribution_sum": 0.016289238001193508,
+            "canonical_frequency": [
+              1,
+              3
+            ],
+            "conjugate_frequency": [
+              9,
+              9
+            ],
+            "imag_contribution": 1.5178830414797062e-18,
+            "mode_count": 2,
+            "pair_label": "1,3|9,9",
+            "real_contribution": -0.015819521165111306
+          },
+          {
+            "abs_complex_contribution_sum": 0.018171663003539666,
+            "canonical_frequency": [
+              4,
+              8
+            ],
+            "conjugate_frequency": [
+              6,
+              4
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "4,8|6,4",
+            "real_contribution": 0.015033338160120008
+          },
+          {
+            "abs_complex_contribution_sum": 0.013329256708125792,
+            "canonical_frequency": [
+              1,
+              7
+            ],
+            "conjugate_frequency": [
+              9,
+              5
+            ],
+            "imag_contribution": -2.6020852139652106e-18,
+            "mode_count": 2,
+            "pair_label": "1,7|9,5",
+            "real_contribution": -0.013312515489922284
+          }
+        ],
+        "target": 1165736,
+        "target_mod_286": 0,
+        "target_residue": 4576,
+        "top_abs_pair": {
+          "abs_complex_contribution_sum": 0.035890385519703236,
+          "canonical_frequency": [
+            3,
+            7
+          ],
+          "conjugate_frequency": [
+            7,
+            5
+          ],
+          "imag_contribution": 4.336808689942018e-19,
+          "mode_count": 2,
+          "pair_label": "3,7|7,5",
+          "real_contribution": -0.03519670882463426
+        },
+        "top_abs_pair_fraction_of_envelope": 0.10544572023631864,
+        "top_adverse_pair": {
+          "abs_complex_contribution_sum": 0.035890385519703236,
+          "canonical_frequency": [
+            3,
+            7
+          ],
+          "conjugate_frequency": [
+            7,
+            5
+          ],
+          "imag_contribution": 4.336808689942018e-19,
+          "mode_count": 2,
+          "pair_label": "3,7|7,5",
+          "real_contribution": -0.03519670882463426
+        },
+        "top_rescue_pair": {
+          "abs_complex_contribution_sum": 0.03724716164333193,
+          "canonical_frequency": [
+            3,
+            3
+          ],
+          "conjugate_frequency": [
+            7,
+            9
+          ],
+          "imag_contribution": 6.938893903907228e-18,
+          "mode_count": 2,
+          "pair_label": "3,3|7,9",
+          "real_contribution": 0.02965299684574884
+        }
+      },
+      {
+        "k286_component_is_adverse": true,
+        "k286_component_is_rescue": false,
+        "k286_signed_error": -0.041333744723552335,
+        "pair_count": 30,
+        "pair_real_abs_envelope": 0.3631611380417797,
+        "pair_real_cancellation_ratio": 0.11381654145713437,
+        "pair_real_sum": -0.041333744723552314,
+        "pair_reconstruction_error": 2.0816681711721685e-17,
+        "pair_rows": [
+          {
+            "abs_complex_contribution_sum": 0.03876098021607136,
+            "canonical_frequency": [
+              3,
+              7
+            ],
+            "conjugate_frequency": [
+              7,
+              5
+            ],
+            "imag_contribution": -8.673617379884035e-19,
+            "mode_count": 2,
+            "pair_label": "3,7|7,5",
+            "real_contribution": -0.03686133420699897
+          },
+          {
+            "abs_complex_contribution_sum": 0.03401000087360835,
+            "canonical_frequency": [
+              5,
+              1
+            ],
+            "conjugate_frequency": [
+              5,
+              11
+            ],
+            "imag_contribution": 8.673617379884035e-19,
+            "mode_count": 2,
+            "pair_label": "5,1|5,11",
+            "real_contribution": -0.03141155990600407
+          },
+          {
+            "abs_complex_contribution_sum": 0.02981826904155763,
+            "canonical_frequency": [
+              4,
+              10
+            ],
+            "conjugate_frequency": [
+              6,
+              2
+            ],
+            "imag_contribution": -2.6020852139652106e-18,
+            "mode_count": 2,
+            "pair_label": "4,10|6,2",
+            "real_contribution": 0.029562472168902794
+          },
+          {
+            "abs_complex_contribution_sum": 0.02838309882352989,
+            "canonical_frequency": [
+              1,
+              1
+            ],
+            "conjugate_frequency": [
+              9,
+              11
+            ],
+            "imag_contribution": -1.3010426069826053e-18,
+            "mode_count": 2,
+            "pair_label": "1,1|9,11",
+            "real_contribution": 0.02729815491075787
+          },
+          {
+            "abs_complex_contribution_sum": 0.025517830609454523,
+            "canonical_frequency": [
+              1,
+              9
+            ],
+            "conjugate_frequency": [
+              9,
+              3
+            ],
+            "imag_contribution": -1.1275702593849246e-17,
+            "mode_count": 2,
+            "pair_label": "1,9|9,3",
+            "real_contribution": -0.024250608741258128
+          },
+          {
+            "abs_complex_contribution_sum": 0.059604297201127296,
+            "canonical_frequency": [
+              3,
+              5
+            ],
+            "conjugate_frequency": [
+              7,
+              7
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "3,5|7,7",
+            "real_contribution": 0.020636648948237118
+          },
+          {
+            "abs_complex_contribution_sum": 0.019898844094543823,
+            "canonical_frequency": [
+              5,
+              3
+            ],
+            "conjugate_frequency": [
+              5,
+              9
+            ],
+            "imag_contribution": 8.673617379884035e-19,
+            "mode_count": 2,
+            "pair_label": "5,3|5,9",
+            "real_contribution": -0.019129253441716183
+          },
+          {
+            "abs_complex_contribution_sum": 0.029763453553249896,
+            "canonical_frequency": [
+              4,
+              4
+            ],
+            "conjugate_frequency": [
+              6,
+              8
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "4,4|6,8",
+            "real_contribution": 0.01838440520097014
+          },
+          {
+            "abs_complex_contribution_sum": 0.020722078123436904,
+            "canonical_frequency": [
+              3,
+              11
+            ],
+            "conjugate_frequency": [
+              7,
+              1
+            ],
+            "imag_contribution": 4.336808689942018e-18,
+            "mode_count": 2,
+            "pair_label": "3,11|7,1",
+            "real_contribution": 0.017752769229857565
+          },
+          {
+            "abs_complex_contribution_sum": 0.02315206180001841,
+            "canonical_frequency": [
+              1,
+              7
+            ],
+            "conjugate_frequency": [
+              9,
+              5
+            ],
+            "imag_contribution": -2.6020852139652106e-18,
+            "mode_count": 2,
+            "pair_label": "1,7|9,5",
+            "real_contribution": -0.017196042438051957
+          },
+          {
+            "abs_complex_contribution_sum": 0.018892210567252217,
+            "canonical_frequency": [
+              1,
+              5
+            ],
+            "conjugate_frequency": [
+              9,
+              7
+            ],
+            "imag_contribution": -5.204170427930421e-18,
+            "mode_count": 2,
+            "pair_label": "1,5|9,7",
+            "real_contribution": -0.01692326272020459
+          },
+          {
+            "abs_complex_contribution_sum": 0.04080135581890526,
+            "canonical_frequency": [
+              3,
+              3
+            ],
+            "conjugate_frequency": [
+              7,
+              9
+            ],
+            "imag_contribution": 6.938893903907228e-18,
+            "mode_count": 2,
+            "pair_label": "3,3|7,9",
+            "real_contribution": 0.016623711875921172
+          }
+        ],
+        "target": 1175746,
+        "target_mod_286": 0,
+        "target_residue": 4576,
+        "top_abs_pair": {
+          "abs_complex_contribution_sum": 0.03876098021607136,
+          "canonical_frequency": [
+            3,
+            7
+          ],
+          "conjugate_frequency": [
+            7,
+            5
+          ],
+          "imag_contribution": -8.673617379884035e-19,
+          "mode_count": 2,
+          "pair_label": "3,7|7,5",
+          "real_contribution": -0.03686133420699897
+        },
+        "top_abs_pair_fraction_of_envelope": 0.10150131813596827,
+        "top_adverse_pair": {
+          "abs_complex_contribution_sum": 0.03876098021607136,
+          "canonical_frequency": [
+            3,
+            7
+          ],
+          "conjugate_frequency": [
+            7,
+            5
+          ],
+          "imag_contribution": -8.673617379884035e-19,
+          "mode_count": 2,
+          "pair_label": "3,7|7,5",
+          "real_contribution": -0.03686133420699897
+        },
+        "top_rescue_pair": {
+          "abs_complex_contribution_sum": 0.02981826904155763,
+          "canonical_frequency": [
+            4,
+            10
+          ],
+          "conjugate_frequency": [
+            6,
+            2
+          ],
+          "imag_contribution": -2.6020852139652106e-18,
+          "mode_count": 2,
+          "pair_label": "4,10|6,2",
+          "real_contribution": 0.029562472168902794
+        }
+      },
+      {
+        "k286_component_is_adverse": false,
+        "k286_component_is_rescue": true,
+        "k286_signed_error": 0.12886784752855238,
+        "pair_count": 30,
+        "pair_real_abs_envelope": 0.3994951499418282,
+        "pair_real_cancellation_ratio": 0.32257675105021233,
+        "pair_real_sum": 0.12886784752855238,
+        "pair_reconstruction_error": 0.0,
+        "pair_rows": [
+          {
+            "abs_complex_contribution_sum": 0.043136796814777015,
+            "canonical_frequency": [
+              4,
+              4
+            ],
+            "conjugate_frequency": [
+              6,
+              8
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "4,4|6,8",
+            "real_contribution": -0.04306103065331892
+          },
+          {
+            "abs_complex_contribution_sum": 0.03951347180041768,
+            "canonical_frequency": [
+              2,
+              6
+            ],
+            "conjugate_frequency": [
+              8,
+              6
+            ],
+            "imag_contribution": -4.7704895589362195e-18,
+            "mode_count": 2,
+            "pair_label": "2,6|8,6",
+            "real_contribution": 0.03925721188462548
+          },
+          {
+            "abs_complex_contribution_sum": 0.03172034681554792,
+            "canonical_frequency": [
+              1,
+              9
+            ],
+            "conjugate_frequency": [
+              9,
+              3
+            ],
+            "imag_contribution": 2.168404344971009e-18,
+            "mode_count": 2,
+            "pair_label": "1,9|9,3",
+            "real_contribution": 0.031411956488276854
+          },
+          {
+            "abs_complex_contribution_sum": 0.030020348439470736,
+            "canonical_frequency": [
+              2,
+              10
+            ],
+            "conjugate_frequency": [
+              8,
+              2
+            ],
+            "imag_contribution": -2.6020852139652106e-18,
+            "mode_count": 2,
+            "pair_label": "2,10|8,2",
+            "real_contribution": 0.0291224353500665
+          },
+          {
+            "abs_complex_contribution_sum": 0.04113770112705697,
+            "canonical_frequency": [
+              4,
+              8
+            ],
+            "conjugate_frequency": [
+              6,
+              4
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "4,8|6,4",
+            "real_contribution": 0.028463543988178384
+          },
+          {
+            "abs_complex_contribution_sum": 0.03494852537710114,
+            "canonical_frequency": [
+              4,
+              6
+            ],
+            "conjugate_frequency": [
+              6,
+              6
+            ],
+            "imag_contribution": -3.469446951953614e-18,
+            "mode_count": 2,
+            "pair_label": "4,6|6,6",
+            "real_contribution": 0.02793419458947629
+          },
+          {
+            "abs_complex_contribution_sum": 0.027767745271051168,
+            "canonical_frequency": [
+              3,
+              5
+            ],
+            "conjugate_frequency": [
+              7,
+              7
+            ],
+            "imag_contribution": 8.673617379884035e-19,
+            "mode_count": 2,
+            "pair_label": "3,5|7,7",
+            "real_contribution": -0.02528058499165426
+          },
+          {
+            "abs_complex_contribution_sum": 0.037341604896603264,
+            "canonical_frequency": [
+              3,
+              7
+            ],
+            "conjugate_frequency": [
+              7,
+              5
+            ],
+            "imag_contribution": 1.734723475976807e-18,
+            "mode_count": 2,
+            "pair_label": "3,7|7,5",
+            "real_contribution": 0.024692988268872042
+          },
+          {
+            "abs_complex_contribution_sum": 0.02354592355544321,
+            "canonical_frequency": [
+              5,
+              5
+            ],
+            "conjugate_frequency": [
+              5,
+              7
+            ],
+            "imag_contribution": 1.734723475976807e-18,
+            "mode_count": 2,
+            "pair_label": "5,5|5,7",
+            "real_contribution": 0.023329500210333455
+          },
+          {
+            "abs_complex_contribution_sum": 0.04041788284894816,
+            "canonical_frequency": [
+              1,
+              7
+            ],
+            "conjugate_frequency": [
+              9,
+              5
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "1,7|9,5",
+            "real_contribution": -0.01568676138844806
+          },
+          {
+            "abs_complex_contribution_sum": 0.026564619081662008,
+            "canonical_frequency": [
+              3,
+              1
+            ],
+            "conjugate_frequency": [
+              7,
+              11
+            ],
+            "imag_contribution": -5.204170427930421e-18,
+            "mode_count": 2,
+            "pair_label": "3,1|7,11",
+            "real_contribution": -0.015616860401043705
+          },
+          {
+            "abs_complex_contribution_sum": 0.040655563502866685,
+            "canonical_frequency": [
+              5,
+              3
+            ],
+            "conjugate_frequency": [
+              5,
+              9
+            ],
+            "imag_contribution": -1.0408340855860843e-17,
+            "mode_count": 2,
+            "pair_label": "5,3|5,9",
+            "real_contribution": 0.012782786570947962
+          }
+        ],
+        "target": 1156298,
+        "target_mod_286": 0,
+        "target_residue": 5148,
+        "top_abs_pair": {
+          "abs_complex_contribution_sum": 0.043136796814777015,
+          "canonical_frequency": [
+            4,
+            4
+          ],
+          "conjugate_frequency": [
+            6,
+            8
+          ],
+          "imag_contribution": 0.0,
+          "mode_count": 2,
+          "pair_label": "4,4|6,8",
+          "real_contribution": -0.04306103065331892
+        },
+        "top_abs_pair_fraction_of_envelope": 0.10778861936018291,
+        "top_adverse_pair": {
+          "abs_complex_contribution_sum": 0.043136796814777015,
+          "canonical_frequency": [
+            4,
+            4
+          ],
+          "conjugate_frequency": [
+            6,
+            8
+          ],
+          "imag_contribution": 0.0,
+          "mode_count": 2,
+          "pair_label": "4,4|6,8",
+          "real_contribution": -0.04306103065331892
+        },
+        "top_rescue_pair": {
+          "abs_complex_contribution_sum": 0.03951347180041768,
+          "canonical_frequency": [
+            2,
+            6
+          ],
+          "conjugate_frequency": [
+            8,
+            6
+          ],
+          "imag_contribution": -4.7704895589362195e-18,
+          "mode_count": 2,
+          "pair_label": "2,6|8,6",
+          "real_contribution": 0.03925721188462548
+        }
+      },
+      {
+        "k286_component_is_adverse": false,
+        "k286_component_is_rescue": true,
+        "k286_signed_error": 0.006891704226666159,
+        "pair_count": 30,
+        "pair_real_abs_envelope": 0.31665000046947056,
+        "pair_real_cancellation_ratio": 0.021764421968888063,
+        "pair_real_sum": 0.006891704226666161,
+        "pair_reconstruction_error": 1.734723475976807e-18,
+        "pair_rows": [
+          {
+            "abs_complex_contribution_sum": 0.05624204189401022,
+            "canonical_frequency": [
+              3,
+              5
+            ],
+            "conjugate_frequency": [
+              7,
+              7
+            ],
+            "imag_contribution": -1.734723475976807e-18,
+            "mode_count": 2,
+            "pair_label": "3,5|7,7",
+            "real_contribution": 0.04807232479236695
+          },
+          {
+            "abs_complex_contribution_sum": 0.037783753837469264,
+            "canonical_frequency": [
+              3,
+              7
+            ],
+            "conjugate_frequency": [
+              7,
+              5
+            ],
+            "imag_contribution": -1.734723475976807e-18,
+            "mode_count": 2,
+            "pair_label": "3,7|7,5",
+            "real_contribution": -0.0361291958658332
+          },
+          {
+            "abs_complex_contribution_sum": 0.03244323135040611,
+            "canonical_frequency": [
+              3,
+              9
+            ],
+            "conjugate_frequency": [
+              7,
+              3
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "3,9|7,3",
+            "real_contribution": -0.02545050550289909
+          },
+          {
+            "abs_complex_contribution_sum": 0.02485909529061299,
+            "canonical_frequency": [
+              3,
+              3
+            ],
+            "conjugate_frequency": [
+              7,
+              9
+            ],
+            "imag_contribution": 1.734723475976807e-18,
+            "mode_count": 2,
+            "pair_label": "3,3|7,9",
+            "real_contribution": 0.02447179202146447
+          },
+          {
+            "abs_complex_contribution_sum": 0.025363918568035597,
+            "canonical_frequency": [
+              2,
+              8
+            ],
+            "conjugate_frequency": [
+              8,
+              4
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "2,8|8,4",
+            "real_contribution": -0.020170898680124866
+          },
+          {
+            "abs_complex_contribution_sum": 0.025316292629037736,
+            "canonical_frequency": [
+              2,
+              10
+            ],
+            "conjugate_frequency": [
+              8,
+              2
+            ],
+            "imag_contribution": 1.734723475976807e-18,
+            "mode_count": 2,
+            "pair_label": "2,10|8,2",
+            "real_contribution": 0.017859396529178864
+          },
+          {
+            "abs_complex_contribution_sum": 0.020827475740893497,
+            "canonical_frequency": [
+              3,
+              11
+            ],
+            "conjugate_frequency": [
+              7,
+              1
+            ],
+            "imag_contribution": 3.469446951953614e-18,
+            "mode_count": 2,
+            "pair_label": "3,11|7,1",
+            "real_contribution": -0.015922253511037935
+          },
+          {
+            "abs_complex_contribution_sum": 0.0158080188872186,
+            "canonical_frequency": [
+              4,
+              4
+            ],
+            "conjugate_frequency": [
+              6,
+              8
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "4,4|6,8",
+            "real_contribution": -0.015197929071216584
+          },
+          {
+            "abs_complex_contribution_sum": 0.022319723218018128,
+            "canonical_frequency": [
+              3,
+              1
+            ],
+            "conjugate_frequency": [
+              7,
+              11
+            ],
+            "imag_contribution": -3.469446951953614e-18,
+            "mode_count": 2,
+            "pair_label": "3,1|7,11",
+            "real_contribution": 0.012678702715583058
+          },
+          {
+            "abs_complex_contribution_sum": 0.023949757035389586,
+            "canonical_frequency": [
+              4,
+              8
+            ],
+            "conjugate_frequency": [
+              6,
+              4
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "4,8|6,4",
+            "real_contribution": -0.012386226784988724
+          },
+          {
+            "abs_complex_contribution_sum": 0.016257254212986946,
+            "canonical_frequency": [
+              2,
+              4
+            ],
+            "conjugate_frequency": [
+              8,
+              8
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "2,4|8,8",
+            "real_contribution": -0.012102066786191704
+          },
+          {
+            "abs_complex_contribution_sum": 0.012521561620603618,
+            "canonical_frequency": [
+              1,
+              9
+            ],
+            "conjugate_frequency": [
+              9,
+              3
+            ],
+            "imag_contribution": 2.8189256484623115e-18,
+            "mode_count": 2,
+            "pair_label": "1,9|9,3",
+            "real_contribution": 0.012029677462418877
+          }
+        ],
+        "target": 1166594,
+        "target_mod_286": 0,
+        "target_residue": 5434,
+        "top_abs_pair": {
+          "abs_complex_contribution_sum": 0.05624204189401022,
+          "canonical_frequency": [
+            3,
+            5
+          ],
+          "conjugate_frequency": [
+            7,
+            7
+          ],
+          "imag_contribution": -1.734723475976807e-18,
+          "mode_count": 2,
+          "pair_label": "3,5|7,7",
+          "real_contribution": 0.04807232479236695
+        },
+        "top_abs_pair_fraction_of_envelope": 0.15181533150511328,
+        "top_adverse_pair": {
+          "abs_complex_contribution_sum": 0.037783753837469264,
+          "canonical_frequency": [
+            3,
+            7
+          ],
+          "conjugate_frequency": [
+            7,
+            5
+          ],
+          "imag_contribution": -1.734723475976807e-18,
+          "mode_count": 2,
+          "pair_label": "3,7|7,5",
+          "real_contribution": -0.0361291958658332
+        },
+        "top_rescue_pair": {
+          "abs_complex_contribution_sum": 0.05624204189401022,
+          "canonical_frequency": [
+            3,
+            5
+          ],
+          "conjugate_frequency": [
+            7,
+            7
+          ],
+          "imag_contribution": -1.734723475976807e-18,
+          "mode_count": 2,
+          "pair_label": "3,5|7,7",
+          "real_contribution": 0.04807232479236695
+        }
+      },
+      {
+        "k286_component_is_adverse": true,
+        "k286_component_is_rescue": false,
+        "k286_signed_error": -0.10853236060974479,
+        "pair_count": 30,
+        "pair_real_abs_envelope": 0.36462904790210116,
+        "pair_real_cancellation_ratio": 0.2976514384528258,
+        "pair_real_sum": -0.10853236060974475,
+        "pair_reconstruction_error": 4.163336342344337e-17,
+        "pair_rows": [
+          {
+            "abs_complex_contribution_sum": 0.05072349026060514,
+            "canonical_frequency": [
+              4,
+              8
+            ],
+            "conjugate_frequency": [
+              6,
+              4
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "4,8|6,4",
+            "real_contribution": -0.040551506318455985
+          },
+          {
+            "abs_complex_contribution_sum": 0.04104913837255461,
+            "canonical_frequency": [
+              3,
+              5
+            ],
+            "conjugate_frequency": [
+              7,
+              7
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "3,5|7,7",
+            "real_contribution": 0.0358914159301997
+          },
+          {
+            "abs_complex_contribution_sum": 0.03443219552202356,
+            "canonical_frequency": [
+              4,
+              6
+            ],
+            "conjugate_frequency": [
+              6,
+              6
+            ],
+            "imag_contribution": 3.469446951953614e-18,
+            "mode_count": 2,
+            "pair_label": "4,6|6,6",
+            "real_contribution": -0.032108265855941245
+          },
+          {
+            "abs_complex_contribution_sum": 0.03541194087183094,
+            "canonical_frequency": [
+              3,
+              1
+            ],
+            "conjugate_frequency": [
+              7,
+              11
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "3,1|7,11",
+            "real_contribution": -0.0285959176276164
+          },
+          {
+            "abs_complex_contribution_sum": 0.03220308563157519,
+            "canonical_frequency": [
+              3,
+              3
+            ],
+            "conjugate_frequency": [
+              7,
+              9
+            ],
+            "imag_contribution": -5.204170427930421e-18,
+            "mode_count": 2,
+            "pair_label": "3,3|7,9",
+            "real_contribution": 0.025535741575421145
+          },
+          {
+            "abs_complex_contribution_sum": 0.027713024988673125,
+            "canonical_frequency": [
+              2,
+              10
+            ],
+            "conjugate_frequency": [
+              8,
+              2
+            ],
+            "imag_contribution": -8.673617379884035e-19,
+            "mode_count": 2,
+            "pair_label": "2,10|8,2",
+            "real_contribution": 0.025175943284574273
+          },
+          {
+            "abs_complex_contribution_sum": 0.019110908717360924,
+            "canonical_frequency": [
+              5,
+              5
+            ],
+            "conjugate_frequency": [
+              5,
+              7
+            ],
+            "imag_contribution": -5.204170427930421e-18,
+            "mode_count": 2,
+            "pair_label": "5,5|5,7",
+            "real_contribution": -0.017151990723225093
+          },
+          {
+            "abs_complex_contribution_sum": 0.022934370915048977,
+            "canonical_frequency": [
+              5,
+              3
+            ],
+            "conjugate_frequency": [
+              5,
+              9
+            ],
+            "imag_contribution": -1.734723475976807e-18,
+            "mode_count": 2,
+            "pair_label": "5,3|5,9",
+            "real_contribution": -0.01610809347404097
+          },
+          {
+            "abs_complex_contribution_sum": 0.014914922890052985,
+            "canonical_frequency": [
+              1,
+              9
+            ],
+            "conjugate_frequency": [
+              9,
+              3
+            ],
+            "imag_contribution": -6.505213034913027e-19,
+            "mode_count": 2,
+            "pair_label": "1,9|9,3",
+            "real_contribution": -0.014473123299217988
+          },
+          {
+            "abs_complex_contribution_sum": 0.013762983622002829,
+            "canonical_frequency": [
+              1,
+              11
+            ],
+            "conjugate_frequency": [
+              9,
+              1
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "1,11|9,1",
+            "real_contribution": -0.013712221663260854
+          },
+          {
+            "abs_complex_contribution_sum": 0.01658267117865391,
+            "canonical_frequency": [
+              1,
+              5
+            ],
+            "conjugate_frequency": [
+              9,
+              7
+            ],
+            "imag_contribution": 2.6020852139652106e-18,
+            "mode_count": 2,
+            "pair_label": "1,5|9,7",
+            "real_contribution": 0.013697160868242166
+          },
+          {
+            "abs_complex_contribution_sum": 0.01504763052819079,
+            "canonical_frequency": [
+              5,
+              1
+            ],
+            "conjugate_frequency": [
+              5,
+              11
+            ],
+            "imag_contribution": -8.673617379884035e-19,
+            "mode_count": 2,
+            "pair_label": "5,1|5,11",
+            "real_contribution": -0.012862219448545778
+          }
+        ],
+        "target": 1167452,
+        "target_mod_286": 0,
+        "target_residue": 6292,
+        "top_abs_pair": {
+          "abs_complex_contribution_sum": 0.05072349026060514,
+          "canonical_frequency": [
+            4,
+            8
+          ],
+          "conjugate_frequency": [
+            6,
+            4
+          ],
+          "imag_contribution": 0.0,
+          "mode_count": 2,
+          "pair_label": "4,8|6,4",
+          "real_contribution": -0.040551506318455985
+        },
+        "top_abs_pair_fraction_of_envelope": 0.11121304391893543,
+        "top_adverse_pair": {
+          "abs_complex_contribution_sum": 0.05072349026060514,
+          "canonical_frequency": [
+            4,
+            8
+          ],
+          "conjugate_frequency": [
+            6,
+            4
+          ],
+          "imag_contribution": 0.0,
+          "mode_count": 2,
+          "pair_label": "4,8|6,4",
+          "real_contribution": -0.040551506318455985
+        },
+        "top_rescue_pair": {
+          "abs_complex_contribution_sum": 0.04104913837255461,
+          "canonical_frequency": [
+            3,
+            5
+          ],
+          "conjugate_frequency": [
+            7,
+            7
+          ],
+          "imag_contribution": 0.0,
+          "mode_count": 2,
+          "pair_label": "3,5|7,7",
+          "real_contribution": 0.0358914159301997
+        }
+      },
+      {
+        "k286_component_is_adverse": false,
+        "k286_component_is_rescue": true,
+        "k286_signed_error": 0.02244181729167645,
+        "pair_count": 30,
+        "pair_real_abs_envelope": 0.30616096693762895,
+        "pair_real_cancellation_ratio": 0.07330071339972054,
+        "pair_real_sum": 0.022441817291676457,
+        "pair_reconstruction_error": 6.938893903907228e-18,
+        "pair_rows": [
+          {
+            "abs_complex_contribution_sum": 0.039200796405255756,
+            "canonical_frequency": [
+              1,
+              5
+            ],
+            "conjugate_frequency": [
+              9,
+              7
+            ],
+            "imag_contribution": -8.673617379884035e-19,
+            "mode_count": 2,
+            "pair_label": "1,5|9,7",
+            "real_contribution": -0.039059467948902804
+          },
+          {
+            "abs_complex_contribution_sum": 0.03977580887866825,
+            "canonical_frequency": [
+              1,
+              9
+            ],
+            "conjugate_frequency": [
+              9,
+              3
+            ],
+            "imag_contribution": -5.204170427930421e-18,
+            "mode_count": 2,
+            "pair_label": "1,9|9,3",
+            "real_contribution": -0.038953836660528464
+          },
+          {
+            "abs_complex_contribution_sum": 0.030079714995220386,
+            "canonical_frequency": [
+              4,
+              8
+            ],
+            "conjugate_frequency": [
+              6,
+              4
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "4,8|6,4",
+            "real_contribution": 0.027189265466675244
+          },
+          {
+            "abs_complex_contribution_sum": 0.030457764366997896,
+            "canonical_frequency": [
+              3,
+              11
+            ],
+            "conjugate_frequency": [
+              7,
+              1
+            ],
+            "imag_contribution": 1.734723475976807e-18,
+            "mode_count": 2,
+            "pair_label": "3,11|7,1",
+            "real_contribution": 0.02341141127574794
+          },
+          {
+            "abs_complex_contribution_sum": 0.02026872772027492,
+            "canonical_frequency": [
+              1,
+              3
+            ],
+            "conjugate_frequency": [
+              9,
+              9
+            ],
+            "imag_contribution": 4.336808689942018e-19,
+            "mode_count": 2,
+            "pair_label": "1,3|9,9",
+            "real_contribution": 0.01948559802799472
+          },
+          {
+            "abs_complex_contribution_sum": 0.029065411827932007,
+            "canonical_frequency": [
+              3,
+              7
+            ],
+            "conjugate_frequency": [
+              7,
+              5
+            ],
+            "imag_contribution": -3.469446951953614e-18,
+            "mode_count": 2,
+            "pair_label": "3,7|7,5",
+            "real_contribution": 0.01895127035326842
+          },
+          {
+            "abs_complex_contribution_sum": 0.03160633734246593,
+            "canonical_frequency": [
+              1,
+              1
+            ],
+            "conjugate_frequency": [
+              9,
+              11
+            ],
+            "imag_contribution": 1.734723475976807e-18,
+            "mode_count": 2,
+            "pair_label": "1,1|9,11",
+            "real_contribution": 0.017205600644446803
+          },
+          {
+            "abs_complex_contribution_sum": 0.017102230470133907,
+            "canonical_frequency": [
+              2,
+              6
+            ],
+            "conjugate_frequency": [
+              8,
+              6
+            ],
+            "imag_contribution": -2.168404344971009e-19,
+            "mode_count": 2,
+            "pair_label": "2,6|8,6",
+            "real_contribution": 0.017079005715946394
+          },
+          {
+            "abs_complex_contribution_sum": 0.04304249865912997,
+            "canonical_frequency": [
+              5,
+              3
+            ],
+            "conjugate_frequency": [
+              5,
+              9
+            ],
+            "imag_contribution": -6.938893903907228e-18,
+            "mode_count": 2,
+            "pair_label": "5,3|5,9",
+            "real_contribution": 0.015480670939195022
+          },
+          {
+            "abs_complex_contribution_sum": 0.0153101549736855,
+            "canonical_frequency": [
+              4,
+              4
+            ],
+            "conjugate_frequency": [
+              6,
+              8
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "4,4|6,8",
+            "real_contribution": -0.014365278207656394
+          },
+          {
+            "abs_complex_contribution_sum": 0.06486426624956393,
+            "canonical_frequency": [
+              5,
+              5
+            ],
+            "conjugate_frequency": [
+              5,
+              7
+            ],
+            "imag_contribution": 6.938893903907228e-18,
+            "mode_count": 2,
+            "pair_label": "5,5|5,7",
+            "real_contribution": -0.012928821076164472
+          },
+          {
+            "abs_complex_contribution_sum": 0.010076563682348515,
+            "canonical_frequency": [
+              3,
+              5
+            ],
+            "conjugate_frequency": [
+              7,
+              7
+            ],
+            "imag_contribution": 3.469446951953614e-18,
+            "mode_count": 2,
+            "pair_label": "3,5|7,7",
+            "real_contribution": -0.010076563682294749
+          }
+        ],
+        "target": 1168024,
+        "target_mod_286": 0,
+        "target_residue": 6864,
+        "top_abs_pair": {
+          "abs_complex_contribution_sum": 0.039200796405255756,
+          "canonical_frequency": [
+            1,
+            5
+          ],
+          "conjugate_frequency": [
+            9,
+            7
+          ],
+          "imag_contribution": -8.673617379884035e-19,
+          "mode_count": 2,
+          "pair_label": "1,5|9,7",
+          "real_contribution": -0.039059467948902804
+        },
+        "top_abs_pair_fraction_of_envelope": 0.12757820939617032,
+        "top_adverse_pair": {
+          "abs_complex_contribution_sum": 0.039200796405255756,
+          "canonical_frequency": [
+            1,
+            5
+          ],
+          "conjugate_frequency": [
+            9,
+            7
+          ],
+          "imag_contribution": -8.673617379884035e-19,
+          "mode_count": 2,
+          "pair_label": "1,5|9,7",
+          "real_contribution": -0.039059467948902804
+        },
+        "top_rescue_pair": {
+          "abs_complex_contribution_sum": 0.030079714995220386,
+          "canonical_frequency": [
+            4,
+            8
+          ],
+          "conjugate_frequency": [
+            6,
+            4
+          ],
+          "imag_contribution": 0.0,
+          "mode_count": 2,
+          "pair_label": "4,8|6,4",
+          "real_contribution": 0.027189265466675244
+        }
+      },
+      {
+        "k286_component_is_adverse": false,
+        "k286_component_is_rescue": true,
+        "k286_signed_error": 0.07897903432521365,
+        "pair_count": 30,
+        "pair_real_abs_envelope": 0.44805263755269226,
+        "pair_real_cancellation_ratio": 0.17627177636227054,
+        "pair_real_sum": 0.07897903432521362,
+        "pair_reconstruction_error": 2.7755575615628914e-17,
+        "pair_rows": [
+          {
+            "abs_complex_contribution_sum": 0.040899490341265186,
+            "canonical_frequency": [
+              1,
+              9
+            ],
+            "conjugate_frequency": [
+              9,
+              3
+            ],
+            "imag_contribution": -6.938893903907228e-18,
+            "mode_count": 2,
+            "pair_label": "1,9|9,3",
+            "real_contribution": -0.037122704474546415
+          },
+          {
+            "abs_complex_contribution_sum": 0.03516380019606456,
+            "canonical_frequency": [
+              4,
+              6
+            ],
+            "conjugate_frequency": [
+              6,
+              6
+            ],
+            "imag_contribution": -3.469446951953614e-18,
+            "mode_count": 2,
+            "pair_label": "4,6|6,6",
+            "real_contribution": 0.030321311662175512
+          },
+          {
+            "abs_complex_contribution_sum": 0.030446116921885227,
+            "canonical_frequency": [
+              1,
+              1
+            ],
+            "conjugate_frequency": [
+              9,
+              11
+            ],
+            "imag_contribution": -1.3010426069826053e-18,
+            "mode_count": 2,
+            "pair_label": "1,1|9,11",
+            "real_contribution": 0.029716110266294674
+          },
+          {
+            "abs_complex_contribution_sum": 0.03540325962023389,
+            "canonical_frequency": [
+              5,
+              5
+            ],
+            "conjugate_frequency": [
+              5,
+              7
+            ],
+            "imag_contribution": -1.734723475976807e-18,
+            "mode_count": 2,
+            "pair_label": "5,5|5,7",
+            "real_contribution": 0.029618661427789003
+          },
+          {
+            "abs_complex_contribution_sum": 0.03389636561020457,
+            "canonical_frequency": [
+              3,
+              3
+            ],
+            "conjugate_frequency": [
+              7,
+              9
+            ],
+            "imag_contribution": 5.204170427930421e-18,
+            "mode_count": 2,
+            "pair_label": "3,3|7,9",
+            "real_contribution": 0.029240506095965794
+          },
+          {
+            "abs_complex_contribution_sum": 0.03648166393893029,
+            "canonical_frequency": [
+              2,
+              2
+            ],
+            "conjugate_frequency": [
+              8,
+              10
+            ],
+            "imag_contribution": 5.204170427930421e-18,
+            "mode_count": 2,
+            "pair_label": "2,2|8,10",
+            "real_contribution": -0.027583916606681358
+          },
+          {
+            "abs_complex_contribution_sum": 0.02676513379683438,
+            "canonical_frequency": [
+              3,
+              7
+            ],
+            "conjugate_frequency": [
+              7,
+              5
+            ],
+            "imag_contribution": -4.336808689942018e-18,
+            "mode_count": 2,
+            "pair_label": "3,7|7,5",
+            "real_contribution": -0.026716995967642918
+          },
+          {
+            "abs_complex_contribution_sum": 0.02630948572683546,
+            "canonical_frequency": [
+              4,
+              2
+            ],
+            "conjugate_frequency": [
+              6,
+              10
+            ],
+            "imag_contribution": -8.673617379884035e-19,
+            "mode_count": 2,
+            "pair_label": "4,2|6,10",
+            "real_contribution": 0.02543275356491615
+          },
+          {
+            "abs_complex_contribution_sum": 0.02902782187025827,
+            "canonical_frequency": [
+              1,
+              5
+            ],
+            "conjugate_frequency": [
+              9,
+              7
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "1,5|9,7",
+            "real_contribution": -0.02542786837234908
+          },
+          {
+            "abs_complex_contribution_sum": 0.03457750352004421,
+            "canonical_frequency": [
+              4,
+              4
+            ],
+            "conjugate_frequency": [
+              6,
+              8
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "4,4|6,8",
+            "real_contribution": 0.02541644848362818
+          },
+          {
+            "abs_complex_contribution_sum": 0.029752524484901406,
+            "canonical_frequency": [
+              2,
+              6
+            ],
+            "conjugate_frequency": [
+              8,
+              6
+            ],
+            "imag_contribution": -8.673617379884035e-18,
+            "mode_count": 2,
+            "pair_label": "2,6|8,6",
+            "real_contribution": 0.024382709636742064
+          },
+          {
+            "abs_complex_contribution_sum": 0.024079224510080696,
+            "canonical_frequency": [
+              3,
+              5
+            ],
+            "conjugate_frequency": [
+              7,
+              7
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "3,5|7,7",
+            "real_contribution": 0.02406478055124498
+          }
+        ],
+        "target": 1158586,
+        "target_mod_286": 0,
+        "target_residue": 7436,
+        "top_abs_pair": {
+          "abs_complex_contribution_sum": 0.040899490341265186,
+          "canonical_frequency": [
+            1,
+            9
+          ],
+          "conjugate_frequency": [
+            9,
+            3
+          ],
+          "imag_contribution": -6.938893903907228e-18,
+          "mode_count": 2,
+          "pair_label": "1,9|9,3",
+          "real_contribution": -0.037122704474546415
+        },
+        "top_abs_pair_fraction_of_envelope": 0.08285344480352641,
+        "top_adverse_pair": {
+          "abs_complex_contribution_sum": 0.040899490341265186,
+          "canonical_frequency": [
+            1,
+            9
+          ],
+          "conjugate_frequency": [
+            9,
+            3
+          ],
+          "imag_contribution": -6.938893903907228e-18,
+          "mode_count": 2,
+          "pair_label": "1,9|9,3",
+          "real_contribution": -0.037122704474546415
+        },
+        "top_rescue_pair": {
+          "abs_complex_contribution_sum": 0.03516380019606456,
+          "canonical_frequency": [
+            4,
+            6
+          ],
+          "conjugate_frequency": [
+            6,
+            6
+          ],
+          "imag_contribution": -3.469446951953614e-18,
+          "mode_count": 2,
+          "pair_label": "4,6|6,6",
+          "real_contribution": 0.030321311662175512
+        }
+      },
+      {
+        "k286_component_is_adverse": true,
+        "k286_component_is_rescue": false,
+        "k286_signed_error": -0.16250489640689145,
+        "pair_count": 30,
+        "pair_real_abs_envelope": 0.31647493471460214,
+        "pair_real_cancellation_ratio": 0.5134842560389142,
+        "pair_real_sum": -0.16250489640689142,
+        "pair_reconstruction_error": 2.7755575615628914e-17,
+        "pair_rows": [
+          {
+            "abs_complex_contribution_sum": 0.037975085451447115,
+            "canonical_frequency": [
+              5,
+              5
+            ],
+            "conjugate_frequency": [
+              5,
+              7
+            ],
+            "imag_contribution": 8.673617379884035e-19,
+            "mode_count": 2,
+            "pair_label": "5,5|5,7",
+            "real_contribution": -0.037705013477444295
+          },
+          {
+            "abs_complex_contribution_sum": 0.03572749065287393,
+            "canonical_frequency": [
+              2,
+              4
+            ],
+            "conjugate_frequency": [
+              8,
+              8
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "2,4|8,8",
+            "real_contribution": -0.03155670152279807
+          },
+          {
+            "abs_complex_contribution_sum": 0.06270206190836963,
+            "canonical_frequency": [
+              3,
+              7
+            ],
+            "conjugate_frequency": [
+              7,
+              5
+            ],
+            "imag_contribution": 3.469446951953614e-18,
+            "mode_count": 2,
+            "pair_label": "3,7|7,5",
+            "real_contribution": -0.03045521958281633
+          },
+          {
+            "abs_complex_contribution_sum": 0.027097572100928117,
+            "canonical_frequency": [
+              5,
+              1
+            ],
+            "conjugate_frequency": [
+              5,
+              11
+            ],
+            "imag_contribution": 8.673617379884035e-19,
+            "mode_count": 2,
+            "pair_label": "5,1|5,11",
+            "real_contribution": -0.02386117296408526
+          },
+          {
+            "abs_complex_contribution_sum": 0.025241555631062017,
+            "canonical_frequency": [
+              4,
+              4
+            ],
+            "conjugate_frequency": [
+              6,
+              8
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "4,4|6,8",
+            "real_contribution": -0.023164871396725947
+          },
+          {
+            "abs_complex_contribution_sum": 0.023697040752671046,
+            "canonical_frequency": [
+              3,
+              9
+            ],
+            "conjugate_frequency": [
+              7,
+              3
+            ],
+            "imag_contribution": -2.6020852139652106e-18,
+            "mode_count": 2,
+            "pair_label": "3,9|7,3",
+            "real_contribution": -0.021477880426592082
+          },
+          {
+            "abs_complex_contribution_sum": 0.027221777240686473,
+            "canonical_frequency": [
+              3,
+              1
+            ],
+            "conjugate_frequency": [
+              7,
+              11
+            ],
+            "imag_contribution": -3.469446951953614e-18,
+            "mode_count": 2,
+            "pair_label": "3,1|7,11",
+            "real_contribution": 0.020260223022355476
+          },
+          {
+            "abs_complex_contribution_sum": 0.01765430524693229,
+            "canonical_frequency": [
+              2,
+              10
+            ],
+            "conjugate_frequency": [
+              8,
+              2
+            ],
+            "imag_contribution": -8.673617379884035e-19,
+            "mode_count": 2,
+            "pair_label": "2,10|8,2",
+            "real_contribution": 0.017577340558664757
+          },
+          {
+            "abs_complex_contribution_sum": 0.017004022006437816,
+            "canonical_frequency": [
+              4,
+              6
+            ],
+            "conjugate_frequency": [
+              6,
+              6
+            ],
+            "imag_contribution": 1.734723475976807e-18,
+            "mode_count": 2,
+            "pair_label": "4,6|6,6",
+            "real_contribution": -0.016037201043129525
+          },
+          {
+            "abs_complex_contribution_sum": 0.015909132579677583,
+            "canonical_frequency": [
+              1,
+              11
+            ],
+            "conjugate_frequency": [
+              9,
+              1
+            ],
+            "imag_contribution": 4.336808689942018e-19,
+            "mode_count": 2,
+            "pair_label": "1,11|9,1",
+            "real_contribution": -0.015881491309640818
+          },
+          {
+            "abs_complex_contribution_sum": 0.015990941398524625,
+            "canonical_frequency": [
+              3,
+              5
+            ],
+            "conjugate_frequency": [
+              7,
+              7
+            ],
+            "imag_contribution": -1.734723475976807e-18,
+            "mode_count": 2,
+            "pair_label": "3,5|7,7",
+            "real_contribution": 0.011939456268474678
+          },
+          {
+            "abs_complex_contribution_sum": 0.01893761657684685,
+            "canonical_frequency": [
+              1,
+              7
+            ],
+            "conjugate_frequency": [
+              9,
+              5
+            ],
+            "imag_contribution": 3.469446951953614e-18,
+            "mode_count": 2,
+            "pair_label": "1,7|9,5",
+            "real_contribution": -0.011844657294643022
+          }
+        ],
+        "target": 1158872,
+        "target_mod_286": 0,
+        "target_residue": 7722,
+        "top_abs_pair": {
+          "abs_complex_contribution_sum": 0.037975085451447115,
+          "canonical_frequency": [
+            5,
+            5
+          ],
+          "conjugate_frequency": [
+            5,
+            7
+          ],
+          "imag_contribution": 8.673617379884035e-19,
+          "mode_count": 2,
+          "pair_label": "5,5|5,7",
+          "real_contribution": -0.037705013477444295
+        },
+        "top_abs_pair_fraction_of_envelope": 0.11914059959107588,
+        "top_adverse_pair": {
+          "abs_complex_contribution_sum": 0.037975085451447115,
+          "canonical_frequency": [
+            5,
+            5
+          ],
+          "conjugate_frequency": [
+            5,
+            7
+          ],
+          "imag_contribution": 8.673617379884035e-19,
+          "mode_count": 2,
+          "pair_label": "5,5|5,7",
+          "real_contribution": -0.037705013477444295
+        },
+        "top_rescue_pair": {
+          "abs_complex_contribution_sum": 0.027221777240686473,
+          "canonical_frequency": [
+            3,
+            1
+          ],
+          "conjugate_frequency": [
+            7,
+            11
+          ],
+          "imag_contribution": -3.469446951953614e-18,
+          "mode_count": 2,
+          "pair_label": "3,1|7,11",
+          "real_contribution": 0.020260223022355476
+        }
+      },
+      {
+        "k286_component_is_adverse": false,
+        "k286_component_is_rescue": true,
+        "k286_signed_error": 0.07860649175876445,
+        "pair_count": 30,
+        "pair_real_abs_envelope": 0.35422028190636146,
+        "pair_real_cancellation_ratio": 0.2219141471395028,
+        "pair_real_sum": 0.07860649175876445,
+        "pair_reconstruction_error": 0.0,
+        "pair_rows": [
+          {
+            "abs_complex_contribution_sum": 0.038438362946895524,
+            "canonical_frequency": [
+              5,
+              3
+            ],
+            "conjugate_frequency": [
+              5,
+              9
+            ],
+            "imag_contribution": -6.938893903907228e-18,
+            "mode_count": 2,
+            "pair_label": "5,3|5,9",
+            "real_contribution": -0.03469086146218349
+          },
+          {
+            "abs_complex_contribution_sum": 0.031105498475086642,
+            "canonical_frequency": [
+              2,
+              8
+            ],
+            "conjugate_frequency": [
+              8,
+              4
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "2,8|8,4",
+            "real_contribution": 0.02890211207401405
+          },
+          {
+            "abs_complex_contribution_sum": 0.027287948047428942,
+            "canonical_frequency": [
+              4,
+              8
+            ],
+            "conjugate_frequency": [
+              6,
+              4
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "4,8|6,4",
+            "real_contribution": -0.02716382352297258
+          },
+          {
+            "abs_complex_contribution_sum": 0.02587053047740085,
+            "canonical_frequency": [
+              4,
+              6
+            ],
+            "conjugate_frequency": [
+              6,
+              6
+            ],
+            "imag_contribution": -3.903127820947816e-18,
+            "mode_count": 2,
+            "pair_label": "4,6|6,6",
+            "real_contribution": 0.02498171252904457
+          },
+          {
+            "abs_complex_contribution_sum": 0.02269784520676166,
+            "canonical_frequency": [
+              2,
+              10
+            ],
+            "conjugate_frequency": [
+              8,
+              2
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "2,10|8,2",
+            "real_contribution": 0.02233038112187269
+          },
+          {
+            "abs_complex_contribution_sum": 0.026323702021561854,
+            "canonical_frequency": [
+              2,
+              6
+            ],
+            "conjugate_frequency": [
+              8,
+              6
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "2,6|8,6",
+            "real_contribution": 0.020185935154209543
+          },
+          {
+            "abs_complex_contribution_sum": 0.019544845557378825,
+            "canonical_frequency": [
+              3,
+              9
+            ],
+            "conjugate_frequency": [
+              7,
+              3
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "3,9|7,3",
+            "real_contribution": 0.018860303456487634
+          },
+          {
+            "abs_complex_contribution_sum": 0.018507563304182007,
+            "canonical_frequency": [
+              1,
+              5
+            ],
+            "conjugate_frequency": [
+              9,
+              7
+            ],
+            "imag_contribution": -2.168404344971009e-18,
+            "mode_count": 2,
+            "pair_label": "1,5|9,7",
+            "real_contribution": -0.017928168735208177
+          },
+          {
+            "abs_complex_contribution_sum": 0.030138088402758036,
+            "canonical_frequency": [
+              4,
+              4
+            ],
+            "conjugate_frequency": [
+              6,
+              8
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "4,4|6,8",
+            "real_contribution": 0.016884925744173003
+          },
+          {
+            "abs_complex_contribution_sum": 0.03764378259736181,
+            "canonical_frequency": [
+              1,
+              3
+            ],
+            "conjugate_frequency": [
+              9,
+              9
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "1,3|9,9",
+            "real_contribution": 0.016785989660144662
+          },
+          {
+            "abs_complex_contribution_sum": 0.018555247513037908,
+            "canonical_frequency": [
+              4,
+              2
+            ],
+            "conjugate_frequency": [
+              6,
+              10
+            ],
+            "imag_contribution": -1.734723475976807e-18,
+            "mode_count": 2,
+            "pair_label": "4,2|6,10",
+            "real_contribution": 0.016203621787976907
+          },
+          {
+            "abs_complex_contribution_sum": 0.01828492398991244,
+            "canonical_frequency": [
+              4,
+              10
+            ],
+            "conjugate_frequency": [
+              6,
+              2
+            ],
+            "imag_contribution": 8.673617379884035e-19,
+            "mode_count": 2,
+            "pair_label": "4,10|6,2",
+            "real_contribution": -0.01386329902845093
+          }
+        ],
+        "target": 1168882,
+        "target_mod_286": 0,
+        "target_residue": 7722,
+        "top_abs_pair": {
+          "abs_complex_contribution_sum": 0.038438362946895524,
+          "canonical_frequency": [
+            5,
+            3
+          ],
+          "conjugate_frequency": [
+            5,
+            9
+          ],
+          "imag_contribution": -6.938893903907228e-18,
+          "mode_count": 2,
+          "pair_label": "5,3|5,9",
+          "real_contribution": -0.03469086146218349
+        },
+        "top_abs_pair_fraction_of_envelope": 0.09793584171827309,
+        "top_adverse_pair": {
+          "abs_complex_contribution_sum": 0.038438362946895524,
+          "canonical_frequency": [
+            5,
+            3
+          ],
+          "conjugate_frequency": [
+            5,
+            9
+          ],
+          "imag_contribution": -6.938893903907228e-18,
+          "mode_count": 2,
+          "pair_label": "5,3|5,9",
+          "real_contribution": -0.03469086146218349
+        },
+        "top_rescue_pair": {
+          "abs_complex_contribution_sum": 0.031105498475086642,
+          "canonical_frequency": [
+            2,
+            8
+          ],
+          "conjugate_frequency": [
+            8,
+            4
+          ],
+          "imag_contribution": 0.0,
+          "mode_count": 2,
+          "pair_label": "2,8|8,4",
+          "real_contribution": 0.02890211207401405
+        }
+      },
+      {
+        "k286_component_is_adverse": false,
+        "k286_component_is_rescue": true,
+        "k286_signed_error": 0.031709863337532146,
+        "pair_count": 30,
+        "pair_real_abs_envelope": 0.27584088748699936,
+        "pair_real_cancellation_ratio": 0.1149570813319931,
+        "pair_real_sum": 0.031709863337532146,
+        "pair_reconstruction_error": 0.0,
+        "pair_rows": [
+          {
+            "abs_complex_contribution_sum": 0.03258153943653975,
+            "canonical_frequency": [
+              4,
+              6
+            ],
+            "conjugate_frequency": [
+              6,
+              6
+            ],
+            "imag_contribution": -1.734723475976807e-18,
+            "mode_count": 2,
+            "pair_label": "4,6|6,6",
+            "real_contribution": 0.02606791336749429
+          },
+          {
+            "abs_complex_contribution_sum": 0.02576035289197941,
+            "canonical_frequency": [
+              4,
+              2
+            ],
+            "conjugate_frequency": [
+              6,
+              10
+            ],
+            "imag_contribution": 4.336808689942018e-19,
+            "mode_count": 2,
+            "pair_label": "4,2|6,10",
+            "real_contribution": 0.02470722464445099
+          },
+          {
+            "abs_complex_contribution_sum": 0.028827700523985755,
+            "canonical_frequency": [
+              1,
+              7
+            ],
+            "conjugate_frequency": [
+              9,
+              5
+            ],
+            "imag_contribution": -3.469446951953614e-18,
+            "mode_count": 2,
+            "pair_label": "1,7|9,5",
+            "real_contribution": -0.02265596428784867
+          },
+          {
+            "abs_complex_contribution_sum": 0.020987025974508026,
+            "canonical_frequency": [
+              3,
+              9
+            ],
+            "conjugate_frequency": [
+              7,
+              3
+            ],
+            "imag_contribution": 4.336808689942018e-19,
+            "mode_count": 2,
+            "pair_label": "3,9|7,3",
+            "real_contribution": 0.01968140410363033
+          },
+          {
+            "abs_complex_contribution_sum": 0.028479722611110623,
+            "canonical_frequency": [
+              4,
+              4
+            ],
+            "conjugate_frequency": [
+              6,
+              8
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "4,4|6,8",
+            "real_contribution": -0.018938286986392265
+          },
+          {
+            "abs_complex_contribution_sum": 0.02984820152160631,
+            "canonical_frequency": [
+              5,
+              3
+            ],
+            "conjugate_frequency": [
+              5,
+              9
+            ],
+            "imag_contribution": -8.673617379884035e-18,
+            "mode_count": 2,
+            "pair_label": "5,3|5,9",
+            "real_contribution": 0.01654761407504991
+          },
+          {
+            "abs_complex_contribution_sum": 0.02097298877543089,
+            "canonical_frequency": [
+              3,
+              1
+            ],
+            "conjugate_frequency": [
+              7,
+              11
+            ],
+            "imag_contribution": -3.469446951953614e-18,
+            "mode_count": 2,
+            "pair_label": "3,1|7,11",
+            "real_contribution": -0.014964894933800956
+          },
+          {
+            "abs_complex_contribution_sum": 0.03949001268950708,
+            "canonical_frequency": [
+              2,
+              4
+            ],
+            "conjugate_frequency": [
+              8,
+              8
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "2,4|8,8",
+            "real_contribution": 0.014813771348135477
+          },
+          {
+            "abs_complex_contribution_sum": 0.03657475184930777,
+            "canonical_frequency": [
+              1,
+              11
+            ],
+            "conjugate_frequency": [
+              9,
+              1
+            ],
+            "imag_contribution": 6.938893903907228e-18,
+            "mode_count": 2,
+            "pair_label": "1,11|9,1",
+            "real_contribution": -0.013659459818187749
+          },
+          {
+            "abs_complex_contribution_sum": 0.015420602396412072,
+            "canonical_frequency": [
+              3,
+              5
+            ],
+            "conjugate_frequency": [
+              7,
+              7
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "3,5|7,7",
+            "real_contribution": 0.01349770745252615
+          },
+          {
+            "abs_complex_contribution_sum": 0.01432723407888663,
+            "canonical_frequency": [
+              1,
+              5
+            ],
+            "conjugate_frequency": [
+              9,
+              7
+            ],
+            "imag_contribution": 8.673617379884035e-19,
+            "mode_count": 2,
+            "pair_label": "1,5|9,7",
+            "real_contribution": -0.012964378434672281
+          },
+          {
+            "abs_complex_contribution_sum": 0.012207619481322641,
+            "canonical_frequency": [
+              2,
+              6
+            ],
+            "conjugate_frequency": [
+              8,
+              6
+            ],
+            "imag_contribution": -2.6020852139652106e-18,
+            "mode_count": 2,
+            "pair_label": "2,6|8,6",
+            "real_contribution": 0.01114062799444187
+          }
+        ],
+        "target": 1170026,
+        "target_mod_286": 0,
+        "target_residue": 8866,
+        "top_abs_pair": {
+          "abs_complex_contribution_sum": 0.03258153943653975,
+          "canonical_frequency": [
+            4,
+            6
+          ],
+          "conjugate_frequency": [
+            6,
+            6
+          ],
+          "imag_contribution": -1.734723475976807e-18,
+          "mode_count": 2,
+          "pair_label": "4,6|6,6",
+          "real_contribution": 0.02606791336749429
+        },
+        "top_abs_pair_fraction_of_envelope": 0.09450344220170367,
+        "top_adverse_pair": {
+          "abs_complex_contribution_sum": 0.028827700523985755,
+          "canonical_frequency": [
+            1,
+            7
+          ],
+          "conjugate_frequency": [
+            9,
+            5
+          ],
+          "imag_contribution": -3.469446951953614e-18,
+          "mode_count": 2,
+          "pair_label": "1,7|9,5",
+          "real_contribution": -0.02265596428784867
+        },
+        "top_rescue_pair": {
+          "abs_complex_contribution_sum": 0.03258153943653975,
+          "canonical_frequency": [
+            4,
+            6
+          ],
+          "conjugate_frequency": [
+            6,
+            6
+          ],
+          "imag_contribution": -1.734723475976807e-18,
+          "mode_count": 2,
+          "pair_label": "4,6|6,6",
+          "real_contribution": 0.02606791336749429
+        }
+      },
+      {
+        "k286_component_is_adverse": false,
+        "k286_component_is_rescue": true,
+        "k286_signed_error": 0.07891673100058882,
+        "pair_count": 30,
+        "pair_real_abs_envelope": 0.3955095504305148,
+        "pair_real_cancellation_ratio": 0.19953179617202021,
+        "pair_real_sum": 0.07891673100058882,
+        "pair_reconstruction_error": 0.0,
+        "pair_rows": [
+          {
+            "abs_complex_contribution_sum": 0.05531984886470795,
+            "canonical_frequency": [
+              3,
+              5
+            ],
+            "conjugate_frequency": [
+              7,
+              7
+            ],
+            "imag_contribution": 3.469446951953614e-18,
+            "mode_count": 2,
+            "pair_label": "3,5|7,7",
+            "real_contribution": 0.05290087087649002
+          },
+          {
+            "abs_complex_contribution_sum": 0.037812813236771305,
+            "canonical_frequency": [
+              1,
+              3
+            ],
+            "conjugate_frequency": [
+              9,
+              9
+            ],
+            "imag_contribution": 1.734723475976807e-18,
+            "mode_count": 2,
+            "pair_label": "1,3|9,9",
+            "real_contribution": 0.03765922969317757
+          },
+          {
+            "abs_complex_contribution_sum": 0.024748242832496492,
+            "canonical_frequency": [
+              2,
+              2
+            ],
+            "conjugate_frequency": [
+              8,
+              10
+            ],
+            "imag_contribution": 1.734723475976807e-18,
+            "mode_count": 2,
+            "pair_label": "2,2|8,10",
+            "real_contribution": -0.024469215246301374
+          },
+          {
+            "abs_complex_contribution_sum": 0.02383235238739708,
+            "canonical_frequency": [
+              1,
+              5
+            ],
+            "conjugate_frequency": [
+              9,
+              7
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "1,5|9,7",
+            "real_contribution": -0.023819018222659697
+          },
+          {
+            "abs_complex_contribution_sum": 0.023929393702653373,
+            "canonical_frequency": [
+              2,
+              6
+            ],
+            "conjugate_frequency": [
+              8,
+              6
+            ],
+            "imag_contribution": -3.469446951953614e-18,
+            "mode_count": 2,
+            "pair_label": "2,6|8,6",
+            "real_contribution": 0.023646406898964946
+          },
+          {
+            "abs_complex_contribution_sum": 0.039314617085896376,
+            "canonical_frequency": [
+              1,
+              7
+            ],
+            "conjugate_frequency": [
+              9,
+              5
+            ],
+            "imag_contribution": -3.469446951953614e-18,
+            "mode_count": 2,
+            "pair_label": "1,7|9,5",
+            "real_contribution": -0.021317172646136577
+          },
+          {
+            "abs_complex_contribution_sum": 0.02908208924094028,
+            "canonical_frequency": [
+              4,
+              8
+            ],
+            "conjugate_frequency": [
+              6,
+              4
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "4,8|6,4",
+            "real_contribution": -0.020814838221050094
+          },
+          {
+            "abs_complex_contribution_sum": 0.020187098234841157,
+            "canonical_frequency": [
+              3,
+              3
+            ],
+            "conjugate_frequency": [
+              7,
+              9
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "3,3|7,9",
+            "real_contribution": 0.01732795433396876
+          },
+          {
+            "abs_complex_contribution_sum": 0.01661085442190246,
+            "canonical_frequency": [
+              1,
+              11
+            ],
+            "conjugate_frequency": [
+              9,
+              1
+            ],
+            "imag_contribution": -4.336808689942018e-18,
+            "mode_count": 2,
+            "pair_label": "1,11|9,1",
+            "real_contribution": -0.0165905931311777
+          },
+          {
+            "abs_complex_contribution_sum": 0.015352677762949336,
+            "canonical_frequency": [
+              2,
+              8
+            ],
+            "conjugate_frequency": [
+              8,
+              4
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "2,8|8,4",
+            "real_contribution": 0.015090171520544093
+          },
+          {
+            "abs_complex_contribution_sum": 0.038365820049146404,
+            "canonical_frequency": [
+              3,
+              7
+            ],
+            "conjugate_frequency": [
+              7,
+              5
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "3,7|7,5",
+            "real_contribution": -0.014573563016745325
+          },
+          {
+            "abs_complex_contribution_sum": 0.022990493483009994,
+            "canonical_frequency": [
+              3,
+              1
+            ],
+            "conjugate_frequency": [
+              7,
+              11
+            ],
+            "imag_contribution": -3.469446951953614e-18,
+            "mode_count": 2,
+            "pair_label": "3,1|7,11",
+            "real_contribution": 0.013485904962285498
+          }
+        ],
+        "target": 1170884,
+        "target_mod_286": 0,
+        "target_residue": 9724,
+        "top_abs_pair": {
+          "abs_complex_contribution_sum": 0.05531984886470795,
+          "canonical_frequency": [
+            3,
+            5
+          ],
+          "conjugate_frequency": [
+            7,
+            7
+          ],
+          "imag_contribution": 3.469446951953614e-18,
+          "mode_count": 2,
+          "pair_label": "3,5|7,7",
+          "real_contribution": 0.05290087087649002
+        },
+        "top_abs_pair_fraction_of_envelope": 0.13375371294803645,
+        "top_adverse_pair": {
+          "abs_complex_contribution_sum": 0.024748242832496492,
+          "canonical_frequency": [
+            2,
+            2
+          ],
+          "conjugate_frequency": [
+            8,
+            10
+          ],
+          "imag_contribution": 1.734723475976807e-18,
+          "mode_count": 2,
+          "pair_label": "2,2|8,10",
+          "real_contribution": -0.024469215246301374
+        },
+        "top_rescue_pair": {
+          "abs_complex_contribution_sum": 0.05531984886470795,
+          "canonical_frequency": [
+            3,
+            5
+          ],
+          "conjugate_frequency": [
+            7,
+            7
+          ],
+          "imag_contribution": 3.469446951953614e-18,
+          "mode_count": 2,
+          "pair_label": "3,5|7,7",
+          "real_contribution": 0.05290087087649002
+        }
+      }
+    ],
+    "summary": {
+      "k286_adverse_component_count": 8,
+      "k286_rescue_component_count": 10,
+      "largest_pair_cancellation_ratio_row": {
+        "k286_component_is_adverse": true,
+        "k286_component_is_rescue": false,
+        "k286_signed_error": -0.16250489640689145,
+        "pair_count": 30,
+        "pair_real_abs_envelope": 0.31647493471460214,
+        "pair_real_cancellation_ratio": 0.5134842560389142,
+        "pair_real_sum": -0.16250489640689142,
+        "pair_reconstruction_error": 2.7755575615628914e-17,
+        "pair_rows": [
+          {
+            "abs_complex_contribution_sum": 0.037975085451447115,
+            "canonical_frequency": [
+              5,
+              5
+            ],
+            "conjugate_frequency": [
+              5,
+              7
+            ],
+            "imag_contribution": 8.673617379884035e-19,
+            "mode_count": 2,
+            "pair_label": "5,5|5,7",
+            "real_contribution": -0.037705013477444295
+          },
+          {
+            "abs_complex_contribution_sum": 0.03572749065287393,
+            "canonical_frequency": [
+              2,
+              4
+            ],
+            "conjugate_frequency": [
+              8,
+              8
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "2,4|8,8",
+            "real_contribution": -0.03155670152279807
+          },
+          {
+            "abs_complex_contribution_sum": 0.06270206190836963,
+            "canonical_frequency": [
+              3,
+              7
+            ],
+            "conjugate_frequency": [
+              7,
+              5
+            ],
+            "imag_contribution": 3.469446951953614e-18,
+            "mode_count": 2,
+            "pair_label": "3,7|7,5",
+            "real_contribution": -0.03045521958281633
+          },
+          {
+            "abs_complex_contribution_sum": 0.027097572100928117,
+            "canonical_frequency": [
+              5,
+              1
+            ],
+            "conjugate_frequency": [
+              5,
+              11
+            ],
+            "imag_contribution": 8.673617379884035e-19,
+            "mode_count": 2,
+            "pair_label": "5,1|5,11",
+            "real_contribution": -0.02386117296408526
+          },
+          {
+            "abs_complex_contribution_sum": 0.025241555631062017,
+            "canonical_frequency": [
+              4,
+              4
+            ],
+            "conjugate_frequency": [
+              6,
+              8
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "4,4|6,8",
+            "real_contribution": -0.023164871396725947
+          },
+          {
+            "abs_complex_contribution_sum": 0.023697040752671046,
+            "canonical_frequency": [
+              3,
+              9
+            ],
+            "conjugate_frequency": [
+              7,
+              3
+            ],
+            "imag_contribution": -2.6020852139652106e-18,
+            "mode_count": 2,
+            "pair_label": "3,9|7,3",
+            "real_contribution": -0.021477880426592082
+          },
+          {
+            "abs_complex_contribution_sum": 0.027221777240686473,
+            "canonical_frequency": [
+              3,
+              1
+            ],
+            "conjugate_frequency": [
+              7,
+              11
+            ],
+            "imag_contribution": -3.469446951953614e-18,
+            "mode_count": 2,
+            "pair_label": "3,1|7,11",
+            "real_contribution": 0.020260223022355476
+          },
+          {
+            "abs_complex_contribution_sum": 0.01765430524693229,
+            "canonical_frequency": [
+              2,
+              10
+            ],
+            "conjugate_frequency": [
+              8,
+              2
+            ],
+            "imag_contribution": -8.673617379884035e-19,
+            "mode_count": 2,
+            "pair_label": "2,10|8,2",
+            "real_contribution": 0.017577340558664757
+          },
+          {
+            "abs_complex_contribution_sum": 0.017004022006437816,
+            "canonical_frequency": [
+              4,
+              6
+            ],
+            "conjugate_frequency": [
+              6,
+              6
+            ],
+            "imag_contribution": 1.734723475976807e-18,
+            "mode_count": 2,
+            "pair_label": "4,6|6,6",
+            "real_contribution": -0.016037201043129525
+          },
+          {
+            "abs_complex_contribution_sum": 0.015909132579677583,
+            "canonical_frequency": [
+              1,
+              11
+            ],
+            "conjugate_frequency": [
+              9,
+              1
+            ],
+            "imag_contribution": 4.336808689942018e-19,
+            "mode_count": 2,
+            "pair_label": "1,11|9,1",
+            "real_contribution": -0.015881491309640818
+          },
+          {
+            "abs_complex_contribution_sum": 0.015990941398524625,
+            "canonical_frequency": [
+              3,
+              5
+            ],
+            "conjugate_frequency": [
+              7,
+              7
+            ],
+            "imag_contribution": -1.734723475976807e-18,
+            "mode_count": 2,
+            "pair_label": "3,5|7,7",
+            "real_contribution": 0.011939456268474678
+          },
+          {
+            "abs_complex_contribution_sum": 0.01893761657684685,
+            "canonical_frequency": [
+              1,
+              7
+            ],
+            "conjugate_frequency": [
+              9,
+              5
+            ],
+            "imag_contribution": 3.469446951953614e-18,
+            "mode_count": 2,
+            "pair_label": "1,7|9,5",
+            "real_contribution": -0.011844657294643022
+          }
+        ],
+        "target": 1158872,
+        "target_mod_286": 0,
+        "target_residue": 7722,
+        "top_abs_pair": {
+          "abs_complex_contribution_sum": 0.037975085451447115,
+          "canonical_frequency": [
+            5,
+            5
+          ],
+          "conjugate_frequency": [
+            5,
+            7
+          ],
+          "imag_contribution": 8.673617379884035e-19,
+          "mode_count": 2,
+          "pair_label": "5,5|5,7",
+          "real_contribution": -0.037705013477444295
+        },
+        "top_abs_pair_fraction_of_envelope": 0.11914059959107588,
+        "top_adverse_pair": {
+          "abs_complex_contribution_sum": 0.037975085451447115,
+          "canonical_frequency": [
+            5,
+            5
+          ],
+          "conjugate_frequency": [
+            5,
+            7
+          ],
+          "imag_contribution": 8.673617379884035e-19,
+          "mode_count": 2,
+          "pair_label": "5,5|5,7",
+          "real_contribution": -0.037705013477444295
+        },
+        "top_rescue_pair": {
+          "abs_complex_contribution_sum": 0.027221777240686473,
+          "canonical_frequency": [
+            3,
+            1
+          ],
+          "conjugate_frequency": [
+            7,
+            11
+          ],
+          "imag_contribution": -3.469446951953614e-18,
+          "mode_count": 2,
+          "pair_label": "3,1|7,11",
+          "real_contribution": 0.020260223022355476
+        }
+      },
+      "largest_top_abs_pair_fraction_row": {
+        "k286_component_is_adverse": true,
+        "k286_component_is_rescue": false,
+        "k286_signed_error": -0.048644238759960205,
+        "pair_count": 30,
+        "pair_real_abs_envelope": 0.323179237744921,
+        "pair_real_cancellation_ratio": 0.15051783369312277,
+        "pair_real_sum": -0.048644238759960205,
+        "pair_reconstruction_error": 0.0,
+        "pair_rows": [
+          {
+            "abs_complex_contribution_sum": 0.05417634436245322,
+            "canonical_frequency": [
+              2,
+              2
+            ],
+            "conjugate_frequency": [
+              8,
+              10
+            ],
+            "imag_contribution": 1.0408340855860843e-17,
+            "mode_count": 2,
+            "pair_label": "2,2|8,10",
+            "real_contribution": -0.052229169042485535
+          },
+          {
+            "abs_complex_contribution_sum": 0.03359636792031317,
+            "canonical_frequency": [
+              4,
+              8
+            ],
+            "conjugate_frequency": [
+              6,
+              4
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "4,8|6,4",
+            "real_contribution": -0.031071187657076865
+          },
+          {
+            "abs_complex_contribution_sum": 0.0281940328603555,
+            "canonical_frequency": [
+              2,
+              6
+            ],
+            "conjugate_frequency": [
+              8,
+              6
+            ],
+            "imag_contribution": -6.071532165918825e-18,
+            "mode_count": 2,
+            "pair_label": "2,6|8,6",
+            "real_contribution": 0.027874644944972212
+          },
+          {
+            "abs_complex_contribution_sum": 0.024241805488221864,
+            "canonical_frequency": [
+              3,
+              11
+            ],
+            "conjugate_frequency": [
+              7,
+              1
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "3,11|7,1",
+            "real_contribution": 0.022349945954306935
+          },
+          {
+            "abs_complex_contribution_sum": 0.024208105288137983,
+            "canonical_frequency": [
+              1,
+              5
+            ],
+            "conjugate_frequency": [
+              9,
+              7
+            ],
+            "imag_contribution": -2.6020852139652106e-18,
+            "mode_count": 2,
+            "pair_label": "1,5|9,7",
+            "real_contribution": -0.02095891790748076
+          },
+          {
+            "abs_complex_contribution_sum": 0.024533058887259714,
+            "canonical_frequency": [
+              3,
+              1
+            ],
+            "conjugate_frequency": [
+              7,
+              11
+            ],
+            "imag_contribution": -8.673617379884035e-19,
+            "mode_count": 2,
+            "pair_label": "3,1|7,11",
+            "real_contribution": 0.01981394059109668
+          },
+          {
+            "abs_complex_contribution_sum": 0.02450736806378212,
+            "canonical_frequency": [
+              2,
+              8
+            ],
+            "conjugate_frequency": [
+              8,
+              4
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "2,8|8,4",
+            "real_contribution": -0.01684672753139795
+          },
+          {
+            "abs_complex_contribution_sum": 0.01543140421263585,
+            "canonical_frequency": [
+              4,
+              10
+            ],
+            "conjugate_frequency": [
+              6,
+              2
+            ],
+            "imag_contribution": 2.168404344971009e-18,
+            "mode_count": 2,
+            "pair_label": "4,10|6,2",
+            "real_contribution": -0.014080241487956991
+          },
+          {
+            "abs_complex_contribution_sum": 0.04676694718548555,
+            "canonical_frequency": [
+              1,
+              7
+            ],
+            "conjugate_frequency": [
+              9,
+              5
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "1,7|9,5",
+            "real_contribution": -0.014045976047807843
+          },
+          {
+            "abs_complex_contribution_sum": 0.023284136313686594,
+            "canonical_frequency": [
+              4,
+              2
+            ],
+            "conjugate_frequency": [
+              6,
+              10
+            ],
+            "imag_contribution": -3.469446951953614e-18,
+            "mode_count": 2,
+            "pair_label": "4,2|6,10",
+            "real_contribution": 0.012791638315670607
+          },
+          {
+            "abs_complex_contribution_sum": 0.014560634142186911,
+            "canonical_frequency": [
+              2,
+              10
+            ],
+            "conjugate_frequency": [
+              8,
+              2
+            ],
+            "imag_contribution": -8.673617379884035e-19,
+            "mode_count": 2,
+            "pair_label": "2,10|8,2",
+            "real_contribution": 0.011194069369404851
+          },
+          {
+            "abs_complex_contribution_sum": 0.011869351542363408,
+            "canonical_frequency": [
+              3,
+              7
+            ],
+            "conjugate_frequency": [
+              7,
+              5
+            ],
+            "imag_contribution": -1.3010426069826053e-18,
+            "mode_count": 2,
+            "pair_label": "3,7|7,5",
+            "real_contribution": 0.010890805575192914
+          }
+        ],
+        "target": 1173172,
+        "target_mod_286": 0,
+        "target_residue": 2002,
+        "top_abs_pair": {
+          "abs_complex_contribution_sum": 0.05417634436245322,
+          "canonical_frequency": [
+            2,
+            2
+          ],
+          "conjugate_frequency": [
+            8,
+            10
+          ],
+          "imag_contribution": 1.0408340855860843e-17,
+          "mode_count": 2,
+          "pair_label": "2,2|8,10",
+          "real_contribution": -0.052229169042485535
+        },
+        "top_abs_pair_fraction_of_envelope": 0.16161053354457436,
+        "top_adverse_pair": {
+          "abs_complex_contribution_sum": 0.05417634436245322,
+          "canonical_frequency": [
+            2,
+            2
+          ],
+          "conjugate_frequency": [
+            8,
+            10
+          ],
+          "imag_contribution": 1.0408340855860843e-17,
+          "mode_count": 2,
+          "pair_label": "2,2|8,10",
+          "real_contribution": -0.052229169042485535
+        },
+        "top_rescue_pair": {
+          "abs_complex_contribution_sum": 0.0281940328603555,
+          "canonical_frequency": [
+            2,
+            6
+          ],
+          "conjugate_frequency": [
+            8,
+            6
+          ],
+          "imag_contribution": -6.071532165918825e-18,
+          "mode_count": 2,
+          "pair_label": "2,6|8,6",
+          "real_contribution": 0.027874644944972212
+        }
+      },
+      "pair_cancellation_ratio_summary": {
+        "count": 18,
+        "maximum": 0.5134842560389142,
+        "mean": 0.15132464895023304,
+        "minimum": 0.009089584046870686
+      },
+      "pair_reconstruction_error_summary": {
+        "count": 18,
+        "maximum": 4.85722573273506e-17,
+        "mean": 1.3685040754928146e-17,
+        "minimum": 0.0
+      },
+      "single_fixed_pair_dominates_top_abs": false,
+      "single_fixed_pair_dominates_top_adverse": false,
+      "single_fixed_pair_dominates_top_rescue": false,
+      "smallest_pair_cancellation_ratio_row": {
+        "k286_component_is_adverse": true,
+        "k286_component_is_rescue": false,
+        "k286_signed_error": -0.0027093394115558205,
+        "pair_count": 30,
+        "pair_real_abs_envelope": 0.29807078053132524,
+        "pair_real_cancellation_ratio": 0.009089584046870686,
+        "pair_real_sum": -0.0027093394115558275,
+        "pair_reconstruction_error": 6.938893903907228e-18,
+        "pair_rows": [
+          {
+            "abs_complex_contribution_sum": 0.036596488954415175,
+            "canonical_frequency": [
+              3,
+              5
+            ],
+            "conjugate_frequency": [
+              7,
+              7
+            ],
+            "imag_contribution": -1.734723475976807e-18,
+            "mode_count": 2,
+            "pair_label": "3,5|7,7",
+            "real_contribution": 0.030971411876197133
+          },
+          {
+            "abs_complex_contribution_sum": 0.03588290837403492,
+            "canonical_frequency": [
+              3,
+              7
+            ],
+            "conjugate_frequency": [
+              7,
+              5
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "3,7|7,5",
+            "real_contribution": -0.02889019684889417
+          },
+          {
+            "abs_complex_contribution_sum": 0.028251408943966758,
+            "canonical_frequency": [
+              1,
+              9
+            ],
+            "conjugate_frequency": [
+              9,
+              3
+            ],
+            "imag_contribution": 1.5178830414797062e-18,
+            "mode_count": 2,
+            "pair_label": "1,9|9,3",
+            "real_contribution": 0.028250456658357327
+          },
+          {
+            "abs_complex_contribution_sum": 0.03083455483967,
+            "canonical_frequency": [
+              3,
+              9
+            ],
+            "conjugate_frequency": [
+              7,
+              3
+            ],
+            "imag_contribution": -6.938893903907228e-18,
+            "mode_count": 2,
+            "pair_label": "3,9|7,3",
+            "real_contribution": -0.02776804896050796
+          },
+          {
+            "abs_complex_contribution_sum": 0.039624610444783354,
+            "canonical_frequency": [
+              2,
+              4
+            ],
+            "conjugate_frequency": [
+              8,
+              8
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "2,4|8,8",
+            "real_contribution": -0.02259943491394177
+          },
+          {
+            "abs_complex_contribution_sum": 0.029937698619713626,
+            "canonical_frequency": [
+              1,
+              1
+            ],
+            "conjugate_frequency": [
+              9,
+              11
+            ],
+            "imag_contribution": -3.469446951953614e-18,
+            "mode_count": 2,
+            "pair_label": "1,1|9,11",
+            "real_contribution": 0.019137312640994643
+          },
+          {
+            "abs_complex_contribution_sum": 0.021829690821224768,
+            "canonical_frequency": [
+              5,
+              1
+            ],
+            "conjugate_frequency": [
+              5,
+              11
+            ],
+            "imag_contribution": -1.734723475976807e-18,
+            "mode_count": 2,
+            "pair_label": "5,1|5,11",
+            "real_contribution": 0.017659320156367515
+          },
+          {
+            "abs_complex_contribution_sum": 0.02993595942086421,
+            "canonical_frequency": [
+              4,
+              6
+            ],
+            "conjugate_frequency": [
+              6,
+              6
+            ],
+            "imag_contribution": -1.734723475976807e-18,
+            "mode_count": 2,
+            "pair_label": "4,6|6,6",
+            "real_contribution": 0.017020792872162786
+          },
+          {
+            "abs_complex_contribution_sum": 0.017788364333391996,
+            "canonical_frequency": [
+              3,
+              11
+            ],
+            "conjugate_frequency": [
+              7,
+              1
+            ],
+            "imag_contribution": 1.734723475976807e-18,
+            "mode_count": 2,
+            "pair_label": "3,11|7,1",
+            "real_contribution": -0.016851571602445995
+          },
+          {
+            "abs_complex_contribution_sum": 0.013240383828885854,
+            "canonical_frequency": [
+              2,
+              6
+            ],
+            "conjugate_frequency": [
+              8,
+              6
+            ],
+            "imag_contribution": -3.0357660829594124e-18,
+            "mode_count": 2,
+            "pair_label": "2,6|8,6",
+            "real_contribution": 0.013035113963391881
+          },
+          {
+            "abs_complex_contribution_sum": 0.03644806602783403,
+            "canonical_frequency": [
+              5,
+              3
+            ],
+            "conjugate_frequency": [
+              5,
+              9
+            ],
+            "imag_contribution": -1.0408340855860843e-17,
+            "mode_count": 2,
+            "pair_label": "5,3|5,9",
+            "real_contribution": -0.012144438896584897
+          },
+          {
+            "abs_complex_contribution_sum": 0.012612582260421442,
+            "canonical_frequency": [
+              2,
+              8
+            ],
+            "conjugate_frequency": [
+              8,
+              4
+            ],
+            "imag_contribution": 0.0,
+            "mode_count": 2,
+            "pair_label": "2,8|8,4",
+            "real_contribution": -0.01185822402531688
+          }
+        ],
+        "target": 1173458,
+        "target_mod_286": 0,
+        "target_residue": 2288,
+        "top_abs_pair": {
+          "abs_complex_contribution_sum": 0.036596488954415175,
+          "canonical_frequency": [
+            3,
+            5
+          ],
+          "conjugate_frequency": [
+            7,
+            7
+          ],
+          "imag_contribution": -1.734723475976807e-18,
+          "mode_count": 2,
+          "pair_label": "3,5|7,7",
+          "real_contribution": 0.030971411876197133
+        },
+        "top_abs_pair_fraction_of_envelope": 0.1039062326773162,
+        "top_adverse_pair": {
+          "abs_complex_contribution_sum": 0.03588290837403492,
+          "canonical_frequency": [
+            3,
+            7
+          ],
+          "conjugate_frequency": [
+            7,
+            5
+          ],
+          "imag_contribution": 0.0,
+          "mode_count": 2,
+          "pair_label": "3,7|7,5",
+          "real_contribution": -0.02889019684889417
+        },
+        "top_rescue_pair": {
+          "abs_complex_contribution_sum": 0.036596488954415175,
+          "canonical_frequency": [
+            3,
+            5
+          ],
+          "conjugate_frequency": [
+            7,
+            7
+          ],
+          "imag_contribution": -1.734723475976807e-18,
+          "mode_count": 2,
+          "pair_label": "3,5|7,7",
+          "real_contribution": 0.030971411876197133
+        }
+      },
+      "top_abs_pair_counts": {
+        "1,5|9,7": 1,
+        "1,9|9,3": 1,
+        "2,10|8,2": 2,
+        "2,2|8,10": 1,
+        "3,3|7,9": 1,
+        "3,5|7,7": 3,
+        "3,7|7,5": 2,
+        "4,4|6,8": 2,
+        "4,6|6,6": 1,
+        "4,8|6,4": 1,
+        "5,1|5,11": 1,
+        "5,3|5,9": 1,
+        "5,5|5,7": 1
+      },
+      "top_abs_pair_fraction_summary": {
+        "count": 18,
+        "maximum": 0.16161053354457436,
+        "mean": 0.11575000686804238,
+        "minimum": 0.08285344480352641
+      },
+      "top_abs_pair_max_row_count": 3,
+      "top_adverse_pair_counts": {
+        "1,5|9,7": 2,
+        "1,7|9,5": 2,
+        "1,9|9,3": 1,
+        "2,2|8,10": 2,
+        "3,3|7,9": 1,
+        "3,7|7,5": 4,
+        "4,4|6,8": 2,
+        "4,8|6,4": 1,
+        "5,1|5,11": 1,
+        "5,3|5,9": 1,
+        "5,5|5,7": 1
+      },
+      "top_adverse_pair_max_row_count": 4,
+      "top_rescue_pair_counts": {
+        "2,10|8,2": 3,
+        "2,6|8,6": 2,
+        "2,8|8,4": 2,
+        "3,1|7,11": 1,
+        "3,3|7,9": 1,
+        "3,5|7,7": 4,
+        "4,10|6,2": 1,
+        "4,4|6,8": 1,
+        "4,6|6,6": 2,
+        "4,8|6,4": 1
+      },
+      "top_rescue_pair_max_row_count": 4,
+      "violating_row_count": 18
+    }
+  },
+  "goldbach_proved": false,
+  "phase_pair_theorem_proved": false,
+  "q286_threshold_theorem_proved": false,
+  "question": "On the zero-lane L2-cap-violating rows, does the K_286 phase nonalignment collapse to one fixed dominant conjugate phase-pair?",
+  "receipt": "q286-wbss-k286-zero-residue-k286-phase-pair-audit",
+  "schema_version": 1,
+  "source_commit": "e5caacd1f26a3c1bec51015e93268f8f6b3c1ac4",
+  "sources": {
+    "component_phase_audit": "evidence\\q286-wbss-k286-zero-residue-component-phase-audit.json",
+    "component_phase_source_commit": "5919f15176bfde5b60bd8d2157ce5ba8d9241289",
+    "formula_source_commit": "b2745218566ec5e2c5a85af2f608b509bc31c292",
+    "four_modulus_projection_formula": "evidence\\q286-wbss-four-modulus-projection-formula.json",
+    "observed_character_moment_audit": "evidence\\q286-wbss-k286-zero-residue-observed-character-moment-audit.json",
+    "observed_character_moment_source_commit": "70accce252f26f7a0126ce1cbc69219f5786d983",
+    "zero_residue_raw_horizon_probe": "evidence\\q286-wbss-k286-zero-residue-raw-horizon-probe.json",
+    "zero_residue_raw_horizon_probe_source_commit": "8790882f70ed11fc5a506a01e1c9ccab1a521203"
+  },
+  "status": "DIAGNOSTIC_k286_phase_pair_single_mode_falsified",
+  "status_boundary": "Finite K_286 conjugate phase-pair diagnostic only.  No phase-pair theorem, no target-residue oscillation theorem, no coefficient-direction nonalignment theorem, no universal pointwise raw bound, no q286 threshold theorem, no strict-central Goldbach theorem, and no Goldbach proof is established.",
+  "strict_central_goldbach_theorem_proved": false,
+  "target_residue_oscillation_theorem_proved": false,
+  "universal_pointwise_raw_bound_proved": false
+}

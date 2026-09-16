@@ -6,6 +6,46 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The q286-WBSS route now has a zero-residue `K_286` phase-pair audit:
+
+```text
+tools/build_q286_wbss_k286_zero_residue_k286_phase_pair_audit.py
+notes/q286-wbss-k286-zero-residue-k286-phase-pair-audit.md
+evidence/q286-wbss-k286-zero-residue-k286-phase-pair-audit.json
+```
+
+Question: on the `18` zero-lane rows where aggregate active-character `L2`
+exceeds the sufficient local cap, does the `K_286` phase story collapse to one
+fixed dominant conjugate phase-pair?
+
+Result:
+
+```text
+L2-cap-violating zero-lane rows:       18
+K286 adverse component rows:            8
+K286 rescue component rows:            10
+most common top adverse pair:     3,7|7,5 on 4 / 18 rows
+most common top rescue pair:      3,5|7,7 on 4 / 18 rows
+most common top absolute pair:    3,5|7,7 on 3 / 18 rows
+unique top adverse pairs:              11
+unique top rescue pairs:               10
+unique top absolute pairs:             13
+top absolute pair fraction mean:        0.11575000686804238
+top absolute pair fraction max:         0.16161053354457436
+```
+
+Decision: `DIAGNOSTIC_k286_phase_pair_single_mode_falsified`.  The `K_286`
+component remains the right place to look, but the next theorem-shaped target
+is target-residue-dependent oscillation or a band estimate over moving
+`K_286` phase pairs, not a single fixed phase-pair sign lemma.  A proof still
+needs a universal, pointwise, unnormalized analytical estimate showing adverse
+drag below local main for every sufficiently large `N`.  No phase-pair theorem,
+target-residue oscillation theorem, coefficient-direction nonalignment
+theorem, universal pointwise raw estimate, q286 threshold theorem,
+strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-16
+
 The q286-WBSS route now has a zero-residue component-phase audit:
 
 ```text

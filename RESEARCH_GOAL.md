@@ -6,6 +6,37 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The q286-WBSS route now has a zero-residue `K_286` phase-pair audit:
+`tools/build_q286_wbss_k286_zero_residue_k286_phase_pair_audit.py` generated
+`evidence/q286-wbss-k286-zero-residue-k286-phase-pair-audit.json`, with
+explanation in
+`notes/q286-wbss-k286-zero-residue-k286-phase-pair-audit.md`.
+
+Question: on the `18` zero-lane rows where aggregate active-character `L2`
+exceeds the sufficient local cap, does the `K_286` phase story collapse to one
+fixed dominant conjugate phase-pair?
+
+Answer: no.  The most common top adverse conjugate pair is `3,7|7,5`, appearing
+on only `4/18` rows.  The most common top rescue pair is `3,5|7,7`, also
+appearing on only `4/18` rows.  The most common top absolute pair is
+`3,5|7,7`, appearing on only `3/18` rows.  Across the `18` rows there are `11`
+unique top adverse pairs, `10` unique top rescue pairs, and `13` unique top
+absolute pairs.  Even locally, the top absolute pair fraction ranges only from
+`0.08285344480352641` to `0.16161053354457436`, with mean
+`0.11575000686804238`.
+
+Decision: `DIAGNOSTIC_k286_phase_pair_single_mode_falsified`.  The `K_286`
+component remains the right place to look, but the next theorem-shaped target
+is target-residue-dependent oscillation or a band estimate over moving
+`K_286` phase pairs, not a single fixed phase-pair sign lemma.  A proof still
+needs a universal, pointwise, unnormalized analytical estimate showing adverse
+drag below local main for every sufficiently large `N`.  No phase-pair theorem,
+target-residue oscillation theorem, coefficient-direction nonalignment
+theorem, universal pointwise raw estimate, q286 threshold theorem,
+strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-16
+
 The q286-WBSS route now has a zero-residue component-phase audit:
 `tools/build_q286_wbss_k286_zero_residue_component_phase_audit.py` generated
 `evidence/q286-wbss-k286-zero-residue-component-phase-audit.json`, with
