@@ -1,0 +1,180 @@
+{
+  "candidate_next_action": {
+    "falsifier": "A predeclared construction rule that includes q=16302 cannot support the current 50A..60A positive-share theorem lane.",
+    "mechanism": "The failed denominator has the same six-pair exact scalar packet as the original replacement rows, so a valid selector theorem needs a narrower structural condition than raw source-pair reachability.",
+    "name": "stricter admissibility filter or lane demotion",
+    "novelty_label": "new-to-this-task",
+    "prediction": "Any admissibility filter broad enough to include the small pair (2,3) with high support 11,13,19 will inherit the q=16302 positive-share failure.",
+    "smallest_next_test": "Either name and test a stricter natural filter excluding (2,3), or abandon the 50A..60A selector as a theorem target."
+  },
+  "classification": {
+    "counterexample_exact_log_identity_matches_replacement_pattern": true,
+    "counterexample_has_same_six_pair_packet_shape": true,
+    "counterexample_reachable_by_raw_source_pair_mechanism": true,
+    "finite_reachability_audit_only": true,
+    "not_excludable_by_raw_six_pair_conductor_geometry": true,
+    "still_possible_to_exclude_by_stricter_predeclared_filter": true
+  },
+  "decision": "q=16302 is REACHABLE by the same raw six source-conductor-pair mechanism as the selected Q46189 replacement family.  It has six ordered source-conductor pairs, zero zero-left raw pairs, a common negative real scalar, and an exact log-polynomial common numerator matching the replacement pattern with missing high prime 17 and small pair (2,3).  Thus the frozen-selector failure cannot be dismissed as an irrelevant residue-cell artifact.",
+  "distance_slice_positive_share_theorem_proved": false,
+  "exact_log_identity": {
+    "all_pair_scalar_expressions_equal": true,
+    "common_log_numerator": "-l11*l13*l19 - l11*l13*l2 - l11*l13*l3 - l11*l19*l2 - l11*l19*l3 - l13*l19*l2 - l13*l19*l3",
+    "common_log_numerator_equals_expected": true,
+    "exact_scalar_minus_raw_scalar": 6.938893903907228e-18,
+    "exact_scalar_numeric_substitution": -0.053742911027472064,
+    "expected_common_log_numerator": "-l11*l13*l19 - l11*l13*l2 - l11*l13*l3 - l11*l19*l2 - l11*l19*l3 - l13*l19*l2 - l13*l19*l3",
+    "factorization": {
+      "11": 1,
+      "13": 1,
+      "19": 1,
+      "2": 1,
+      "3": 1
+    },
+    "high_prime_support": [
+      11,
+      13,
+      19
+    ],
+    "missing_high_primes": [
+      17
+    ],
+    "mobius_divisors": [
+      5,
+      6,
+      7,
+      10,
+      11,
+      13,
+      14,
+      15,
+      17,
+      19
+    ],
+    "pair_difference_expressions": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "small_prime_support": [
+      2,
+      3
+    ]
+  },
+  "finite_counterexample_reachability_audit_only": true,
+  "finite_diagnostic_only": true,
+  "fixture": {
+    "active_row_start": 43,
+    "adverse_denominator": 46189,
+    "counterexample_denominator": 16302,
+    "divisor_range": [
+      3,
+      19
+    ],
+    "ell_freeze": 64,
+    "prime_modulus": 379,
+    "row_count_A": 43,
+    "scale_modulus": 229,
+    "target_label": "00,12"
+  },
+  "fresh_conductor_holdout_proved": false,
+  "frozen_selector_failure_row": {
+    "factorization": {
+      "11": 1,
+      "13": 1,
+      "19": 1,
+      "2": 1,
+      "3": 1
+    },
+    "high_prime_support": [
+      11,
+      13,
+      19
+    ],
+    "high_prime_support_count": 3,
+    "metric": {
+      "absolute_over_diagonal": 0.10686495740587038,
+      "distance_count": 430,
+      "distance_range": [
+        2151,
+        2580
+      ],
+      "negative_over_diagonal": -0.07530808841122391,
+      "positive_fraction_of_absolute": 0.2952966974458642,
+      "positive_over_diagonal": 0.031556868994646464,
+      "total_over_diagonal": -0.04375121941657745
+    },
+    "missing_high_primes": [
+      17
+    ],
+    "passes_both_frozen_50A_to_60A_tests": false,
+    "passes_positive_fraction_separator": false,
+    "passes_total_pressure_separator": true,
+    "positive_fraction_gap_vs_q46189": -0.07517830702507916,
+    "reduced_denominator": 16302,
+    "small_prime_support": [
+      2,
+      3
+    ],
+    "total_gap_vs_q46189": 0.04221956863220733
+  },
+  "goldbach_proved": false,
+  "natural_selector_theorem_proved": false,
+  "question": "Is the q=16302 frozen-selector counterexample reachable by the same raw six source-conductor-pair mechanism as the selected Q46189 replacement family?",
+  "raw_source_pair_admissibility_theorem_proved": false,
+  "raw_source_pair_packet": {
+    "max_abs_raw_scalar_deviation": 1.3877787807814457e-17,
+    "max_abs_raw_scalar_imag": 0.0,
+    "nonzero_left_raw_pair_count": 25920,
+    "ordered_source_conductor_pair_count": 6,
+    "ordered_source_conductor_pairs": [
+      {
+        "left_source_conductor": 66,
+        "raw_frequency_pair_count": 4320,
+        "right_source_conductor": 247
+      },
+      {
+        "left_source_conductor": 78,
+        "raw_frequency_pair_count": 4320,
+        "right_source_conductor": 209
+      },
+      {
+        "left_source_conductor": 114,
+        "raw_frequency_pair_count": 4320,
+        "right_source_conductor": 143
+      },
+      {
+        "left_source_conductor": 143,
+        "raw_frequency_pair_count": 4320,
+        "right_source_conductor": 114
+      },
+      {
+        "left_source_conductor": 209,
+        "raw_frequency_pair_count": 4320,
+        "right_source_conductor": 78
+      },
+      {
+        "left_source_conductor": 247,
+        "raw_frequency_pair_count": 4320,
+        "right_source_conductor": 66
+      }
+    ],
+    "raw_frequency_pair_count": 25920,
+    "raw_reduced_residue_count": 4320,
+    "raw_scalar_identity_holds_to_tolerance": true,
+    "raw_scalar_imag": 0.0,
+    "raw_scalar_negative_real": true,
+    "raw_scalar_real": -0.05374291102747207,
+    "zero_left_raw_pair_count": 0
+  },
+  "replacement_residue_gap_bound_theorem_proved": false,
+  "schema_version": 1,
+  "source_commit": "2042a99d1f9acfbdf42deeb7f9032c55b335cad9",
+  "source_exact_log_identity_audit": "evidence\\mobius-moment-square-degree5-q46189-exact-log-polynomial-identity-audit.json",
+  "source_frozen_selector_unused_denominator_holdout": "evidence\\mobius-moment-square-degree5-q46189-frozen-selector-unused-denominator-holdout.json",
+  "status": "AUDIT_q46189_counterexample_reachability",
+  "strict_central_goldbach_theorem_proved": false
+}

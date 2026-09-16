@@ -6,6 +6,51 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The `Q=46189` replacement-family lane now has a frozen-selector
+unused-denominator holdout and counterexample-reachability audit:
+`tools/build_mobius_moment_square_degree5_q46189_frozen_selector_unused_denominator_holdout.py`
+and
+`tools/build_mobius_moment_square_degree5_q46189_counterexample_reachability_audit.py`
+generated
+`evidence/mobius-moment-square-degree5-q46189-frozen-selector-unused-denominator-holdout.json`,
+and
+`evidence/mobius-moment-square-degree5-q46189-counterexample-reachability-audit.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-q46189-frozen-selector-unused-denominator-holdout.md`
+and
+`notes/mobius-moment-square-degree5-q46189-counterexample-reachability-audit.md`.
+
+Question: after freezing the post-hoc `50A..60A` selector, does it survive
+same-source reduced denominators that were not part of the original discovery
+replacement family?
+
+Answer: no, not as a broad same-source rule.  Among `24` unused same-source
+denominators, `q=16302 = 2*3*11*13*19` fails the positive-share separator.
+Its positive fraction is `0.2952966974458642`, below the `Q=46189` frozen
+block positive fraction `0.37047500447094334`, giving gap
+`-0.07517830702507916`.  Its total-pressure gap remains positive:
+`0.04221956863220733`, so the failure is specifically against the
+positive-share separator rather than the total-pressure comparison.
+
+The follow-up reachability audit answers the escape-hatch question:
+`q=16302` is `REACHABLE` by the same raw six source-conductor-pair mechanism
+as the selected replacement rows.  Its source-conductor pairs are
+`(66,247)`, `(78,209)`, `(114,143)`, `(143,114)`, `(209,78)`, and
+`(247,66)`, with `25920` raw frequency pairs, `4320` reduced residues, no
+zero-left raw pairs, common scalar `-0.05374291102747207`, and exact common
+log numerator
+`-l11*l13*l19 - l11*l13*l2 - l11*l13*l3 - l11*l19*l2 - l11*l19*l3 - l13*l19*l2 - l13*l19*l3`.
+
+Decision: the frozen `50A..60A` selector is a post-hoc finite witness, not a
+natural held-out-conductor theorem.  The reachable `q=16302` packet demotes
+the broad theorem lane: excluding it now requires a stricter natural
+admissibility filter declared before testing, not an after-the-fact rescue.
+This proves no natural selector theorem, fresh-conductor theorem,
+raw source-pair admissibility theorem, distance-slice theorem, replacement
+residue-gap bound theorem, strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The `Q=46189` replacement-family lane now has a selector-provenance and
 distance-profile checkpoint:
 `tools/build_mobius_moment_square_degree5_q46189_50a60a_distance_profile_audit.py`

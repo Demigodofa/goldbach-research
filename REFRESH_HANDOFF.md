@@ -6,6 +6,50 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The `Q=46189` replacement-family lane now has a frozen-selector
+unused-denominator holdout and counterexample-reachability audit:
+
+```text
+tools/build_mobius_moment_square_degree5_q46189_frozen_selector_unused_denominator_holdout.py
+tools/build_mobius_moment_square_degree5_q46189_counterexample_reachability_audit.py
+notes/mobius-moment-square-degree5-q46189-frozen-selector-unused-denominator-holdout.md
+notes/mobius-moment-square-degree5-q46189-counterexample-reachability-audit.md
+evidence/mobius-moment-square-degree5-q46189-frozen-selector-unused-denominator-holdout.json
+evidence/mobius-moment-square-degree5-q46189-counterexample-reachability-audit.json
+```
+
+Result:
+
+```text
+frozen selector:                     50A_to_60A
+distance range:                      [2151, 2580]
+unused same-source denominators:     24
+positive-fraction failures:          1
+total-pressure failures:             0
+both-test failures:                  1
+counterexample denominator:          16302 = 2*3*11*13*19
+minimum positive-fraction gap:       -0.07517830702507916
+minimum total-pressure gap:          0.03424045325706524
+counterexample total gap:            0.04221956863220733
+counterexample reachability:         REACHABLE
+source-conductor pairs:              (66,247), (78,209), (114,143), (143,114), (209,78), (247,66)
+raw frequency pairs:                 25920
+raw reduced residues:                4320
+raw scalar:                          -0.05374291102747207
+```
+
+Decision: the frozen `50A..60A` selector fails as a too-broad same-source
+unused-denominator rule.  The failed `q=16302` packet is reachable by the same
+raw six source-conductor-pair mechanism as the selected replacement rows, so
+it cannot be dismissed as an irrelevant residue-cell artifact.  Reviving
+`50A..60A` now requires a stricter natural admissibility filter declared
+before testing, not an after-the-fact rescue.  This proves no natural selector
+theorem, fresh-conductor theorem, raw source-pair admissibility theorem,
+distance-slice theorem, replacement residue-gap bound theorem, strict-central
+Goldbach theorem, or Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The `Q=46189` replacement-family lane now has an explicit selector-provenance
 and distance-profile checkpoint:
 

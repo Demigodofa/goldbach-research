@@ -1,0 +1,1675 @@
+{
+  "adverse_q46189_metric": {
+    "absolute_over_diagonal": 0.331869488578746,
+    "distance_count": 430,
+    "distance_range": [
+      2151,
+      2580
+    ],
+    "negative_over_diagonal": -0.20892013831376538,
+    "positive_fraction_of_absolute": 0.37047500447094334,
+    "positive_over_diagonal": 0.1229493502649806,
+    "total_over_diagonal": -0.08597078804878477
+  },
+  "all_rows": [
+    {
+      "factorization": {
+        "11": 1,
+        "13": 1,
+        "19": 1,
+        "2": 1,
+        "3": 1
+      },
+      "high_prime_support": [
+        11,
+        13,
+        19
+      ],
+      "high_prime_support_count": 3,
+      "metric": {
+        "absolute_over_diagonal": 0.10686495740587038,
+        "distance_count": 430,
+        "distance_range": [
+          2151,
+          2580
+        ],
+        "negative_over_diagonal": -0.07530808841122391,
+        "positive_fraction_of_absolute": 0.2952966974458642,
+        "positive_over_diagonal": 0.031556868994646464,
+        "total_over_diagonal": -0.04375121941657745
+      },
+      "missing_high_primes": [
+        17
+      ],
+      "passes_both_frozen_50A_to_60A_tests": false,
+      "passes_positive_fraction_separator": false,
+      "passes_total_pressure_separator": true,
+      "positive_fraction_gap_vs_q46189": -0.07517830702507916,
+      "reduced_denominator": 16302,
+      "small_prime_support": [
+        2,
+        3
+      ],
+      "total_gap_vs_q46189": 0.04221956863220733
+    },
+    {
+      "factorization": {
+        "11": 1,
+        "13": 1,
+        "17": 1,
+        "7": 1
+      },
+      "high_prime_support": [
+        11,
+        13,
+        17
+      ],
+      "high_prime_support_count": 3,
+      "metric": {
+        "absolute_over_diagonal": 0.2445040486473301,
+        "distance_count": 430,
+        "distance_range": [
+          2151,
+          2580
+        ],
+        "negative_over_diagonal": -0.11004913332601275,
+        "positive_fraction_of_absolute": 0.5499087481993135,
+        "positive_over_diagonal": 0.13445491532131734,
+        "total_over_diagonal": 0.02440578199530459
+      },
+      "missing_high_primes": [
+        19
+      ],
+      "passes_both_frozen_50A_to_60A_tests": true,
+      "passes_positive_fraction_separator": true,
+      "passes_total_pressure_separator": true,
+      "positive_fraction_gap_vs_q46189": 0.17943374372837012,
+      "reduced_denominator": 17017,
+      "small_prime_support": [
+        7
+      ],
+      "total_gap_vs_q46189": 0.11037657004408936
+    },
+    {
+      "factorization": {
+        "13": 1,
+        "19": 1,
+        "2": 1,
+        "5": 1,
+        "7": 1
+      },
+      "high_prime_support": [
+        13,
+        19
+      ],
+      "high_prime_support_count": 2,
+      "metric": {
+        "absolute_over_diagonal": 0.07329230923194989,
+        "distance_count": 430,
+        "distance_range": [
+          2151,
+          2580
+        ],
+        "negative_over_diagonal": -0.03660808980756206,
+        "positive_fraction_of_absolute": 0.5005193561072339,
+        "positive_over_diagonal": 0.03668421942438783,
+        "total_over_diagonal": 7.6129616825766e-05
+      },
+      "missing_high_primes": [
+        11,
+        17
+      ],
+      "passes_both_frozen_50A_to_60A_tests": true,
+      "passes_positive_fraction_separator": true,
+      "passes_total_pressure_separator": true,
+      "positive_fraction_gap_vs_q46189": 0.13004435163629052,
+      "reduced_denominator": 17290,
+      "small_prime_support": [
+        2,
+        5,
+        7
+      ],
+      "total_gap_vs_q46189": 0.08604691766561054
+    },
+    {
+      "factorization": {
+        "11": 1,
+        "17": 1,
+        "19": 1,
+        "5": 1
+      },
+      "high_prime_support": [
+        11,
+        17,
+        19
+      ],
+      "high_prime_support_count": 3,
+      "metric": {
+        "absolute_over_diagonal": 0.21498665048927362,
+        "distance_count": 430,
+        "distance_range": [
+          2151,
+          2580
+        ],
+        "negative_over_diagonal": -0.12837532032516766,
+        "positive_fraction_of_absolute": 0.40286841051289957,
+        "positive_over_diagonal": 0.08661133016410595,
+        "total_over_diagonal": -0.041763990161061706
+      },
+      "missing_high_primes": [
+        13
+      ],
+      "passes_both_frozen_50A_to_60A_tests": true,
+      "passes_positive_fraction_separator": true,
+      "passes_total_pressure_separator": true,
+      "positive_fraction_gap_vs_q46189": 0.03239340604195623,
+      "reduced_denominator": 17765,
+      "small_prime_support": [
+        5
+      ],
+      "total_gap_vs_q46189": 0.04420679788772307
+    },
+    {
+      "factorization": {
+        "11": 1,
+        "13": 1,
+        "19": 1,
+        "7": 1
+      },
+      "high_prime_support": [
+        11,
+        13,
+        19
+      ],
+      "high_prime_support_count": 3,
+      "metric": {
+        "absolute_over_diagonal": 0.24357562663052038,
+        "distance_count": 430,
+        "distance_range": [
+          2151,
+          2580
+        ],
+        "negative_over_diagonal": -0.14765298071111996,
+        "positive_fraction_of_absolute": 0.3938105271300621,
+        "positive_over_diagonal": 0.09592264591940042,
+        "total_over_diagonal": -0.05173033479171953
+      },
+      "missing_high_primes": [
+        17
+      ],
+      "passes_both_frozen_50A_to_60A_tests": true,
+      "passes_positive_fraction_separator": true,
+      "passes_total_pressure_separator": true,
+      "positive_fraction_gap_vs_q46189": 0.023335522659118757,
+      "reduced_denominator": 19019,
+      "small_prime_support": [
+        7
+      ],
+      "total_gap_vs_q46189": 0.03424045325706524
+    },
+    {
+      "factorization": {
+        "11": 1,
+        "17": 1,
+        "3": 1,
+        "5": 1,
+        "7": 1
+      },
+      "high_prime_support": [
+        11,
+        17
+      ],
+      "high_prime_support_count": 2,
+      "metric": {
+        "absolute_over_diagonal": 0.22575334828867458,
+        "distance_count": 430,
+        "distance_range": [
+          2151,
+          2580
+        ],
+        "negative_over_diagonal": -0.12095620462828606,
+        "positive_fraction_of_absolute": 0.4642108055309224,
+        "positive_over_diagonal": 0.10479714366038852,
+        "total_over_diagonal": -0.016159060967897543
+      },
+      "missing_high_primes": [
+        13,
+        19
+      ],
+      "passes_both_frozen_50A_to_60A_tests": true,
+      "passes_positive_fraction_separator": true,
+      "passes_total_pressure_separator": true,
+      "positive_fraction_gap_vs_q46189": 0.09373580105997908,
+      "reduced_denominator": 19635,
+      "small_prime_support": [
+        3,
+        5,
+        7
+      ],
+      "total_gap_vs_q46189": 0.06981172708088723
+    },
+    {
+      "factorization": {
+        "13": 1,
+        "17": 1,
+        "19": 1,
+        "5": 1
+      },
+      "high_prime_support": [
+        13,
+        17,
+        19
+      ],
+      "high_prime_support_count": 3,
+      "metric": {
+        "absolute_over_diagonal": 0.15323268062653295,
+        "distance_count": 430,
+        "distance_range": [
+          2151,
+          2580
+        ],
+        "negative_over_diagonal": -0.07899362935819053,
+        "positive_fraction_of_absolute": 0.48448575698601704,
+        "positive_over_diagonal": 0.0742390512683424,
+        "total_over_diagonal": -0.0047545780898481165
+      },
+      "missing_high_primes": [
+        11
+      ],
+      "passes_both_frozen_50A_to_60A_tests": true,
+      "passes_positive_fraction_separator": true,
+      "passes_total_pressure_separator": true,
+      "positive_fraction_gap_vs_q46189": 0.1140107525150737,
+      "reduced_denominator": 20995,
+      "small_prime_support": [
+        5
+      ],
+      "total_gap_vs_q46189": 0.08121620995893666
+    },
+    {
+      "factorization": {
+        "11": 1,
+        "17": 1,
+        "19": 1,
+        "2": 1,
+        "3": 1
+      },
+      "high_prime_support": [
+        11,
+        17,
+        19
+      ],
+      "high_prime_support_count": 3,
+      "metric": {
+        "absolute_over_diagonal": 0.166439348973004,
+        "distance_count": 430,
+        "distance_range": [
+          2151,
+          2580
+        ],
+        "negative_over_diagonal": -0.09249938331407226,
+        "positive_fraction_of_absolute": 0.4442457034058971,
+        "positive_over_diagonal": 0.07393996565893174,
+        "total_over_diagonal": -0.01855941765514053
+      },
+      "missing_high_primes": [
+        13
+      ],
+      "passes_both_frozen_50A_to_60A_tests": true,
+      "passes_positive_fraction_separator": true,
+      "passes_total_pressure_separator": true,
+      "positive_fraction_gap_vs_q46189": 0.07377069893495375,
+      "reduced_denominator": 21318,
+      "small_prime_support": [
+        2,
+        3
+      ],
+      "total_gap_vs_q46189": 0.06741137039364424
+    },
+    {
+      "factorization": {
+        "11": 1,
+        "19": 1,
+        "3": 1,
+        "5": 1,
+        "7": 1
+      },
+      "high_prime_support": [
+        11,
+        19
+      ],
+      "high_prime_support_count": 2,
+      "metric": {
+        "absolute_over_diagonal": 0.28736552295121354,
+        "distance_count": 430,
+        "distance_range": [
+          2151,
+          2580
+        ],
+        "negative_over_diagonal": -0.16297767918434922,
+        "positive_fraction_of_absolute": 0.43285583632098357,
+        "positive_over_diagonal": 0.12438784376686433,
+        "total_over_diagonal": -0.03858983541748487
+      },
+      "missing_high_primes": [
+        13,
+        17
+      ],
+      "passes_both_frozen_50A_to_60A_tests": true,
+      "passes_positive_fraction_separator": true,
+      "passes_total_pressure_separator": true,
+      "positive_fraction_gap_vs_q46189": 0.06238083185004023,
+      "reduced_denominator": 21945,
+      "small_prime_support": [
+        3,
+        5,
+        7
+      ],
+      "total_gap_vs_q46189": 0.047380952631299905
+    },
+    {
+      "factorization": {
+        "17": 1,
+        "19": 1,
+        "2": 1,
+        "5": 1,
+        "7": 1
+      },
+      "high_prime_support": [
+        17,
+        19
+      ],
+      "high_prime_support_count": 2,
+      "metric": {
+        "absolute_over_diagonal": 0.16282689269140496,
+        "distance_count": 430,
+        "distance_range": [
+          2151,
+          2580
+        ],
+        "negative_over_diagonal": -0.07736911815032863,
+        "positive_fraction_of_absolute": 0.5248382077955562,
+        "positive_over_diagonal": 0.08545777454107634,
+        "total_over_diagonal": 0.008088656390747705
+      },
+      "missing_high_primes": [
+        11,
+        13
+      ],
+      "passes_both_frozen_50A_to_60A_tests": true,
+      "passes_positive_fraction_separator": true,
+      "passes_total_pressure_separator": true,
+      "positive_fraction_gap_vs_q46189": 0.1543632033246129,
+      "reduced_denominator": 22610,
+      "small_prime_support": [
+        2,
+        5,
+        7
+      ],
+      "total_gap_vs_q46189": 0.09405944443953249
+    },
+    {
+      "factorization": {
+        "13": 1,
+        "17": 1,
+        "3": 1,
+        "5": 1,
+        "7": 1
+      },
+      "high_prime_support": [
+        13,
+        17
+      ],
+      "high_prime_support_count": 2,
+      "metric": {
+        "absolute_over_diagonal": 0.2027155468006408,
+        "distance_count": 430,
+        "distance_range": [
+          2151,
+          2580
+        ],
+        "negative_over_diagonal": -0.09681935208257884,
+        "positive_fraction_of_absolute": 0.5223881265614267,
+        "positive_over_diagonal": 0.10589619471806197,
+        "total_over_diagonal": 0.009076842635483123
+      },
+      "missing_high_primes": [
+        11,
+        19
+      ],
+      "passes_both_frozen_50A_to_60A_tests": true,
+      "passes_positive_fraction_separator": true,
+      "passes_total_pressure_separator": true,
+      "positive_fraction_gap_vs_q46189": 0.1519131220904834,
+      "reduced_denominator": 23205,
+      "small_prime_support": [
+        3,
+        5,
+        7
+      ],
+      "total_gap_vs_q46189": 0.0950476306842679
+    },
+    {
+      "factorization": {
+        "11": 1,
+        "13": 1,
+        "17": 1,
+        "2": 1,
+        "5": 1
+      },
+      "high_prime_support": [
+        11,
+        13,
+        17
+      ],
+      "high_prime_support_count": 3,
+      "metric": {
+        "absolute_over_diagonal": 0.08419512917744652,
+        "distance_count": 430,
+        "distance_range": [
+          2151,
+          2580
+        ],
+        "negative_over_diagonal": -0.04497841917211404,
+        "positive_fraction_of_absolute": 0.4657835956600388,
+        "positive_over_diagonal": 0.039216710005332486,
+        "total_over_diagonal": -0.0057617091667815515
+      },
+      "missing_high_primes": [
+        19
+      ],
+      "passes_both_frozen_50A_to_60A_tests": true,
+      "passes_positive_fraction_separator": true,
+      "passes_total_pressure_separator": true,
+      "positive_fraction_gap_vs_q46189": 0.09530859118909546,
+      "reduced_denominator": 24310,
+      "small_prime_support": [
+        2,
+        5
+      ],
+      "total_gap_vs_q46189": 0.08020907888200322
+    },
+    {
+      "factorization": {
+        "11": 1,
+        "17": 1,
+        "19": 1,
+        "7": 1
+      },
+      "high_prime_support": [
+        11,
+        17,
+        19
+      ],
+      "high_prime_support_count": 3,
+      "metric": {
+        "absolute_over_diagonal": 0.3124102035823013,
+        "distance_count": 430,
+        "distance_range": [
+          2151,
+          2580
+        ],
+        "negative_over_diagonal": -0.1517454826229359,
+        "positive_fraction_of_absolute": 0.5142748832050869,
+        "positive_over_diagonal": 0.16066472095936543,
+        "total_over_diagonal": 0.008919238336429504
+      },
+      "missing_high_primes": [
+        13
+      ],
+      "passes_both_frozen_50A_to_60A_tests": true,
+      "passes_positive_fraction_separator": true,
+      "passes_total_pressure_separator": true,
+      "positive_fraction_gap_vs_q46189": 0.14379987873414352,
+      "reduced_denominator": 24871,
+      "small_prime_support": [
+        7
+      ],
+      "total_gap_vs_q46189": 0.09489002638521428
+    },
+    {
+      "factorization": {
+        "13": 1,
+        "17": 1,
+        "19": 1,
+        "2": 1,
+        "3": 1
+      },
+      "high_prime_support": [
+        13,
+        17,
+        19
+      ],
+      "high_prime_support_count": 3,
+      "metric": {
+        "absolute_over_diagonal": 0.08824776752867403,
+        "distance_count": 430,
+        "distance_range": [
+          2151,
+          2580
+        ],
+        "negative_over_diagonal": -0.03957520967570978,
+        "positive_fraction_of_absolute": 0.551544353086884,
+        "positive_over_diagonal": 0.048672557852964246,
+        "total_over_diagonal": 0.009097348177254463
+      },
+      "missing_high_primes": [
+        11
+      ],
+      "passes_both_frozen_50A_to_60A_tests": true,
+      "passes_positive_fraction_separator": true,
+      "passes_total_pressure_separator": true,
+      "positive_fraction_gap_vs_q46189": 0.18106934861594065,
+      "reduced_denominator": 25194,
+      "small_prime_support": [
+        2,
+        3
+      ],
+      "total_gap_vs_q46189": 0.09506813622603924
+    },
+    {
+      "factorization": {
+        "13": 1,
+        "19": 1,
+        "3": 1,
+        "5": 1,
+        "7": 1
+      },
+      "high_prime_support": [
+        13,
+        19
+      ],
+      "high_prime_support_count": 2,
+      "metric": {
+        "absolute_over_diagonal": 0.1592177086241524,
+        "distance_count": 430,
+        "distance_range": [
+          2151,
+          2580
+        ],
+        "negative_over_diagonal": -0.08709413371586136,
+        "positive_fraction_of_absolute": 0.4529871427715692,
+        "positive_over_diagonal": 0.07212357490829104,
+        "total_over_diagonal": -0.014970558807570325
+      },
+      "missing_high_primes": [
+        11,
+        17
+      ],
+      "passes_both_frozen_50A_to_60A_tests": true,
+      "passes_positive_fraction_separator": true,
+      "passes_total_pressure_separator": true,
+      "positive_fraction_gap_vs_q46189": 0.08251213830062587,
+      "reduced_denominator": 25935,
+      "small_prime_support": [
+        3,
+        5,
+        7
+      ],
+      "total_gap_vs_q46189": 0.07100022924121445
+    },
+    {
+      "factorization": {
+        "11": 1,
+        "13": 1,
+        "19": 1,
+        "2": 1,
+        "5": 1
+      },
+      "high_prime_support": [
+        11,
+        13,
+        19
+      ],
+      "high_prime_support_count": 3,
+      "metric": {
+        "absolute_over_diagonal": 0.09706366576904148,
+        "distance_count": 430,
+        "distance_range": [
+          2151,
+          2580
+        ],
+        "negative_over_diagonal": -0.05603353339030171,
+        "positive_fraction_of_absolute": 0.4227136081628019,
+        "positive_over_diagonal": 0.041030132378739766,
+        "total_over_diagonal": -0.01500340101156195
+      },
+      "missing_high_primes": [
+        17
+      ],
+      "passes_both_frozen_50A_to_60A_tests": true,
+      "passes_positive_fraction_separator": true,
+      "passes_total_pressure_separator": true,
+      "positive_fraction_gap_vs_q46189": 0.052238603691858565,
+      "reduced_denominator": 27170,
+      "small_prime_support": [
+        2,
+        5
+      ],
+      "total_gap_vs_q46189": 0.07096738703722283
+    },
+    {
+      "factorization": {
+        "13": 1,
+        "17": 1,
+        "19": 1,
+        "7": 1
+      },
+      "high_prime_support": [
+        13,
+        17,
+        19
+      ],
+      "high_prime_support_count": 3,
+      "metric": {
+        "absolute_over_diagonal": 0.3973310501779562,
+        "distance_count": 430,
+        "distance_range": [
+          2151,
+          2580
+        ],
+        "negative_over_diagonal": -0.1715686569869953,
+        "positive_fraction_of_absolute": 0.5681972075674597,
+        "positive_over_diagonal": 0.22576239319096095,
+        "total_over_diagonal": 0.05419373620396563
+      },
+      "missing_high_primes": [
+        11
+      ],
+      "passes_both_frozen_50A_to_60A_tests": true,
+      "passes_positive_fraction_separator": true,
+      "passes_total_pressure_separator": true,
+      "positive_fraction_gap_vs_q46189": 0.1977222030965164,
+      "reduced_denominator": 29393,
+      "small_prime_support": [
+        7
+      ],
+      "total_gap_vs_q46189": 0.1401645242527504
+    },
+    {
+      "factorization": {
+        "11": 1,
+        "13": 1,
+        "2": 1,
+        "3": 1,
+        "5": 1,
+        "7": 1
+      },
+      "high_prime_support": [
+        11,
+        13
+      ],
+      "high_prime_support_count": 2,
+      "metric": {
+        "absolute_over_diagonal": 0.1958999103609498,
+        "distance_count": 430,
+        "distance_range": [
+          2151,
+          2580
+        ],
+        "negative_over_diagonal": -0.07824735852152341,
+        "positive_fraction_of_absolute": 0.6005748120182854,
+        "positive_over_diagonal": 0.1176525518394264,
+        "total_over_diagonal": 0.03940519331790299
+      },
+      "missing_high_primes": [
+        17,
+        19
+      ],
+      "passes_both_frozen_50A_to_60A_tests": true,
+      "passes_positive_fraction_separator": true,
+      "passes_total_pressure_separator": true,
+      "positive_fraction_gap_vs_q46189": 0.2300998075473421,
+      "reduced_denominator": 30030,
+      "small_prime_support": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "total_gap_vs_q46189": 0.12537598136668776
+    },
+    {
+      "factorization": {
+        "17": 1,
+        "19": 1,
+        "3": 1,
+        "5": 1,
+        "7": 1
+      },
+      "high_prime_support": [
+        17,
+        19
+      ],
+      "high_prime_support_count": 2,
+      "metric": {
+        "absolute_over_diagonal": 0.14440596472429804,
+        "distance_count": 430,
+        "distance_range": [
+          2151,
+          2580
+        ],
+        "negative_over_diagonal": -0.0625831578547595,
+        "positive_fraction_of_absolute": 0.5666165315661014,
+        "positive_over_diagonal": 0.08182280686953854,
+        "total_over_diagonal": 0.019239649014779044
+      },
+      "missing_high_primes": [
+        11,
+        13
+      ],
+      "passes_both_frozen_50A_to_60A_tests": true,
+      "passes_positive_fraction_separator": true,
+      "passes_total_pressure_separator": true,
+      "positive_fraction_gap_vs_q46189": 0.19614152709515803,
+      "reduced_denominator": 33915,
+      "small_prime_support": [
+        3,
+        5,
+        7
+      ],
+      "total_gap_vs_q46189": 0.10521043706356381
+    },
+    {
+      "factorization": {
+        "11": 1,
+        "17": 1,
+        "2": 1,
+        "3": 1,
+        "5": 1,
+        "7": 1
+      },
+      "high_prime_support": [
+        11,
+        17
+      ],
+      "high_prime_support_count": 2,
+      "metric": {
+        "absolute_over_diagonal": 0.15239218530888715,
+        "distance_count": 430,
+        "distance_range": [
+          2151,
+          2580
+        ],
+        "negative_over_diagonal": -0.09066848525585827,
+        "positive_fraction_of_absolute": 0.405031924228396,
+        "positive_over_diagonal": 0.061723700053028865,
+        "total_over_diagonal": -0.028944785202829396
+      },
+      "missing_high_primes": [
+        13,
+        19
+      ],
+      "passes_both_frozen_50A_to_60A_tests": true,
+      "passes_positive_fraction_separator": true,
+      "passes_total_pressure_separator": true,
+      "positive_fraction_gap_vs_q46189": 0.034556919757452675,
+      "reduced_denominator": 39270,
+      "small_prime_support": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "total_gap_vs_q46189": 0.05702600284595538
+    },
+    {
+      "factorization": {
+        "11": 1,
+        "19": 1,
+        "2": 1,
+        "3": 1,
+        "5": 1,
+        "7": 1
+      },
+      "high_prime_support": [
+        11,
+        19
+      ],
+      "high_prime_support_count": 2,
+      "metric": {
+        "absolute_over_diagonal": 0.11027784448380648,
+        "distance_count": 430,
+        "distance_range": [
+          2151,
+          2580
+        ],
+        "negative_over_diagonal": -0.06529632947096727,
+        "positive_fraction_of_absolute": 0.40789258462015404,
+        "positive_over_diagonal": 0.04498151501283922,
+        "total_over_diagonal": -0.02031481445812804
+      },
+      "missing_high_primes": [
+        13,
+        17
+      ],
+      "passes_both_frozen_50A_to_60A_tests": true,
+      "passes_positive_fraction_separator": true,
+      "passes_total_pressure_separator": true,
+      "positive_fraction_gap_vs_q46189": 0.037417580149210705,
+      "reduced_denominator": 43890,
+      "small_prime_support": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "total_gap_vs_q46189": 0.06565597359065674
+    },
+    {
+      "factorization": {
+        "13": 1,
+        "17": 1,
+        "2": 1,
+        "3": 1,
+        "5": 1,
+        "7": 1
+      },
+      "high_prime_support": [
+        13,
+        17
+      ],
+      "high_prime_support_count": 2,
+      "metric": {
+        "absolute_over_diagonal": 0.154850692447507,
+        "distance_count": 430,
+        "distance_range": [
+          2151,
+          2580
+        ],
+        "negative_over_diagonal": -0.07705852578857637,
+        "positive_fraction_of_absolute": 0.5023688653203889,
+        "positive_over_diagonal": 0.07779216665893061,
+        "total_over_diagonal": 0.0007336408703542373
+      },
+      "missing_high_primes": [
+        11,
+        19
+      ],
+      "passes_both_frozen_50A_to_60A_tests": true,
+      "passes_positive_fraction_separator": true,
+      "passes_total_pressure_separator": true,
+      "positive_fraction_gap_vs_q46189": 0.1318938608494456,
+      "reduced_denominator": 46410,
+      "small_prime_support": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "total_gap_vs_q46189": 0.08670442891913901
+    },
+    {
+      "factorization": {
+        "13": 1,
+        "19": 1,
+        "2": 1,
+        "3": 1,
+        "5": 1,
+        "7": 1
+      },
+      "high_prime_support": [
+        13,
+        19
+      ],
+      "high_prime_support_count": 2,
+      "metric": {
+        "absolute_over_diagonal": 0.06892683594643126,
+        "distance_count": 430,
+        "distance_range": [
+          2151,
+          2580
+        ],
+        "negative_over_diagonal": -0.02922473496759611,
+        "positive_fraction_of_absolute": 0.5760035323497359,
+        "positive_over_diagonal": 0.039702100978835156,
+        "total_over_diagonal": 0.010477366011239046
+      },
+      "missing_high_primes": [
+        11,
+        17
+      ],
+      "passes_both_frozen_50A_to_60A_tests": true,
+      "passes_positive_fraction_separator": true,
+      "passes_total_pressure_separator": true,
+      "positive_fraction_gap_vs_q46189": 0.20552852787879256,
+      "reduced_denominator": 51870,
+      "small_prime_support": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "total_gap_vs_q46189": 0.09644815406002383
+    },
+    {
+      "factorization": {
+        "17": 1,
+        "19": 1,
+        "2": 1,
+        "3": 1,
+        "5": 1,
+        "7": 1
+      },
+      "high_prime_support": [
+        17,
+        19
+      ],
+      "high_prime_support_count": 2,
+      "metric": {
+        "absolute_over_diagonal": 0.18871056149274396,
+        "distance_count": 430,
+        "distance_range": [
+          2151,
+          2580
+        ],
+        "negative_over_diagonal": -0.0916276893754362,
+        "positive_fraction_of_absolute": 0.5144538352774742,
+        "positive_over_diagonal": 0.09708287211730776,
+        "total_over_diagonal": 0.005455182741871564
+      },
+      "missing_high_primes": [
+        11,
+        13
+      ],
+      "passes_both_frozen_50A_to_60A_tests": true,
+      "passes_positive_fraction_separator": true,
+      "passes_total_pressure_separator": true,
+      "positive_fraction_gap_vs_q46189": 0.1439788308065309,
+      "reduced_denominator": 67830,
+      "small_prime_support": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "total_gap_vs_q46189": 0.09142597079065634
+    }
+  ],
+  "candidate_next_action": {
+    "falsifier": "Any predeclared class that still contains denominator 16302 cannot claim the 50A..60A positive-share separator.",
+    "mechanism": "The frozen block may be detecting a narrower conductor geometry of the original replacement family, not a universal same-source denominator law.",
+    "name": "admissibility-filter or abandon 50A..60A as theorem lane",
+    "novelty_label": "new-to-this-task",
+    "prediction": "A legitimate theorem route must either define a natural admissibility class excluding the failing denominator before testing, or abandon the 50A..60A selector as a general rule.",
+    "smallest_next_test": "Trace the original replacement construction exactly and ask whether denominator 16302 is reachable or unreachable under that construction."
+  },
+  "classification": {
+    "counterexample_denominator_to_too_broad_selector_claim": 16302,
+    "finite_diagnostic_only": true,
+    "fresh_source_admissible_conductor_theorem_proved": false,
+    "frozen_selector_fails_at_least_one_unused_same_source_denominator": true,
+    "frozen_selector_survives_all_unused_same_source_denominators": false,
+    "natural_selector_theorem_proved": false,
+    "post_hoc_selector_demoted_without_admissibility_filter": true,
+    "same_source_unused_denominator_stress_only": true,
+    "selector_was_frozen_before_this_holdout": true
+  },
+  "coordinate00_residue_gap_sign_theorem_proved": false,
+  "decision": "The frozen 50A..60A selector fails as a too-broad held-out same-source denominator rule.  Among 24 unused same-source denominators, q=16302 has positive-fraction gap -0.07517830702507916 versus Q=46189, even though its total pressure gap remains positive.  Therefore the selector remains post-hoc finite evidence unless a natural, predeclared admissibility filter excludes the failing denominator for structural reasons.",
+  "distance_slice_positive_share_theorem_proved": false,
+  "distance_slice_pressure_theorem_proved": false,
+  "failure_summary": {
+    "both_test_failure_count": 1,
+    "both_test_failures": [
+      {
+        "factorization": {
+          "11": 1,
+          "13": 1,
+          "19": 1,
+          "2": 1,
+          "3": 1
+        },
+        "high_prime_support": [
+          11,
+          13,
+          19
+        ],
+        "high_prime_support_count": 3,
+        "metric": {
+          "absolute_over_diagonal": 0.10686495740587038,
+          "distance_count": 430,
+          "distance_range": [
+            2151,
+            2580
+          ],
+          "negative_over_diagonal": -0.07530808841122391,
+          "positive_fraction_of_absolute": 0.2952966974458642,
+          "positive_over_diagonal": 0.031556868994646464,
+          "total_over_diagonal": -0.04375121941657745
+        },
+        "missing_high_primes": [
+          17
+        ],
+        "passes_both_frozen_50A_to_60A_tests": false,
+        "passes_positive_fraction_separator": false,
+        "passes_total_pressure_separator": true,
+        "positive_fraction_gap_vs_q46189": -0.07517830702507916,
+        "reduced_denominator": 16302,
+        "small_prime_support": [
+          2,
+          3
+        ],
+        "total_gap_vs_q46189": 0.04221956863220733
+      }
+    ],
+    "positive_fraction_failure_count": 1,
+    "positive_fraction_failures": [
+      {
+        "factorization": {
+          "11": 1,
+          "13": 1,
+          "19": 1,
+          "2": 1,
+          "3": 1
+        },
+        "high_prime_support": [
+          11,
+          13,
+          19
+        ],
+        "high_prime_support_count": 3,
+        "metric": {
+          "absolute_over_diagonal": 0.10686495740587038,
+          "distance_count": 430,
+          "distance_range": [
+            2151,
+            2580
+          ],
+          "negative_over_diagonal": -0.07530808841122391,
+          "positive_fraction_of_absolute": 0.2952966974458642,
+          "positive_over_diagonal": 0.031556868994646464,
+          "total_over_diagonal": -0.04375121941657745
+        },
+        "missing_high_primes": [
+          17
+        ],
+        "passes_both_frozen_50A_to_60A_tests": false,
+        "passes_positive_fraction_separator": false,
+        "passes_total_pressure_separator": true,
+        "positive_fraction_gap_vs_q46189": -0.07517830702507916,
+        "reduced_denominator": 16302,
+        "small_prime_support": [
+          2,
+          3
+        ],
+        "total_gap_vs_q46189": 0.04221956863220733
+      }
+    ],
+    "total_pressure_failure_count": 0,
+    "total_pressure_failures": []
+  },
+  "finite_diagnostic_only": true,
+  "finite_frozen_selector_holdout_audit_only": true,
+  "fixture": {
+    "active_row_start": 43,
+    "discovery_denominators_excluded": [
+      34034,
+      35530,
+      36465,
+      38038,
+      40755,
+      41990,
+      46189,
+      49742,
+      53295,
+      58786,
+      62985
+    ],
+    "divisor_range": [
+      3,
+      19
+    ],
+    "ell_freeze": 64,
+    "frozen_distance_range": [
+      2151,
+      2580
+    ],
+    "frozen_selector": "50A_to_60A",
+    "original_replacement_denominators": [
+      58786,
+      40755,
+      62985,
+      49742,
+      53295,
+      34034,
+      36465,
+      35530,
+      41990,
+      38038
+    ],
+    "prime_modulus": 379,
+    "row_count_A": 43,
+    "scale_modulus": 229,
+    "target_label": "00,12"
+  },
+  "fresh_conductor_holdout_proved": false,
+  "goldbach_proved": false,
+  "natural_selector_theorem_proved": false,
+  "question": "After freezing the post-hoc 50A..60A selector, does it survive same-source reduced denominators not used in the discovery replacement family?",
+  "replacement_residue_gap_bound_theorem_proved": false,
+  "schema_version": 1,
+  "source_commit": "2042a99d1f9acfbdf42deeb7f9032c55b335cad9",
+  "source_one_coordinate_ledger": "evidence\\mobius-moment-square-degree5-q46189-one-coordinate-ratio-ledger-audit.json",
+  "source_selector_provenance_holdout": "evidence\\mobius-moment-square-degree5-q46189-selector-provenance-holdout-audit.json",
+  "status": "AUDIT_q46189_frozen_selector_unused_denominator_holdout",
+  "strict_central_goldbach_theorem_proved": false,
+  "summary": {
+    "minimum_positive_fraction_gap": -0.07517830702507916,
+    "minimum_total_gap": 0.03424045325706524,
+    "row_count": 24,
+    "weakest_positive_fraction_row": {
+      "factorization": {
+        "11": 1,
+        "13": 1,
+        "19": 1,
+        "2": 1,
+        "3": 1
+      },
+      "high_prime_support": [
+        11,
+        13,
+        19
+      ],
+      "high_prime_support_count": 3,
+      "metric": {
+        "absolute_over_diagonal": 0.10686495740587038,
+        "distance_count": 430,
+        "distance_range": [
+          2151,
+          2580
+        ],
+        "negative_over_diagonal": -0.07530808841122391,
+        "positive_fraction_of_absolute": 0.2952966974458642,
+        "positive_over_diagonal": 0.031556868994646464,
+        "total_over_diagonal": -0.04375121941657745
+      },
+      "missing_high_primes": [
+        17
+      ],
+      "passes_both_frozen_50A_to_60A_tests": false,
+      "passes_positive_fraction_separator": false,
+      "passes_total_pressure_separator": true,
+      "positive_fraction_gap_vs_q46189": -0.07517830702507916,
+      "reduced_denominator": 16302,
+      "small_prime_support": [
+        2,
+        3
+      ],
+      "total_gap_vs_q46189": 0.04221956863220733
+    },
+    "weakest_total_row": {
+      "factorization": {
+        "11": 1,
+        "13": 1,
+        "19": 1,
+        "7": 1
+      },
+      "high_prime_support": [
+        11,
+        13,
+        19
+      ],
+      "high_prime_support_count": 3,
+      "metric": {
+        "absolute_over_diagonal": 0.24357562663052038,
+        "distance_count": 430,
+        "distance_range": [
+          2151,
+          2580
+        ],
+        "negative_over_diagonal": -0.14765298071111996,
+        "positive_fraction_of_absolute": 0.3938105271300621,
+        "positive_over_diagonal": 0.09592264591940042,
+        "total_over_diagonal": -0.05173033479171953
+      },
+      "missing_high_primes": [
+        17
+      ],
+      "passes_both_frozen_50A_to_60A_tests": true,
+      "passes_positive_fraction_separator": true,
+      "passes_total_pressure_separator": true,
+      "positive_fraction_gap_vs_q46189": 0.023335522659118757,
+      "reduced_denominator": 19019,
+      "small_prime_support": [
+        7
+      ],
+      "total_gap_vs_q46189": 0.03424045325706524
+    }
+  },
+  "unused_same_source_denominator_count": 24,
+  "unused_same_source_denominators": [
+    16302,
+    17017,
+    17290,
+    17765,
+    19019,
+    19635,
+    20995,
+    21318,
+    21945,
+    22610,
+    23205,
+    24310,
+    24871,
+    25194,
+    25935,
+    27170,
+    29393,
+    30030,
+    33915,
+    39270,
+    43890,
+    46410,
+    51870,
+    67830
+  ],
+  "weakest_rows": {
+    "by_positive_fraction_gap": [
+      {
+        "factorization": {
+          "11": 1,
+          "13": 1,
+          "19": 1,
+          "2": 1,
+          "3": 1
+        },
+        "high_prime_support": [
+          11,
+          13,
+          19
+        ],
+        "high_prime_support_count": 3,
+        "metric": {
+          "absolute_over_diagonal": 0.10686495740587038,
+          "distance_count": 430,
+          "distance_range": [
+            2151,
+            2580
+          ],
+          "negative_over_diagonal": -0.07530808841122391,
+          "positive_fraction_of_absolute": 0.2952966974458642,
+          "positive_over_diagonal": 0.031556868994646464,
+          "total_over_diagonal": -0.04375121941657745
+        },
+        "missing_high_primes": [
+          17
+        ],
+        "passes_both_frozen_50A_to_60A_tests": false,
+        "passes_positive_fraction_separator": false,
+        "passes_total_pressure_separator": true,
+        "positive_fraction_gap_vs_q46189": -0.07517830702507916,
+        "reduced_denominator": 16302,
+        "small_prime_support": [
+          2,
+          3
+        ],
+        "total_gap_vs_q46189": 0.04221956863220733
+      },
+      {
+        "factorization": {
+          "11": 1,
+          "13": 1,
+          "19": 1,
+          "7": 1
+        },
+        "high_prime_support": [
+          11,
+          13,
+          19
+        ],
+        "high_prime_support_count": 3,
+        "metric": {
+          "absolute_over_diagonal": 0.24357562663052038,
+          "distance_count": 430,
+          "distance_range": [
+            2151,
+            2580
+          ],
+          "negative_over_diagonal": -0.14765298071111996,
+          "positive_fraction_of_absolute": 0.3938105271300621,
+          "positive_over_diagonal": 0.09592264591940042,
+          "total_over_diagonal": -0.05173033479171953
+        },
+        "missing_high_primes": [
+          17
+        ],
+        "passes_both_frozen_50A_to_60A_tests": true,
+        "passes_positive_fraction_separator": true,
+        "passes_total_pressure_separator": true,
+        "positive_fraction_gap_vs_q46189": 0.023335522659118757,
+        "reduced_denominator": 19019,
+        "small_prime_support": [
+          7
+        ],
+        "total_gap_vs_q46189": 0.03424045325706524
+      },
+      {
+        "factorization": {
+          "11": 1,
+          "17": 1,
+          "19": 1,
+          "5": 1
+        },
+        "high_prime_support": [
+          11,
+          17,
+          19
+        ],
+        "high_prime_support_count": 3,
+        "metric": {
+          "absolute_over_diagonal": 0.21498665048927362,
+          "distance_count": 430,
+          "distance_range": [
+            2151,
+            2580
+          ],
+          "negative_over_diagonal": -0.12837532032516766,
+          "positive_fraction_of_absolute": 0.40286841051289957,
+          "positive_over_diagonal": 0.08661133016410595,
+          "total_over_diagonal": -0.041763990161061706
+        },
+        "missing_high_primes": [
+          13
+        ],
+        "passes_both_frozen_50A_to_60A_tests": true,
+        "passes_positive_fraction_separator": true,
+        "passes_total_pressure_separator": true,
+        "positive_fraction_gap_vs_q46189": 0.03239340604195623,
+        "reduced_denominator": 17765,
+        "small_prime_support": [
+          5
+        ],
+        "total_gap_vs_q46189": 0.04420679788772307
+      },
+      {
+        "factorization": {
+          "11": 1,
+          "17": 1,
+          "2": 1,
+          "3": 1,
+          "5": 1,
+          "7": 1
+        },
+        "high_prime_support": [
+          11,
+          17
+        ],
+        "high_prime_support_count": 2,
+        "metric": {
+          "absolute_over_diagonal": 0.15239218530888715,
+          "distance_count": 430,
+          "distance_range": [
+            2151,
+            2580
+          ],
+          "negative_over_diagonal": -0.09066848525585827,
+          "positive_fraction_of_absolute": 0.405031924228396,
+          "positive_over_diagonal": 0.061723700053028865,
+          "total_over_diagonal": -0.028944785202829396
+        },
+        "missing_high_primes": [
+          13,
+          19
+        ],
+        "passes_both_frozen_50A_to_60A_tests": true,
+        "passes_positive_fraction_separator": true,
+        "passes_total_pressure_separator": true,
+        "positive_fraction_gap_vs_q46189": 0.034556919757452675,
+        "reduced_denominator": 39270,
+        "small_prime_support": [
+          2,
+          3,
+          5,
+          7
+        ],
+        "total_gap_vs_q46189": 0.05702600284595538
+      },
+      {
+        "factorization": {
+          "11": 1,
+          "19": 1,
+          "2": 1,
+          "3": 1,
+          "5": 1,
+          "7": 1
+        },
+        "high_prime_support": [
+          11,
+          19
+        ],
+        "high_prime_support_count": 2,
+        "metric": {
+          "absolute_over_diagonal": 0.11027784448380648,
+          "distance_count": 430,
+          "distance_range": [
+            2151,
+            2580
+          ],
+          "negative_over_diagonal": -0.06529632947096727,
+          "positive_fraction_of_absolute": 0.40789258462015404,
+          "positive_over_diagonal": 0.04498151501283922,
+          "total_over_diagonal": -0.02031481445812804
+        },
+        "missing_high_primes": [
+          13,
+          17
+        ],
+        "passes_both_frozen_50A_to_60A_tests": true,
+        "passes_positive_fraction_separator": true,
+        "passes_total_pressure_separator": true,
+        "positive_fraction_gap_vs_q46189": 0.037417580149210705,
+        "reduced_denominator": 43890,
+        "small_prime_support": [
+          2,
+          3,
+          5,
+          7
+        ],
+        "total_gap_vs_q46189": 0.06565597359065674
+      }
+    ],
+    "by_total_gap": [
+      {
+        "factorization": {
+          "11": 1,
+          "13": 1,
+          "19": 1,
+          "7": 1
+        },
+        "high_prime_support": [
+          11,
+          13,
+          19
+        ],
+        "high_prime_support_count": 3,
+        "metric": {
+          "absolute_over_diagonal": 0.24357562663052038,
+          "distance_count": 430,
+          "distance_range": [
+            2151,
+            2580
+          ],
+          "negative_over_diagonal": -0.14765298071111996,
+          "positive_fraction_of_absolute": 0.3938105271300621,
+          "positive_over_diagonal": 0.09592264591940042,
+          "total_over_diagonal": -0.05173033479171953
+        },
+        "missing_high_primes": [
+          17
+        ],
+        "passes_both_frozen_50A_to_60A_tests": true,
+        "passes_positive_fraction_separator": true,
+        "passes_total_pressure_separator": true,
+        "positive_fraction_gap_vs_q46189": 0.023335522659118757,
+        "reduced_denominator": 19019,
+        "small_prime_support": [
+          7
+        ],
+        "total_gap_vs_q46189": 0.03424045325706524
+      },
+      {
+        "factorization": {
+          "11": 1,
+          "13": 1,
+          "19": 1,
+          "2": 1,
+          "3": 1
+        },
+        "high_prime_support": [
+          11,
+          13,
+          19
+        ],
+        "high_prime_support_count": 3,
+        "metric": {
+          "absolute_over_diagonal": 0.10686495740587038,
+          "distance_count": 430,
+          "distance_range": [
+            2151,
+            2580
+          ],
+          "negative_over_diagonal": -0.07530808841122391,
+          "positive_fraction_of_absolute": 0.2952966974458642,
+          "positive_over_diagonal": 0.031556868994646464,
+          "total_over_diagonal": -0.04375121941657745
+        },
+        "missing_high_primes": [
+          17
+        ],
+        "passes_both_frozen_50A_to_60A_tests": false,
+        "passes_positive_fraction_separator": false,
+        "passes_total_pressure_separator": true,
+        "positive_fraction_gap_vs_q46189": -0.07517830702507916,
+        "reduced_denominator": 16302,
+        "small_prime_support": [
+          2,
+          3
+        ],
+        "total_gap_vs_q46189": 0.04221956863220733
+      },
+      {
+        "factorization": {
+          "11": 1,
+          "17": 1,
+          "19": 1,
+          "5": 1
+        },
+        "high_prime_support": [
+          11,
+          17,
+          19
+        ],
+        "high_prime_support_count": 3,
+        "metric": {
+          "absolute_over_diagonal": 0.21498665048927362,
+          "distance_count": 430,
+          "distance_range": [
+            2151,
+            2580
+          ],
+          "negative_over_diagonal": -0.12837532032516766,
+          "positive_fraction_of_absolute": 0.40286841051289957,
+          "positive_over_diagonal": 0.08661133016410595,
+          "total_over_diagonal": -0.041763990161061706
+        },
+        "missing_high_primes": [
+          13
+        ],
+        "passes_both_frozen_50A_to_60A_tests": true,
+        "passes_positive_fraction_separator": true,
+        "passes_total_pressure_separator": true,
+        "positive_fraction_gap_vs_q46189": 0.03239340604195623,
+        "reduced_denominator": 17765,
+        "small_prime_support": [
+          5
+        ],
+        "total_gap_vs_q46189": 0.04420679788772307
+      },
+      {
+        "factorization": {
+          "11": 1,
+          "19": 1,
+          "3": 1,
+          "5": 1,
+          "7": 1
+        },
+        "high_prime_support": [
+          11,
+          19
+        ],
+        "high_prime_support_count": 2,
+        "metric": {
+          "absolute_over_diagonal": 0.28736552295121354,
+          "distance_count": 430,
+          "distance_range": [
+            2151,
+            2580
+          ],
+          "negative_over_diagonal": -0.16297767918434922,
+          "positive_fraction_of_absolute": 0.43285583632098357,
+          "positive_over_diagonal": 0.12438784376686433,
+          "total_over_diagonal": -0.03858983541748487
+        },
+        "missing_high_primes": [
+          13,
+          17
+        ],
+        "passes_both_frozen_50A_to_60A_tests": true,
+        "passes_positive_fraction_separator": true,
+        "passes_total_pressure_separator": true,
+        "positive_fraction_gap_vs_q46189": 0.06238083185004023,
+        "reduced_denominator": 21945,
+        "small_prime_support": [
+          3,
+          5,
+          7
+        ],
+        "total_gap_vs_q46189": 0.047380952631299905
+      },
+      {
+        "factorization": {
+          "11": 1,
+          "17": 1,
+          "2": 1,
+          "3": 1,
+          "5": 1,
+          "7": 1
+        },
+        "high_prime_support": [
+          11,
+          17
+        ],
+        "high_prime_support_count": 2,
+        "metric": {
+          "absolute_over_diagonal": 0.15239218530888715,
+          "distance_count": 430,
+          "distance_range": [
+            2151,
+            2580
+          ],
+          "negative_over_diagonal": -0.09066848525585827,
+          "positive_fraction_of_absolute": 0.405031924228396,
+          "positive_over_diagonal": 0.061723700053028865,
+          "total_over_diagonal": -0.028944785202829396
+        },
+        "missing_high_primes": [
+          13,
+          19
+        ],
+        "passes_both_frozen_50A_to_60A_tests": true,
+        "passes_positive_fraction_separator": true,
+        "passes_total_pressure_separator": true,
+        "positive_fraction_gap_vs_q46189": 0.034556919757452675,
+        "reduced_denominator": 39270,
+        "small_prime_support": [
+          2,
+          3,
+          5,
+          7
+        ],
+        "total_gap_vs_q46189": 0.05702600284595538
+      }
+    ]
+  }
+}
