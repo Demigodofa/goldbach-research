@@ -6,6 +6,55 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS route now has a raw adverse-drag theorem-target audit:
+
+```text
+tools/build_q286_wbss_raw_adverse_drag_theorem_target.py
+notes/q286-wbss-raw-adverse-drag-theorem-target.md
+evidence/q286-wbss-raw-adverse-drag-theorem-target.json
+```
+
+Raw definitions:
+
+```text
+T_N       = sum log(p)log(N-p)
+L_raw(N) = T_N * M(N)
+U_d(N)   = T_N * E_d(N)
+A_raw_-(N) = sum_d max(0,-U_d(N)).
+```
+
+Result:
+
+```text
+checked rows:                              348
+raw adverse below raw local rows:          348 / 348
+raw adverse not below raw local rows:        0
+largest raw adverse ratio target:        1124642
+largest raw adverse ratio:     0.23148438379145228
+tightest raw gate-gap target:            1059514
+tightest raw gate gap:         286929.1729900494
+```
+
+Decision: `TARGET_raw_q286_WBSS_adverse_drag_theorem`.  The live theorem
+target is
+
+```text
+A_raw_-(N) < L_raw(N)
+```
+
+for every sufficiently large covered even `N`, followed by finite remainder
+verification.  If strict-central support is empty, then `T_N=0`,
+`L_raw(N)=0`, every `U_d(N)=0`, and `A_raw_-(N)=0`; the strict inequality
+cannot hold.  Thus a proved strict raw adverse-drag inequality would force
+support without first assuming the normalized measure `mu_N`.
+
+The checked rows are calibration/falsifier evidence only.  No raw
+adverse-drag theorem, raw witness theorem, positive-mass theorem, q286
+threshold theorem, strict-central Goldbach theorem, or Goldbach proof is
+established.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286-WBSS route now has a raw witness identity audit:
 
 ```text

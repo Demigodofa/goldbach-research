@@ -6,6 +6,56 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS route now has a raw adverse-drag theorem-target audit:
+`tools/build_q286_wbss_raw_adverse_drag_theorem_target.py` generated
+`evidence/q286-wbss-raw-adverse-drag-theorem-target.json`, with explanation in
+`notes/q286-wbss-raw-adverse-drag-theorem-target.md`.
+
+Question: can the q286-WBSS adverse-drag gate be stated as a genuinely raw,
+pointwise, unnormalized theorem target that does not assume strict-central
+mass before proving a witness?
+
+Answer: yes as a theorem target, not as a theorem.  Define raw quantities:
+
+```text
+T_N       = sum log(p)log(N-p)
+L_raw(N) = T_N * M(N)
+U_d(N)   = T_N * E_d(N)
+A_raw_-(N) = sum_d max(0,-U_d(N)).
+```
+
+The sufficient universal target is
+
+```text
+A_raw_-(N) < L_raw(N)
+```
+
+for every sufficiently large covered even `N`, followed by finite remainder
+verification.  If strict-central support is empty, then `T_N=0`,
+`L_raw(N)=0`, every `U_d(N)=0`, and `A_raw_-(N)=0`, so the strict inequality
+cannot hold.  A proved strict raw adverse-drag inequality would therefore
+force support without first normalizing by `mu_N`.
+
+Finite calibration:
+
+```text
+checked rows:                              348
+raw adverse below raw local rows:          348 / 348
+raw adverse not below raw local rows:        0
+largest raw adverse ratio target:        1124642
+largest raw adverse ratio:     0.23148438379145228
+tightest raw gate-gap target:            1059514
+tightest raw gate gap:         286929.1729900494
+```
+
+Decision: `TARGET_raw_q286_WBSS_adverse_drag_theorem`.  The live theorem
+target is universal, pointwise, and unnormalized.  The checked rows are
+calibration/falsifier evidence only.  No raw adverse-drag theorem, raw witness
+theorem, positive-mass theorem, q286 threshold theorem, strict-central
+Goldbach theorem, or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286-WBSS route now has a raw witness identity audit:
 `tools/build_q286_wbss_raw_witness_identity_audit.py` generated
 `evidence/q286-wbss-raw-witness-identity-audit.json`, with explanation in
