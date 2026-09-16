@@ -1,0 +1,116 @@
+{
+  "all_dominance_slack_sign_counts": {
+    "negative": 0,
+    "positive": 156,
+    "zero": 0
+  },
+  "all_rows_dominate_one_half_signed_full": true,
+  "checked_scale_dominance_theorem_proved": false,
+  "coefficient_family_theorem_proved": false,
+  "component_row_count": 117,
+  "decision": "The adjacent forward-scale stress fixture survives: every checked component and degree-5 total row at scale modulus 229 retains positive active/full dominance slack above one half.  This extends the finite dominance evidence one scale beyond the checked Sturm fixture, but it is still not a theorem.",
+  "degree5_coefficient_theorem_proved": false,
+  "degree5_total_row_count": 39,
+  "dominance_row_count": 156,
+  "failure_row_count": 0,
+  "failure_rows": [],
+  "falsifier": "Any component or degree-5 total row in these forward scales with negative full contribution and active/full ratio at or below one half is a concrete finite falsifier for this forward-stress extension.",
+  "finite_diagnostic_only": true,
+  "finite_forward_scale_dominance_stress_only": true,
+  "forward_scale_dominance_theorem_proved": false,
+  "goldbach_proved": false,
+  "maximum_dominance_slack_above_one_half": 0.6203257748420008,
+  "minimum_dominance_slack_above_one_half": 0.40189096624031384,
+  "mobius_covariance_theorem_proved": false,
+  "moment_square_half_frame_curve_positivity_theorem_proved": false,
+  "prediction": "If the local one-prime degree-5 active/full dominance target is robust beyond the six-scale Sturm fixture, the adjacent forward prime scale moduli should retain positive slack above one half.",
+  "prime_count_total": 39,
+  "primewise_dominance_theorem_proved": false,
+  "q286_reactivated": false,
+  "question": "Does the checked-scale degree-5 active/full dominance pattern survive the next adjacent prime scale modulus after 227, or does this forward stress fixture find a concrete falsifier?",
+  "robust_margin_universal_theorem_proved": false,
+  "scale_summaries": [
+    {
+      "all_rows_dominate_one_half_signed_full": true,
+      "component_row_count": 117,
+      "degree5_total_row_count": 39,
+      "divisor_range": [
+        3,
+        19
+      ],
+      "dominance_row_count": 156,
+      "dominance_slack_sign_counts": {
+        "negative": 0,
+        "positive": 156,
+        "zero": 0
+      },
+      "ell_freeze": 64,
+      "failure_rows": [],
+      "maximum_dominance_slack_above_one_half": 0.6203257748420008,
+      "minimum_dominance_slack_above_one_half": 0.40189096624031384,
+      "prime_count": 39,
+      "row_count": 43,
+      "scale_modulus": 229,
+      "strongest_dominance_row": {
+        "active_contribution": -145187493909136.8,
+        "active_contribution_negative": true,
+        "active_over_full_ratio": 1.1203257748420008,
+        "dominance_slack_above_one_half": 0.6203257748420008,
+        "dominates_one_half_signed_full": true,
+        "full_contribution": -129593995933560.1,
+        "full_contribution_negative": true,
+        "half_frame_contribution": -80390495942356.77,
+        "label": "01,02",
+        "prime_modulus": 409,
+        "scale_modulus": 229
+      },
+      "weakest_dominance_row": {
+        "active_contribution": -62374285859137.8,
+        "active_contribution_negative": true,
+        "active_over_full_ratio": 0.9018909662403138,
+        "dominance_slack_above_one_half": 0.40189096624031384,
+        "dominates_one_half_signed_full": true,
+        "full_contribution": -69159452964869.62,
+        "full_contribution_negative": true,
+        "half_frame_contribution": -27794559376702.99,
+        "label": "00,12",
+        "prime_modulus": 379,
+        "scale_modulus": 229
+      }
+    }
+  ],
+  "scales": [
+    229
+  ],
+  "signed_prime_correlation_proved": false,
+  "status": "STRESS_degree5_forward_scale_primewise_dominance",
+  "strongest_dominance_row": {
+    "active_contribution": -145187493909136.8,
+    "active_contribution_negative": true,
+    "active_over_full_ratio": 1.1203257748420008,
+    "dominance_slack_above_one_half": 0.6203257748420008,
+    "dominates_one_half_signed_full": true,
+    "full_contribution": -129593995933560.1,
+    "full_contribution_negative": true,
+    "half_frame_contribution": -80390495942356.77,
+    "label": "01,02",
+    "prime_modulus": 409,
+    "scale_modulus": 229
+  },
+  "threshold": 0.5,
+  "uniform_active_full_lower_frame_proved": false,
+  "universal_sturm_certificate_theorem_proved": false,
+  "weakest_dominance_row": {
+    "active_contribution": -62374285859137.8,
+    "active_contribution_negative": true,
+    "active_over_full_ratio": 0.9018909662403138,
+    "dominance_slack_above_one_half": 0.40189096624031384,
+    "dominates_one_half_signed_full": true,
+    "full_contribution": -69159452964869.62,
+    "full_contribution_negative": true,
+    "half_frame_contribution": -27794559376702.99,
+    "label": "00,12",
+    "prime_modulus": 379,
+    "scale_modulus": 229
+  }
+}

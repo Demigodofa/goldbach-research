@@ -6,6 +6,40 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The metric-soft moment-square route now has an adjacent-scale degree-`5`
+active/full dominance stress audit:
+`tools/build_mobius_moment_square_degree5_forward_scale_dominance_stress.py`
+generated
+`evidence/mobius-moment-square-degree5-adjacent-scale-dominance-stress.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-adjacent-scale-dominance-stress.md`.
+
+Question: after the six checked moment-square scales, does the next adjacent
+prime scale modulus `M=229` falsify the local degree-`5` active/full
+dominance target?
+
+Answer: no finite falsifier was found at `M=229`.  Across `39` prime rows,
+all `156/156` dominance rows clear the signed `1/2` threshold: `117`
+component rows and `39` degree-`5` total rows have positive slack.  The
+weakest adjacent-scale row is prime `379`, component `(00,12)`, with
+active/full ratio `0.9018909662403138` and slack
+`0.40189096624031384` above `1/2`.
+
+Decision: `STRESS_degree5_forward_scale_primewise_dominance`.  This is a
+useful falsifier miss one prime scale beyond the checked Sturm fixture.  The
+next theorem-shaped target remains a symbolic local one-prime dominance
+lemma for the three degree-`5` components, or a deliberate search for a
+parameter transition where that dominance fails.  This is finite
+adjacent-scale dominance evidence only.  No adjacent-scale dominance theorem,
+checked-scale dominance theorem, primewise dominance theorem, degree-`5`
+coefficient theorem, robust-margin universal theorem, coefficient-family
+theorem, universal Sturm-certificate theorem, half-frame curve-positivity
+theorem, uniform active/full lower-frame theorem, Mobius covariance theorem,
+signed prime-correlation estimate, q286 theorem, strict-central Goldbach
+theorem, or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-16
+
 The metric-soft moment-square route now has a checked-scale primewise
 degree-`5` active/full dominance audit:
 `tools/build_mobius_moment_square_degree5_checked_scale_dominance_audit.py`

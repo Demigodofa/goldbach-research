@@ -6,6 +6,46 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The metric-soft moment-square route now has an adjacent-scale degree-`5`
+active/full dominance stress audit:
+
+```text
+tools/build_mobius_moment_square_degree5_forward_scale_dominance_stress.py
+notes/mobius-moment-square-degree5-adjacent-scale-dominance-stress.md
+evidence/mobius-moment-square-degree5-adjacent-scale-dominance-stress.json
+```
+
+Result:
+
+```text
+status: STRESS_degree5_forward_scale_primewise_dominance
+scale:                                      M=229
+prime count:                                39
+component rows:                             117
+degree-5 total rows:                        39
+all dominance rows:                         156
+dominance slacks:                           +156 / 0 / 0
+failure rows:                               0
+weakest row:                                p=379, (00,12)
+weakest active/full ratio:                  0.9018909662403138
+weakest slack above 1/2:                    0.40189096624031384
+```
+
+Decision: the first adjacent prime scale after the six checked
+moment-square scales does not falsify the degree-`5` active/full dominance
+target.  This extends the finite evidence one scale beyond the checked Sturm
+fixture.  The broader six-forward-scale scan was intentionally narrowed after
+runtime proved too high for a clean checkpoint; `M=229` is the validated
+adjacent stress.  This is finite adjacent-scale dominance evidence only; no
+adjacent-scale dominance theorem, checked-scale dominance theorem, primewise
+dominance theorem, degree-`5` coefficient theorem, robust-margin universal
+theorem, coefficient-family theorem, universal Sturm-certificate theorem,
+half-frame curve-positivity theorem, uniform active/full lower frame, Mobius
+covariance theorem, signed prime-correlation estimate, q286 theorem,
+strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-16
+
 The metric-soft moment-square route now has a checked-scale primewise
 degree-`5` active/full dominance audit:
 
