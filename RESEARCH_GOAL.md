@@ -6,6 +6,43 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The `Q=46189` replacement-family lane now has a phase-profile audit:
+`tools/build_mobius_moment_square_degree5_q46189_replacement_phase_profile_audit.py`
+generated
+`evidence/mobius-moment-square-degree5-q46189-replacement-phase-profile-audit.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-q46189-replacement-phase-profile-audit.md`.
+
+Question: do the `Q=46189` replacement-family payment rows share the same
+coordinate phase structure while moving to the paying side of the one-half
+active/full cross-ratio threshold?
+
+Answer: yes for this finite ledger.  The adverse `Q=46189` row has negative
+full cross and active/full cross ratio `0.4973090372347702`, so its
+ratio-minus-half is `-0.0026909627652297874` and its unnormalized margin is
+`-8444721229.472412`.  The ten replacement rows also have negative full cross
+and negative-real scalar alignment to numerical precision, but every
+replacement row has ratio above one half.  Their minimum ratio-minus-half is
+`0.07635340770691146`, maximum ratio-minus-half is `0.5735414442150175`, total
+positive margin is `14694916931621.637`, and payment over the `Q=46189`
+defect remains `1740.1304948156007`.
+
+Each omitted-high-prime family separately stays above half: missing `11`
+minimum ratio-minus-half `0.23349735557232576`, missing `13`
+`0.4262452298052626`, missing `17` `0.07635340770691146`, and missing `19`
+`0.3564899239156273`.
+
+Decision: the finite group-payment result has a phase-ratio explanation, not
+just diffuse positive mass.  The next theorem-shaped target is a symbolic
+replacement ratio inequality: express the signed distance from the one-half
+threshold by omitted high prime and small-prime insertions.  This remains
+finite diagnostic evidence only.  It proves no symbolic replacement ratio
+theorem, replacement-family payment theorem, phase-defect payment theorem,
+near-adverse upper bound, middle/far lower bound, clearance-family theorem,
+source-start theorem, strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The source-start moving-prime lane now has a targeted middle/far adverse
 search over selected weak prime rows:
 `tools/build_mobius_moment_square_degree5_targeted_middle_far_adverse_search.py`

@@ -6,6 +6,41 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The `Q=46189` replacement-family lane now has a phase-profile audit:
+
+```text
+tools/build_mobius_moment_square_degree5_q46189_replacement_phase_profile_audit.py
+notes/mobius-moment-square-degree5-q46189-replacement-phase-profile-audit.md
+evidence/mobius-moment-square-degree5-q46189-replacement-phase-profile-audit.json
+```
+
+Result:
+
+```text
+Q=46189 ratio minus half:            -0.0026909627652297874
+Q=46189 margin:                      -8444721229.472412
+replacement rows:                    10
+replacement ratio-minus-half min:    0.07635340770691146
+replacement ratio-minus-half max:    0.5735414442150175
+replacement positive margin sum:     14694916931621.637
+replacement payment / defect:        1740.1304948156007
+max replacement scalar residual:     6.049037211162891e-16
+```
+
+Decision: the finite group-payment result has a phase-ratio explanation:
+`Q=46189` is below the one-half threshold, while every checked replacement
+denominator is above it.  The replacement rows also share negative-real scalar
+alignment to numerical precision.  The next useful route is symbolic
+replacement ratio work: derive exact algebraic numerator forms for `Q=46189`
+and the ten replacement denominators and compare signed distance from the
+one-half threshold family by family.  This proves no symbolic replacement
+ratio theorem, replacement-family payment theorem, phase-defect payment
+theorem, near-adverse upper bound, middle/far lower bound, clearance-family
+theorem, source-start theorem, strict-central Goldbach theorem, or Goldbach
+proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The source-start moving-prime lane now has a targeted middle/far adverse
 search over selected weak prime rows:
 

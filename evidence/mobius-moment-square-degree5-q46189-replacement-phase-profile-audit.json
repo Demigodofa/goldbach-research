@@ -1,0 +1,818 @@
+{
+  "answer": "Yes for this finite ledger.  Q=46189 has negative full cross and ratio below one half, giving an adverse margin.  The ten replacement rows also have negative full cross, but each has active/full cross ratio above one half and therefore positive unnormalized margin.  The replacement rows are also negative-real scalar alignments to numerical precision, so the remaining gap is a symbolic ratio inequality rather than merely finding the right coordinate frame.",
+  "candidate_next_action": {
+    "falsifier": "If the ratio-above-half property fails for a source-admissible replacement family, or if payment relies on a diffuse positive row outside the replacement family, this specific theorem target fails.",
+    "mechanism": "Turn the finite sign pattern into a denominator-family inequality: the adverse four-high-prime row lies below the one-half active/full ratio while each three-of-four replacement family lies above it with enough margin.",
+    "name": "symbolic replacement ratio inequality",
+    "novelty_label": "new-to-this-task",
+    "prediction": "A symbolic treatment should express the ratio displacement through the omitted high prime and small-prime insertions, rather than through total positivity.",
+    "smallest_next_test": "Derive exact algebraic numerator forms for Q=46189 and the ten replacement denominators and compare their signed distance from the one-half threshold family by family."
+  },
+  "classification": {
+    "all_omitted_high_prime_families_ratio_above_half": true,
+    "all_replacements_have_negative_full_cross": true,
+    "all_replacements_margin_positive": true,
+    "all_replacements_ratio_above_half": true,
+    "all_replacements_scalar_negative_real": true,
+    "finite_phase_profile_checkpoint_only": true,
+    "q46189_margin_adverse": true,
+    "q46189_ratio_below_half": true
+  },
+  "clearance_family_theorem_proved": false,
+  "decision": "The finite group-payment result has a phase-ratio explanation: Q=46189 is below the one-half threshold, while every checked replacement denominator is above it.  This strengthens the next symbolic target but proves no universal replacement inequality.",
+  "finite_diagnostic_only": true,
+  "finite_phase_profile_audit_only": true,
+  "fixture": {
+    "active_row_start": 43,
+    "adverse_denominator": 46189,
+    "adverse_margin": 8444721229.472412,
+    "divisor_range": [
+      3,
+      19
+    ],
+    "ell_freeze": 64,
+    "high_primes": [
+      11,
+      13,
+      17,
+      19
+    ],
+    "prime_modulus": 379,
+    "row_count_A": 43,
+    "scale_modulus": 229,
+    "target_label": "00,12"
+  },
+  "goldbach_proved": false,
+  "middle_far_lower_bound_proved": false,
+  "near_adverse_upper_bound_proved": false,
+  "omitted_high_prime_family_phase_summaries": {
+    "11": {
+      "all_rows_have_negative_full_cross": true,
+      "all_rows_margin_positive": true,
+      "all_rows_match_ratio_side": true,
+      "all_rows_ratio_above_half": true,
+      "maximum_active_over_full_cross_ratio": 1.0246550671421417,
+      "maximum_margin": 3346664546754.784,
+      "maximum_ratio_minus_half": 0.5246550671421417,
+      "maximum_relative_scalar_residual": 5.789106817647642e-16,
+      "minimum_active_over_full_cross_ratio": 0.7334973555723258,
+      "minimum_margin": 325138180598.27893,
+      "minimum_ratio_minus_half": 0.23349735557232576,
+      "payment_over_q46189_adverse": 653.9359290761917,
+      "positive_margin_sum": 5522306622984.481,
+      "row_count": 3
+    },
+    "13": {
+      "all_rows_have_negative_full_cross": true,
+      "all_rows_margin_positive": true,
+      "all_rows_match_ratio_side": true,
+      "all_rows_ratio_above_half": true,
+      "maximum_active_over_full_cross_ratio": 1.0090053014564786,
+      "maximum_margin": 1731086923068.5696,
+      "maximum_ratio_minus_half": 0.5090053014564786,
+      "maximum_relative_scalar_residual": 2.419467554750184e-16,
+      "minimum_active_over_full_cross_ratio": 0.9262452298052626,
+      "minimum_margin": 700712115196.3881,
+      "minimum_ratio_minus_half": 0.4262452298052626,
+      "payment_over_q46189_adverse": 466.9478641031054,
+      "positive_margin_sum": 3943244541048.293,
+      "row_count": 3
+    },
+    "17": {
+      "all_rows_have_negative_full_cross": true,
+      "all_rows_margin_positive": true,
+      "all_rows_match_ratio_side": true,
+      "all_rows_ratio_above_half": true,
+      "maximum_active_over_full_cross_ratio": 1.0735414442150175,
+      "maximum_margin": 2392162326353.543,
+      "maximum_ratio_minus_half": 0.5735414442150175,
+      "maximum_relative_scalar_residual": 6.049037211162891e-16,
+      "minimum_active_over_full_cross_ratio": 0.5763534077069115,
+      "minimum_margin": 310273010682.6763,
+      "minimum_ratio_minus_half": 0.07635340770691146,
+      "payment_over_q46189_adverse": 320.0147481014071,
+      "positive_margin_sum": 2702435337036.219,
+      "row_count": 2
+    },
+    "19": {
+      "all_rows_have_negative_full_cross": true,
+      "all_rows_margin_positive": true,
+      "all_rows_match_ratio_side": true,
+      "all_rows_ratio_above_half": true,
+      "maximum_active_over_full_cross_ratio": 0.9355146541184384,
+      "maximum_margin": 1316046274899.9194,
+      "maximum_ratio_minus_half": 0.43551465411843837,
+      "maximum_relative_scalar_residual": 2.634435187289472e-16,
+      "minimum_active_over_full_cross_ratio": 0.8564899239156273,
+      "minimum_margin": 1210884155652.7246,
+      "minimum_ratio_minus_half": 0.3564899239156273,
+      "payment_over_q46189_adverse": 299.23195353489666,
+      "positive_margin_sum": 2526930430552.644,
+      "row_count": 2
+    }
+  },
+  "phase_defect_payment_theorem_proved": false,
+  "q46189_profile": {
+    "active_contribution": -1560644479591.6313,
+    "active_cross": -780322239795.8157,
+    "active_over_full_cross_ratio": 0.4973090372347702,
+    "active_row_start": 43,
+    "active_row_stop": 85,
+    "best_scalar_abs": 0.07475328212536138,
+    "best_scalar_phase": 3.141592653589793,
+    "best_scalar_right_over_left_imag": 1.921288567253314e-19,
+    "best_scalar_right_over_left_real": -0.07475328212536138,
+    "clearance_family": "middle_2_to_3",
+    "factorization": {
+      "11": 1,
+      "13": 1,
+      "17": 1,
+      "19": 1
+    },
+    "full_contribution": -3138178401642.2075,
+    "full_cross": -1569089200821.0989,
+    "full_cross_negative": true,
+    "half_threshold_defect": 0.0026909627652297874,
+    "high_prime_support": [
+      11,
+      13,
+      17,
+      19
+    ],
+    "label": "00,12",
+    "margin_full_over_2_minus_active": -8444721229.472412,
+    "margin_sign_matches_negative_full_ratio_side": true,
+    "missing_high_primes": [],
+    "ratio_minus_half": -0.0026909627652297874,
+    "reduced_denominator": 46189,
+    "relative_scalar_residual": 2.577250390614836e-16,
+    "residue_cell_count": 34560
+  },
+  "question": "Do the Q=46189 replacement-family payment rows share the same coordinate phase structure while moving to the paying side of the one-half active/full cross-ratio threshold?",
+  "replacement_family_payment_theorem_proved": false,
+  "replacement_profiles": [
+    {
+      "active_contribution": -6536059595376.435,
+      "active_cross": -3268029797688.2173,
+      "active_over_full_cross_ratio": 1.0246550671421417,
+      "active_row_start": 43,
+      "active_row_stop": 85,
+      "best_scalar_abs": 0.08018047904089406,
+      "best_scalar_phase": -3.141592653589793,
+      "best_scalar_right_over_left_imag": -6.989365603040334e-20,
+      "best_scalar_right_over_left_real": -0.08018047904089406,
+      "clearance_family": "far_3_plus",
+      "factorization": {
+        "13": 1,
+        "17": 1,
+        "19": 1,
+        "2": 1,
+        "7": 1
+      },
+      "full_contribution": -6378790097243.301,
+      "full_cross": -3189395048621.6367,
+      "full_cross_negative": true,
+      "half_threshold_defect": -0.5246550671421417,
+      "high_prime_support": [
+        13,
+        17,
+        19
+      ],
+      "label": "00,12",
+      "margin_full_over_2_minus_active": 3346664546754.784,
+      "margin_sign_matches_negative_full_ratio_side": true,
+      "missing_high_primes": [
+        11
+      ],
+      "ratio_minus_half": 0.5246550671421417,
+      "reduced_denominator": 58786,
+      "relative_scalar_residual": 2.1578084684558192e-16,
+      "replacement_family_row": {
+        "clearance_family": "far_3_plus",
+        "clearance_ratio_q_over_pA": 3.607166963244769,
+        "factorization": {
+          "13": 1,
+          "17": 1,
+          "19": 1,
+          "2": 1,
+          "7": 1
+        },
+        "high_prime_support": [
+          13,
+          17,
+          19
+        ],
+        "margin": 3346664546754.784,
+        "missing_high_primes": [
+          11
+        ],
+        "payment_over_q46189_adverse": 396.30254875374595,
+        "reduced_denominator": 58786,
+        "small_prime_support": [
+          2,
+          7
+        ]
+      },
+      "residue_cell_count": 20736
+    },
+    {
+      "active_contribution": -4477593423340.453,
+      "active_cross": -2238796711670.2266,
+      "active_over_full_cross_ratio": 1.0735414442150175,
+      "active_row_start": 43,
+      "active_row_stop": 85,
+      "best_scalar_abs": 0.07222823118954746,
+      "best_scalar_phase": -3.141592653589793,
+      "best_scalar_right_over_left_imag": -5.64865280522926e-19,
+      "best_scalar_right_over_left_real": -0.07222823118954746,
+      "clearance_family": "middle_2_to_3",
+      "factorization": {
+        "11": 1,
+        "13": 1,
+        "19": 1,
+        "3": 1,
+        "5": 1
+      },
+      "full_contribution": -4170862193973.8203,
+      "full_cross": -2085431096986.9014,
+      "full_cross_negative": true,
+      "half_threshold_defect": -0.5735414442150175,
+      "high_prime_support": [
+        11,
+        13,
+        19
+      ],
+      "label": "00,12",
+      "margin_full_over_2_minus_active": 2392162326353.543,
+      "margin_sign_matches_negative_full_ratio_side": true,
+      "missing_high_primes": [
+        17
+      ],
+      "ratio_minus_half": 0.5735414442150175,
+      "reduced_denominator": 40755,
+      "relative_scalar_residual": 5.50996916684325e-16,
+      "replacement_family_row": {
+        "clearance_family": "middle_2_to_3",
+        "clearance_ratio_q_over_pA": 2.5007670123335584,
+        "factorization": {
+          "11": 1,
+          "13": 1,
+          "19": 1,
+          "3": 1,
+          "5": 1
+        },
+        "high_prime_support": [
+          11,
+          13,
+          19
+        ],
+        "margin": 2392162326353.543,
+        "missing_high_primes": [
+          17
+        ],
+        "payment_over_q46189_adverse": 283.27309586073744,
+        "reduced_denominator": 40755,
+        "small_prime_support": [
+          3,
+          5
+        ]
+      },
+      "residue_cell_count": 17280
+    },
+    {
+      "active_contribution": -5434149480488.745,
+      "active_cross": -2717074740244.3726,
+      "active_over_full_cross_ratio": 0.7581873474668748,
+      "active_row_start": 43,
+      "active_row_stop": 85,
+      "best_scalar_abs": 0.08173311922098694,
+      "best_scalar_phase": 3.141592653589793,
+      "best_scalar_right_over_left_imag": 5.670221936089346e-19,
+      "best_scalar_right_over_left_real": -0.08173311922098694,
+      "clearance_family": "far_3_plus",
+      "factorization": {
+        "13": 1,
+        "17": 1,
+        "19": 1,
+        "3": 1,
+        "5": 1
+      },
+      "full_contribution": -7167291169714.654,
+      "full_cross": -3583645584857.3516,
+      "full_cross_negative": true,
+      "half_threshold_defect": -0.2581873474668748,
+      "high_prime_support": [
+        13,
+        17,
+        19
+      ],
+      "label": "00,12",
+      "margin_full_over_2_minus_active": 1850503895631.418,
+      "margin_sign_matches_negative_full_ratio_side": true,
+      "missing_high_primes": [
+        11
+      ],
+      "ratio_minus_half": 0.2581873474668748,
+      "reduced_denominator": 62985,
+      "relative_scalar_residual": 5.789106817647642e-16,
+      "replacement_family_row": {
+        "clearance_family": "far_3_plus",
+        "clearance_ratio_q_over_pA": 3.864821746333681,
+        "factorization": {
+          "13": 1,
+          "17": 1,
+          "19": 1,
+          "3": 1,
+          "5": 1
+        },
+        "high_prime_support": [
+          13,
+          17,
+          19
+        ],
+        "margin": 1850503895631.418,
+        "missing_high_primes": [
+          11
+        ],
+        "payment_over_q46189_adverse": 219.1314367102002,
+        "reduced_denominator": 62985,
+        "small_prime_support": [
+          3,
+          5
+        ]
+      },
+      "residue_cell_count": 27648
+    },
+    {
+      "active_contribution": -3431547525458.3687,
+      "active_cross": -1715773762729.1838,
+      "active_over_full_cross_ratio": 1.0090053014564786,
+      "active_row_start": 43,
+      "active_row_stop": 85,
+      "best_scalar_abs": 0.07635153651590738,
+      "best_scalar_phase": -3.141592653589793,
+      "best_scalar_right_over_left_imag": -1.3122214772496565e-18,
+      "best_scalar_right_over_left_real": -0.07635153651590738,
+      "clearance_family": "far_3_plus",
+      "factorization": {
+        "11": 1,
+        "17": 1,
+        "19": 1,
+        "2": 1,
+        "7": 1
+      },
+      "full_contribution": -3400921204779.598,
+      "full_cross": -1700460602389.7986,
+      "full_cross_negative": true,
+      "half_threshold_defect": -0.5090053014564786,
+      "high_prime_support": [
+        11,
+        17,
+        19
+      ],
+      "label": "00,12",
+      "margin_full_over_2_minus_active": 1731086923068.5696,
+      "margin_sign_matches_negative_full_ratio_side": true,
+      "missing_high_primes": [
+        13
+      ],
+      "ratio_minus_half": 0.5090053014564786,
+      "reduced_denominator": 49742,
+      "relative_scalar_residual": 2.419467554750184e-16,
+      "replacement_family_row": {
+        "clearance_family": "far_3_plus",
+        "clearance_ratio_q_over_pA": 3.052218199668651,
+        "factorization": {
+          "11": 1,
+          "17": 1,
+          "19": 1,
+          "2": 1,
+          "7": 1
+        },
+        "high_prime_support": [
+          11,
+          17,
+          19
+        ],
+        "margin": 1731086923068.5696,
+        "missing_high_primes": [
+          13
+        ],
+        "payment_over_q46189_adverse": 204.9904166199125,
+        "reduced_denominator": 49742,
+        "small_prime_support": [
+          2,
+          7
+        ]
+      },
+      "residue_cell_count": 17280
+    },
+    {
+      "active_contribution": -3255817994087.487,
+      "active_cross": -1627908997043.7434,
+      "active_over_full_cross_ratio": 0.9332347334981557,
+      "active_row_start": 43,
+      "active_row_stop": 85,
+      "best_scalar_abs": 0.07783947575598901,
+      "best_scalar_phase": -3.141592653589793,
+      "best_scalar_right_over_left_imag": -2.448464095775189e-18,
+      "best_scalar_right_over_left_real": -0.07783947575598901,
+      "clearance_family": "far_3_plus",
+      "factorization": {
+        "11": 1,
+        "17": 1,
+        "19": 1,
+        "3": 1,
+        "5": 1
+      },
+      "full_contribution": -3488744982608.303,
+      "full_cross": -1744372491304.1511,
+      "full_cross_negative": true,
+      "half_threshold_defect": -0.43323473349815567,
+      "high_prime_support": [
+        11,
+        17,
+        19
+      ],
+      "label": "00,12",
+      "margin_full_over_2_minus_active": 1511445502783.3352,
+      "margin_sign_matches_negative_full_ratio_side": true,
+      "missing_high_primes": [
+        13
+      ],
+      "ratio_minus_half": 0.43323473349815567,
+      "reduced_denominator": 53295,
+      "relative_scalar_residual": 1.6442751927843893e-16,
+      "replacement_family_row": {
+        "clearance_family": "far_3_plus",
+        "clearance_ratio_q_over_pA": 3.2702337853592685,
+        "factorization": {
+          "11": 1,
+          "17": 1,
+          "19": 1,
+          "3": 1,
+          "5": 1
+        },
+        "high_prime_support": [
+          11,
+          17,
+          19
+        ],
+        "margin": 1511445502783.3352,
+        "missing_high_primes": [
+          13
+        ],
+        "payment_over_q46189_adverse": 178.98110094011517,
+        "reduced_denominator": 53295,
+        "small_prime_support": [
+          3,
+          5
+        ]
+      },
+      "residue_cell_count": 23040
+    },
+    {
+      "active_contribution": -2826955566303.4917,
+      "active_cross": -1413477783151.7458,
+      "active_over_full_cross_ratio": 0.9355146541184384,
+      "active_row_start": 43,
+      "active_row_stop": 85,
+      "best_scalar_abs": 0.06875627493444002,
+      "best_scalar_phase": 3.141592653589793,
+      "best_scalar_right_over_left_imag": 2.2199506940763707e-18,
+      "best_scalar_right_over_left_real": -0.06875627493444002,
+      "clearance_family": "middle_2_to_3",
+      "factorization": {
+        "11": 1,
+        "13": 1,
+        "17": 1,
+        "2": 1,
+        "7": 1
+      },
+      "full_contribution": -3021818582807.1445,
+      "full_cross": -1510909291403.5703,
+      "full_cross_negative": true,
+      "half_threshold_defect": -0.43551465411843837,
+      "high_prime_support": [
+        11,
+        13,
+        17
+      ],
+      "label": "00,12",
+      "margin_full_over_2_minus_active": 1316046274899.9194,
+      "margin_sign_matches_negative_full_ratio_side": true,
+      "missing_high_primes": [
+        19
+      ],
+      "ratio_minus_half": 0.43551465411843837,
+      "reduced_denominator": 34034,
+      "relative_scalar_residual": 2.634435187289472e-16,
+      "replacement_family_row": {
+        "clearance_family": "middle_2_to_3",
+        "clearance_ratio_q_over_pA": 2.088359820825919,
+        "factorization": {
+          "11": 1,
+          "13": 1,
+          "17": 1,
+          "2": 1,
+          "7": 1
+        },
+        "high_prime_support": [
+          11,
+          13,
+          17
+        ],
+        "margin": 1316046274899.9194,
+        "missing_high_primes": [
+          19
+        ],
+        "payment_over_q46189_adverse": 155.84247710947116,
+        "reduced_denominator": 34034,
+        "small_prime_support": [
+          2,
+          7
+        ]
+      },
+      "residue_cell_count": 11520
+    },
+    {
+      "active_contribution": -2909226905922.5815,
+      "active_cross": -1454613452961.2908,
+      "active_over_full_cross_ratio": 0.8564899239156273,
+      "active_row_start": 43,
+      "active_row_stop": 85,
+      "best_scalar_abs": 0.0701111394033354,
+      "best_scalar_phase": -3.141592653589793,
+      "best_scalar_right_over_left_imag": -5.73656736181508e-19,
+      "best_scalar_right_over_left_real": -0.0701111394033354,
+      "clearance_family": "middle_2_to_3",
+      "factorization": {
+        "11": 1,
+        "13": 1,
+        "17": 1,
+        "3": 1,
+        "5": 1
+      },
+      "full_contribution": -3396685500539.714,
+      "full_cross": -1698342750269.8613,
+      "full_cross_negative": true,
+      "half_threshold_defect": -0.3564899239156273,
+      "high_prime_support": [
+        11,
+        13,
+        17
+      ],
+      "label": "00,12",
+      "margin_full_over_2_minus_active": 1210884155652.7246,
+      "margin_sign_matches_negative_full_ratio_side": true,
+      "missing_high_primes": [
+        19
+      ],
+      "ratio_minus_half": 0.3564899239156273,
+      "reduced_denominator": 36465,
+      "relative_scalar_residual": 1.8291987885695528e-16,
+      "replacement_family_row": {
+        "clearance_family": "middle_2_to_3",
+        "clearance_ratio_q_over_pA": 2.2375283794563416,
+        "factorization": {
+          "11": 1,
+          "13": 1,
+          "17": 1,
+          "3": 1,
+          "5": 1
+        },
+        "high_prime_support": [
+          11,
+          13,
+          17
+        ],
+        "margin": 1210884155652.7246,
+        "missing_high_primes": [
+          19
+        ],
+        "payment_over_q46189_adverse": 143.3894764254255,
+        "reduced_denominator": 36465,
+        "small_prime_support": [
+          3,
+          5
+        ]
+      },
+      "residue_cell_count": 15360
+    },
+    {
+      "active_contribution": -1522671009043.144,
+      "active_cross": -761335504521.572,
+      "active_over_full_cross_ratio": 0.9262452298052626,
+      "active_row_start": 43,
+      "active_row_stop": 85,
+      "best_scalar_abs": 0.06909498619010433,
+      "best_scalar_phase": 3.141592653589793,
+      "best_scalar_right_over_left_imag": 6.410675872285636e-19,
+      "best_scalar_right_over_left_real": -0.06909498619010433,
+      "clearance_family": "middle_2_to_3",
+      "factorization": {
+        "11": 1,
+        "17": 1,
+        "19": 1,
+        "2": 1,
+        "5": 1
+      },
+      "full_contribution": -1643917787693.512,
+      "full_cross": -821958893846.7604,
+      "full_cross_negative": true,
+      "half_threshold_defect": -0.4262452298052626,
+      "high_prime_support": [
+        11,
+        17,
+        19
+      ],
+      "label": "00,12",
+      "margin_full_over_2_minus_active": 700712115196.3881,
+      "margin_sign_matches_negative_full_ratio_side": true,
+      "missing_high_primes": [
+        13
+      ],
+      "ratio_minus_half": 0.4262452298052626,
+      "reduced_denominator": 35530,
+      "relative_scalar_residual": 2.1144283841957582e-16,
+      "replacement_family_row": {
+        "clearance_family": "middle_2_to_3",
+        "clearance_ratio_q_over_pA": 2.180155856906179,
+        "factorization": {
+          "11": 1,
+          "17": 1,
+          "19": 1,
+          "2": 1,
+          "5": 1
+        },
+        "high_prime_support": [
+          11,
+          17,
+          19
+        ],
+        "margin": 700712115196.3881,
+        "missing_high_primes": [
+          13
+        ],
+        "payment_over_q46189_adverse": 82.9763465430777,
+        "reduced_denominator": 35530,
+        "small_prime_support": [
+          2,
+          5
+        ]
+      },
+      "residue_cell_count": 11520
+    },
+    {
+      "active_contribution": -1021373433030.4276,
+      "active_cross": -510686716515.2138,
+      "active_over_full_cross_ratio": 0.7334973555723258,
+      "active_row_start": 43,
+      "active_row_stop": 85,
+      "best_scalar_abs": 0.07260838785517502,
+      "best_scalar_phase": -3.141592653589793,
+      "best_scalar_right_over_left_imag": -4.699577765090227e-19,
+      "best_scalar_right_over_left_real": -0.07260838785517502,
+      "clearance_family": "middle_2_to_3",
+      "factorization": {
+        "13": 1,
+        "17": 1,
+        "19": 1,
+        "2": 1,
+        "5": 1
+      },
+      "full_contribution": -1392470504864.2974,
+      "full_cross": -696235252432.1515,
+      "full_cross_negative": true,
+      "half_threshold_defect": -0.23349735557232576,
+      "high_prime_support": [
+        13,
+        17,
+        19
+      ],
+      "label": "00,12",
+      "margin_full_over_2_minus_active": 325138180598.27893,
+      "margin_sign_matches_negative_full_ratio_side": true,
+      "missing_high_primes": [
+        11
+      ],
+      "ratio_minus_half": 0.23349735557232576,
+      "reduced_denominator": 41990,
+      "relative_scalar_residual": 3.783447535805507e-16,
+      "replacement_family_row": {
+        "clearance_family": "middle_2_to_3",
+        "clearance_ratio_q_over_pA": 2.5765478308891208,
+        "factorization": {
+          "13": 1,
+          "17": 1,
+          "19": 1,
+          "2": 1,
+          "5": 1
+        },
+        "high_prime_support": [
+          13,
+          17,
+          19
+        ],
+        "margin": 325138180598.27893,
+        "missing_high_primes": [
+          11
+        ],
+        "payment_over_q46189_adverse": 38.501943612245455,
+        "reduced_denominator": 41990,
+        "small_prime_support": [
+          2,
+          5
+        ]
+      },
+      "residue_cell_count": 13824
+    },
+    {
+      "active_contribution": -2342094641183.297,
+      "active_cross": -1171047320591.6484,
+      "active_over_full_cross_ratio": 0.5763534077069115,
+      "active_row_start": 43,
+      "active_row_stop": 85,
+      "best_scalar_abs": 0.07083636365889082,
+      "best_scalar_phase": -3.141592653589793,
+      "best_scalar_right_over_left_imag": -8.056844643294922e-19,
+      "best_scalar_right_over_left_real": -0.07083636365889082,
+      "clearance_family": "middle_2_to_3",
+      "factorization": {
+        "11": 1,
+        "13": 1,
+        "19": 1,
+        "2": 1,
+        "7": 1
+      },
+      "full_contribution": -4063643261001.241,
+      "full_cross": -2031821630500.625,
+      "full_cross_negative": true,
+      "half_threshold_defect": -0.07635340770691146,
+      "high_prime_support": [
+        11,
+        13,
+        19
+      ],
+      "label": "00,12",
+      "margin_full_over_2_minus_active": 310273010682.6763,
+      "margin_sign_matches_negative_full_ratio_side": true,
+      "missing_high_primes": [
+        17
+      ],
+      "ratio_minus_half": 0.07635340770691146,
+      "reduced_denominator": 38038,
+      "relative_scalar_residual": 6.049037211162891e-16,
+      "replacement_family_row": {
+        "clearance_family": "middle_2_to_3",
+        "clearance_ratio_q_over_pA": 2.334049211511321,
+        "factorization": {
+          "11": 1,
+          "13": 1,
+          "19": 1,
+          "2": 1,
+          "7": 1
+        },
+        "high_prime_support": [
+          11,
+          13,
+          19
+        ],
+        "margin": 310273010682.6763,
+        "missing_high_primes": [
+          17
+        ],
+        "payment_over_q46189_adverse": 36.74165224066973,
+        "reduced_denominator": 38038,
+        "small_prime_support": [
+          2,
+          7
+        ]
+      },
+      "residue_cell_count": 12960
+    }
+  ],
+  "replacement_summary": {
+    "all_rows_have_negative_full_cross": true,
+    "all_rows_margin_positive": true,
+    "all_rows_match_ratio_side": true,
+    "all_rows_ratio_above_half": true,
+    "maximum_active_over_full_cross_ratio": 1.0735414442150175,
+    "maximum_margin": 3346664546754.784,
+    "maximum_ratio_minus_half": 0.5735414442150175,
+    "maximum_relative_scalar_residual": 6.049037211162891e-16,
+    "minimum_active_over_full_cross_ratio": 0.5763534077069115,
+    "minimum_margin": 310273010682.6763,
+    "minimum_ratio_minus_half": 0.07635340770691146,
+    "payment_over_q46189_adverse": 1740.1304948156007,
+    "positive_margin_sum": 14694916931621.637,
+    "row_count": 10
+  },
+  "schema_version": 1,
+  "source_commit": "745b04b7bc412a0d5f33485219f17bcad18e84d9",
+  "source_group_payment_audit": "evidence\\mobius-moment-square-degree5-q46189-group-payment-audit.json",
+  "source_start_theorem_proved": false,
+  "status": "AUDIT_q46189_replacement_phase_profile",
+  "strict_central_goldbach_theorem_proved": false,
+  "symbolic_replacement_ratio_theorem_proved": false
+}
