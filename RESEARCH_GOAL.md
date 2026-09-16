@@ -6,6 +6,67 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS route now has an exact raw character expansion target:
+`tools/build_q286_wbss_raw_character_expansion_target.py` generated
+`evidence/q286-wbss-raw-character-expansion-target.json`, with explanation in
+`notes/q286-wbss-raw-character-expansion-target.md`.
+
+Question: after the source-theorem fit audit, can the q286 route state the
+exact raw character-expanded theorem target instead of asking vaguely for a
+binary-prime estimate?
+
+Answer: yes as a theorem target, not as a theorem.  Define
+
+```text
+T_N = sum_{N/3<p<2N/3, p and N-p prime} log(p)log(N-p)
+Delta_raw_{d,s}(N) = Pi_raw_{N,d}(s) - T_N*U_{a,d}(s)
+D_raw_{d,chi}(N) = sum_s chi(s) Delta_raw_{d,s}(N)
+E_raw_d(N) = sum_chi c_hat_{d,chi} D_raw_{d,chi}(N)
+W_phi(N) = T_N*M(a) + sum_d E_raw_d(N)
+G_raw(N) = T_N*M(a) - sum_d max(0,-E_raw_d(N)).
+```
+
+The clean aggregate `L2` sufficient target is
+
+```text
+C2 * sqrt(sum_{d,chi}|D_raw_{d,chi}(N)|^2) < T_N*M(a)
+C2 = 5.525106448699807.
+```
+
+When `T_N>0`, this corresponds to the normalized cap
+`0.10930746469603118`, but the raw strict form is the bridge.  If `T_N=0`,
+every raw character moment is zero and both sides are zero, so the strict
+inequality fails.  A proof of this strict raw inequality would therefore
+create strict-central support.
+
+Coefficient package:
+
+```text
+active complex characters:       122
+active real channels:             64
+total character L1:        49.153988812629684
+uniform normalized L1 cap:  0.012286599575574883
+aggregate character L2:     5.525106448699807
+normalized L2 cap:          0.10930746469603118
+```
+
+Finite observed L2 diagnostics remain non-acceptance evidence:
+
+```text
+checked rows:                       348
+row-local L2 cap violations:        120
+global-minimum L2 cap violations:   301
+```
+
+Decision: `TARGET_raw_character_expanded_q286_WBSS_theorem`.  No theorem
+proving this target is currently present.  The next proof attempt must attack
+the raw twisted binary-prime moments directly, or put the q286 lane to sleep if
+it requires pointwise `T_N>0` first.  This proves no raw character-moment
+theorem, strict raw-gap theorem, positive-mass theorem, q286 threshold theorem,
+strict-central Goldbach theorem, or Goldbach proof.
+
+## Latest continuation evidence, 2026-09-15
+
 The q286-WBSS route now has a source-theorem fit audit:
 `tools/build_q286_wbss_source_theorem_fit_audit.py` generated
 `evidence/q286-wbss-source-theorem-fit-audit.json`, with explanation in

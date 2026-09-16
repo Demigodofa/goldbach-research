@@ -1,0 +1,93 @@
+{
+  "candidate": {
+    "falsifier": "If every route to the raw principal main requires already proving T_N>0 pointwise, the q286 character expansion has not reduced the Goldbach-strength core.",
+    "mechanism": "Turn the q286-WBSS coefficient package into raw twisted binary-prime moments so strict positivity, not normalized distribution after support exists, is the theorem target.",
+    "name": "raw active-character q286-WBSS theorem target",
+    "novelty_label": "new-to-this-task",
+    "prediction": "A viable proof will bound the raw active-character package below the raw principal main or prove the direct signed raw sum positive.",
+    "smallest_next_test": "Attempt a symbolic major/minor arc decomposition for D_raw_{d,chi}(N), keeping the strict-central interval and checking whether the principal positive term is created by the same estimate or imported as T_N>0."
+  },
+  "coefficient_package": {
+    "active_complex_character_count": 122,
+    "active_real_channel_count": 64,
+    "aggregate_character_l2": 5.525106448699807,
+    "aggregate_character_moment_l2_cap_normalized": 0.10930746469603118,
+    "equal_character_moment_cap_normalized": 0.012286599575574883,
+    "per_modulus_active_character_count": {
+      "130": 23,
+      "154": 29,
+      "286": 59,
+      "70": 11
+    },
+    "total_character_l1": 49.153988812629684
+  },
+  "collapse_or_sleep_test": {
+    "collapse_condition": "If the proposed circle-method proof first needs an independent pointwise lower bound T_N>=P(N)>0 for every covered N, and the character estimates only operate after that mass is known, then the route has collapsed to ordinary strict-central binary Goldbach plus decoration.",
+    "sleep_decision_if_collapsed": "Sleep q286 as a proof engine and preserve it as coefficient structure if no raw character theorem can be stated without first assuming pointwise strict-central prime-pair mass.",
+    "survival_condition": "The route survives only if the raw character inequality itself is proved strictly, or if the positive-mass input is separately sourced and honestly labeled Goldbach-strength."
+  },
+  "decision": "The exact raw character-expanded q286-WBSS target is now defined.  The strongest clean payment is C2*||D_raw(N)||_2 < T_N*M(a), with C2 about 5.5251064487, or a direct proof W_phi(N)>0.  This target is non-circular only in raw strict form: at zero support both sides are zero and the strict inequality fails.  No theorem proving the target is currently present, so the next proof attempt must attack the raw twisted binary-prime moments directly or put the q286 lane to sleep if it requires pointwise T_N>0 first.",
+  "finite_diagnostic_boundary": {
+    "observed_global_min_l2_cap_violations": 301,
+    "observed_l2_row_count": 348,
+    "observed_row_local_l2_cap_violations": 120,
+    "role": "These are finite diagnostics and falsifiers for premature claims that the normalized L2 cap already holds at the checked scale. They are not acceptance conditions and do not refute an eventual sufficiently-large theorem."
+  },
+  "goldbach_proved": false,
+  "positive_mass_theorem_proved": false,
+  "principal_and_error_roles": {
+    "finite_remainder": "Any theorem needs an explicit threshold N0 and a separate finite verification below N0.",
+    "nonprincipal_twisted_moments": "D_raw_{d,chi}(N) for the active nonprincipal character package.",
+    "principal_main": "T_N*M(a), where M(a)>0 is the local-uniform q286-WBSS main term for the target residue.",
+    "strict_central_truncation": "The prime sum is restricted to N/3<p<2N/3; any circle method proof must estimate this truncated interval, not only the full p<N convolution."
+  },
+  "q286_threshold_theorem_proved": false,
+  "raw_character_definitions": {
+    "central_mass": "T_N=sum_{N/3<p<2N/3, p and N-p prime} log(p)log(N-p).",
+    "projected_error_expansion": "E_raw_d(N)=sum_chi c_hat_{d,chi}*D_raw_{d,chi}(N), using the same finite character coefficients as the multiplicative-character payment audit.",
+    "raw_character_moment": "D_raw_{d,chi}(N)=sum_s chi(s)*Delta_raw_{d,s}(N) over the active multiplicative characters for d in {70,130,154,286}.",
+    "raw_projection_delta": "Delta_raw_{d,s}(N)=Pi_raw_{N,d}(s)-T_N*U_{a,d}(s), where Pi_raw_{N,d}(s) is the raw strict-central log-pair mass with left prime p == s mod d, and U_{a,d} is the local-uniform projected mass for a=N mod 10010.",
+    "raw_witness": "W_phi(N)=T_N*M(a)+sum_d E_raw_d(N).",
+    "strict_raw_gap": "G_raw(N)=T_N*M(a)-sum_d max(0,-E_raw_d(N))."
+  },
+  "raw_character_moment_theorem_proved": false,
+  "schema_version": 1,
+  "source_commit": "97154a57c7c10ca94b1e4e892ed01e1189e34c9d",
+  "sources": {
+    "multiplicative_character_l2_payment_audit": "evidence\\q286-wbss-multiplicative-character-l2-payment-audit.json",
+    "multiplicative_character_l2_payment_status": "HOLD_aggregate_character_l2_bound_required",
+    "multiplicative_character_payment_audit": "evidence\\q286-wbss-multiplicative-character-payment-audit.json",
+    "multiplicative_character_payment_status": "HOLD_character_moment_payment_bound_required",
+    "observed_l2_moment_audit": "evidence\\q286-wbss-multiplicative-character-l2-observed-moment-audit.json",
+    "observed_l2_moment_status": "HOLD_l2_cap_requires_boundary_or_stronger_theorem",
+    "source_theorem_fit_audit": "evidence\\q286-wbss-source-theorem-fit-audit.json",
+    "source_theorem_fit_status": "SOURCE_FIT_no_existing_direct_pointwise_bridge",
+    "strict_raw_gap_analytic_hold": "evidence\\q286-wbss-strict-raw-gap-analytic-hold.json",
+    "strict_raw_gap_analytic_hold_status": "HOLD_for_strict_raw_binary_pair_estimate"
+  },
+  "status": "TARGET_raw_character_expanded_q286_WBSS_theorem",
+  "status_boundary": "raw character-expanded theorem target only; no pointwise raw twisted binary-prime moment theorem, strict raw-gap theorem, positive-mass theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof is established",
+  "strict_raw_gap_theorem_proved": false,
+  "sufficient_raw_theorem_shapes": {
+    "aggregate_L1": {
+      "non_circular": true,
+      "statement": "For every sufficiently large covered even N, prove sum_{d,chi}|c_hat_{d,chi}|*theta_raw_{d,chi}(N) < T_N*M(a), with |D_raw_{d,chi}(N)|<=theta_raw_{d,chi}(N).",
+      "total_character_l1": 49.153988812629684,
+      "uniform_normalized_cap_when_T_N_positive": 0.012286599575574883,
+      "why": "The strict raw inequality fails at zero support; no normalized measure needs to be assumed first."
+    },
+    "aggregate_L2": {
+      "C2": 5.525106448699807,
+      "non_circular": true,
+      "normalized_equivalent_when_T_N_positive": "sqrt(sum|D_{d,chi}(N)|^2) < 0.10930746469603118 using normalized moments.",
+      "statement": "For every sufficiently large covered even N, prove C2*sqrt(sum_{d,chi}|D_raw_{d,chi}(N)|^2) < T_N*M(a).",
+      "why": "If T_N=0 then every raw character moment is zero and both sides are zero, so the strict inequality fails; a proof of the strict inequality therefore creates strict-central support."
+    },
+    "direct_signed_sum": {
+      "non_circular": true,
+      "statement": "Prove W_phi(N)=T_N*M(a)+sum_{d,chi}c_hat_{d,chi}D_raw_{d,chi}(N)>0 directly.",
+      "why": "A zero-support row has W_phi(N)=0, so strict positivity forces a strict-central prime pair."
+    }
+  },
+  "universal_bound_open": true
+}
