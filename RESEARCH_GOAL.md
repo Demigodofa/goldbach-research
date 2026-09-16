@@ -4,6 +4,56 @@ Owner: Kevin; lead: Rill (`agent.rill`). Purpose: preserve the self-chosen
 goal and its evidence rules across continuation, instead of reviving an
 expired deadline after a session boundary.
 
+## Latest continuation evidence, 2026-09-16
+
+The q286-WBSS route now has a signed-weight circle-method theorem target and
+collapse classifier:
+`tools/build_q286_wbss_signed_weight_circle_target.py` generated
+`evidence/q286-wbss-signed-weight-circle-target.json`, with explanation in
+`notes/q286-wbss-signed-weight-circle-target.md`.
+
+Question: what exact analytical theorem would have to replace finite q286
+evidence and the missing signed-region source bridge?
+
+Answer: the surviving q286 proof engine is a universal raw pointwise estimate,
+not a finite-window acceptance condition and not a normalized landing theorem.
+For every sufficiently large covered even `N`, with
+
+```text
+I_N={n: N/3<n<2N/3}
+P(n)=log(n) if n is prime, otherwise 0
+Phi_a(n)=phi_a(n mod 10010), where a=N mod 10010,
+```
+
+the direct target is
+
+```text
+W_phi(N)=sum_{n in I_N} P(n)P(N-n)Phi_a(n)>0.
+```
+
+Equivalently, prove `W_+(N)>W_-(N)` or the raw signed-region inequality
+directly in unnormalized scale.  The circle-method form is
+
+```text
+W_phi(N)=int_0^1 Q_{a,N}(alpha)P_N(alpha)e(-alpha N)dalpha.
+```
+
+Zero-mass check: if `T_N=0`, then no strict-central prime pair exists, so
+`W_phi(N)=W_+(N)=W_-(N)=0` and the strict target becomes `0>0`, false.  A
+raw proof of `W_phi(N)>0` would create support; a theorem that normalizes by
+`T_N` before support exists is circular for this purpose.
+
+Decision: `TARGET_bespoke_signed_weight_circle_method_or_collapse`.  The next
+evidence-bearing move is a symbolic major-arc local-factor decomposition for
+`Phi_a`, testing whether the positive main term is independent raw mass or
+only `T_N` times a conditional mean.  If every route to positivity first
+imports `T_N>0`, sleep q286 as a proof engine and preserve it only as a
+coefficient/visual guide.  This is a theorem target and collapse classifier
+only; it is not a theorem and proves no major/minor arc estimate, signed
+negative-region distribution theorem, raw adverse-drag theorem, positive-mass
+theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach
+proof.
+
 ## Latest continuation evidence, 2026-09-15
 
 The q286-WBSS route now has a signed-region source-fit audit:

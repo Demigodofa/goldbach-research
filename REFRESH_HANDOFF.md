@@ -4,6 +4,56 @@ Owner: Kevin. Purpose: Kevin explicitly requested a copy-and-paste refresh
 handoff at a checked mathematical checkpoint. This file is the entrypoint
 for the next session; the proofs and executable truth remain in the modules.
 
+## Latest active checkpoint note, 2026-09-16
+
+The q286-WBSS route now has a signed-weight circle-method theorem target and
+collapse classifier:
+
+```text
+tools/build_q286_wbss_signed_weight_circle_target.py
+notes/q286-wbss-signed-weight-circle-target.md
+evidence/q286-wbss-signed-weight-circle-target.json
+```
+
+Question: what exact analytical theorem would have to replace finite q286
+evidence and the missing signed-region source bridge?
+
+Answer: the required target is universal, pointwise, unnormalized, and raw:
+
+```text
+I_N={n: N/3<n<2N/3}
+P(n)=log(n) if n is prime, otherwise 0
+Phi_a(n)=phi_a(n mod 10010), where a=N mod 10010
+W_phi(N)=sum_{n in I_N} P(n)P(N-n)Phi_a(n)>0
+```
+
+Equivalently, prove `W_+(N)>W_-(N)` or the raw signed-region inequality
+directly for every sufficiently large covered even `N`.  The circle-method
+form is
+
+```text
+W_phi(N)=int_0^1 Q_{a,N}(alpha)P_N(alpha)e(-alpha N)dalpha
+```
+
+where `Q_{a,N}` is the prime sum carrying the signed q286 weight and `P_N` is
+the unweighted strict-central prime sum.
+
+Zero-mass check: if `T_N=0`, then `W_phi(N)=W_+(N)=W_-(N)=0`, so the strict
+target becomes `0>0`, false.  A raw proof of `W_phi(N)>0` creates support; a
+normalized theorem about landing fractions cannot do that unless support is
+created inside the same raw argument.
+
+Decision: `TARGET_bespoke_signed_weight_circle_method_or_collapse`.  The next
+evidence-bearing move is a symbolic major-arc local-factor decomposition for
+`Phi_a`, testing whether the positive term is independent raw singular-series
+mass or only `T_N` times a conditional mean.  If every route to `W_phi(N)>0`
+first imports `T_N>0`, sleep q286 as a proof engine and preserve it only as a
+coefficient/visual guide.  This is a theorem target and collapse classifier
+only; it is not a theorem and proves no major/minor arc estimate, signed
+negative-region distribution theorem, raw adverse-drag theorem, positive-mass
+theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach
+proof.
+
 ## Latest active checkpoint note, 2026-09-15
 
 The q286-WBSS route now has a signed-region source-fit audit:

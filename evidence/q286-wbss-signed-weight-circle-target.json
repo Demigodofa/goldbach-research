@@ -1,0 +1,76 @@
+{
+  "answer": "The surviving q286 proof engine is a direct raw estimate for one signed weighted binary-prime convolution.  The route survives if major and minor arcs prove W_phi(N)>0 in raw scale for every sufficiently large covered N.  It collapses if the proof first requires T_N>0 and then only controls normalized landing or negative-region mass conditionally.",
+  "candidate": {
+    "falsifier": "If the only positive main term available is imported as T_N>0 before q286 enters, the q286 lane has not reduced the Goldbach-strength existence problem.",
+    "mechanism": "Treat q286 as one signed residue weight inside the binary prime convolution, so the proof target is direct raw positivity rather than post-support distribution.",
+    "name": "bespoke signed q286 weighted circle-method target",
+    "novelty_label": "new-to-this-task",
+    "prediction": "If q286 genuinely helps, the exact signed weight will have a positive major-arc surplus whose minor-arc error can be bounded pointwise.",
+    "smallest_next_test": "Attempt a symbolic major-arc local-factor decomposition for the signed weight Phi_a and identify whether the positive term is independent raw singular-series mass or only T_N times a conditional mean."
+  },
+  "collapse_classifier": {
+    "collapses_if": "The argument first assumes/proves T_N>0 by an independent strict-central Goldbach-strength theorem, then applies q286 only as conditional distribution control.",
+    "invalid_substitutes": [
+      "finite q286 windows",
+      "local-uniform shape margin without pointwise prime-pair control",
+      "almost-all or averaged AP Goldbach statements",
+      "marginal AP prime counts",
+      "normalizing by T_N before raw support exists"
+    ],
+    "sleep_condition": "If every available route to W_phi(N)>0 requires T_N>0 first, sleep q286 as a proof engine and preserve it only as a coefficient/visual guide.",
+    "survives_if": "The argument proves W_phi(N)>0, W_+(N)>W_-(N), or an equivalent raw adverse-drag inequality directly for every sufficiently large covered N."
+  },
+  "decision": "TARGET_bespoke_signed_weight_circle_method_or_collapse.  The exact surviving theorem target is a raw pointwise signed weighted binary-prime convolution W_phi(N)>0.  This target is non-circular as a strict raw statement because zero support gives W_phi(N)=0.  No major/minor arc estimate is proved.  The next evidence-bearing step is a symbolic major-arc local-factor decomposition for Phi_a, or a sleep decision if that decomposition only becomes positive after importing T_N>0.",
+  "exact_target": {
+    "equivalent_signed_region_statement": "sum_{u:phi(u)>0} P_N(u)phi(u) > sum_{u:phi(u)<0} P_N(u)(-phi(u))",
+    "finite_remainder": "The theorem must provide an explicit threshold N0 and a separate finite verification for covered even N<N0.",
+    "raw_pointwise_statement": "For every sufficiently large covered even N, prove W_phi(N)>0 directly in raw scale.",
+    "strict_central_support_consequence": "If W_phi(N)>0 then at least one strict-central prime pair exists, because W_phi(N)=0 when no such pair exists."
+  },
+  "goldbach_proved": false,
+  "major_minor_arc_estimate_proved": false,
+  "major_minor_arc_target": {
+    "character_equivalent": "Equivalently, prove raw active-character moment bounds strong enough that the signed-region inequality or W_phi(N)>0 follows without assuming support first.",
+    "finite_constants_to_preserve": {
+      "active_character_l2_related_but_unproved": "q286_active_character_L2_payment",
+      "minimum_local_uniform_shape_margin": 0.10534041937277128,
+      "shape_threshold_minimum": 0.48729403831397616
+    },
+    "major_arc_required_output": "A positive explicit main term for the exact signed weight Phi_a, including strict-central truncation and all local factors, not merely T_N times a conditional normalized mean.",
+    "minor_arc_required_output": "A pointwise error bound for every covered N>=N0 smaller than the signed major-arc surplus."
+  },
+  "positive_mass_theorem_proved": false,
+  "q286_threshold_theorem_proved": false,
+  "question": "What exact circle-method theorem would have to replace the missing signed-region source bridge, and when does it collapse to ordinary strict-central Goldbach support?",
+  "raw_adverse_drag_theorem_proved": false,
+  "receipt": "q286-wbss-signed-weight-circle-target",
+  "schema_version": 1,
+  "signed_negative_region_distribution_theorem_proved": false,
+  "signed_weight_definitions": {
+    "circle_integral": "W_phi(N)=int_0^1 Q_{a,N}(alpha)P_N(alpha)e(-alpha*N)dalpha.",
+    "left_residue_weight": "Phi_a(n)=phi_a(n mod 10010), the normalized q286-WBSS single signed residue weight for a=N mod 10010.",
+    "positive_negative_split": "W_phi(N)=W_+(N)-W_-(N), where W_+ sums residues with Phi_a>0 and W_- sums -Phi_a over residues with Phi_a<0.",
+    "prime_log_weight": "P(n)=log(n) if n is prime, and P(n)=0 otherwise.",
+    "raw_weighted_witness": "W_phi(N)=sum_{n in I_N} P(n)P(N-n)Phi_a(n).",
+    "strict_central_interval": "I_N={n integer: N/3<n<2N/3}.",
+    "unweighted_right_sum": "P_N(alpha)=sum_{n in I_N}P(n)e(alpha*n).",
+    "weighted_left_sum": "Q_{a,N}(alpha)=sum_{n in I_N}P(n)Phi_a(n)e(alpha*n)."
+  },
+  "source_commit": "22490584eb90e141e239666e079a0076d0d98852",
+  "sources": {
+    "negative_region_mass_threshold_audit": "evidence\\q286-wbss-negative-region-mass-threshold-audit.json",
+    "negative_region_mass_threshold_status": "TARGET_signed_negative_region_correlation_obligation",
+    "raw_character_circle_decomposition": "evidence\\q286-wbss-raw-character-circle-decomposition.json",
+    "raw_character_circle_status": "TARGET_raw_character_circle_method_decomposition_bridge_unproved",
+    "signed_region_source_fit_audit": "evidence\\q286-wbss-signed-region-source-fit-audit.json",
+    "signed_region_source_fit_status": "SOURCE_FIT_no_existing_signed_region_pointwise_bridge"
+  },
+  "status": "TARGET_bespoke_signed_weight_circle_method_or_collapse",
+  "status_boundary": "Theorem target and collapse classifier only; this is not a theorem.  No major/minor arc estimate, signed negative-region distribution theorem, raw adverse-drag theorem, positive-mass theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof is established.",
+  "universal_pointwise_bound_proved": false,
+  "zero_mass_non_circularity_check": {
+    "if_T_N_zero": "No strict-central prime pairs imply P(n)P(N-n)=0 for every n in I_N, hence W_phi(N)=W_+(N)=W_-(N)=0.",
+    "meaning": "A proof of the raw strict statement would create support.  A normalized theorem about landing fractions cannot do that unless support is created inside the same proof.",
+    "strict_target_at_zero_mass": "W_phi(N)>0 becomes 0>0, false."
+  }
+}
