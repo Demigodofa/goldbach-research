@@ -6,6 +6,43 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 signed-pair route now has a projection-cone budget audit:
+`tools/build_q286_projection_cone_budget_audit.py` generated
+`evidence/q286-projection-cone-budget-audit.json`, with explanation in
+`notes/q286-projection-cone-budget-audit.md`.
+
+Question: after raw sign-split landing failed as an easier direct witness
+route, can lower-dimensional projection uniformity supply the missing
+non-circular bridge?
+
+Answer: no, not as a usable acceptance condition.  On the seven frozen
+signed-pair operator targets:
+
+```text
+prime-factor exact marginal bad feasible:           7 / 7
+exact q286 projection-uniform bad feasible:          0 / 7
+actual TV exceeds minimum bad TV:                    7 / 7
+actual Linf exceeds minimum bad Linf:                7 / 7
+minimum bad q286 projection TV: 0.008069873564730923 .. 0.015018926601606888
+actual q286 projection TV:      0.0644180024489798   .. 0.404040404040404
+minimum bad q286 projection Linf: 0.0014957059014651004 .. 0.0017323472323253607
+actual q286 projection Linf:      0.0039569145231730515 .. 0.03004848667223886
+```
+
+Decision: `HOLD_projection_uniformity_sufficient_but_too_strong`.  Exact
+uniform marginals modulo the prime factors `2`, `5`, `7`, `11`, and `13` do
+not exclude synthetic bad measures.  Exact q286 projection uniformity does,
+but the required TV/Linf budgets are much smaller than the actual checked
+prime-pair projection deviations.  The next proof object still has to be a
+coefficient-sensitive signed binary-prime correlation estimate, not raw AP
+counts, not lower-dimensional marginals, not plain q286 projection
+TV/Linf uniformity, and not raw positive/negative sign-split landing.  This
+proves no projection-uniformity theorem, signed binary-prime correlation
+theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach
+proof.
+
+## Latest continuation evidence, 2026-09-15
+
 The q286 direct witness now has a raw sign-split source-budget audit:
 `tools/build_q286_direct_witness_sign_split_budget_audit.py` generated
 `evidence/q286-direct-witness-sign-split-budget-audit.json`, with explanation

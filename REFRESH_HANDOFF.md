@@ -6,6 +6,42 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 signed-pair route now has a projection-cone budget audit:
+
+```text
+tools/build_q286_projection_cone_budget_audit.py
+notes/q286-projection-cone-budget-audit.md
+evidence/q286-projection-cone-budget-audit.json
+```
+
+Result on the seven frozen signed-pair operator targets:
+
+```text
+prime-factor exact marginal bad feasible:           7 / 7
+exact q286 projection-uniform bad feasible:          0 / 7
+actual TV exceeds minimum bad TV:                    7 / 7
+actual Linf exceeds minimum bad Linf:                7 / 7
+minimum bad q286 projection TV: 0.008069873564730923 .. 0.015018926601606888
+actual q286 projection TV:      0.0644180024489798   .. 0.404040404040404
+minimum bad q286 projection Linf: 0.0014957059014651004 .. 0.0017323472323253607
+actual q286 projection Linf:      0.0039569145231730515 .. 0.03004848667223886
+```
+
+Decision:
+`HOLD_projection_uniformity_sufficient_but_too_strong`.  Prime-factor
+projection data is too weak: exact uniform marginals modulo `2`, `5`, `7`,
+`11`, and `13` still allow synthetic bad measures.  Exact q286 projection
+uniformity excludes the bad branch on the frozen rows, but the quantitative
+TV/Linf budgets are much stronger than the actual checked prime-pair
+projection deviations.  Plain q286 projection uniformity is therefore a
+sufficient algebraic cone, not a useful acceptance condition.  The next proof
+object remains coefficient-sensitive signed binary-prime correlation.  This
+proves no projection-uniformity theorem, signed binary-prime correlation
+theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach
+proof.
+
+## Latest active checkpoint note, 2026-09-15
+
 The q286 direct witness now has a raw sign-split source-budget audit:
 
 ```text

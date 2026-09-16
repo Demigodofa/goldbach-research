@@ -1,0 +1,625 @@
+{
+  "bad_branch_constraints": {
+    "first_three_action_at_most": -0.3,
+    "full_action_at_most": 0.0
+  },
+  "candidate": {
+    "falsifier": "A feasible synthetic bad measure with the proposed projected constraints proves that those constraints are insufficient. If the sufficient q286 projection tolerance is far below the actual row deviations, plain projection uniformity is too strong as an acceptance condition.",
+    "mechanism": "Instead of controlling the full reflected residue measure, try to exclude the q286 bad branch using only exact or near-exact projection of that measure to lower moduli.",
+    "name": "q286 projection-uniformity cone",
+    "novelty_label": "new-to-this-task",
+    "prediction": "If projection uniformity is the right analytic bridge, prime-factor or q286 projected constraints should exclude synthetic bad measures at tolerances comparable with the actual checked rows.",
+    "smallest_test": "Run LP bad-branch feasibility under exact prime-factor marginals, exact q286 projection uniformity, and minimum q286 projected L1/Linf distance from uniform on the seven frozen signed-pair operator targets."
+  },
+  "decision": "Prime-factor projection data is too weak: exact uniform marginals modulo 2,5,7,11,13 still allow synthetic bad measures on every frozen target.  Exact q286 projection uniformity is sufficient on these rows, but the quantitative q286 TV/Linf budgets are far stronger than the actual checked prime-pair projection deviations.  Therefore plain projection uniformity does not earn acceptance as the next bridge.  The proof object still has to be coefficient-sensitive signed binary-prime correlation, not only lower-dimensional AP equidistribution.",
+  "goldbach_proved": false,
+  "prime_factor_moduli": [
+    2,
+    5,
+    7,
+    11,
+    13
+  ],
+  "projection_modulus": 286,
+  "projection_uniformity_theorem_proved": false,
+  "schema_version": 1,
+  "selected_targets": [
+    14138,
+    14996,
+    94856,
+    1222142,
+    1240888,
+    1242118,
+    1379072
+  ],
+  "signed_binary_prime_correlation_theorem_proved": false,
+  "source_commit": "f47b3a5e909ed0b3f46c22876ca6ae37906de5ad",
+  "status": "HOLD_projection_uniformity_sufficient_but_too_strong",
+  "status_boundary": "finite projection-cone LP audit only; no projection-uniformity theorem, signed binary-prime correlation theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof",
+  "summary": {
+    "actual_linf_exceeds_minimum_bad_linf_count": 7,
+    "actual_q286_projection_linf_summary": {
+      "count": 7,
+      "maximum": 0.03004848667223886,
+      "mean": 0.012279820131445077,
+      "minimum": 0.0039569145231730515
+    },
+    "actual_q286_projection_tv_summary": {
+      "count": 7,
+      "maximum": 0.404040404040404,
+      "mean": 0.16819236588095426,
+      "minimum": 0.0644180024489798
+    },
+    "actual_tv_exceeds_minimum_bad_tv_count": 7,
+    "exact_q286_projection_uniform_bad_feasible_count": 0,
+    "minimum_bad_q286_projection_linf_summary": {
+      "count": 7,
+      "maximum": 0.0017323472323253607,
+      "mean": 0.001627009773103809,
+      "minimum": 0.0014957059014651004
+    },
+    "minimum_bad_q286_projection_tv_summary": {
+      "count": 7,
+      "maximum": 0.015018926601606888,
+      "mean": 0.012850389915227595,
+      "minimum": 0.008069873564730923
+    },
+    "prime_factor_exact_marginal_bad_feasible_count": 7,
+    "selected_target_count": 7,
+    "tightest_minimum_bad_tv_row": {
+      "actual_first_three": -0.33941388421290136,
+      "actual_full_action": 0.9449988671776869,
+      "actual_linf_exceeds_minimum_bad_linf": true,
+      "actual_q286_projection": {
+        "actual_projection_l1": 0.1306340807047251,
+        "actual_projection_linf": 0.005834526319800806,
+        "actual_projection_total_variation": 0.06531704035236255
+      },
+      "actual_tv_exceeds_minimum_bad_tv": true,
+      "exact_q286_projection_uniform_cone": {
+        "bad_measure_feasible": false,
+        "equality_constraint_count": 99,
+        "lp_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+        "lp_status": 2,
+        "projection_residue_counts": {
+          "286": 99
+        }
+      },
+      "minimum_bad_q286_projection_l1": {
+        "bad_first_three": -0.3,
+        "bad_full_action": 0.0,
+        "lp_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "lp_status": 0,
+        "lp_success": true,
+        "minimum_bad_projection_l1": 0.016139747129461847,
+        "minimum_bad_projection_linf_for_this_l1_solution": 0.008069873564731248,
+        "minimum_bad_projection_total_variation": 0.008069873564730923,
+        "projection_modulus": 286,
+        "projection_residue_count": 99,
+        "synthetic_max_orbit_mass": 0.028271893766750798,
+        "synthetic_support_count": 51
+      },
+      "minimum_bad_q286_projection_linf": {
+        "bad_first_three": -0.30000000000000043,
+        "bad_full_action": -1.1102230246251565e-16,
+        "bad_projection_l1_for_this_linf_solution": 0.151350675464972,
+        "lp_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "lp_status": 0,
+        "lp_success": true,
+        "minimum_bad_projection_linf": 0.0015443946476017614,
+        "projection_modulus": 286,
+        "projection_residue_count": 99,
+        "synthetic_max_orbit_mass": 0.023290809497223727,
+        "synthetic_support_count": 51
+      },
+      "prime_factor_exact_marginal_cone": {
+        "bad_first_three": -0.30000000000000004,
+        "bad_full_action": 6.938893903907228e-17,
+        "bad_measure_feasible": true,
+        "equality_constraint_count": 25,
+        "lp_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "lp_status": 0,
+        "projection_residue_counts": {
+          "11": 9,
+          "13": 11,
+          "2": 1,
+          "5": 3,
+          "7": 5
+        },
+        "synthetic_l1_from_full_uniform": 1.960942760942764,
+        "synthetic_max_orbit_mass": 0.12680218150061484,
+        "synthetic_support_count": 15
+      },
+      "reflection_orbit_count": 743,
+      "target": 1379072,
+      "target_mod_286": 266,
+      "target_residue": 7702
+    }
+  },
+  "target_rows": [
+    {
+      "actual_first_three": -0.8950145872346783,
+      "actual_full_action": -0.8769412734408433,
+      "actual_linf_exceeds_minimum_bad_linf": true,
+      "actual_q286_projection": {
+        "actual_projection_l1": 0.808080808080808,
+        "actual_projection_linf": 0.03004848667223886,
+        "actual_projection_total_variation": 0.404040404040404
+      },
+      "actual_tv_exceeds_minimum_bad_tv": true,
+      "exact_q286_projection_uniform_cone": {
+        "bad_measure_feasible": false,
+        "equality_constraint_count": 99,
+        "lp_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+        "lp_status": 2,
+        "projection_residue_counts": {
+          "286": 99
+        }
+      },
+      "minimum_bad_q286_projection_l1": {
+        "bad_first_three": -0.3,
+        "bad_full_action": 1.6653345369377348e-16,
+        "lp_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "lp_status": 0,
+        "lp_success": true,
+        "minimum_bad_projection_l1": 0.029484765017687597,
+        "minimum_bad_projection_linf_for_this_l1_solution": 0.007371191254422037,
+        "minimum_bad_projection_total_variation": 0.014742382508843799,
+        "projection_modulus": 286,
+        "projection_residue_count": 99,
+        "synthetic_max_orbit_mass": 0.03494440271086372,
+        "synthetic_support_count": 51
+      },
+      "minimum_bad_q286_projection_linf": {
+        "bad_first_three": -0.29999999999999993,
+        "bad_full_action": -1.3877787807814457e-17,
+        "bad_projection_l1_for_this_linf_solution": 0.169744574150827,
+        "lp_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "lp_status": 0,
+        "lp_success": true,
+        "minimum_bad_projection_linf": 0.0017320874913349642,
+        "projection_modulus": 286,
+        "projection_residue_count": 99,
+        "synthetic_max_orbit_mass": 0.023666195184690132,
+        "synthetic_support_count": 51
+      },
+      "prime_factor_exact_marginal_cone": {
+        "bad_first_three": -0.29999999999999993,
+        "bad_full_action": -4.163336342344337e-17,
+        "bad_measure_feasible": true,
+        "equality_constraint_count": 25,
+        "lp_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "lp_status": 0,
+        "projection_residue_counts": {
+          "11": 9,
+          "13": 11,
+          "2": 1,
+          "5": 3,
+          "7": 5
+        },
+        "synthetic_l1_from_full_uniform": 1.9595959595959593,
+        "synthetic_max_orbit_mass": 0.1228901891718212,
+        "synthetic_support_count": 15
+      },
+      "reflection_orbit_count": 743,
+      "target": 14138,
+      "target_mod_286": 124,
+      "target_residue": 4128
+    },
+    {
+      "actual_first_three": -0.9923694214370515,
+      "actual_full_action": -0.20350224619706808,
+      "actual_linf_exceeds_minimum_bad_linf": true,
+      "actual_q286_projection": {
+        "actual_projection_l1": 0.6464646464646465,
+        "actual_projection_linf": 0.021801158545703615,
+        "actual_projection_total_variation": 0.32323232323232326
+      },
+      "actual_tv_exceeds_minimum_bad_tv": true,
+      "exact_q286_projection_uniform_cone": {
+        "bad_measure_feasible": false,
+        "equality_constraint_count": 99,
+        "lp_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+        "lp_status": 2,
+        "projection_residue_counts": {
+          "286": 99
+        }
+      },
+      "minimum_bad_q286_projection_l1": {
+        "bad_first_three": -0.29999999999999993,
+        "bad_full_action": -2.7755575615628914e-17,
+        "lp_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "lp_status": 0,
+        "lp_success": true,
+        "minimum_bad_projection_l1": 0.029484765017687542,
+        "minimum_bad_projection_linf_for_this_l1_solution": 0.007371191254422045,
+        "minimum_bad_projection_total_variation": 0.014742382508843771,
+        "projection_modulus": 286,
+        "projection_residue_count": 99,
+        "synthetic_max_orbit_mass": 0.03178422126874459,
+        "synthetic_support_count": 51
+      },
+      "minimum_bad_q286_projection_linf": {
+        "bad_first_three": -0.2999999999999997,
+        "bad_full_action": -4.0766001685454967e-17,
+        "bad_projection_l1_for_this_linf_solution": 0.16974457415082728,
+        "lp_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "lp_status": 0,
+        "lp_success": true,
+        "minimum_bad_projection_linf": 0.0017320874913349642,
+        "projection_modulus": 286,
+        "projection_residue_count": 99,
+        "synthetic_max_orbit_mass": 0.023666195184690132,
+        "synthetic_support_count": 51
+      },
+      "prime_factor_exact_marginal_cone": {
+        "bad_first_three": -0.7200616541120418,
+        "bad_full_action": -0.10065985353350508,
+        "bad_measure_feasible": true,
+        "equality_constraint_count": 25,
+        "lp_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "lp_status": 0,
+        "projection_residue_counts": {
+          "11": 9,
+          "13": 11,
+          "2": 1,
+          "5": 3,
+          "7": 5
+        },
+        "synthetic_l1_from_full_uniform": 1.9676767676767675,
+        "synthetic_max_orbit_mass": 0.15858585858585866,
+        "synthetic_support_count": 12
+      },
+      "reflection_orbit_count": 743,
+      "target": 14996,
+      "target_mod_286": 124,
+      "target_residue": 4986
+    },
+    {
+      "actual_first_three": -0.585152036986263,
+      "actual_full_action": 0.012576466293799767,
+      "actual_linf_exceeds_minimum_bad_linf": true,
+      "actual_q286_projection": {
+        "actual_projection_l1": 0.36220971172747674,
+        "actual_projection_linf": 0.013616566392373453,
+        "actual_projection_total_variation": 0.18110485586373837
+      },
+      "actual_tv_exceeds_minimum_bad_tv": true,
+      "exact_q286_projection_uniform_cone": {
+        "bad_measure_feasible": false,
+        "equality_constraint_count": 99,
+        "lp_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+        "lp_status": 2,
+        "projection_residue_counts": {
+          "286": 99
+        }
+      },
+      "minimum_bad_q286_projection_l1": {
+        "bad_first_three": -0.30000000000000004,
+        "bad_full_action": -5.551115123125783e-17,
+        "lp_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "lp_status": 0,
+        "lp_success": true,
+        "minimum_bad_projection_l1": 0.030037853203213775,
+        "minimum_bad_projection_linf_for_this_l1_solution": 0.007509463300803604,
+        "minimum_bad_projection_total_variation": 0.015018926601606888,
+        "projection_modulus": 286,
+        "projection_residue_count": 99,
+        "synthetic_max_orbit_mass": 0.03522094680362677,
+        "synthetic_support_count": 51
+      },
+      "minimum_bad_q286_projection_linf": {
+        "bad_first_three": -0.30000000000000016,
+        "bad_full_action": -1.1622647289044608e-16,
+        "bad_projection_l1_for_this_linf_solution": 0.16977002876788477,
+        "lp_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "lp_status": 0,
+        "lp_success": true,
+        "minimum_bad_projection_linf": 0.0017323472323253607,
+        "projection_modulus": 286,
+        "projection_residue_count": 99,
+        "synthetic_max_orbit_mass": 0.023666714666670925,
+        "synthetic_support_count": 51
+      },
+      "prime_factor_exact_marginal_cone": {
+        "bad_first_three": -0.5929605660465546,
+        "bad_full_action": 8.326672684688674e-17,
+        "bad_measure_feasible": true,
+        "equality_constraint_count": 25,
+        "lp_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "lp_status": 0,
+        "projection_residue_counts": {
+          "11": 9,
+          "13": 11,
+          "2": 1,
+          "5": 3,
+          "7": 5
+        },
+        "synthetic_l1_from_full_uniform": 1.962289562289562,
+        "synthetic_max_orbit_mass": 0.13573970113520398,
+        "synthetic_support_count": 14
+      },
+      "reflection_orbit_count": 743,
+      "target": 94856,
+      "target_mod_286": 190,
+      "target_residue": 4766
+    },
+    {
+      "actual_first_three": -0.30758776037087954,
+      "actual_full_action": 0.9457162662139126,
+      "actual_linf_exceeds_minimum_bad_linf": true,
+      "actual_q286_projection": {
+        "actual_projection_l1": 0.14411251841002823,
+        "actual_projection_linf": 0.004816580540928846,
+        "actual_projection_total_variation": 0.07205625920501411
+      },
+      "actual_tv_exceeds_minimum_bad_tv": true,
+      "exact_q286_projection_uniform_cone": {
+        "bad_measure_feasible": false,
+        "equality_constraint_count": 99,
+        "lp_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+        "lp_status": 2,
+        "projection_residue_counts": {
+          "286": 99
+        }
+      },
+      "minimum_bad_q286_projection_l1": {
+        "bad_first_three": -0.30000000000000004,
+        "bad_full_action": 5.551115123125783e-17,
+        "lp_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "lp_status": 0,
+        "lp_success": true,
+        "minimum_bad_projection_l1": 0.0292122325026506,
+        "minimum_bad_projection_linf_for_this_l1_solution": 0.007303058125662801,
+        "minimum_bad_projection_total_variation": 0.0146061162513253,
+        "projection_modulus": 286,
+        "projection_residue_count": 99,
+        "synthetic_max_orbit_mass": 0.0348081364533452,
+        "synthetic_support_count": 51
+      },
+      "minimum_bad_q286_projection_linf": {
+        "bad_first_three": -0.30000000000000016,
+        "bad_full_action": 5.551115123125783e-17,
+        "bad_projection_l1_for_this_linf_solution": 0.15758899800615295,
+        "lp_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "lp_status": 0,
+        "lp_success": true,
+        "minimum_bad_projection_linf": 0.0016080510000628032,
+        "projection_modulus": 286,
+        "projection_residue_count": 99,
+        "synthetic_max_orbit_mass": 0.023418122202145758,
+        "synthetic_support_count": 51
+      },
+      "prime_factor_exact_marginal_cone": {
+        "bad_first_three": -0.3,
+        "bad_full_action": -1.3530843112619095e-16,
+        "bad_measure_feasible": true,
+        "equality_constraint_count": 25,
+        "lp_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "lp_status": 0,
+        "projection_residue_counts": {
+          "11": 9,
+          "13": 11,
+          "2": 1,
+          "5": 3,
+          "7": 5
+        },
+        "synthetic_l1_from_full_uniform": 1.9595959595959624,
+        "synthetic_max_orbit_mass": 0.17330987224849098,
+        "synthetic_support_count": 15
+      },
+      "reflection_orbit_count": 743,
+      "target": 1222142,
+      "target_mod_286": 64,
+      "target_residue": 922
+    },
+    {
+      "actual_first_three": -0.27468410150061684,
+      "actual_full_action": 0.9341612623447066,
+      "actual_linf_exceeds_minimum_bad_linf": true,
+      "actual_q286_projection": {
+        "actual_projection_l1": 0.1288360048979596,
+        "actual_projection_linf": 0.0039569145231730515,
+        "actual_projection_total_variation": 0.0644180024489798
+      },
+      "actual_tv_exceeds_minimum_bad_tv": true,
+      "exact_q286_projection_uniform_cone": {
+        "bad_measure_feasible": false,
+        "equality_constraint_count": 110,
+        "lp_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+        "lp_status": 2,
+        "projection_residue_counts": {
+          "286": 110
+        }
+      },
+      "minimum_bad_q286_projection_l1": {
+        "bad_first_three": -0.3,
+        "bad_full_action": 2.4069288229178198e-17,
+        "lp_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "lp_status": 0,
+        "lp_success": true,
+        "minimum_bad_projection_l1": 0.029406348813022995,
+        "minimum_bad_projection_linf_for_this_l1_solution": 0.007351587203255823,
+        "minimum_bad_projection_total_variation": 0.014703174406511497,
+        "projection_modulus": 286,
+        "projection_residue_count": 110,
+        "synthetic_max_orbit_mass": 0.032884992588329526,
+        "synthetic_support_count": 56
+      },
+      "minimum_bad_q286_projection_linf": {
+        "bad_first_three": -0.3000000000000002,
+        "bad_full_action": -3.729655473350135e-17,
+        "bad_projection_l1_for_this_linf_solution": 0.16153623735823064,
+        "lp_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "lp_status": 0,
+        "lp_success": true,
+        "minimum_bad_projection_linf": 0.0014957059014651004,
+        "projection_modulus": 286,
+        "projection_residue_count": 110,
+        "synthetic_max_orbit_mass": 0.021173229984748375,
+        "synthetic_support_count": 56
+      },
+      "prime_factor_exact_marginal_cone": {
+        "bad_first_three": -0.3000000000000037,
+        "bad_full_action": -0.07495219719482688,
+        "bad_measure_feasible": true,
+        "equality_constraint_count": 26,
+        "lp_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "lp_status": 0,
+        "projection_residue_counts": {
+          "11": 10,
+          "13": 11,
+          "2": 1,
+          "5": 3,
+          "7": 5
+        },
+        "synthetic_l1_from_full_uniform": 1.9684848484848494,
+        "synthetic_max_orbit_mass": 0.18181818181818193,
+        "synthetic_support_count": 13
+      },
+      "reflection_orbit_count": 825,
+      "target": 1240888,
+      "target_mod_286": 220,
+      "target_residue": 9658
+    },
+    {
+      "actual_first_three": -0.2864267432684324,
+      "actual_full_action": 0.674104299680743,
+      "actual_linf_exceeds_minimum_bad_linf": true,
+      "actual_q286_projection": {
+        "actual_projection_l1": 0.1343553520477156,
+        "actual_projection_linf": 0.005884507925896915,
+        "actual_projection_total_variation": 0.0671776760238578
+      },
+      "actual_tv_exceeds_minimum_bad_tv": true,
+      "exact_q286_projection_uniform_cone": {
+        "bad_measure_feasible": false,
+        "equality_constraint_count": 99,
+        "lp_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+        "lp_status": 2,
+        "projection_residue_counts": {
+          "286": 99
+        }
+      },
+      "minimum_bad_q286_projection_l1": {
+        "bad_first_three": -0.30000000000000004,
+        "bad_full_action": 1.1102230246251565e-16,
+        "lp_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "lp_status": 0,
+        "lp_success": true,
+        "minimum_bad_projection_l1": 0.016139747129461986,
+        "minimum_bad_projection_linf_for_this_l1_solution": 0.008069873564731331,
+        "minimum_bad_projection_total_variation": 0.008069873564730993,
+        "projection_modulus": 286,
+        "projection_residue_count": 99,
+        "synthetic_max_orbit_mass": 0.02827189376675086,
+        "synthetic_support_count": 51
+      },
+      "minimum_bad_q286_projection_linf": {
+        "bad_first_three": -0.30000000000000004,
+        "bad_full_action": 1.1102230246251565e-16,
+        "bad_projection_l1_for_this_linf_solution": 0.15135067546496667,
+        "lp_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "lp_status": 0,
+        "lp_success": true,
+        "minimum_bad_projection_linf": 0.0015443946476017094,
+        "projection_modulus": 286,
+        "projection_residue_count": 99,
+        "synthetic_max_orbit_mass": 0.02329080949722362,
+        "synthetic_support_count": 51
+      },
+      "prime_factor_exact_marginal_cone": {
+        "bad_first_three": -0.7344241821006364,
+        "bad_full_action": -0.010926896636627634,
+        "bad_measure_feasible": true,
+        "equality_constraint_count": 25,
+        "lp_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "lp_status": 0,
+        "projection_residue_counts": {
+          "11": 9,
+          "13": 11,
+          "2": 1,
+          "5": 3,
+          "7": 5
+        },
+        "synthetic_l1_from_full_uniform": 1.9649831649831648,
+        "synthetic_max_orbit_mass": 0.18181818181818196,
+        "synthetic_support_count": 13
+      },
+      "reflection_orbit_count": 743,
+      "target": 1242118,
+      "target_mod_286": 20,
+      "target_residue": 878
+    },
+    {
+      "actual_first_three": -0.33941388421290136,
+      "actual_full_action": 0.9449988671776869,
+      "actual_linf_exceeds_minimum_bad_linf": true,
+      "actual_q286_projection": {
+        "actual_projection_l1": 0.1306340807047251,
+        "actual_projection_linf": 0.005834526319800806,
+        "actual_projection_total_variation": 0.06531704035236255
+      },
+      "actual_tv_exceeds_minimum_bad_tv": true,
+      "exact_q286_projection_uniform_cone": {
+        "bad_measure_feasible": false,
+        "equality_constraint_count": 99,
+        "lp_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+        "lp_status": 2,
+        "projection_residue_counts": {
+          "286": 99
+        }
+      },
+      "minimum_bad_q286_projection_l1": {
+        "bad_first_three": -0.3,
+        "bad_full_action": 0.0,
+        "lp_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "lp_status": 0,
+        "lp_success": true,
+        "minimum_bad_projection_l1": 0.016139747129461847,
+        "minimum_bad_projection_linf_for_this_l1_solution": 0.008069873564731248,
+        "minimum_bad_projection_total_variation": 0.008069873564730923,
+        "projection_modulus": 286,
+        "projection_residue_count": 99,
+        "synthetic_max_orbit_mass": 0.028271893766750798,
+        "synthetic_support_count": 51
+      },
+      "minimum_bad_q286_projection_linf": {
+        "bad_first_three": -0.30000000000000043,
+        "bad_full_action": -1.1102230246251565e-16,
+        "bad_projection_l1_for_this_linf_solution": 0.151350675464972,
+        "lp_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "lp_status": 0,
+        "lp_success": true,
+        "minimum_bad_projection_linf": 0.0015443946476017614,
+        "projection_modulus": 286,
+        "projection_residue_count": 99,
+        "synthetic_max_orbit_mass": 0.023290809497223727,
+        "synthetic_support_count": 51
+      },
+      "prime_factor_exact_marginal_cone": {
+        "bad_first_three": -0.30000000000000004,
+        "bad_full_action": 6.938893903907228e-17,
+        "bad_measure_feasible": true,
+        "equality_constraint_count": 25,
+        "lp_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "lp_status": 0,
+        "projection_residue_counts": {
+          "11": 9,
+          "13": 11,
+          "2": 1,
+          "5": 3,
+          "7": 5
+        },
+        "synthetic_l1_from_full_uniform": 1.960942760942764,
+        "synthetic_max_orbit_mass": 0.12680218150061484,
+        "synthetic_support_count": 15
+      },
+      "reflection_orbit_count": 743,
+      "target": 1379072,
+      "target_mod_286": 266,
+      "target_residue": 7702
+    }
+  ],
+  "universal_bound_open": true
+}
