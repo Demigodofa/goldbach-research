@@ -6,6 +6,39 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The metric-soft moment-square route now has a checked-scale primewise
+degree-`5` active/full dominance audit:
+`tools/build_mobius_moment_square_degree5_checked_scale_dominance_audit.py`
+generated
+`evidence/mobius-moment-square-degree5-checked-scale-dominance-audit.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-checked-scale-dominance-audit.md`.
+
+Question: does the weak-block degree-`5` active/full dominance phenomenon
+extend across all six checked moment-square scales, or does a checked scale
+falsify the local dominance target?
+
+Answer: across scales `127`, `149`, `167`, `191`, `211`, and `227`, all
+`756/756` checked dominance rows clear the signed `1/2` threshold:
+`567/567` component rows and `189/189` degree-`5` total rows have positive
+dominance slack.  The global weakest row remains `M=167`, prime `181`,
+component `(00,12)`, with active/full ratio `0.5563677490893767` and slack
+`0.056367749089376695` above `1/2`.
+
+Decision: `CHECK_degree5_checked_scale_primewise_dominance`.  The finite
+dominance pattern is not only a weak-block event in the checked fixture.  The
+next theorem-shaped target is to prove a local one-prime active/full
+dominance lemma for the three degree-`5` components, or find a
+scale/parameter regime where that dominance breaks.  This is finite
+checked-scale dominance evidence only.  No checked-scale dominance theorem,
+primewise dominance theorem, degree-`5` coefficient theorem, robust-margin
+universal theorem, coefficient-family theorem, universal Sturm-certificate
+theorem, half-frame curve-positivity theorem, uniform active/full lower-frame
+theorem, Mobius covariance theorem, signed prime-correlation estimate, q286
+theorem, strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-16
+
 The metric-soft moment-square route now has a weak-block primewise
 degree-`5` active/full dominance audit:
 `tools/build_mobius_moment_square_degree5_primewise_dominance_audit.py`

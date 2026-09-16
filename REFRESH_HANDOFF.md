@@ -6,6 +6,58 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The metric-soft moment-square route now has a checked-scale primewise
+degree-`5` active/full dominance audit:
+
+```text
+tools/build_mobius_moment_square_degree5_checked_scale_dominance_audit.py
+notes/mobius-moment-square-degree5-checked-scale-dominance-audit.md
+evidence/mobius-moment-square-degree5-checked-scale-dominance-audit.json
+```
+
+Result:
+
+```text
+status: CHECK_degree5_checked_scale_primewise_dominance
+scales:                                      127, 149, 167, 191, 211, 227
+total primes checked:                        189
+component rows:                              567
+degree-5 total rows:                         189
+all dominance rows:                          756
+component dominance slacks:                  +567 / 0 / 0
+degree-5 total dominance slacks:             +189 / 0 / 0
+all dominance slacks:                        +756 / 0 / 0
+global weakest row:                          M=167, p=181, (00,12)
+global weakest active/full ratio:            0.5563677490893767
+global weakest slack above 1/2:              0.056367749089376695
+```
+
+Scale-wise weakest slacks:
+
+```text
+M=127: 0.20758734929764133
+M=149: 0.1905059738826077
+M=167: 0.056367749089376695
+M=191: 0.3396056234839627
+M=211: 0.3211806699762235
+M=227: 0.3429887125059675
+```
+
+Decision: the finite dominance pattern is not only a weak-block event in the
+checked fixture.  Every checked component and degree-`5` total row across the
+six moment-square scales clears the signed `1/2` active/full threshold.  The
+next theorem-shaped target is a local one-prime dominance lemma for `(00,12)`,
+`(01,02)`, and `(01,11)`, or a falsifying parameter regime where that
+dominance breaks.  This is finite checked-scale dominance evidence only; no
+checked-scale dominance theorem, primewise dominance theorem, degree-`5`
+coefficient theorem, robust-margin universal theorem, coefficient-family
+theorem, universal Sturm-certificate theorem, half-frame curve-positivity
+theorem, uniform active/full lower frame, Mobius covariance theorem, signed
+prime-correlation estimate, q286 theorem, strict-central Goldbach theorem, or
+Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-16
+
 The metric-soft moment-square route now has a weak-block primewise
 degree-`5` active/full dominance audit:
 
