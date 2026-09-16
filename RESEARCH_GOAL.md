@@ -6,6 +6,39 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The `Q=46189` replacement-family lane now has a factor-geometry route triage:
+`tools/build_mobius_moment_square_degree5_q46189_factor_geometry_route_triage.py`
+generated
+`evidence/mobius-moment-square-degree5-q46189-factor-geometry-route-triage.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-q46189-factor-geometry-route-triage.md`.
+
+Question: after the `50A..60A` selector is demoted and low-order bucket
+co-occurrence fails, which source/factor geometry signals remain useful for
+the `Q=46189` overpayment-exclusion route?
+
+Answer: the all-high/no-small factor packet is the finite separator in the
+checked `35`-row landscape: `Q=46189 = 11*13*17*19` is the only all-high
+row, while all `34` replacement rows contain small-prime support and keep
+`off_diagonal_total / diagonal_half > -1`.  But this is only a route locator,
+not a theorem.  A scalar source-pair coefficient is refuted as the boundary
+explanation: `7` nonadverse rows have raw scalar at least as negative as
+`Q=46189`, and the most negative raw-scalar row is `q=67830` at
+`-0.08346040426201057`, far above the `-1` kernel boundary.
+
+Decision: do not rescue `50A..60A`, and do not use a scalar source-pair
+coefficient as the proof object.  The useful next theorem-shaped target is
+replacement-packet bucket compensation, beginning with the tight survivor
+`q=38038` versus `Q=46189`.  For `q=38038`, the `middle_A_to_10A` bucket
+contributes `-0.939992990438763`, while the other buckets contribute
+`0.09269980585259228`, keeping the total at `-0.8472931845861708` and
+leaving margin `0.15270681541382924` above `-1`.  This proves no factor
+separator theorem, scalar coefficient theorem, replacement-packet
+compensation theorem, coordinate-`00` residue-gap sign theorem,
+strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The `Q=46189` replacement-family lane now has a kernel co-occurrence
 relaxation audit:
 `tools/build_mobius_moment_square_degree5_q46189_kernel_cooccurrence_relaxation_audit.py`

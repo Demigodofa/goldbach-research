@@ -6,6 +6,44 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The `Q=46189` replacement-family lane now has a factor-geometry route triage:
+
+```text
+tools/build_mobius_moment_square_degree5_q46189_factor_geometry_route_triage.py
+notes/mobius-moment-square-degree5-q46189-factor-geometry-route-triage.md
+evidence/mobius-moment-square-degree5-q46189-factor-geometry-route-triage.json
+```
+
+Result:
+
+```text
+row count:                                  35
+all-high/no-small rows:                     1
+replacement rows:                           34
+all replacement rows keep surplus:          True
+Q=46189 raw scalar:                         -0.07475328212536138
+raw-scalar false positives:                 7
+most negative raw-scalar denominator:       67830
+most negative raw scalar:                   -0.08346040426201057
+weakest replacement denominator:            38038
+weakest replacement off/diag-half:          -0.8472931845861708
+weakest middle A..10A contribution:         -0.939992990438763
+weakest non-middle compensation:            0.09269980585259228
+weakest margin above -1:                    0.15270681541382924
+```
+
+Decision: the all-high/no-small packet is a finite route locator, not a
+theorem.  A scalar source-pair coefficient does not explain the boundary:
+seven nonadverse rows have raw scalar at least as negative as `Q=46189`, and
+`q=67830` is the most negative raw-scalar row while remaining far above the
+`-1` kernel boundary.  The next theorem-shaped target is replacement-packet
+bucket compensation, starting with symbolic `q=38038` versus `Q=46189`
+source-conductor terms.  This proves no factor separator theorem, scalar
+coefficient theorem, replacement-packet compensation theorem, coordinate-`00`
+residue-gap sign theorem, strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The `Q=46189` replacement-family lane now has a kernel co-occurrence
 relaxation audit:
 

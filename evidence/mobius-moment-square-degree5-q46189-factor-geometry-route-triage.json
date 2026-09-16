@@ -1,0 +1,1181 @@
+{
+  "all_high_factor_separator": {
+    "all_high_no_small_row_count": 1,
+    "all_high_no_small_rows": [
+      {
+        "missing_high_primes": [],
+        "off_diagonal_over_diagonal_half": -1.0053819255304557,
+        "ratio_minus_half": -0.002690962765227888,
+        "raw_scalar_real": -0.07475328212536138,
+        "reduced_denominator": 46189,
+        "role": "q46189_adverse",
+        "small_prime_support": []
+      }
+    ],
+    "all_replacement_rows_keep_diagonal_surplus": true,
+    "finite_separator_observed": true,
+    "replacement_row_count": 34
+  },
+  "all_high_factor_separator_theorem_proved": false,
+  "candidate_next_action": {
+    "falsifier": "A reachable replacement packet in the same natural class with middle-band loss and no compensating near/far/tail surplus would falsify this compensation route.",
+    "mechanism": "Use the natural replacement-packet geometry, not a fitted distance selector.  The finite separator is all-high/no-small versus replacement packets, but the tight replacement q=38038 survives only because adverse middle-band mass is compensated by the other buckets.",
+    "name": "replacement-packet bucket compensation theorem target",
+    "novelty_label": "new-to-this-task",
+    "prediction": "A proof target should be a class-conditioned compensation inequality for replacement packets, beginning with the q=38038 missing-17 small-(2,7) packet, rather than a scalar source-pair coefficient or independent bucket caps.",
+    "smallest_next_test": "Construct the exact symbolic bucket identity for q=38038 and compare it to Q=46189, tracking which source-conductor pair terms create the positive non-middle compensation."
+  },
+  "classification": {
+    "all_high_no_small_finite_separator_observed": true,
+    "all_replacement_rows_keep_diagonal_surplus": true,
+    "factor_geometry_triage_only": true,
+    "finite_diagnostic_only": true,
+    "scalar_source_pair_coefficient_explanation_refuted": true,
+    "weakest_replacement_needs_bucket_compensation": true
+  },
+  "coordinate00_residue_gap_sign_theorem_proved": false,
+  "decision": "The all-high/no-small factor packet is the finite separator in this landscape, but that is only a route locator, not a theorem. A scalar source-pair coefficient does not explain the boundary: multiple nonadverse packets have raw scalar at least as negative as Q46189, and q=67830 is the most negative raw-scalar row while remaining far above the -1 kernel boundary.  The tight survivor q=38038 has a large middle-band loss around -0.94, compensated by the other buckets.  The next theorem-shaped target is therefore replacement-packet bucket compensation, starting with q=38038 versus Q46189.",
+  "factor_class_summaries": {
+    "by_missing_high_prime_set": [
+      {
+        "all_rows_keep_diagonal_surplus": false,
+        "maximum_off_diagonal_row": {
+          "missing_high_primes": [],
+          "off_diagonal_over_diagonal_half": -1.0053819255304557,
+          "ratio_minus_half": -0.002690962765227888,
+          "raw_scalar_real": -0.07475328212536138,
+          "reduced_denominator": 46189,
+          "role": "q46189_adverse",
+          "small_prime_support": []
+        },
+        "minimum_off_diagonal_row": {
+          "missing_high_primes": [],
+          "off_diagonal_over_diagonal_half": -1.0053819255304557,
+          "ratio_minus_half": -0.002690962765227888,
+          "raw_scalar_real": -0.07475328212536138,
+          "reduced_denominator": 46189,
+          "role": "q46189_adverse",
+          "small_prime_support": []
+        },
+        "missing_high_primes": [],
+        "row_count": 1
+      },
+      {
+        "all_rows_keep_diagonal_surplus": true,
+        "maximum_off_diagonal_row": {
+          "missing_high_primes": [
+            11,
+            13
+          ],
+          "off_diagonal_over_diagonal_half": -0.09608764003639966,
+          "ratio_minus_half": 0.4519561799818002,
+          "raw_scalar_real": -0.05114909627680651,
+          "reduced_denominator": 33915,
+          "role": "unused_same_source_denominator",
+          "small_prime_support": [
+            3,
+            5,
+            7
+          ]
+        },
+        "minimum_off_diagonal_row": {
+          "missing_high_primes": [
+            11,
+            13
+          ],
+          "off_diagonal_over_diagonal_half": -0.4306875843769124,
+          "ratio_minus_half": 0.2846562078115438,
+          "raw_scalar_real": -0.08346040426201057,
+          "reduced_denominator": 67830,
+          "role": "unused_same_source_denominator",
+          "small_prime_support": [
+            2,
+            3,
+            5,
+            7
+          ]
+        },
+        "missing_high_primes": [
+          11,
+          13
+        ],
+        "row_count": 3
+      },
+      {
+        "all_rows_keep_diagonal_surplus": true,
+        "maximum_off_diagonal_row": {
+          "missing_high_primes": [
+            11,
+            17
+          ],
+          "off_diagonal_over_diagonal_half": 0.7357893889762076,
+          "ratio_minus_half": 0.8678946944881037,
+          "raw_scalar_real": -0.0472250092876079,
+          "reduced_denominator": 25935,
+          "role": "unused_same_source_denominator",
+          "small_prime_support": [
+            3,
+            5,
+            7
+          ]
+        },
+        "minimum_off_diagonal_row": {
+          "missing_high_primes": [
+            11,
+            17
+          ],
+          "off_diagonal_over_diagonal_half": -0.27611061504252415,
+          "ratio_minus_half": 0.36194469247873795,
+          "raw_scalar_real": -0.005792834763766334,
+          "reduced_denominator": 17290,
+          "role": "unused_same_source_denominator",
+          "small_prime_support": [
+            2,
+            5,
+            7
+          ]
+        },
+        "missing_high_primes": [
+          11,
+          17
+        ],
+        "row_count": 3
+      },
+      {
+        "all_rows_keep_diagonal_surplus": true,
+        "maximum_off_diagonal_row": {
+          "missing_high_primes": [
+            11,
+            19
+          ],
+          "off_diagonal_over_diagonal_half": 0.6536556358492223,
+          "ratio_minus_half": 0.8268278179246111,
+          "raw_scalar_real": -0.04576047105955337,
+          "reduced_denominator": 23205,
+          "role": "unused_same_source_denominator",
+          "small_prime_support": [
+            3,
+            5,
+            7
+          ]
+        },
+        "minimum_off_diagonal_row": {
+          "missing_high_primes": [
+            11,
+            19
+          ],
+          "off_diagonal_over_diagonal_half": -0.5667873501860531,
+          "ratio_minus_half": 0.21660632490697346,
+          "raw_scalar_real": -0.07523933047836293,
+          "reduced_denominator": 46410,
+          "role": "unused_same_source_denominator",
+          "small_prime_support": [
+            2,
+            3,
+            5,
+            7
+          ]
+        },
+        "missing_high_primes": [
+          11,
+          19
+        ],
+        "row_count": 2
+      },
+      {
+        "all_rows_keep_diagonal_surplus": true,
+        "maximum_off_diagonal_row": {
+          "missing_high_primes": [
+            11
+          ],
+          "off_diagonal_over_diagonal_half": 0.07856796083592361,
+          "ratio_minus_half": 0.5392839804179619,
+          "raw_scalar_real": -0.04898281644008561,
+          "reduced_denominator": 29393,
+          "role": "unused_same_source_denominator",
+          "small_prime_support": [
+            7
+          ]
+        },
+        "minimum_off_diagonal_row": {
+          "missing_high_primes": [
+            11
+          ],
+          "off_diagonal_over_diagonal_half": -0.5330052888553436,
+          "ratio_minus_half": 0.2334973555723282,
+          "raw_scalar_real": -0.072608387855175,
+          "reduced_denominator": 41990,
+          "role": "original_replacement",
+          "small_prime_support": [
+            2,
+            5
+          ]
+        },
+        "missing_high_primes": [
+          11
+        ],
+        "row_count": 6
+      },
+      {
+        "all_rows_keep_diagonal_surplus": true,
+        "maximum_off_diagonal_row": {
+          "missing_high_primes": [
+            13,
+            17
+          ],
+          "off_diagonal_over_diagonal_half": 0.42422815217472254,
+          "ratio_minus_half": 0.7121140760873612,
+          "raw_scalar_real": -0.07377833846021094,
+          "reduced_denominator": 43890,
+          "role": "unused_same_source_denominator",
+          "small_prime_support": [
+            2,
+            3,
+            5,
+            7
+          ]
+        },
+        "minimum_off_diagonal_row": {
+          "missing_high_primes": [
+            13,
+            17
+          ],
+          "off_diagonal_over_diagonal_half": -0.038769154584088916,
+          "ratio_minus_half": 0.48061542270795554,
+          "raw_scalar_real": -0.0447813910873399,
+          "reduced_denominator": 21945,
+          "role": "unused_same_source_denominator",
+          "small_prime_support": [
+            3,
+            5,
+            7
+          ]
+        },
+        "missing_high_primes": [
+          13,
+          17
+        ],
+        "row_count": 2
+      },
+      {
+        "all_rows_keep_diagonal_surplus": true,
+        "maximum_off_diagonal_row": {
+          "missing_high_primes": [
+            13,
+            19
+          ],
+          "off_diagonal_over_diagonal_half": 0.19719696033169568,
+          "ratio_minus_half": 0.5985984801658479,
+          "raw_scalar_real": -0.0716203541550959,
+          "reduced_denominator": 39270,
+          "role": "unused_same_source_denominator",
+          "small_prime_support": [
+            2,
+            3,
+            5,
+            7
+          ]
+        },
+        "minimum_off_diagonal_row": {
+          "missing_high_primes": [
+            13,
+            19
+          ],
+          "off_diagonal_over_diagonal_half": 0.19688723107220296,
+          "ratio_minus_half": 0.5984436155361015,
+          "raw_scalar_real": -0.04338835914456383,
+          "reduced_denominator": 19635,
+          "role": "unused_same_source_denominator",
+          "small_prime_support": [
+            3,
+            5,
+            7
+          ]
+        },
+        "missing_high_primes": [
+          13,
+          19
+        ],
+        "row_count": 2
+      },
+      {
+        "all_rows_keep_diagonal_surplus": true,
+        "maximum_off_diagonal_row": {
+          "missing_high_primes": [
+            13
+          ],
+          "off_diagonal_over_diagonal_half": 0.5846979689588861,
+          "ratio_minus_half": 0.7923489844794431,
+          "raw_scalar_real": -0.04645392921593772,
+          "reduced_denominator": 24871,
+          "role": "unused_same_source_denominator",
+          "small_prime_support": [
+            7
+          ]
+        },
+        "minimum_off_diagonal_row": {
+          "missing_high_primes": [
+            13
+          ],
+          "off_diagonal_over_diagonal_half": -0.760552562324089,
+          "ratio_minus_half": 0.11972371883795552,
+          "raw_scalar_real": -0.0580782322261193,
+          "reduced_denominator": 21318,
+          "role": "unused_same_source_denominator",
+          "small_prime_support": [
+            2,
+            3
+          ]
+        },
+        "missing_high_primes": [
+          13
+        ],
+        "row_count": 6
+      },
+      {
+        "all_rows_keep_diagonal_surplus": true,
+        "maximum_off_diagonal_row": {
+          "missing_high_primes": [
+            17,
+            19
+          ],
+          "off_diagonal_over_diagonal_half": 0.38257255330304696,
+          "ratio_minus_half": 0.6912862766515235,
+          "raw_scalar_real": -0.0664155335925951,
+          "reduced_denominator": 30030,
+          "role": "unused_same_source_denominator",
+          "small_prime_support": [
+            2,
+            3,
+            5,
+            7
+          ]
+        },
+        "minimum_off_diagonal_row": {
+          "missing_high_primes": [
+            17,
+            19
+          ],
+          "off_diagonal_over_diagonal_half": 0.38257255330304696,
+          "ratio_minus_half": 0.6912862766515235,
+          "raw_scalar_real": -0.0664155335925951,
+          "reduced_denominator": 30030,
+          "role": "unused_same_source_denominator",
+          "small_prime_support": [
+            2,
+            3,
+            5,
+            7
+          ]
+        },
+        "missing_high_primes": [
+          17,
+          19
+        ],
+        "row_count": 1
+      },
+      {
+        "all_rows_keep_diagonal_surplus": true,
+        "maximum_off_diagonal_row": {
+          "missing_high_primes": [
+            17
+          ],
+          "off_diagonal_over_diagonal_half": 0.17480664952782843,
+          "ratio_minus_half": 0.5874033247639142,
+          "raw_scalar_real": -0.06404834670834188,
+          "reduced_denominator": 27170,
+          "role": "unused_same_source_denominator",
+          "small_prime_support": [
+            2,
+            5
+          ]
+        },
+        "minimum_off_diagonal_row": {
+          "missing_high_primes": [
+            17
+          ],
+          "off_diagonal_over_diagonal_half": -0.8472931845861708,
+          "ratio_minus_half": 0.07635340770691464,
+          "raw_scalar_real": -0.07083636365889087,
+          "reduced_denominator": 38038,
+          "role": "original_replacement",
+          "small_prime_support": [
+            2,
+            7
+          ]
+        },
+        "missing_high_primes": [
+          17
+        ],
+        "row_count": 5
+      },
+      {
+        "all_rows_keep_diagonal_surplus": true,
+        "maximum_off_diagonal_row": {
+          "missing_high_primes": [
+            19
+          ],
+          "off_diagonal_over_diagonal_half": -0.1058316518435477,
+          "ratio_minus_half": 0.4470841740782262,
+          "raw_scalar_real": -0.04153257873465788,
+          "reduced_denominator": 17017,
+          "role": "unused_same_source_denominator",
+          "small_prime_support": [
+            7
+          ]
+        },
+        "minimum_off_diagonal_row": {
+          "missing_high_primes": [
+            19
+          ],
+          "off_diagonal_over_diagonal_half": -0.2870201521687353,
+          "ratio_minus_half": 0.35648992391563233,
+          "raw_scalar_real": -0.07011113940333541,
+          "reduced_denominator": 36465,
+          "role": "original_replacement",
+          "small_prime_support": [
+            3,
+            5
+          ]
+        },
+        "missing_high_primes": [
+          19
+        ],
+        "row_count": 4
+      }
+    ],
+    "by_small_prime_support": [
+      {
+        "all_rows_keep_diagonal_surplus": false,
+        "maximum_off_diagonal_row": {
+          "missing_high_primes": [],
+          "off_diagonal_over_diagonal_half": -1.0053819255304557,
+          "ratio_minus_half": -0.002690962765227888,
+          "raw_scalar_real": -0.07475328212536138,
+          "reduced_denominator": 46189,
+          "role": "q46189_adverse",
+          "small_prime_support": []
+        },
+        "minimum_off_diagonal_row": {
+          "missing_high_primes": [],
+          "off_diagonal_over_diagonal_half": -1.0053819255304557,
+          "ratio_minus_half": -0.002690962765227888,
+          "raw_scalar_real": -0.07475328212536138,
+          "reduced_denominator": 46189,
+          "role": "q46189_adverse",
+          "small_prime_support": []
+        },
+        "row_count": 1,
+        "small_prime_support": []
+      },
+      {
+        "all_rows_keep_diagonal_surplus": true,
+        "maximum_off_diagonal_row": {
+          "missing_high_primes": [
+            11
+          ],
+          "off_diagonal_over_diagonal_half": -0.2223518229337375,
+          "ratio_minus_half": 0.3888240885331313,
+          "raw_scalar_real": -0.06111258587757417,
+          "reduced_denominator": 25194,
+          "role": "unused_same_source_denominator",
+          "small_prime_support": [
+            2,
+            3
+          ]
+        },
+        "minimum_off_diagonal_row": {
+          "missing_high_primes": [
+            13
+          ],
+          "off_diagonal_over_diagonal_half": -0.760552562324089,
+          "ratio_minus_half": 0.11972371883795552,
+          "raw_scalar_real": -0.0580782322261193,
+          "reduced_denominator": 21318,
+          "role": "unused_same_source_denominator",
+          "small_prime_support": [
+            2,
+            3
+          ]
+        },
+        "row_count": 3,
+        "small_prime_support": [
+          2,
+          3
+        ]
+      },
+      {
+        "all_rows_keep_diagonal_surplus": true,
+        "maximum_off_diagonal_row": {
+          "missing_high_primes": [
+            13,
+            17
+          ],
+          "off_diagonal_over_diagonal_half": 0.42422815217472254,
+          "ratio_minus_half": 0.7121140760873612,
+          "raw_scalar_real": -0.07377833846021094,
+          "reduced_denominator": 43890,
+          "role": "unused_same_source_denominator",
+          "small_prime_support": [
+            2,
+            3,
+            5,
+            7
+          ]
+        },
+        "minimum_off_diagonal_row": {
+          "missing_high_primes": [
+            11,
+            19
+          ],
+          "off_diagonal_over_diagonal_half": -0.5667873501860531,
+          "ratio_minus_half": 0.21660632490697346,
+          "raw_scalar_real": -0.07523933047836293,
+          "reduced_denominator": 46410,
+          "role": "unused_same_source_denominator",
+          "small_prime_support": [
+            2,
+            3,
+            5,
+            7
+          ]
+        },
+        "row_count": 6,
+        "small_prime_support": [
+          2,
+          3,
+          5,
+          7
+        ]
+      },
+      {
+        "all_rows_keep_diagonal_surplus": true,
+        "maximum_off_diagonal_row": {
+          "missing_high_primes": [
+            17
+          ],
+          "off_diagonal_over_diagonal_half": 0.17480664952782843,
+          "ratio_minus_half": 0.5874033247639142,
+          "raw_scalar_real": -0.06404834670834188,
+          "reduced_denominator": 27170,
+          "role": "unused_same_source_denominator",
+          "small_prime_support": [
+            2,
+            5
+          ]
+        },
+        "minimum_off_diagonal_row": {
+          "missing_high_primes": [
+            11
+          ],
+          "off_diagonal_over_diagonal_half": -0.5330052888553436,
+          "ratio_minus_half": 0.2334973555723282,
+          "raw_scalar_real": -0.072608387855175,
+          "reduced_denominator": 41990,
+          "role": "original_replacement",
+          "small_prime_support": [
+            2,
+            5
+          ]
+        },
+        "row_count": 4,
+        "small_prime_support": [
+          2,
+          5
+        ]
+      },
+      {
+        "all_rows_keep_diagonal_surplus": true,
+        "maximum_off_diagonal_row": {
+          "missing_high_primes": [
+            11,
+            17
+          ],
+          "off_diagonal_over_diagonal_half": -0.27611061504252415,
+          "ratio_minus_half": 0.36194469247873795,
+          "raw_scalar_real": -0.005792834763766334,
+          "reduced_denominator": 17290,
+          "role": "unused_same_source_denominator",
+          "small_prime_support": [
+            2,
+            5,
+            7
+          ]
+        },
+        "minimum_off_diagonal_row": {
+          "missing_high_primes": [
+            11,
+            13
+          ],
+          "off_diagonal_over_diagonal_half": -0.4096679989764664,
+          "ratio_minus_half": 0.29516600051176684,
+          "raw_scalar_real": -0.006871760574683368,
+          "reduced_denominator": 22610,
+          "role": "unused_same_source_denominator",
+          "small_prime_support": [
+            2,
+            5,
+            7
+          ]
+        },
+        "row_count": 2,
+        "small_prime_support": [
+          2,
+          5,
+          7
+        ]
+      },
+      {
+        "all_rows_keep_diagonal_surplus": true,
+        "maximum_off_diagonal_row": {
+          "missing_high_primes": [
+            11
+          ],
+          "off_diagonal_over_diagonal_half": 0.04931013428427792,
+          "ratio_minus_half": 0.5246550671421389,
+          "raw_scalar_real": -0.08018047904089408,
+          "reduced_denominator": 58786,
+          "role": "original_replacement",
+          "small_prime_support": [
+            2,
+            7
+          ]
+        },
+        "minimum_off_diagonal_row": {
+          "missing_high_primes": [
+            17
+          ],
+          "off_diagonal_over_diagonal_half": -0.8472931845861708,
+          "ratio_minus_half": 0.07635340770691464,
+          "raw_scalar_real": -0.07083636365889087,
+          "reduced_denominator": 38038,
+          "role": "original_replacement",
+          "small_prime_support": [
+            2,
+            7
+          ]
+        },
+        "row_count": 4,
+        "small_prime_support": [
+          2,
+          7
+        ]
+      },
+      {
+        "all_rows_keep_diagonal_surplus": true,
+        "maximum_off_diagonal_row": {
+          "missing_high_primes": [
+            17
+          ],
+          "off_diagonal_over_diagonal_half": 0.1470828884300381,
+          "ratio_minus_half": 0.5735414442150191,
+          "raw_scalar_real": -0.07222823118954749,
+          "reduced_denominator": 40755,
+          "role": "original_replacement",
+          "small_prime_support": [
+            3,
+            5
+          ]
+        },
+        "minimum_off_diagonal_row": {
+          "missing_high_primes": [
+            11
+          ],
+          "off_diagonal_over_diagonal_half": -0.48362530506623397,
+          "ratio_minus_half": 0.258187347466883,
+          "raw_scalar_real": -0.0817331192209869,
+          "reduced_denominator": 62985,
+          "role": "original_replacement",
+          "small_prime_support": [
+            3,
+            5
+          ]
+        },
+        "row_count": 4,
+        "small_prime_support": [
+          3,
+          5
+        ]
+      },
+      {
+        "all_rows_keep_diagonal_surplus": true,
+        "maximum_off_diagonal_row": {
+          "missing_high_primes": [
+            11,
+            17
+          ],
+          "off_diagonal_over_diagonal_half": 0.7357893889762076,
+          "ratio_minus_half": 0.8678946944881037,
+          "raw_scalar_real": -0.0472250092876079,
+          "reduced_denominator": 25935,
+          "role": "unused_same_source_denominator",
+          "small_prime_support": [
+            3,
+            5,
+            7
+          ]
+        },
+        "minimum_off_diagonal_row": {
+          "missing_high_primes": [
+            11,
+            13
+          ],
+          "off_diagonal_over_diagonal_half": -0.09608764003639966,
+          "ratio_minus_half": 0.4519561799818002,
+          "raw_scalar_real": -0.05114909627680651,
+          "reduced_denominator": 33915,
+          "role": "unused_same_source_denominator",
+          "small_prime_support": [
+            3,
+            5,
+            7
+          ]
+        },
+        "row_count": 5,
+        "small_prime_support": [
+          3,
+          5,
+          7
+        ]
+      },
+      {
+        "all_rows_keep_diagonal_surplus": true,
+        "maximum_off_diagonal_row": {
+          "missing_high_primes": [
+            11
+          ],
+          "off_diagonal_over_diagonal_half": -0.03937906386834968,
+          "ratio_minus_half": 0.48031046806582517,
+          "raw_scalar_real": 0.03923406267887429,
+          "reduced_denominator": 20995,
+          "role": "unused_same_source_denominator",
+          "small_prime_support": [
+            5
+          ]
+        },
+        "minimum_off_diagonal_row": {
+          "missing_high_primes": [
+            13
+          ],
+          "off_diagonal_over_diagonal_half": -0.4935262425710908,
+          "ratio_minus_half": 0.2532368787144546,
+          "raw_scalar_real": 0.0380868148415741,
+          "reduced_denominator": 17765,
+          "role": "unused_same_source_denominator",
+          "small_prime_support": [
+            5
+          ]
+        },
+        "row_count": 2,
+        "small_prime_support": [
+          5
+        ]
+      },
+      {
+        "all_rows_keep_diagonal_surplus": true,
+        "maximum_off_diagonal_row": {
+          "missing_high_primes": [
+            13
+          ],
+          "off_diagonal_over_diagonal_half": 0.5846979689588861,
+          "ratio_minus_half": 0.7923489844794431,
+          "raw_scalar_real": -0.04645392921593772,
+          "reduced_denominator": 24871,
+          "role": "unused_same_source_denominator",
+          "small_prime_support": [
+            7
+          ]
+        },
+        "minimum_off_diagonal_row": {
+          "missing_high_primes": [
+            17
+          ],
+          "off_diagonal_over_diagonal_half": -0.2571109565714437,
+          "ratio_minus_half": 0.3714445217142781,
+          "raw_scalar_real": -0.04286915389374778,
+          "reduced_denominator": 19019,
+          "role": "unused_same_source_denominator",
+          "small_prime_support": [
+            7
+          ]
+        },
+        "row_count": 4,
+        "small_prime_support": [
+          7
+        ]
+      }
+    ],
+    "by_support_counts": [
+      {
+        "all_rows_keep_diagonal_surplus": true,
+        "maximum_off_diagonal_row": {
+          "missing_high_primes": [
+            11,
+            17
+          ],
+          "off_diagonal_over_diagonal_half": 0.7357893889762076,
+          "ratio_minus_half": 0.8678946944881037,
+          "raw_scalar_real": -0.0472250092876079,
+          "reduced_denominator": 25935,
+          "role": "unused_same_source_denominator",
+          "small_prime_support": [
+            3,
+            5,
+            7
+          ]
+        },
+        "minimum_off_diagonal_row": {
+          "missing_high_primes": [
+            11,
+            13
+          ],
+          "off_diagonal_over_diagonal_half": -0.4096679989764664,
+          "ratio_minus_half": 0.29516600051176684,
+          "raw_scalar_real": -0.006871760574683368,
+          "reduced_denominator": 22610,
+          "role": "unused_same_source_denominator",
+          "small_prime_support": [
+            2,
+            5,
+            7
+          ]
+        },
+        "row_count": 7,
+        "support_counts": [
+          2,
+          3
+        ]
+      },
+      {
+        "all_rows_keep_diagonal_surplus": true,
+        "maximum_off_diagonal_row": {
+          "missing_high_primes": [
+            13,
+            17
+          ],
+          "off_diagonal_over_diagonal_half": 0.42422815217472254,
+          "ratio_minus_half": 0.7121140760873612,
+          "raw_scalar_real": -0.07377833846021094,
+          "reduced_denominator": 43890,
+          "role": "unused_same_source_denominator",
+          "small_prime_support": [
+            2,
+            3,
+            5,
+            7
+          ]
+        },
+        "minimum_off_diagonal_row": {
+          "missing_high_primes": [
+            11,
+            19
+          ],
+          "off_diagonal_over_diagonal_half": -0.5667873501860531,
+          "ratio_minus_half": 0.21660632490697346,
+          "raw_scalar_real": -0.07523933047836293,
+          "reduced_denominator": 46410,
+          "role": "unused_same_source_denominator",
+          "small_prime_support": [
+            2,
+            3,
+            5,
+            7
+          ]
+        },
+        "row_count": 6,
+        "support_counts": [
+          2,
+          4
+        ]
+      },
+      {
+        "all_rows_keep_diagonal_surplus": true,
+        "maximum_off_diagonal_row": {
+          "missing_high_primes": [
+            13
+          ],
+          "off_diagonal_over_diagonal_half": 0.5846979689588861,
+          "ratio_minus_half": 0.7923489844794431,
+          "raw_scalar_real": -0.04645392921593772,
+          "reduced_denominator": 24871,
+          "role": "unused_same_source_denominator",
+          "small_prime_support": [
+            7
+          ]
+        },
+        "minimum_off_diagonal_row": {
+          "missing_high_primes": [
+            13
+          ],
+          "off_diagonal_over_diagonal_half": -0.4935262425710908,
+          "ratio_minus_half": 0.2532368787144546,
+          "raw_scalar_real": 0.0380868148415741,
+          "reduced_denominator": 17765,
+          "role": "unused_same_source_denominator",
+          "small_prime_support": [
+            5
+          ]
+        },
+        "row_count": 6,
+        "support_counts": [
+          3,
+          1
+        ]
+      },
+      {
+        "all_rows_keep_diagonal_surplus": true,
+        "maximum_off_diagonal_row": {
+          "missing_high_primes": [
+            17
+          ],
+          "off_diagonal_over_diagonal_half": 0.17480664952782843,
+          "ratio_minus_half": 0.5874033247639142,
+          "raw_scalar_real": -0.06404834670834188,
+          "reduced_denominator": 27170,
+          "role": "unused_same_source_denominator",
+          "small_prime_support": [
+            2,
+            5
+          ]
+        },
+        "minimum_off_diagonal_row": {
+          "missing_high_primes": [
+            17
+          ],
+          "off_diagonal_over_diagonal_half": -0.8472931845861708,
+          "ratio_minus_half": 0.07635340770691464,
+          "raw_scalar_real": -0.07083636365889087,
+          "reduced_denominator": 38038,
+          "role": "original_replacement",
+          "small_prime_support": [
+            2,
+            7
+          ]
+        },
+        "row_count": 15,
+        "support_counts": [
+          3,
+          2
+        ]
+      },
+      {
+        "all_rows_keep_diagonal_surplus": false,
+        "maximum_off_diagonal_row": {
+          "missing_high_primes": [],
+          "off_diagonal_over_diagonal_half": -1.0053819255304557,
+          "ratio_minus_half": -0.002690962765227888,
+          "raw_scalar_real": -0.07475328212536138,
+          "reduced_denominator": 46189,
+          "role": "q46189_adverse",
+          "small_prime_support": []
+        },
+        "minimum_off_diagonal_row": {
+          "missing_high_primes": [],
+          "off_diagonal_over_diagonal_half": -1.0053819255304557,
+          "ratio_minus_half": -0.002690962765227888,
+          "raw_scalar_real": -0.07475328212536138,
+          "reduced_denominator": 46189,
+          "role": "q46189_adverse",
+          "small_prime_support": []
+        },
+        "row_count": 1,
+        "support_counts": [
+          4,
+          0
+        ]
+      }
+    ]
+  },
+  "finite_diagnostic_only": true,
+  "finite_factor_geometry_route_triage_only": true,
+  "fixture": {
+    "adverse_denominator": 46189,
+    "row_count": 35,
+    "target_bound": -1.0
+  },
+  "goldbach_proved": false,
+  "q46189_row": {
+    "missing_high_primes": [],
+    "off_diagonal_over_diagonal_half": -1.0053819255304557,
+    "ratio_minus_half": -0.002690962765227888,
+    "raw_scalar_real": -0.07475328212536138,
+    "reduced_denominator": 46189,
+    "role": "q46189_adverse",
+    "small_prime_support": []
+  },
+  "question": "After the 50A..60A selector is demoted and low-order bucket co-occurrence fails, which source/factor geometry signals remain useful for the Q46189 overpayment-exclusion route?",
+  "replacement_packet_compensation_theorem_proved": false,
+  "scalar_source_pair_coefficient_test": {
+    "false_positive_count": 7,
+    "most_negative_raw_scalar_row": {
+      "missing_high_primes": [
+        11,
+        13
+      ],
+      "off_diagonal_over_diagonal_half": -0.4306875843769124,
+      "ratio_minus_half": 0.2846562078115438,
+      "raw_scalar_real": -0.08346040426201057,
+      "reduced_denominator": 67830,
+      "role": "unused_same_source_denominator",
+      "small_prime_support": [
+        2,
+        3,
+        5,
+        7
+      ]
+    },
+    "nonadverse_rows_with_raw_scalar_at_most_q46189": [
+      {
+        "missing_high_primes": [
+          11,
+          13
+        ],
+        "off_diagonal_over_diagonal_half": -0.4306875843769124,
+        "ratio_minus_half": 0.2846562078115438,
+        "raw_scalar_real": -0.08346040426201057,
+        "reduced_denominator": 67830,
+        "role": "unused_same_source_denominator",
+        "small_prime_support": [
+          2,
+          3,
+          5,
+          7
+        ]
+      },
+      {
+        "missing_high_primes": [
+          11
+        ],
+        "off_diagonal_over_diagonal_half": -0.48362530506623397,
+        "ratio_minus_half": 0.258187347466883,
+        "raw_scalar_real": -0.0817331192209869,
+        "reduced_denominator": 62985,
+        "role": "original_replacement",
+        "small_prime_support": [
+          3,
+          5
+        ]
+      },
+      {
+        "missing_high_primes": [
+          11
+        ],
+        "off_diagonal_over_diagonal_half": 0.04931013428427792,
+        "ratio_minus_half": 0.5246550671421389,
+        "raw_scalar_real": -0.08018047904089408,
+        "reduced_denominator": 58786,
+        "role": "original_replacement",
+        "small_prime_support": [
+          2,
+          7
+        ]
+      },
+      {
+        "missing_high_primes": [
+          13
+        ],
+        "off_diagonal_over_diagonal_half": -0.13353053300369405,
+        "ratio_minus_half": 0.43323473349815295,
+        "raw_scalar_real": -0.07783947575598903,
+        "reduced_denominator": 53295,
+        "role": "original_replacement",
+        "small_prime_support": [
+          3,
+          5
+        ]
+      },
+      {
+        "missing_high_primes": [
+          11,
+          17
+        ],
+        "off_diagonal_over_diagonal_half": 0.28493253357177656,
+        "ratio_minus_half": 0.6424662667858883,
+        "raw_scalar_real": -0.07749384844465664,
+        "reduced_denominator": 51870,
+        "role": "unused_same_source_denominator",
+        "small_prime_support": [
+          2,
+          3,
+          5,
+          7
+        ]
+      },
+      {
+        "missing_high_primes": [
+          13
+        ],
+        "off_diagonal_over_diagonal_half": 0.018010602912955122,
+        "ratio_minus_half": 0.5090053014564776,
+        "raw_scalar_real": -0.07635153651590741,
+        "reduced_denominator": 49742,
+        "role": "original_replacement",
+        "small_prime_support": [
+          2,
+          7
+        ]
+      },
+      {
+        "missing_high_primes": [
+          11,
+          19
+        ],
+        "off_diagonal_over_diagonal_half": -0.5667873501860531,
+        "ratio_minus_half": 0.21660632490697346,
+        "raw_scalar_real": -0.07523933047836293,
+        "reduced_denominator": 46410,
+        "role": "unused_same_source_denominator",
+        "small_prime_support": [
+          2,
+          3,
+          5,
+          7
+        ]
+      }
+    ],
+    "q46189_raw_scalar_real": -0.07475328212536138,
+    "scalar_threshold_explains_boundary": false
+  },
+  "scalar_source_pair_coefficient_theorem_proved": false,
+  "schema_version": 1,
+  "source_commit": "29611b6e22c3e31dda0705a1c0d604bb9e41f3d7",
+  "source_kernel_cooccurrence_relaxation_audit": "evidence\\mobius-moment-square-degree5-q46189-kernel-cooccurrence-relaxation-audit.json",
+  "source_packet_kernel_sign_landscape_audit": "evidence\\mobius-moment-square-degree5-q46189-packet-kernel-sign-landscape-audit.json",
+  "source_packet_ratio_landscape_audit": "evidence\\mobius-moment-square-degree5-q46189-packet-ratio-landscape-audit.json",
+  "status": "AUDIT_q46189_factor_geometry_route_triage",
+  "strict_central_goldbach_theorem_proved": false,
+  "weakest_nonadverse_row": {
+    "missing_high_primes": [
+      17
+    ],
+    "off_diagonal_over_diagonal_half": -0.8472931845861708,
+    "ratio_minus_half": 0.07635340770691464,
+    "raw_scalar_real": -0.07083636365889087,
+    "reduced_denominator": 38038,
+    "role": "original_replacement",
+    "small_prime_support": [
+      2,
+      7
+    ]
+  },
+  "weakest_replacement_compensation": {
+    "bucket_vector": {
+      "far_10A_to_100A": 0.021414069308930563,
+      "middle_A_to_10A": -0.939992990438763,
+      "near_1_to_A": 0.02169538928539489,
+      "tail_over_100A": 0.04959034725826683
+    },
+    "compensation_above_minus_one": 0.15270681541382924,
+    "denominator": 38038,
+    "middle_A_to_10A_contribution": -0.939992990438763,
+    "missing_high_primes": [
+      17
+    ],
+    "small_prime_support": [
+      2,
+      7
+    ],
+    "sum_of_other_buckets": 0.09269980585259228,
+    "total_off_diagonal_over_diagonal_half": -0.8472931845861708
+  }
+}
