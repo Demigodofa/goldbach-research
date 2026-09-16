@@ -6,6 +6,52 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The q286-WBSS route now has an exact coefficient/norm burden for the
+dominant `K_286` bucket:
+`tools/build_q286_wbss_k286_coefficient_norm_burden.py` generated
+`evidence/q286-wbss-k286-coefficient-norm-burden.json`, with explanation in
+`notes/q286-wbss-k286-coefficient-norm-burden.md`.
+
+Question: what exact coefficient burden must a raw analytic theorem pay for
+the dominant `K_286` bucket?
+
+Answer: the nominal `11x13` character space has `99` available nonprincipal
+characters, but the actual natural-modulus coefficient vector has only `50`
+nonzero entries above tolerance.  In principal-normalized coordinates
+
+```text
+kappa_chi = c_{a,chi}^{286} / principal_mean
+delta_chi(N) = D_chi^P(N) / P0_a(N)
+```
+
+the theorem target becomes
+
+```text
+Re sum_chi kappa_chi * delta_chi(N) >= -0.1759037368828583.
+```
+
+Pinned sufficient caps:
+
+```text
+principal-normalized L1:            32.42815568567079
+principal-normalized L2:            4.628530101718351
+uniform |delta_chi| cap:             0.00542441385158965
+aggregate ||delta||_2 cap:           0.038004233097145394
+top-two singular energy fraction:    0.9760410444893588
+```
+
+Decision: `TARGET_k286_coefficient_norm_burden_unproved`.  This is a sharper
+target than treating the nominal `99` characters independently: the active
+package has `50` nonzero coefficients, and the first two singular directions
+carry about `97.604%` of coefficient energy.  The next theorem-shaped test is
+to write the two leading singular moment combinations explicitly and ask
+whether they have a special parity, divisibility, or reflection form.  This
+proves no twisted binary-prime moment estimate, `K_286` lower bound,
+major/minor arc estimate, pointwise centered-error estimate, q286 threshold
+theorem, strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The q286-WBSS route now has a character-expanded target for the dominant
 `286` bucket:
 `tools/build_q286_wbss_k286_character_expansion_target.py` generated

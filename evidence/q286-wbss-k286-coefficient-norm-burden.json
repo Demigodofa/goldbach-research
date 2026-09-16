@@ -1,0 +1,327 @@
+{
+  "answer": "The nominal 11x13 character support has 99 available characters, but the natural-modulus coefficient vector has 50 nonzero entries above tolerance.  In principal-normalized coordinates its L1 norm is 32.42815568567079 and its L2 norm is 4.628530101718351.  A uniform absolute moment cap would need |delta_chi| <= 0.00542441385158965, while an aggregate L2 moment theorem would need ||delta||_2 <= 0.038004233097145394.  The top two singular directions carry 0.9760410444893588 of coefficient energy, so a two-mode structured theorem is now a sharper target than treating 99 characters independently.",
+  "candidate": {
+    "falsifier": "If the first two singular moment combinations cannot be controlled better than the whole 50-character package, this compression is only descriptive and does not help the proof.",
+    "mechanism": "Use the exact coefficient matrix at natural modulus 286 to replace a 99-character theorem target with 50 active coefficients and a dominant two-singular-direction payment.",
+    "name": "K_286 two-mode coefficient burden",
+    "novelty_label": "new-to-this-task",
+    "prediction": "A viable analytic theorem should exploit the two dominant singular modes; treating all characters by triangle inequality demands a very small 0.0054244 uniform moment cap.",
+    "smallest_next_test": "Write the two leading singular left/right vectors as explicit linear combinations of characters, then ask whether their twisted binary-prime moments have a special parity, divisibility, or reflection form."
+  },
+  "coefficient_package": {
+    "active_nonzero_character_count": 50,
+    "available_character_count": 99,
+    "conjugate_symmetry": {
+      "error_summary": {
+        "count": 120,
+        "maximum": 5.471273798457512e-14,
+        "mean": 2.053954803045789e-14,
+        "minimum": 7.406446805402194e-18
+      },
+      "max_principal_normalized_conjugate_error": 5.471273798457512e-14
+    },
+    "descent_relative_error": 8.520857820502405e-17,
+    "max_abs_outside_11x13_coefficient": 1.21067402839007e-10,
+    "max_abs_zero_available_coefficient": 1.7113470272297848e-09,
+    "natural_unit_count": 120,
+    "period_unit_count": 2880,
+    "principal_mean": {
+      "imag": 3.1825777568883487e-10,
+      "real": 44002.512499999146
+    },
+    "principal_normalized_norms": {
+      "l1": 32.42815568567079,
+      "l2": 4.628530101718351,
+      "linf": 0.8166661291234342
+    },
+    "raw_norms": {
+      "l1": 1426920.3259106472,
+      "l2": 203666.95365748403,
+      "linf": 35935.36155507983
+    },
+    "reconstruction_relative_error": 2.4184068342309166e-15,
+    "singular_structure": {
+      "cumulative_singular_energy_fractions": [
+        0.6039569391646828,
+        0.9760410444893588,
+        0.9871609956917418,
+        0.997075080996763,
+        0.9985922098712462,
+        0.9996481902478432,
+        0.999879455434555,
+        0.999988048099295,
+        1.0
+      ],
+      "effective_singular_rank": 1.9863498420393353,
+      "matrix_shape": [
+        9,
+        11
+      ],
+      "numerical_rank": 9,
+      "singular_energy_fractions": [
+        0.6039569391646828,
+        0.372084105324676,
+        0.011119951202382895,
+        0.009914085305021315,
+        0.0015171288744831124,
+        0.0010559803765970842,
+        0.00023126518671163774,
+        0.00010859266474003853,
+        1.1951900705005525e-05
+      ],
+      "singular_values": [
+        3.597046733129315,
+        2.8233430589589674,
+        0.48808395735815446,
+        0.46086042737666233,
+        0.1802828145294323,
+        0.1504080276952811,
+        0.07038793483650002,
+        0.048232895896938424,
+        0.016001532602887832
+      ],
+      "top_two_singular_energy_fraction": 0.9760410444893588
+    },
+    "top_principal_normalized_coefficients": [
+      {
+        "label_11_13": [
+          3,
+          7
+        ],
+        "normalized_abs": 0.8166661291234342,
+        "principal_normalized_coefficient": {
+          "imag": -0.7774356624444835,
+          "real": -0.2500747032727638
+        },
+        "raw_coefficient": {
+          "imag": -34209.12245465858,
+          "real": -11003.91525669312
+        }
+      },
+      {
+        "label_11_13": [
+          7,
+          5
+        ],
+        "normalized_abs": 0.816666129123413,
+        "principal_normalized_coefficient": {
+          "imag": 0.7774356624444727,
+          "real": -0.2500747032727279
+        },
+        "raw_coefficient": {
+          "imag": 34209.12245465795,
+          "real": -11003.915256692035
+        }
+      },
+      {
+        "label_11_13": [
+          5,
+          5
+        ],
+        "normalized_abs": 0.7901095344040947,
+        "principal_normalized_coefficient": {
+          "imag": 0.6229813010622203,
+          "real": -0.4859705493989102
+        },
+        "raw_coefficient": {
+          "imag": 27412.742487255924,
+          "real": -21383.925174557196
+        }
+      },
+      {
+        "label_11_13": [
+          5,
+          7
+        ],
+        "normalized_abs": 0.79010953440407,
+        "principal_normalized_coefficient": {
+          "imag": -0.6229813010621836,
+          "real": -0.4859705493989169
+        },
+        "raw_coefficient": {
+          "imag": -27412.74248725462,
+          "real": -21383.925174557095
+        }
+      },
+      {
+        "label_11_13": [
+          4,
+          8
+        ],
+        "normalized_abs": 0.7554102060921778,
+        "principal_normalized_coefficient": {
+          "imag": 0.6269771490859316,
+          "real": -0.4213599814793807
+        },
+        "raw_coefficient": {
+          "imag": 27588.5698398674,
+          "real": -18540.89785204606
+        }
+      },
+      {
+        "label_11_13": [
+          6,
+          4
+        ],
+        "normalized_abs": 0.7554102060921535,
+        "principal_normalized_coefficient": {
+          "imag": -0.6269771490858854,
+          "real": -0.4213599814794058
+        },
+        "raw_coefficient": {
+          "imag": -27588.569839865635,
+          "real": -18540.89785204676
+        }
+      },
+      {
+        "label_11_13": [
+          3,
+          11
+        ],
+        "normalized_abs": 0.7232176250526502,
+        "principal_normalized_coefficient": {
+          "imag": 0.5871160050958658,
+          "real": -0.4223014678485819
+        },
+        "raw_coefficient": {
+          "imag": 25834.579353180263,
+          "real": -18582.325617775397
+        }
+      },
+      {
+        "label_11_13": [
+          7,
+          1
+        ],
+        "normalized_abs": 0.7232176250526473,
+        "principal_normalized_coefficient": {
+          "imag": -0.5871160050958569,
+          "real": -0.4223014678485895
+        },
+        "raw_coefficient": {
+          "imag": -25834.57935318014,
+          "real": -18582.32561777536
+        }
+      },
+      {
+        "label_11_13": [
+          9,
+          1
+        ],
+        "normalized_abs": 0.720145821673879,
+        "principal_normalized_coefficient": {
+          "imag": -0.5294003892950094,
+          "real": -0.4882061370862094
+        },
+        "raw_coefficient": {
+          "imag": -23294.947247458225,
+          "real": -21482.296649712058
+        }
+      },
+      {
+        "label_11_13": [
+          1,
+          11
+        ],
+        "normalized_abs": 0.7201458216738736,
+        "principal_normalized_coefficient": {
+          "imag": 0.5294003892950425,
+          "real": -0.48820613708616584
+        },
+        "raw_coefficient": {
+          "imag": 23294.947247459368,
+          "real": -21482.296649710475
+        }
+      },
+      {
+        "label_11_13": [
+          9,
+          5
+        ],
+        "normalized_abs": 0.7200171466300117,
+        "principal_normalized_coefficient": {
+          "imag": 0.6791226878923532,
+          "real": -0.23920089094961425
+        },
+        "raw_coefficient": {
+          "imag": 29883.10456301621,
+          "real": -10525.44019402155
+        }
+      },
+      {
+        "label_11_13": [
+          1,
+          7
+        ],
+        "normalized_abs": 0.7200171466299916,
+        "principal_normalized_coefficient": {
+          "imag": -0.6791226878923208,
+          "real": -0.23920089094964575
+        },
+        "raw_coefficient": {
+          "imag": -29883.10456301494,
+          "real": -10525.440194022503
+        }
+      }
+    ],
+    "zero_available_character_count": 49
+  },
+  "decision": "TARGET_k286_coefficient_norm_burden_unproved.  The dominant K_286 bucket is no longer just a 99-character nominal target: it has 50 active natural-modulus coefficients, principal-normalized L1 norm 32.42815568567079, L2 norm 4.628530101718351, and a top-two singular energy fraction 0.9760410444893588.  This gives precise sufficient raw moment caps, but proves no such pointwise moment theorem.",
+  "goldbach_proved": false,
+  "k286_pointwise_lower_bound_proved": false,
+  "major_minor_arc_estimate_proved": false,
+  "normalized_moment_notation": {
+    "coefficient": "kappa_chi = c_{a,chi}^{286}/principal_mean.",
+    "moment": "delta_chi(N)=D_chi^P(N)/P0_a(N), using the proof-scale raw moment from the K_286 target.",
+    "target": "Re sum_chi kappa_chi*delta_chi(N) >= -0.1759037368828583."
+  },
+  "pointwise_centered_error_estimate_proved": false,
+  "q286_threshold_theorem_proved": false,
+  "question": "What exact coefficient norms must a raw analytic theorem pay for the dominant K_286 bucket?",
+  "receipt": "q286-wbss-k286-coefficient-norm-burden",
+  "schema_version": 1,
+  "source_commit": "160fef5f8e9eaf7c8c0397126b72c02660b70249",
+  "sources": {
+    "k286_character_expansion_status": "TARGET_k286_character_expansion_bridge_unproved",
+    "k286_character_expansion_target": "evidence\\q286-wbss-k286-character-expansion-target.json"
+  },
+  "status": "TARGET_k286_coefficient_norm_burden_unproved",
+  "status_boundary": "Coefficient/norm theorem-target audit only; not a theorem.  No twisted binary-prime moment estimate, K_286 lower bound, major/minor arc estimate, pointwise centered-error estimate, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof is established.",
+  "strict_central_goldbach_theorem_proved": false,
+  "sufficient_burdens": {
+    "aggregate_l2_moment_cap": {
+      "coefficient_norm_used": 4.628530101718351,
+      "required_cap": 0.038004233097145394,
+      "statement": "It is sufficient to prove sqrt(sum_chi |delta_chi(N)|^2) <= beta/||kappa||_2."
+    },
+    "direct_signed_sum": "Prove Re sum_chi kappa_chi*delta_chi(N) >= -0.1759037368828583 pointwise for every sufficiently large covered N.",
+    "dominant_two_singular_mode_target": {
+      "residual_singular_energy_fraction": 0.0239589555106412,
+      "statement": "A sharper possible theorem separates the first two singular directions from the residual seven directions instead of paying all active characters independently.",
+      "top_two_singular_energy_fraction": 0.9760410444893588
+    },
+    "uniform_linf_moment_cap": {
+      "coefficient_norm_used": 32.42815568567079,
+      "required_cap": 0.00542441385158965,
+      "statement": "It is sufficient, but likely much stronger than necessary, to prove max_chi |delta_chi(N)| <= beta/||kappa||_1."
+    }
+  },
+  "target_bucket": {
+    "allocated_negative_budget_ratio": 0.1759037368828583,
+    "bucket": "dominant_286",
+    "character_count": 99,
+    "descends_to_natural_modulus": true,
+    "descent_relative_error": 8.520857820502405e-17,
+    "energy_fraction": 0.70082890257693,
+    "natural_modulus": 286,
+    "required_raw_lower_bound": "K_286(N) >= -0.1759037368828583*P0_a(N)",
+    "support_label": "11x13",
+    "support_primes": [
+      11,
+      13
+    ],
+    "unit_residue_count": 120
+  },
+  "twisted_prime_pair_moment_theorem_proved": false,
+  "universal_pointwise_bound_proved": false
+}

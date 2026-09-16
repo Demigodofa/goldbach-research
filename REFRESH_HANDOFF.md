@@ -6,6 +6,50 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The q286-WBSS route now has an exact coefficient/norm burden for the dominant
+`K_286` bucket:
+
+```text
+tools/build_q286_wbss_k286_coefficient_norm_burden.py
+notes/q286-wbss-k286-coefficient-norm-burden.md
+evidence/q286-wbss-k286-coefficient-norm-burden.json
+```
+
+Question: what exact coefficient burden must a raw analytic theorem pay for
+the dominant `K_286` bucket?
+
+Answer: the nominal `11x13` character space has `99` available nonprincipal
+characters, but the actual natural-modulus coefficient vector has only `50`
+nonzero entries above tolerance.  In principal-normalized coordinates,
+
+```text
+kappa_chi = c_{a,chi}^{286} / principal_mean
+delta_chi(N) = D_chi^P(N) / P0_a(N)
+Re sum_chi kappa_chi * delta_chi(N) >= -0.1759037368828583
+```
+
+Pinned burden:
+
+```text
+available character count:          99
+active nonzero character count:     50
+principal-normalized L1:            32.42815568567079
+principal-normalized L2:            4.628530101718351
+uniform |delta_chi| cap:             0.00542441385158965
+aggregate ||delta||_2 cap:           0.038004233097145394
+top-two singular energy fraction:    0.9760410444893588
+```
+
+Decision: `TARGET_k286_coefficient_norm_burden_unproved`.  The next
+theorem-shaped test is no longer generic 99-character control; it is to write
+the two leading singular moment combinations explicitly and ask whether they
+have a special parity, divisibility, or reflection form.  No twisted
+binary-prime moment estimate, `K_286` lower bound, major/minor arc estimate,
+pointwise centered-error estimate, q286 threshold theorem, strict-central
+Goldbach theorem, or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-16
+
 The q286-WBSS route now has a character-expanded target for the dominant
 `286` bucket:
 
