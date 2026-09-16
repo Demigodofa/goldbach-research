@@ -6,6 +6,40 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The source-start lane now has an `M=331` sentinel audit:
+
+```text
+tools/build_mobius_moment_square_degree5_source_start_m331_sentinel_audit.py
+notes/mobius-moment-square-degree5-source-start-m331-sentinel-audit.md
+evidence/mobius-moment-square-degree5-source-start-m331-sentinel-audit.json
+```
+
+Result:
+
+```text
+status:                         AUDIT_degree5_source_start_m331_sentinel_rows
+scale:                          331
+prime interval:                 331..662
+sentinel prime rows:            331, 461, 499, 661
+component rows:                 12
+degree-5 total rows:            4
+all rows pass signed dominance: true
+minimum slack above one half:   0.4702648688514812
+weakest row:                    M=331, p=461, (00,12)
+weakest active/full ratio:      0.9702648688514812
+full sweep completed:           false
+```
+
+Decision: `p=461` remains the tightest row in this bounded `M=331` sentinel
+set, but a full `M=331` sweep was not completed.  One row takes about `30` to
+`40` seconds in the current endpoint-frame builder, and `[331,662]` contains
+`55` primes, so the full sweep should use a progress-logged/resumable runner
+before promotion.  This is finite sentinel evidence only, not a source-start
+theorem, not a source-window theorem, not a strict-central Goldbach theorem,
+and not a Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The narrowed source-start lane now has a third full fresh-scale prime-row
 sweep, for `M=293`:
 

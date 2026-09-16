@@ -1,0 +1,439 @@
+{
+  "active_window_translation_theorem_proved": false,
+  "all_dominance_slack_sign_counts": {
+    "negative": 0,
+    "positive": 16,
+    "zero": 0
+  },
+  "all_rows_dominate_one_half_signed_full": true,
+  "attention_prime": 461,
+  "attention_prime_weakest_row": {
+    "active_contribution": -386762557337781.6,
+    "active_contribution_negative": true,
+    "active_over_full_ratio": 0.9702648688514812,
+    "dominance_slack_above_one_half": 0.4702648688514812,
+    "dominates_one_half_signed_full": true,
+    "full_contribution": -398615439715547.94,
+    "full_contribution_negative": true,
+    "half_frame_contribution": -187454837480007.66,
+    "label": "00,12",
+    "prime_modulus": 461,
+    "scale_modulus": 331
+  },
+  "component_row_count": 12,
+  "decision": "The M=331 source-start sentinel audit survives: all selected sentinel rows have positive active/full dominance slack above one half.  The weakest sentinel row is p=461. This is a finite sentinel audit only, not a full M=331 sweep and not a universal theorem.",
+  "degree5_total_row_count": 4,
+  "dominance_row_count": 16,
+  "falsifier": "Any sentinel component or total row with negative full contribution and active/full ratio at or below one half falsifies this M=331 sentinel audit.  A weak row far from p=461 downgrades the p=461 attention interpretation.",
+  "finite_diagnostic_only": true,
+  "finite_sentinel_audit_only": true,
+  "full_sweep_completed": false,
+  "full_sweep_runtime_blocker": "A single M=331 row took about 40 seconds in the current builder; a full sweep should be rerun with per-prime progress and resume support before promotion.",
+  "goldbach_proved": false,
+  "maximum_dominance_slack_above_one_half": 0.5709467739607579,
+  "minimum_dominance_slack_above_one_half": 0.4702648688514812,
+  "prediction": "If the source-start lane remains stable at M=331, these sentinel rows should retain positive signed active/full slack.  If p=461 is the current local stress channel, the attention row should be the weakest or near the weakest sentinel row.",
+  "prime_interval": [
+    331,
+    662
+  ],
+  "prime_row_count": 4,
+  "question": "Before paying for a full opaque M=331 sweep, do low, attention, mid, and high source-start sentinel rows survive signed active/full dominance, and does p=461 remain a local stress marker?",
+  "scale_modulus": 331,
+  "scale_result": {
+    "prime_row_count": 4,
+    "prime_rows": [
+      {
+        "all_rows_dominate_one_half_signed_full": true,
+        "canonical_source_start": 56,
+        "component_rows": [
+          {
+            "active_contribution": -359875478947635.9,
+            "active_contribution_negative": true,
+            "active_over_full_ratio": 0.9779697227015149,
+            "dominance_slack_above_one_half": 0.47796972270151494,
+            "dominates_one_half_signed_full": true,
+            "full_contribution": -367982229504535.56,
+            "full_contribution_negative": true,
+            "half_frame_contribution": -175884364195368.1,
+            "label": "00,12",
+            "prime_modulus": 331,
+            "scale_modulus": 331
+          },
+          {
+            "active_contribution": -728235358510044.0,
+            "active_contribution_negative": true,
+            "active_over_full_ratio": 0.9781633564897416,
+            "dominance_slack_above_one_half": 0.4781633564897416,
+            "dominates_one_half_signed_full": true,
+            "full_contribution": -744492577521412.5,
+            "full_contribution_negative": true,
+            "half_frame_contribution": -355989069749337.75,
+            "label": "01,02",
+            "prime_modulus": 331,
+            "scale_modulus": 331
+          },
+          {
+            "active_contribution": -1455593668871161.2,
+            "active_contribution_negative": true,
+            "active_over_full_ratio": 0.9779885673399594,
+            "dominance_slack_above_one_half": 0.4779885673399594,
+            "dominates_one_half_signed_full": true,
+            "full_contribution": -1488354483355817.2,
+            "full_contribution_negative": true,
+            "half_frame_contribution": -711416427193252.6,
+            "label": "01,11",
+            "prime_modulus": 331,
+            "scale_modulus": 331
+          }
+        ],
+        "degree5_total_row": {
+          "active_contribution": -2543704506328841.0,
+          "active_contribution_negative": true,
+          "active_over_full_ratio": 0.9780359348211818,
+          "dominance_slack_above_one_half": 0.4780359348211818,
+          "dominates_one_half_signed_full": true,
+          "full_contribution": -2600829290381765.5,
+          "full_contribution_negative": true,
+          "half_frame_contribution": -1243289861137958.5,
+          "label": "TOTAL",
+          "prime_modulus": 331,
+          "scale_modulus": 331
+        },
+        "divisor_range": [
+          4,
+          23
+        ],
+        "elapsed_seconds": 38.88259449999896,
+        "ell_freeze": 84,
+        "minimum_dominance_slack_above_one_half": 0.47796972270151494,
+        "prime_modulus": 331,
+        "row_count": 56,
+        "scale_modulus": 331,
+        "sentinel_label": "low",
+        "span_position": "low",
+        "weakest_dominance_row": {
+          "active_contribution": -359875478947635.9,
+          "active_contribution_negative": true,
+          "active_over_full_ratio": 0.9779697227015149,
+          "dominance_slack_above_one_half": 0.47796972270151494,
+          "dominates_one_half_signed_full": true,
+          "full_contribution": -367982229504535.56,
+          "full_contribution_negative": true,
+          "half_frame_contribution": -175884364195368.1,
+          "label": "00,12",
+          "prime_modulus": 331,
+          "scale_modulus": 331
+        }
+      },
+      {
+        "all_rows_dominate_one_half_signed_full": true,
+        "canonical_source_start": 56,
+        "component_rows": [
+          {
+            "active_contribution": -386762557337781.6,
+            "active_contribution_negative": true,
+            "active_over_full_ratio": 0.9702648688514812,
+            "dominance_slack_above_one_half": 0.4702648688514812,
+            "dominates_one_half_signed_full": true,
+            "full_contribution": -398615439715547.94,
+            "full_contribution_negative": true,
+            "half_frame_contribution": -187454837480007.66,
+            "label": "00,12",
+            "prime_modulus": 461,
+            "scale_modulus": 331
+          },
+          {
+            "active_contribution": -781199976008962.0,
+            "active_contribution_negative": true,
+            "active_over_full_ratio": 0.970406399801552,
+            "dominance_slack_above_one_half": 0.47040639980155197,
+            "dominates_one_half_signed_full": true,
+            "full_contribution": -805023520216599.2,
+            "full_contribution_negative": true,
+            "half_frame_contribution": -378688215900662.4,
+            "label": "01,02",
+            "prime_modulus": 461,
+            "scale_modulus": 331
+          },
+          {
+            "active_contribution": -1565295564705769.2,
+            "active_contribution_negative": true,
+            "active_over_full_ratio": 0.9704258118787394,
+            "dominance_slack_above_one_half": 0.47042581187873944,
+            "dominates_one_half_signed_full": true,
+            "full_contribution": -1612998691445938.5,
+            "full_contribution_negative": true,
+            "half_frame_contribution": -758796218982800.0,
+            "label": "01,11",
+            "prime_modulus": 461,
+            "scale_modulus": 331
+          }
+        ],
+        "degree5_total_row": {
+          "active_contribution": -2733258098052513.0,
+          "active_contribution_negative": true,
+          "active_over_full_ratio": 0.97039748677478,
+          "dominance_slack_above_one_half": 0.47039748677478,
+          "dominates_one_half_signed_full": true,
+          "full_contribution": -2816637651378085.5,
+          "full_contribution_negative": true,
+          "half_frame_contribution": -1324939272363470.0,
+          "label": "TOTAL",
+          "prime_modulus": 461,
+          "scale_modulus": 331
+        },
+        "divisor_range": [
+          4,
+          23
+        ],
+        "elapsed_seconds": 36.39864269999089,
+        "ell_freeze": 84,
+        "minimum_dominance_slack_above_one_half": 0.4702648688514812,
+        "prime_modulus": 461,
+        "row_count": 56,
+        "scale_modulus": 331,
+        "sentinel_label": "attention",
+        "span_position": "attention",
+        "weakest_dominance_row": {
+          "active_contribution": -386762557337781.6,
+          "active_contribution_negative": true,
+          "active_over_full_ratio": 0.9702648688514812,
+          "dominance_slack_above_one_half": 0.4702648688514812,
+          "dominates_one_half_signed_full": true,
+          "full_contribution": -398615439715547.94,
+          "full_contribution_negative": true,
+          "half_frame_contribution": -187454837480007.66,
+          "label": "00,12",
+          "prime_modulus": 461,
+          "scale_modulus": 331
+        }
+      },
+      {
+        "all_rows_dominate_one_half_signed_full": true,
+        "canonical_source_start": 56,
+        "component_rows": [
+          {
+            "active_contribution": -492520585768657.4,
+            "active_contribution_negative": true,
+            "active_over_full_ratio": 1.0709467739607579,
+            "dominance_slack_above_one_half": 0.5709467739607579,
+            "dominates_one_half_signed_full": true,
+            "full_contribution": -459892683505767.3,
+            "full_contribution_negative": true,
+            "half_frame_contribution": -262574244015773.72,
+            "label": "00,12",
+            "prime_modulus": 499,
+            "scale_modulus": 331
+          },
+          {
+            "active_contribution": -996373276581407.4,
+            "active_contribution_negative": true,
+            "active_over_full_ratio": 1.0708103179306183,
+            "dominance_slack_above_one_half": 0.5708103179306183,
+            "dominates_one_half_signed_full": true,
+            "full_contribution": -930485315557041.5,
+            "full_contribution_negative": true,
+            "half_frame_contribution": -531130618802886.6,
+            "label": "01,02",
+            "prime_modulus": 499,
+            "scale_modulus": 331
+          },
+          {
+            "active_contribution": -1995167921019547.8,
+            "active_contribution_negative": true,
+            "active_over_full_ratio": 1.070664840103634,
+            "dominance_slack_above_one_half": 0.570664840103634,
+            "dominates_one_half_signed_full": true,
+            "full_contribution": -1863485048062685.2,
+            "full_contribution_negative": true,
+            "half_frame_contribution": -1063425396988205.1,
+            "label": "01,11",
+            "prime_modulus": 499,
+            "scale_modulus": 331
+          }
+        ],
+        "degree5_total_row": {
+          "active_contribution": -3484061783369612.5,
+          "active_contribution_negative": true,
+          "active_over_full_ratio": 1.0707462892291915,
+          "dominance_slack_above_one_half": 0.5707462892291915,
+          "dominates_one_half_signed_full": true,
+          "full_contribution": -3253863047125494.0,
+          "full_contribution_negative": true,
+          "half_frame_contribution": -1857130259806865.5,
+          "label": "TOTAL",
+          "prime_modulus": 499,
+          "scale_modulus": 331
+        },
+        "divisor_range": [
+          4,
+          23
+        ],
+        "elapsed_seconds": 36.55819939999492,
+        "ell_freeze": 84,
+        "minimum_dominance_slack_above_one_half": 0.570664840103634,
+        "prime_modulus": 499,
+        "row_count": 56,
+        "scale_modulus": 331,
+        "sentinel_label": "mid",
+        "span_position": "mid",
+        "weakest_dominance_row": {
+          "active_contribution": -1995167921019547.8,
+          "active_contribution_negative": true,
+          "active_over_full_ratio": 1.070664840103634,
+          "dominance_slack_above_one_half": 0.570664840103634,
+          "dominates_one_half_signed_full": true,
+          "full_contribution": -1863485048062685.2,
+          "full_contribution_negative": true,
+          "half_frame_contribution": -1063425396988205.1,
+          "label": "01,11",
+          "prime_modulus": 499,
+          "scale_modulus": 331
+        }
+      },
+      {
+        "all_rows_dominate_one_half_signed_full": true,
+        "canonical_source_start": 56,
+        "component_rows": [
+          {
+            "active_contribution": -617807025018562.5,
+            "active_contribution_negative": true,
+            "active_over_full_ratio": 0.9892830778830014,
+            "dominance_slack_above_one_half": 0.4892830778830014,
+            "dominates_one_half_signed_full": true,
+            "full_contribution": -624499740095249.1,
+            "full_contribution_negative": true,
+            "half_frame_contribution": -305557154970937.94,
+            "label": "00,12",
+            "prime_modulus": 661,
+            "scale_modulus": 331
+          },
+          {
+            "active_contribution": -1246945471967483.2,
+            "active_contribution_negative": true,
+            "active_over_full_ratio": 0.989722767283113,
+            "dominance_slack_above_one_half": 0.48972276728311304,
+            "dominates_one_half_signed_full": true,
+            "full_contribution": -1259893692645337.5,
+            "full_contribution_negative": true,
+            "half_frame_contribution": -616998625644814.5,
+            "label": "01,02",
+            "prime_modulus": 661,
+            "scale_modulus": 331
+          },
+          {
+            "active_contribution": -2493697412350860.5,
+            "active_contribution_negative": true,
+            "active_over_full_ratio": 0.9898355073626927,
+            "dominance_slack_above_one_half": 0.48983550736269266,
+            "dominates_one_half_signed_full": true,
+            "full_contribution": -2519304868134142.5,
+            "full_contribution_negative": true,
+            "half_frame_contribution": -1234044978283789.2,
+            "label": "01,11",
+            "prime_modulus": 661,
+            "scale_modulus": 331
+          }
+        ],
+        "degree5_total_row": {
+          "active_contribution": -4358449909336906.0,
+          "active_contribution_negative": true,
+          "active_over_full_ratio": 0.9897249110982841,
+          "dominance_slack_above_one_half": 0.4897249110982841,
+          "dominates_one_half_signed_full": true,
+          "full_contribution": -4403698300874729.0,
+          "full_contribution_negative": true,
+          "half_frame_contribution": -2156600758899541.8,
+          "label": "TOTAL",
+          "prime_modulus": 661,
+          "scale_modulus": 331
+        },
+        "divisor_range": [
+          4,
+          23
+        ],
+        "elapsed_seconds": 30.81600210000761,
+        "ell_freeze": 84,
+        "minimum_dominance_slack_above_one_half": 0.4892830778830014,
+        "prime_modulus": 661,
+        "row_count": 56,
+        "scale_modulus": 331,
+        "sentinel_label": "high",
+        "span_position": "high",
+        "weakest_dominance_row": {
+          "active_contribution": -617807025018562.5,
+          "active_contribution_negative": true,
+          "active_over_full_ratio": 0.9892830778830014,
+          "dominance_slack_above_one_half": 0.4892830778830014,
+          "dominates_one_half_signed_full": true,
+          "full_contribution": -624499740095249.1,
+          "full_contribution_negative": true,
+          "half_frame_contribution": -305557154970937.94,
+          "label": "00,12",
+          "prime_modulus": 661,
+          "scale_modulus": 331
+        }
+      }
+    ],
+    "scale_modulus": 331,
+    "selected_primes": [
+      {
+        "elapsed_seconds": 38.88259449999896,
+        "prime_modulus": 331,
+        "sentinel_label": "low"
+      },
+      {
+        "elapsed_seconds": 36.39864269999089,
+        "prime_modulus": 461,
+        "sentinel_label": "attention"
+      },
+      {
+        "elapsed_seconds": 36.55819939999492,
+        "prime_modulus": 499,
+        "sentinel_label": "mid"
+      },
+      {
+        "elapsed_seconds": 30.81600210000761,
+        "prime_modulus": 661,
+        "sentinel_label": "high"
+      }
+    ]
+  },
+  "schema_version": 1,
+  "source_commit": "b7b870883c98822b174d2db415b7e59de2f34027",
+  "source_start_theorem_proved": false,
+  "source_window_theorem_proved": false,
+  "status": "AUDIT_degree5_source_start_m331_sentinel_rows",
+  "strict_central_goldbach_theorem_proved": false,
+  "strongest_dominance_row": {
+    "active_contribution": -492520585768657.4,
+    "active_contribution_negative": true,
+    "active_over_full_ratio": 1.0709467739607579,
+    "dominance_slack_above_one_half": 0.5709467739607579,
+    "dominates_one_half_signed_full": true,
+    "full_contribution": -459892683505767.3,
+    "full_contribution_negative": true,
+    "half_frame_contribution": -262574244015773.72,
+    "label": "00,12",
+    "prime_modulus": 499,
+    "scale_modulus": 331
+  },
+  "threshold": 0.5,
+  "total_elapsed_seconds": 142.65569730001152,
+  "weakest_dominance_row": {
+    "active_contribution": -386762557337781.6,
+    "active_contribution_negative": true,
+    "active_over_full_ratio": 0.9702648688514812,
+    "dominance_slack_above_one_half": 0.4702648688514812,
+    "dominates_one_half_signed_full": true,
+    "full_contribution": -398615439715547.94,
+    "full_contribution_negative": true,
+    "half_frame_contribution": -187454837480007.66,
+    "label": "00,12",
+    "prime_modulus": 461,
+    "scale_modulus": 331
+  },
+  "weakest_prime_distance_from_attention_prime": 0,
+  "weakest_prime_equals_attention_prime": true
+}

@@ -6,6 +6,32 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The source-start lane now has an `M=331` sentinel audit:
+`tools/build_mobius_moment_square_degree5_source_start_m331_sentinel_audit.py`
+generated
+`evidence/mobius-moment-square-degree5-source-start-m331-sentinel-audit.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-source-start-m331-sentinel-audit.md`.
+
+Question: after the full `M=293` sweep survived and moved the weakest row to
+`p=461`, do bounded `M=331` sentinel rows survive, and does `p=461` remain
+locally tight?
+
+Answer: yes as a finite sentinel audit.  The checked rows are `p=331` low,
+`p=461` attention, `p=499` mid, and `p=661` high.  All `16` component and
+total rows pass `full < 0` and `active/full > 1/2`.  The weakest sentinel row
+is `M=331`, `p=461`, component `(00,12)`, with ratio `0.9702648688514812`
+and slack `0.4702648688514812`.
+
+Decision: `p=461` remains the tightest row in this bounded `M=331` sentinel
+set, but a full `M=331` sweep was not completed.  One row takes about `30` to
+`40` seconds in the current endpoint-frame builder, and `[331,662]` contains
+`55` primes, so the full sweep should use a progress-logged/resumable runner
+before promotion.  This is not a source-start theorem, not a source-window
+theorem, not a strict-central Goldbach theorem, and not a Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The narrowed source-start lane now has a third full fresh-scale prime-row
 sweep, for `M=293`:
 `tools/build_mobius_moment_square_degree5_source_start_m293_full_prime_sweep.py`
