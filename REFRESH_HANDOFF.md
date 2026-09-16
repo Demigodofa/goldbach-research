@@ -6,6 +6,36 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The downloaded Watanabe arXiv Goldbach PDF has been triaged as external
+inspiration, not proof authority:
+
+```text
+tools/build_external_watanabe_goldbach_paper_triage.py
+notes/external-watanabe-goldbach-paper-triage.md
+evidence/external-watanabe-goldbach-paper-triage.json
+```
+
+Result:
+
+```text
+check limit:                                  200000
+rough rows checked:                           20507
+error-envelope failures found:                0
+Pi-star-minus-emax failures after 622 found:  0
+rough lower-bound block counterexamples:      7
+```
+
+Decision: the paper can be cited as a public arXiv source with attribution,
+but it is not accepted here as a proof of Goldbach.  Its useful import is a
+roughness-product diagnostic, `|P(n)| * prod (p-2)/p`, to compare against the
+`Q=46189` packet landscape.  Its broad rough-number lower-bound story is
+rejected as a theorem target because checked prime-square blocks contain
+non-rough rows with fewer ordered prime pairs than the rough minimum.  This
+proves no lower-bound theorem, error-envelope theorem, replacement-packet
+theorem, strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The `Q=46189` replacement-family lane now has a source-pair bucket
 compensation audit:
 

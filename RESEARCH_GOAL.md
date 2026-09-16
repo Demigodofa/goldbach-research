@@ -6,6 +6,32 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The downloaded Watanabe arXiv Goldbach PDF has been triaged:
+`tools/build_external_watanabe_goldbach_paper_triage.py` generated
+`evidence/external-watanabe-goldbach-paper-triage.json`, with explanation in
+`notes/external-watanabe-goldbach-paper-triage.md`.
+
+Question: does the paper help the active route, and can any part be reused?
+
+Answer: yes, but only as an external-source diagnostic.  The paper's
+roughness-product baseline, `|P(n)| * prod (p-2)/p`, can be used with
+attribution as a feature to compare against the `Q=46189` packet landscape.
+In checks through `200000`, the paper's own rough-row error envelope had no
+found failures among `20507` rough rows, and `Pi* - emax` had no found
+failures after `622`.  But the broader claim that rough rows form a lower
+bound family is not accepted: checked prime-square blocks produced `7`
+counterexamples where a non-rough row had fewer ordered prime pairs than the
+rough minimum in the same block.
+
+Decision: do not chase the external claimed proof as a route.  Keep only the
+roughness-product baseline as a cheap diagnostic to test against current
+kernel metrics, source-pair compensation ranks, and mirror-block behavior.
+This proves no lower-bound theorem, error-envelope theorem,
+replacement-packet theorem, strict-central Goldbach theorem, or Goldbach
+proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The `Q=46189` replacement-family lane now has a source-pair bucket
 compensation audit:
 `tools/build_mobius_moment_square_degree5_q46189_source_pair_bucket_compensation_audit.py`
