@@ -6,6 +6,45 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The q286-WBSS route now has a zero-residue `K_286` phase-envelope
+concentration audit:
+
+```text
+tools/build_q286_wbss_k286_zero_residue_phase_envelope_concentration_audit.py
+notes/q286-wbss-k286-zero-residue-phase-envelope-concentration-audit.md
+evidence/q286-wbss-k286-zero-residue-phase-envelope-concentration-audit.json
+```
+
+Question: after fixed phase-pair labels and small seeded phase bands failed,
+how many conjugate `K_286` phase pairs are needed to cover `50%`, `75%`, and
+`90%` of the real absolute envelope on each extended zero-lane lift?
+
+Result:
+
+```text
+extended rows:                       32
+target range:              1158872..1235806
+active conjugate pairs per row:      30
+pairs to cover 50% envelope: min 5,  mean 6.625,  max 9
+pairs to cover 75% envelope: min 10, mean 11.9375, max 15
+pairs to cover 90% envelope: min 15, mean 16.875,  max 19
+top pair fraction mean:               0.11641633995627859
+top pair fraction max:                0.16050600038977816
+inverse participation count mean:    16.20730306629838
+entropy effective count mean:        19.250858986362026
+cancellation ratio mean:              0.1837093859655672
+```
+
+Decision: `DIAGNOSTIC_k286_phase_envelope_broad`.  The finite data does not
+support a tiny top-pair or small-band phase shortcut.  The next theorem-shaped
+route would need a broad cancellation or distributional phase-envelope
+estimate, not a fixed label theorem.  No broad phase-envelope theorem,
+phase-cancellation theorem, coefficient-direction nonalignment theorem,
+universal pointwise raw estimate, q286 threshold theorem, strict-central
+Goldbach theorem, or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-16
+
 The q286-WBSS route now has a zero-residue extended-lift `K_286` phase-band
 audit:
 
