@@ -1,0 +1,452 @@
+{
+  "all_source_starts_pass": true,
+  "broad_failure_row_count": 1,
+  "broad_failure_rows": [
+    {
+      "active_contribution": -151868483158.8944,
+      "active_contribution_negative": true,
+      "active_over_full_ratio": 0.4980466670754268,
+      "active_row_start": 1,
+      "active_row_start_offset": -31,
+      "active_row_stop": 33,
+      "dominance_slack_above_one_half": -0.0019533329245732256,
+      "dominates_one_half_signed_full": false,
+      "full_contribution": -304928218977.30853,
+      "full_contribution_negative": true,
+      "half_frame_contribution": 595626329.7598572,
+      "label": "00,12",
+      "prime_modulus": 163,
+      "scale_modulus": 149
+    }
+  ],
+  "broad_sweep_status": "SWEEP_degree5_checked_scale_active_window_phase_curve",
+  "canonical_dominance_status": "CHECK_degree5_checked_scale_primewise_dominance",
+  "checked_scale_dominance_theorem_proved": false,
+  "decision": "The finite row-start map supports a narrower source-admissible target: all six canonical source starts pass, while the broad all-translation statement fails only at M=149, active row start 1.  For M=149 the source-connected passing interval is starts 2..64, containing the canonical source start 32.  The surviving theorem-shaped target should therefore prove source-window or admissible-window control, not all translated windows 0..2A.",
+  "failing_active_row_start_count": 1,
+  "failing_scale_count": 1,
+  "failing_scale_summaries": [
+    {
+      "active_row_start_count": 65,
+      "active_row_start_range": [
+        0,
+        64
+      ],
+      "all_starts_pass": false,
+      "dominance_rows_per_start": 112,
+      "failing_active_row_starts": [
+        1
+      ],
+      "failure_row_count": 1,
+      "failure_rows": [
+        {
+          "active_contribution": -151868483158.8944,
+          "active_contribution_negative": true,
+          "active_over_full_ratio": 0.4980466670754268,
+          "active_row_start": 1,
+          "active_row_start_offset": -31,
+          "active_row_stop": 33,
+          "dominance_slack_above_one_half": -0.0019533329245732256,
+          "dominates_one_half_signed_full": false,
+          "full_contribution": -304928218977.30853,
+          "full_contribution_negative": true,
+          "half_frame_contribution": 595626329.7598572,
+          "label": "00,12",
+          "prime_modulus": 163,
+          "scale_modulus": 149
+        }
+      ],
+      "passing_active_row_start_intervals": [
+        {
+          "start": 0,
+          "stop": 0
+        },
+        {
+          "start": 2,
+          "stop": 64
+        }
+      ],
+      "prime_count": 28,
+      "row_count": 32,
+      "scale_modulus": 149,
+      "source_active_row_start": 32,
+      "source_connected_passing_interval": {
+        "start": 2,
+        "stop": 64
+      },
+      "source_connected_start_count": 63,
+      "source_start_distance_from_nearest_failure": 31,
+      "source_start_minimum_canonical_ratio": 0.6905059738826077,
+      "source_start_minimum_canonical_slack": 0.1905059738826077,
+      "source_start_passes": true,
+      "source_start_weakest_canonical_row": {
+        "active_contribution": -241846626811.94788,
+        "active_contribution_negative": true,
+        "active_over_full_ratio": 0.6905059738826077,
+        "dominance_slack_above_one_half": 0.1905059738826077,
+        "dominates_one_half_signed_full": true,
+        "full_contribution": -350245524237.9467,
+        "full_contribution_negative": true,
+        "half_frame_contribution": -66723864692.97452,
+        "label": "00,12",
+        "prime_modulus": 181,
+        "scale_modulus": 149
+      }
+    }
+  ],
+  "falsifier": "Any checked scale whose canonical source row start is itself a failing active row start, or whose source-connected passing interval is absent, would falsify this source-admissible finite interpretation.",
+  "finite_diagnostic_only": true,
+  "finite_source_admissible_window_diagnostic_only": true,
+  "goldbach_proved": false,
+  "l2_logical_bridge_proved": false,
+  "minimum_source_start_canonical_ratio": 0.5563677490893767,
+  "minimum_source_start_canonical_slack": 0.056367749089376695,
+  "passing_active_row_start_count": 439,
+  "phase_curve_theorem_proved": false,
+  "pointwise_universal_adverse_drag_estimate_proved": false,
+  "prediction": "If the finite falsifier is a translated-window artifact rather than a source-window obstruction, the canonical source row start should remain inside a passing interval for every checked scale, and the failing translated starts should be explicitly excluded.",
+  "primewise_dominance_theorem_proved": false,
+  "question": "After the broad checked-scale row-start quantifier was finitely falsified, does the validated data still support a narrower source-admissible row-window target?",
+  "robust_margin_universal_theorem_proved": false,
+  "scale_count": 6,
+  "scale_summaries": [
+    {
+      "active_row_start_count": 57,
+      "active_row_start_range": [
+        0,
+        56
+      ],
+      "all_starts_pass": true,
+      "dominance_rows_per_start": 96,
+      "failing_active_row_starts": [],
+      "failure_row_count": 0,
+      "failure_rows": [],
+      "passing_active_row_start_intervals": [
+        {
+          "start": 0,
+          "stop": 56
+        }
+      ],
+      "prime_count": 24,
+      "row_count": 28,
+      "scale_modulus": 127,
+      "source_active_row_start": 28,
+      "source_connected_passing_interval": {
+        "start": 0,
+        "stop": 56
+      },
+      "source_connected_start_count": 57,
+      "source_start_distance_from_nearest_failure": null,
+      "source_start_minimum_canonical_ratio": 0.7075873492976413,
+      "source_start_minimum_canonical_slack": 0.20758734929764133,
+      "source_start_passes": true,
+      "source_start_weakest_canonical_row": {
+        "active_contribution": -121369046353.5221,
+        "active_contribution_negative": true,
+        "active_over_full_ratio": 0.7075873492976413,
+        "dominance_slack_above_one_half": 0.20758734929764133,
+        "dominates_one_half_signed_full": true,
+        "full_contribution": -171525178444.7451,
+        "full_contribution_negative": true,
+        "half_frame_contribution": -35606457131.14955,
+        "label": "00,12",
+        "prime_modulus": 139,
+        "scale_modulus": 127
+      }
+    },
+    {
+      "active_row_start_count": 65,
+      "active_row_start_range": [
+        0,
+        64
+      ],
+      "all_starts_pass": false,
+      "dominance_rows_per_start": 112,
+      "failing_active_row_starts": [
+        1
+      ],
+      "failure_row_count": 1,
+      "failure_rows": [
+        {
+          "active_contribution": -151868483158.8944,
+          "active_contribution_negative": true,
+          "active_over_full_ratio": 0.4980466670754268,
+          "active_row_start": 1,
+          "active_row_start_offset": -31,
+          "active_row_stop": 33,
+          "dominance_slack_above_one_half": -0.0019533329245732256,
+          "dominates_one_half_signed_full": false,
+          "full_contribution": -304928218977.30853,
+          "full_contribution_negative": true,
+          "half_frame_contribution": 595626329.7598572,
+          "label": "00,12",
+          "prime_modulus": 163,
+          "scale_modulus": 149
+        }
+      ],
+      "passing_active_row_start_intervals": [
+        {
+          "start": 0,
+          "stop": 0
+        },
+        {
+          "start": 2,
+          "stop": 64
+        }
+      ],
+      "prime_count": 28,
+      "row_count": 32,
+      "scale_modulus": 149,
+      "source_active_row_start": 32,
+      "source_connected_passing_interval": {
+        "start": 2,
+        "stop": 64
+      },
+      "source_connected_start_count": 63,
+      "source_start_distance_from_nearest_failure": 31,
+      "source_start_minimum_canonical_ratio": 0.6905059738826077,
+      "source_start_minimum_canonical_slack": 0.1905059738826077,
+      "source_start_passes": true,
+      "source_start_weakest_canonical_row": {
+        "active_contribution": -241846626811.94788,
+        "active_contribution_negative": true,
+        "active_over_full_ratio": 0.6905059738826077,
+        "dominance_slack_above_one_half": 0.1905059738826077,
+        "dominates_one_half_signed_full": true,
+        "full_contribution": -350245524237.9467,
+        "full_contribution_negative": true,
+        "half_frame_contribution": -66723864692.97452,
+        "label": "00,12",
+        "prime_modulus": 181,
+        "scale_modulus": 149
+      }
+    },
+    {
+      "active_row_start_count": 71,
+      "active_row_start_range": [
+        0,
+        70
+      ],
+      "all_starts_pass": true,
+      "dominance_rows_per_start": 116,
+      "failing_active_row_starts": [],
+      "failure_row_count": 0,
+      "failure_rows": [],
+      "passing_active_row_start_intervals": [
+        {
+          "start": 0,
+          "stop": 70
+        }
+      ],
+      "prime_count": 29,
+      "row_count": 35,
+      "scale_modulus": 167,
+      "source_active_row_start": 35,
+      "source_connected_passing_interval": {
+        "start": 0,
+        "stop": 70
+      },
+      "source_connected_start_count": 71,
+      "source_start_distance_from_nearest_failure": null,
+      "source_start_minimum_canonical_ratio": 0.5563677490893767,
+      "source_start_minimum_canonical_slack": 0.056367749089376695,
+      "source_start_passes": true,
+      "source_start_weakest_canonical_row": {
+        "active_contribution": -179112497709.71338,
+        "active_contribution_negative": true,
+        "active_over_full_ratio": 0.5563677490893767,
+        "dominance_slack_above_one_half": 0.056367749089376695,
+        "dominates_one_half_signed_full": true,
+        "full_contribution": -321931848139.7817,
+        "full_contribution_negative": true,
+        "half_frame_contribution": -18146573639.82254,
+        "label": "00,12",
+        "prime_modulus": 181,
+        "scale_modulus": 167
+      }
+    },
+    {
+      "active_row_start_count": 77,
+      "active_row_start_range": [
+        0,
+        76
+      ],
+      "all_starts_pass": true,
+      "dominance_rows_per_start": 132,
+      "failing_active_row_starts": [],
+      "failure_row_count": 0,
+      "failure_rows": [],
+      "passing_active_row_start_intervals": [
+        {
+          "start": 0,
+          "stop": 76
+        }
+      ],
+      "prime_count": 33,
+      "row_count": 38,
+      "scale_modulus": 191,
+      "source_active_row_start": 38,
+      "source_connected_passing_interval": {
+        "start": 0,
+        "stop": 76
+      },
+      "source_connected_start_count": 77,
+      "source_start_distance_from_nearest_failure": null,
+      "source_start_minimum_canonical_ratio": 0.8396056234839627,
+      "source_start_minimum_canonical_slack": 0.3396056234839627,
+      "source_start_passes": true,
+      "source_start_weakest_canonical_row": {
+        "active_contribution": -3918203663120.0503,
+        "active_contribution_negative": true,
+        "active_over_full_ratio": 0.8396056234839627,
+        "dominance_slack_above_one_half": 0.3396056234839627,
+        "dominates_one_half_signed_full": true,
+        "full_contribution": -4666719175678.427,
+        "full_contribution_negative": true,
+        "half_frame_contribution": -1584844075280.837,
+        "label": "00,12",
+        "prime_modulus": 199,
+        "scale_modulus": 191
+      }
+    },
+    {
+      "active_row_start_count": 83,
+      "active_row_start_range": [
+        0,
+        82
+      ],
+      "all_starts_pass": true,
+      "dominance_rows_per_start": 144,
+      "failing_active_row_starts": [],
+      "failure_row_count": 0,
+      "failure_rows": [],
+      "passing_active_row_start_intervals": [
+        {
+          "start": 0,
+          "stop": 82
+        }
+      ],
+      "prime_count": 36,
+      "row_count": 41,
+      "scale_modulus": 211,
+      "source_active_row_start": 41,
+      "source_connected_passing_interval": {
+        "start": 0,
+        "stop": 82
+      },
+      "source_connected_start_count": 83,
+      "source_start_distance_from_nearest_failure": null,
+      "source_start_minimum_canonical_ratio": 0.8211806699762235,
+      "source_start_minimum_canonical_slack": 0.3211806699762235,
+      "source_start_passes": true,
+      "source_start_weakest_canonical_row": {
+        "active_contribution": -9706063560322.219,
+        "active_contribution_negative": true,
+        "active_over_full_ratio": 0.8211806699762235,
+        "dominance_slack_above_one_half": 0.3211806699762235,
+        "dominates_one_half_signed_full": true,
+        "full_contribution": -11819644464601.496,
+        "full_contribution_negative": true,
+        "half_frame_contribution": -3796241328021.4707,
+        "label": "00,12",
+        "prime_modulus": 401,
+        "scale_modulus": 211
+      }
+    },
+    {
+      "active_row_start_count": 87,
+      "active_row_start_range": [
+        0,
+        86
+      ],
+      "all_starts_pass": true,
+      "dominance_rows_per_start": 156,
+      "failing_active_row_starts": [],
+      "failure_row_count": 0,
+      "failure_rows": [],
+      "passing_active_row_start_intervals": [
+        {
+          "start": 0,
+          "stop": 86
+        }
+      ],
+      "prime_count": 39,
+      "row_count": 43,
+      "scale_modulus": 227,
+      "source_active_row_start": 43,
+      "source_connected_passing_interval": {
+        "start": 0,
+        "stop": 86
+      },
+      "source_connected_start_count": 87,
+      "source_start_distance_from_nearest_failure": null,
+      "source_start_minimum_canonical_ratio": 0.8429887125059675,
+      "source_start_minimum_canonical_slack": 0.3429887125059675,
+      "source_start_passes": true,
+      "source_start_weakest_canonical_row": {
+        "active_contribution": -20161498568235.926,
+        "active_contribution_negative": true,
+        "active_over_full_ratio": 0.8429887125059675,
+        "dominance_slack_above_one_half": 0.3429887125059675,
+        "dominates_one_half_signed_full": true,
+        "full_contribution": -23916688644977.797,
+        "full_contribution_negative": true,
+        "half_frame_contribution": -8203154245747.027,
+        "label": "01,02",
+        "prime_modulus": 401,
+        "scale_modulus": 227
+      }
+    }
+  ],
+  "signed_prime_correlation_proved": false,
+  "source_admissible_window_theorem_proved": false,
+  "source_broad_sweep": "evidence\\mobius-moment-square-degree5-checked-scale-phase-curve-sweep.json",
+  "source_canonical_dominance": "evidence\\mobius-moment-square-degree5-checked-scale-dominance-audit.json",
+  "source_start_failure_count": 0,
+  "status": "DERIVE_degree5_source_admissible_window_audit",
+  "total_active_row_starts": 440,
+  "weakest_source_start_scale": {
+    "active_row_start_count": 71,
+    "active_row_start_range": [
+      0,
+      70
+    ],
+    "all_starts_pass": true,
+    "dominance_rows_per_start": 116,
+    "failing_active_row_starts": [],
+    "failure_row_count": 0,
+    "failure_rows": [],
+    "passing_active_row_start_intervals": [
+      {
+        "start": 0,
+        "stop": 70
+      }
+    ],
+    "prime_count": 29,
+    "row_count": 35,
+    "scale_modulus": 167,
+    "source_active_row_start": 35,
+    "source_connected_passing_interval": {
+      "start": 0,
+      "stop": 70
+    },
+    "source_connected_start_count": 71,
+    "source_start_distance_from_nearest_failure": null,
+    "source_start_minimum_canonical_ratio": 0.5563677490893767,
+    "source_start_minimum_canonical_slack": 0.056367749089376695,
+    "source_start_passes": true,
+    "source_start_weakest_canonical_row": {
+      "active_contribution": -179112497709.71338,
+      "active_contribution_negative": true,
+      "active_over_full_ratio": 0.5563677490893767,
+      "dominance_slack_above_one_half": 0.056367749089376695,
+      "dominates_one_half_signed_full": true,
+      "full_contribution": -321931848139.7817,
+      "full_contribution_negative": true,
+      "half_frame_contribution": -18146573639.82254,
+      "label": "00,12",
+      "prime_modulus": 181,
+      "scale_modulus": 167
+    }
+  }
+}

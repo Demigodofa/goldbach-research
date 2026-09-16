@@ -6,6 +6,42 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The metric-soft moment-square route now has a derived source-admissible
+row-window audit after the broad checked-scale phase-curve falsifier:
+`tools/build_mobius_moment_square_degree5_source_admissible_window_audit.py`
+generated
+`evidence/mobius-moment-square-degree5-source-admissible-window-audit.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-source-admissible-window-audit.md`.
+
+Question: after the broad row-start quantifier failed, does the validated
+finite data still support a narrower source-window or admissible-window
+dominance target?
+
+Answer: yes, as finite diagnostic evidence.  Across the six checked scales,
+there are `440` active row starts in the broad sweep.  Exactly `1` translated
+start fails and `439` pass.  No canonical source start fails.  The single
+failure remains `M=149`, prime `163`, active row start `1`, component
+`(00,12)`.  For `M=149`, the canonical source start is `32`, and the
+source-connected passing interval is `2..64`, so the failure is a
+non-source translated edge case.  The weakest canonical source-start margin
+remains the original checked-scale weak row, `M=167`, prime `181`,
+component `(00,12)`, with active/full ratio `0.5563677490893767` and slack
+`0.056367749089376695`.
+
+Decision: the broad all-translation theorem target remains finitely
+falsified, but the source-window target is still alive.  The next
+theorem-shaped target should be source-window or admissible-window control
+linked to the actual Goldbach local window, not dominance for every
+translated active window `0..2A`.  This is finite source-admissible-window
+evidence only.  No source-admissible window theorem, pointwise universal
+adverse-drag estimate, L2 logical bridge, phase-curve theorem,
+checked-scale dominance theorem, primewise dominance theorem, robust-margin
+universal theorem, signed prime-correlation estimate, q286 theorem,
+strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Latest continuation evidence, 2026-09-16
+
 The metric-soft moment-square route now has a finite falsifier for the broad
 checked-scale active-window phase-curve extension:
 `tools/build_mobius_moment_square_degree5_checked_scale_phase_curve_sweep.py`

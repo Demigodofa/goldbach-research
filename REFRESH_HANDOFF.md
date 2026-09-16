@@ -6,6 +6,45 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The metric-soft moment-square route now has a derived source-admissible
+row-window audit:
+
+```text
+tools/build_mobius_moment_square_degree5_source_admissible_window_audit.py
+notes/mobius-moment-square-degree5-source-admissible-window-audit.md
+evidence/mobius-moment-square-degree5-source-admissible-window-audit.json
+```
+
+Result:
+
+```text
+status:                         DERIVE_degree5_source_admissible_window_audit
+total active row starts:         440
+passing active row starts:       439
+failing active row starts:         1
+source starts failing:             0
+failing translated start:          M=149, start=1, p=163, (00,12)
+M=149 source start:                32
+M=149 source-connected interval:   2..64
+weakest source-start row:          M=167, p=181, (00,12)
+weakest source-start ratio:        0.5563677490893767
+weakest source-start slack:        0.056367749089376695
+```
+
+Decision: the broad all-translation row-start quantifier remains finitely
+falsified, but the canonical source starts are not obstructed.  The single
+failing start is a non-source translated edge case.  The active theorem target
+should now be source-window or admissible-window control linked to the actual
+local Goldbach window, not dominance for every translated active window
+`0..2A`.  This remains finite source-admissible-window evidence only; no
+source-admissible window theorem, pointwise universal adverse-drag estimate,
+L2 logical bridge, phase-curve theorem, checked-scale dominance theorem,
+primewise dominance theorem, robust-margin universal theorem, signed
+prime-correlation estimate, q286 theorem, strict-central Goldbach theorem, or
+Goldbach proof is established.
+
+## Latest active checkpoint note, 2026-09-16
+
 The metric-soft moment-square route now has a finite falsifier for the broad
 checked-scale active-window phase-curve extension:
 
