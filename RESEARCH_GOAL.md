@@ -6,6 +6,38 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The source-start moving-prime lane now has a phase-defect audit for the
+`Q=46189` exception:
+`tools/build_mobius_moment_square_degree5_q46189_phase_defect_audit.py`
+generated
+`evidence/mobius-moment-square-degree5-q46189-phase-defect-audit.json`, with
+explanation in
+`notes/mobius-moment-square-degree5-q46189-phase-defect-audit.md`.
+
+Question: does the `Q=46189` exception reduce to coordinate proportionality
+and a finite-window energy defect?
+
+Answer: yes.  For the target `(00,12)` component, coordinate `12` is a fixed
+negative scalar multiple of coordinate `00` on the `Q=46189` residue cells:
+the best scalar is `-0.07475328212536138`, with relative residual
+`2.577250390614836e-16`.  The resulting active/full cross ratio is
+`0.4973090372347702`, below the one-half threshold by
+`0.0026909627652297874`.  The other two component pairs are also adverse at
+this denominator.
+
+Decision: `Q=46189` is a finite falsifier for any theorem requiring every
+middle/far denominator to be nonadverse.  The surviving theorem target is
+group payment for aligned negative finite-window phase defects.  The next
+test should compute positive denominator rows in the `M=229`, `p=379`
+middle/far ledger that share the `11*13*17*19` tail or add one missing small
+prime, then test whether their surplus dominates the `Q=46189` phase defect
+without using total positivity.  This proves no per-denominator nonadversity
+theorem, phase-defect payment theorem, near-adverse upper bound, middle/far
+lower bound, clearance-family theorem, source-start theorem, strict-central
+Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The source-start moving-prime lane now has a bound audit for the named
 `M=229`, `p=379`, `Q=46189` middle-family exception:
 `tools/build_mobius_moment_square_degree5_q46189_exception_bound_audit.py`

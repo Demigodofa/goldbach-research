@@ -6,6 +6,38 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The source-start moving-prime lane now has a phase-defect audit for the
+`Q=46189` exception:
+
+```text
+tools/build_mobius_moment_square_degree5_q46189_phase_defect_audit.py
+notes/mobius-moment-square-degree5-q46189-phase-defect-audit.md
+evidence/mobius-moment-square-degree5-q46189-phase-defect-audit.json
+```
+
+Result:
+
+```text
+best scalar right/left:       -0.07475328212536138
+relative scalar residual:      2.577250390614836e-16
+active/full cross ratio:       0.4973090372347702
+half-threshold defect:         0.0026909627652297874
+status:                       FALSIFIER_q46189_per_denominator_nonadversity
+```
+
+Decision: the `Q=46189` exception is a finite falsifier for any theorem
+requiring every middle/far denominator to be nonadverse.  The surviving
+theorem target is group payment for aligned negative finite-window phase
+defects.  The next test should compute positive denominator rows in the
+`M=229`, `p=379` middle/far ledger that share the `11*13*17*19` tail or add
+one missing small prime, then test whether their surplus dominates the
+`Q=46189` phase defect without using total positivity.  This proves no
+per-denominator nonadversity theorem, phase-defect payment theorem,
+near-adverse upper bound, middle/far lower bound, clearance-family theorem,
+source-start theorem, strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The source-start moving-prime lane now has a bound audit for the named
 `M=229`, `p=379`, `Q=46189` middle-family exception:
 
