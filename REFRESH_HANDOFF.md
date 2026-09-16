@@ -6,6 +6,46 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The metric-soft source-window route now has a translated puncture audit:
+
+```text
+tools/build_mobius_moment_square_degree5_translated_puncture_audit.py
+notes/mobius-moment-square-degree5-translated-puncture-audit.md
+evidence/mobius-moment-square-degree5-translated-puncture-audit.json
+```
+
+Result:
+
+```text
+status:                         AUDIT_degree5_translated_puncture
+scale:                          M=149
+prime:                          p=163
+component:                      (00,12)
+source active row start:        32
+active row start range:         0..64
+failing active row starts:      1
+passing intervals:              0..0 and 2..64
+failure slack above 1/2:        -0.0019533329245732256
+left far edge start 0 slack:    0.08584732478965507
+right neighbor start 2 slack:   0.016606301881345376
+source start 32 slack:          0.850999451587179
+nonconvex puncture detected:    true
+```
+
+Decision: the lone broad translated failure is an isolated puncture, not a
+simple monotone left-edge distance effect.  Start `0` is farther from the
+source start `32` than start `1`, but start `0` passes while start `1` fails
+and starts `2..64` pass.  The source-window/admissible-window route remains
+alive, but the next theorem-shaped target needs an arithmetic source-
+admissibility condition or a source-window implication theorem, not a
+distance-only translated-window rule.  This is finite diagnostic evidence
+only.  No source-window implication theorem, source-admissible window theorem,
+phase-curve theorem, active-window translation theorem, pointwise universal
+adverse-drag estimate, q286 threshold theorem, strict-central Goldbach
+theorem, or Goldbach proof is established.
+
+## Latest active checkpoint note, 2026-09-16
+
 Graph/visual curiosity is useful only as an evidence lens, not as an
 assignment to make more artifacts.
 

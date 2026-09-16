@@ -6,6 +6,38 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The metric-soft source-window route now has a translated puncture audit:
+`tools/build_mobius_moment_square_degree5_translated_puncture_audit.py`
+generated
+`evidence/mobius-moment-square-degree5-translated-puncture-audit.json`, with
+explanation in
+`notes/mobius-moment-square-degree5-translated-puncture-audit.md`.
+
+Question: after the broad translated-window theorem target was finitely
+falsified, is the lone failure a simple distance-from-source edge effect, or
+an isolated arithmetic puncture?
+
+Answer: it is an isolated puncture in the checked finite profile.  For
+`M=149`, `p=163`, component `(00,12)`, the source active row start is `32`
+and the translated active row start range is `0..64`.  Start `1` is the only
+failing start, with slack `-0.0019533329245732256` above the signed `1/2`
+threshold.  Start `0` passes with slack `0.08584732478965507`, start `2`
+passes with slack `0.016606301881345376`, and the source start `32` passes
+with slack `0.850999451587179`.  The passing intervals are therefore `0..0`
+and `2..64`, with the source-connected passing interval `2..64`.
+
+Decision: the source-window/admissible-window route remains alive, but the
+translated pass set should not be modeled as a simple centered interval around
+the source or as a distance-only rule.  The next theorem-shaped target needs
+an arithmetic source-admissibility condition or a source-window implication
+theorem.  This is finite diagnostic evidence only.  No source-window
+implication theorem, source-admissible window theorem, phase-curve theorem,
+active-window translation theorem, pointwise universal adverse-drag estimate,
+q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof is
+established.
+
+## Latest continuation evidence, 2026-09-16
+
 Graph/visual curiosity is now preserved as a boundary and a signal, not as a
 standing request to build visuals.
 

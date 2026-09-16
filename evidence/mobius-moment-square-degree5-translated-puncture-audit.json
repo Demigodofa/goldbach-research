@@ -1,0 +1,157 @@
+{
+  "active_window_translation_theorem_proved": false,
+  "answer": "The finite failure is an isolated translated puncture.  For the failing profile M=149, p=163, component (00,12), start 0 passes, start 1 fails, and starts 2..64 pass.  The source start 32 is deep inside the source-connected passing interval 2..64.",
+  "decision": "Keep the source-window/admissible-window route alive, but do not model the translated pass set as a simple centered interval around the source.  The next theorem-shaped target needs an arithmetic source-admissibility condition or an implication theorem, not a distance-only translated-window rule.",
+  "falsifier": "A future broad translated failure whose source-connected pass interval disappears, whose canonical source start fails, or whose failure forms a persistent boundary band rather than a puncture would falsify this finite puncture interpretation.",
+  "finite_diagnostic_only": true,
+  "finite_translated_puncture_audit_only": true,
+  "goldbach_proved": false,
+  "nonconvex_puncture_count": 1,
+  "phase_curve_status": "SWEEP_degree5_checked_scale_active_window_phase_curve",
+  "phase_curve_sweep": "evidence\\mobius-moment-square-degree5-checked-scale-phase-curve-sweep.json",
+  "phase_curve_theorem_proved": false,
+  "pointwise_universal_adverse_drag_estimate_proved": false,
+  "prediction": "If the source-window route is real, admissibility should be tied to the actual source construction or another arithmetic exclusion, not to a naive monotone distance-from-source interval model.",
+  "puncture_count": 1,
+  "puncture_summaries": [
+    {
+      "active_row_start_range": [
+        0,
+        64
+      ],
+      "distance_to_source_at_failure": 31,
+      "distance_to_source_at_left_far_edge": 32,
+      "failing_active_row_starts": [
+        1
+      ],
+      "failing_start_count": 1,
+      "failure_row": {
+        "active_contribution": -151868483158.8944,
+        "active_contribution_negative": true,
+        "active_over_full_ratio": 0.4980466670754268,
+        "active_row_start": 1,
+        "active_row_start_offset": -31,
+        "active_row_stop": 33,
+        "dominance_slack_above_one_half": -0.0019533329245732256,
+        "dominates_one_half_signed_full": false,
+        "full_contribution": -304928218977.30853,
+        "full_contribution_negative": true,
+        "half_frame_contribution": 595626329.7598572,
+        "label": "00,12",
+        "prime_modulus": 163,
+        "scale_modulus": 149
+      },
+      "failure_start": 1,
+      "failure_start_offset": -31,
+      "is_singleton_puncture": true,
+      "label": "00,12",
+      "left_far_edge_passes": true,
+      "left_far_edge_row": {
+        "active_contribution": -178641381340.73035,
+        "active_contribution_negative": true,
+        "active_over_full_ratio": 0.5858473247896551,
+        "active_row_start": 0,
+        "active_row_start_offset": -32,
+        "active_row_stop": 32,
+        "dominance_slack_above_one_half": 0.08584732478965507,
+        "dominates_one_half_signed_full": true,
+        "full_contribution": -304928218977.30853,
+        "full_contribution_negative": true,
+        "half_frame_contribution": -26177271852.07608,
+        "label": "00,12",
+        "prime_modulus": 163,
+        "scale_modulus": 149
+      },
+      "maximum_slack": 1.3300541589358728,
+      "minimum_slack": -0.0019533329245732256,
+      "neighbor_rows": [
+        {
+          "active_contribution": -178641381340.73035,
+          "active_contribution_negative": true,
+          "active_over_full_ratio": 0.5858473247896551,
+          "active_row_start": 0,
+          "active_row_start_offset": -32,
+          "active_row_stop": 32,
+          "dominance_slack_above_one_half": 0.08584732478965507,
+          "dominates_one_half_signed_full": true,
+          "full_contribution": -304928218977.30853,
+          "full_contribution_negative": true,
+          "half_frame_contribution": -26177271852.07608,
+          "label": "00,12",
+          "prime_modulus": 163,
+          "scale_modulus": 149
+        },
+        {
+          "active_contribution": -157527839545.13245,
+          "active_contribution_negative": true,
+          "active_over_full_ratio": 0.5166063018813454,
+          "active_row_start": 2,
+          "active_row_start_offset": -30,
+          "active_row_stop": 34,
+          "dominance_slack_above_one_half": 0.016606301881345376,
+          "dominates_one_half_signed_full": true,
+          "full_contribution": -304928218977.30853,
+          "full_contribution_negative": true,
+          "half_frame_contribution": -5063730056.47818,
+          "label": "00,12",
+          "prime_modulus": 163,
+          "scale_modulus": 149
+        }
+      ],
+      "nonconvex_pass_set_detected": true,
+      "passing_active_row_start_intervals": [
+        {
+          "start": 0,
+          "stop": 0
+        },
+        {
+          "start": 2,
+          "stop": 64
+        }
+      ],
+      "prime_modulus": 163,
+      "puncture_is_not_left_edge": true,
+      "right_neighbor_passes": true,
+      "row_count": 32,
+      "scale_modulus": 149,
+      "slack_sign_counts": {
+        "negative": 1,
+        "positive": 64,
+        "zero": 0
+      },
+      "source_active_row_start": 32,
+      "source_connected_passing_interval": {
+        "start": 2,
+        "stop": 64
+      },
+      "source_start_passes": true,
+      "source_start_ratio": 1.350999451587179,
+      "source_start_row": {
+        "active_contribution": -411957856611.7991,
+        "active_contribution_negative": true,
+        "active_over_full_ratio": 1.350999451587179,
+        "active_row_start": 32,
+        "active_row_start_offset": 0,
+        "active_row_stop": 64,
+        "dominance_slack_above_one_half": 0.850999451587179,
+        "dominates_one_half_signed_full": true,
+        "full_contribution": -304928218977.30853,
+        "full_contribution_negative": true,
+        "half_frame_contribution": -259493747123.1448,
+        "label": "00,12",
+        "prime_modulus": 163,
+        "scale_modulus": 149
+      },
+      "source_start_slack": 0.850999451587179
+    }
+  ],
+  "q286_threshold_theorem_proved": false,
+  "question": "Does the lone broad translated-window failure behave like a monotone distance-from-source edge effect, or like an isolated puncture in an otherwise passing translated row-start profile?",
+  "single_failure_nonconvex_puncture_detected": true,
+  "source_admissible_audit": "evidence\\mobius-moment-square-degree5-source-admissible-window-audit.json",
+  "source_admissible_status": "DERIVE_degree5_source_admissible_window_audit",
+  "source_admissible_window_theorem_proved": false,
+  "source_window_implication_theorem_proved": false,
+  "status": "AUDIT_degree5_translated_puncture",
+  "strict_central_goldbach_theorem_proved": false
+}
