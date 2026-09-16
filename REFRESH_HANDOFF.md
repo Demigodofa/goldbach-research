@@ -6,6 +6,59 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS route now has a strict raw-gap analytic HOLD:
+
+```text
+tools/build_q286_wbss_strict_raw_gap_analytic_hold.py
+notes/q286-wbss-strict-raw-gap-analytic-hold.md
+evidence/q286-wbss-strict-raw-gap-analytic-hold.json
+```
+
+The live non-circular bridge is
+
+```text
+G_raw(N) = L_raw(N) - A_raw_-(N) > 0.
+```
+
+If strict-central support is empty, then `T_N=0`, `L_raw(N)=0`, every
+`E_raw_d(N)=0`, and `G_raw(N)=0`.  So the proof must create a strict positive
+raw quantity; homogeneous or normalized estimates that remain true at zero
+mass are not enough.
+
+Sufficient analytic routes:
+
+```text
+Path A: prove W_phi(N)>0 or G_raw(N)>=eta(N)>0 directly.
+Path B: prove T_N>=P(N)>0 and one-sided raw projection control
+        max(0,-E_raw_d(N))<=B_d(N) with sum_d B_d(N)<M(a)*P(N).
+```
+
+Path A is non-circular because the raw sum is zero on a zero-support row.  Path
+B is sufficient, but the positive-mass input is already strict-central
+existence strength.
+
+Inherited four-modulus coefficient budget:
+
+```text
+moduli:             70, 130, 154, 286
+total L1 norm:      372.962002076135
+minimum local main: 0.6039353780830684
+equal eta cap:      0.0016192946592982506
+```
+
+Decision: `HOLD_for_strict_raw_binary_pair_estimate`.  The repository
+currently has no theorem proving the needed direct signed raw sum, positive
+mass plus one-sided projection control, or fixed-modulus binary-prime
+convolution bound.  Rejected acceptance substitutes are: more finite q286 rows,
+fitted residual absorption constants such as `.125`, `.126`, or `.13`,
+normalized `L2` or `L1` discrepancy alone, one-dimensional AP prime estimates
+alone, and almost-all or averaged estimates with unnamed exceptions.  No direct
+raw signed binary-prime theorem, positive-mass theorem, one-sided projection
+theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach
+proof is established.
+
+## Latest active checkpoint note, 2026-09-15
+
 The q286-WBSS route now has a strict raw-gap obligation audit:
 
 ```text

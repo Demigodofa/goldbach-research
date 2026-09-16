@@ -1,0 +1,97 @@
+{
+  "bridge": {
+    "raw_terms": "L_raw(N)=T_N*M(a), E_raw_d(N)=T_N*E_d(N), and A_raw_-(N)=sum_d max(0,-E_raw_d(N)).",
+    "strict_raw_gap": "G_raw(N)=L_raw(N)-A_raw_-(N)>0",
+    "zero_mass_barrier": "If strict-central support is empty, then T_N=0, L_raw(N)=0, every E_raw_d(N)=0, and G_raw(N)=0.  Therefore any proof must create a strict positive raw quantity, not only a homogeneous or normalized inequality."
+  },
+  "candidate": {
+    "falsifier": "Any covered even N with G_raw(N)<=0 falsifies this specific q286-WBSS sufficient route.",
+    "mechanism": "Move the q286-WBSS bridge from normalized finite evidence to an unnormalized pointwise binary-prime sign-sum theorem.",
+    "name": "strict raw binary-pair estimate",
+    "novelty_label": "new-to-this-task",
+    "prediction": "A successful next proof will either lower-bound the raw signed witness directly or explicitly prove positive strict-central mass before using projection discrepancy.",
+    "smallest_next_action": "Source or prove a pointwise binary-prime correlation estimate for the four-modulus coefficient directions strong enough to imply G_raw(N)>0."
+  },
+  "coefficient_budget_inherited": {
+    "global_equal_residue_error_cap": 0.0016192946592982506,
+    "minimum_local_main_over_even_residues": 0.6039353780830684,
+    "moduli": [
+      "70",
+      "130",
+      "154",
+      "286"
+    ],
+    "role": "A stronger per-residue discrepancy corollary; sufficient but not necessary, and still requires non-circular binary-prime pair control.",
+    "total_l1_norm": 372.962002076135
+  },
+  "decision": "The strict raw-gap correction converts the q286-WBSS bridge into a HOLD for a pointwise raw binary-prime estimate.  The repository currently has no theorem proving the needed direct signed sum, positive mass plus one-sided projection control, or fixed-modulus binary-prime convolution bound.  Future finite rows are useful only as falsifiers or calibration for a predeclared theorem implication.",
+  "direct_raw_signed_binary_pair_theorem_proved": false,
+  "finite_context": {
+    "nonpositive_strict_raw_gap_count": 0,
+    "positive_strict_raw_gap_count": 348,
+    "role": "calibration_and_falsifier_only",
+    "row_count": 348,
+    "smallest_gap_over_target": 0.26310340793692394,
+    "smallest_gap_over_total_weight": 0.5992601478393073,
+    "tightest_strict_raw_gap": 286929.1729900494,
+    "tightest_strict_raw_gap_target": 1059514
+  },
+  "goldbach_proved": false,
+  "one_sided_projection_theorem_proved": false,
+  "positive_mass_theorem_proved": false,
+  "q286_threshold_theorem_proved": false,
+  "rejected_acceptance_substitutes": [
+    {
+      "name": "more finite q286 rows",
+      "reason": "finite calibration can falsify a proposed theorem shape but cannot establish the universal pointwise raw gap"
+    },
+    {
+      "name": "fitted residual absorption constants",
+      "reason": ".125, .126, .13, or similar constants fitted to checked rows are not universal bounds"
+    },
+    {
+      "name": "normalized L2 or L1 discrepancy alone",
+      "reason": "normalized estimates do not create T_N>0 and therefore do not cross the zero-mass barrier"
+    },
+    {
+      "name": "one-dimensional AP prime estimates alone",
+      "reason": "they constrain marginal prime counts but not the pointwise binary-prime convolution or the signed coefficient-weighted pair sum"
+    },
+    {
+      "name": "almost-all or averaged estimates",
+      "reason": "Goldbach requires every sufficiently large covered target plus a finite remainder, not unnamed exceptions"
+    }
+  ],
+  "schema_version": 1,
+  "source_commit": "205e5d6a14f23499036aebe8c7c93199a08503e6",
+  "sources": {
+    "coefficient_discrepancy_budget_hold": "evidence\\q286-wbss-coefficient-discrepancy-budget-hold.json",
+    "coefficient_discrepancy_source_commit": "6ae67b223dcd9444ba3d0f6224fa7b452e5ae7b4",
+    "strict_raw_gap_obligation": "evidence\\q286-wbss-strict-raw-gap-obligation.json",
+    "strict_raw_gap_source_commit": "778badb715c9bcc3c4c1f9a5aff53eace11a993c"
+  },
+  "status": "HOLD_for_strict_raw_binary_pair_estimate",
+  "status_boundary": "strict raw-gap analytic HOLD only; no direct raw signed binary-prime estimate, positive-mass theorem, one-sided projection theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof is established",
+  "strict_raw_gap_theorem_proved": false,
+  "sufficient_analytic_routes": {
+    "direct_signed_binary_pair_sum": {
+      "non_circular": true,
+      "separate_positive_mass_needed": false,
+      "statement": "Prove the raw q286-WBSS signed binary-prime witness W_phi(N)>0, or the stronger lower bound G_raw(N)>=eta(N)>0, for every sufficiently large covered even N.",
+      "why": "The raw sum is zero on a zero-support row, so strict positivity itself forces a strict-central prime pair."
+    },
+    "mass_plus_one_sided_projection_control": {
+      "non_circular": true,
+      "separate_positive_mass_needed": true,
+      "statement": "Prove T_N>=P(N)>0 and pointwise one-sided bounds max(0,-E_raw_d(N))<=B_d(N) with sum_d B_d(N)<M(a)*P(N).",
+      "why": "This proves G_raw(N)>=M(a)*P(N)-sum_d B_d(N)>0, but the positive mass input is already strict-central existence strength."
+    },
+    "normalized_projection_discrepancy": {
+      "non_circular": false,
+      "separate_positive_mass_needed": true,
+      "statement": "Prove normalized bounds on Delta_{d,s}(N) or E_d(N).",
+      "why": "A normalized measure mu_N is meaningful only after T_N>0; the same inequality is vacuous at zero mass."
+    }
+  },
+  "universal_bound_open": true
+}
