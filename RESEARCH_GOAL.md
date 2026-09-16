@@ -6,6 +6,34 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The source-window lane now has a reachability reconciliation after the
+start-`1` puncture correction:
+`tools/build_mobius_moment_square_degree5_source_reachability_reconciliation.py`
+generated
+`evidence/mobius-moment-square-degree5-source-reachability-reconciliation.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-source-reachability-reconciliation.md`.
+
+Question: after the start-`1` puncture was proved unreachable from the
+original checked-scale source mapping, what remains of the source-window lane?
+
+Answer: the broad all-translated-start quantifier remains finitely falsified,
+but the reachable-source failure count is `0`.  The only broad failure is
+`M=149`, `p=163`, component `(00,12)`, active row start `1`, and it is
+classified `UNREACHABLE`.  All six canonical source starts pass, with minimum
+source-start active/full ratio `0.5563677490893767` and slack
+`0.056367749089376695`.
+
+Decision: the source-window lane survives only as a narrower theorem target:
+prove canonical source-start control, or define a non-post-hoc arithmetic
+admissibility map that separates reachable starts from unreachable translated
+starts.  Endpoint-swap or denominator-phase analysis of start `1` is reservoir
+evidence unless such a map makes start `1` source-admissible.  This proves no
+source-window theorem, source-admissible-window theorem, endpoint-swap theorem,
+strict-central Goldbach theorem, or Goldbach proof.
+
+## Latest continuation evidence, 2026-09-16
+
 The translated puncture now has a source-reachability audit:
 `tools/build_mobius_moment_square_degree5_puncture_reachability_audit.py`
 generated

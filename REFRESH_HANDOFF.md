@@ -6,6 +6,41 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The source-window lane now has a reachability reconciliation after the
+start-`1` puncture correction:
+
+```text
+tools/build_mobius_moment_square_degree5_source_reachability_reconciliation.py
+notes/mobius-moment-square-degree5-source-reachability-reconciliation.md
+evidence/mobius-moment-square-degree5-source-reachability-reconciliation.json
+```
+
+Result:
+
+```text
+status:                         RECONCILE_degree5_source_reachability_after_translated_puncture
+broad translated quantifier:     finitely falsified
+broad failure count:             1
+reachable source failures:       0
+unreachable translated failures: 1
+unclassified failures:           0
+all source starts pass:          true
+minimum source-start ratio:      0.5563677490893767
+minimum source-start slack:      0.056367749089376695
+```
+
+Decision: the known translated failure is unreachable from the original
+source mapping, so the source-window lane is not refuted by that puncture.
+The surviving theorem-shaped target is canonical source-start control, or a
+non-post-hoc arithmetic admissibility map separating reachable starts from
+unreachable translated starts.  Endpoint-swap and reduced-denominator analysis
+of start `1` is reservoir evidence unless such a map makes it source-
+admissible.  No source-window theorem, source-admissible-window theorem,
+endpoint-swap theorem, strict-central Goldbach theorem, or Goldbach proof is
+established.
+
+## Latest active checkpoint note, 2026-09-16
+
 The translated puncture now has a source-reachability audit:
 
 ```text

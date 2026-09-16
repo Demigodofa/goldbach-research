@@ -1,0 +1,157 @@
+{
+  "active_window_translation_theorem_proved": false,
+  "all_broad_failures_are_unreachable": true,
+  "all_source_starts_pass": true,
+  "broad_failure_count": 1,
+  "broad_translated_quantifier_falsified": true,
+  "candidate_next_theorem_target": {
+    "falsifier": "Any checked or proved reachable source start with active/full dominance slack <= 0, or a source-connected pass interval missing the canonical start, falsifies this narrowed lane.",
+    "mechanism": "Use only the active row window produced by the original checked-scale source mapping, not every translated start in 0..2A.",
+    "name": "canonical source-start active/full lower-frame control",
+    "novelty_label": "new-to-this-task",
+    "prediction": "A future valid source theorem should control the canonical start row on every scale; failures at unreachable translated starts do not refute it."
+  },
+  "classified_broad_failures": [
+    {
+      "active_row_start": 1,
+      "dominance_slack_above_one_half": -0.0019533329245732256,
+      "label": "00,12",
+      "prime_modulus": 163,
+      "reachability": "UNREACHABLE",
+      "reachable_from_original_source_mapping": false,
+      "scale_modulus": 149,
+      "source_active_row_start": 32
+    }
+  ],
+  "decision": "The broad all-translated-start theorem remains finitely falsified, but the known failure is unreachable from the original source mapping.  The source-window lane therefore survives as a narrower theorem target: prove canonical source-start control, or define a non-post-hoc arithmetic admissibility map that separates reachable starts from unreachable translated starts.  Endpoint-swap or denominator-phase analysis of start 1 is reservoir evidence unless such a map makes start 1 source-admissible.",
+  "endpoint_swap_theorem_proved": false,
+  "finite_diagnostic_only": true,
+  "finite_reconciliation_only": true,
+  "goldbach_proved": false,
+  "minimum_source_start_canonical_ratio": 0.5563677490893767,
+  "minimum_source_start_canonical_slack": 0.056367749089376695,
+  "question": "After the start-1 puncture was proved unreachable from the original source mapping, what remains of the source-window lane?",
+  "reachable_source_failure_count": 0,
+  "schema_version": 1,
+  "source_admissible_window_theorem_proved": false,
+  "source_commit": "ca45366b224007d7b7a20e2501c40fa1d3993f6f",
+  "source_scale_count": 6,
+  "source_start_failure_count": 0,
+  "source_start_pass_rows": [
+    {
+      "scale_modulus": 127,
+      "source_active_row_start": 28,
+      "source_connected_passing_interval": {
+        "start": 0,
+        "stop": 56
+      },
+      "source_start_minimum_canonical_ratio": 0.7075873492976413,
+      "source_start_minimum_canonical_slack": 0.20758734929764133
+    },
+    {
+      "scale_modulus": 149,
+      "source_active_row_start": 32,
+      "source_connected_passing_interval": {
+        "start": 2,
+        "stop": 64
+      },
+      "source_start_minimum_canonical_ratio": 0.6905059738826077,
+      "source_start_minimum_canonical_slack": 0.1905059738826077
+    },
+    {
+      "scale_modulus": 167,
+      "source_active_row_start": 35,
+      "source_connected_passing_interval": {
+        "start": 0,
+        "stop": 70
+      },
+      "source_start_minimum_canonical_ratio": 0.5563677490893767,
+      "source_start_minimum_canonical_slack": 0.056367749089376695
+    },
+    {
+      "scale_modulus": 191,
+      "source_active_row_start": 38,
+      "source_connected_passing_interval": {
+        "start": 0,
+        "stop": 76
+      },
+      "source_start_minimum_canonical_ratio": 0.8396056234839627,
+      "source_start_minimum_canonical_slack": 0.3396056234839627
+    },
+    {
+      "scale_modulus": 211,
+      "source_active_row_start": 41,
+      "source_connected_passing_interval": {
+        "start": 0,
+        "stop": 82
+      },
+      "source_start_minimum_canonical_ratio": 0.8211806699762235,
+      "source_start_minimum_canonical_slack": 0.3211806699762235
+    },
+    {
+      "scale_modulus": 227,
+      "source_active_row_start": 43,
+      "source_connected_passing_interval": {
+        "start": 0,
+        "stop": 86
+      },
+      "source_start_minimum_canonical_ratio": 0.8429887125059675,
+      "source_start_minimum_canonical_slack": 0.3429887125059675
+    }
+  ],
+  "source_window_theorem_proved": false,
+  "sources": {
+    "puncture_reachability_audit": "evidence\\mobius-moment-square-degree5-puncture-reachability-audit.json",
+    "puncture_reachability_status": "AUDIT_degree5_puncture_source_reachability",
+    "source_admissible_window_audit": "evidence\\mobius-moment-square-degree5-source-admissible-window-audit.json",
+    "source_admissible_window_status": "DERIVE_degree5_source_admissible_window_audit"
+  },
+  "status": "RECONCILE_degree5_source_reachability_after_translated_puncture",
+  "strict_central_goldbach_theorem_proved": false,
+  "unclassified_failure_count": 0,
+  "unreachable_translated_failure_count": 1,
+  "weakest_source_start_scale": {
+    "active_row_start_count": 71,
+    "active_row_start_range": [
+      0,
+      70
+    ],
+    "all_starts_pass": true,
+    "dominance_rows_per_start": 116,
+    "failing_active_row_starts": [],
+    "failure_row_count": 0,
+    "failure_rows": [],
+    "passing_active_row_start_intervals": [
+      {
+        "start": 0,
+        "stop": 70
+      }
+    ],
+    "prime_count": 29,
+    "row_count": 35,
+    "scale_modulus": 167,
+    "source_active_row_start": 35,
+    "source_connected_passing_interval": {
+      "start": 0,
+      "stop": 70
+    },
+    "source_connected_start_count": 71,
+    "source_start_distance_from_nearest_failure": null,
+    "source_start_minimum_canonical_ratio": 0.5563677490893767,
+    "source_start_minimum_canonical_slack": 0.056367749089376695,
+    "source_start_passes": true,
+    "source_start_weakest_canonical_row": {
+      "active_contribution": -179112497709.71338,
+      "active_contribution_negative": true,
+      "active_over_full_ratio": 0.5563677490893767,
+      "dominance_slack_above_one_half": 0.056367749089376695,
+      "dominates_one_half_signed_full": true,
+      "full_contribution": -321931848139.7817,
+      "full_contribution_negative": true,
+      "half_frame_contribution": -18146573639.82254,
+      "label": "00,12",
+      "prime_modulus": 181,
+      "scale_modulus": 167
+    }
+  }
+}
