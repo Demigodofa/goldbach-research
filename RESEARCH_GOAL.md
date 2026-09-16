@@ -6,6 +6,48 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The `Q=46189` replacement-family lane now has an exact log-polynomial
+identity audit:
+`tools/build_mobius_moment_square_degree5_q46189_exact_log_polynomial_identity_audit.py`
+generated
+`evidence/mobius-moment-square-degree5-q46189-exact-log-polynomial-identity-audit.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-q46189-exact-log-polynomial-identity-audit.md`.
+
+Question: do the six source-conductor scalar formulas become exactly
+identical after rebuilding the coefficient polynomials over formal prime-log
+variables?
+
+Answer: yes for `Q=46189` and its ten replacement rows.  After removing the
+common `L^-3` factor, every ordered source pair in a checked row has the same
+formal value of
+
+```text
+(b_d c_e + c_d b_e) / (a_d a_e).
+```
+
+For `Q=46189`, the common numerator is
+
+```text
+-l11*l13*l17 - l11*l13*l19 - l11*l17*l19 - l13*l17*l19
+```
+
+and all six pair-difference expressions are exactly zero.  Across the ten
+replacement rows, all checked pair differences are also exactly zero; numeric
+substitution back into the previous formula checkpoint differs by at most
+`2.7755575615628914e-17`.
+
+Decision: the finite source-conductor scalar formula is no longer merely a
+floating coincidence for this selected family.  The remaining proof gap in
+this lane is the one-coordinate active/full ratio inequality and any universal
+extension beyond the checked family.  This proves only a selected-family exact
+log-polynomial identity; it proves no universal source-conductor scalar
+formula theorem, one-coordinate active/full ratio theorem, symbolic
+replacement ratio theorem, source-start theorem, strict-central Goldbach
+theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The `Q=46189` replacement-family lane now has an explicit source-conductor
 scalar formula audit:
 `tools/build_mobius_moment_square_degree5_q46189_source_conductor_scalar_formula_audit.py`

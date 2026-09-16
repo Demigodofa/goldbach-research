@@ -6,6 +6,39 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The `Q=46189` replacement-family lane now has an exact log-polynomial
+identity audit:
+
+```text
+tools/build_mobius_moment_square_degree5_q46189_exact_log_polynomial_identity_audit.py
+notes/mobius-moment-square-degree5-q46189-exact-log-polynomial-identity-audit.md
+evidence/mobius-moment-square-degree5-q46189-exact-log-polynomial-identity-audit.json
+```
+
+Result:
+
+```text
+Q=46189 common numerator:
+-l11*l13*l17 - l11*l13*l19 - l11*l17*l19 - l13*l17*l19
+
+replacement rows:              10
+max numeric substitution err:  2.7755575615628914e-17
+all pair differences zero:     true
+```
+
+Decision: the finite source-conductor scalar formula is no longer merely a
+floating coincidence for this selected family.  Rebuilding the coefficient
+polynomials over formal prime-log variables proves the six source-pair scalar
+formulas are exactly equal for `Q=46189` and for all ten checked replacement
+rows, after removing the common `L^-3` factor.  The next useful route is the
+one-coordinate active/full ratio inequality and any universal extension beyond
+this selected family.  This proves no universal source-conductor scalar
+formula theorem, one-coordinate active/full ratio theorem, symbolic
+replacement ratio theorem, source-start theorem, strict-central Goldbach
+theorem, or Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The `Q=46189` replacement-family lane now has an explicit source-conductor
 scalar formula audit:
 

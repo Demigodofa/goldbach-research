@@ -1,0 +1,740 @@
+{
+  "answer": "Yes for Q=46189 and its ten replacement rows.  The six ordered source-pair formulas have zero symbolic differences after the common L^-3 factor is removed.  This proves an exact finite log-polynomial identity for this selected family, but no universal source-conductor theorem or Goldbach theorem.",
+  "candidate_next_action": {
+    "falsifier": "If the active/full ratio still depends on hidden residue phase data after the exact scalar is factored out, this one-coordinate reduction is not enough for a theorem.",
+    "mechanism": "Use the exact common scalar to remove phase from the selected source-pair family, leaving a real one-coordinate active/full ratio inequality for Q=46189 versus its replacement rows.",
+    "name": "one-coordinate active/full ratio inequality",
+    "novelty_label": "new-to-this-task",
+    "prediction": "The Q=46189 defect and replacement payments should be expressible as a symbolic inequality between coordinate-00 active and full energies after multiplying by the common negative scalar.",
+    "smallest_next_test": "Build a symbolic/numeric certificate for the coordinate-00 active/full ratio gap for Q=46189 and its replacement rows, separate from the now-proved finite log identity."
+  },
+  "classification": {
+    "all_numeric_substitutions_match_formula_checkpoint": true,
+    "all_replacements_exact_log_identity_proved_for_checked_rows": true,
+    "finite_selected_family_exact_identity_only": true,
+    "q46189_exact_log_identity_proved_for_checked_row": true,
+    "universal_source_conductor_scalar_formula_theorem_proved": false
+  },
+  "decision": "The finite source-conductor scalar formula is no longer merely a floating coincidence for this selected family: the six pair formulas are exactly equal as formal log-polynomials.  The remaining gap is the one-coordinate active/full ratio inequality and any universal extension beyond the checked family.",
+  "exact_log_polynomial_identity_proved_for_selected_family": true,
+  "finite_diagnostic_only": true,
+  "finite_selected_family_identity_only": true,
+  "fixture": {
+    "adverse_denominator": 46189,
+    "common_l_factor": "L^-3",
+    "divisor_range": [
+      3,
+      19
+    ],
+    "ell_freeze": 64,
+    "formal_prime_log_symbols": {
+      "11": "l11",
+      "13": "l13",
+      "17": "l17",
+      "19": "l19",
+      "2": "l2",
+      "3": "l3",
+      "5": "l5",
+      "7": "l7"
+    },
+    "mobius_divisors": [
+      5,
+      6,
+      7,
+      10,
+      11,
+      13,
+      14,
+      15,
+      17,
+      19
+    ],
+    "prime_modulus": 379,
+    "row_count_A": 43,
+    "scale_modulus": 229,
+    "target_label": "00,12"
+  },
+  "goldbach_proved": false,
+  "one_coordinate_active_full_ratio_theorem_proved": false,
+  "q46189_exact_log_identity_row": {
+    "all_pair_scalar_expressions_equal": true,
+    "cellwise_margin_full_over_2_minus_active": -8444721229.472412,
+    "common_log_numerator": "-l11*l13*l17 - l11*l13*l19 - l11*l17*l19 - l13*l17*l19",
+    "common_log_numerator_equals_expected": true,
+    "exact_scalar_numeric_substitution": -0.07475328212536136,
+    "expected_common_log_numerator": "-l11*l13*l17 - l11*l13*l19 - l11*l17*l19 - l13*l17*l19",
+    "factorization": {
+      "11": 1,
+      "13": 1,
+      "17": 1,
+      "19": 1
+    },
+    "formula_scalar_mean": -0.07475328212536136,
+    "high_prime_support": [
+      11,
+      13,
+      17,
+      19
+    ],
+    "missing_high_primes": [],
+    "numeric_substitution_minus_formula_scalar": 0.0,
+    "ordered_source_conductor_pairs": [
+      {
+        "left_source_conductor": 143,
+        "right_source_conductor": 323
+      },
+      {
+        "left_source_conductor": 187,
+        "right_source_conductor": 247
+      },
+      {
+        "left_source_conductor": 209,
+        "right_source_conductor": 221
+      },
+      {
+        "left_source_conductor": 221,
+        "right_source_conductor": 209
+      },
+      {
+        "left_source_conductor": 247,
+        "right_source_conductor": 187
+      },
+      {
+        "left_source_conductor": 323,
+        "right_source_conductor": 143
+      }
+    ],
+    "pair_difference_expressions": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "ratio_minus_half": -0.0026909627652297874,
+    "reduced_denominator": 46189
+  },
+  "question": "Do the six source-conductor scalar formulas become exactly identical after rebuilding the coefficient polynomials over formal prime-log variables?",
+  "replacement_exact_log_identity_rows": [
+    {
+      "all_pair_scalar_expressions_equal": true,
+      "cellwise_margin_full_over_2_minus_active": 3346664546754.784,
+      "common_log_numerator": "-l13*l17*l19 - l13*l17*l2 - l13*l17*l7 - l13*l19*l2 - l13*l19*l7 - l17*l19*l2 - l17*l19*l7",
+      "common_log_numerator_equals_expected": true,
+      "exact_scalar_numeric_substitution": -0.08018047904089409,
+      "expected_common_log_numerator": "-l13*l17*l19 - l13*l17*l2 - l13*l17*l7 - l13*l19*l2 - l13*l19*l7 - l17*l19*l2 - l17*l19*l7",
+      "factorization": {
+        "13": 1,
+        "17": 1,
+        "19": 1,
+        "2": 1,
+        "7": 1
+      },
+      "formula_scalar_mean": -0.08018047904089408,
+      "high_prime_support": [
+        13,
+        17,
+        19
+      ],
+      "missing_high_primes": [
+        11
+      ],
+      "numeric_substitution_minus_formula_scalar": -1.3877787807814457e-17,
+      "ordered_source_conductor_pairs": [
+        {
+          "left_source_conductor": 182,
+          "right_source_conductor": 323
+        },
+        {
+          "left_source_conductor": 221,
+          "right_source_conductor": 266
+        },
+        {
+          "left_source_conductor": 238,
+          "right_source_conductor": 247
+        },
+        {
+          "left_source_conductor": 247,
+          "right_source_conductor": 238
+        },
+        {
+          "left_source_conductor": 266,
+          "right_source_conductor": 221
+        },
+        {
+          "left_source_conductor": 323,
+          "right_source_conductor": 182
+        }
+      ],
+      "pair_difference_expressions": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "ratio_minus_half": 0.5246550671421417,
+      "reduced_denominator": 58786
+    },
+    {
+      "all_pair_scalar_expressions_equal": true,
+      "cellwise_margin_full_over_2_minus_active": 2392162326353.543,
+      "common_log_numerator": "-l11*l13*l19 - l11*l13*l3 - l11*l13*l5 - l11*l19*l3 - l11*l19*l5 - l13*l19*l3 - l13*l19*l5",
+      "common_log_numerator_equals_expected": true,
+      "exact_scalar_numeric_substitution": -0.07222823118954748,
+      "expected_common_log_numerator": "-l11*l13*l19 - l11*l13*l3 - l11*l13*l5 - l11*l19*l3 - l11*l19*l5 - l13*l19*l3 - l13*l19*l5",
+      "factorization": {
+        "11": 1,
+        "13": 1,
+        "19": 1,
+        "3": 1,
+        "5": 1
+      },
+      "formula_scalar_mean": -0.0722282311895475,
+      "high_prime_support": [
+        11,
+        13,
+        19
+      ],
+      "missing_high_primes": [
+        17
+      ],
+      "numeric_substitution_minus_formula_scalar": 2.7755575615628914e-17,
+      "ordered_source_conductor_pairs": [
+        {
+          "left_source_conductor": 143,
+          "right_source_conductor": 285
+        },
+        {
+          "left_source_conductor": 165,
+          "right_source_conductor": 247
+        },
+        {
+          "left_source_conductor": 195,
+          "right_source_conductor": 209
+        },
+        {
+          "left_source_conductor": 209,
+          "right_source_conductor": 195
+        },
+        {
+          "left_source_conductor": 247,
+          "right_source_conductor": 165
+        },
+        {
+          "left_source_conductor": 285,
+          "right_source_conductor": 143
+        }
+      ],
+      "pair_difference_expressions": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "ratio_minus_half": 0.5735414442150175,
+      "reduced_denominator": 40755
+    },
+    {
+      "all_pair_scalar_expressions_equal": true,
+      "cellwise_margin_full_over_2_minus_active": 1850503895631.418,
+      "common_log_numerator": "-l13*l17*l19 - l13*l17*l3 - l13*l17*l5 - l13*l19*l3 - l13*l19*l5 - l17*l19*l3 - l17*l19*l5",
+      "common_log_numerator_equals_expected": true,
+      "exact_scalar_numeric_substitution": -0.08173311922098693,
+      "expected_common_log_numerator": "-l13*l17*l19 - l13*l17*l3 - l13*l17*l5 - l13*l19*l3 - l13*l19*l5 - l17*l19*l3 - l17*l19*l5",
+      "factorization": {
+        "13": 1,
+        "17": 1,
+        "19": 1,
+        "3": 1,
+        "5": 1
+      },
+      "formula_scalar_mean": -0.08173311922098692,
+      "high_prime_support": [
+        13,
+        17,
+        19
+      ],
+      "missing_high_primes": [
+        11
+      ],
+      "numeric_substitution_minus_formula_scalar": -1.3877787807814457e-17,
+      "ordered_source_conductor_pairs": [
+        {
+          "left_source_conductor": 195,
+          "right_source_conductor": 323
+        },
+        {
+          "left_source_conductor": 221,
+          "right_source_conductor": 285
+        },
+        {
+          "left_source_conductor": 247,
+          "right_source_conductor": 255
+        },
+        {
+          "left_source_conductor": 255,
+          "right_source_conductor": 247
+        },
+        {
+          "left_source_conductor": 285,
+          "right_source_conductor": 221
+        },
+        {
+          "left_source_conductor": 323,
+          "right_source_conductor": 195
+        }
+      ],
+      "pair_difference_expressions": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "ratio_minus_half": 0.2581873474668748,
+      "reduced_denominator": 62985
+    },
+    {
+      "all_pair_scalar_expressions_equal": true,
+      "cellwise_margin_full_over_2_minus_active": 1731086923068.5696,
+      "common_log_numerator": "-l11*l17*l19 - l11*l17*l2 - l11*l17*l7 - l11*l19*l2 - l11*l19*l7 - l17*l19*l2 - l17*l19*l7",
+      "common_log_numerator_equals_expected": true,
+      "exact_scalar_numeric_substitution": -0.07635153651590741,
+      "expected_common_log_numerator": "-l11*l17*l19 - l11*l17*l2 - l11*l17*l7 - l11*l19*l2 - l11*l19*l7 - l17*l19*l2 - l17*l19*l7",
+      "factorization": {
+        "11": 1,
+        "17": 1,
+        "19": 1,
+        "2": 1,
+        "7": 1
+      },
+      "formula_scalar_mean": -0.0763515365159074,
+      "high_prime_support": [
+        11,
+        17,
+        19
+      ],
+      "missing_high_primes": [
+        13
+      ],
+      "numeric_substitution_minus_formula_scalar": -1.3877787807814457e-17,
+      "ordered_source_conductor_pairs": [
+        {
+          "left_source_conductor": 154,
+          "right_source_conductor": 323
+        },
+        {
+          "left_source_conductor": 187,
+          "right_source_conductor": 266
+        },
+        {
+          "left_source_conductor": 209,
+          "right_source_conductor": 238
+        },
+        {
+          "left_source_conductor": 238,
+          "right_source_conductor": 209
+        },
+        {
+          "left_source_conductor": 266,
+          "right_source_conductor": 187
+        },
+        {
+          "left_source_conductor": 323,
+          "right_source_conductor": 154
+        }
+      ],
+      "pair_difference_expressions": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "ratio_minus_half": 0.5090053014564786,
+      "reduced_denominator": 49742
+    },
+    {
+      "all_pair_scalar_expressions_equal": true,
+      "cellwise_margin_full_over_2_minus_active": 1511445502783.3352,
+      "common_log_numerator": "-l11*l17*l19 - l11*l17*l3 - l11*l17*l5 - l11*l19*l3 - l11*l19*l5 - l17*l19*l3 - l17*l19*l5",
+      "common_log_numerator_equals_expected": true,
+      "exact_scalar_numeric_substitution": -0.077839475755989,
+      "expected_common_log_numerator": "-l11*l17*l19 - l11*l17*l3 - l11*l17*l5 - l11*l19*l3 - l11*l19*l5 - l17*l19*l3 - l17*l19*l5",
+      "factorization": {
+        "11": 1,
+        "17": 1,
+        "19": 1,
+        "3": 1,
+        "5": 1
+      },
+      "formula_scalar_mean": -0.07783947575598901,
+      "high_prime_support": [
+        11,
+        17,
+        19
+      ],
+      "missing_high_primes": [
+        13
+      ],
+      "numeric_substitution_minus_formula_scalar": 1.3877787807814457e-17,
+      "ordered_source_conductor_pairs": [
+        {
+          "left_source_conductor": 165,
+          "right_source_conductor": 323
+        },
+        {
+          "left_source_conductor": 187,
+          "right_source_conductor": 285
+        },
+        {
+          "left_source_conductor": 209,
+          "right_source_conductor": 255
+        },
+        {
+          "left_source_conductor": 255,
+          "right_source_conductor": 209
+        },
+        {
+          "left_source_conductor": 285,
+          "right_source_conductor": 187
+        },
+        {
+          "left_source_conductor": 323,
+          "right_source_conductor": 165
+        }
+      ],
+      "pair_difference_expressions": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "ratio_minus_half": 0.43323473349815567,
+      "reduced_denominator": 53295
+    },
+    {
+      "all_pair_scalar_expressions_equal": true,
+      "cellwise_margin_full_over_2_minus_active": 1316046274899.9194,
+      "common_log_numerator": "-l11*l13*l17 - l11*l13*l2 - l11*l13*l7 - l11*l17*l2 - l11*l17*l7 - l13*l17*l2 - l13*l17*l7",
+      "common_log_numerator_equals_expected": true,
+      "exact_scalar_numeric_substitution": -0.06875627493444,
+      "expected_common_log_numerator": "-l11*l13*l17 - l11*l13*l2 - l11*l13*l7 - l11*l17*l2 - l11*l17*l7 - l13*l17*l2 - l13*l17*l7",
+      "factorization": {
+        "11": 1,
+        "13": 1,
+        "17": 1,
+        "2": 1,
+        "7": 1
+      },
+      "formula_scalar_mean": -0.06875627493444002,
+      "high_prime_support": [
+        11,
+        13,
+        17
+      ],
+      "missing_high_primes": [
+        19
+      ],
+      "numeric_substitution_minus_formula_scalar": 1.3877787807814457e-17,
+      "ordered_source_conductor_pairs": [
+        {
+          "left_source_conductor": 143,
+          "right_source_conductor": 238
+        },
+        {
+          "left_source_conductor": 154,
+          "right_source_conductor": 221
+        },
+        {
+          "left_source_conductor": 182,
+          "right_source_conductor": 187
+        },
+        {
+          "left_source_conductor": 187,
+          "right_source_conductor": 182
+        },
+        {
+          "left_source_conductor": 221,
+          "right_source_conductor": 154
+        },
+        {
+          "left_source_conductor": 238,
+          "right_source_conductor": 143
+        }
+      ],
+      "pair_difference_expressions": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "ratio_minus_half": 0.43551465411843837,
+      "reduced_denominator": 34034
+    },
+    {
+      "all_pair_scalar_expressions_equal": true,
+      "cellwise_margin_full_over_2_minus_active": 1210884155652.7246,
+      "common_log_numerator": "-l11*l13*l17 - l11*l13*l3 - l11*l13*l5 - l11*l17*l3 - l11*l17*l5 - l13*l17*l3 - l13*l17*l5",
+      "common_log_numerator_equals_expected": true,
+      "exact_scalar_numeric_substitution": -0.07011113940333541,
+      "expected_common_log_numerator": "-l11*l13*l17 - l11*l13*l3 - l11*l13*l5 - l11*l17*l3 - l11*l17*l5 - l13*l17*l3 - l13*l17*l5",
+      "factorization": {
+        "11": 1,
+        "13": 1,
+        "17": 1,
+        "3": 1,
+        "5": 1
+      },
+      "formula_scalar_mean": -0.07011113940333541,
+      "high_prime_support": [
+        11,
+        13,
+        17
+      ],
+      "missing_high_primes": [
+        19
+      ],
+      "numeric_substitution_minus_formula_scalar": 0.0,
+      "ordered_source_conductor_pairs": [
+        {
+          "left_source_conductor": 143,
+          "right_source_conductor": 255
+        },
+        {
+          "left_source_conductor": 165,
+          "right_source_conductor": 221
+        },
+        {
+          "left_source_conductor": 187,
+          "right_source_conductor": 195
+        },
+        {
+          "left_source_conductor": 195,
+          "right_source_conductor": 187
+        },
+        {
+          "left_source_conductor": 221,
+          "right_source_conductor": 165
+        },
+        {
+          "left_source_conductor": 255,
+          "right_source_conductor": 143
+        }
+      ],
+      "pair_difference_expressions": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "ratio_minus_half": 0.3564899239156273,
+      "reduced_denominator": 36465
+    },
+    {
+      "all_pair_scalar_expressions_equal": true,
+      "cellwise_margin_full_over_2_minus_active": 700712115196.3881,
+      "common_log_numerator": "-l11*l17*l19 - l11*l17*l2 - l11*l17*l5 - l11*l19*l2 - l11*l19*l5 - l17*l19*l2 - l17*l19*l5",
+      "common_log_numerator_equals_expected": true,
+      "exact_scalar_numeric_substitution": -0.06909498619010432,
+      "expected_common_log_numerator": "-l11*l17*l19 - l11*l17*l2 - l11*l17*l5 - l11*l19*l2 - l11*l19*l5 - l17*l19*l2 - l17*l19*l5",
+      "factorization": {
+        "11": 1,
+        "17": 1,
+        "19": 1,
+        "2": 1,
+        "5": 1
+      },
+      "formula_scalar_mean": -0.06909498619010433,
+      "high_prime_support": [
+        11,
+        17,
+        19
+      ],
+      "missing_high_primes": [
+        13
+      ],
+      "numeric_substitution_minus_formula_scalar": 1.3877787807814457e-17,
+      "ordered_source_conductor_pairs": [
+        {
+          "left_source_conductor": 110,
+          "right_source_conductor": 323
+        },
+        {
+          "left_source_conductor": 170,
+          "right_source_conductor": 209
+        },
+        {
+          "left_source_conductor": 187,
+          "right_source_conductor": 190
+        },
+        {
+          "left_source_conductor": 190,
+          "right_source_conductor": 187
+        },
+        {
+          "left_source_conductor": 209,
+          "right_source_conductor": 170
+        },
+        {
+          "left_source_conductor": 323,
+          "right_source_conductor": 110
+        }
+      ],
+      "pair_difference_expressions": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "ratio_minus_half": 0.4262452298052626,
+      "reduced_denominator": 35530
+    },
+    {
+      "all_pair_scalar_expressions_equal": true,
+      "cellwise_margin_full_over_2_minus_active": 325138180598.27893,
+      "common_log_numerator": "-l13*l17*l19 - l13*l17*l2 - l13*l17*l5 - l13*l19*l2 - l13*l19*l5 - l17*l19*l2 - l17*l19*l5",
+      "common_log_numerator_equals_expected": true,
+      "exact_scalar_numeric_substitution": -0.072608387855175,
+      "expected_common_log_numerator": "-l13*l17*l19 - l13*l17*l2 - l13*l17*l5 - l13*l19*l2 - l13*l19*l5 - l17*l19*l2 - l17*l19*l5",
+      "factorization": {
+        "13": 1,
+        "17": 1,
+        "19": 1,
+        "2": 1,
+        "5": 1
+      },
+      "formula_scalar_mean": -0.072608387855175,
+      "high_prime_support": [
+        13,
+        17,
+        19
+      ],
+      "missing_high_primes": [
+        11
+      ],
+      "numeric_substitution_minus_formula_scalar": 0.0,
+      "ordered_source_conductor_pairs": [
+        {
+          "left_source_conductor": 130,
+          "right_source_conductor": 323
+        },
+        {
+          "left_source_conductor": 170,
+          "right_source_conductor": 247
+        },
+        {
+          "left_source_conductor": 190,
+          "right_source_conductor": 221
+        },
+        {
+          "left_source_conductor": 221,
+          "right_source_conductor": 190
+        },
+        {
+          "left_source_conductor": 247,
+          "right_source_conductor": 170
+        },
+        {
+          "left_source_conductor": 323,
+          "right_source_conductor": 130
+        }
+      ],
+      "pair_difference_expressions": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "ratio_minus_half": 0.23349735557232576,
+      "reduced_denominator": 41990
+    },
+    {
+      "all_pair_scalar_expressions_equal": true,
+      "cellwise_margin_full_over_2_minus_active": 310273010682.6763,
+      "common_log_numerator": "-l11*l13*l19 - l11*l13*l2 - l11*l13*l7 - l11*l19*l2 - l11*l19*l7 - l13*l19*l2 - l13*l19*l7",
+      "common_log_numerator_equals_expected": true,
+      "exact_scalar_numeric_substitution": -0.07083636365889087,
+      "expected_common_log_numerator": "-l11*l13*l19 - l11*l13*l2 - l11*l13*l7 - l11*l19*l2 - l11*l19*l7 - l13*l19*l2 - l13*l19*l7",
+      "factorization": {
+        "11": 1,
+        "13": 1,
+        "19": 1,
+        "2": 1,
+        "7": 1
+      },
+      "formula_scalar_mean": -0.07083636365889086,
+      "high_prime_support": [
+        11,
+        13,
+        19
+      ],
+      "missing_high_primes": [
+        17
+      ],
+      "numeric_substitution_minus_formula_scalar": -1.3877787807814457e-17,
+      "ordered_source_conductor_pairs": [
+        {
+          "left_source_conductor": 143,
+          "right_source_conductor": 266
+        },
+        {
+          "left_source_conductor": 154,
+          "right_source_conductor": 247
+        },
+        {
+          "left_source_conductor": 182,
+          "right_source_conductor": 209
+        },
+        {
+          "left_source_conductor": 209,
+          "right_source_conductor": 182
+        },
+        {
+          "left_source_conductor": 247,
+          "right_source_conductor": 154
+        },
+        {
+          "left_source_conductor": 266,
+          "right_source_conductor": 143
+        }
+      ],
+      "pair_difference_expressions": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "ratio_minus_half": 0.07635340770691146,
+      "reduced_denominator": 38038
+    }
+  ],
+  "replacement_family_payment_theorem_proved": false,
+  "schema_version": 1,
+  "source_commit": "f6bde659a52d0a17864ce57f1aca74ab7d728603",
+  "source_formula_audit": "evidence\\mobius-moment-square-degree5-q46189-source-conductor-scalar-formula-audit.json",
+  "source_start_theorem_proved": false,
+  "status": "AUDIT_q46189_exact_log_polynomial_identity",
+  "strict_central_goldbach_theorem_proved": false,
+  "symbolic_replacement_ratio_theorem_proved": false,
+  "universal_source_conductor_scalar_formula_theorem_proved": false
+}
