@@ -6,6 +6,31 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The metric-soft moment-square direction now has an active/full ratio audit:
+`tools/build_mobius_moment_square_active_ratio_audit.py` generated
+`evidence/mobius-moment-square-active-ratio-audit.json`, with explanation in
+`notes/mobius-moment-square-active-ratio-audit.md`.
+
+Question: does the diagonal-equilibrated full-soft moment-square direction
+create an active/full lower-frame obstruction?
+
+Answer: no on the checked scales.  On `M=127`, `149`, `167`, `191`, `211`,
+and `227`, the moment-square curve active/full ratio stays above one-half.
+The minimum curve ratio is `0.9441389892658896`; the minimum ratio at the
+diagonal-equilibrated full-soft parameter is `0.9122467414896579`.  At the
+previous attention scale `M=167`, the curve minimum is `0.9441389892658896`
+and the full-soft ratio is `0.9193340666498803`.
+
+Decision: `FALSIFY_moment_square_soft_direction_as_adverse_drag`.  The
+metric-soft moment-square direction is not an adverse direction in this finite
+diagnostic.  The next proof target is to prove active payment of the
+metric-soft moment-square channel.  No moment-square active-payment theorem,
+uniform active/full lower-frame theorem, Mobius covariance theorem, signed
+prime-correlation estimate, q286 theorem, strict-central Goldbach theorem, or
+Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-16
+
 The moment-square support target now has a metric audit:
 `tools/build_mobius_moment_square_metric_audit.py` generated
 `evidence/mobius-moment-square-metric-audit.json`, with explanation in

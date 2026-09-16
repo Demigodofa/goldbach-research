@@ -1,0 +1,109 @@
+{
+  "all_full_soft_ratios_above_one_half": true,
+  "all_moment_square_curve_ratios_above_one_half": true,
+  "decision": "The metric-soft moment-square direction is not an adverse lower-frame direction on the checked scales.  The active/full ratio stays well above one-half both at the curve minimum and at the diagonal-equilibrated full-soft parameter.  The theorem target shifts from proving raw support to proving that the metric-soft moment-square channel remains active-paid.",
+  "finite_diagnostic_only": true,
+  "goldbach_proved": false,
+  "minimum_moment_square_active_over_full": 0.9441389892658896,
+  "minimum_ratio_at_equilibrated_full_soft_parameter": 0.9122467414896579,
+  "mobius_covariance_theorem_proved": false,
+  "q286_reactivated": false,
+  "question": "Does the diagonal-equilibrated moment-square soft direction create an active/full lower-frame obstruction?",
+  "scale_results": [
+    {
+      "active_over_full_minimizing_parameter": null,
+      "divisor_range": [
+        3,
+        13
+      ],
+      "equilibrated_full_soft_minimum": 3.399727863609262e-11,
+      "equilibrated_full_soft_parameter": 0.27603534765337445,
+      "moment_square_active_over_full_minimum": 0.9550886746317355,
+      "prime_count": 24,
+      "ratio_at_equilibrated_full_soft_parameter": 0.9122467414896579,
+      "row_count": 28,
+      "scale_modulus": 127
+    },
+    {
+      "active_over_full_minimizing_parameter": 0.21679104539467867,
+      "divisor_range": [
+        3,
+        15
+      ],
+      "equilibrated_full_soft_minimum": 5.318977967228153e-12,
+      "equilibrated_full_soft_parameter": 0.2698749461997662,
+      "moment_square_active_over_full_minimum": 1.0532480893102447,
+      "prime_count": 28,
+      "ratio_at_equilibrated_full_soft_parameter": 0.9731344451400642,
+      "row_count": 32,
+      "scale_modulus": 149
+    },
+    {
+      "active_over_full_minimizing_parameter": 0.32428180355939223,
+      "divisor_range": [
+        3,
+        16
+      ],
+      "equilibrated_full_soft_minimum": 3.2957447749809375e-12,
+      "equilibrated_full_soft_parameter": 0.2698106456761942,
+      "moment_square_active_over_full_minimum": 0.9441389892658896,
+      "prime_count": 29,
+      "ratio_at_equilibrated_full_soft_parameter": 0.9193340666498803,
+      "row_count": 35,
+      "scale_modulus": 167
+    },
+    {
+      "active_over_full_minimizing_parameter": 0.8636998830770168,
+      "divisor_range": [
+        3,
+        17
+      ],
+      "equilibrated_full_soft_minimum": 6.394855572842169e-11,
+      "equilibrated_full_soft_parameter": 0.2678068447008048,
+      "moment_square_active_over_full_minimum": 1.0095242944137615,
+      "prime_count": 33,
+      "ratio_at_equilibrated_full_soft_parameter": 1.0446330408914968,
+      "row_count": 38,
+      "scale_modulus": 191
+    },
+    {
+      "active_over_full_minimizing_parameter": 0.4659236293062803,
+      "divisor_range": [
+        3,
+        18
+      ],
+      "equilibrated_full_soft_minimum": 3.147127912544254e-11,
+      "equilibrated_full_soft_parameter": 0.26180281353975055,
+      "moment_square_active_over_full_minimum": 1.003155174351695,
+      "prime_count": 36,
+      "ratio_at_equilibrated_full_soft_parameter": 1.056847133906995,
+      "row_count": 41,
+      "scale_modulus": 211
+    },
+    {
+      "active_over_full_minimizing_parameter": 0.5089460284142079,
+      "divisor_range": [
+        3,
+        18
+      ],
+      "equilibrated_full_soft_minimum": 2.2028641009221213e-11,
+      "equilibrated_full_soft_parameter": 0.2611584292390576,
+      "moment_square_active_over_full_minimum": 1.0141489569542175,
+      "prime_count": 39,
+      "ratio_at_equilibrated_full_soft_parameter": 1.052376135179263,
+      "row_count": 43,
+      "scale_modulus": 227
+    }
+  ],
+  "scales": [
+    127,
+    149,
+    167,
+    191,
+    211,
+    227
+  ],
+  "signed_prime_correlation_proved": false,
+  "status": "FALSIFY_moment_square_soft_direction_as_adverse_drag",
+  "uniform_active_full_lower_frame_proved": false
+}

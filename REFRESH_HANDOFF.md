@@ -6,6 +6,35 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The metric-soft moment-square direction now has an active/full ratio audit:
+
+```text
+tools/build_mobius_moment_square_active_ratio_audit.py
+notes/mobius-moment-square-active-ratio-audit.md
+evidence/mobius-moment-square-active-ratio-audit.json
+```
+
+Result:
+
+```text
+status: FALSIFY_moment_square_soft_direction_as_adverse_drag
+checked scales:                         127, 149, 167, 191, 211, 227
+minimum curve active/full ratio:         0.9441389892658896
+minimum full-soft active/full ratio:     0.9122467414896579
+M=167 curve active/full ratio:           0.9441389892658896
+M=167 full-soft active/full ratio:       0.9193340666498803
+```
+
+Decision: the metric-soft moment-square direction is not an adverse
+lower-frame direction on the checked scales.  The next theorem target is to
+prove that the metric-soft moment-square channel remains active-paid, not just
+to prove raw support activation.  This is finite diagnostic evidence only; no
+moment-square active-payment theorem, uniform active/full lower frame, Mobius
+covariance theorem, signed prime-correlation estimate, q286 theorem,
+strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-16
+
 The moment-square support question now has a metric audit:
 
 ```text
