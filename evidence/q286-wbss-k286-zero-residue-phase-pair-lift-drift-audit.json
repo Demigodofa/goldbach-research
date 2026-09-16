@@ -1,0 +1,610 @@
+{
+  "answer": "No.  Four target residues have two violating lifts.  Only one of those four residues keeps the same top adverse pair, none keeps the same top rescue pair, and only one keeps the same top absolute pair across the two lifts.",
+  "candidate": {
+    "falsifier": "If a broader lift sample shows the top pairs eventually settle by residue class, this finite two-lift falsifier would be only a low-height transient.",
+    "mechanism": "The leading K_286 phase-pair labels change even within the same target residue when the lift changes.  A useful theorem therefore likely needs height-sensitive oscillation or a band/envelope estimate across moving phase pairs.",
+    "name": "lift-dependent K286 phase band estimate",
+    "novelty_label": "new-to-this-task",
+    "prediction": "Adding more lifts for the repeated residue classes should continue to show pair drift unless a larger phase band, not a single pair, is tracked.",
+    "smallest_next_action": "Extend only the four repeated violating residues by several additional lifts and measure whether a small phase band is stable while individual top pairs drift."
+  },
+  "coefficient_direction_nonalignment_theorem_proved": false,
+  "decision": "DIAGNOSTIC_k286_phase_pair_residue_only_rule_falsified.  Target residue alone does not determine the leading K_286 phase pairs on the finite repeated-lift rows.  The next theorem target is a lift-sensitive phase-band estimate or an extended-lift falsifier, not a target-residue-only phase-pair rule.",
+  "finite_diagnostic": {
+    "finite_evidence_is_acceptance_condition": false,
+    "role": "falsifier for a target-residue-only K_286 phase-pair rule; locator for lift-dependent or band-estimate theorem targets",
+    "rows": [
+      {
+        "block_index_after_raw_horizon": 1,
+        "k286_component_sign": "adverse",
+        "k286_signed_error": -0.039480429985924353,
+        "lift_index": 0,
+        "pair_real_cancellation_ratio": 0.11427936088344268,
+        "target": 1161446,
+        "target_mod_286": 0,
+        "target_residue": 286,
+        "top_abs_pair": "4,4|6,8",
+        "top_abs_pair_fraction_of_envelope": 0.1181195082325985,
+        "top_adverse_pair": "4,4|6,8",
+        "top_rescue_pair": "2,10|8,2"
+      },
+      {
+        "block_index_after_raw_horizon": 2,
+        "k286_component_sign": "adverse",
+        "k286_signed_error": -0.013357217958263532,
+        "lift_index": 1,
+        "pair_real_cancellation_ratio": 0.032719476608295696,
+        "target": 1171456,
+        "target_mod_286": 0,
+        "target_residue": 286,
+        "top_abs_pair": "5,1|5,11",
+        "top_abs_pair_fraction_of_envelope": 0.08978560341547769,
+        "top_adverse_pair": "5,1|5,11",
+        "top_rescue_pair": "4,4|6,8"
+      },
+      {
+        "block_index_after_raw_horizon": 2,
+        "k286_component_sign": "adverse",
+        "k286_signed_error": -0.048644238759960205,
+        "lift_index": 1,
+        "pair_real_cancellation_ratio": 0.15051783369312277,
+        "target": 1173172,
+        "target_mod_286": 0,
+        "target_residue": 2002,
+        "top_abs_pair": "2,2|8,10",
+        "top_abs_pair_fraction_of_envelope": 0.16161053354457436,
+        "top_adverse_pair": "2,2|8,10",
+        "top_rescue_pair": "2,6|8,6"
+      },
+      {
+        "block_index_after_raw_horizon": 2,
+        "k286_component_sign": "adverse",
+        "k286_signed_error": -0.0027093394115558205,
+        "lift_index": 1,
+        "pair_real_cancellation_ratio": 0.009089584046870686,
+        "target": 1173458,
+        "target_mod_286": 0,
+        "target_residue": 2288,
+        "top_abs_pair": "3,5|7,7",
+        "top_abs_pair_fraction_of_envelope": 0.1039062326773162,
+        "top_adverse_pair": "3,7|7,5",
+        "top_rescue_pair": "3,5|7,7"
+      },
+      {
+        "block_index_after_raw_horizon": 2,
+        "k286_component_sign": "adverse",
+        "k286_signed_error": -0.043698421841737695,
+        "lift_index": 1,
+        "pair_real_cancellation_ratio": 0.1293702417046399,
+        "target": 1174316,
+        "target_mod_286": 0,
+        "target_residue": 3146,
+        "top_abs_pair": "2,10|8,2",
+        "top_abs_pair_fraction_of_envelope": 0.1261550639900248,
+        "top_adverse_pair": "1,7|9,5",
+        "top_rescue_pair": "2,10|8,2"
+      },
+      {
+        "block_index_after_raw_horizon": 1,
+        "k286_component_sign": "rescue",
+        "k286_signed_error": 0.04252494382890039,
+        "lift_index": 0,
+        "pair_real_cancellation_ratio": 0.1588321346295845,
+        "target": 1164878,
+        "target_mod_286": 0,
+        "target_residue": 3718,
+        "top_abs_pair": "3,3|7,9",
+        "top_abs_pair_fraction_of_envelope": 0.11270953146650114,
+        "top_adverse_pair": "3,3|7,9",
+        "top_rescue_pair": "2,8|8,4"
+      },
+      {
+        "block_index_after_raw_horizon": 2,
+        "k286_component_sign": "rescue",
+        "k286_signed_error": 0.012201530032716788,
+        "lift_index": 1,
+        "pair_real_cancellation_ratio": 0.02997797488086474,
+        "target": 1174888,
+        "target_mod_286": 0,
+        "target_residue": 3718,
+        "top_abs_pair": "2,10|8,2",
+        "top_abs_pair_fraction_of_envelope": 0.13768436648296584,
+        "top_adverse_pair": "1,5|9,7",
+        "top_rescue_pair": "2,10|8,2"
+      },
+      {
+        "block_index_after_raw_horizon": 1,
+        "k286_component_sign": "rescue",
+        "k286_signed_error": 0.014616039486990475,
+        "lift_index": 0,
+        "pair_real_cancellation_ratio": 0.04378815128389203,
+        "target": 1165736,
+        "target_mod_286": 0,
+        "target_residue": 4576,
+        "top_abs_pair": "3,7|7,5",
+        "top_abs_pair_fraction_of_envelope": 0.10544572023631864,
+        "top_adverse_pair": "3,7|7,5",
+        "top_rescue_pair": "3,3|7,9"
+      },
+      {
+        "block_index_after_raw_horizon": 2,
+        "k286_component_sign": "adverse",
+        "k286_signed_error": -0.041333744723552335,
+        "lift_index": 1,
+        "pair_real_cancellation_ratio": 0.11381654145713437,
+        "target": 1175746,
+        "target_mod_286": 0,
+        "target_residue": 4576,
+        "top_abs_pair": "3,7|7,5",
+        "top_abs_pair_fraction_of_envelope": 0.10150131813596827,
+        "top_adverse_pair": "3,7|7,5",
+        "top_rescue_pair": "4,10|6,2"
+      },
+      {
+        "block_index_after_raw_horizon": 1,
+        "k286_component_sign": "rescue",
+        "k286_signed_error": 0.12886784752855238,
+        "lift_index": 0,
+        "pair_real_cancellation_ratio": 0.32257675105021233,
+        "target": 1156298,
+        "target_mod_286": 0,
+        "target_residue": 5148,
+        "top_abs_pair": "4,4|6,8",
+        "top_abs_pair_fraction_of_envelope": 0.10778861936018291,
+        "top_adverse_pair": "4,4|6,8",
+        "top_rescue_pair": "2,6|8,6"
+      },
+      {
+        "block_index_after_raw_horizon": 2,
+        "k286_component_sign": "rescue",
+        "k286_signed_error": 0.006891704226666159,
+        "lift_index": 1,
+        "pair_real_cancellation_ratio": 0.021764421968888063,
+        "target": 1166594,
+        "target_mod_286": 0,
+        "target_residue": 5434,
+        "top_abs_pair": "3,5|7,7",
+        "top_abs_pair_fraction_of_envelope": 0.15181533150511328,
+        "top_adverse_pair": "3,7|7,5",
+        "top_rescue_pair": "3,5|7,7"
+      },
+      {
+        "block_index_after_raw_horizon": 2,
+        "k286_component_sign": "adverse",
+        "k286_signed_error": -0.10853236060974479,
+        "lift_index": 1,
+        "pair_real_cancellation_ratio": 0.2976514384528258,
+        "target": 1167452,
+        "target_mod_286": 0,
+        "target_residue": 6292,
+        "top_abs_pair": "4,8|6,4",
+        "top_abs_pair_fraction_of_envelope": 0.11121304391893543,
+        "top_adverse_pair": "4,8|6,4",
+        "top_rescue_pair": "3,5|7,7"
+      },
+      {
+        "block_index_after_raw_horizon": 2,
+        "k286_component_sign": "rescue",
+        "k286_signed_error": 0.02244181729167645,
+        "lift_index": 1,
+        "pair_real_cancellation_ratio": 0.07330071339972054,
+        "target": 1168024,
+        "target_mod_286": 0,
+        "target_residue": 6864,
+        "top_abs_pair": "1,5|9,7",
+        "top_abs_pair_fraction_of_envelope": 0.12757820939617032,
+        "top_adverse_pair": "1,5|9,7",
+        "top_rescue_pair": "4,8|6,4"
+      },
+      {
+        "block_index_after_raw_horizon": 1,
+        "k286_component_sign": "rescue",
+        "k286_signed_error": 0.07897903432521365,
+        "lift_index": 0,
+        "pair_real_cancellation_ratio": 0.17627177636227054,
+        "target": 1158586,
+        "target_mod_286": 0,
+        "target_residue": 7436,
+        "top_abs_pair": "1,9|9,3",
+        "top_abs_pair_fraction_of_envelope": 0.08285344480352641,
+        "top_adverse_pair": "1,9|9,3",
+        "top_rescue_pair": "4,6|6,6"
+      },
+      {
+        "block_index_after_raw_horizon": 1,
+        "k286_component_sign": "adverse",
+        "k286_signed_error": -0.16250489640689145,
+        "lift_index": 0,
+        "pair_real_cancellation_ratio": 0.5134842560389142,
+        "target": 1158872,
+        "target_mod_286": 0,
+        "target_residue": 7722,
+        "top_abs_pair": "5,5|5,7",
+        "top_abs_pair_fraction_of_envelope": 0.11914059959107588,
+        "top_adverse_pair": "5,5|5,7",
+        "top_rescue_pair": "3,1|7,11"
+      },
+      {
+        "block_index_after_raw_horizon": 2,
+        "k286_component_sign": "rescue",
+        "k286_signed_error": 0.07860649175876445,
+        "lift_index": 1,
+        "pair_real_cancellation_ratio": 0.2219141471395028,
+        "target": 1168882,
+        "target_mod_286": 0,
+        "target_residue": 7722,
+        "top_abs_pair": "5,3|5,9",
+        "top_abs_pair_fraction_of_envelope": 0.09793584171827309,
+        "top_adverse_pair": "5,3|5,9",
+        "top_rescue_pair": "2,8|8,4"
+      },
+      {
+        "block_index_after_raw_horizon": 2,
+        "k286_component_sign": "rescue",
+        "k286_signed_error": 0.031709863337532146,
+        "lift_index": 1,
+        "pair_real_cancellation_ratio": 0.1149570813319931,
+        "target": 1170026,
+        "target_mod_286": 0,
+        "target_residue": 8866,
+        "top_abs_pair": "4,6|6,6",
+        "top_abs_pair_fraction_of_envelope": 0.09450344220170367,
+        "top_adverse_pair": "1,7|9,5",
+        "top_rescue_pair": "4,6|6,6"
+      },
+      {
+        "block_index_after_raw_horizon": 2,
+        "k286_component_sign": "rescue",
+        "k286_signed_error": 0.07891673100058882,
+        "lift_index": 1,
+        "pair_real_cancellation_ratio": 0.19953179617202021,
+        "target": 1170884,
+        "target_mod_286": 0,
+        "target_residue": 9724,
+        "top_abs_pair": "3,5|7,7",
+        "top_abs_pair_fraction_of_envelope": 0.13375371294803645,
+        "top_adverse_pair": "2,2|8,10",
+        "top_rescue_pair": "3,5|7,7"
+      }
+    ],
+    "summary": {
+      "distinct_target_residue_count": 14,
+      "repeated_residue_records": [
+        {
+          "cancellation_ratio_summary": {
+            "count": 2,
+            "maximum": 0.11427936088344268,
+            "mean": 0.07349941874586918,
+            "minimum": 0.032719476608295696
+          },
+          "k286_component_signs": [
+            "adverse"
+          ],
+          "lift_indices": [
+            0,
+            1
+          ],
+          "row_count": 2,
+          "rows": [
+            {
+              "block_index_after_raw_horizon": 1,
+              "k286_component_sign": "adverse",
+              "k286_signed_error": -0.039480429985924353,
+              "lift_index": 0,
+              "pair_real_cancellation_ratio": 0.11427936088344268,
+              "target": 1161446,
+              "target_mod_286": 0,
+              "target_residue": 286,
+              "top_abs_pair": "4,4|6,8",
+              "top_abs_pair_fraction_of_envelope": 0.1181195082325985,
+              "top_adverse_pair": "4,4|6,8",
+              "top_rescue_pair": "2,10|8,2"
+            },
+            {
+              "block_index_after_raw_horizon": 2,
+              "k286_component_sign": "adverse",
+              "k286_signed_error": -0.013357217958263532,
+              "lift_index": 1,
+              "pair_real_cancellation_ratio": 0.032719476608295696,
+              "target": 1171456,
+              "target_mod_286": 0,
+              "target_residue": 286,
+              "top_abs_pair": "5,1|5,11",
+              "top_abs_pair_fraction_of_envelope": 0.08978560341547769,
+              "top_adverse_pair": "5,1|5,11",
+              "top_rescue_pair": "4,4|6,8"
+            }
+          ],
+          "stable_k286_component_sign": true,
+          "stable_top_abs_pair": false,
+          "stable_top_adverse_pair": false,
+          "stable_top_rescue_pair": false,
+          "target_residue": 286,
+          "targets": [
+            1161446,
+            1171456
+          ],
+          "top_abs_pair_fraction_summary": {
+            "count": 2,
+            "maximum": 0.1181195082325985,
+            "mean": 0.10395255582403809,
+            "minimum": 0.08978560341547769
+          },
+          "top_abs_pairs": [
+            "4,4|6,8",
+            "5,1|5,11"
+          ],
+          "top_adverse_pairs": [
+            "4,4|6,8",
+            "5,1|5,11"
+          ],
+          "top_rescue_pairs": [
+            "2,10|8,2",
+            "4,4|6,8"
+          ]
+        },
+        {
+          "cancellation_ratio_summary": {
+            "count": 2,
+            "maximum": 0.1588321346295845,
+            "mean": 0.09440505475522462,
+            "minimum": 0.02997797488086474
+          },
+          "k286_component_signs": [
+            "rescue"
+          ],
+          "lift_indices": [
+            0,
+            1
+          ],
+          "row_count": 2,
+          "rows": [
+            {
+              "block_index_after_raw_horizon": 1,
+              "k286_component_sign": "rescue",
+              "k286_signed_error": 0.04252494382890039,
+              "lift_index": 0,
+              "pair_real_cancellation_ratio": 0.1588321346295845,
+              "target": 1164878,
+              "target_mod_286": 0,
+              "target_residue": 3718,
+              "top_abs_pair": "3,3|7,9",
+              "top_abs_pair_fraction_of_envelope": 0.11270953146650114,
+              "top_adverse_pair": "3,3|7,9",
+              "top_rescue_pair": "2,8|8,4"
+            },
+            {
+              "block_index_after_raw_horizon": 2,
+              "k286_component_sign": "rescue",
+              "k286_signed_error": 0.012201530032716788,
+              "lift_index": 1,
+              "pair_real_cancellation_ratio": 0.02997797488086474,
+              "target": 1174888,
+              "target_mod_286": 0,
+              "target_residue": 3718,
+              "top_abs_pair": "2,10|8,2",
+              "top_abs_pair_fraction_of_envelope": 0.13768436648296584,
+              "top_adverse_pair": "1,5|9,7",
+              "top_rescue_pair": "2,10|8,2"
+            }
+          ],
+          "stable_k286_component_sign": true,
+          "stable_top_abs_pair": false,
+          "stable_top_adverse_pair": false,
+          "stable_top_rescue_pair": false,
+          "target_residue": 3718,
+          "targets": [
+            1164878,
+            1174888
+          ],
+          "top_abs_pair_fraction_summary": {
+            "count": 2,
+            "maximum": 0.13768436648296584,
+            "mean": 0.1251969489747335,
+            "minimum": 0.11270953146650114
+          },
+          "top_abs_pairs": [
+            "2,10|8,2",
+            "3,3|7,9"
+          ],
+          "top_adverse_pairs": [
+            "1,5|9,7",
+            "3,3|7,9"
+          ],
+          "top_rescue_pairs": [
+            "2,10|8,2",
+            "2,8|8,4"
+          ]
+        },
+        {
+          "cancellation_ratio_summary": {
+            "count": 2,
+            "maximum": 0.11381654145713437,
+            "mean": 0.0788023463705132,
+            "minimum": 0.04378815128389203
+          },
+          "k286_component_signs": [
+            "adverse",
+            "rescue"
+          ],
+          "lift_indices": [
+            0,
+            1
+          ],
+          "row_count": 2,
+          "rows": [
+            {
+              "block_index_after_raw_horizon": 1,
+              "k286_component_sign": "rescue",
+              "k286_signed_error": 0.014616039486990475,
+              "lift_index": 0,
+              "pair_real_cancellation_ratio": 0.04378815128389203,
+              "target": 1165736,
+              "target_mod_286": 0,
+              "target_residue": 4576,
+              "top_abs_pair": "3,7|7,5",
+              "top_abs_pair_fraction_of_envelope": 0.10544572023631864,
+              "top_adverse_pair": "3,7|7,5",
+              "top_rescue_pair": "3,3|7,9"
+            },
+            {
+              "block_index_after_raw_horizon": 2,
+              "k286_component_sign": "adverse",
+              "k286_signed_error": -0.041333744723552335,
+              "lift_index": 1,
+              "pair_real_cancellation_ratio": 0.11381654145713437,
+              "target": 1175746,
+              "target_mod_286": 0,
+              "target_residue": 4576,
+              "top_abs_pair": "3,7|7,5",
+              "top_abs_pair_fraction_of_envelope": 0.10150131813596827,
+              "top_adverse_pair": "3,7|7,5",
+              "top_rescue_pair": "4,10|6,2"
+            }
+          ],
+          "stable_k286_component_sign": false,
+          "stable_top_abs_pair": true,
+          "stable_top_adverse_pair": true,
+          "stable_top_rescue_pair": false,
+          "target_residue": 4576,
+          "targets": [
+            1165736,
+            1175746
+          ],
+          "top_abs_pair_fraction_summary": {
+            "count": 2,
+            "maximum": 0.10544572023631864,
+            "mean": 0.10347351918614345,
+            "minimum": 0.10150131813596827
+          },
+          "top_abs_pairs": [
+            "3,7|7,5"
+          ],
+          "top_adverse_pairs": [
+            "3,7|7,5"
+          ],
+          "top_rescue_pairs": [
+            "3,3|7,9",
+            "4,10|6,2"
+          ]
+        },
+        {
+          "cancellation_ratio_summary": {
+            "count": 2,
+            "maximum": 0.5134842560389142,
+            "mean": 0.36769920158920855,
+            "minimum": 0.2219141471395028
+          },
+          "k286_component_signs": [
+            "adverse",
+            "rescue"
+          ],
+          "lift_indices": [
+            0,
+            1
+          ],
+          "row_count": 2,
+          "rows": [
+            {
+              "block_index_after_raw_horizon": 1,
+              "k286_component_sign": "adverse",
+              "k286_signed_error": -0.16250489640689145,
+              "lift_index": 0,
+              "pair_real_cancellation_ratio": 0.5134842560389142,
+              "target": 1158872,
+              "target_mod_286": 0,
+              "target_residue": 7722,
+              "top_abs_pair": "5,5|5,7",
+              "top_abs_pair_fraction_of_envelope": 0.11914059959107588,
+              "top_adverse_pair": "5,5|5,7",
+              "top_rescue_pair": "3,1|7,11"
+            },
+            {
+              "block_index_after_raw_horizon": 2,
+              "k286_component_sign": "rescue",
+              "k286_signed_error": 0.07860649175876445,
+              "lift_index": 1,
+              "pair_real_cancellation_ratio": 0.2219141471395028,
+              "target": 1168882,
+              "target_mod_286": 0,
+              "target_residue": 7722,
+              "top_abs_pair": "5,3|5,9",
+              "top_abs_pair_fraction_of_envelope": 0.09793584171827309,
+              "top_adverse_pair": "5,3|5,9",
+              "top_rescue_pair": "2,8|8,4"
+            }
+          ],
+          "stable_k286_component_sign": false,
+          "stable_top_abs_pair": false,
+          "stable_top_adverse_pair": false,
+          "stable_top_rescue_pair": false,
+          "target_residue": 7722,
+          "targets": [
+            1158872,
+            1168882
+          ],
+          "top_abs_pair_fraction_summary": {
+            "count": 2,
+            "maximum": 0.11914059959107588,
+            "mean": 0.10853822065467449,
+            "minimum": 0.09793584171827309
+          },
+          "top_abs_pairs": [
+            "5,3|5,9",
+            "5,5|5,7"
+          ],
+          "top_adverse_pairs": [
+            "5,3|5,9",
+            "5,5|5,7"
+          ],
+          "top_rescue_pairs": [
+            "2,8|8,4",
+            "3,1|7,11"
+          ]
+        }
+      ],
+      "repeated_target_residue_count": 4,
+      "repeated_target_residue_rows": 8,
+      "singleton_target_residue_count": 10,
+      "singleton_target_residues": [
+        2002,
+        2288,
+        3146,
+        5148,
+        5434,
+        6292,
+        6864,
+        7436,
+        8866,
+        9724
+      ],
+      "stable_k286_component_sign_repeated_residue_count": 2,
+      "stable_top_abs_pair_repeated_residue_count": 1,
+      "stable_top_adverse_pair_repeated_residue_count": 1,
+      "stable_top_rescue_pair_repeated_residue_count": 0,
+      "target_residue_alone_explains_k286_component_sign": false,
+      "target_residue_alone_explains_top_abs_pairs": false,
+      "target_residue_alone_explains_top_adverse_pairs": false,
+      "target_residue_alone_explains_top_rescue_pairs": false,
+      "violating_row_count": 18
+    }
+  },
+  "goldbach_proved": false,
+  "lift_dependent_phase_theorem_proved": false,
+  "phase_band_theorem_proved": false,
+  "q286_threshold_theorem_proved": false,
+  "question": "Among zero-lane L2-cap-violating rows with repeated target residues, are the leading K_286 phase pairs determined by the target residue alone?",
+  "receipt": "q286-wbss-k286-zero-residue-phase-pair-lift-drift-audit",
+  "schema_version": 1,
+  "source_commit": "947a69b7d1d58ec372cfa9bfff52ea72c2415c83",
+  "sources": {
+    "k286_phase_pair_audit": "evidence\\q286-wbss-k286-zero-residue-k286-phase-pair-audit.json",
+    "k286_phase_pair_source_commit": "e5caacd1f26a3c1bec51015e93268f8f6b3c1ac4",
+    "zero_residue_raw_horizon_probe": "evidence\\q286-wbss-k286-zero-residue-raw-horizon-probe.json",
+    "zero_residue_raw_horizon_probe_source_commit": "8790882f70ed11fc5a506a01e1c9ccab1a521203"
+  },
+  "status": "DIAGNOSTIC_k286_phase_pair_residue_only_rule_falsified",
+  "status_boundary": "Finite repeated-lift phase-pair diagnostic only.  No lift-dependent phase theorem, no phase-band theorem, no coefficient-direction nonalignment theorem, no universal pointwise raw bound, no q286 threshold theorem, no strict-central Goldbach theorem, and no Goldbach proof is established.",
+  "strict_central_goldbach_theorem_proved": false,
+  "universal_pointwise_raw_bound_proved": false
+}

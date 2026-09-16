@@ -6,6 +6,36 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The q286-WBSS route now has a zero-residue `K_286` phase-pair lift-drift audit:
+`tools/build_q286_wbss_k286_zero_residue_phase_pair_lift_drift_audit.py`
+generated
+`evidence/q286-wbss-k286-zero-residue-phase-pair-lift-drift-audit.json`, with
+explanation in
+`notes/q286-wbss-k286-zero-residue-phase-pair-lift-drift-audit.md`.
+
+Question: after the single fixed phase-pair shortcut failed, are the leading
+`K_286` phase-pairs at least determined by target residue modulo `10010` on the
+finite zero-lane `L2`-violating rows?
+
+Answer: no.  There are `18` violating rows across `14` distinct target
+residues.  Four residues have two violating lifts.  Across those four repeated
+residues, the top adverse pair is stable on only `1/4`, the top rescue pair on
+`0/4`, the top absolute pair on `1/4`, and the `K_286` component sign on
+`2/4`.  The repeated residues are `286`, `3718`, `4576`, and `7722`; only
+`4576` keeps the same top adverse and top absolute pair, and no repeated
+residue keeps the same top rescue pair.
+
+Decision: `DIAGNOSTIC_k286_phase_pair_residue_only_rule_falsified`.  Target
+residue alone does not determine the leading `K_286` phase-pair labels on the
+finite repeated-lift rows.  The next theorem-shaped target is lift-sensitive:
+a phase-band estimate over moving pairs, or an extended-lift falsifier showing
+that even small phase bands do not stabilize.  No lift-dependent phase theorem,
+phase-band theorem, coefficient-direction nonalignment theorem, universal
+pointwise raw estimate, q286 threshold theorem, strict-central Goldbach
+theorem, or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-16
+
 The q286-WBSS route now has a zero-residue `K_286` phase-pair audit:
 `tools/build_q286_wbss_k286_zero_residue_k286_phase_pair_audit.py` generated
 `evidence/q286-wbss-k286-zero-residue-k286-phase-pair-audit.json`, with
