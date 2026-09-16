@@ -6,6 +6,37 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS route now has a single-weight major-arc floor audit:
+`tools/build_q286_wbss_single_weight_major_arc_floor_audit.py` generated
+`evidence/q286-wbss-single-weight-major-arc-floor-audit.json`, with
+explanation in `notes/q286-wbss-single-weight-major-arc-floor-audit.md`.
+
+Question: does the combined raw q286 single-weight witness have a positive
+coefficient floor on every admissible left-prime residue, so support alone
+could imply `W_phi(N)>0`?
+
+Answer: no.  The normalized combined residue weight has global mean `1.0`, but
+ranges from `-11.747067126163136` to `40.228810300155935`.  It has `1228`
+negative unit residues, `0` zero unit residues, and `1652` positive unit
+residues.  Every one of the `5005` even target residues has at least one
+admissible negative-weight left-prime residue, and no target residue has a
+pointwise positive floor.
+
+The local-uniform averages remain positive: the weakest mean is
+`0.6039353780830684`, and the largest negative admissible fraction is
+`0.47205387205387206`.  This means the local-uniform major term survives, but
+positivity depends on distribution of prime-pair mass, not merely on existence
+of a strict-central prime pair.
+
+Decision: `FALSIFIER_pointwise_positive_single_weight_floor`.  The support-only
+shortcut is dead.  The surviving theorem target must prove a universal
+pointwise signed distribution estimate, a one-sided adverse-drag envelope below
+local main, or a direct major/minor arc estimate for `W_phi(N)>0`.  This proves
+no signed distribution theorem, adverse-drag theorem, major/minor arc estimate,
+q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof.
+
+## Latest continuation evidence, 2026-09-15
+
 The q286-WBSS route now has a raw character circle-method decomposition and
 logical bridge classifier:
 `tools/build_q286_wbss_raw_character_circle_decomposition.py` generated
