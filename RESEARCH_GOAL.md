@@ -6,6 +6,34 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The q286-WBSS route now has a `K_286` absolute-envelope payment audit:
+`tools/build_q286_wbss_k286_absolute_envelope_payment_audit.py` generated
+`evidence/q286-wbss-k286-absolute-envelope-payment-audit.json`, with
+explanation in
+`notes/q286-wbss-k286-absolute-envelope-payment-audit.md`.
+
+Question: on the extended zero-lane rows, can the local main pay the entire
+`K_286` absolute phase envelope plus the actually adverse drag from the other
+three projected moduli?
+
+Answer: yes on the finite diagnostic.  All `32/32` rows satisfy
+`M(N)-A_other(N)-H_286(N)>0`.  The maximum absolute payment ratio is
+`0.7926876143614664`; the minimum margin is `0.1480214455719575`, at target
+`1201486`, residue `286`, lift `4`, with local main `0.7140019401930244`,
+other-moduli adverse drag `0.048022422292921904`, and full `K_286` envelope
+`0.5179580723281451`.
+
+Decision: `DIAGNOSTIC_k286_absolute_envelope_payment_survives`.  On these
+finite rows, delicate `K_286` signed cancellation is not needed once the full
+absolute `K_286` phase envelope is paid.  The sharper theorem-shaped target is
+an absolute `K_286` envelope bound plus companion one-sided bounds for the
+other moduli, with total below local main.  No `K_286` absolute-envelope
+theorem, companion adverse-drag theorem, phase-cancellation theorem, universal
+pointwise raw estimate, q286 threshold theorem, strict-central Goldbach
+theorem, or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-16
+
 The q286-WBSS route now has a `K_286` phase bridge-obligation audit:
 `tools/build_q286_wbss_k286_phase_bridge_obligation_audit.py` generated
 `evidence/q286-wbss-k286-phase-bridge-obligation-audit.json`, with

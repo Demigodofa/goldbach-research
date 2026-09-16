@@ -6,6 +6,43 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The q286-WBSS route now has a `K_286` absolute-envelope payment audit:
+
+```text
+tools/build_q286_wbss_k286_absolute_envelope_payment_audit.py
+notes/q286-wbss-k286-absolute-envelope-payment-audit.md
+evidence/q286-wbss-k286-absolute-envelope-payment-audit.json
+```
+
+Question: on the extended zero-lane rows, can the local main pay the entire
+`K_286` absolute phase envelope plus the actually adverse drag from the other
+three projected moduli?
+
+Result:
+
+```text
+extended rows:                            32
+payment-positive rows:                   32 / 32
+payment-nonpositive rows:                 0 / 32
+absolute payment ratio min:               0.23855937004298816
+absolute payment ratio mean:              0.41306853497816054
+absolute payment ratio max:               0.7926876143614664
+payment margin min:                       0.1480214455719575
+K286 envelope mean:                       0.32482274937825234
+tightest target:                          1201486
+```
+
+Decision: `DIAGNOSTIC_k286_absolute_envelope_payment_survives`.  On these
+finite rows, delicate `K_286` signed cancellation is not needed once the full
+absolute `K_286` phase envelope is paid.  The sharper theorem-shaped target is
+an absolute `K_286` envelope bound plus companion one-sided bounds for the
+other moduli, with total below local main.  No `K_286` absolute-envelope
+theorem, companion adverse-drag theorem, phase-cancellation theorem, universal
+pointwise raw estimate, q286 threshold theorem, strict-central Goldbach
+theorem, or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-16
+
 The q286-WBSS route now has a `K_286` phase bridge-obligation audit:
 
 ```text
