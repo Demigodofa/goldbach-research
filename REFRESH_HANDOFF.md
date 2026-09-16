@@ -6,6 +6,52 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The metric-soft moment-square route now has a coefficient-provenance audit:
+
+```text
+tools/build_mobius_moment_square_coefficient_provenance_audit.py
+notes/mobius-moment-square-coefficient-provenance-audit.md
+evidence/mobius-moment-square-coefficient-provenance-audit.json
+```
+
+Result:
+
+```text
+status: TARGET_moment_square_coefficient_provenance
+checked scales:                                  127, 149, 167, 191, 211, 227
+all reconstructed coefficients match source:     true
+maximum relative source coefficient delta:       1.7413985025615276e-16
+all alternating degree sign patterns hold:       true
+stable top contributor signature:                true
+```
+
+Stable dominant Gram-entry signature by degree:
+
+```text
+0: 22,22
+1: 12,22
+2: 12,12
+3: 11,12
+4: 01,12
+5: 01,11
+6: 01,01
+7: 00,01
+8: 00,00
+```
+
+Decision: the checked half-frame polynomial coefficients are exactly traced to
+degree-wise sums of `active - 0.5*full` Gram entries.  The next theorem target
+is to derive the active/full Gram-entry coefficient family and prove that it
+retains the stable alternating sign and Sturm/sign certificate, or find a
+legitimate scale where the coefficient provenance pattern fails.  This is
+finite coefficient-provenance evidence only; no coefficient-family theorem,
+universal Sturm-certificate theorem, half-frame curve-positivity theorem,
+uniform active/full lower frame, Mobius covariance theorem, signed
+prime-correlation estimate, q286 theorem, strict-central Goldbach theorem, or
+Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-16
+
 The metric-soft moment-square route now has a Sturm certificate audit for the
 recorded half-frame curve polynomials:
 

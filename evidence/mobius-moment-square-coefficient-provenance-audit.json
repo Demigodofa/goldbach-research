@@ -1,0 +1,1544 @@
+{
+  "all_alternating_degree_sign_patterns_hold": true,
+  "all_reconstructed_coefficients_match_source": true,
+  "coefficient_family_theorem_proved": false,
+  "coordinate_degrees": [
+    4,
+    3,
+    2,
+    2,
+    1,
+    0
+  ],
+  "coordinate_labels": [
+    "00",
+    "01",
+    "02",
+    "11",
+    "12",
+    "22"
+  ],
+  "decision": "The recorded half-frame polynomial coefficients are exactly reproduced by degree-wise sums of active minus one-half full Gram entries.  On checked scales the coefficient signs alternate by degree and the dominant unordered Gram-entry contributor for each degree is stable.  This does not prove positivity universally; it identifies the coefficient-family structure a real theorem must derive and bound.",
+  "expected_alternating_signs": {
+    "0": "positive",
+    "1": "negative",
+    "2": "positive",
+    "3": "negative",
+    "4": "positive",
+    "5": "negative",
+    "6": "positive",
+    "7": "negative",
+    "8": "positive"
+  },
+  "finite_coefficient_provenance_only": true,
+  "finite_diagnostic_only": true,
+  "goldbach_proved": false,
+  "maximum_relative_source_coefficient_delta": 1.7413985025615276e-16,
+  "mobius_covariance_theorem_proved": false,
+  "moment_square_half_frame_curve_positivity_theorem_proved": false,
+  "q286_reactivated": false,
+  "question": "Which active/full Gram entries produce the recorded half-frame degree-8 coefficients, and is the sign/top-entry structure stable across checked scales?",
+  "scale_results": [
+    {
+      "alternating_degree_sign_pattern_holds": true,
+      "degree_coefficients": [
+        {
+          "active_coefficient": 844988742.1448532,
+          "active_over_full_coefficient_ratio": 0.9694151297656486,
+          "contributor_count": 1,
+          "degree": 0,
+          "expected_sign": "positive",
+          "full_coefficient": 871647982.5821629,
+          "half_frame_coefficient": 409164750.8537718,
+          "half_frame_sign": "positive",
+          "source_curve_coefficient": 409164750.8537718,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": 844988742.1448532,
+            "full_contribution": 871647982.5821629,
+            "half_frame_contribution": 409164750.8537718,
+            "left_label": "22",
+            "multiplicity": 1,
+            "right_label": "22"
+          }
+        },
+        {
+          "active_coefficient": -26932185014.400124,
+          "active_over_full_coefficient_ratio": 0.9675380232595111,
+          "contributor_count": 1,
+          "degree": 1,
+          "expected_sign": "negative",
+          "full_coefficient": -27835789774.616875,
+          "half_frame_coefficient": -13014290127.091686,
+          "half_frame_sign": "negative",
+          "source_curve_coefficient": -13014290127.091686,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": -26932185014.400124,
+            "full_contribution": -27835789774.616875,
+            "half_frame_contribution": -13014290127.091686,
+            "left_label": "12",
+            "multiplicity": 2,
+            "right_label": "22"
+          }
+        },
+        {
+          "active_coefficient": 375359941671.6281,
+          "active_over_full_coefficient_ratio": 0.9656720656637526,
+          "contributor_count": 3,
+          "degree": 2,
+          "expected_sign": "positive",
+          "full_coefficient": 388703323848.9976,
+          "half_frame_coefficient": 181008279747.12927,
+          "half_frame_sign": "positive",
+          "source_curve_coefficient": 181008279747.1293,
+          "source_curve_coefficient_delta": -3.0517578125e-05,
+          "top_abs_contributor": {
+            "active_contribution": 214992338779.08215,
+            "full_contribution": 222642307974.1019,
+            "half_frame_contribution": 103671184792.0312,
+            "left_label": "12",
+            "multiplicity": 1,
+            "right_label": "12"
+          }
+        },
+        {
+          "active_coefficient": -2987726765117.5996,
+          "active_over_full_coefficient_ratio": 0.9638252450420138,
+          "contributor_count": 3,
+          "degree": 3,
+          "expected_sign": "negative",
+          "full_coefficient": -3099863570171.751,
+          "half_frame_coefficient": -1437794980031.7236,
+          "half_frame_sign": "negative",
+          "source_curve_coefficient": -1437794980031.7236,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": -1710153424300.8853,
+            "full_contribution": -1774576280670.6277,
+            "half_frame_contribution": -822865283965.5714,
+            "left_label": "11",
+            "multiplicity": 2,
+            "right_label": "12"
+          }
+        },
+        {
+          "active_coefficient": 14853978754078.969,
+          "active_over_full_coefficient_ratio": 0.9620046102302089,
+          "contributor_count": 5,
+          "degree": 4,
+          "expected_sign": "positive",
+          "full_coefficient": 15440652358749.5,
+          "half_frame_coefficient": 7133652574704.219,
+          "half_frame_sign": "positive",
+          "source_curve_coefficient": 7133652574704.219,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": 6774918878616.696,
+            "full_contribution": 7042262532114.1,
+            "half_frame_contribution": 3253787612559.6465,
+            "left_label": "01",
+            "multiplicity": 2,
+            "right_label": "12"
+          }
+        },
+        {
+          "active_coefficient": -47230877601990.125,
+          "active_over_full_coefficient_ratio": 0.9602161824185392,
+          "contributor_count": 3,
+          "degree": 5,
+          "expected_sign": "negative",
+          "full_coefficient": -49187754244078.26,
+          "half_frame_coefficient": -22637000479951.0,
+          "half_frame_sign": "negative",
+          "source_curve_coefficient": -22637000479951.0,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": -27034086437650.453,
+            "full_contribution": -28157876463943.32,
+            "half_frame_contribution": -12955148205678.793,
+            "left_label": "01",
+            "multiplicity": 2,
+            "right_label": "11"
+          }
+        },
+        {
+          "active_coefficient": 93791173958938.94,
+          "active_over_full_coefficient_ratio": 0.9584649268311191,
+          "contributor_count": 3,
+          "degree": 6,
+          "expected_sign": "positive",
+          "full_coefficient": 97855614048426.1,
+          "half_frame_coefficient": 44863366934725.89,
+          "half_frame_sign": "positive",
+          "source_curve_coefficient": 44863366934725.88,
+          "source_curve_coefficient_delta": 0.0078125,
+          "top_abs_contributor": {
+            "active_contribution": 53712578767672.37,
+            "full_contribution": 56042024943708.25,
+            "half_frame_contribution": 25691566295818.242,
+            "left_label": "01",
+            "multiplicity": 1,
+            "right_label": "01"
+          }
+        },
+        {
+          "active_coefficient": -106341778021870.52,
+          "active_over_full_coefficient_ratio": 0.9567547734110922,
+          "contributor_count": 1,
+          "degree": 7,
+          "expected_sign": "negative",
+          "full_coefficient": -111148416477435.52,
+          "half_frame_coefficient": -50767569783152.76,
+          "half_frame_sign": "negative",
+          "source_curve_coefficient": -50767569783152.76,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": -106341778021870.52,
+            "full_contribution": -111148416477435.52,
+            "half_frame_contribution": -50767569783152.76,
+            "left_label": "00",
+            "multiplicity": 2,
+            "right_label": "01"
+          }
+        },
+        {
+          "active_coefficient": 52703562927767.36,
+          "active_over_full_coefficient_ratio": 0.9550886746317355,
+          "contributor_count": 1,
+          "degree": 8,
+          "expected_sign": "positive",
+          "full_coefficient": 55181853086142.89,
+          "half_frame_coefficient": 25112636384695.914,
+          "half_frame_sign": "positive",
+          "source_curve_coefficient": 25112636384695.914,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": 52703562927767.36,
+            "full_contribution": 55181853086142.89,
+            "half_frame_contribution": 25112636384695.914,
+            "left_label": "00",
+            "multiplicity": 1,
+            "right_label": "00"
+          }
+        }
+      ],
+      "divisor_range": [
+        3,
+        13
+      ],
+      "maximum_relative_source_coefficient_delta": 1.7413985025615276e-16,
+      "prime_count": 24,
+      "row_count": 28,
+      "scale_modulus": 127,
+      "top_abs_contributor_signature": [
+        [
+          0,
+          "22",
+          "22"
+        ],
+        [
+          1,
+          "12",
+          "22"
+        ],
+        [
+          2,
+          "12",
+          "12"
+        ],
+        [
+          3,
+          "11",
+          "12"
+        ],
+        [
+          4,
+          "01",
+          "12"
+        ],
+        [
+          5,
+          "01",
+          "11"
+        ],
+        [
+          6,
+          "01",
+          "01"
+        ],
+        [
+          7,
+          "00",
+          "01"
+        ],
+        [
+          8,
+          "00",
+          "00"
+        ]
+      ]
+    },
+    {
+      "alternating_degree_sign_pattern_holds": true,
+      "degree_coefficients": [
+        {
+          "active_coefficient": 5269884097.257695,
+          "active_over_full_coefficient_ratio": 1.0810564882302833,
+          "contributor_count": 1,
+          "degree": 0,
+          "expected_sign": "positive",
+          "full_coefficient": 4874753682.7466135,
+          "half_frame_coefficient": 2832507255.8843884,
+          "half_frame_sign": "positive",
+          "source_curve_coefficient": 2832507255.8843884,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": 5269884097.257695,
+            "full_contribution": 4874753682.7466135,
+            "half_frame_contribution": 2832507255.8843884,
+            "left_label": "22",
+            "multiplicity": 1,
+            "right_label": "22"
+          }
+        },
+        {
+          "active_coefficient": -155078100322.50803,
+          "active_over_full_coefficient_ratio": 1.0802267950061242,
+          "contributor_count": 1,
+          "degree": 1,
+          "expected_sign": "negative",
+          "full_coefficient": -143560686551.5948,
+          "half_frame_coefficient": -83297757046.71063,
+          "half_frame_sign": "negative",
+          "source_curve_coefficient": -83297757046.71063,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": -155078100322.50803,
+            "full_contribution": -143560686551.5948,
+            "half_frame_contribution": -83297757046.71063,
+            "left_label": "12",
+            "multiplicity": 2,
+            "right_label": "22"
+          }
+        },
+        {
+          "active_coefficient": 2004487587947.5962,
+          "active_over_full_coefficient_ratio": 1.0790377384766747,
+          "contributor_count": 3,
+          "degree": 2,
+          "expected_sign": "positive",
+          "full_coefficient": 1857662171090.9016,
+          "half_frame_coefficient": 1075656502402.1453,
+          "half_frame_sign": "positive",
+          "source_curve_coefficient": 1075656502402.1453,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": 1149126289294.8179,
+            "full_contribution": 1065191540929.9257,
+            "half_frame_contribution": 616530518829.855,
+            "left_label": "12",
+            "multiplicity": 1,
+            "right_label": "12"
+          }
+        },
+        {
+          "active_coefficient": -14864482059766.27,
+          "active_over_full_coefficient_ratio": 1.0774890475436307,
+          "contributor_count": 3,
+          "degree": 3,
+          "expected_sign": "negative",
+          "full_coefficient": -13795483205748.652,
+          "half_frame_coefficient": -7966740456891.942,
+          "half_frame_sign": "negative",
+          "source_curve_coefficient": -7966740456891.942,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": -8515549562897.158,
+            "full_contribution": -7904543349373.14,
+            "half_frame_contribution": -4563277888210.588,
+            "left_label": "11",
+            "multiplicity": 2,
+            "right_label": "12"
+          }
+        },
+        {
+          "active_coefficient": 69166463808547.81,
+          "active_over_full_coefficient_ratio": 1.0755893393193852,
+          "contributor_count": 5,
+          "degree": 4,
+          "expected_sign": "positive",
+          "full_coefficient": 64305642757964.84,
+          "half_frame_coefficient": 37013642429565.39,
+          "half_frame_sign": "positive",
+          "source_curve_coefficient": 37013642429565.39,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": 31517494501519.246,
+            "full_contribution": 29296081356536.96,
+            "half_frame_contribution": 16869453823250.766,
+            "left_label": "01",
+            "multiplicity": 2,
+            "right_label": "12"
+          }
+        },
+        {
+          "active_coefficient": -206780948714405.12,
+          "active_over_full_coefficient_ratio": 1.0733556884780278,
+          "contributor_count": 3,
+          "degree": 5,
+          "expected_sign": "negative",
+          "full_coefficient": -192649045357566.06,
+          "half_frame_coefficient": -110456426035622.08,
+          "half_frame_sign": "negative",
+          "source_curve_coefficient": -110456426035622.06,
+          "source_curve_coefficient_delta": -0.015625,
+          "top_abs_contributor": {
+            "active_contribution": -118457912041829.2,
+            "full_contribution": -110380554109531.52,
+            "half_frame_contribution": -63267634987063.445,
+            "left_label": "01",
+            "multiplicity": 2,
+            "right_label": "11"
+          }
+        },
+        {
+          "active_coefficient": 387835462183797.1,
+          "active_over_full_coefficient_ratio": 1.0708127011595407,
+          "contributor_count": 3,
+          "degree": 6,
+          "expected_sign": "positive",
+          "full_coefficient": 362187954778483.1,
+          "half_frame_coefficient": 206741484794555.56,
+          "half_frame_sign": "positive",
+          "source_curve_coefficient": 206741484794555.56,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": 222315432893528.94,
+            "full_contribution": 207656913306946.88,
+            "half_frame_contribution": 118486976240055.5,
+            "left_label": "01",
+            "multiplicity": 1,
+            "right_label": "01"
+          }
+        },
+        {
+          "active_coefficient": -417182356770269.6,
+          "active_over_full_coefficient_ratio": 1.0679911905366861,
+          "contributor_count": 1,
+          "degree": 7,
+          "expected_sign": "negative",
+          "full_coefficient": -390623406322881.25,
+          "half_frame_coefficient": -221870653608829.0,
+          "half_frame_sign": "negative",
+          "source_curve_coefficient": -221870653608829.0,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": -417182356770269.6,
+            "full_contribution": -390623406322881.25,
+            "half_frame_contribution": -221870653608829.0,
+            "left_label": "00",
+            "multiplicity": 2,
+            "right_label": "01"
+          }
+        },
+        {
+          "active_coefficient": 197008967553494.12,
+          "active_over_full_coefficient_ratio": 1.0649265878258711,
+          "contributor_count": 1,
+          "degree": 8,
+          "expected_sign": "positive",
+          "full_coefficient": 184997698250452.16,
+          "half_frame_coefficient": 104510118428268.05,
+          "half_frame_sign": "positive",
+          "source_curve_coefficient": 104510118428268.05,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": 197008967553494.12,
+            "full_contribution": 184997698250452.16,
+            "half_frame_contribution": 104510118428268.05,
+            "left_label": "00",
+            "multiplicity": 1,
+            "right_label": "00"
+          }
+        }
+      ],
+      "divisor_range": [
+        3,
+        15
+      ],
+      "maximum_relative_source_coefficient_delta": 1.4145849690049683e-16,
+      "prime_count": 28,
+      "row_count": 32,
+      "scale_modulus": 149,
+      "top_abs_contributor_signature": [
+        [
+          0,
+          "22",
+          "22"
+        ],
+        [
+          1,
+          "12",
+          "22"
+        ],
+        [
+          2,
+          "12",
+          "12"
+        ],
+        [
+          3,
+          "11",
+          "12"
+        ],
+        [
+          4,
+          "01",
+          "12"
+        ],
+        [
+          5,
+          "01",
+          "11"
+        ],
+        [
+          6,
+          "01",
+          "01"
+        ],
+        [
+          7,
+          "00",
+          "01"
+        ],
+        [
+          8,
+          "00",
+          "00"
+        ]
+      ]
+    },
+    {
+      "alternating_degree_sign_pattern_holds": true,
+      "degree_coefficients": [
+        {
+          "active_coefficient": 5777502114.769412,
+          "active_over_full_coefficient_ratio": 1.0667139819713258,
+          "contributor_count": 1,
+          "degree": 0,
+          "expected_sign": "positive",
+          "full_coefficient": 5416167981.685569,
+          "half_frame_coefficient": 3069418123.9266276,
+          "half_frame_sign": "positive",
+          "source_curve_coefficient": 3069418123.9266276,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": 5777502114.769412,
+            "full_contribution": 5416167981.685569,
+            "half_frame_contribution": 3069418123.9266276,
+            "left_label": "22",
+            "multiplicity": 1,
+            "right_label": "22"
+          }
+        },
+        {
+          "active_coefficient": -172135734970.22098,
+          "active_over_full_coefficient_ratio": 1.0652562096062954,
+          "contributor_count": 1,
+          "degree": 1,
+          "expected_sign": "negative",
+          "full_coefficient": -161590923777.70795,
+          "half_frame_coefficient": -91340273081.367,
+          "half_frame_sign": "negative",
+          "source_curve_coefficient": -91340273081.367,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": -172135734970.22098,
+            "full_contribution": -161590923777.70795,
+            "half_frame_contribution": -91340273081.367,
+            "left_label": "12",
+            "multiplicity": 2,
+            "right_label": "22"
+          }
+        },
+        {
+          "active_coefficient": 2251096133804.5513,
+          "active_over_full_coefficient_ratio": 1.0634586189270165,
+          "contributor_count": 3,
+          "degree": 2,
+          "expected_sign": "positive",
+          "full_coefficient": 2116768902654.444,
+          "half_frame_coefficient": 1192711682477.329,
+          "half_frame_sign": "positive",
+          "source_curve_coefficient": 1192711682477.329,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": 1289843443406.6729,
+            "full_contribution": 1213143181925.4055,
+            "half_frame_contribution": 683271852443.9701,
+            "left_label": "12",
+            "multiplicity": 1,
+            "right_label": "12"
+          }
+        },
+        {
+          "active_coefficient": -16876850290431.727,
+          "active_over_full_coefficient_ratio": 1.0613326922075519,
+          "contributor_count": 3,
+          "degree": 3,
+          "expected_sign": "negative",
+          "full_coefficient": -15901564527639.488,
+          "half_frame_coefficient": -8926068026611.982,
+          "half_frame_sign": "negative",
+          "source_curve_coefficient": -8926068026611.982,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": -9663265516745.611,
+            "full_contribution": -9106198899687.72,
+            "half_frame_contribution": -5110166066901.751,
+            "left_label": "11",
+            "multiplicity": 2,
+            "right_label": "12"
+          }
+        },
+        {
+          "active_coefficient": 79335197117222.62,
+          "active_over_full_coefficient_ratio": 1.0588961604861233,
+          "contributor_count": 5,
+          "degree": 4,
+          "expected_sign": "positive",
+          "full_coefficient": 74922546778147.75,
+          "half_frame_coefficient": 41873923728148.734,
+          "half_frame_sign": "positive",
+          "source_curve_coefficient": 41873923728148.734,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": 36169738056176.02,
+            "full_contribution": 34150673563462.1,
+            "half_frame_contribution": 19094401274444.973,
+            "left_label": "01",
+            "multiplicity": 2,
+            "right_label": "12"
+          }
+        },
+        {
+          "active_coefficient": -239435828297460.7,
+          "active_over_full_coefficient_ratio": 1.0561722382355412,
+          "contributor_count": 3,
+          "degree": 5,
+          "expected_sign": "negative",
+          "full_coefficient": -226701497757095.16,
+          "half_frame_coefficient": -126085079418913.1,
+          "half_frame_sign": "negative",
+          "source_curve_coefficient": -126085079418913.08,
+          "source_curve_coefficient_delta": -0.015625,
+          "top_abs_contributor": {
+            "active_contribution": -137088235226015.73,
+            "full_contribution": -129816529935075.44,
+            "half_frame_contribution": -72179970258478.02,
+            "left_label": "01",
+            "multiplicity": 2,
+            "right_label": "11"
+          }
+        },
+        {
+          "active_coefficient": 453023332842286.5,
+          "active_over_full_coefficient_ratio": 1.0531886085371909,
+          "contributor_count": 3,
+          "degree": 6,
+          "expected_sign": "positive",
+          "full_coefficient": 430144543123672.6,
+          "half_frame_coefficient": 237951061280450.12,
+          "half_frame_sign": "positive",
+          "source_curve_coefficient": 237951061280450.12,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": 259552926461737.7,
+            "full_contribution": 246493916946816.03,
+            "half_frame_contribution": 136305967988329.67,
+            "left_label": "01",
+            "multiplicity": 1,
+            "right_label": "01"
+          }
+        },
+        {
+          "active_coefficient": -491236543632475.0,
+          "active_over_full_coefficient_ratio": 1.0499762444384133,
+          "contributor_count": 1,
+          "degree": 7,
+          "expected_sign": "negative",
+          "full_coefficient": -467854912179671.4,
+          "half_frame_coefficient": -257309087542639.3,
+          "half_frame_sign": "negative",
+          "source_curve_coefficient": -257309087542639.3,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": -491236543632475.0,
+            "full_contribution": -467854912179671.4,
+            "half_frame_contribution": -257309087542639.3,
+            "left_label": "00",
+            "multiplicity": 2,
+            "right_label": "01"
+          }
+        },
+        {
+          "active_coefficient": 233697837331919.22,
+          "active_over_full_coefficient_ratio": 1.0465681606377006,
+          "contributor_count": 1,
+          "degree": 8,
+          "expected_sign": "positive",
+          "full_coefficient": 223299204124001.97,
+          "half_frame_coefficient": 122048235269918.23,
+          "half_frame_sign": "positive",
+          "source_curve_coefficient": 122048235269918.23,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": 233697837331919.22,
+            "full_contribution": 223299204124001.97,
+            "half_frame_contribution": 122048235269918.23,
+            "left_label": "00",
+            "multiplicity": 1,
+            "right_label": "00"
+          }
+        }
+      ],
+      "divisor_range": [
+        3,
+        16
+      ],
+      "maximum_relative_source_coefficient_delta": 1.2392425869905277e-16,
+      "prime_count": 29,
+      "row_count": 35,
+      "scale_modulus": 167,
+      "top_abs_contributor_signature": [
+        [
+          0,
+          "22",
+          "22"
+        ],
+        [
+          1,
+          "12",
+          "22"
+        ],
+        [
+          2,
+          "12",
+          "12"
+        ],
+        [
+          3,
+          "11",
+          "12"
+        ],
+        [
+          4,
+          "01",
+          "12"
+        ],
+        [
+          5,
+          "01",
+          "11"
+        ],
+        [
+          6,
+          "01",
+          "01"
+        ],
+        [
+          7,
+          "00",
+          "01"
+        ],
+        [
+          8,
+          "00",
+          "00"
+        ]
+      ]
+    },
+    {
+      "alternating_degree_sign_pattern_holds": true,
+      "degree_coefficients": [
+        {
+          "active_coefficient": 58744959012.33738,
+          "active_over_full_coefficient_ratio": 1.0107917600659106,
+          "contributor_count": 1,
+          "degree": 0,
+          "expected_sign": "positive",
+          "full_coefficient": 58117766025.81999,
+          "half_frame_coefficient": 29686075999.427383,
+          "half_frame_sign": "positive",
+          "source_curve_coefficient": 29686075999.427383,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": 58744959012.33738,
+            "full_contribution": 58117766025.81999,
+            "half_frame_contribution": 29686075999.427383,
+            "left_label": "22",
+            "multiplicity": 1,
+            "right_label": "22"
+          }
+        },
+        {
+          "active_coefficient": -1762999174062.9258,
+          "active_over_full_coefficient_ratio": 1.0105713424393372,
+          "contributor_count": 1,
+          "degree": 1,
+          "expected_sign": "negative",
+          "full_coefficient": -1744556866027.255,
+          "half_frame_coefficient": -890720741049.2983,
+          "half_frame_sign": "negative",
+          "source_curve_coefficient": -890720741049.2983,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": -1762999174062.9258,
+            "full_contribution": -1744556866027.255,
+            "half_frame_contribution": -890720741049.2983,
+            "left_label": "12",
+            "multiplicity": 2,
+            "right_label": "22"
+          }
+        },
+        {
+          "active_coefficient": 23210248003870.406,
+          "active_over_full_coefficient_ratio": 1.0103719816520635,
+          "contributor_count": 3,
+          "degree": 2,
+          "expected_sign": "positive",
+          "full_coefficient": 22971983017501.367,
+          "half_frame_coefficient": 11724256495119.725,
+          "half_frame_sign": "positive",
+          "source_curve_coefficient": 11724256495119.723,
+          "source_curve_coefficient_delta": 0.001953125,
+          "top_abs_contributor": {
+            "active_contribution": 13294811092024.502,
+            "full_contribution": 13158198084993.512,
+            "half_frame_contribution": 6715712049527.746,
+            "left_label": "12",
+            "multiplicity": 1,
+            "right_label": "12"
+          }
+        },
+        {
+          "active_coefficient": -175063027011692.94,
+          "active_over_full_coefficient_ratio": 1.0101941339968574,
+          "contributor_count": 3,
+          "degree": 3,
+          "expected_sign": "negative",
+          "full_coefficient": -173296420084179.12,
+          "half_frame_coefficient": -88414816969603.38,
+          "half_frame_sign": "negative",
+          "source_curve_coefficient": -88414816969603.38,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": -100204055791808.1,
+            "full_contribution": -99192952070268.86,
+            "half_frame_contribution": -50607579756673.664,
+            "left_label": "11",
+            "multiplicity": 2,
+            "right_label": "12"
+          }
+        },
+        {
+          "active_coefficient": 827299530704485.5,
+          "active_over_full_coefficient_ratio": 1.0100382269656312,
+          "contributor_count": 5,
+          "degree": 4,
+          "expected_sign": "positive",
+          "full_coefficient": 819077445405080.0,
+          "half_frame_coefficient": 417760808001945.5,
+          "half_frame_sign": "positive",
+          "source_curve_coefficient": 417760808001945.5,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": 377301270253619.3,
+            "full_contribution": 373555172706533.6,
+            "half_frame_contribution": 190523683900352.5,
+            "left_label": "01",
+            "multiplicity": 2,
+            "right_label": "12"
+          }
+        },
+        {
+          "active_coefficient": -2507991990052951.0,
+          "active_over_full_coefficient_ratio": 1.009904596249135,
+          "contributor_count": 3,
+          "degree": 5,
+          "expected_sign": "negative",
+          "full_coefficient": -2483394965591631.0,
+          "half_frame_coefficient": -1266294507257135.5,
+          "half_frame_sign": "negative",
+          "source_curve_coefficient": -1266294507257135.5,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": -1435437074470105.0,
+            "full_contribution": -1421369816285844.2,
+            "half_frame_contribution": -724752166327182.9,
+            "left_label": "01",
+            "multiplicity": 2,
+            "right_label": "11"
+          }
+        },
+        {
+          "active_coefficient": 4762333972845750.0,
+          "active_over_full_coefficient_ratio": 1.0097934343786341,
+          "contributor_count": 3,
+          "degree": 6,
+          "expected_sign": "positive",
+          "full_coefficient": 4716146699622981.0,
+          "half_frame_coefficient": 2404260623034259.5,
+          "half_frame_sign": "positive",
+          "source_curve_coefficient": 2404260623034259.5,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": 2727600399945855.0,
+            "full_contribution": 2701121456083147.0,
+            "half_frame_contribution": 1377039671904281.5,
+            "left_label": "01",
+            "multiplicity": 1,
+            "right_label": "01"
+          }
+        },
+        {
+          "active_coefficient": -5177930995960143.0,
+          "active_over_full_coefficient_ratio": 1.00970475298434,
+          "contributor_count": 1,
+          "degree": 7,
+          "expected_sign": "negative",
+          "full_coefficient": -5128163436545149.0,
+          "half_frame_coefficient": -2613849277687568.5,
+          "half_frame_sign": "negative",
+          "source_curve_coefficient": -2613849277687568.5,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": -5177930995960143.0,
+            "full_contribution": -5128163436545149.0,
+            "half_frame_contribution": -2613849277687568.5,
+            "left_label": "00",
+            "multiplicity": 2,
+            "right_label": "01"
+          }
+        },
+        {
+          "active_coefficient": 2467620694136699.5,
+          "active_over_full_coefficient_ratio": 1.0096383594852216,
+          "contributor_count": 1,
+          "degree": 8,
+          "expected_sign": "positive",
+          "full_coefficient": 2444063927399560.0,
+          "half_frame_coefficient": 1245588730436919.5,
+          "half_frame_sign": "positive",
+          "source_curve_coefficient": 1245588730436919.5,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": 2467620694136699.5,
+            "full_contribution": 2444063927399560.0,
+            "half_frame_contribution": 1245588730436919.5,
+            "left_label": "00",
+            "multiplicity": 1,
+            "right_label": "00"
+          }
+        }
+      ],
+      "divisor_range": [
+        3,
+        17
+      ],
+      "maximum_relative_source_coefficient_delta": 1.6658838885118194e-16,
+      "prime_count": 33,
+      "row_count": 38,
+      "scale_modulus": 191,
+      "top_abs_contributor_signature": [
+        [
+          0,
+          "22",
+          "22"
+        ],
+        [
+          1,
+          "12",
+          "22"
+        ],
+        [
+          2,
+          "12",
+          "12"
+        ],
+        [
+          3,
+          "11",
+          "12"
+        ],
+        [
+          4,
+          "01",
+          "12"
+        ],
+        [
+          5,
+          "01",
+          "11"
+        ],
+        [
+          6,
+          "01",
+          "01"
+        ],
+        [
+          7,
+          "00",
+          "01"
+        ],
+        [
+          8,
+          "00",
+          "00"
+        ]
+      ]
+    },
+    {
+      "alternating_degree_sign_pattern_holds": true,
+      "degree_coefficients": [
+        {
+          "active_coefficient": 66412610528.528,
+          "active_over_full_coefficient_ratio": 1.008439059591504,
+          "contributor_count": 1,
+          "degree": 0,
+          "expected_sign": "positive",
+          "full_coefficient": 65856840725.14035,
+          "half_frame_coefficient": 33484190165.957825,
+          "half_frame_sign": "positive",
+          "source_curve_coefficient": 33484190165.957825,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": 66412610528.528,
+            "full_contribution": 65856840725.14035,
+            "half_frame_contribution": 33484190165.957825,
+            "left_label": "22",
+            "multiplicity": 1,
+            "right_label": "22"
+          }
+        },
+        {
+          "active_coefficient": -2018815556968.542,
+          "active_over_full_coefficient_ratio": 1.007826834744073,
+          "contributor_count": 1,
+          "degree": 1,
+          "expected_sign": "negative",
+          "full_coefficient": -2003137332100.5078,
+          "half_frame_coefficient": -1017246890918.2881,
+          "half_frame_sign": "negative",
+          "source_curve_coefficient": -1017246890918.2881,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": -2018815556968.542,
+            "full_contribution": -2003137332100.5078,
+            "half_frame_contribution": -1017246890918.2881,
+            "left_label": "12",
+            "multiplicity": 2,
+            "right_label": "22"
+          }
+        },
+        {
+          "active_coefficient": 26905070171368.812,
+          "active_over_full_coefficient_ratio": 1.007252131711839,
+          "contributor_count": 3,
+          "degree": 2,
+          "expected_sign": "positive",
+          "full_coefficient": 26711355900178.906,
+          "half_frame_coefficient": 13549392221279.361,
+          "half_frame_sign": "positive",
+          "source_curve_coefficient": 13549392221279.361,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": 15404886486724.844,
+            "full_contribution": 15293988798098.89,
+            "half_frame_contribution": 7757892087675.398,
+            "left_label": "12",
+            "multiplicity": 1,
+            "right_label": "12"
+          }
+        },
+        {
+          "active_coefficient": -205306032593332.75,
+          "active_over_full_coefficient_ratio": 1.0067170036519244,
+          "contributor_count": 3,
+          "degree": 3,
+          "expected_sign": "negative",
+          "full_coefficient": -203936192443927.34,
+          "half_frame_coefficient": -103337936371369.1,
+          "half_frame_sign": "negative",
+          "source_curve_coefficient": -103337936371369.1,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": -117474570505002.67,
+            "full_contribution": -116688630072363.7,
+            "half_frame_contribution": -59130255468820.82,
+            "left_label": "11",
+            "multiplicity": 2,
+            "right_label": "12"
+          }
+        },
+        {
+          "active_coefficient": 980996209438371.2,
+          "active_over_full_coefficient_ratio": 1.0062230046590097,
+          "contributor_count": 5,
+          "degree": 4,
+          "expected_sign": "positive",
+          "full_coefficient": 974929220357879.5,
+          "half_frame_coefficient": 493531599259431.56,
+          "half_frame_sign": "positive",
+          "source_curve_coefficient": 493531599259431.56,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": 447581103623252.8,
+            "full_contribution": 444813171232576.44,
+            "half_frame_contribution": 225174518006964.6,
+            "left_label": "01",
+            "multiplicity": 2,
+            "right_label": "12"
+          }
+        },
+        {
+          "active_coefficient": -3005223495348182.0,
+          "active_over_full_coefficient_ratio": 1.0057711694965106,
+          "contributor_count": 3,
+          "degree": 5,
+          "expected_sign": "negative",
+          "full_coefficient": -2987979360009492.0,
+          "half_frame_coefficient": -1511233815343435.8,
+          "half_frame_sign": "negative",
+          "source_curve_coefficient": -1511233815343435.8,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": -1719447191449817.2,
+            "full_contribution": -1709548368547590.0,
+            "half_frame_contribution": -864673007176022.2,
+            "left_label": "01",
+            "multiplicity": 2,
+            "right_label": "11"
+          }
+        },
+        {
+          "active_coefficient": 5763320932230688.0,
+          "active_over_full_coefficient_ratio": 1.0053620133053918,
+          "contributor_count": 3,
+          "degree": 6,
+          "expected_sign": "positive",
+          "full_coefficient": 5732582747265591.0,
+          "half_frame_coefficient": 2897029558597892.0,
+          "half_frame_sign": "positive",
+          "source_curve_coefficient": 2897029558597892.0,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": 3299580318241575.0,
+            "full_contribution": 3281977444794929.0,
+            "half_frame_contribution": 1658591595844110.5,
+            "left_label": "01",
+            "multiplicity": 1,
+            "right_label": "01"
+          }
+        },
+        {
+          "active_coefficient": -6325252334122205.0,
+          "active_over_full_coefficient_ratio": 1.0049955492020577,
+          "contributor_count": 1,
+          "degree": 7,
+          "expected_sign": "negative",
+          "full_coefficient": -6293811290153775.0,
+          "half_frame_coefficient": -3178346689045317.5,
+          "half_frame_sign": "negative",
+          "source_curve_coefficient": -3178346689045317.5,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": -6325252334122205.0,
+            "full_contribution": -6293811290153775.0,
+            "half_frame_contribution": -3178346689045317.5,
+            "left_label": "00",
+            "multiplicity": 2,
+            "right_label": "01"
+          }
+        },
+        {
+          "active_coefficient": 3041215730524033.0,
+          "active_over_full_coefficient_ratio": 1.004671320990143,
+          "contributor_count": 1,
+          "degree": 8,
+          "expected_sign": "positive",
+          "full_coefficient": 3027075290182261.5,
+          "half_frame_coefficient": 1527678085432902.2,
+          "half_frame_sign": "positive",
+          "source_curve_coefficient": 1527678085432902.2,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": 3041215730524033.0,
+            "full_contribution": 3027075290182261.5,
+            "half_frame_contribution": 1527678085432902.2,
+            "left_label": "00",
+            "multiplicity": 1,
+            "right_label": "00"
+          }
+        }
+      ],
+      "divisor_range": [
+        3,
+        18
+      ],
+      "maximum_relative_source_coefficient_delta": 0.0,
+      "prime_count": 36,
+      "row_count": 41,
+      "scale_modulus": 211,
+      "top_abs_contributor_signature": [
+        [
+          0,
+          "22",
+          "22"
+        ],
+        [
+          1,
+          "12",
+          "22"
+        ],
+        [
+          2,
+          "12",
+          "12"
+        ],
+        [
+          3,
+          "11",
+          "12"
+        ],
+        [
+          4,
+          "01",
+          "12"
+        ],
+        [
+          5,
+          "01",
+          "11"
+        ],
+        [
+          6,
+          "01",
+          "01"
+        ],
+        [
+          7,
+          "00",
+          "01"
+        ],
+        [
+          8,
+          "00",
+          "00"
+        ]
+      ]
+    },
+    {
+      "alternating_degree_sign_pattern_holds": true,
+      "degree_coefficients": [
+        {
+          "active_coefficient": 72311466337.41806,
+          "active_over_full_coefficient_ratio": 1.0176404419070666,
+          "contributor_count": 1,
+          "degree": 0,
+          "expected_sign": "positive",
+          "full_coefficient": 71057972304.93884,
+          "half_frame_coefficient": 36782480184.94864,
+          "half_frame_sign": "positive",
+          "source_curve_coefficient": 36782480184.94864,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": 72311466337.41806,
+            "full_contribution": 71057972304.93884,
+            "half_frame_contribution": 36782480184.94864,
+            "left_label": "22",
+            "multiplicity": 1,
+            "right_label": "22"
+          }
+        },
+        {
+          "active_coefficient": -2216444325948.307,
+          "active_over_full_coefficient_ratio": 1.0172164336680891,
+          "contributor_count": 1,
+          "degree": 1,
+          "expected_sign": "negative",
+          "full_coefficient": -2178930906528.7065,
+          "half_frame_coefficient": -1126978872683.9539,
+          "half_frame_sign": "negative",
+          "source_curve_coefficient": -1126978872683.9539,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": -2216444325948.307,
+            "full_contribution": -2178930906528.7065,
+            "half_frame_contribution": -1126978872683.9539,
+            "left_label": "12",
+            "multiplicity": 2,
+            "right_label": "22"
+          }
+        },
+        {
+          "active_coefficient": 29773060302241.445,
+          "active_over_full_coefficient_ratio": 1.0168172683284715,
+          "contributor_count": 3,
+          "degree": 2,
+          "expected_sign": "positive",
+          "full_coefficient": 29280639923813.32,
+          "half_frame_coefficient": 15132740340334.785,
+          "half_frame_sign": "positive",
+          "source_curve_coefficient": 15132740340334.785,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": 17041939888693.848,
+            "full_contribution": 16760179021489.1,
+            "half_frame_contribution": 8661850377949.298,
+            "left_label": "12",
+            "multiplicity": 1,
+            "right_label": "12"
+          }
+        },
+        {
+          "active_coefficient": -228900442290318.12,
+          "active_over_full_coefficient_ratio": 1.0164449342959678,
+          "contributor_count": 3,
+          "degree": 3,
+          "expected_sign": "negative",
+          "full_coefficient": -225197090926390.53,
+          "half_frame_coefficient": -116301896827122.88,
+          "half_frame_sign": "negative",
+          "source_curve_coefficient": -116301896827122.89,
+          "source_curve_coefficient_delta": 0.015625,
+          "top_abs_contributor": {
+            "active_contribution": -130951969082102.39,
+            "full_contribution": -128831006041046.25,
+            "half_frame_contribution": -66536466061579.266,
+            "left_label": "11",
+            "multiplicity": 2,
+            "right_label": "12"
+          }
+        },
+        {
+          "active_coefficient": 1101532267420659.0,
+          "active_over_full_coefficient_ratio": 1.0161010979596097,
+          "contributor_count": 5,
+          "degree": 4,
+          "expected_sign": "positive",
+          "full_coefficient": 1084077430516117.1,
+          "half_frame_coefficient": 559493552162600.3,
+          "half_frame_sign": "positive",
+          "source_curve_coefficient": 559493552162600.3,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": 502725252803561.94,
+            "full_contribution": 494756698891415.06,
+            "half_frame_contribution": 255346903357854.4,
+            "left_label": "01",
+            "multiplicity": 2,
+            "right_label": "12"
+          }
+        },
+        {
+          "active_coefficient": -3397238238805704.0,
+          "active_over_full_coefficient_ratio": 1.0157870802358089,
+          "contributor_count": 3,
+          "degree": 5,
+          "expected_sign": "negative",
+          "full_coefficient": -3344439307120401.0,
+          "half_frame_coefficient": -1725018585245504.0,
+          "half_frame_sign": "negative",
+          "source_curve_coefficient": -1725018585245504.0,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": -1943416015672917.8,
+            "full_contribution": -1913180892630637.8,
+            "half_frame_contribution": -986825569357598.9,
+            "left_label": "01",
+            "multiplicity": 2,
+            "right_label": "11"
+          }
+        },
+        {
+          "active_coefficient": 6556656176605144.0,
+          "active_over_full_coefficient_ratio": 1.0155038457593848,
+          "contributor_count": 3,
+          "degree": 6,
+          "expected_sign": "positive",
+          "full_coefficient": 6456554747660394.0,
+          "half_frame_coefficient": 3328378802774947.5,
+          "half_frame_sign": "positive",
+          "source_curve_coefficient": 3328378802774947.5,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": 3752682180116871.5,
+            "full_contribution": 3695403840618683.0,
+            "half_frame_contribution": 1904980259807530.0,
+            "left_label": "01",
+            "multiplicity": 1,
+            "right_label": "01"
+          }
+        },
+        {
+          "active_coefficient": -7239307327849422.0,
+          "active_over_full_coefficient_ratio": 1.015252003802698,
+          "contributor_count": 1,
+          "degree": 7,
+          "expected_sign": "negative",
+          "full_coefficient": -7130552119802852.0,
+          "half_frame_coefficient": -3674031267947996.0,
+          "half_frame_sign": "negative",
+          "source_curve_coefficient": -3674031267947996.0,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": -7239307327849422.0,
+            "full_contribution": -7130552119802852.0,
+            "half_frame_contribution": -3674031267947996.0,
+            "left_label": "00",
+            "multiplicity": 2,
+            "right_label": "01"
+          }
+        },
+        {
+          "active_coefficient": 3500534813054914.5,
+          "active_over_full_coefficient_ratio": 1.015031819597402,
+          "contributor_count": 1,
+          "degree": 8,
+          "expected_sign": "positive",
+          "full_coefficient": 3448694657122525.0,
+          "half_frame_coefficient": 1776187484493652.0,
+          "half_frame_sign": "positive",
+          "source_curve_coefficient": 1776187484493652.0,
+          "source_curve_coefficient_delta": 0.0,
+          "top_abs_contributor": {
+            "active_contribution": 3500534813054914.5,
+            "full_contribution": 3448694657122525.0,
+            "half_frame_contribution": 1776187484493652.0,
+            "left_label": "00",
+            "multiplicity": 1,
+            "right_label": "00"
+          }
+        }
+      ],
+      "divisor_range": [
+        3,
+        18
+      ],
+      "maximum_relative_source_coefficient_delta": 1.3434862565677498e-16,
+      "prime_count": 39,
+      "row_count": 43,
+      "scale_modulus": 227,
+      "top_abs_contributor_signature": [
+        [
+          0,
+          "22",
+          "22"
+        ],
+        [
+          1,
+          "12",
+          "22"
+        ],
+        [
+          2,
+          "12",
+          "12"
+        ],
+        [
+          3,
+          "11",
+          "12"
+        ],
+        [
+          4,
+          "01",
+          "12"
+        ],
+        [
+          5,
+          "01",
+          "11"
+        ],
+        [
+          6,
+          "01",
+          "01"
+        ],
+        [
+          7,
+          "00",
+          "01"
+        ],
+        [
+          8,
+          "00",
+          "00"
+        ]
+      ]
+    }
+  ],
+  "scales": [
+    127,
+    149,
+    167,
+    191,
+    211,
+    227
+  ],
+  "signed_prime_correlation_proved": false,
+  "source_curve_audit": "evidence\\mobius-moment-square-half-frame-curve-audit.json",
+  "stable_top_abs_contributor_signature": true,
+  "status": "TARGET_moment_square_coefficient_provenance",
+  "top_abs_contributor_signature": [
+    [
+      0,
+      "22",
+      "22"
+    ],
+    [
+      1,
+      "12",
+      "22"
+    ],
+    [
+      2,
+      "12",
+      "12"
+    ],
+    [
+      3,
+      "11",
+      "12"
+    ],
+    [
+      4,
+      "01",
+      "12"
+    ],
+    [
+      5,
+      "01",
+      "11"
+    ],
+    [
+      6,
+      "01",
+      "01"
+    ],
+    [
+      7,
+      "00",
+      "01"
+    ],
+    [
+      8,
+      "00",
+      "00"
+    ]
+  ],
+  "uniform_active_full_lower_frame_proved": false,
+  "universal_sturm_certificate_theorem_proved": false
+}
