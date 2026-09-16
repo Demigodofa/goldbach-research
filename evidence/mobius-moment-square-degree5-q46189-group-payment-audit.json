@@ -1,0 +1,696 @@
+{
+  "answer": "Yes for this finite ledger.  Ten positive middle/far rows contain exactly three of the four high primes from 11*13*17*19, and their sum is far larger than the Q=46189 adverse margin.  Stronger: each omitted-high-prime family separately pays the defect, and each individual replacement row is positive by more than the defect.  This is finite evidence for a replacement-family payment target, not a theorem.",
+  "candidate_next_action": {
+    "falsifier": "A source-admissible block with a Q-style aligned negative middle/far denominator whose replacement families are absent or fail to dominate the defect falsifies this theorem target.",
+    "mechanism": "Replace one high prime in the adverse denominator tail by small-prime products that keep Q in the middle/far ledger, then prove the resulting grouped margins dominate the aligned negative denominator.",
+    "name": "replacement-family phase-defect payment theorem",
+    "novelty_label": "new-to-this-task",
+    "prediction": "For future source-admissible blocks, any Q-style aligned middle/far negative denominator with a high-prime tail should come with positive replacement families indexed by omitted high prime, and at least one family-level inequality should pay the phase defect pointwise.",
+    "smallest_next_test": "Repeat this replacement-family ledger on the other tight sigma-band blocks, especially any block with middle/far adverse mass, and track whether omitted-high-prime family payment persists without total positivity."
+  },
+  "classification": {
+    "each_omitted_high_prime_family_pays_defect": true,
+    "each_replacement_row_individually_pays_defect": true,
+    "finite_group_payment_certificate_only": true,
+    "q46189_is_only_middle_far_negative_for_label": true,
+    "replacement_family_pays_defect": true
+  },
+  "clearance_family_theorem_proved": false,
+  "decision": "The Q=46189 exception has a sharper finite payment pattern: three-of-four high-prime replacement families pay the defect.  This narrows the theorem target from generic group payment to replacement-family phase-defect payment.  No universal pointwise estimate is proved.",
+  "finite_diagnostic_only": true,
+  "finite_group_payment_audit_only": true,
+  "fixture": {
+    "adverse_denominator": 46189,
+    "adverse_denominator_factorization": {
+      "11": 1,
+      "13": 1,
+      "17": 1,
+      "19": 1
+    },
+    "divisor_range": [
+      3,
+      19
+    ],
+    "ell_freeze": 64,
+    "prime_modulus": 379,
+    "q46189_adverse_margin": 8444721229.472412,
+    "q46189_half_threshold_defect": 0.0026909627652297874,
+    "row_count_A": 43,
+    "scale_modulus": 229,
+    "target_label": "00,12",
+    "threshold_p_times_A": 16297
+  },
+  "goldbach_proved": false,
+  "middle_far_lower_bound_proved": false,
+  "middle_far_positive_summary": {
+    "all_rows_individually_pay_defect": true,
+    "minimum_individual_payment_over_defect": 28.812282995461807,
+    "payment_over_q46189_adverse": 2802.388362755366,
+    "positive_margin_sum": 23665388500186.676,
+    "row_count": 16,
+    "strongest_positive_payment_row": {
+      "clearance_family": "far_3_plus",
+      "clearance_ratio_q_over_pA": 3.607166963244769,
+      "factorization": {
+        "13": 1,
+        "17": 1,
+        "19": 1,
+        "2": 1,
+        "7": 1
+      },
+      "high_prime_support": [
+        13,
+        17,
+        19
+      ],
+      "margin": 3346664546754.784,
+      "missing_high_primes": [
+        11
+      ],
+      "payment_over_q46189_adverse": 396.30254875374595,
+      "reduced_denominator": 58786,
+      "small_prime_support": [
+        2,
+        7
+      ]
+    },
+    "weakest_positive_payment_row": {
+      "clearance_family": "middle_2_to_3",
+      "clearance_ratio_q_over_pA": 2.0810578634104435,
+      "factorization": {
+        "17": 1,
+        "19": 1,
+        "3": 1,
+        "5": 1,
+        "7": 1
+      },
+      "high_prime_support": [
+        17,
+        19
+      ],
+      "margin": 243311697881.3433,
+      "missing_high_primes": [
+        11,
+        13
+      ],
+      "payment_over_q46189_adverse": 28.812282995461807,
+      "reduced_denominator": 33915,
+      "small_prime_support": [
+        3,
+        5,
+        7
+      ]
+    }
+  },
+  "near_adverse_upper_bound_proved": false,
+  "omitted_high_prime_family_summaries": {
+    "11": {
+      "all_rows_individually_pay_defect": true,
+      "minimum_individual_payment_over_defect": 38.501943612245455,
+      "payment_over_q46189_adverse": 653.9359290761917,
+      "positive_margin_sum": 5522306622984.481,
+      "row_count": 3,
+      "strongest_positive_payment_row": {
+        "clearance_family": "far_3_plus",
+        "clearance_ratio_q_over_pA": 3.607166963244769,
+        "factorization": {
+          "13": 1,
+          "17": 1,
+          "19": 1,
+          "2": 1,
+          "7": 1
+        },
+        "high_prime_support": [
+          13,
+          17,
+          19
+        ],
+        "margin": 3346664546754.784,
+        "missing_high_primes": [
+          11
+        ],
+        "payment_over_q46189_adverse": 396.30254875374595,
+        "reduced_denominator": 58786,
+        "small_prime_support": [
+          2,
+          7
+        ]
+      },
+      "weakest_positive_payment_row": {
+        "clearance_family": "middle_2_to_3",
+        "clearance_ratio_q_over_pA": 2.5765478308891208,
+        "factorization": {
+          "13": 1,
+          "17": 1,
+          "19": 1,
+          "2": 1,
+          "5": 1
+        },
+        "high_prime_support": [
+          13,
+          17,
+          19
+        ],
+        "margin": 325138180598.27893,
+        "missing_high_primes": [
+          11
+        ],
+        "payment_over_q46189_adverse": 38.501943612245455,
+        "reduced_denominator": 41990,
+        "small_prime_support": [
+          2,
+          5
+        ]
+      }
+    },
+    "13": {
+      "all_rows_individually_pay_defect": true,
+      "minimum_individual_payment_over_defect": 82.9763465430777,
+      "payment_over_q46189_adverse": 466.9478641031054,
+      "positive_margin_sum": 3943244541048.293,
+      "row_count": 3,
+      "strongest_positive_payment_row": {
+        "clearance_family": "far_3_plus",
+        "clearance_ratio_q_over_pA": 3.052218199668651,
+        "factorization": {
+          "11": 1,
+          "17": 1,
+          "19": 1,
+          "2": 1,
+          "7": 1
+        },
+        "high_prime_support": [
+          11,
+          17,
+          19
+        ],
+        "margin": 1731086923068.5696,
+        "missing_high_primes": [
+          13
+        ],
+        "payment_over_q46189_adverse": 204.9904166199125,
+        "reduced_denominator": 49742,
+        "small_prime_support": [
+          2,
+          7
+        ]
+      },
+      "weakest_positive_payment_row": {
+        "clearance_family": "middle_2_to_3",
+        "clearance_ratio_q_over_pA": 2.180155856906179,
+        "factorization": {
+          "11": 1,
+          "17": 1,
+          "19": 1,
+          "2": 1,
+          "5": 1
+        },
+        "high_prime_support": [
+          11,
+          17,
+          19
+        ],
+        "margin": 700712115196.3881,
+        "missing_high_primes": [
+          13
+        ],
+        "payment_over_q46189_adverse": 82.9763465430777,
+        "reduced_denominator": 35530,
+        "small_prime_support": [
+          2,
+          5
+        ]
+      }
+    },
+    "17": {
+      "all_rows_individually_pay_defect": true,
+      "minimum_individual_payment_over_defect": 36.74165224066973,
+      "payment_over_q46189_adverse": 320.0147481014071,
+      "positive_margin_sum": 2702435337036.219,
+      "row_count": 2,
+      "strongest_positive_payment_row": {
+        "clearance_family": "middle_2_to_3",
+        "clearance_ratio_q_over_pA": 2.5007670123335584,
+        "factorization": {
+          "11": 1,
+          "13": 1,
+          "19": 1,
+          "3": 1,
+          "5": 1
+        },
+        "high_prime_support": [
+          11,
+          13,
+          19
+        ],
+        "margin": 2392162326353.543,
+        "missing_high_primes": [
+          17
+        ],
+        "payment_over_q46189_adverse": 283.27309586073744,
+        "reduced_denominator": 40755,
+        "small_prime_support": [
+          3,
+          5
+        ]
+      },
+      "weakest_positive_payment_row": {
+        "clearance_family": "middle_2_to_3",
+        "clearance_ratio_q_over_pA": 2.334049211511321,
+        "factorization": {
+          "11": 1,
+          "13": 1,
+          "19": 1,
+          "2": 1,
+          "7": 1
+        },
+        "high_prime_support": [
+          11,
+          13,
+          19
+        ],
+        "margin": 310273010682.6763,
+        "missing_high_primes": [
+          17
+        ],
+        "payment_over_q46189_adverse": 36.74165224066973,
+        "reduced_denominator": 38038,
+        "small_prime_support": [
+          2,
+          7
+        ]
+      }
+    },
+    "19": {
+      "all_rows_individually_pay_defect": true,
+      "minimum_individual_payment_over_defect": 143.3894764254255,
+      "payment_over_q46189_adverse": 299.23195353489666,
+      "positive_margin_sum": 2526930430552.644,
+      "row_count": 2,
+      "strongest_positive_payment_row": {
+        "clearance_family": "middle_2_to_3",
+        "clearance_ratio_q_over_pA": 2.088359820825919,
+        "factorization": {
+          "11": 1,
+          "13": 1,
+          "17": 1,
+          "2": 1,
+          "7": 1
+        },
+        "high_prime_support": [
+          11,
+          13,
+          17
+        ],
+        "margin": 1316046274899.9194,
+        "missing_high_primes": [
+          19
+        ],
+        "payment_over_q46189_adverse": 155.84247710947116,
+        "reduced_denominator": 34034,
+        "small_prime_support": [
+          2,
+          7
+        ]
+      },
+      "weakest_positive_payment_row": {
+        "clearance_family": "middle_2_to_3",
+        "clearance_ratio_q_over_pA": 2.2375283794563416,
+        "factorization": {
+          "11": 1,
+          "13": 1,
+          "17": 1,
+          "3": 1,
+          "5": 1
+        },
+        "high_prime_support": [
+          11,
+          13,
+          17
+        ],
+        "margin": 1210884155652.7246,
+        "missing_high_primes": [
+          19
+        ],
+        "payment_over_q46189_adverse": 143.3894764254255,
+        "reduced_denominator": 36465,
+        "small_prime_support": [
+          3,
+          5
+        ]
+      }
+    }
+  },
+  "phase_defect_payment_theorem_proved": false,
+  "q46189_row": {
+    "clearance_family": "middle_2_to_3",
+    "clearance_ratio_q_over_pA": 2.8342026139780327,
+    "factorization": {
+      "11": 1,
+      "13": 1,
+      "17": 1,
+      "19": 1
+    },
+    "high_prime_support": [
+      11,
+      13,
+      17,
+      19
+    ],
+    "margin": -8444721229.472412,
+    "missing_high_primes": [],
+    "payment_over_q46189_adverse": -1.0,
+    "reduced_denominator": 46189,
+    "small_prime_support": []
+  },
+  "question": "For the M=229, p=379, Q=46189 adverse denominator, do structured middle/far positive rows sharing three of the four high primes 11,13,17,19 already pay the defect without using total positivity?",
+  "replacement_family_definition": "positive middle/far denominator rows for label 00,12 whose prime support contains exactly three of {11,13,17,19}",
+  "replacement_family_payment_theorem_proved": false,
+  "replacement_family_rows": [
+    {
+      "clearance_family": "far_3_plus",
+      "clearance_ratio_q_over_pA": 3.607166963244769,
+      "factorization": {
+        "13": 1,
+        "17": 1,
+        "19": 1,
+        "2": 1,
+        "7": 1
+      },
+      "high_prime_support": [
+        13,
+        17,
+        19
+      ],
+      "margin": 3346664546754.784,
+      "missing_high_primes": [
+        11
+      ],
+      "payment_over_q46189_adverse": 396.30254875374595,
+      "reduced_denominator": 58786,
+      "small_prime_support": [
+        2,
+        7
+      ]
+    },
+    {
+      "clearance_family": "middle_2_to_3",
+      "clearance_ratio_q_over_pA": 2.5007670123335584,
+      "factorization": {
+        "11": 1,
+        "13": 1,
+        "19": 1,
+        "3": 1,
+        "5": 1
+      },
+      "high_prime_support": [
+        11,
+        13,
+        19
+      ],
+      "margin": 2392162326353.543,
+      "missing_high_primes": [
+        17
+      ],
+      "payment_over_q46189_adverse": 283.27309586073744,
+      "reduced_denominator": 40755,
+      "small_prime_support": [
+        3,
+        5
+      ]
+    },
+    {
+      "clearance_family": "far_3_plus",
+      "clearance_ratio_q_over_pA": 3.864821746333681,
+      "factorization": {
+        "13": 1,
+        "17": 1,
+        "19": 1,
+        "3": 1,
+        "5": 1
+      },
+      "high_prime_support": [
+        13,
+        17,
+        19
+      ],
+      "margin": 1850503895631.418,
+      "missing_high_primes": [
+        11
+      ],
+      "payment_over_q46189_adverse": 219.1314367102002,
+      "reduced_denominator": 62985,
+      "small_prime_support": [
+        3,
+        5
+      ]
+    },
+    {
+      "clearance_family": "far_3_plus",
+      "clearance_ratio_q_over_pA": 3.052218199668651,
+      "factorization": {
+        "11": 1,
+        "17": 1,
+        "19": 1,
+        "2": 1,
+        "7": 1
+      },
+      "high_prime_support": [
+        11,
+        17,
+        19
+      ],
+      "margin": 1731086923068.5696,
+      "missing_high_primes": [
+        13
+      ],
+      "payment_over_q46189_adverse": 204.9904166199125,
+      "reduced_denominator": 49742,
+      "small_prime_support": [
+        2,
+        7
+      ]
+    },
+    {
+      "clearance_family": "far_3_plus",
+      "clearance_ratio_q_over_pA": 3.2702337853592685,
+      "factorization": {
+        "11": 1,
+        "17": 1,
+        "19": 1,
+        "3": 1,
+        "5": 1
+      },
+      "high_prime_support": [
+        11,
+        17,
+        19
+      ],
+      "margin": 1511445502783.3352,
+      "missing_high_primes": [
+        13
+      ],
+      "payment_over_q46189_adverse": 178.98110094011517,
+      "reduced_denominator": 53295,
+      "small_prime_support": [
+        3,
+        5
+      ]
+    },
+    {
+      "clearance_family": "middle_2_to_3",
+      "clearance_ratio_q_over_pA": 2.088359820825919,
+      "factorization": {
+        "11": 1,
+        "13": 1,
+        "17": 1,
+        "2": 1,
+        "7": 1
+      },
+      "high_prime_support": [
+        11,
+        13,
+        17
+      ],
+      "margin": 1316046274899.9194,
+      "missing_high_primes": [
+        19
+      ],
+      "payment_over_q46189_adverse": 155.84247710947116,
+      "reduced_denominator": 34034,
+      "small_prime_support": [
+        2,
+        7
+      ]
+    },
+    {
+      "clearance_family": "middle_2_to_3",
+      "clearance_ratio_q_over_pA": 2.2375283794563416,
+      "factorization": {
+        "11": 1,
+        "13": 1,
+        "17": 1,
+        "3": 1,
+        "5": 1
+      },
+      "high_prime_support": [
+        11,
+        13,
+        17
+      ],
+      "margin": 1210884155652.7246,
+      "missing_high_primes": [
+        19
+      ],
+      "payment_over_q46189_adverse": 143.3894764254255,
+      "reduced_denominator": 36465,
+      "small_prime_support": [
+        3,
+        5
+      ]
+    },
+    {
+      "clearance_family": "middle_2_to_3",
+      "clearance_ratio_q_over_pA": 2.180155856906179,
+      "factorization": {
+        "11": 1,
+        "17": 1,
+        "19": 1,
+        "2": 1,
+        "5": 1
+      },
+      "high_prime_support": [
+        11,
+        17,
+        19
+      ],
+      "margin": 700712115196.3881,
+      "missing_high_primes": [
+        13
+      ],
+      "payment_over_q46189_adverse": 82.9763465430777,
+      "reduced_denominator": 35530,
+      "small_prime_support": [
+        2,
+        5
+      ]
+    },
+    {
+      "clearance_family": "middle_2_to_3",
+      "clearance_ratio_q_over_pA": 2.5765478308891208,
+      "factorization": {
+        "13": 1,
+        "17": 1,
+        "19": 1,
+        "2": 1,
+        "5": 1
+      },
+      "high_prime_support": [
+        13,
+        17,
+        19
+      ],
+      "margin": 325138180598.27893,
+      "missing_high_primes": [
+        11
+      ],
+      "payment_over_q46189_adverse": 38.501943612245455,
+      "reduced_denominator": 41990,
+      "small_prime_support": [
+        2,
+        5
+      ]
+    },
+    {
+      "clearance_family": "middle_2_to_3",
+      "clearance_ratio_q_over_pA": 2.334049211511321,
+      "factorization": {
+        "11": 1,
+        "13": 1,
+        "19": 1,
+        "2": 1,
+        "7": 1
+      },
+      "high_prime_support": [
+        11,
+        13,
+        19
+      ],
+      "margin": 310273010682.6763,
+      "missing_high_primes": [
+        17
+      ],
+      "payment_over_q46189_adverse": 36.74165224066973,
+      "reduced_denominator": 38038,
+      "small_prime_support": [
+        2,
+        7
+      ]
+    }
+  ],
+  "replacement_family_summary": {
+    "all_rows_individually_pay_defect": true,
+    "minimum_individual_payment_over_defect": 36.74165224066973,
+    "payment_over_q46189_adverse": 1740.1304948156007,
+    "positive_margin_sum": 14694916931621.637,
+    "row_count": 10,
+    "strongest_positive_payment_row": {
+      "clearance_family": "far_3_plus",
+      "clearance_ratio_q_over_pA": 3.607166963244769,
+      "factorization": {
+        "13": 1,
+        "17": 1,
+        "19": 1,
+        "2": 1,
+        "7": 1
+      },
+      "high_prime_support": [
+        13,
+        17,
+        19
+      ],
+      "margin": 3346664546754.784,
+      "missing_high_primes": [
+        11
+      ],
+      "payment_over_q46189_adverse": 396.30254875374595,
+      "reduced_denominator": 58786,
+      "small_prime_support": [
+        2,
+        7
+      ]
+    },
+    "weakest_positive_payment_row": {
+      "clearance_family": "middle_2_to_3",
+      "clearance_ratio_q_over_pA": 2.334049211511321,
+      "factorization": {
+        "11": 1,
+        "13": 1,
+        "19": 1,
+        "2": 1,
+        "7": 1
+      },
+      "high_prime_support": [
+        11,
+        13,
+        19
+      ],
+      "margin": 310273010682.6763,
+      "missing_high_primes": [
+        17
+      ],
+      "payment_over_q46189_adverse": 36.74165224066973,
+      "reduced_denominator": 38038,
+      "small_prime_support": [
+        2,
+        7
+      ]
+    }
+  },
+  "schema_version": 1,
+  "source_commit": "4646f67ae58a8d7ee0444a4761841f19ddb6de3c",
+  "source_phase_defect_audit": "evidence\\mobius-moment-square-degree5-q46189-phase-defect-audit.json",
+  "source_start_theorem_proved": false,
+  "status": "AUDIT_q46189_structured_group_payment",
+  "strict_central_goldbach_theorem_proved": false
+}

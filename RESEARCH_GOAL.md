@@ -6,6 +6,39 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The source-start moving-prime lane now has a structured group-payment audit for
+the `Q=46189` phase defect:
+`tools/build_mobius_moment_square_degree5_q46189_group_payment_audit.py`
+generated
+`evidence/mobius-moment-square-degree5-q46189-group-payment-audit.json`, with
+explanation in
+`notes/mobius-moment-square-degree5-q46189-group-payment-audit.md`.
+
+Question: can the `Q=46189` adverse denominator be paid by a narrow arithmetic
+replacement family, without using total positivity?
+
+Answer: yes for this finite ledger.  For `(M,p,label)=(229,379,00,12)`, the
+adverse `Q=46189=11*13*17*19` denominator has margin
+`-8444721229.472412` and is the only middle/far negative row.  The ten
+positive middle/far rows whose support contains exactly three of
+`{11,13,17,19}` have positive margin sum `14694916931621.637`, paying the
+defect by a factor of `1740.1304948156007`.  Each omitted-high-prime family
+separately pays: missing `11` pays by `653.9359290761917`, missing `13` by
+`466.9478641031054`, missing `17` by `320.0147481014071`, and missing `19` by
+`299.23195353489666`.  Even the weakest individual replacement row pays by
+`36.74165224066973`.
+
+Decision: this narrows the theorem-shaped route from generic group payment to
+replacement-family phase-defect payment.  The desired universal target is a
+pointwise unnormalized replacement-family inequality for source-admissible
+blocks, not per-denominator positivity and not total-positivity borrowing.
+This is finite ledger evidence only.  It proves no replacement-family payment
+theorem, phase-defect payment theorem, near-adverse upper bound, middle/far
+lower bound, clearance-family theorem, source-start theorem, strict-central
+Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The source-start moving-prime lane now has a phase-defect audit for the
 `Q=46189` exception:
 `tools/build_mobius_moment_square_degree5_q46189_phase_defect_audit.py`

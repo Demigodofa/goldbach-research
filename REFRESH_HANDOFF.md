@@ -6,6 +6,44 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The source-start moving-prime lane now has a structured group-payment audit for
+the `Q=46189` phase defect:
+
+```text
+tools/build_mobius_moment_square_degree5_q46189_group_payment_audit.py
+notes/mobius-moment-square-degree5-q46189-group-payment-audit.md
+evidence/mobius-moment-square-degree5-q46189-group-payment-audit.json
+```
+
+Result:
+
+```text
+Q=46189 adverse margin:        8444721229.472412
+replacement rows:              10
+replacement positive sum:       14694916931621.637
+replacement payment / defect:   1740.1304948156007
+minimum row payment / defect:   36.74165224066973
+missing 11 family / defect:     653.9359290761917
+missing 13 family / defect:     466.9478641031054
+missing 17 family / defect:     320.0147481014071
+missing 19 family / defect:     299.23195353489666
+```
+
+Decision: the finite payment pattern is sharper than generic group payment.
+For `(M,p,label)=(229,379,00,12)`, the adverse `Q=46189=11*13*17*19`
+denominator is the only middle/far negative row, and the positive middle/far
+rows containing exactly three of those four high primes pay the defect by a
+factor of about `1740.13`.  Each omitted-high-prime family separately pays,
+and even the weakest individual replacement row pays by a factor of about
+`36.74`.  The theorem-shaped target is now replacement-family phase-defect
+payment, not per-denominator nonadversity and not total-positivity borrowing.
+This proves no replacement-family payment theorem, phase-defect payment
+theorem, near-adverse upper bound, middle/far lower bound, clearance-family
+theorem, source-start theorem, strict-central Goldbach theorem, or Goldbach
+proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The source-start moving-prime lane now has a phase-defect audit for the
 `Q=46189` exception:
 
