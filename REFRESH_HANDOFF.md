@@ -6,6 +6,47 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 residual route now has a support-order sign bridge audit:
+
+```text
+tools/build_q286_residual_support_order_sign_bridge_audit.py
+notes/q286-residual-support-order-sign-bridge-audit.md
+evidence/q286-residual-support-order-sign-bridge-audit.json
+```
+
+Result:
+
+```text
+actual full positive rows:                     5 / 7
+low-order base positive rows:                  5 / 7
+low-order/full sign mismatches:                0
+tight positive target:                     94856
+tight low-order base:          0.05371090383605067
+tight high-order signed tail: -0.041134437542250886
+tight full action:             0.012576466293799767
+max high-order adverse/base ratio:
+                               0.7658489171549095
+max high-order abs/base ratio: 0.9694853511961387
+all-row high-order adverse envelope:
+                               0.23468203404186905
+all-row envelope margin at tight positive base:
+                              -0.18097113020581837
+```
+
+Decision:
+`CANDIDATE_support_order_sign_bridge_survives_fixture`.  The support-size
+`<= 2` low-order base sign agrees with the full action sign on all seven
+frozen rows.  The tight positive row remains `94856`; its adverse high-order
+tail consumes about `76.58%` of the low-order base but does not flip it.  The
+wrong theorem remains rejected: an all-row high-order adverse envelope is too
+broad.  The next theorem target is a pointwise low-order base positivity
+theorem plus high-order signed-tail domination on the same mathematically named
+class.  This proves no low-order base theorem, high-order tail domination
+theorem, signed packet theorem, q286 threshold theorem, strict-central
+Goldbach theorem, or Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 residual structural-mask route now has a signed-tail bridge audit:
 
 ```text

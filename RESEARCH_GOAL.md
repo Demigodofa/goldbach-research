@@ -6,6 +6,51 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 residual route now has a support-order sign bridge audit:
+`tools/build_q286_residual_support_order_sign_bridge_audit.py` generated
+`evidence/q286-residual-support-order-sign-bridge-audit.json`, with
+explanation in `notes/q286-residual-support-order-sign-bridge-audit.md`.
+
+Question: after support-size `<= 2` became the cleaner signed-tail target, does
+the low-order base already separate the frozen positive rows from the
+nonpositive stress rows before the high-order tail is added?
+
+Answer: yes on the seven-row fixture.  Define the low-order base as
+`aligned_only_full_action + support-size <= 2 signed packets`, and define the
+high-order tail as the signed sum over support sizes `>= 3`.
+
+```text
+row count:                                      7
+actual full positive rows:                     5
+actual full nonpositive rows:                  2
+low-order base positive rows:                  5
+low-order/full sign mismatches:                0
+tight positive target:                     94856
+tight low-order base:          0.05371090383605067
+tight high-order signed tail: -0.041134437542250886
+tight full action:             0.012576466293799767
+max high-order adverse/base ratio:
+                               0.7658489171549095
+max high-order abs/base ratio: 0.9694853511961387
+all-row high-order adverse envelope:
+                               0.23468203404186905
+all-row envelope margin at tight positive base:
+                              -0.18097113020581837
+```
+
+Decision:
+`CANDIDATE_support_order_sign_bridge_survives_fixture`.  The support-order
+split is now the cleanest finite theorem target: prove low-order base
+positivity and high-order signed-tail domination on the same mathematically
+named class.  The tight row remains `94856`, where the adverse high-order tail
+consumes about `76.58%` of the low-order base.  The unqualified all-row
+high-order adverse-envelope theorem remains rejected because its envelope is
+larger than the tight positive base.  This proves no low-order base theorem,
+high-order tail domination theorem, signed packet theorem, q286 threshold
+theorem, strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 residual structural-mask route now has a signed-tail bridge audit:
 `tools/build_q286_residual_structural_mask_signed_tail_bridge_audit.py`
 generated
