@@ -6,6 +6,36 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The q286-WBSS route now has a reflection/parity audit for the exact `K_286`
+two-mode singular target:
+`tools/build_q286_wbss_k286_two_mode_reflection_parity_audit.py` generated
+`evidence/q286-wbss-k286-two-mode-reflection-parity-audit.json`, with
+explanation in
+`notes/q286-wbss-k286-two-mode-reflection-parity-audit.md`.
+
+Question: does ordered-pair reflection remove a universal part of the `K_286`
+two-mode singular burden?
+
+Answer: only partly.  The reflection-odd part is algebraically invisible to
+any reflection-symmetric strict-central pair mass, and many target residues
+have a large odd component.  But the combined scaled first two singular modes
+have even energy fraction ranging from `0.399466343237569` up to `1.0`, with
+the worst even residue at `0 mod 286`.  The best odd residue is `110 mod 286`,
+where the odd energy fraction is `0.600533656762431`.
+
+Decision: `AUDIT_k286_two_mode_reflection_parity_not_proof`.  Reflection is
+real structure but not a universal bridge.  It falsifies the hope that
+symmetry alone reduces the two-mode target for every residue.  The next
+acceptable route is a genuinely pointwise, unnormalized analytic estimate,
+such as `adverse_drag_raw(N) < local_main_raw(N)` for every sufficiently large
+covered even `N`, or an equivalent non-circular binary-prime moment theorem.
+No zero-mass check is promoted to a logical bridge.  No non-circular `L2`
+target is confirmed.  No binary-prime moment theorem, raw adverse-drag bound,
+q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof is
+established.
+
+## Previous continuation evidence, 2026-09-16
+
 The q286-WBSS route now has an exact two-mode singular moment target for the
 dominant `K_286` bucket:
 `tools/build_q286_wbss_k286_two_mode_singular_target.py` generated

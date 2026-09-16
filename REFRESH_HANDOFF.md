@@ -6,6 +6,45 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The q286-WBSS route now has a reflection/parity audit for the exact `K_286`
+two-mode singular target:
+
+```text
+tools/build_q286_wbss_k286_two_mode_reflection_parity_audit.py
+notes/q286-wbss-k286-two-mode-reflection-parity-audit.md
+evidence/q286-wbss-k286-two-mode-reflection-parity-audit.json
+```
+
+Question: does ordered-pair reflection remove a universal part of the `K_286`
+two-mode singular burden?
+
+Result:
+
+```text
+combined first two scaled singular modes
+target residues checked:          143
+even energy fraction minimum:     0.399466343237569
+even energy fraction mean:        0.50010368361382
+even energy fraction maximum:     1.0
+odd energy fraction maximum:      0.600533656762431
+worst even target residue:        0 mod 286
+best odd target residue:          110 mod 286
+```
+
+Decision: `AUDIT_k286_two_mode_reflection_parity_not_proof`.  Reflection is
+real structure, but residue `0 mod 286` keeps essentially the entire combined
+two-mode coefficient in the reflection-even subspace.  This falsifies
+reflection alone as the universal two-mode simplifier.  The next acceptable
+route is a pointwise, unnormalized analytic estimate, such as
+`adverse_drag_raw(N) < local_main_raw(N)` for every sufficiently large covered
+even `N`, or an equivalent non-circular binary-prime moment theorem.  No
+zero-mass check is promoted to a logical bridge.  No non-circular `L2` target
+is confirmed.  No binary-prime moment theorem, raw adverse-drag bound, q286
+threshold theorem, strict-central Goldbach theorem, or Goldbach proof is
+established.
+
+## Previous active checkpoint note, 2026-09-16
+
 The q286-WBSS route now has an exact two-mode singular moment target for the
 dominant `K_286` bucket:
 
