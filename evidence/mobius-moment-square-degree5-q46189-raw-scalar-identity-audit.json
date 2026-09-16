@@ -1,0 +1,815 @@
+{
+  "answer": "Yes for this finite family.  Each selected denominator is supported by six ordered source-conductor pairs, and every raw frequency pair has coordinate 12 equal to the same negative-real scalar multiple of coordinate 00.  This strengthens the next target to an exact source-pair scalar identity, but remains a finite numerical audit.",
+  "candidate_next_action": {
+    "falsifier": "A source-admissible replacement family with raw source pairs that do not share a common coordinate 12/00 scalar falsifies this exact source-pair identity target.",
+    "mechanism": "Use the six ordered source-conductor pairs for each selected denominator to derive an exact formula for coordinate 12/00 directly from the divisor-polynomial data.",
+    "name": "symbolic source-conductor scalar formula",
+    "novelty_label": "new-to-this-task",
+    "prediction": "For the Q=46189 family, the six ordered source-conductor pairs should share a common closed-form scalar before primitive residue sums or active-window phases enter.",
+    "smallest_next_test": "Compute the divisor-polynomial formula for the six source-conductor pairs of Q=46189 and show their scalars are identical without using floating aggregation."
+  },
+  "classification": {
+    "all_replacements_ratio_above_half": true,
+    "all_replacements_raw_scalar_identity_holds": true,
+    "all_rows_have_no_zero_left_raw_pairs": true,
+    "all_rows_have_six_ordered_source_conductor_pairs": true,
+    "finite_raw_scalar_identity_checkpoint_only": true,
+    "q46189_ratio_below_half": true,
+    "q46189_raw_scalar_identity_holds": true
+  },
+  "clearance_family_theorem_proved": false,
+  "decision": "The scalar collapse is visible before reduced-residue aggregation. The theorem-shaped object is now a symbolic source-conductor scalar formula followed by a one-coordinate active/full ratio inequality.  No exact identity theorem or ratio theorem is proved.",
+  "exact_scalar_identity_theorem_proved": false,
+  "finite_diagnostic_only": true,
+  "finite_raw_scalar_identity_audit_only": true,
+  "fixture": {
+    "adverse_denominator": 46189,
+    "divisor_range": [
+      3,
+      19
+    ],
+    "ell_freeze": 64,
+    "prime_modulus": 379,
+    "row_count_A": 43,
+    "scale_modulus": 229,
+    "target_label": "00,12"
+  },
+  "goldbach_proved": false,
+  "middle_far_lower_bound_proved": false,
+  "near_adverse_upper_bound_proved": false,
+  "omitted_high_prime_family_raw_summaries": {
+    "11": {
+      "all_rows_raw_scalar_identity": true,
+      "maximum_raw_scalar_deviation": 1.3877787807814457e-17,
+      "minimum_ratio_minus_half": 0.23349735557232576,
+      "ordered_source_conductor_pair_counts": [
+        6
+      ],
+      "row_count": 3
+    },
+    "13": {
+      "all_rows_raw_scalar_identity": true,
+      "maximum_raw_scalar_deviation": 2.7755575615628914e-17,
+      "minimum_ratio_minus_half": 0.4262452298052626,
+      "ordered_source_conductor_pair_counts": [
+        6
+      ],
+      "row_count": 3
+    },
+    "17": {
+      "all_rows_raw_scalar_identity": true,
+      "maximum_raw_scalar_deviation": 1.3877787807814457e-17,
+      "minimum_ratio_minus_half": 0.07635340770691146,
+      "ordered_source_conductor_pair_counts": [
+        6
+      ],
+      "row_count": 2
+    },
+    "19": {
+      "all_rows_raw_scalar_identity": true,
+      "maximum_raw_scalar_deviation": 1.3877787807814457e-17,
+      "minimum_ratio_minus_half": 0.3564899239156273,
+      "ordered_source_conductor_pair_counts": [
+        6
+      ],
+      "row_count": 2
+    }
+  },
+  "phase_defect_payment_theorem_proved": false,
+  "q46189_raw_scalar_row": {
+    "cellwise_margin_full_over_2_minus_active": -8444721229.472412,
+    "cellwise_scalar_imag": -6.185170624973525e-20,
+    "cellwise_scalar_real": -0.07475328212536139,
+    "factorization": {
+      "11": 1,
+      "13": 1,
+      "17": 1,
+      "19": 1
+    },
+    "high_prime_support": [
+      11,
+      13,
+      17,
+      19
+    ],
+    "max_abs_raw_scalar_deviation": 2.7755575615628914e-17,
+    "max_abs_raw_scalar_imag": 0.0,
+    "missing_high_primes": [],
+    "ordered_source_conductor_pair_count": 6,
+    "ordered_source_conductor_pairs": [
+      {
+        "left_source_conductor": 143,
+        "raw_frequency_pair_count": 34560,
+        "right_source_conductor": 323
+      },
+      {
+        "left_source_conductor": 187,
+        "raw_frequency_pair_count": 34560,
+        "right_source_conductor": 247
+      },
+      {
+        "left_source_conductor": 209,
+        "raw_frequency_pair_count": 34560,
+        "right_source_conductor": 221
+      },
+      {
+        "left_source_conductor": 221,
+        "raw_frequency_pair_count": 34560,
+        "right_source_conductor": 209
+      },
+      {
+        "left_source_conductor": 247,
+        "raw_frequency_pair_count": 34560,
+        "right_source_conductor": 187
+      },
+      {
+        "left_source_conductor": 323,
+        "raw_frequency_pair_count": 34560,
+        "right_source_conductor": 143
+      }
+    ],
+    "ratio_minus_half": -0.0026909627652297874,
+    "raw_frequency_pair_count": 207360,
+    "raw_reduced_residue_count": 34560,
+    "raw_scalar_identity_holds_to_tolerance": true,
+    "raw_scalar_imag": 0.0,
+    "raw_scalar_negative_real": true,
+    "raw_scalar_real": -0.07475328212536138,
+    "raw_to_cellwise_scalar_abs_error": 1.3877787807814457e-17,
+    "reduced_denominator": 46189,
+    "residue_cell_count": 34560,
+    "zero_left_raw_pair_count": 0
+  },
+  "question": "Does the Q=46189 replacement-family scalar collapse already hold on raw ordered source-conductor frequency pairs before reduced-residue aggregation?",
+  "raw_scalar_identity_theorem_proved": false,
+  "replacement_family_payment_theorem_proved": false,
+  "replacement_raw_scalar_rows": [
+    {
+      "cellwise_margin_full_over_2_minus_active": 3346664546754.784,
+      "cellwise_scalar_imag": 4.697929567139581e-19,
+      "cellwise_scalar_real": -0.08018047904089409,
+      "factorization": {
+        "13": 1,
+        "17": 1,
+        "19": 1,
+        "2": 1,
+        "7": 1
+      },
+      "high_prime_support": [
+        13,
+        17,
+        19
+      ],
+      "max_abs_raw_scalar_deviation": 1.3877787807814457e-17,
+      "max_abs_raw_scalar_imag": 0.0,
+      "missing_high_primes": [
+        11
+      ],
+      "ordered_source_conductor_pair_count": 6,
+      "ordered_source_conductor_pairs": [
+        {
+          "left_source_conductor": 182,
+          "raw_frequency_pair_count": 20736,
+          "right_source_conductor": 323
+        },
+        {
+          "left_source_conductor": 221,
+          "raw_frequency_pair_count": 20736,
+          "right_source_conductor": 266
+        },
+        {
+          "left_source_conductor": 238,
+          "raw_frequency_pair_count": 20736,
+          "right_source_conductor": 247
+        },
+        {
+          "left_source_conductor": 247,
+          "raw_frequency_pair_count": 20736,
+          "right_source_conductor": 238
+        },
+        {
+          "left_source_conductor": 266,
+          "raw_frequency_pair_count": 20736,
+          "right_source_conductor": 221
+        },
+        {
+          "left_source_conductor": 323,
+          "raw_frequency_pair_count": 20736,
+          "right_source_conductor": 182
+        }
+      ],
+      "ratio_minus_half": 0.5246550671421417,
+      "raw_frequency_pair_count": 124416,
+      "raw_reduced_residue_count": 20736,
+      "raw_scalar_identity_holds_to_tolerance": true,
+      "raw_scalar_imag": 0.0,
+      "raw_scalar_negative_real": true,
+      "raw_scalar_real": -0.08018047904089408,
+      "raw_to_cellwise_scalar_abs_error": 1.3877787807814457e-17,
+      "reduced_denominator": 58786,
+      "residue_cell_count": 20736,
+      "zero_left_raw_pair_count": 0
+    },
+    {
+      "cellwise_margin_full_over_2_minus_active": 2392162326353.543,
+      "cellwise_scalar_imag": -3.7964117496179263e-19,
+      "cellwise_scalar_real": -0.07222823118954749,
+      "factorization": {
+        "11": 1,
+        "13": 1,
+        "19": 1,
+        "3": 1,
+        "5": 1
+      },
+      "high_prime_support": [
+        11,
+        13,
+        19
+      ],
+      "max_abs_raw_scalar_deviation": 1.3877787807814457e-17,
+      "max_abs_raw_scalar_imag": 0.0,
+      "missing_high_primes": [
+        17
+      ],
+      "ordered_source_conductor_pair_count": 6,
+      "ordered_source_conductor_pairs": [
+        {
+          "left_source_conductor": 143,
+          "raw_frequency_pair_count": 17280,
+          "right_source_conductor": 285
+        },
+        {
+          "left_source_conductor": 165,
+          "raw_frequency_pair_count": 17280,
+          "right_source_conductor": 247
+        },
+        {
+          "left_source_conductor": 195,
+          "raw_frequency_pair_count": 17280,
+          "right_source_conductor": 209
+        },
+        {
+          "left_source_conductor": 209,
+          "raw_frequency_pair_count": 17280,
+          "right_source_conductor": 195
+        },
+        {
+          "left_source_conductor": 247,
+          "raw_frequency_pair_count": 17280,
+          "right_source_conductor": 165
+        },
+        {
+          "left_source_conductor": 285,
+          "raw_frequency_pair_count": 17280,
+          "right_source_conductor": 143
+        }
+      ],
+      "ratio_minus_half": 0.5735414442150175,
+      "raw_frequency_pair_count": 103680,
+      "raw_reduced_residue_count": 17280,
+      "raw_scalar_identity_holds_to_tolerance": true,
+      "raw_scalar_imag": 0.0,
+      "raw_scalar_negative_real": true,
+      "raw_scalar_real": -0.07222823118954749,
+      "raw_to_cellwise_scalar_abs_error": 0.0,
+      "reduced_denominator": 40755,
+      "residue_cell_count": 17280,
+      "zero_left_raw_pair_count": 0
+    },
+    {
+      "cellwise_margin_full_over_2_minus_active": 1850503895631.418,
+      "cellwise_scalar_imag": 3.654133667433875e-19,
+      "cellwise_scalar_real": -0.08173311922098696,
+      "factorization": {
+        "13": 1,
+        "17": 1,
+        "19": 1,
+        "3": 1,
+        "5": 1
+      },
+      "high_prime_support": [
+        13,
+        17,
+        19
+      ],
+      "max_abs_raw_scalar_deviation": 1.3877787807814457e-17,
+      "max_abs_raw_scalar_imag": 0.0,
+      "missing_high_primes": [
+        11
+      ],
+      "ordered_source_conductor_pair_count": 6,
+      "ordered_source_conductor_pairs": [
+        {
+          "left_source_conductor": 195,
+          "raw_frequency_pair_count": 27648,
+          "right_source_conductor": 323
+        },
+        {
+          "left_source_conductor": 221,
+          "raw_frequency_pair_count": 27648,
+          "right_source_conductor": 285
+        },
+        {
+          "left_source_conductor": 247,
+          "raw_frequency_pair_count": 27648,
+          "right_source_conductor": 255
+        },
+        {
+          "left_source_conductor": 255,
+          "raw_frequency_pair_count": 27648,
+          "right_source_conductor": 247
+        },
+        {
+          "left_source_conductor": 285,
+          "raw_frequency_pair_count": 27648,
+          "right_source_conductor": 221
+        },
+        {
+          "left_source_conductor": 323,
+          "raw_frequency_pair_count": 27648,
+          "right_source_conductor": 195
+        }
+      ],
+      "ratio_minus_half": 0.2581873474668748,
+      "raw_frequency_pair_count": 165888,
+      "raw_reduced_residue_count": 27648,
+      "raw_scalar_identity_holds_to_tolerance": true,
+      "raw_scalar_imag": 0.0,
+      "raw_scalar_negative_real": true,
+      "raw_scalar_real": -0.08173311922098692,
+      "raw_to_cellwise_scalar_abs_error": 4.163336342344337e-17,
+      "reduced_denominator": 62985,
+      "residue_cell_count": 27648,
+      "zero_left_raw_pair_count": 0
+    },
+    {
+      "cellwise_margin_full_over_2_minus_active": 1731086923068.5696,
+      "cellwise_scalar_imag": -2.754182239174564e-19,
+      "cellwise_scalar_real": -0.0763515365159074,
+      "factorization": {
+        "11": 1,
+        "17": 1,
+        "19": 1,
+        "2": 1,
+        "7": 1
+      },
+      "high_prime_support": [
+        11,
+        17,
+        19
+      ],
+      "max_abs_raw_scalar_deviation": 2.7755575615628914e-17,
+      "max_abs_raw_scalar_imag": 0.0,
+      "missing_high_primes": [
+        13
+      ],
+      "ordered_source_conductor_pair_count": 6,
+      "ordered_source_conductor_pairs": [
+        {
+          "left_source_conductor": 154,
+          "raw_frequency_pair_count": 17280,
+          "right_source_conductor": 323
+        },
+        {
+          "left_source_conductor": 187,
+          "raw_frequency_pair_count": 17280,
+          "right_source_conductor": 266
+        },
+        {
+          "left_source_conductor": 209,
+          "raw_frequency_pair_count": 17280,
+          "right_source_conductor": 238
+        },
+        {
+          "left_source_conductor": 238,
+          "raw_frequency_pair_count": 17280,
+          "right_source_conductor": 209
+        },
+        {
+          "left_source_conductor": 266,
+          "raw_frequency_pair_count": 17280,
+          "right_source_conductor": 187
+        },
+        {
+          "left_source_conductor": 323,
+          "raw_frequency_pair_count": 17280,
+          "right_source_conductor": 154
+        }
+      ],
+      "ratio_minus_half": 0.5090053014564786,
+      "raw_frequency_pair_count": 103680,
+      "raw_reduced_residue_count": 17280,
+      "raw_scalar_identity_holds_to_tolerance": true,
+      "raw_scalar_imag": 0.0,
+      "raw_scalar_negative_real": true,
+      "raw_scalar_real": -0.07635153651590741,
+      "raw_to_cellwise_scalar_abs_error": 1.3877787807814457e-17,
+      "reduced_denominator": 49742,
+      "residue_cell_count": 17280,
+      "zero_left_raw_pair_count": 0
+    },
+    {
+      "cellwise_margin_full_over_2_minus_active": 1511445502783.3352,
+      "cellwise_scalar_imag": -2.872049778056802e-19,
+      "cellwise_scalar_real": -0.07783947575598901,
+      "factorization": {
+        "11": 1,
+        "17": 1,
+        "19": 1,
+        "3": 1,
+        "5": 1
+      },
+      "high_prime_support": [
+        11,
+        17,
+        19
+      ],
+      "max_abs_raw_scalar_deviation": 1.3877787807814457e-17,
+      "max_abs_raw_scalar_imag": 0.0,
+      "missing_high_primes": [
+        13
+      ],
+      "ordered_source_conductor_pair_count": 6,
+      "ordered_source_conductor_pairs": [
+        {
+          "left_source_conductor": 165,
+          "raw_frequency_pair_count": 23040,
+          "right_source_conductor": 323
+        },
+        {
+          "left_source_conductor": 187,
+          "raw_frequency_pair_count": 23040,
+          "right_source_conductor": 285
+        },
+        {
+          "left_source_conductor": 209,
+          "raw_frequency_pair_count": 23040,
+          "right_source_conductor": 255
+        },
+        {
+          "left_source_conductor": 255,
+          "raw_frequency_pair_count": 23040,
+          "right_source_conductor": 209
+        },
+        {
+          "left_source_conductor": 285,
+          "raw_frequency_pair_count": 23040,
+          "right_source_conductor": 187
+        },
+        {
+          "left_source_conductor": 323,
+          "raw_frequency_pair_count": 23040,
+          "right_source_conductor": 165
+        }
+      ],
+      "ratio_minus_half": 0.43323473349815567,
+      "raw_frequency_pair_count": 138240,
+      "raw_reduced_residue_count": 23040,
+      "raw_scalar_identity_holds_to_tolerance": true,
+      "raw_scalar_imag": 0.0,
+      "raw_scalar_negative_real": true,
+      "raw_scalar_real": -0.07783947575598901,
+      "raw_to_cellwise_scalar_abs_error": 0.0,
+      "reduced_denominator": 53295,
+      "residue_cell_count": 23040,
+      "zero_left_raw_pair_count": 0
+    },
+    {
+      "cellwise_margin_full_over_2_minus_active": 1316046274899.9194,
+      "cellwise_scalar_imag": -8.584089188047664e-22,
+      "cellwise_scalar_real": -0.06875627493444003,
+      "factorization": {
+        "11": 1,
+        "13": 1,
+        "17": 1,
+        "2": 1,
+        "7": 1
+      },
+      "high_prime_support": [
+        11,
+        13,
+        17
+      ],
+      "max_abs_raw_scalar_deviation": 1.3877787807814457e-17,
+      "max_abs_raw_scalar_imag": 0.0,
+      "missing_high_primes": [
+        19
+      ],
+      "ordered_source_conductor_pair_count": 6,
+      "ordered_source_conductor_pairs": [
+        {
+          "left_source_conductor": 143,
+          "raw_frequency_pair_count": 11520,
+          "right_source_conductor": 238
+        },
+        {
+          "left_source_conductor": 154,
+          "raw_frequency_pair_count": 11520,
+          "right_source_conductor": 221
+        },
+        {
+          "left_source_conductor": 182,
+          "raw_frequency_pair_count": 11520,
+          "right_source_conductor": 187
+        },
+        {
+          "left_source_conductor": 187,
+          "raw_frequency_pair_count": 11520,
+          "right_source_conductor": 182
+        },
+        {
+          "left_source_conductor": 221,
+          "raw_frequency_pair_count": 11520,
+          "right_source_conductor": 154
+        },
+        {
+          "left_source_conductor": 238,
+          "raw_frequency_pair_count": 11520,
+          "right_source_conductor": 143
+        }
+      ],
+      "ratio_minus_half": 0.43551465411843837,
+      "raw_frequency_pair_count": 69120,
+      "raw_reduced_residue_count": 11520,
+      "raw_scalar_identity_holds_to_tolerance": true,
+      "raw_scalar_imag": 0.0,
+      "raw_scalar_negative_real": true,
+      "raw_scalar_real": -0.06875627493444002,
+      "raw_to_cellwise_scalar_abs_error": 1.3877787807814457e-17,
+      "reduced_denominator": 34034,
+      "residue_cell_count": 11520,
+      "zero_left_raw_pair_count": 0
+    },
+    {
+      "cellwise_margin_full_over_2_minus_active": 1210884155652.7246,
+      "cellwise_scalar_imag": 7.1125302245186705e-19,
+      "cellwise_scalar_real": -0.0701111394033354,
+      "factorization": {
+        "11": 1,
+        "13": 1,
+        "17": 1,
+        "3": 1,
+        "5": 1
+      },
+      "high_prime_support": [
+        11,
+        13,
+        17
+      ],
+      "max_abs_raw_scalar_deviation": 1.3877787807814457e-17,
+      "max_abs_raw_scalar_imag": 0.0,
+      "missing_high_primes": [
+        19
+      ],
+      "ordered_source_conductor_pair_count": 6,
+      "ordered_source_conductor_pairs": [
+        {
+          "left_source_conductor": 143,
+          "raw_frequency_pair_count": 15360,
+          "right_source_conductor": 255
+        },
+        {
+          "left_source_conductor": 165,
+          "raw_frequency_pair_count": 15360,
+          "right_source_conductor": 221
+        },
+        {
+          "left_source_conductor": 187,
+          "raw_frequency_pair_count": 15360,
+          "right_source_conductor": 195
+        },
+        {
+          "left_source_conductor": 195,
+          "raw_frequency_pair_count": 15360,
+          "right_source_conductor": 187
+        },
+        {
+          "left_source_conductor": 221,
+          "raw_frequency_pair_count": 15360,
+          "right_source_conductor": 165
+        },
+        {
+          "left_source_conductor": 255,
+          "raw_frequency_pair_count": 15360,
+          "right_source_conductor": 143
+        }
+      ],
+      "ratio_minus_half": 0.3564899239156273,
+      "raw_frequency_pair_count": 92160,
+      "raw_reduced_residue_count": 15360,
+      "raw_scalar_identity_holds_to_tolerance": true,
+      "raw_scalar_imag": 0.0,
+      "raw_scalar_negative_real": true,
+      "raw_scalar_real": -0.07011113940333541,
+      "raw_to_cellwise_scalar_abs_error": 1.3877787807814457e-17,
+      "reduced_denominator": 36465,
+      "residue_cell_count": 15360,
+      "zero_left_raw_pair_count": 0
+    },
+    {
+      "cellwise_margin_full_over_2_minus_active": 700712115196.3881,
+      "cellwise_scalar_imag": 3.0598537413273917e-19,
+      "cellwise_scalar_real": -0.06909498619010435,
+      "factorization": {
+        "11": 1,
+        "17": 1,
+        "19": 1,
+        "2": 1,
+        "5": 1
+      },
+      "high_prime_support": [
+        11,
+        17,
+        19
+      ],
+      "max_abs_raw_scalar_deviation": 1.3877787807814457e-17,
+      "max_abs_raw_scalar_imag": 0.0,
+      "missing_high_primes": [
+        13
+      ],
+      "ordered_source_conductor_pair_count": 6,
+      "ordered_source_conductor_pairs": [
+        {
+          "left_source_conductor": 110,
+          "raw_frequency_pair_count": 11520,
+          "right_source_conductor": 323
+        },
+        {
+          "left_source_conductor": 170,
+          "raw_frequency_pair_count": 11520,
+          "right_source_conductor": 209
+        },
+        {
+          "left_source_conductor": 187,
+          "raw_frequency_pair_count": 11520,
+          "right_source_conductor": 190
+        },
+        {
+          "left_source_conductor": 190,
+          "raw_frequency_pair_count": 11520,
+          "right_source_conductor": 187
+        },
+        {
+          "left_source_conductor": 209,
+          "raw_frequency_pair_count": 11520,
+          "right_source_conductor": 170
+        },
+        {
+          "left_source_conductor": 323,
+          "raw_frequency_pair_count": 11520,
+          "right_source_conductor": 110
+        }
+      ],
+      "ratio_minus_half": 0.4262452298052626,
+      "raw_frequency_pair_count": 69120,
+      "raw_reduced_residue_count": 11520,
+      "raw_scalar_identity_holds_to_tolerance": true,
+      "raw_scalar_imag": 0.0,
+      "raw_scalar_negative_real": true,
+      "raw_scalar_real": -0.06909498619010432,
+      "raw_to_cellwise_scalar_abs_error": 2.7755575615628914e-17,
+      "reduced_denominator": 35530,
+      "residue_cell_count": 11520,
+      "zero_left_raw_pair_count": 0
+    },
+    {
+      "cellwise_margin_full_over_2_minus_active": 325138180598.27893,
+      "cellwise_scalar_imag": 1.7894039875999552e-19,
+      "cellwise_scalar_real": -0.07260838785517498,
+      "factorization": {
+        "13": 1,
+        "17": 1,
+        "19": 1,
+        "2": 1,
+        "5": 1
+      },
+      "high_prime_support": [
+        13,
+        17,
+        19
+      ],
+      "max_abs_raw_scalar_deviation": 0.0,
+      "max_abs_raw_scalar_imag": 0.0,
+      "missing_high_primes": [
+        11
+      ],
+      "ordered_source_conductor_pair_count": 6,
+      "ordered_source_conductor_pairs": [
+        {
+          "left_source_conductor": 130,
+          "raw_frequency_pair_count": 13824,
+          "right_source_conductor": 323
+        },
+        {
+          "left_source_conductor": 170,
+          "raw_frequency_pair_count": 13824,
+          "right_source_conductor": 247
+        },
+        {
+          "left_source_conductor": 190,
+          "raw_frequency_pair_count": 13824,
+          "right_source_conductor": 221
+        },
+        {
+          "left_source_conductor": 221,
+          "raw_frequency_pair_count": 13824,
+          "right_source_conductor": 190
+        },
+        {
+          "left_source_conductor": 247,
+          "raw_frequency_pair_count": 13824,
+          "right_source_conductor": 170
+        },
+        {
+          "left_source_conductor": 323,
+          "raw_frequency_pair_count": 13824,
+          "right_source_conductor": 130
+        }
+      ],
+      "ratio_minus_half": 0.23349735557232576,
+      "raw_frequency_pair_count": 82944,
+      "raw_reduced_residue_count": 13824,
+      "raw_scalar_identity_holds_to_tolerance": true,
+      "raw_scalar_imag": 0.0,
+      "raw_scalar_negative_real": true,
+      "raw_scalar_real": -0.072608387855175,
+      "raw_to_cellwise_scalar_abs_error": 1.3877787807814457e-17,
+      "reduced_denominator": 41990,
+      "residue_cell_count": 13824,
+      "zero_left_raw_pair_count": 0
+    },
+    {
+      "cellwise_margin_full_over_2_minus_active": 310273010682.6763,
+      "cellwise_scalar_imag": -4.8079673412290795e-20,
+      "cellwise_scalar_real": -0.07083636365889087,
+      "factorization": {
+        "11": 1,
+        "13": 1,
+        "19": 1,
+        "2": 1,
+        "7": 1
+      },
+      "high_prime_support": [
+        11,
+        13,
+        19
+      ],
+      "max_abs_raw_scalar_deviation": 1.3877787807814457e-17,
+      "max_abs_raw_scalar_imag": 0.0,
+      "missing_high_primes": [
+        17
+      ],
+      "ordered_source_conductor_pair_count": 6,
+      "ordered_source_conductor_pairs": [
+        {
+          "left_source_conductor": 143,
+          "raw_frequency_pair_count": 12960,
+          "right_source_conductor": 266
+        },
+        {
+          "left_source_conductor": 154,
+          "raw_frequency_pair_count": 12960,
+          "right_source_conductor": 247
+        },
+        {
+          "left_source_conductor": 182,
+          "raw_frequency_pair_count": 12960,
+          "right_source_conductor": 209
+        },
+        {
+          "left_source_conductor": 209,
+          "raw_frequency_pair_count": 12960,
+          "right_source_conductor": 182
+        },
+        {
+          "left_source_conductor": 247,
+          "raw_frequency_pair_count": 12960,
+          "right_source_conductor": 154
+        },
+        {
+          "left_source_conductor": 266,
+          "raw_frequency_pair_count": 12960,
+          "right_source_conductor": 143
+        }
+      ],
+      "ratio_minus_half": 0.07635340770691146,
+      "raw_frequency_pair_count": 77760,
+      "raw_reduced_residue_count": 12960,
+      "raw_scalar_identity_holds_to_tolerance": true,
+      "raw_scalar_imag": 0.0,
+      "raw_scalar_negative_real": true,
+      "raw_scalar_real": -0.07083636365889086,
+      "raw_to_cellwise_scalar_abs_error": 1.3877787807814457e-17,
+      "reduced_denominator": 38038,
+      "residue_cell_count": 12960,
+      "zero_left_raw_pair_count": 0
+    }
+  ],
+  "schema_version": 1,
+  "source_commit": "910109f1c70b6892e1e94c34af2e330400a0c75e",
+  "source_scalar_collapse_audit": "evidence\\mobius-moment-square-degree5-q46189-scalar-collapse-audit.json",
+  "source_start_theorem_proved": false,
+  "status": "AUDIT_q46189_raw_source_pair_scalar_identity",
+  "strict_central_goldbach_theorem_proved": false,
+  "symbolic_replacement_ratio_theorem_proved": false
+}

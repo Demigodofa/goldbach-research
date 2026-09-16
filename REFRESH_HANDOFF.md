@@ -6,6 +6,39 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The `Q=46189` replacement-family lane now has a raw source-pair scalar
+identity audit:
+
+```text
+tools/build_mobius_moment_square_degree5_q46189_raw_scalar_identity_audit.py
+notes/mobius-moment-square-degree5-q46189-raw-scalar-identity-audit.md
+evidence/mobius-moment-square-degree5-q46189-raw-scalar-identity-audit.json
+```
+
+Result:
+
+```text
+Q=46189 raw scalar:               -0.07475328212536138
+Q=46189 raw source-pair count:    6
+Q=46189 raw frequency pairs:      207360
+replacement rows:                 10
+max raw scalar deviation:         2.7755575615628914e-17
+all rows have six source pairs:   true
+all replacement rows raw-scalar:  true
+```
+
+Decision: the scalar collapse is already visible before reduced-residue
+aggregation.  Each selected denominator is supported by six ordered
+source-conductor pairs, and every raw frequency pair has coordinate `12` equal
+to the same negative-real scalar multiple of coordinate `00` to numerical
+tolerance.  The next useful route is a symbolic source-conductor scalar formula
+followed by a one-coordinate active/full ratio inequality.  This proves no raw
+scalar identity theorem, exact scalar identity theorem, symbolic replacement
+ratio theorem, replacement-family payment theorem, source-start theorem,
+strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The `Q=46189` replacement-family lane now has a scalar-collapse audit:
 
 ```text

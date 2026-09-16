@@ -6,6 +6,37 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The `Q=46189` replacement-family lane now has a raw source-pair scalar
+identity audit:
+`tools/build_mobius_moment_square_degree5_q46189_raw_scalar_identity_audit.py`
+generated
+`evidence/mobius-moment-square-degree5-q46189-raw-scalar-identity-audit.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-q46189-raw-scalar-identity-audit.md`.
+
+Question: does the `Q=46189` replacement-family scalar collapse already hold
+on raw ordered source-conductor frequency pairs before reduced-residue
+aggregation?
+
+Answer: yes for this finite family.  Each selected denominator is supported by
+six ordered source-conductor pairs, and every raw frequency pair has
+coordinate `12` equal to the same negative-real scalar multiple of coordinate
+`00` to numerical tolerance.  For `Q=46189`, the raw scalar is
+`-0.07475328212536138`, the six ordered source pairs are `(143,323)`,
+`(187,247)`, `(209,221)` and reverses, and the raw frequency-pair count is
+`207360`.  Across all ten replacement rows, the maximum raw scalar deviation
+is `2.7755575615628914e-17`.
+
+Decision: the scalar collapse is visible before reduced-residue aggregation.
+The theorem-shaped object is now a symbolic source-conductor scalar formula
+followed by a one-coordinate active/full ratio inequality.  This remains
+finite diagnostic evidence only.  It proves no raw scalar identity theorem,
+exact scalar identity theorem, symbolic replacement ratio theorem,
+replacement-family payment theorem, phase-defect payment theorem, source-start
+theorem, strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The `Q=46189` replacement-family lane now has a scalar-collapse audit:
 `tools/build_mobius_moment_square_degree5_q46189_scalar_collapse_audit.py`
 generated
