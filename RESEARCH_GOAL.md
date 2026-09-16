@@ -6,6 +6,51 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 residual support-order route now has a one-period threshold contrast:
+`tools/build_q286_residual_support_order_one_period_threshold_audit.py`
+generated
+`evidence/q286-residual-support-order-one-period-threshold-audit.json`, with
+explanation in
+`notes/q286-residual-support-order-one-period-threshold-audit.md`.
+
+Question: does the original support-order fixture become a finite remainder,
+with the same support-size `<= 2` split entering a cleaner envelope regime
+after one full period?
+
+Answer: yes as finite evidence for the seven checked residue classes:
+
+```text
+fixture lift:                                      0
+fixture tight low-order base:       0.05371090383605067
+fixture high-order adverse envelope:
+                                     0.23468203404186905
+fixture envelope margin:            -0.18097113020581837
+fixture envelope survives:                         false
+
+horizon lift range:                              1..32
+horizon rows:                                     224
+horizon tight low-order base:       0.2943409774960611
+horizon high-order adverse envelope:
+                                     0.06972227681175086
+horizon envelope margin:             0.22461870068431022
+horizon envelope survives:                         true
+base growth factor versus fixture tight:          5.480097270277175
+adverse ratio drop factor:                        5.7729070026460025
+```
+
+Decision:
+`CANDIDATE_one_period_threshold_removes_high_order_envelope_obstruction`.  The
+finite theorem shape is now sharper: handle the original lift-0 fixture as a
+finite remainder, and target a one-period threshold theorem for the same named
+residue classes.  Lifts `1..32` pass the disconnected high-order adverse
+envelope without changing the support split, refitting an envelope, or changing
+constants.  This proves no one-period threshold theorem, eventual-threshold
+theorem, low-order base theorem, high-order tail domination theorem, q286
+threshold theorem, strict-central Goldbach theorem, or Goldbach proof.  It also
+does not address all even `N`; it concerns the seven checked residue classes.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 residual support-order route now has a 32-lift period horizon:
 `tools/build_q286_residual_support_order_period_lift_horizon.py` generated
 `evidence/q286-residual-support-order-period-lift-horizon.json`, with

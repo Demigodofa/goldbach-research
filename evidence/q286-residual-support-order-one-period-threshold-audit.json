@@ -1,0 +1,78 @@
+{
+  "acceptance_condition": {
+    "finite_evidence_is_acceptance_condition": false,
+    "required_acceptance_condition": "prove analytically that after the named one-period threshold the low-order base stays positive and the high-order tail envelope or signed tail stays below that base for every eligible target in the class"
+  },
+  "candidate": {
+    "falsifier": "If any k>=1 horizon row has nonpositive low-order base, a sign mismatch, or high-order envelope at least as large as the low-order base, the one-period threshold candidate fails on the checked horizon.",
+    "mechanism": "Use the original seven-row fixture as the finite remainder and test whether one full period lift moves the same residue classes into a regime where even the disconnected high-order adverse envelope is below every low-order base.",
+    "name": "one-period support-order threshold",
+    "novelty_label": "new-to-this-task",
+    "prediction": "The k=0 fixture should expose the envelope obstruction, while the k>=1 horizon should remove it without changing the support-size <=2 split.",
+    "smallest_test": "Compare the original seven-row support-order fixture against the 32-lift horizon using the same disconnected high-order adverse envelope criterion."
+  },
+  "decision": "The one-period threshold contrast survives as finite evidence.  At lift 0, the support-order split has correct signed structure, but the disconnected high-order adverse envelope fails: the tight positive base is about 0.05371 while the all-row high-order adverse envelope is about 0.23468.  Across lifts 1..32, the same fixed split has 224 positive low-order bases, no sign mismatches, and the high-order adverse envelope is only about 0.06972 against a tight base about 0.29434.  This suggests a finite-remainder plus one-period-threshold theorem shape for these seven residue classes, but proves no such theorem and does not address all even N.  Goldbach remains open.",
+  "eventual_threshold_theorem_proved": false,
+  "fixture": {
+    "actual_full_positive_count": 5,
+    "envelope_margin_at_tight_base": -0.18097113020581837,
+    "envelope_survives": false,
+    "high_order_adverse_envelope": 0.23468203404186905,
+    "low_order_base_positive_count": 5,
+    "maximum_adverse_to_base_ratio": 0.7658489171549095,
+    "row_count": 7,
+    "sign_mismatch_count": 0,
+    "tight_full_action": 0.012576466293799767,
+    "tight_low_order_base": 0.05371090383605067,
+    "tight_positive_target": 94856
+  },
+  "goldbach_proved": false,
+  "high_order_tail_domination_theorem_proved": false,
+  "horizon": {
+    "actual_full_positive_count": 224,
+    "envelope_margin_at_tight_base": 0.22461870068431022,
+    "envelope_survives": true,
+    "high_order_adverse_envelope": 0.06972227681175086,
+    "low_order_base_positive_count": 224,
+    "maximum_adverse_to_base_ratio": 0.13266261119465184,
+    "row_count": 224,
+    "sign_mismatch_count": 0,
+    "tight_full_action": 0.27673704750570033,
+    "tight_low_order_base": 0.2943409774960611,
+    "tight_low_order_base_target": 255016
+  },
+  "low_order_base_theorem_proved": false,
+  "q286_threshold_theorem_proved": false,
+  "schema_version": 1,
+  "source_commit": "aea0e5b7bf944aafa8720708f8a3043a616f71bb",
+  "sources": {
+    "period_lift_horizon": "evidence\\q286-residual-support-order-period-lift-horizon.json",
+    "period_lift_horizon_status": "CANDIDATE_period_lift_support_order_bridge_survives_32_lift_horizon",
+    "support_order_sign_bridge": "evidence\\q286-residual-support-order-sign-bridge-audit.json",
+    "support_order_sign_bridge_status": "CANDIDATE_support_order_sign_bridge_survives_fixture"
+  },
+  "status": "CANDIDATE_one_period_threshold_removes_high_order_envelope_obstruction",
+  "status_boundary": "finite threshold-contrast audit only; no eventual-threshold theorem, low-order base theorem, high-order tail domination theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof",
+  "summary": {
+    "adverse_ratio_drop_factor": 5.7729070026460025,
+    "base_growth_factor_vs_fixture_tight": 5.480097270277175,
+    "fixture_envelope_margin": -0.18097113020581837,
+    "fixture_envelope_survives": false,
+    "fixture_tight_low_order_base": 0.05371090383605067,
+    "horizon_envelope_margin": 0.22461870068431022,
+    "horizon_envelope_survives": true,
+    "horizon_tight_low_order_base": 0.2943409774960611,
+    "one_period_threshold_candidate_survives_checked_horizon": true
+  },
+  "threshold_convention": {
+    "fixture_lift": 0,
+    "high_order_tail": "support-size >= 3 packets",
+    "horizon_lift_range": [
+      1,
+      32
+    ],
+    "low_order_base": "aligned_only_full_action + support-size <= 2 packets",
+    "period": 10010
+  },
+  "universal_bound_open": true
+}

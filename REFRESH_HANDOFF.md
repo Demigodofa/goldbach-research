@@ -6,6 +6,48 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 residual support-order route now has a one-period threshold contrast:
+
+```text
+tools/build_q286_residual_support_order_one_period_threshold_audit.py
+notes/q286-residual-support-order-one-period-threshold-audit.md
+evidence/q286-residual-support-order-one-period-threshold-audit.json
+```
+
+Result:
+
+```text
+fixture lift:                                      0
+fixture tight low-order base:       0.05371090383605067
+fixture high-order adverse envelope:
+                                     0.23468203404186905
+fixture envelope margin:            -0.18097113020581837
+fixture envelope survives:                         false
+
+horizon lift range:                              1..32
+horizon rows:                                     224
+horizon tight low-order base:       0.2943409774960611
+horizon high-order adverse envelope:
+                                     0.06972227681175086
+horizon envelope margin:             0.22461870068431022
+horizon envelope survives:                         true
+base growth factor versus fixture tight:          5.480097270277175
+adverse ratio drop factor:                        5.7729070026460025
+```
+
+Decision:
+`CANDIDATE_one_period_threshold_removes_high_order_envelope_obstruction`.
+The support-order route now has a sharper finite theorem shape: treat the
+original lift-0 fixture as a finite remainder, then target a one-period
+threshold theorem for the same named residue classes.  Lifts `1..32` pass the
+disconnected high-order adverse envelope without changing the split or
+refitting constants.  This proves no one-period threshold theorem,
+eventual-threshold theorem, low-order base theorem, high-order tail domination
+theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach
+proof, and it does not address all even `N`.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 residual support-order route now has a 32-lift period horizon:
 
 ```text
