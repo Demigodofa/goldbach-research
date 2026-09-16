@@ -1,0 +1,890 @@
+{
+  "all_complete_sweeps_pass_signed_dominance": true,
+  "all_tightest_prime_blocks_are_row_coherent": true,
+  "all_weakest_labels_are_0012": true,
+  "candidate_next_theorem_target": {
+    "falsifier": "The next full source-start sweep has positive rows but its top four stress rows do not come from the same prime, or a single component is isolated far below its prime companions.",
+    "mechanism": "Bound the source-start active/full ratio first by prime block, then treat component labels as a secondary spread inside each block.",
+    "name": "source-start prime-block lower-frame control",
+    "novelty_label": "new-to-this-task",
+    "prediction": "A future M=353 or larger full sweep should either produce a new coherent prime block of weak rows, or expose the first split-block falsifier of this morphology."
+  },
+  "decision": "The completed sweeps support prime-block stress tracking, not a single fixed-prime predictor.  All four weakest rows use label (00,12), but the weakest prime moves from 379 to 461 to 599, and each scale's tightest rows bunch by prime block.  Future finite work should track coherent prime blocks and use fixed attention primes only as secondary diagnostics.",
+  "finite_diagnostic_only": true,
+  "finite_morphology_audit_only": true,
+  "goldbach_proved": false,
+  "prime_block_morphology_falsifier": "A future complete scale whose tightest rows are split across unrelated primes, or whose weakest row is not in a coherent four-row prime block, falsifies the row-coherent stress-block candidate.",
+  "prime_block_morphology_prediction": "The next complete source-start sweep should be tracked first at the prime-block level: when one prime is tight, all three components and TOTAL should bunch near the same slack before component labels become decisive.",
+  "prime_block_theorem_proved": false,
+  "question": "Across the complete fresh-scale source-start sweeps M=229, 251, 293, and 331, what finite stress morphology should guide the next theorem target or falsifier?",
+  "scale_count": 4,
+  "scale_summaries": [
+    {
+      "all_rows_dominate_one_half_signed_full": true,
+      "dominance_row_count": 156,
+      "minimum_slack": 0.40189096624031384,
+      "prime_interval": [
+        229,
+        458
+      ],
+      "prime_row_count": 39,
+      "scale_modulus": 229,
+      "source_receipt": "evidence\\mobius-moment-square-degree5-source-start-m229-full-prime-sweep.json",
+      "source_status": "SWEEP_degree5_source_start_m229_full_prime_rows",
+      "tightest_prime_block_is_row_coherent": true,
+      "tightest_prime_blocks": [
+        {
+          "labels_by_slack": [
+            "00,12",
+            "01,11",
+            "TOTAL",
+            "01,02"
+          ],
+          "maximum_slack": 0.4022483451498593,
+          "minimum_ratio": 0.9018909662403138,
+          "minimum_slack": 0.40189096624031384,
+          "prime_modulus": 379,
+          "prime_over_scale": 1.6550218340611353,
+          "scale_modulus": 229,
+          "slack_spread": 0.00035737890954545826,
+          "tail_fraction": 0.34497816593886466,
+          "weakest_label": "00,12"
+        },
+        {
+          "labels_by_slack": [
+            "00,12",
+            "01,11",
+            "TOTAL",
+            "01,02"
+          ],
+          "maximum_slack": 0.41683904006062233,
+          "minimum_ratio": 0.9164881930027287,
+          "minimum_slack": 0.41648819300272866,
+          "prime_modulus": 401,
+          "prime_over_scale": 1.7510917030567685,
+          "scale_modulus": 229,
+          "slack_spread": 0.0003508470578936773,
+          "tail_fraction": 0.24890829694323144,
+          "weakest_label": "00,12"
+        },
+        {
+          "labels_by_slack": [
+            "00,12",
+            "01,02",
+            "TOTAL",
+            "01,11"
+          ],
+          "maximum_slack": 0.41775139886046053,
+          "minimum_ratio": 0.9168496626998832,
+          "minimum_slack": 0.4168496626998832,
+          "prime_modulus": 283,
+          "prime_over_scale": 1.2358078602620088,
+          "scale_modulus": 229,
+          "slack_spread": 0.0009017361605773155,
+          "tail_fraction": 0.7641921397379913,
+          "weakest_label": "00,12"
+        },
+        {
+          "labels_by_slack": [
+            "00,12",
+            "01,11",
+            "TOTAL",
+            "01,02"
+          ],
+          "maximum_slack": 0.419226353906746,
+          "minimum_ratio": 0.918491256285477,
+          "minimum_slack": 0.418491256285477,
+          "prime_modulus": 373,
+          "prime_over_scale": 1.6288209606986899,
+          "scale_modulus": 229,
+          "slack_spread": 0.0007350976212689986,
+          "tail_fraction": 0.37117903930131,
+          "weakest_label": "00,12"
+        }
+      ],
+      "top_row_prime_counts": {
+        "283": 4,
+        "379": 4,
+        "401": 4
+      },
+      "top_rows": [
+        {
+          "active_over_full_ratio": 0.9018909662403138,
+          "dominance_slack_above_one_half": 0.40189096624031384,
+          "label": "00,12",
+          "prime_modulus": 379,
+          "prime_over_scale": 1.6550218340611353,
+          "tail_fraction": 0.34497816593886466
+        },
+        {
+          "active_over_full_ratio": 0.9020378048339673,
+          "dominance_slack_above_one_half": 0.40203780483396734,
+          "label": "01,11",
+          "prime_modulus": 379,
+          "prime_over_scale": 1.6550218340611353,
+          "tail_fraction": 0.34497816593886466
+        },
+        {
+          "active_over_full_ratio": 0.9020772343950894,
+          "dominance_slack_above_one_half": 0.40207723439508936,
+          "label": "TOTAL",
+          "prime_modulus": 379,
+          "prime_over_scale": 1.6550218340611353,
+          "tail_fraction": 0.34497816593886466
+        },
+        {
+          "active_over_full_ratio": 0.9022483451498593,
+          "dominance_slack_above_one_half": 0.4022483451498593,
+          "label": "01,02",
+          "prime_modulus": 379,
+          "prime_over_scale": 1.6550218340611353,
+          "tail_fraction": 0.34497816593886466
+        },
+        {
+          "active_over_full_ratio": 0.9164881930027287,
+          "dominance_slack_above_one_half": 0.41648819300272866,
+          "label": "00,12",
+          "prime_modulus": 401,
+          "prime_over_scale": 1.7510917030567685,
+          "tail_fraction": 0.24890829694323144
+        },
+        {
+          "active_over_full_ratio": 0.9165836123815697,
+          "dominance_slack_above_one_half": 0.4165836123815697,
+          "label": "01,11",
+          "prime_modulus": 401,
+          "prime_over_scale": 1.7510917030567685,
+          "tail_fraction": 0.24890829694323144
+        },
+        {
+          "active_over_full_ratio": 0.9166432040098526,
+          "dominance_slack_above_one_half": 0.41664320400985255,
+          "label": "TOTAL",
+          "prime_modulus": 401,
+          "prime_over_scale": 1.7510917030567685,
+          "tail_fraction": 0.24890829694323144
+        },
+        {
+          "active_over_full_ratio": 0.9168390400606223,
+          "dominance_slack_above_one_half": 0.41683904006062233,
+          "label": "01,02",
+          "prime_modulus": 401,
+          "prime_over_scale": 1.7510917030567685,
+          "tail_fraction": 0.24890829694323144
+        },
+        {
+          "active_over_full_ratio": 0.9168496626998832,
+          "dominance_slack_above_one_half": 0.4168496626998832,
+          "label": "00,12",
+          "prime_modulus": 283,
+          "prime_over_scale": 1.2358078602620088,
+          "tail_fraction": 0.7641921397379913
+        },
+        {
+          "active_over_full_ratio": 0.9172559713175515,
+          "dominance_slack_above_one_half": 0.41725597131755154,
+          "label": "01,02",
+          "prime_modulus": 283,
+          "prime_over_scale": 1.2358078602620088,
+          "tail_fraction": 0.7641921397379913
+        },
+        {
+          "active_over_full_ratio": 0.9174821931688847,
+          "dominance_slack_above_one_half": 0.4174821931688847,
+          "label": "TOTAL",
+          "prime_modulus": 283,
+          "prime_over_scale": 1.2358078602620088,
+          "tail_fraction": 0.7641921397379913
+        },
+        {
+          "active_over_full_ratio": 0.9177513988604605,
+          "dominance_slack_above_one_half": 0.41775139886046053,
+          "label": "01,11",
+          "prime_modulus": 283,
+          "prime_over_scale": 1.2358078602620088,
+          "tail_fraction": 0.7641921397379913
+        }
+      ],
+      "weakest_prime_modulus": 379,
+      "weakest_prime_over_scale": 1.6550218340611353,
+      "weakest_row": {
+        "active_contribution": -62374285859137.8,
+        "active_contribution_negative": true,
+        "active_over_full_ratio": 0.9018909662403138,
+        "dominance_slack_above_one_half": 0.40189096624031384,
+        "dominates_one_half_signed_full": true,
+        "full_contribution": -69159452964869.62,
+        "full_contribution_negative": true,
+        "half_frame_contribution": -27794559376702.99,
+        "label": "00,12",
+        "prime_modulus": 379,
+        "scale_modulus": 229
+      },
+      "weakest_tail_fraction": 0.34497816593886466
+    },
+    {
+      "all_rows_dominate_one_half_signed_full": true,
+      "dominance_row_count": 168,
+      "minimum_slack": 0.43435333637430296,
+      "prime_interval": [
+        251,
+        502
+      ],
+      "prime_row_count": 42,
+      "scale_modulus": 251,
+      "source_receipt": "evidence\\mobius-moment-square-degree5-source-start-m251-full-prime-sweep.json",
+      "source_status": "SWEEP_degree5_source_start_m251_full_prime_rows",
+      "tightest_prime_block_is_row_coherent": true,
+      "tightest_prime_blocks": [
+        {
+          "labels_by_slack": [
+            "00,12",
+            "01,11",
+            "TOTAL",
+            "01,02"
+          ],
+          "maximum_slack": 0.43464971835490984,
+          "minimum_ratio": 0.934353336374303,
+          "minimum_slack": 0.43435333637430296,
+          "prime_modulus": 379,
+          "prime_over_scale": 1.5099601593625498,
+          "scale_modulus": 251,
+          "slack_spread": 0.0002963819806068857,
+          "tail_fraction": 0.4900398406374502,
+          "weakest_label": "00,12"
+        },
+        {
+          "labels_by_slack": [
+            "00,12",
+            "01,11",
+            "TOTAL",
+            "01,02"
+          ],
+          "maximum_slack": 0.4390719083131236,
+          "minimum_ratio": 0.9385550526424923,
+          "minimum_slack": 0.4385550526424923,
+          "prime_modulus": 401,
+          "prime_over_scale": 1.597609561752988,
+          "scale_modulus": 251,
+          "slack_spread": 0.000516855670631311,
+          "tail_fraction": 0.40239043824701193,
+          "weakest_label": "00,12"
+        },
+        {
+          "labels_by_slack": [
+            "00,12",
+            "01,02",
+            "TOTAL",
+            "01,11"
+          ],
+          "maximum_slack": 0.4561608507621887,
+          "minimum_ratio": 0.9554642552311793,
+          "minimum_slack": 0.4554642552311793,
+          "prime_modulus": 283,
+          "prime_over_scale": 1.1274900398406376,
+          "scale_modulus": 251,
+          "slack_spread": 0.0006965955310094252,
+          "tail_fraction": 0.8725099601593626,
+          "weakest_label": "00,12"
+        },
+        {
+          "labels_by_slack": [
+            "00,12",
+            "01,02",
+            "TOTAL",
+            "01,11"
+          ],
+          "maximum_slack": 0.45839027790151887,
+          "minimum_ratio": 0.9577200478947705,
+          "minimum_slack": 0.4577200478947705,
+          "prime_modulus": 367,
+          "prime_over_scale": 1.4621513944223108,
+          "scale_modulus": 251,
+          "slack_spread": 0.0006702300067483735,
+          "tail_fraction": 0.5378486055776892,
+          "weakest_label": "00,12"
+        }
+      ],
+      "top_row_prime_counts": {
+        "283": 4,
+        "379": 4,
+        "401": 4
+      },
+      "top_rows": [
+        {
+          "active_over_full_ratio": 0.934353336374303,
+          "dominance_slack_above_one_half": 0.43435333637430296,
+          "label": "00,12",
+          "prime_modulus": 379,
+          "prime_over_scale": 1.5099601593625498,
+          "tail_fraction": 0.4900398406374502
+        },
+        {
+          "active_over_full_ratio": 0.9345123161657671,
+          "dominance_slack_above_one_half": 0.43451231616576713,
+          "label": "01,11",
+          "prime_modulus": 379,
+          "prime_over_scale": 1.5099601593625498,
+          "tail_fraction": 0.4900398406374502
+        },
+        {
+          "active_over_full_ratio": 0.934529061293075,
+          "dominance_slack_above_one_half": 0.434529061293075,
+          "label": "TOTAL",
+          "prime_modulus": 379,
+          "prime_over_scale": 1.5099601593625498,
+          "tail_fraction": 0.4900398406374502
+        },
+        {
+          "active_over_full_ratio": 0.9346497183549098,
+          "dominance_slack_above_one_half": 0.43464971835490984,
+          "label": "01,02",
+          "prime_modulus": 379,
+          "prime_over_scale": 1.5099601593625498,
+          "tail_fraction": 0.4900398406374502
+        },
+        {
+          "active_over_full_ratio": 0.9385550526424923,
+          "dominance_slack_above_one_half": 0.4385550526424923,
+          "label": "00,12",
+          "prime_modulus": 401,
+          "prime_over_scale": 1.597609561752988,
+          "tail_fraction": 0.40239043824701193
+        },
+        {
+          "active_over_full_ratio": 0.9388095829563801,
+          "dominance_slack_above_one_half": 0.43880958295638006,
+          "label": "01,11",
+          "prime_modulus": 401,
+          "prime_over_scale": 1.597609561752988,
+          "tail_fraction": 0.40239043824701193
+        },
+        {
+          "active_over_full_ratio": 0.9388485289258282,
+          "dominance_slack_above_one_half": 0.43884852892582815,
+          "label": "TOTAL",
+          "prime_modulus": 401,
+          "prime_over_scale": 1.597609561752988,
+          "tail_fraction": 0.40239043824701193
+        },
+        {
+          "active_over_full_ratio": 0.9390719083131236,
+          "dominance_slack_above_one_half": 0.4390719083131236,
+          "label": "01,02",
+          "prime_modulus": 401,
+          "prime_over_scale": 1.597609561752988,
+          "tail_fraction": 0.40239043824701193
+        },
+        {
+          "active_over_full_ratio": 0.9554642552311793,
+          "dominance_slack_above_one_half": 0.4554642552311793,
+          "label": "00,12",
+          "prime_modulus": 283,
+          "prime_over_scale": 1.1274900398406376,
+          "tail_fraction": 0.8725099601593626
+        },
+        {
+          "active_over_full_ratio": 0.9559397343977455,
+          "dominance_slack_above_one_half": 0.4559397343977455,
+          "label": "01,02",
+          "prime_modulus": 283,
+          "prime_over_scale": 1.1274900398406376,
+          "tail_fraction": 0.8725099601593626
+        },
+        {
+          "active_over_full_ratio": 0.9559990455358307,
+          "dominance_slack_above_one_half": 0.4559990455358307,
+          "label": "TOTAL",
+          "prime_modulus": 283,
+          "prime_over_scale": 1.1274900398406376,
+          "tail_fraction": 0.8725099601593626
+        },
+        {
+          "active_over_full_ratio": 0.9561608507621887,
+          "dominance_slack_above_one_half": 0.4561608507621887,
+          "label": "01,11",
+          "prime_modulus": 283,
+          "prime_over_scale": 1.1274900398406376,
+          "tail_fraction": 0.8725099601593626
+        }
+      ],
+      "weakest_prime_modulus": 379,
+      "weakest_prime_over_scale": 1.5099601593625498,
+      "weakest_row": {
+        "active_contribution": -66033110861978.03,
+        "active_contribution_negative": true,
+        "active_over_full_ratio": 0.934353336374303,
+        "dominance_slack_above_one_half": 0.43435333637430296,
+        "dominates_one_half_signed_full": true,
+        "full_contribution": -70672526432254.42,
+        "full_contribution_negative": true,
+        "half_frame_contribution": -30696847645850.82,
+        "label": "00,12",
+        "prime_modulus": 379,
+        "scale_modulus": 251
+      },
+      "weakest_tail_fraction": 0.4900398406374502
+    },
+    {
+      "all_rows_dominate_one_half_signed_full": true,
+      "dominance_row_count": 180,
+      "minimum_slack": 0.4257305726250574,
+      "prime_interval": [
+        293,
+        586
+      ],
+      "prime_row_count": 45,
+      "scale_modulus": 293,
+      "source_receipt": "evidence\\mobius-moment-square-degree5-source-start-m293-full-prime-sweep.json",
+      "source_status": "SWEEP_degree5_source_start_m293_full_prime_rows",
+      "tightest_prime_block_is_row_coherent": true,
+      "tightest_prime_blocks": [
+        {
+          "labels_by_slack": [
+            "00,12",
+            "TOTAL",
+            "01,02",
+            "01,11"
+          ],
+          "maximum_slack": 0.42651605660254077,
+          "minimum_ratio": 0.9257305726250574,
+          "minimum_slack": 0.4257305726250574,
+          "prime_modulus": 461,
+          "prime_over_scale": 1.5733788395904438,
+          "scale_modulus": 293,
+          "slack_spread": 0.0007854839774833478,
+          "tail_fraction": 0.42662116040955633,
+          "weakest_label": "00,12"
+        },
+        {
+          "labels_by_slack": [
+            "00,12",
+            "01,11",
+            "TOTAL",
+            "01,02"
+          ],
+          "maximum_slack": 0.4405755460946681,
+          "minimum_ratio": 0.940167185767269,
+          "minimum_slack": 0.440167185767269,
+          "prime_modulus": 541,
+          "prime_over_scale": 1.8464163822525597,
+          "scale_modulus": 293,
+          "slack_spread": 0.00040836032739910433,
+          "tail_fraction": 0.15358361774744028,
+          "weakest_label": "00,12"
+        },
+        {
+          "labels_by_slack": [
+            "00,12",
+            "TOTAL",
+            "01,11",
+            "01,02"
+          ],
+          "maximum_slack": 0.44146439924372083,
+          "minimum_ratio": 0.9408993271862618,
+          "minimum_slack": 0.4408993271862618,
+          "prime_modulus": 373,
+          "prime_over_scale": 1.273037542662116,
+          "scale_modulus": 293,
+          "slack_spread": 0.0005650720574590373,
+          "tail_fraction": 0.726962457337884,
+          "weakest_label": "00,12"
+        },
+        {
+          "labels_by_slack": [
+            "00,12",
+            "01,02",
+            "TOTAL",
+            "01,11"
+          ],
+          "maximum_slack": 0.4577952768358329,
+          "minimum_ratio": 0.9573644362094101,
+          "minimum_slack": 0.45736443620941014,
+          "prime_modulus": 367,
+          "prime_over_scale": 1.2525597269624573,
+          "scale_modulus": 293,
+          "slack_spread": 0.0004308406264227349,
+          "tail_fraction": 0.7474402730375427,
+          "weakest_label": "00,12"
+        }
+      ],
+      "top_row_prime_counts": {
+        "373": 4,
+        "461": 4,
+        "541": 4
+      },
+      "top_rows": [
+        {
+          "active_over_full_ratio": 0.9257305726250574,
+          "dominance_slack_above_one_half": 0.4257305726250574,
+          "label": "00,12",
+          "prime_modulus": 461,
+          "prime_over_scale": 1.5733788395904438,
+          "tail_fraction": 0.42662116040955633
+        },
+        {
+          "active_over_full_ratio": 0.9263870464339562,
+          "dominance_slack_above_one_half": 0.4263870464339562,
+          "label": "TOTAL",
+          "prime_modulus": 461,
+          "prime_over_scale": 1.5733788395904438,
+          "tail_fraction": 0.42662116040955633
+        },
+        {
+          "active_over_full_ratio": 0.9264549147554202,
+          "dominance_slack_above_one_half": 0.4264549147554202,
+          "label": "01,02",
+          "prime_modulus": 461,
+          "prime_over_scale": 1.5733788395904438,
+          "tail_fraction": 0.42662116040955633
+        },
+        {
+          "active_over_full_ratio": 0.9265160566025408,
+          "dominance_slack_above_one_half": 0.42651605660254077,
+          "label": "01,11",
+          "prime_modulus": 461,
+          "prime_over_scale": 1.5733788395904438,
+          "tail_fraction": 0.42662116040955633
+        },
+        {
+          "active_over_full_ratio": 0.940167185767269,
+          "dominance_slack_above_one_half": 0.440167185767269,
+          "label": "00,12",
+          "prime_modulus": 541,
+          "prime_over_scale": 1.8464163822525597,
+          "tail_fraction": 0.15358361774744028
+        },
+        {
+          "active_over_full_ratio": 0.9402635024050767,
+          "dominance_slack_above_one_half": 0.4402635024050767,
+          "label": "01,11",
+          "prime_modulus": 541,
+          "prime_over_scale": 1.8464163822525597,
+          "tail_fraction": 0.15358361774744028
+        },
+        {
+          "active_over_full_ratio": 0.9403389574644023,
+          "dominance_slack_above_one_half": 0.4403389574644023,
+          "label": "TOTAL",
+          "prime_modulus": 541,
+          "prime_over_scale": 1.8464163822525597,
+          "tail_fraction": 0.15358361774744028
+        },
+        {
+          "active_over_full_ratio": 0.9405755460946681,
+          "dominance_slack_above_one_half": 0.4405755460946681,
+          "label": "01,02",
+          "prime_modulus": 541,
+          "prime_over_scale": 1.8464163822525597,
+          "tail_fraction": 0.15358361774744028
+        },
+        {
+          "active_over_full_ratio": 0.9408993271862618,
+          "dominance_slack_above_one_half": 0.4408993271862618,
+          "label": "00,12",
+          "prime_modulus": 373,
+          "prime_over_scale": 1.273037542662116,
+          "tail_fraction": 0.726962457337884
+        },
+        {
+          "active_over_full_ratio": 0.9413160905468039,
+          "dominance_slack_above_one_half": 0.4413160905468039,
+          "label": "TOTAL",
+          "prime_modulus": 373,
+          "prime_over_scale": 1.273037542662116,
+          "tail_fraction": 0.726962457337884
+        },
+        {
+          "active_over_full_ratio": 0.9413452109893656,
+          "dominance_slack_above_one_half": 0.44134521098936563,
+          "label": "01,11",
+          "prime_modulus": 373,
+          "prime_over_scale": 1.273037542662116,
+          "tail_fraction": 0.726962457337884
+        },
+        {
+          "active_over_full_ratio": 0.9414643992437208,
+          "dominance_slack_above_one_half": 0.44146439924372083,
+          "label": "01,02",
+          "prime_modulus": 373,
+          "prime_over_scale": 1.273037542662116,
+          "tail_fraction": 0.726962457337884
+        }
+      ],
+      "weakest_prime_modulus": 461,
+      "weakest_prime_over_scale": 1.5733788395904438,
+      "weakest_row": {
+        "active_contribution": -115811050902638.23,
+        "active_contribution_negative": true,
+        "active_over_full_ratio": 0.9257305726250574,
+        "dominance_slack_above_one_half": 0.4257305726250574,
+        "dominates_one_half_signed_full": true,
+        "full_contribution": -125102329260053.97,
+        "full_contribution_negative": true,
+        "half_frame_contribution": -53259886272611.25,
+        "label": "00,12",
+        "prime_modulus": 461,
+        "scale_modulus": 293
+      },
+      "weakest_tail_fraction": 0.42662116040955633
+    },
+    {
+      "all_rows_dominate_one_half_signed_full": true,
+      "dominance_row_count": 220,
+      "minimum_slack": 0.40479256047704726,
+      "prime_interval": [
+        331,
+        662
+      ],
+      "prime_row_count": 55,
+      "scale_modulus": 331,
+      "source_receipt": "evidence\\mobius-moment-square-degree5-source-start-m331-full-prime-sweep.json",
+      "source_status": "SWEEP_degree5_source_start_m331_full_prime_rows",
+      "tightest_prime_block_is_row_coherent": true,
+      "tightest_prime_blocks": [
+        {
+          "labels_by_slack": [
+            "00,12",
+            "TOTAL",
+            "01,11",
+            "01,02"
+          ],
+          "maximum_slack": 0.40577058624032636,
+          "minimum_ratio": 0.9047925604770473,
+          "minimum_slack": 0.40479256047704726,
+          "prime_modulus": 599,
+          "prime_over_scale": 1.809667673716012,
+          "scale_modulus": 331,
+          "slack_spread": 0.0009780257632791,
+          "tail_fraction": 0.1903323262839879,
+          "weakest_label": "00,12"
+        },
+        {
+          "labels_by_slack": [
+            "00,12",
+            "TOTAL",
+            "01,02",
+            "01,11"
+          ],
+          "maximum_slack": 0.41563880236847484,
+          "minimum_ratio": 0.9149517018938488,
+          "minimum_slack": 0.4149517018938488,
+          "prime_modulus": 647,
+          "prime_over_scale": 1.9546827794561934,
+          "scale_modulus": 331,
+          "slack_spread": 0.0006871004746260567,
+          "tail_fraction": 0.045317220543806644,
+          "weakest_label": "00,12"
+        },
+        {
+          "labels_by_slack": [
+            "00,12",
+            "TOTAL",
+            "01,02",
+            "01,11"
+          ],
+          "maximum_slack": 0.42576381715116973,
+          "minimum_ratio": 0.92464398260624,
+          "minimum_slack": 0.42464398260624003,
+          "prime_modulus": 347,
+          "prime_over_scale": 1.0483383685800605,
+          "scale_modulus": 331,
+          "slack_spread": 0.0011198345449296987,
+          "tail_fraction": 0.9516616314199395,
+          "weakest_label": "00,12"
+        },
+        {
+          "labels_by_slack": [
+            "00,12",
+            "TOTAL",
+            "01,02",
+            "01,11"
+          ],
+          "maximum_slack": 0.4270584981196778,
+          "minimum_ratio": 0.926291195360443,
+          "minimum_slack": 0.426291195360443,
+          "prime_modulus": 479,
+          "prime_over_scale": 1.447129909365559,
+          "scale_modulus": 331,
+          "slack_spread": 0.0007673027592347559,
+          "tail_fraction": 0.552870090634441,
+          "weakest_label": "00,12"
+        }
+      ],
+      "top_row_prime_counts": {
+        "347": 4,
+        "599": 4,
+        "647": 4
+      },
+      "top_rows": [
+        {
+          "active_over_full_ratio": 0.9047925604770473,
+          "dominance_slack_above_one_half": 0.40479256047704726,
+          "label": "00,12",
+          "prime_modulus": 599,
+          "prime_over_scale": 1.809667673716012,
+          "tail_fraction": 0.1903323262839879
+        },
+        {
+          "active_over_full_ratio": 0.9055475856011675,
+          "dominance_slack_above_one_half": 0.40554758560116755,
+          "label": "TOTAL",
+          "prime_modulus": 599,
+          "prime_over_scale": 1.809667673716012,
+          "tail_fraction": 0.1903323262839879
+        },
+        {
+          "active_over_full_ratio": 0.9056228223122137,
+          "dominance_slack_above_one_half": 0.4056228223122137,
+          "label": "01,11",
+          "prime_modulus": 599,
+          "prime_over_scale": 1.809667673716012,
+          "tail_fraction": 0.1903323262839879
+        },
+        {
+          "active_over_full_ratio": 0.9057705862403264,
+          "dominance_slack_above_one_half": 0.40577058624032636,
+          "label": "01,02",
+          "prime_modulus": 599,
+          "prime_over_scale": 1.809667673716012,
+          "tail_fraction": 0.1903323262839879
+        },
+        {
+          "active_over_full_ratio": 0.9149517018938488,
+          "dominance_slack_above_one_half": 0.4149517018938488,
+          "label": "00,12",
+          "prime_modulus": 647,
+          "prime_over_scale": 1.9546827794561934,
+          "tail_fraction": 0.045317220543806644
+        },
+        {
+          "active_over_full_ratio": 0.91552967493484,
+          "dominance_slack_above_one_half": 0.41552967493484005,
+          "label": "TOTAL",
+          "prime_modulus": 647,
+          "prime_over_scale": 1.9546827794561934,
+          "tail_fraction": 0.045317220543806644
+        },
+        {
+          "active_over_full_ratio": 0.9155980507538051,
+          "dominance_slack_above_one_half": 0.41559805075380507,
+          "label": "01,02",
+          "prime_modulus": 647,
+          "prime_over_scale": 1.9546827794561934,
+          "tail_fraction": 0.045317220543806644
+        },
+        {
+          "active_over_full_ratio": 0.9156388023684748,
+          "dominance_slack_above_one_half": 0.41563880236847484,
+          "label": "01,11",
+          "prime_modulus": 647,
+          "prime_over_scale": 1.9546827794561934,
+          "tail_fraction": 0.045317220543806644
+        },
+        {
+          "active_over_full_ratio": 0.92464398260624,
+          "dominance_slack_above_one_half": 0.42464398260624003,
+          "label": "00,12",
+          "prime_modulus": 347,
+          "prime_over_scale": 1.0483383685800605,
+          "tail_fraction": 0.9516616314199395
+        },
+        {
+          "active_over_full_ratio": 0.9255877858625781,
+          "dominance_slack_above_one_half": 0.42558778586257806,
+          "label": "TOTAL",
+          "prime_modulus": 347,
+          "prime_over_scale": 1.0483383685800605,
+          "tail_fraction": 0.9516616314199395
+        },
+        {
+          "active_over_full_ratio": 0.9257014614102624,
+          "dominance_slack_above_one_half": 0.42570146141026244,
+          "label": "01,02",
+          "prime_modulus": 347,
+          "prime_over_scale": 1.0483383685800605,
+          "tail_fraction": 0.9516616314199395
+        },
+        {
+          "active_over_full_ratio": 0.9257638171511697,
+          "dominance_slack_above_one_half": 0.42576381715116973,
+          "label": "01,11",
+          "prime_modulus": 347,
+          "prime_over_scale": 1.0483383685800605,
+          "tail_fraction": 0.9516616314199395
+        }
+      ],
+      "weakest_prime_modulus": 599,
+      "weakest_prime_over_scale": 1.809667673716012,
+      "weakest_row": {
+        "active_contribution": -556960179297891.94,
+        "active_contribution_negative": true,
+        "active_over_full_ratio": 0.9047925604770473,
+        "dominance_slack_above_one_half": 0.40479256047704726,
+        "dominates_one_half_signed_full": true,
+        "full_contribution": -615566709571791.2,
+        "full_contribution_negative": true,
+        "half_frame_contribution": -249176824511996.3,
+        "label": "00,12",
+        "prime_modulus": 599,
+        "scale_modulus": 331
+      },
+      "weakest_tail_fraction": 0.1903323262839879
+    }
+  ],
+  "scales": [
+    229,
+    251,
+    293,
+    331
+  ],
+  "schema_version": 1,
+  "single_fixed_weakest_prime_rule_survives": false,
+  "source_commit": "a6c425114c35ad65199d02a70a0de418efd4e02f",
+  "source_start_theorem_proved": false,
+  "source_window_theorem_proved": false,
+  "status": "AUDIT_degree5_source_start_stress_morphology",
+  "strict_central_goldbach_theorem_proved": false,
+  "weakest_label_counts": {
+    "00,12": 4
+  },
+  "weakest_prime_counts": {
+    "379": 2,
+    "461": 1,
+    "599": 1
+  },
+  "weakest_sequence": [
+    {
+      "minimum_slack": 0.40189096624031384,
+      "scale_modulus": 229,
+      "weakest_label": "00,12",
+      "weakest_prime_modulus": 379,
+      "weakest_prime_over_scale": 1.6550218340611353,
+      "weakest_tail_fraction": 0.34497816593886466
+    },
+    {
+      "minimum_slack": 0.43435333637430296,
+      "scale_modulus": 251,
+      "weakest_label": "00,12",
+      "weakest_prime_modulus": 379,
+      "weakest_prime_over_scale": 1.5099601593625498,
+      "weakest_tail_fraction": 0.4900398406374502
+    },
+    {
+      "minimum_slack": 0.4257305726250574,
+      "scale_modulus": 293,
+      "weakest_label": "00,12",
+      "weakest_prime_modulus": 461,
+      "weakest_prime_over_scale": 1.5733788395904438,
+      "weakest_tail_fraction": 0.42662116040955633
+    },
+    {
+      "minimum_slack": 0.40479256047704726,
+      "scale_modulus": 331,
+      "weakest_label": "00,12",
+      "weakest_prime_modulus": 599,
+      "weakest_prime_over_scale": 1.809667673716012,
+      "weakest_tail_fraction": 0.1903323262839879
+    }
+  ]
+}

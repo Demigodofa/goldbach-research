@@ -6,6 +6,36 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The source-start lane now has a stress-morphology audit across the four
+complete fresh-scale sweeps:
+`tools/build_mobius_moment_square_degree5_source_start_stress_morphology_audit.py`
+generated
+`evidence/mobius-moment-square-degree5-source-start-stress-morphology-audit.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-source-start-stress-morphology-audit.md`.
+
+Question: after the full `M=331` sweep moved the weakest row from sentinel
+prime `p=461` to `p=599`, should the next target track fixed attention primes,
+component labels, endpoint position, or prime-level stress blocks?
+
+Answer: fixed-prime tracking fails, but prime-block morphology survives the
+four complete sweeps.  The weakest primes are `379`, `379`, `461`, and `599`
+for `M=229`, `251`, `293`, and `331`.  The weakest label is always `(00,12)`,
+and each scale's tightest four rows are a coherent block from one prime
+containing `(00,12)`, `(01,02)`, `(01,11)`, and `TOTAL`.
+
+Decision: the next theorem-shaped target is source-start prime-block
+lower-frame control: bound active/full dominance first by prime block, then
+treat component labels as secondary spread inside that block.  The fixed
+`p=379`/`p=461` attention-prime narratives are downgraded to diagnostics.  The
+finite falsifier for this morphology is a future complete scale whose tightest
+rows split across unrelated primes or isolate one component far below its
+prime companions.  This proves no prime-block theorem, no source-start theorem,
+no source-window theorem, no strict-central Goldbach theorem, and no Goldbach
+proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The source-start lane now has a full `M=331` prime-row sweep:
 `tools/build_mobius_moment_square_degree5_source_start_m331_full_prime_sweep.py`
 generated
