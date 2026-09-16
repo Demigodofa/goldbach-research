@@ -1,0 +1,388 @@
+{
+  "all_middle_far_positive_dominates_near_negative": true,
+  "all_middle_far_total_dominates_near_negative": true,
+  "all_negative_denominators_near_threshold": false,
+  "band_count": 4,
+  "band_summaries": [
+    {
+      "all_negative_denominators_near_threshold": true,
+      "band": "sigma_1_00_1_25",
+      "family_summaries": {
+        "far_3_plus": {
+          "abs_negative_over_positive": 0.0,
+          "largest_negative": null,
+          "largest_positive": {
+            "clearance_ratio_q_over_pA": 3.7956282356808284,
+            "margin": 1261596677352.878,
+            "reduced_denominator": 46189
+          },
+          "negative_count": 0,
+          "negative_margin_sum": 0,
+          "positive_count": 13,
+          "positive_margin_sum": 10857005133640.75,
+          "row_count": 13,
+          "total_margin": 10857005133640.75
+        },
+        "middle_2_to_3": {
+          "abs_negative_over_positive": 0.0,
+          "largest_negative": null,
+          "largest_positive": {
+            "clearance_ratio_q_over_pA": 2.919714027446791,
+            "margin": 1647100141735.8997,
+            "reduced_denominator": 35530
+          },
+          "negative_count": 0,
+          "negative_margin_sum": 0,
+          "positive_count": 10,
+          "positive_margin_sum": 5131155680882.998,
+          "row_count": 10,
+          "total_margin": 5131155680882.998
+        },
+        "near_1_to_2": {
+          "abs_negative_over_positive": 0.008523473213705389,
+          "largest_negative": {
+            "clearance_ratio_q_over_pA": 1.1163612457884788,
+            "margin": -21612101876.988865,
+            "reduced_denominator": 13585
+          },
+          "largest_positive": {
+            "clearance_ratio_q_over_pA": 1.7518284164680746,
+            "margin": 998792316869.1273,
+            "reduced_denominator": 21318
+          },
+          "negative_count": 3,
+          "negative_margin_sum": -26220860005.98486,
+          "positive_count": 17,
+          "positive_margin_sum": 3076311657062.8525,
+          "row_count": 20,
+          "total_margin": 3050090797056.8677
+        }
+      },
+      "middle_far_positive_dominates_near_negative": true,
+      "middle_far_positive_margin_sum": 15988160814523.748,
+      "middle_far_total_dominates_near_negative": true,
+      "middle_far_total_margin_sum": 15988160814523.748,
+      "near_negative_abs": 26220860005.98486,
+      "near_negative_over_middle_far_positive": 0.0016400172796714467,
+      "prime_modulus": 283,
+      "row_count_A": 43,
+      "scale_modulus": 229,
+      "sigma_p_over_M": 1.2358078602620088,
+      "source_band_minimum_slack": 0.4168496626998832,
+      "threshold_p_times_A": 12169,
+      "total_summary": {
+        "abs_negative_over_positive": 0.0013753782091303092,
+        "largest_negative": {
+          "clearance_ratio_q_over_pA": 1.1163612457884788,
+          "margin": -21612101876.988865,
+          "reduced_denominator": 13585
+        },
+        "largest_positive": {
+          "clearance_ratio_q_over_pA": 2.919714027446791,
+          "margin": 1647100141735.8997,
+          "reduced_denominator": 35530
+        },
+        "negative_count": 3,
+        "negative_margin_sum": -26220860005.98486,
+        "positive_count": 40,
+        "positive_margin_sum": 19064472471586.6,
+        "row_count": 43,
+        "total_margin": 19038251611580.617
+      },
+      "weakest_label": "00,12"
+    },
+    {
+      "all_negative_denominators_near_threshold": true,
+      "band": "sigma_1_25_1_50",
+      "family_summaries": {
+        "far_3_plus": {
+          "abs_negative_over_positive": 0.0,
+          "largest_negative": null,
+          "largest_positive": {
+            "clearance_ratio_q_over_pA": 3.9736802863107665,
+            "margin": 10495774992168.586,
+            "reduced_denominator": 106590
+          },
+          "negative_count": 0,
+          "negative_margin_sum": 0,
+          "positive_count": 28,
+          "positive_margin_sum": 108118966842019.53,
+          "row_count": 28,
+          "total_margin": 108118966842019.53
+        },
+        "middle_2_to_3": {
+          "abs_negative_over_positive": 0.0,
+          "largest_negative": null,
+          "largest_positive": {
+            "clearance_ratio_q_over_pA": 2.528705636743215,
+            "margin": 7331476384231.504,
+            "reduced_denominator": 67830
+          },
+          "negative_count": 0,
+          "negative_margin_sum": 0,
+          "positive_count": 19,
+          "positive_margin_sum": 45869469622111.66,
+          "row_count": 19,
+          "total_margin": 45869469622111.66
+        },
+        "near_1_to_2": {
+          "abs_negative_over_positive": 0.004782034469814204,
+          "largest_negative": {
+            "clearance_ratio_q_over_pA": 1.4825156576200418,
+            "margin": -35578353103.24286,
+            "reduced_denominator": 39767
+          },
+          "largest_positive": {
+            "clearance_ratio_q_over_pA": 1.9337160751565763,
+            "margin": 5736373394289.597,
+            "reduced_denominator": 51870
+          },
+          "negative_count": 8,
+          "negative_margin_sum": -141998461849.56738,
+          "positive_count": 33,
+          "positive_margin_sum": 29694152718034.344,
+          "row_count": 41,
+          "total_margin": 29552154256184.777
+        }
+      },
+      "middle_far_positive_dominates_near_negative": true,
+      "middle_far_positive_margin_sum": 153988436464131.2,
+      "middle_far_total_dominates_near_negative": true,
+      "middle_far_total_margin_sum": 153988436464131.2,
+      "near_negative_abs": 141998461849.56738,
+      "near_negative_over_middle_far_positive": 0.0009221371754277364,
+      "prime_modulus": 479,
+      "row_count_A": 56,
+      "scale_modulus": 331,
+      "sigma_p_over_M": 1.447129909365559,
+      "source_band_minimum_slack": 0.426291195360443,
+      "threshold_p_times_A": 26824,
+      "total_summary": {
+        "abs_negative_over_positive": 0.0007730643523798639,
+        "largest_negative": {
+          "clearance_ratio_q_over_pA": 1.4825156576200418,
+          "margin": -35578353103.24286,
+          "reduced_denominator": 39767
+        },
+        "largest_positive": {
+          "clearance_ratio_q_over_pA": 3.9736802863107665,
+          "margin": 10495774992168.586,
+          "reduced_denominator": 106590
+        },
+        "negative_count": 8,
+        "negative_margin_sum": -141998461849.56738,
+        "positive_count": 80,
+        "positive_margin_sum": 183682589182165.53,
+        "row_count": 88,
+        "total_margin": 183540590720315.97
+      },
+      "weakest_label": "00,12"
+    },
+    {
+      "all_negative_denominators_near_threshold": false,
+      "band": "sigma_1_50_1_75",
+      "family_summaries": {
+        "far_3_plus": {
+          "abs_negative_over_positive": 0.0,
+          "largest_negative": null,
+          "largest_positive": {
+            "clearance_ratio_q_over_pA": 3.607166963244769,
+            "margin": 3346664546754.784,
+            "reduced_denominator": 58786
+          },
+          "negative_count": 0,
+          "negative_margin_sum": 0,
+          "positive_count": 6,
+          "positive_margin_sum": 11771040850805.861,
+          "row_count": 6,
+          "total_margin": 11771040850805.861
+        },
+        "middle_2_to_3": {
+          "abs_negative_over_positive": 0.0007099776699323244,
+          "largest_negative": {
+            "clearance_ratio_q_over_pA": 2.8342026139780327,
+            "margin": -8444721229.472412,
+            "reduced_denominator": 46189
+          },
+          "largest_positive": {
+            "clearance_ratio_q_over_pA": 2.693133705589986,
+            "margin": 3069842196268.175,
+            "reduced_denominator": 43890
+          },
+          "negative_count": 1,
+          "negative_margin_sum": -8444721229.472412,
+          "positive_count": 10,
+          "positive_margin_sum": 11894347649380.816,
+          "row_count": 11,
+          "total_margin": 11885902928151.344
+        },
+        "near_1_to_2": {
+          "abs_negative_over_positive": 0.00384962985564931,
+          "largest_negative": {
+            "clearance_ratio_q_over_pA": 1.2882739154445604,
+            "margin": -12619452126.371693,
+            "reduced_denominator": 20995
+          },
+          "largest_positive": {
+            "clearance_ratio_q_over_pA": 1.6671780082223722,
+            "margin": 842642209522.2528,
+            "reduced_denominator": 27170
+          },
+          "negative_count": 2,
+          "negative_margin_sum": -15989843515.265388,
+          "positive_count": 16,
+          "positive_margin_sum": 4153605441260.9004,
+          "row_count": 18,
+          "total_margin": 4137615597745.635
+        }
+      },
+      "middle_far_positive_dominates_near_negative": true,
+      "middle_far_positive_margin_sum": 23665388500186.68,
+      "middle_far_total_dominates_near_negative": true,
+      "middle_far_total_margin_sum": 23656943778957.203,
+      "near_negative_abs": 15989843515.265388,
+      "near_negative_over_middle_far_positive": 0.0006756636813775213,
+      "prime_modulus": 379,
+      "row_count_A": 43,
+      "scale_modulus": 229,
+      "sigma_p_over_M": 1.6550218340611353,
+      "source_band_minimum_slack": 0.40189096624031384,
+      "threshold_p_times_A": 16297,
+      "total_summary": {
+        "abs_negative_over_positive": 0.000878341064244336,
+        "largest_negative": {
+          "clearance_ratio_q_over_pA": 1.2882739154445604,
+          "margin": -12619452126.371693,
+          "reduced_denominator": 20995
+        },
+        "largest_positive": {
+          "clearance_ratio_q_over_pA": 3.607166963244769,
+          "margin": 3346664546754.784,
+          "reduced_denominator": 58786
+        },
+        "negative_count": 3,
+        "negative_margin_sum": -24434564744.7378,
+        "positive_count": 32,
+        "positive_margin_sum": 27818993941447.58,
+        "row_count": 35,
+        "total_margin": 27794559376702.84
+      },
+      "weakest_label": "00,12"
+    },
+    {
+      "all_negative_denominators_near_threshold": true,
+      "band": "sigma_1_75_2_00",
+      "family_summaries": {
+        "far_3_plus": {
+          "abs_negative_over_positive": 0.0,
+          "largest_negative": null,
+          "largest_positive": {
+            "clearance_ratio_q_over_pA": 4.650876460767947,
+            "margin": 16185857638280.293,
+            "reduced_denominator": 156009
+          },
+          "negative_count": 0,
+          "negative_margin_sum": 0,
+          "positive_count": 18,
+          "positive_margin_sum": 123888593819976.66,
+          "row_count": 18,
+          "total_margin": 123888593819976.66
+        },
+        "middle_2_to_3": {
+          "abs_negative_over_positive": 0.0,
+          "largest_negative": null,
+          "largest_positive": {
+            "clearance_ratio_q_over_pA": 2.8791139995230144,
+            "margin": 12033992558785.86,
+            "reduced_denominator": 96577
+          },
+          "negative_count": 0,
+          "negative_margin_sum": 0,
+          "positive_count": 20,
+          "positive_margin_sum": 73617842401267.19,
+          "row_count": 20,
+          "total_margin": 73617842401267.19
+        },
+        "near_1_to_2": {
+          "abs_negative_over_positive": 0.0035494816434581385,
+          "largest_negative": {
+            "clearance_ratio_q_over_pA": 1.5502921535893155,
+            "margin": -85344778450.61508,
+            "reduced_denominator": 52003
+          },
+          "largest_positive": {
+            "clearance_ratio_q_over_pA": 1.7525041736227045,
+            "margin": 6285036346691.536,
+            "reduced_denominator": 58786
+          },
+          "negative_count": 4,
+          "negative_margin_sum": -184056399560.05704,
+          "positive_count": 35,
+          "positive_margin_sum": 51854444690334.33,
+          "row_count": 39,
+          "total_margin": 51670388290774.27
+        }
+      },
+      "middle_far_positive_dominates_near_negative": true,
+      "middle_far_positive_margin_sum": 197506436221243.84,
+      "middle_far_total_dominates_near_negative": true,
+      "middle_far_total_margin_sum": 197506436221243.84,
+      "near_negative_abs": 184056399560.05704,
+      "near_negative_over_middle_far_positive": 0.0009319007678001933,
+      "prime_modulus": 599,
+      "row_count_A": 56,
+      "scale_modulus": 331,
+      "sigma_p_over_M": 1.809667673716012,
+      "source_band_minimum_slack": 0.40479256047704726,
+      "threshold_p_times_A": 33544,
+      "total_summary": {
+        "abs_negative_over_positive": 0.0007381125655604428,
+        "largest_negative": {
+          "clearance_ratio_q_over_pA": 1.5502921535893155,
+          "margin": -85344778450.61508,
+          "reduced_denominator": 52003
+        },
+        "largest_positive": {
+          "clearance_ratio_q_over_pA": 4.650876460767947,
+          "margin": 16185857638280.293,
+          "reduced_denominator": 156009
+        },
+        "negative_count": 4,
+        "negative_margin_sum": -184056399560.05704,
+        "positive_count": 73,
+        "positive_margin_sum": 249360880911578.2,
+        "row_count": 77,
+        "total_margin": 249176824512018.12
+      },
+      "weakest_label": "00,12"
+    }
+  ],
+  "candidate_next_theorem_target": {
+    "falsifier": "A band-minimum block whose middle/far net margin fails to dominate near-threshold adverse mass falsifies this finite band-clearance target.",
+    "mechanism": "For each sigma band, prove low-clearance adverse leakage is paid by middle/far higher-clearance denominator margin on the moving prime block.",
+    "name": "sigma-banded clearance-family denominator control",
+    "novelty_label": "new-to-this-task",
+    "prediction": "Future band-minimum blocks should keep middle/far net margin above near-threshold adverse leakage in every sigma band."
+  },
+  "clearance_family_theorem_proved": false,
+  "decision": "The clearance-family target survives on the weakest checked block in every sigma band.  This supports pairing sigma-banded moving prime-block control with a sigma-banded denominator-family ledger, but remains finite evidence only.",
+  "finite_band_clearance_holdout_only": true,
+  "finite_diagnostic_only": true,
+  "goldbach_proved": false,
+  "maximum_near_negative_over_middle_far_positive": 0.0016400172796714467,
+  "moving_prime_block_theorem_proved": false,
+  "negative_denominator_family_counts": {
+    "far_3_plus": 0,
+    "middle_2_to_3": 1,
+    "near_1_to_2": 17
+  },
+  "prime_block_theorem_proved": false,
+  "question": "Does the clearance-family denominator target survive on the weakest source-start prime block in each sigma band?",
+  "schema_version": 1,
+  "sigma_band_theorem_proved": false,
+  "source_band_audit": "evidence\\mobius-moment-square-degree5-moving-prime-band-audit.json",
+  "source_commit": "f92b157504bf056994d39b10c2bd0fd7e3c84003",
+  "source_start_theorem_proved": false,
+  "status": "HOLDOUT_degree5_band_clearance_family",
+  "strict_central_goldbach_theorem_proved": false
+}

@@ -6,6 +6,37 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The source-start moving-prime lane now has a sigma-band clearance holdout:
+`tools/build_mobius_moment_square_degree5_band_clearance_holdout.py`
+generated
+`evidence/mobius-moment-square-degree5-band-clearance-holdout.json`, with
+explanation in
+`notes/mobius-moment-square-degree5-band-clearance-holdout.md`.
+
+Question: after identifying the weakest moving-prime block in each sigma band,
+does the denominator clearance-family mechanism survive on those four stress
+blocks?
+
+Answer: yes, for this finite holdout.  All four band-minimum blocks satisfy
+both middle/far positive dominance and middle/far net dominance over
+near-threshold adverse leakage.  The maximum ratio
+`near_negative_abs / middle_far_positive_margin_sum` is
+`0.0016400172796714467`, at `sigma_1_00_1_25`, `M=229`, `p=283`.
+
+However, the stronger shortcut "all negative denominators are near threshold"
+is false.  The negative denominator family counts are
+`near_1_to_2 -> 17`, `middle_2_to_3 -> 1`, and `far_3_plus -> 0`; the lone
+middle-family exception is the `sigma_1_50_1_75` band at `M=229`, `p=379`.
+
+Decision: the next theorem-shaped target can pair sigma-banded moving
+prime-block lower-frame control with sigma-banded clearance-family denominator
+control.  Do not use the false all-negative-near shortcut.  This is finite
+holdout evidence only, not a source-start theorem, prime-block theorem,
+moving-prime theorem, sigma-band theorem, clearance-family theorem,
+strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The source-start moving-prime lane now has a sigma-band stress audit:
 `tools/build_mobius_moment_square_degree5_moving_prime_band_audit.py`
 generated

@@ -6,6 +6,41 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The source-start moving-prime lane now has a sigma-band clearance holdout:
+
+```text
+tools/build_mobius_moment_square_degree5_band_clearance_holdout.py
+notes/mobius-moment-square-degree5-band-clearance-holdout.md
+evidence/mobius-moment-square-degree5-band-clearance-holdout.json
+```
+
+Result:
+
+```text
+bands checked:                                      4
+all middle/far positive dominates near leakage:     true
+all middle/far net dominates near leakage:          true
+all negative denominators near threshold:           false
+negative denominator family counts:                 near=17, middle=1, far=0
+max near negative / middle-far positive:             0.0016400172796714467
+
+sigma_1_00_1_25  M=229  p=283  ratio=0.0016400172796714467  all-negative-near=true
+sigma_1_25_1_50  M=331  p=479  ratio=0.0009221371754277364  all-negative-near=true
+sigma_1_50_1_75  M=229  p=379  ratio=0.0006756636813775213  all-negative-near=false
+sigma_1_75_2_00  M=331  p=599  ratio=0.0009319007678001933  all-negative-near=true
+```
+
+Decision: the clearance-family target survives all four sigma-band minimum
+blocks, so the next theorem-shaped target can pair sigma-banded moving
+prime-block lower-frame control with sigma-banded clearance-family denominator
+control.  The stronger all-negative-near shortcut is false because
+`M=229`, `p=379` has one `middle_2_to_3` negative family.  This is finite
+holdout evidence only, not a source-start theorem, prime-block theorem,
+moving-prime theorem, sigma-band theorem, clearance-family theorem,
+strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The source-start moving-prime lane now has a sigma-band stress audit:
 
 ```text
