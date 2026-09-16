@@ -1,0 +1,277 @@
+{
+  "answer": "The current checked support has exactly one middle/far adverse denominator row in the source-start clearance receipt and exactly one in the sigma-band holdout, and they are the same M=229,p=379,label=00,12,Q=46189 exception.  All remaining adverse denominator rows in these receipts are near-threshold.  So replacement-family payment is a sharp finite target, but not yet a broad holdout theorem pattern.",
+  "band_clearance_holdout": "evidence\\mobius-moment-square-degree5-band-clearance-holdout.json",
+  "band_scope": {
+    "checked_row_count": 4,
+    "maximum_near_negative_over_middle_far_positive": 0.0016400172796714467,
+    "middle_far_negative_row_count": 1,
+    "middle_far_negative_rows": [
+      {
+        "band": "sigma_1_50_1_75",
+        "largest_middle_negative": {
+          "clearance_ratio_q_over_pA": 2.8342026139780327,
+          "margin": -8444721229.472412,
+          "reduced_denominator": 46189
+        },
+        "middle_far_negative_count": 1,
+        "middle_far_positive_margin_sum": 23665388500186.68,
+        "near_negative_abs": 15989843515.265388,
+        "near_negative_over_middle_far_positive": 0.0006756636813775213,
+        "negative_counts": {
+          "far_3_plus": 0,
+          "middle_2_to_3": 1,
+          "near_1_to_2": 2
+        },
+        "prime_modulus": 379,
+        "scale_modulus": 229,
+        "weakest_label": "00,12"
+      }
+    ],
+    "negative_denominator_family_counts": {
+      "far_3_plus": 0,
+      "middle_2_to_3": 1,
+      "near_1_to_2": 17
+    },
+    "rows": [
+      {
+        "band": "sigma_1_00_1_25",
+        "largest_middle_negative": null,
+        "middle_far_negative_count": 0,
+        "middle_far_positive_margin_sum": 15988160814523.748,
+        "near_negative_abs": 26220860005.98486,
+        "near_negative_over_middle_far_positive": 0.0016400172796714467,
+        "negative_counts": {
+          "far_3_plus": 0,
+          "middle_2_to_3": 0,
+          "near_1_to_2": 3
+        },
+        "prime_modulus": 283,
+        "scale_modulus": 229,
+        "weakest_label": "00,12"
+      },
+      {
+        "band": "sigma_1_25_1_50",
+        "largest_middle_negative": null,
+        "middle_far_negative_count": 0,
+        "middle_far_positive_margin_sum": 153988436464131.2,
+        "near_negative_abs": 141998461849.56738,
+        "near_negative_over_middle_far_positive": 0.0009221371754277364,
+        "negative_counts": {
+          "far_3_plus": 0,
+          "middle_2_to_3": 0,
+          "near_1_to_2": 8
+        },
+        "prime_modulus": 479,
+        "scale_modulus": 331,
+        "weakest_label": "00,12"
+      },
+      {
+        "band": "sigma_1_50_1_75",
+        "largest_middle_negative": {
+          "clearance_ratio_q_over_pA": 2.8342026139780327,
+          "margin": -8444721229.472412,
+          "reduced_denominator": 46189
+        },
+        "middle_far_negative_count": 1,
+        "middle_far_positive_margin_sum": 23665388500186.68,
+        "near_negative_abs": 15989843515.265388,
+        "near_negative_over_middle_far_positive": 0.0006756636813775213,
+        "negative_counts": {
+          "far_3_plus": 0,
+          "middle_2_to_3": 1,
+          "near_1_to_2": 2
+        },
+        "prime_modulus": 379,
+        "scale_modulus": 229,
+        "weakest_label": "00,12"
+      },
+      {
+        "band": "sigma_1_75_2_00",
+        "largest_middle_negative": null,
+        "middle_far_negative_count": 0,
+        "middle_far_positive_margin_sum": 197506436221243.84,
+        "near_negative_abs": 184056399560.05704,
+        "near_negative_over_middle_far_positive": 0.0009319007678001933,
+        "negative_counts": {
+          "far_3_plus": 0,
+          "middle_2_to_3": 0,
+          "near_1_to_2": 4
+        },
+        "prime_modulus": 599,
+        "scale_modulus": 331,
+        "weakest_label": "00,12"
+      }
+    ]
+  },
+  "candidate_next_action": {
+    "falsifier": "A new middle/far adverse denominator whose replacement families fail to pay the defect would falsify the present replacement-family theorem target.",
+    "mechanism": "Treat Q=46189 as the single current middle/far adverse exemplar for replacement-family payment, while keeping near-threshold leakage as a separate upper-bound obligation.",
+    "name": "replacement-family theorem boundary split",
+    "novelty_label": "new-to-this-task",
+    "prediction": "A real replacement-family theorem should either prove the Q=46189-style inequality symbolically or find additional middle/far adverse exemplars with the same replacement-family payment pattern.",
+    "smallest_next_test": "Search deliberately for additional middle/far adverse rows outside the six tight source blocks, or derive the symbolic Q=46189 replacement-family inequality before promoting the pattern."
+  },
+  "classification": {
+    "band_middle_far_adverse_examples": 1,
+    "near_threshold_adverse_rows_remain_primary_broad_obligation": true,
+    "q46189_payment_is_single_current_middle_far_exemplar": true,
+    "same_q46189_exception_in_source_and_band": true,
+    "source_middle_far_adverse_examples": 1
+  },
+  "clearance_family_theorem_proved": false,
+  "decision": "The replacement-family payment route remains alive but narrow.  Do not promote it as a broad finite holdout pattern: current checked middle/far adverse support is the single Q=46189 exception.  The universal pointwise proof still also needs an independent near-threshold leakage upper bound.",
+  "finite_diagnostic_only": true,
+  "finite_scope_boundary_audit_only": true,
+  "goldbach_proved": false,
+  "middle_far_lower_bound_proved": false,
+  "near_adverse_upper_bound_proved": false,
+  "phase_defect_payment_theorem_proved": false,
+  "q46189_payment_audit": "evidence\\mobius-moment-square-degree5-q46189-group-payment-audit.json",
+  "q46189_payment_summary": {
+    "each_omitted_high_prime_family_pays_defect": true,
+    "minimum_individual_payment_over_defect": 36.74165224066973,
+    "replacement_payment_over_defect": 1740.1304948156007
+  },
+  "question": "After the Q=46189 replacement-family payment audit, how broad is the current checked support for middle/far adverse replacement families?",
+  "replacement_family_payment_theorem_proved": false,
+  "schema_version": 1,
+  "source_clearance_audit": "evidence\\mobius-moment-square-degree5-source-margin-clearance-family-audit.json",
+  "source_commit": "c42d0f64b1a6a54a620b3f9a715cc51ffad325c0",
+  "source_scope": {
+    "checked_row_count": 6,
+    "maximum_near_negative_over_middle_far_positive": 0.0009319007678001933,
+    "middle_far_negative_row_count": 1,
+    "middle_far_negative_rows": [
+      {
+        "band": null,
+        "largest_middle_negative": {
+          "clearance_ratio_q_over_pA": 2.8342026139780327,
+          "margin": -8444721229.472412,
+          "reduced_denominator": 46189
+        },
+        "middle_far_negative_count": 1,
+        "middle_far_positive_margin_sum": 23665388500186.68,
+        "near_negative_abs": 15989843515.265388,
+        "near_negative_over_middle_far_positive": 0.0006756636813775213,
+        "negative_counts": {
+          "far_3_plus": 0,
+          "middle_2_to_3": 1,
+          "near_1_to_2": 2
+        },
+        "prime_modulus": 379,
+        "scale_modulus": 229,
+        "weakest_label": "00,12"
+      }
+    ],
+    "negative_denominator_family_counts": {
+      "far_3_plus": 0,
+      "middle_2_to_3": 1,
+      "near_1_to_2": 17
+    },
+    "rows": [
+      {
+        "band": null,
+        "largest_middle_negative": {
+          "clearance_ratio_q_over_pA": 2.8342026139780327,
+          "margin": -8444721229.472412,
+          "reduced_denominator": 46189
+        },
+        "middle_far_negative_count": 1,
+        "middle_far_positive_margin_sum": 23665388500186.68,
+        "near_negative_abs": 15989843515.265388,
+        "near_negative_over_middle_far_positive": 0.0006756636813775213,
+        "negative_counts": {
+          "far_3_plus": 0,
+          "middle_2_to_3": 1,
+          "near_1_to_2": 2
+        },
+        "prime_modulus": 379,
+        "scale_modulus": 229,
+        "weakest_label": "00,12"
+      },
+      {
+        "band": null,
+        "largest_middle_negative": null,
+        "middle_far_negative_count": 0,
+        "middle_far_positive_margin_sum": 25344818030469.89,
+        "near_negative_abs": 14911934233.769146,
+        "near_negative_over_middle_far_positive": 0.0005883622528219304,
+        "negative_counts": {
+          "far_3_plus": 0,
+          "middle_2_to_3": 0,
+          "near_1_to_2": 2
+        },
+        "prime_modulus": 379,
+        "scale_modulus": 251,
+        "weakest_label": "00,12"
+      },
+      {
+        "band": null,
+        "largest_middle_negative": null,
+        "middle_far_negative_count": 0,
+        "middle_far_positive_margin_sum": 24176172732243.125,
+        "near_negative_abs": 18264199594.829636,
+        "near_negative_over_middle_far_positive": 0.0007554628185821635,
+        "negative_counts": {
+          "far_3_plus": 0,
+          "middle_2_to_3": 0,
+          "near_1_to_2": 2
+        },
+        "prime_modulus": 461,
+        "scale_modulus": 293,
+        "weakest_label": "00,12"
+      },
+      {
+        "band": null,
+        "largest_middle_negative": null,
+        "middle_far_negative_count": 0,
+        "middle_far_positive_margin_sum": 197506436221243.84,
+        "near_negative_abs": 184056399560.05704,
+        "near_negative_over_middle_far_positive": 0.0009319007678001933,
+        "negative_counts": {
+          "far_3_plus": 0,
+          "middle_2_to_3": 0,
+          "near_1_to_2": 4
+        },
+        "prime_modulus": 599,
+        "scale_modulus": 331,
+        "weakest_label": "00,12"
+      },
+      {
+        "band": null,
+        "largest_middle_negative": null,
+        "middle_far_negative_count": 0,
+        "middle_far_positive_margin_sum": 198927794504891.75,
+        "near_negative_abs": 181083666044.85104,
+        "near_negative_over_middle_far_positive": 0.0009102984653077129,
+        "negative_counts": {
+          "far_3_plus": 0,
+          "middle_2_to_3": 0,
+          "near_1_to_2": 4
+        },
+        "prime_modulus": 599,
+        "scale_modulus": 353,
+        "weakest_label": "00,12"
+      },
+      {
+        "band": null,
+        "largest_middle_negative": null,
+        "middle_far_negative_count": 0,
+        "middle_far_positive_margin_sum": 201955766780851.94,
+        "near_negative_abs": 148423138618.55527,
+        "near_negative_over_middle_far_positive": 0.0007349289450081092,
+        "negative_counts": {
+          "far_3_plus": 0,
+          "middle_2_to_3": 0,
+          "near_1_to_2": 3
+        },
+        "prime_modulus": 599,
+        "scale_modulus": 379,
+        "weakest_label": "00,12"
+      }
+    ]
+  },
+  "source_start_theorem_proved": false,
+  "status": "AUDIT_replacement_family_scope_boundary",
+  "strict_central_goldbach_theorem_proved": false
+}

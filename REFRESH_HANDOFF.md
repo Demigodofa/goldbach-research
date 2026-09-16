@@ -6,6 +6,44 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The source-start moving-prime lane now has a replacement-family scope-boundary
+audit:
+
+```text
+tools/build_mobius_moment_square_degree5_replacement_family_scope_boundary_audit.py
+notes/mobius-moment-square-degree5-replacement-family-scope-boundary-audit.md
+evidence/mobius-moment-square-degree5-replacement-family-scope-boundary-audit.json
+```
+
+Result:
+
+```text
+source-start checked blocks:                 6
+source near negative denominators:           17
+source middle/far negative rows:             1
+band checked blocks:                         4
+band near negative denominators:             17
+band middle/far negative rows:               1
+same middle/far exception:                   true
+Q46189 replacement payment / defect:         1740.1304948156007
+Q46189 minimum row payment / defect:         36.74165224066973
+```
+
+Decision: the `Q=46189` replacement-family payment result remains live but
+narrow.  The current checked middle/far adverse support is one exemplar: the
+same `M=229`, `p=379`, `label=00,12`, `Q=46189` exception in both the
+source-start clearance receipt and the sigma-band holdout.  All other adverse
+denominator rows in these receipts are near-threshold.  Do not promote
+replacement-family payment as a broad finite holdout pattern yet.  The
+universal pointwise route still needs an independent near-threshold leakage
+upper bound, plus either a symbolic `Q=46189` replacement-family inequality or
+additional middle/far adverse examples.  This proves no replacement-family
+payment theorem, phase-defect payment theorem, near-adverse upper bound,
+middle/far lower bound, clearance-family theorem, source-start theorem,
+strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The source-start moving-prime lane now has a structured group-payment audit for
 the `Q=46189` phase defect:
 
