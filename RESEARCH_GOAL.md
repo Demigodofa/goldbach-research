@@ -6,6 +6,38 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The q286-WBSS route now has a zero-residue observed character-moment audit:
+`tools/build_q286_wbss_k286_zero_residue_observed_character_moment_audit.py`
+generated
+`evidence/q286-wbss-k286-zero-residue-observed-character-moment-audit.json`,
+with explanation in
+`notes/q286-wbss-k286-zero-residue-observed-character-moment-audit.md`.
+
+Question: does observed aggregate active-character `L2` stay below the
+sufficient zero-residue local caps on the targeted `K_286` zero lane?
+
+Answer: no.  The raw adverse gate remains positive on all `70/70` finite
+zero-lane rows, and there are no zero pair-count rows, but `18/70` rows exceed
+their sufficient local aggregate `L2` caps.  The observed aggregate `L2` range
+is `0.09541894855503372` to `0.19292792994833513`; the ratio-to-local-cap
+range is `0.5008426004951454` to `1.354153874306624`.  The worst row is target
+`1171456`, residue `286 mod 10010`, with observed aggregate `L2`
+`0.17499545077585937` against local cap `0.1292286305834065`.
+
+Decision:
+`DIAGNOSTIC_zero_residue_plain_character_l2_not_observed_bridge`.  Plain
+aggregate active-character `L2` is not the logical bridge.  The next
+theorem-shaped move is signed/phase-aware character control in the actual
+coefficient direction, or a direct raw witness theorem.  The acceptance
+condition is no longer finite evidence; a proof route needs a universal,
+pointwise, unnormalized analytical estimate showing adverse drag below local
+main for every sufficiently large `N`.  No zero-residue raw adverse-drag
+theorem, aggregate character-moment theorem, signed/phase-aware theorem,
+universal pointwise raw estimate, q286 threshold theorem, strict-central
+Goldbach theorem, or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-16
+
 The q286-WBSS route now has an active-character theorem-payment schedule for
 the unique `K_286` no-reflection-discount lane:
 `tools/build_q286_wbss_k286_zero_residue_character_budget_schedule.py`

@@ -6,6 +6,47 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The q286-WBSS route now has a zero-residue observed character-moment audit:
+
+```text
+tools/build_q286_wbss_k286_zero_residue_observed_character_moment_audit.py
+notes/q286-wbss-k286-zero-residue-observed-character-moment-audit.md
+evidence/q286-wbss-k286-zero-residue-observed-character-moment-audit.json
+```
+
+Question: does observed aggregate active-character `L2` stay below the
+sufficient zero-residue local caps on the targeted `K_286` zero lane?
+
+Result:
+
+```text
+finite zero-lane rows:                 70
+raw adverse gate positive rows:        70 / 70
+zero pair-count rows:                   0
+local aggregate L2 cap violations:     18 / 70
+global aggregate L2 cap violations:    66 / 70
+aggregate L2 range:        0.09541894855503372..0.19292792994833513
+ratio-to-local-cap range:  0.5008426004951454..1.354153874306624
+worst target:                         1171456
+worst target residue:                     286 mod 10010
+worst aggregate L2:       0.17499545077585937
+worst local L2 cap:       0.1292286305834065
+```
+
+Decision:
+`DIAGNOSTIC_zero_residue_plain_character_l2_not_observed_bridge`.  Plain
+aggregate active-character `L2` is not the logical bridge.  The next
+theorem-shaped move is signed/phase-aware character control in the actual
+coefficient direction, or a direct raw witness theorem.  The acceptance
+condition is no longer finite evidence; a proof route needs a universal,
+pointwise, unnormalized analytical estimate showing adverse drag below local
+main for every sufficiently large `N`.  No zero-residue raw adverse-drag
+theorem, aggregate character-moment theorem, signed/phase-aware theorem,
+universal pointwise raw estimate, q286 threshold theorem, strict-central
+Goldbach theorem, or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-16
+
 The q286-WBSS route now has an active-character theorem-payment schedule for
 the unique `K_286` no-reflection-discount lane:
 
