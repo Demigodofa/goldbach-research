@@ -1,0 +1,344 @@
+{
+  "answer": "No in this bounded targeted search.  The top seven selected weak prime rows contain the known M=229,p=379,Q=46189 middle/far adverse example, and the other six selected rows have only near-threshold adverse denominators.  This strengthens the HOLD: more adjacent or weak-row finite checks are not yet a theorem substitute; the route should move to symbolic Q=46189 or a different targeted search criterion.",
+  "candidate_next_action": {
+    "falsifier": "If the symbolic family inequality cannot be expressed without importing total positivity, the replacement-family route remains finite-only and should be demoted.",
+    "mechanism": "Stop treating nearby finite clearance extensions as the main source of progress; use the single recovered middle/far adverse example to derive a symbolic replacement-family payment inequality.",
+    "name": "symbolic Q46189 replacement-family inequality",
+    "novelty_label": "new-to-this-task",
+    "prediction": "A symbolic expression should explain why replacing one high prime in 11*13*17*19 by the observed small-prime factors pays the finite-window defect.",
+    "smallest_next_test": "Express Q=46189 and its ten replacement rows as omitted-high-prime families and compare their active/full defect terms algebraically, before adding more broad finite scans."
+  },
+  "classification": {
+    "additional_middle_far_adverse_example_found": false,
+    "all_new_selected_adverse_mass_near_threshold": true,
+    "known_q46189_recovered": true,
+    "targeted_search_supports_symbolic_q46189_next": true
+  },
+  "clearance_family_theorem_proved": false,
+  "computed_missing_summary_count": 1,
+  "decision": "The targeted weak-row search found no second middle/far adverse denominator.  It recovers Q=46189 and otherwise adds only near-threshold adverse rows.  This is a precise HOLD against more same-style finite extension: next progress should be symbolic Q=46189 replacement-family work or a materially different search criterion.",
+  "finite_diagnostic_only": true,
+  "finite_targeted_search_only": true,
+  "goldbach_proved": false,
+  "middle_far_adverse_rows": [
+    {
+      "clearance_summary": {
+        "largest_far_negative": null,
+        "largest_middle_negative": {
+          "clearance_ratio_q_over_pA": 2.8342026139780327,
+          "margin": -8444721229.472412,
+          "reduced_denominator": 46189
+        },
+        "largest_near_negative": {
+          "clearance_ratio_q_over_pA": 1.2882739154445604,
+          "margin": -12619452126.371693,
+          "reduced_denominator": 20995
+        },
+        "middle_far_negative_count": 1,
+        "middle_far_positive_margin_sum": 23665388500186.68,
+        "middle_far_total_margin_sum": 23656943778957.203,
+        "near_negative_abs": 15989843515.265388,
+        "near_negative_over_middle_far_positive": 0.0006756636813775213,
+        "negative_denominator_family_counts": {
+          "far_3_plus": 0,
+          "middle_2_to_3": 1,
+          "near_1_to_2": 2
+        },
+        "prime_modulus": 379,
+        "row_count_A": 43,
+        "scale_modulus": 229,
+        "summary_source": "evidence\\mobius-moment-square-degree5-source-margin-clearance-family-audit.json",
+        "threshold_p_times_A": 16297,
+        "weakest_label": "00,12"
+      },
+      "minimum_slack": 0.40189096624031384,
+      "prime_modulus": 379,
+      "prime_over_scale": 1.6550218340611353,
+      "scale_modulus": 229,
+      "selection_source": "global_weakest_row",
+      "weakest_label": "00,12"
+    }
+  ],
+  "middle_far_adverse_selected_row_count": 1,
+  "middle_far_lower_bound_proved": false,
+  "near_adverse_upper_bound_proved": false,
+  "new_middle_far_adverse_rows": [],
+  "new_middle_far_adverse_selected_row_count": 0,
+  "phase_defect_payment_theorem_proved": false,
+  "prior_extended_scope": {
+    "checked_block_count": 7,
+    "known_middle_far_exception": {
+      "band": null,
+      "largest_middle_negative": {
+        "clearance_ratio_q_over_pA": 2.8342026139780327,
+        "margin": -8444721229.472412,
+        "reduced_denominator": 46189
+      },
+      "middle_far_negative_count": 1,
+      "middle_far_positive_margin_sum": 23665388500186.68,
+      "near_negative_abs": 15989843515.265388,
+      "near_negative_over_middle_far_positive": 0.0006756636813775213,
+      "negative_counts": {
+        "far_3_plus": 0,
+        "middle_2_to_3": 1,
+        "near_1_to_2": 2
+      },
+      "prime_modulus": 379,
+      "scale_modulus": 229,
+      "weakest_label": "00,12"
+    },
+    "middle_far_negative_row_count": 1,
+    "negative_denominator_family_counts": {
+      "far_3_plus": 0,
+      "middle_2_to_3": 1,
+      "near_1_to_2": 20
+    }
+  },
+  "question": "Among the weakest selected prime rows from existing full source-start sweeps, is there another middle/far adverse denominator besides Q=46189?",
+  "replacement_family_payment_theorem_proved": false,
+  "schema_version": 1,
+  "selected_row_count": 7,
+  "selected_rows": [
+    {
+      "clearance_summary": {
+        "largest_far_negative": null,
+        "largest_middle_negative": {
+          "clearance_ratio_q_over_pA": 2.8342026139780327,
+          "margin": -8444721229.472412,
+          "reduced_denominator": 46189
+        },
+        "largest_near_negative": {
+          "clearance_ratio_q_over_pA": 1.2882739154445604,
+          "margin": -12619452126.371693,
+          "reduced_denominator": 20995
+        },
+        "middle_far_negative_count": 1,
+        "middle_far_positive_margin_sum": 23665388500186.68,
+        "middle_far_total_margin_sum": 23656943778957.203,
+        "near_negative_abs": 15989843515.265388,
+        "near_negative_over_middle_far_positive": 0.0006756636813775213,
+        "negative_denominator_family_counts": {
+          "far_3_plus": 0,
+          "middle_2_to_3": 1,
+          "near_1_to_2": 2
+        },
+        "prime_modulus": 379,
+        "row_count_A": 43,
+        "scale_modulus": 229,
+        "summary_source": "evidence\\mobius-moment-square-degree5-source-margin-clearance-family-audit.json",
+        "threshold_p_times_A": 16297,
+        "weakest_label": "00,12"
+      },
+      "minimum_slack": 0.40189096624031384,
+      "prime_modulus": 379,
+      "prime_over_scale": 1.6550218340611353,
+      "scale_modulus": 229,
+      "selection_source": "global_weakest_row",
+      "weakest_label": "00,12"
+    },
+    {
+      "clearance_summary": {
+        "largest_far_negative": null,
+        "largest_middle_negative": null,
+        "largest_near_negative": {
+          "clearance_ratio_q_over_pA": 1.5502921535893155,
+          "margin": -85344778450.61508,
+          "reduced_denominator": 52003
+        },
+        "middle_far_negative_count": 0,
+        "middle_far_positive_margin_sum": 197506436221243.84,
+        "middle_far_total_margin_sum": 197506436221243.84,
+        "near_negative_abs": 184056399560.05704,
+        "near_negative_over_middle_far_positive": 0.0009319007678001933,
+        "negative_denominator_family_counts": {
+          "far_3_plus": 0,
+          "middle_2_to_3": 0,
+          "near_1_to_2": 4
+        },
+        "prime_modulus": 599,
+        "row_count_A": 56,
+        "scale_modulus": 331,
+        "summary_source": "evidence\\mobius-moment-square-degree5-source-margin-clearance-family-audit.json",
+        "threshold_p_times_A": 33544,
+        "weakest_label": "00,12"
+      },
+      "minimum_slack": 0.40479256047704726,
+      "prime_modulus": 599,
+      "prime_over_scale": 1.809667673716012,
+      "scale_modulus": 331,
+      "selection_source": "global_weakest_row",
+      "weakest_label": "00,12"
+    },
+    {
+      "clearance_summary": {
+        "largest_far_negative": null,
+        "largest_middle_negative": null,
+        "largest_near_negative": {
+          "clearance_ratio_q_over_pA": 1.496833803465546,
+          "margin": -82707408384.18369,
+          "reduced_denominator": 52003
+        },
+        "middle_far_negative_count": 0,
+        "middle_far_positive_margin_sum": 198927794504891.75,
+        "middle_far_total_margin_sum": 198927794504891.75,
+        "near_negative_abs": 181083666044.85104,
+        "near_negative_over_middle_far_positive": 0.0009102984653077129,
+        "negative_denominator_family_counts": {
+          "far_3_plus": 0,
+          "middle_2_to_3": 0,
+          "near_1_to_2": 4
+        },
+        "prime_modulus": 599,
+        "row_count_A": 58,
+        "scale_modulus": 353,
+        "summary_source": "evidence\\mobius-moment-square-degree5-source-margin-clearance-family-audit.json",
+        "threshold_p_times_A": 34742,
+        "weakest_label": "00,12"
+      },
+      "minimum_slack": 0.41096324474219414,
+      "prime_modulus": 599,
+      "prime_over_scale": 1.6968838526912182,
+      "scale_modulus": 353,
+      "selection_source": "tightest_prime_blocks",
+      "weakest_label": "00,12"
+    },
+    {
+      "clearance_summary": {
+        "largest_far_negative": null,
+        "largest_middle_negative": null,
+        "largest_near_negative": {
+          "clearance_ratio_q_over_pA": 1.4002638806613172,
+          "margin": -81166699127.99426,
+          "reduced_denominator": 52003
+        },
+        "middle_far_negative_count": 0,
+        "middle_far_positive_margin_sum": 203565211531254.94,
+        "middle_far_total_margin_sum": 203565211531254.94,
+        "near_negative_abs": 152079879558.52072,
+        "near_negative_over_middle_far_positive": 0.0007470818732461599,
+        "negative_denominator_family_counts": {
+          "far_3_plus": 0,
+          "middle_2_to_3": 0,
+          "near_1_to_2": 3
+        },
+        "prime_modulus": 599,
+        "row_count_A": 62,
+        "scale_modulus": 383,
+        "summary_source": "evidence\\mobius-moment-square-degree5-source-margin-m383-clearance-holdout.json",
+        "threshold_p_times_A": 37138,
+        "weakest_label": "00,12"
+      },
+      "minimum_slack": 0.4215742230435717,
+      "prime_modulus": 599,
+      "prime_over_scale": 1.5639686684073106,
+      "scale_modulus": 383,
+      "selection_source": "tightest_prime_blocks",
+      "weakest_label": "00,12"
+    },
+    {
+      "clearance_summary": {
+        "largest_far_negative": null,
+        "largest_middle_negative": null,
+        "largest_near_negative": {
+          "clearance_ratio_q_over_pA": 1.2975447876640551,
+          "margin": -30035265415.911438,
+          "reduced_denominator": 52003
+        },
+        "middle_far_negative_count": 0,
+        "middle_far_positive_margin_sum": 204145342976678.88,
+        "middle_far_total_margin_sum": 204145342976678.88,
+        "near_negative_abs": 30035265415.911438,
+        "near_negative_over_middle_far_positive": 0.00014712687038539302,
+        "negative_denominator_family_counts": {
+          "far_3_plus": 0,
+          "middle_2_to_3": 0,
+          "near_1_to_2": 1
+        },
+        "prime_modulus": 691,
+        "row_count_A": 58,
+        "scale_modulus": 353,
+        "summary_source": "computed_in_targeted_search",
+        "threshold_p_times_A": 40078,
+        "weakest_label": "00,12"
+      },
+      "minimum_slack": 0.42344857003531877,
+      "prime_modulus": 691,
+      "prime_over_scale": 1.9575070821529745,
+      "scale_modulus": 353,
+      "selection_source": "tightest_prime_blocks",
+      "weakest_label": "00,12"
+    },
+    {
+      "clearance_summary": {
+        "largest_far_negative": null,
+        "largest_middle_negative": null,
+        "largest_near_negative": {
+          "clearance_ratio_q_over_pA": 1.423219026245929,
+          "margin": -81883400956.66908,
+          "reduced_denominator": 52003
+        },
+        "middle_far_negative_count": 0,
+        "middle_far_positive_margin_sum": 201955766780851.94,
+        "middle_far_total_margin_sum": 201955766780851.94,
+        "near_negative_abs": 148423138618.55527,
+        "near_negative_over_middle_far_positive": 0.0007349289450081092,
+        "negative_denominator_family_counts": {
+          "far_3_plus": 0,
+          "middle_2_to_3": 0,
+          "near_1_to_2": 3
+        },
+        "prime_modulus": 599,
+        "row_count_A": 61,
+        "scale_modulus": 379,
+        "summary_source": "evidence\\mobius-moment-square-degree5-source-margin-clearance-family-audit.json",
+        "threshold_p_times_A": 36539,
+        "weakest_label": "00,12"
+      },
+      "minimum_slack": 0.4246854972346972,
+      "prime_modulus": 599,
+      "prime_over_scale": 1.5804749340369393,
+      "scale_modulus": 379,
+      "selection_source": "tightest_prime_blocks",
+      "weakest_label": "00,12"
+    },
+    {
+      "clearance_summary": {
+        "largest_far_negative": null,
+        "largest_middle_negative": null,
+        "largest_near_negative": {
+          "clearance_ratio_q_over_pA": 1.0578452639190166,
+          "margin": -15977717608.325289,
+          "reduced_denominator": 24871
+        },
+        "middle_far_negative_count": 0,
+        "middle_far_positive_margin_sum": 24176172732243.125,
+        "middle_far_total_margin_sum": 24176172732243.125,
+        "near_negative_abs": 18264199594.829636,
+        "near_negative_over_middle_far_positive": 0.0007554628185821635,
+        "negative_denominator_family_counts": {
+          "far_3_plus": 0,
+          "middle_2_to_3": 0,
+          "near_1_to_2": 2
+        },
+        "prime_modulus": 461,
+        "row_count_A": 51,
+        "scale_modulus": 293,
+        "summary_source": "evidence\\mobius-moment-square-degree5-source-margin-clearance-family-audit.json",
+        "threshold_p_times_A": 23511,
+        "weakest_label": "00,12"
+      },
+      "minimum_slack": 0.4257305726250574,
+      "prime_modulus": 461,
+      "prime_over_scale": 1.5733788395904438,
+      "scale_modulus": 293,
+      "selection_source": "global_weakest_row",
+      "weakest_label": "00,12"
+    }
+  ],
+  "selection_rule": "Select unique (M,p,label) rows by increasing dominance slack from each full source-start sweep's global weakest row and top four tightest prime blocks; check the first seven.",
+  "source_commit": "7bfc1b6a62f097399e275a447d242201d5504e93",
+  "source_scope_extension_audit": "evidence\\mobius-moment-square-degree5-clearance-scope-extension-audit.json",
+  "source_start_theorem_proved": false,
+  "status": "AUDIT_targeted_middle_far_adverse_search",
+  "strict_central_goldbach_theorem_proved": false
+}
