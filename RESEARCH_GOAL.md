@@ -19,8 +19,10 @@ machine-facing route shape: Goldbach is the nexus, the bridge acceptance gate
 is the trunk, raw adverse-drag and source-window work are live branches,
 aggregate `L2` is a held branch, proof obligations are twigs, and broad
 all-translation dominance plus finite evidence as acceptance are dead ends.
-It also saves projection views by theorem attempt, result state, evidence
-weight, churn/low-return flags, and thin/frontier flags.
+It is not forced to be a pure tree: it also stores cycle/return signals for
+routes that loop back to a gate or HOLD under unchanged conditions.  The graph
+saves projection views by theorem attempt, result state, evidence weight,
+churn/low-return flags, and thin/frontier flags.
 
 Decision: use the graph as a compact active-route map only.  The owning
 commit, evidence receipts, tests, notes, and cited mathematics remain

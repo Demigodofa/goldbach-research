@@ -130,6 +130,7 @@ class GoldbachSemanticRouteGraphTests(unittest.TestCase):
 
         self.assertEqual(branch["nexus"], "target:goldbach")
         self.assertEqual(branch["trunk"], "gate:current-bridge-acceptance")
+        self.assertIn("not a pure tree", branch["shape_boundary"])
         self.assertEqual(
             {item["id"] for item in branch["live_branches"]},
             {"branch:raw-adverse-drag", "branch:source-window"},
@@ -153,6 +154,18 @@ class GoldbachSemanticRouteGraphTests(unittest.TestCase):
                 "dead-end:finite-evidence-acceptance",
             },
         )
+
+    def test_cycle_or_return_signals_mark_research_loops(self):
+        signals = self.graph["projection_views"]["cycle_or_return_signals"]
+        meanings = " ".join(item["meaning"] for item in signals)
+
+        self.assertEqual(len(signals), 3)
+        self.assertIn("acceptance gate", meanings)
+        self.assertIn("loops back to HOLD", meanings)
+        self.assertIn("Source-window evidence loops", meanings)
+        self.assertIn(
+            "rule:finite-evidence-not-acceptance",
+            signals[0]["cycle"])
 
 
 if __name__ == "__main__":

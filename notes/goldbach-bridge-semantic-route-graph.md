@@ -55,7 +55,9 @@ thin_or_frontier_flags
 The `branch_map` uses Goldbach as the nexus, the bridge gate as the trunk,
 live branches for raw adverse-drag and source-window work, a held branch for
 aggregate `L2`, and dead ends for broad all-translation dominance and finite
-evidence as acceptance.
+evidence as acceptance.  It is deliberately not a pure tree: the graph also
+stores `cycle_or_return_signals` for routes that loop back to a gate or HOLD
+under unchanged conditions.
 
 The first churn flags are normalized aggregate `L2` finite scans and broad
 all-translated active-window dominance.  The first thin/frontier flags are the

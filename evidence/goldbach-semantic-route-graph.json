@@ -299,6 +299,7 @@
         }
       ],
       "nexus": "target:goldbach",
+      "shape_boundary": "This is not a pure tree.  Branches can loop back to gates, holds, or dead-end rules when evidence changes or when a route repeats the same failed acceptance condition.",
       "trunk": "gate:current-bridge-acceptance"
     },
     "by_evidence_weight": [
@@ -390,6 +391,37 @@
         "recommended_action": "do not retry without a changed admissibility definition or source-window implication"
       }
     ],
+    "cycle_or_return_signals": [
+      {
+        "action": "Do not continue this loop for comfort; use finite rows only to falsify or calibrate a named theorem attempt.",
+        "cycle": [
+          "finite q286 adverse-drag calibration",
+          "gate:current-bridge-acceptance",
+          "rule:finite-evidence-not-acceptance",
+          "theorem-target:pointwise-adverse-drag"
+        ],
+        "meaning": "More finite adverse-drag passes return to the same acceptance gate until a universal theorem or finite remainder threshold exists."
+      },
+      {
+        "action": "Treat repeated normalized L2 scans as churn under unchanged conditions.",
+        "cycle": [
+          "normalized aggregate L2 scan",
+          "hold:l2-logical-bridge",
+          "proof-obligation:strict-raw-l2-theorem",
+          "hold:l2-logical-bridge"
+        ],
+        "meaning": "Normalized L2 data loops back to HOLD unless the changed condition is a strict raw pointwise L2 theorem."
+      },
+      {
+        "action": "Either prove/falsify the source-window implication or keep the lane as geometry guidance.",
+        "cycle": [
+          "metric-soft source-window evidence",
+          "open-gap:source-window-implication",
+          "finite-diagnostic:source-admissible-window"
+        ],
+        "meaning": "Source-window evidence loops until an implication theorem is supplied; the finite pattern alone does not reach Goldbach."
+      }
+    ],
     "thin_or_frontier_flags": [
       {
         "area": "source-window implication theorem",
@@ -406,6 +438,6 @@
   "question": "Can the active Goldbach route be represented as a semantic dependency graph while keeping human-facing notes linear?",
   "schema_version": 1,
   "semantic_graph_authoritative": false,
-  "source_commit": "f68523870575a46d68f867dd6ae53e04e03d5437",
+  "source_commit": "26b2a276e94c5a97f9235939d560465d10b76cea",
   "status": "GRAPH_current_goldbach_semantic_route"
 }

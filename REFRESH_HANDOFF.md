@@ -26,7 +26,8 @@ live branches:          raw adverse-drag, source-window
 held branch:            aggregate L2
 dead ends:              broad all-translation dominance,
                          finite evidence as acceptance
-projection views:       branch_map, by_theorem_attempt, by_result_state,
+projection views:       branch_map, cycle_or_return_signals,
+                         by_theorem_attempt, by_result_state,
                          by_evidence_weight, churn_or_low_return_flags,
                          thin_or_frontier_flags
 ```
@@ -34,7 +35,7 @@ projection views:       branch_map, by_theorem_attempt, by_result_state,
 Decision: the graph is a machine-facing navigation/dependency artifact, not
 mathematical authority.  It preserves the linear handoff for humans while
 making theorem attempts, proof obligations, falsifiers, HOLDs, low-return
-lanes, and thin frontiers explicit for future agents.  No semantic graph
+lanes, loop-backs, and thin frontiers explicit for future agents.  No semantic graph
 theorem, aggregate `L2` theorem, source-window theorem, raw adverse-drag
 theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach
 proof is established.

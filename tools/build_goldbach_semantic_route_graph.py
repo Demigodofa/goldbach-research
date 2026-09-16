@@ -295,6 +295,11 @@ def build_receipt():
             "branch_map": {
                 "nexus": "target:goldbach",
                 "trunk": "gate:current-bridge-acceptance",
+                "shape_boundary": (
+                    "This is not a pure tree.  Branches can loop back to "
+                    "gates, holds, or dead-end rules when evidence changes "
+                    "or when a route repeats the same failed acceptance "
+                    "condition."),
                 "live_branches": [
                     {
                         "id": "branch:raw-adverse-drag",
@@ -351,6 +356,53 @@ def build_receipt():
                     },
                 ],
             },
+            "cycle_or_return_signals": [
+                {
+                    "cycle": [
+                        "finite q286 adverse-drag calibration",
+                        "gate:current-bridge-acceptance",
+                        "rule:finite-evidence-not-acceptance",
+                        "theorem-target:pointwise-adverse-drag",
+                    ],
+                    "meaning": (
+                        "More finite adverse-drag passes return to the same "
+                        "acceptance gate until a universal theorem or finite "
+                        "remainder threshold exists."),
+                    "action": (
+                        "Do not continue this loop for comfort; use finite "
+                        "rows only to falsify or calibrate a named theorem "
+                        "attempt."),
+                },
+                {
+                    "cycle": [
+                        "normalized aggregate L2 scan",
+                        "hold:l2-logical-bridge",
+                        "proof-obligation:strict-raw-l2-theorem",
+                        "hold:l2-logical-bridge",
+                    ],
+                    "meaning": (
+                        "Normalized L2 data loops back to HOLD unless the "
+                        "changed condition is a strict raw pointwise L2 "
+                        "theorem."),
+                    "action": (
+                        "Treat repeated normalized L2 scans as churn under "
+                        "unchanged conditions."),
+                },
+                {
+                    "cycle": [
+                        "metric-soft source-window evidence",
+                        "open-gap:source-window-implication",
+                        "finite-diagnostic:source-admissible-window",
+                    ],
+                    "meaning": (
+                        "Source-window evidence loops until an implication "
+                        "theorem is supplied; the finite pattern alone does "
+                        "not reach Goldbach."),
+                    "action": (
+                        "Either prove/falsify the source-window implication "
+                        "or keep the lane as geometry guidance."),
+                },
+            ],
             "by_theorem_attempt": [
                 {
                     "name": "raw adverse-drag bridge",
