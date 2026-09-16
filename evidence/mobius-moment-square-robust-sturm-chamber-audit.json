@@ -1,0 +1,316 @@
+{
+  "all_provenance_variation_certificates_pass": true,
+  "all_source_and_provenance_sign_words_match": true,
+  "all_source_and_provenance_variations_match": true,
+  "all_source_variation_certificates_pass": true,
+  "coefficient_family_theorem_proved": false,
+  "coefficient_provenance_audit": "evidence\\mobius-moment-square-coefficient-provenance-audit.json",
+  "decision": "At margin 21/50, source and serialized provenance coefficients agree on the Sturm sign words for every checked scale.  The sign words are not globally identical across scales, but each checked scale has four sign variations at -infinity and four at +infinity, hence zero real roots.  The theorem target should be variation-count preservation, not one fixed sign word.",
+  "distinct_checked_sign_word_pair_count": 4,
+  "distinct_checked_sign_word_pairs": [
+    [
+      "+++--+--+",
+      "+-++---++"
+    ],
+    [
+      "++--++--+",
+      "+--++--++"
+    ],
+    [
+      "++--+---+",
+      "+--+++-++"
+    ],
+    [
+      "++---+--+",
+      "+--+---++"
+    ]
+  ],
+  "finite_diagnostic_only": true,
+  "finite_sturm_chamber_diagnostic_only": true,
+  "goldbach_proved": false,
+  "mobius_covariance_theorem_proved": false,
+  "moment_square_half_frame_curve_positivity_theorem_proved": false,
+  "q286_reactivated": false,
+  "question": "At the robust 21/50 margin, do the source curve and serialized coefficient-provenance polynomials share a stable Sturm variation-count certificate?",
+  "robust_margin": 0.42,
+  "robust_margin_rational": "21/50",
+  "robust_margin_universal_theorem_proved": false,
+  "robust_sturm_variation_chamber_theorem_proved": false,
+  "scale_results": [
+    {
+      "provenance_serialized_signature": {
+        "minus_infinity_sign_word": "+-++---++",
+        "minus_infinity_variations": 4,
+        "plus_infinity_sign_word": "+++--+--+",
+        "plus_infinity_variations": 4,
+        "real_root_count_from_variations": 0,
+        "sturm_degrees": [
+          8,
+          7,
+          6,
+          5,
+          4,
+          3,
+          2,
+          1,
+          0
+        ],
+        "sturm_sequence_length": 9
+      },
+      "provenance_variation_certificate_passes": true,
+      "scale_modulus": 127,
+      "source_and_provenance_sign_words_match": true,
+      "source_and_provenance_variations_match": true,
+      "source_signature": {
+        "minus_infinity_sign_word": "+-++---++",
+        "minus_infinity_variations": 4,
+        "plus_infinity_sign_word": "+++--+--+",
+        "plus_infinity_variations": 4,
+        "real_root_count_from_variations": 0,
+        "sturm_degrees": [
+          8,
+          7,
+          6,
+          5,
+          4,
+          3,
+          2,
+          1,
+          0
+        ],
+        "sturm_sequence_length": 9
+      },
+      "source_variation_certificate_passes": true
+    },
+    {
+      "provenance_serialized_signature": {
+        "minus_infinity_sign_word": "+--+++-++",
+        "minus_infinity_variations": 4,
+        "plus_infinity_sign_word": "++--+---+",
+        "plus_infinity_variations": 4,
+        "real_root_count_from_variations": 0,
+        "sturm_degrees": [
+          8,
+          7,
+          6,
+          5,
+          4,
+          3,
+          2,
+          1,
+          0
+        ],
+        "sturm_sequence_length": 9
+      },
+      "provenance_variation_certificate_passes": true,
+      "scale_modulus": 149,
+      "source_and_provenance_sign_words_match": true,
+      "source_and_provenance_variations_match": true,
+      "source_signature": {
+        "minus_infinity_sign_word": "+--+++-++",
+        "minus_infinity_variations": 4,
+        "plus_infinity_sign_word": "++--+---+",
+        "plus_infinity_variations": 4,
+        "real_root_count_from_variations": 0,
+        "sturm_degrees": [
+          8,
+          7,
+          6,
+          5,
+          4,
+          3,
+          2,
+          1,
+          0
+        ],
+        "sturm_sequence_length": 9
+      },
+      "source_variation_certificate_passes": true
+    },
+    {
+      "provenance_serialized_signature": {
+        "minus_infinity_sign_word": "+--++--++",
+        "minus_infinity_variations": 4,
+        "plus_infinity_sign_word": "++--++--+",
+        "plus_infinity_variations": 4,
+        "real_root_count_from_variations": 0,
+        "sturm_degrees": [
+          8,
+          7,
+          6,
+          5,
+          4,
+          3,
+          2,
+          1,
+          0
+        ],
+        "sturm_sequence_length": 9
+      },
+      "provenance_variation_certificate_passes": true,
+      "scale_modulus": 167,
+      "source_and_provenance_sign_words_match": true,
+      "source_and_provenance_variations_match": true,
+      "source_signature": {
+        "minus_infinity_sign_word": "+--++--++",
+        "minus_infinity_variations": 4,
+        "plus_infinity_sign_word": "++--++--+",
+        "plus_infinity_variations": 4,
+        "real_root_count_from_variations": 0,
+        "sturm_degrees": [
+          8,
+          7,
+          6,
+          5,
+          4,
+          3,
+          2,
+          1,
+          0
+        ],
+        "sturm_sequence_length": 9
+      },
+      "source_variation_certificate_passes": true
+    },
+    {
+      "provenance_serialized_signature": {
+        "minus_infinity_sign_word": "+--+---++",
+        "minus_infinity_variations": 4,
+        "plus_infinity_sign_word": "++---+--+",
+        "plus_infinity_variations": 4,
+        "real_root_count_from_variations": 0,
+        "sturm_degrees": [
+          8,
+          7,
+          6,
+          5,
+          4,
+          3,
+          2,
+          1,
+          0
+        ],
+        "sturm_sequence_length": 9
+      },
+      "provenance_variation_certificate_passes": true,
+      "scale_modulus": 191,
+      "source_and_provenance_sign_words_match": true,
+      "source_and_provenance_variations_match": true,
+      "source_signature": {
+        "minus_infinity_sign_word": "+--+---++",
+        "minus_infinity_variations": 4,
+        "plus_infinity_sign_word": "++---+--+",
+        "plus_infinity_variations": 4,
+        "real_root_count_from_variations": 0,
+        "sturm_degrees": [
+          8,
+          7,
+          6,
+          5,
+          4,
+          3,
+          2,
+          1,
+          0
+        ],
+        "sturm_sequence_length": 9
+      },
+      "source_variation_certificate_passes": true
+    },
+    {
+      "provenance_serialized_signature": {
+        "minus_infinity_sign_word": "+--+---++",
+        "minus_infinity_variations": 4,
+        "plus_infinity_sign_word": "++---+--+",
+        "plus_infinity_variations": 4,
+        "real_root_count_from_variations": 0,
+        "sturm_degrees": [
+          8,
+          7,
+          6,
+          5,
+          4,
+          3,
+          2,
+          1,
+          0
+        ],
+        "sturm_sequence_length": 9
+      },
+      "provenance_variation_certificate_passes": true,
+      "scale_modulus": 211,
+      "source_and_provenance_sign_words_match": true,
+      "source_and_provenance_variations_match": true,
+      "source_signature": {
+        "minus_infinity_sign_word": "+--+---++",
+        "minus_infinity_variations": 4,
+        "plus_infinity_sign_word": "++---+--+",
+        "plus_infinity_variations": 4,
+        "real_root_count_from_variations": 0,
+        "sturm_degrees": [
+          8,
+          7,
+          6,
+          5,
+          4,
+          3,
+          2,
+          1,
+          0
+        ],
+        "sturm_sequence_length": 9
+      },
+      "source_variation_certificate_passes": true
+    },
+    {
+      "provenance_serialized_signature": {
+        "minus_infinity_sign_word": "+--+---++",
+        "minus_infinity_variations": 4,
+        "plus_infinity_sign_word": "++---+--+",
+        "plus_infinity_variations": 4,
+        "real_root_count_from_variations": 0,
+        "sturm_degrees": [
+          8,
+          7,
+          6,
+          5,
+          4,
+          3,
+          2,
+          1,
+          0
+        ],
+        "sturm_sequence_length": 9
+      },
+      "provenance_variation_certificate_passes": true,
+      "scale_modulus": 227,
+      "source_and_provenance_sign_words_match": true,
+      "source_and_provenance_variations_match": true,
+      "source_signature": {
+        "minus_infinity_sign_word": "+--+---++",
+        "minus_infinity_variations": 4,
+        "plus_infinity_sign_word": "++---+--+",
+        "plus_infinity_variations": 4,
+        "real_root_count_from_variations": 0,
+        "sturm_degrees": [
+          8,
+          7,
+          6,
+          5,
+          4,
+          3,
+          2,
+          1,
+          0
+        ],
+        "sturm_sequence_length": 9
+      },
+      "source_variation_certificate_passes": true
+    }
+  ],
+  "signed_prime_correlation_proved": false,
+  "source_curve_audit": "evidence\\mobius-moment-square-half-frame-curve-audit.json",
+  "status": "TARGET_robust_sturm_variation_chamber",
+  "uniform_active_full_lower_frame_proved": false,
+  "universal_sturm_certificate_theorem_proved": false
+}

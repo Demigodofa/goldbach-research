@@ -6,6 +6,36 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The metric-soft moment-square route now has a robust Sturm-chamber audit:
+`tools/build_mobius_moment_square_robust_sturm_chamber_audit.py` generated
+`evidence/mobius-moment-square-robust-sturm-chamber-audit.json`, with
+explanation in
+`notes/mobius-moment-square-robust-sturm-chamber-audit.md`.
+
+Question: at the robust `21/50` margin, do the source curve and serialized
+coefficient-provenance polynomials share a stable Sturm variation-count
+certificate?
+
+Answer: yes on the checked scales.  The source and provenance sign words
+match scale-by-scale, and both serializations pass the Sturm variation
+certificate.  The sign words are not globally fixed; there are `4` distinct
+checked sign-word pairs.  But every checked scale has
+`V(-infinity)=4` and `V(+infinity)=4`, hence zero real roots by Sturm
+variation counting.
+
+Decision: `TARGET_robust_sturm_variation_chamber`.  The robust theorem target
+is variation-count preservation, not one fixed Sturm sign word: derive exact
+coefficient formulas and prove that, at margin `21/50`, the Sturm sequence
+keeps equal variation counts at `-infinity` and `+infinity`, or find a scale
+where this chamber target fails.  This is finite Sturm-chamber diagnostic
+evidence only.  No robust Sturm variation-chamber theorem, robust-margin
+universal theorem, coefficient-family theorem, universal Sturm-certificate
+theorem, half-frame curve-positivity theorem, uniform active/full lower-frame
+theorem, Mobius covariance theorem, signed prime-correlation estimate, q286
+theorem, strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-16
+
 The metric-soft moment-square route now has a Sturm-margin sensitivity audit:
 `tools/build_mobius_moment_square_sturm_margin_sensitivity_audit.py`
 generated

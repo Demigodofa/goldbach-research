@@ -6,6 +6,40 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The metric-soft moment-square route now has a robust Sturm-chamber audit:
+
+```text
+tools/build_mobius_moment_square_robust_sturm_chamber_audit.py
+notes/mobius-moment-square-robust-sturm-chamber-audit.md
+evidence/mobius-moment-square-robust-sturm-chamber-audit.json
+```
+
+Result:
+
+```text
+status: TARGET_robust_sturm_variation_chamber
+robust margin:                          21/50
+source/provenance sign words match:     true
+source variation certificates pass:     true
+provenance variation certificates pass: true
+distinct checked sign-word pairs:       4
+```
+
+Decision: the robust theorem target is variation-count preservation, not one
+fixed Sturm sign word.  At margin `21/50`, both source and serialized
+provenance coefficients pass with `V(-infinity)=4` and `V(+infinity)=4` on
+every checked scale, even though the actual sign words occupy four checked
+chambers.  The next theorem target is to derive exact coefficient formulas and
+prove equal Sturm variation counts at the two infinities, or find a scale
+where this chamber target fails.  This is finite Sturm-chamber diagnostic
+evidence only; no robust Sturm variation-chamber theorem, robust-margin
+universal theorem, coefficient-family theorem, universal Sturm-certificate
+theorem, half-frame curve-positivity theorem, uniform active/full lower frame,
+Mobius covariance theorem, signed prime-correlation estimate, q286 theorem,
+strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-16
+
 The metric-soft moment-square route now has a Sturm-margin sensitivity audit:
 
 ```text
