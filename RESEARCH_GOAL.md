@@ -6,6 +6,43 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS route now has an adverse-drag versus direct-witness route audit:
+`tools/build_q286_wbss_adverse_drag_vs_direct_witness_route_audit.py`
+generated
+`evidence/q286-wbss-adverse-drag-vs-direct-witness-route-audit.json`, with
+explanation in
+`notes/q286-wbss-adverse-drag-vs-direct-witness-route-audit.md`.
+
+Question: does the unnormalized pointwise target
+`adverse_drag(N)<local_main(N)` earn its keep as a theorem target, or is it
+too strong compared with proving the direct signed witness `B_Phi(N)>0`?
+
+Answer: it is a valid stricter sufficient route, but not a theorem and not an
+equivalent restatement of the direct witness.  On the current `348`-row
+calibration set, every row remains positive after discarding helpful projected
+terms:
+
+```text
+direct witness positive rows:                 348 / 348
+adverse-only witness positive rows:            348 / 348
+rows needing positive help for positivity:       0 / 348
+adverse-only fraction of direct witness:
+  0.7368071926156354 .. 1.0000000000000004
+positive-help fraction of direct witness:
+  -3.642342207889426e-16 .. 0.2631928073843646
+largest route-cost target: 1098236
+```
+
+Decision: `HOLD_adverse_drag_is_valid_stricter_route_not_theorem`.  The
+adverse-drag route stays worth leading if it can be tied to source-backed
+one-sided binary-prime projection control.  If only signed cancellation is
+available, the cleaner target is direct `B_Phi(N)>0`.  This proves no
+pointwise adverse-drag theorem, direct signed-witness theorem,
+fixed-modulus binary-prime correlation theorem, q286 threshold theorem,
+strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 active-selector route now has an explicit `L2` bridge-status audit:
 `tools/build_q286_active_selector_l2_bridge_status_audit.py` generated
 `evidence/q286-active-selector-l2-bridge-status-audit.json`, with explanation

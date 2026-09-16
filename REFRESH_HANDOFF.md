@@ -6,6 +6,41 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS route now has an adverse-drag versus direct-witness route audit:
+
+```text
+tools/build_q286_wbss_adverse_drag_vs_direct_witness_route_audit.py
+notes/q286-wbss-adverse-drag-vs-direct-witness-route-audit.md
+evidence/q286-wbss-adverse-drag-vs-direct-witness-route-audit.json
+```
+
+Result:
+
+```text
+direct witness positive rows:                 348 / 348
+adverse-only witness positive rows:            348 / 348
+rows needing positive help for positivity:       0 / 348
+adverse-only fraction of direct witness:
+  0.7368071926156354 .. 1.0000000000000004
+positive-help fraction of direct witness:
+  -3.642342207889426e-16 .. 0.2631928073843646
+largest route-cost target: 1098236
+```
+
+Decision:
+`HOLD_adverse_drag_is_valid_stricter_route_not_theorem`.  The unnormalized
+pointwise target `adverse_drag(N)<local_main(N)` is a valid sufficient route,
+and it does not look wildly over-tight on the checked calibration rows.  It is
+still stricter than direct `B_Phi(N)>0`, because helpful projected terms can
+contribute up to about `26.32%` of the direct witness in this fixture.  Lead
+with adverse-drag only if it can be connected to source-backed one-sided
+binary-prime projection control; otherwise the direct signed witness is the
+cleaner theorem object.  This proves no pointwise adverse-drag theorem,
+direct signed-witness theorem, fixed-modulus binary-prime correlation theorem,
+q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 active-selector route now has an explicit `L2` bridge-status audit:
 
 ```text
