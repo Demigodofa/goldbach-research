@@ -6,6 +6,52 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 residual support-order route now has a single raw-bound target
+classifier:
+
+```text
+tools/build_q286_residual_support_order_single_raw_bound_target.py
+notes/q286-residual-support-order-single-raw-bound-target.md
+evidence/q286-residual-support-order-single-raw-bound-target.json
+```
+
+Result:
+
+```text
+horizon rows:                         224
+raw-margin positive rows:             224
+raw domination failures:                0
+positive pair-count rows:             224
+positive total-weight rows:           224
+tight raw-margin target:            44168
+tight raw margin:       471324043.51697165
+minimum pair count target:          24148
+minimum ordered central pair count:   106
+minimum strict-central total weight:
+                         9320.216763448925
+```
+
+Decision: `TARGET_single_raw_lower_bound_subsumes_positive_mass`.  A theorem
+proving
+
+```text
+R_raw(N)=B_low_raw(N)-max(0,-T_high_raw(N)) > 0
+```
+
+pointwise for every sufficiently large eligible `N` would force a positive
+raw support-order witness.  If strict-central support were empty, all raw
+prime-pair sums in the witness would vanish and `R_raw(N)=0`, so strict raw
+positivity also forces at least one strict-central prime pair.  This means a
+single raw lower-bound theorem can subsume the separate positive-mass
+obligation.
+
+This is the clean theorem target, but it is still Goldbach-strength work.  The
+raw lower-bound theorem is not proved by the finite horizon, and no
+positive-mass theorem, raw pointwise estimate, q286 threshold theorem,
+strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 residual support-order route now has a positive-mass obligation
 classifier:
 

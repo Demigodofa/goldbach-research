@@ -6,6 +6,57 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 residual support-order route now has a single raw-bound target
+classifier:
+`tools/build_q286_residual_support_order_single_raw_bound_target.py`
+generated
+`evidence/q286-residual-support-order-single-raw-bound-target.json`, with
+explanation in
+`notes/q286-residual-support-order-single-raw-bound-target.md`.
+
+Question: can one universal, pointwise, unnormalized analytical estimate
+absorb the positive-mass obligation?
+
+Answer: yes logically, but only at Goldbach-strength.  Define
+
+```text
+D_high_minus_raw(N) = max(0, -T_high_raw(N))
+R_raw(N) = B_low_raw(N) - D_high_minus_raw(N).
+```
+
+If a theorem proves `R_raw(N)>0` for every sufficiently large eligible `N` in
+the named period classes, then the full raw support-order witness is positive.
+If strict-central support were empty, all raw prime-pair sums in this witness
+would vanish and `R_raw(N)=0`, contradicting the strict bound.  Thus such a
+theorem would force at least one strict-central prime pair.
+
+Finite calibration:
+
+```text
+horizon rows:                         224
+raw-margin positive rows:             224
+raw domination failures:                0
+positive pair-count rows:             224
+positive total-weight rows:           224
+tight raw-margin target:            44168
+tight raw margin:       471324043.51697165
+minimum pair count target:          24148
+minimum ordered central pair count:   106
+minimum strict-central total weight:
+                         9320.216763448925
+```
+
+Decision: `TARGET_single_raw_lower_bound_subsumes_positive_mass`.  The clean
+next route is a universal, pointwise, unnormalized lower-bound theorem
+`R_raw(N)>0`, with finite remainder handled separately.  A separate
+positive-mass lemma can sleep if that raw theorem is proved.  But the raw
+theorem itself is still Goldbach-strength work, not finite evidence and not a
+denominator shortcut.  This proves no single raw lower-bound theorem,
+positive-mass theorem, raw pointwise estimate, q286 threshold theorem,
+strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 residual support-order route now has a positive-mass obligation
 classifier:
 `tools/build_q286_residual_support_order_positive_mass_obligation.py`

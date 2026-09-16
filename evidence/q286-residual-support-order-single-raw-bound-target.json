@@ -1,0 +1,70 @@
+{
+  "decision": "A single strict raw lower-bound theorem would subsume the positive-mass obligation: zero strict-central support makes all raw witness terms vanish, so R_raw(N)>0 forces at least one strict-central prime pair.  This is the cleaner route because it avoids dividing by an unproved denominator, but it is still Goldbach-strength theorem work, not a finite-evidence acceptance condition and not a solved shortcut.",
+  "finite_calibration": {
+    "finite_evidence_is_acceptance_condition": false,
+    "positive_pair_count_rows": 224,
+    "positive_total_weight_rows": 224,
+    "principal_mean_imag_to_real": 7.23271826100478e-15,
+    "principal_mean_real": 44002.512499999146,
+    "raw_domination_failure_targets": [],
+    "raw_margin_positive_rows": 224,
+    "row_count": 224,
+    "smallest_pair_count_row": {
+      "ordered_central_prime_pair_count": 106,
+      "strict_central_total_weight": 9320.216763448925,
+      "target": 24148
+    },
+    "tight_raw_margin_row": {
+      "ordered_central_prime_pair_count": 196,
+      "raw_adverse_drag": 43380500.493129835,
+      "raw_high_order_tail": -43380500.493129835,
+      "raw_low_order_base": 514704544.0101015,
+      "raw_pointwise_margin": 471324043.51697165,
+      "strict_central_total_weight": 19519.254019047192,
+      "target": 44168
+    },
+    "zero_or_negative_weight_targets": [],
+    "zero_pair_count_targets": []
+  },
+  "goldbach_proved": false,
+  "one_period_threshold_theorem_proved": false,
+  "positive_mass_theorem_proved": false,
+  "q286_threshold_theorem_proved": false,
+  "raw_pointwise_estimate_proved": false,
+  "route_decision": {
+    "not_a_denominator_shortcut": true,
+    "recommended_next": "Seek a universal pointwise unnormalized analytical estimate for R_raw(N)>0 directly.  Keep a separate positive-mass lemma only if using normalized inequalities or an external strict-central existence theorem.",
+    "route_is_still_goldbach_strength": true,
+    "separate_positive_mass_can_sleep_if_raw_bound_proved": true,
+    "single_raw_bound_subsumes_positive_mass": true
+  },
+  "schema_version": 1,
+  "single_raw_lower_bound_theorem_proved": false,
+  "source_commit": "79e5d31b6141340a9dee51a41bf7f6e55d860ba4",
+  "sources": {
+    "positive_mass_obligation": "evidence\\q286-residual-support-order-positive-mass-obligation.json",
+    "raw_scale_bridge": "evidence\\q286-residual-support-order-raw-scale-bridge.json"
+  },
+  "status": "TARGET_single_raw_lower_bound_subsumes_positive_mass",
+  "status_boundary": "logical theorem-target audit only; no single raw lower-bound theorem, positive-mass theorem, raw pointwise estimate, one-period threshold theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof",
+  "strict_central_goldbach_theorem_proved": false,
+  "theorem_target": {
+    "eligible_domain": "every sufficiently large eligible N in the named q286 support-order period classes, with any finite initial range verified separately",
+    "quantifier_boundary": "This implication is only as broad as the theorem's eligible period classes plus its finite remainder verification.",
+    "raw_adverse_drag": "D_high_minus_raw(N)=max(0,-T_high_raw(N))",
+    "raw_high_order_tail": "T_high_raw(N)",
+    "raw_low_order_base": "B_low_raw(N)",
+    "raw_margin": "R_raw(N)=B_low_raw(N)-D_high_minus_raw(N)",
+    "strict_central_existence_implication": "Therefore a proved strict raw lower bound implies nonempty strict-central support, hence at least one prime pair N=p+(N-p) with N/3<p<2N/3 for that N.",
+    "support_order_witness": "B_low_raw(N)+T_high_raw(N) is the raw support-order witness assembled from strict-central prime-pair weights.",
+    "target_statement": "Prove R_raw(N)>0 pointwise for every sufficiently large eligible N in the named period classes.",
+    "why_strict_raw_bound_implies_full_witness_positive": "If T_high_raw(N)<0, then D_high_minus_raw(N)=-T_high_raw(N), so R_raw(N)>0 gives B_low_raw(N)+T_high_raw(N)>0.  If T_high_raw(N)>=0, then D_high_minus_raw(N)=0, so R_raw(N)>0 gives B_low_raw(N)>0 and the full witness is positive after adding the nonnegative tail.",
+    "zero_mass_obstruction": "If the strict-central prime-pair support is empty, every raw prime-pair sum used by this witness is zero.  Then B_low_raw(N)=T_high_raw(N)=D_high_minus_raw(N)=R_raw(N)=0, contradicting a strict raw lower bound."
+  },
+  "unproved_obligations": [
+    "a universal pointwise unnormalized estimate R_raw(N)>0",
+    "the finite initial-range closure outside the asymptotic theorem",
+    "coverage of all even N if the named period classes do not already cover the desired range",
+    "independent mathematical review before any proof promotion"
+  ]
+}
