@@ -6,6 +6,45 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The q286-WBSS route now has a character-expanded target for the dominant
+`286` bucket:
+`tools/build_q286_wbss_k286_character_expansion_target.py` generated
+`evidence/q286-wbss-k286-character-expansion-target.json`, with explanation in
+`notes/q286-wbss-k286-character-expansion-target.md`.
+
+Question: what exact universal, pointwise, unnormalized analytic estimate would
+pay the dominant `286` bucket in the centered-support ledger?
+
+Answer: prove, for every sufficiently large covered even `N`,
+
+```text
+K_286(N) >= -0.1759037368828583*P0_a(N),
+where a = N mod 10010.
+```
+
+The bucket is the `11x13` support component.  It descends to natural modulus
+`286`, has `99` nonprincipal characters, carries energy fraction
+`0.70082890257693`, and has no standalone positive principal term.  In
+symbols, the proof-scale target is
+
+```text
+K_286(N)
+  = sum_{chi in X_286(11x13)} c_{a,chi}^{286}
+    (C_chi(N) - U_{a,chi}^{286}*P0_a(N)).
+```
+
+Decision: `TARGET_k286_character_expansion_bridge_unproved`.  This is the
+sharpest active nonfinite target for the dominant bucket.  It does not confirm
+L2 as a logical bridge: L2 remains only a possible raw theorem shape if proved
+pointwise before importing `T_N>0`.  If a route first proves or assumes
+`T_N>0` and then studies normalized residue distribution, the route collapses
+to strict-central Goldbach-strength input plus q286 decoration.  This proves no
+`K_286` lower bound, major/minor arc estimate, pointwise centered-error
+estimate, signed prime-correlation theorem, q286 threshold theorem,
+strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The q286-WBSS route now has a centered-support source-fit audit:
 `tools/build_q286_wbss_centered_support_source_fit_audit.py` generated
 `evidence/q286-wbss-centered-support-source-fit-audit.json`, with explanation

@@ -6,6 +6,56 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The q286-WBSS route now has a character-expanded target for the dominant
+`286` bucket:
+
+```text
+tools/build_q286_wbss_k286_character_expansion_target.py
+notes/q286-wbss-k286-character-expansion-target.md
+evidence/q286-wbss-k286-character-expansion-target.json
+```
+
+Question: what exact universal, pointwise, unnormalized analytic estimate would
+pay the dominant `286` bucket in the centered-support ledger?
+
+Target:
+
+```text
+For every sufficiently large covered even N,
+K_286(N) >= -0.1759037368828583*P0_a(N),
+where a = N mod 10010.
+```
+
+Pinned package:
+
+```text
+support label:                         11x13
+natural modulus:                         286
+character count:                          99
+unit residue count:                       120
+energy fraction:            0.70082890257693
+allocated beta:            0.1759037368828583
+```
+
+The proof-scale expansion is
+
+```text
+K_286(N)
+  = sum_{chi in X_286(11x13)} c_{a,chi}^{286}
+    (C_chi(N) - U_{a,chi}^{286}*P0_a(N)).
+```
+
+Decision: `TARGET_k286_character_expansion_bridge_unproved`.  No standalone
+positive principal term lives in `K_286`; the local/principal main is outside
+this bucket.  L2 is not confirmed as a logical bridge, and normalized
+distribution work after first importing `T_N>0` collapses to strict-central
+Goldbach-strength input plus q286 decoration.  No `K_286` lower bound,
+major/minor arc estimate, pointwise centered-error estimate, signed
+prime-correlation theorem, q286 threshold theorem, strict-central Goldbach
+theorem, or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-16
+
 The q286-WBSS route now has a centered-support source-fit audit:
 
 ```text

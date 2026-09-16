@@ -1,0 +1,100 @@
+{
+  "L2_logical_bridge_confirmed": false,
+  "answer": "The dominant_286 bucket is the support-11x13 part of the fixed centered coefficient.  It descends to natural modulus 286 and is spanned by 99 nonprincipal characters whose 11 and 13 components are both nontrivial.  A proof must show a raw pointwise lower bound K_286(N) >= -beta_286*P0_a(N) for every sufficiently large covered even N, before normalizing by actual strict-central mass T_N.",
+  "candidate": {
+    "falsifier": "A theorem obstruction or computed counterfamily showing K_286(N)<-0.1759037368828583*P0_a(N) infinitely often would falsify this sufficient bucket target.",
+    "mechanism": "Turn the largest centered support into 99 fixed-modulus twisted binary-prime sums at natural modulus 286, making the analytic burden exact enough to accept, reject, or sharpen.",
+    "name": "dominant_286 character-expanded raw bucket target",
+    "novelty_label": "new-to-this-task",
+    "prediction": "If the q286 route is real, the combined 11x13 character package should admit a pointwise one-sided lower bound below 0.1759037368828583 of the ordinary principal scale.",
+    "smallest_next_test": "Compute or symbolically package the 99 coefficients c_{a,chi}^{286} and ask whether known fixed-modulus twisted Goldbach estimates can control their weighted sum pointwise."
+  },
+  "character_set": {
+    "count_formula": "(11-2)*(13-2)=99.",
+    "notation": "X_286(11x13)={chi modulo 286: chi is trivial on the factor 2, nontrivial on 11, and nontrivial on 13}.",
+    "principal_character_included": false,
+    "why_nonprincipal": "The 11x13 support label excludes the all-zero character label.  The principal term belongs to the ordinary local main, not to K_286."
+  },
+  "decision": "TARGET_k286_character_expansion_bridge_unproved.  The dominant_286 theorem target is now explicit: prove the 99-character modulus-286 raw lower bound K_286(N) >= -0.1759037368828583*P0_a(N) for every sufficiently large covered even N.  This is a nonfinite, pointwise, unnormalized analytic obligation; the present artifact proves no such estimate and does not confirm L2 as a logical bridge.",
+  "finite_coefficient_package": {
+    "coefficient_origin": "finite projection of the fixed centered q286-WBSS coefficient onto X_286(11x13), inherited from the centered character burden audit",
+    "coefficient_reconstruction": "The finite component descends to residues modulo 286 with relative descent error 8.520857820502405e-17.",
+    "coefficient_symbol": "c_{a,chi}^{286}",
+    "local_contribution_to_principal_ratio_summary": {
+      "count": 5005,
+      "maximum": 0.32238123219333403,
+      "mean": 1.2234551116935078e-16,
+      "minimum": -0.06866808148863456
+    },
+    "removing_component_minimum_full_local_ratio": 0.655269606980883,
+    "support_component": "Phi_{286,a}(r)=sum_{chi in X_286(11x13)} c_{a,chi}^{286} chi(r), for r in U_286."
+  },
+  "goldbach_proved": false,
+  "k286_pointwise_lower_bound_proved": false,
+  "major_minor_arc_estimate_proved": false,
+  "pointwise_centered_error_estimate_proved": false,
+  "principal_and_nonprincipal_terms": {
+    "P0_scale_warning": "Using P0_a(N) rather than actual C_0(N) is a proof-scale target.  A circle-method proof must create P0_a(N) and control the C_0(N)-P0_a(N) mismatch inside the same raw argument; it is not allowed to divide by or assume T_N>0 first.",
+    "centered_bucket_principal_term_found": false,
+    "nonprincipal_terms_to_control": 99,
+    "principal_term_status": "No standalone positive principal term lives in K_286.  The positive principal/local main is outside this bucket; K_286 is an adverse or helpful nonprincipal correction against that main."
+  },
+  "q286_threshold_theorem_proved": false,
+  "question": "What exact character-expanded theorem target would pay the dominant_286 centered-support bucket obligation?",
+  "raw_moments": {
+    "actual_centered_moment": "D_chi^T(N)=C_chi(N)-U_{a,chi}^{286}*C_0(N).",
+    "bucket_sum": "K_286(N)=sum_{chi in X_286(11x13)} c_{a,chi}^{286} D_chi^P(N).",
+    "local_uniform_character_mean": "U_{a,chi}^{286}=|A_a|^{-1} sum_{r in A_a} chi(r mod 286), where a=N mod 10010 and A_a is the strict-central admissible unit support projected to 286.",
+    "prime_log_weight": "P(n)=log(n) if n is prime, and P(n)=0 otherwise.",
+    "proof_scale_moment": "D_chi^P(N)=C_chi(N)-U_{a,chi}^{286}*P0_a(N).",
+    "strict_central_interval": "I_N={n integer: N/3<n<2N/3}.",
+    "twisted_pair_mass": "C_chi(N)=sum_{p in I_N, N-p prime} log(p)log(N-p)chi(p mod 286).",
+    "untwisted_mass": "C_0(N)=sum_{p in I_N, N-p prime} log(p)log(N-p)."
+  },
+  "receipt": "q286-wbss-k286-character-expansion-target",
+  "schema_version": 1,
+  "signed_prime_correlation_estimate_proved": false,
+  "source_commit": "894eedae303f497dc0b7c8e6b58cdec51563f63f",
+  "sources": {
+    "centered_character_burden_audit": "evidence\\q286-centered-character-burden-audit.json",
+    "centered_support_inequality_ledger": "evidence\\q286-wbss-centered-support-inequality-ledger.json",
+    "centered_support_inequality_ledger_status": "TARGET_centered_support_inequality_ledger_open",
+    "centered_support_source_fit_audit": "evidence\\q286-wbss-centered-support-source-fit-audit.json",
+    "centered_support_source_fit_status": "SOURCE_FIT_no_existing_centered_bucket_bridge",
+    "raw_character_circle_decomposition": "evidence\\q286-wbss-raw-character-circle-decomposition.json",
+    "raw_character_circle_decomposition_status": "TARGET_raw_character_circle_method_decomposition_bridge_unproved"
+  },
+  "status": "TARGET_k286_character_expansion_bridge_unproved",
+  "status_boundary": "Theorem-target receipt only; not a theorem.  No K_286 lower bound, major/minor arc estimate, pointwise centered-error estimate, signed prime-correlation theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof is established.",
+  "strict_central_goldbach_theorem_proved": false,
+  "target_bucket": {
+    "allocated_negative_budget_ratio": 0.1759037368828583,
+    "bucket": "dominant_286",
+    "character_count": 99,
+    "descends_to_natural_modulus": true,
+    "descent_relative_error": 8.520857820502405e-17,
+    "energy_fraction": 0.70082890257693,
+    "natural_modulus": 286,
+    "required_raw_lower_bound": "K_286(N) >= -0.1759037368828583*P0_a(N)",
+    "support_label": "11x13",
+    "support_primes": [
+      11,
+      13
+    ],
+    "unit_residue_count": 120
+  },
+  "theorem_obligation": {
+    "finite_remainder": "Any analytic theorem must state an explicit N0 and pair with finite verification below N0.",
+    "quantifier": "every sufficiently large covered even N",
+    "required_pointwise_inequality": "K_286(N) >= -0.1759037368828583*P0_a(N)",
+    "sufficient_role_in_ledger": "This pays only the dominant_286 bucket.  The ledger still also needs dominant_154, dominant_70, and tail lower bounds, or a sharper combined inequality.",
+    "target_residue_parameter": "a=N mod 10010"
+  },
+  "universal_pointwise_bound_proved": false,
+  "zero_mass_and_collapse_check": {
+    "L2_status": "The L2 target is not confirmed as a logical bridge.  It is a possible sufficient raw estimate only if proved pointwise before importing T_N>0.",
+    "collapses_if": "A route first proves or assumes T_N>0 and then studies the normalized residue distribution.  That is strict-central Goldbach-strength input plus q286 decoration.",
+    "if_T_N_is_zero": "C_0(N)=0 and every C_chi(N)=0, so the actual centered moments D_chi^T(N) vanish.  The proof-scale target cannot be certified by normalized distribution data at zero mass.",
+    "survives_if": "A raw major/minor arc proof establishes K_286(N) above the allocated negative budget, or a stronger combined adverse-drag inequality, without first assuming T_N>0."
+  }
+}
