@@ -1,0 +1,126 @@
+{
+  "active_character_moment_theorem_proved": false,
+  "answer": "No, not as a standalone proof engine.  The unchanged conjunction is blocked: support-only positivity fails, normalized L2 is not a confirmed raw bridge, local-factor positivity is T_N-dependent, and no named pointwise signed-region source theorem pays the exact target.  Preserve q286 as coefficient structure, finite calibration, visualization substrate, and a raw-witness theorem target, but sleep the proof-engine route until a genuinely raw pointwise estimate is supplied.",
+  "blocked_conjunctions": [
+    {
+      "blocked": true,
+      "evidence": "All 5005 even target residues have negative admissible q286 weights; zero have a pointwise positive floor.",
+      "id": "support_only_single_weight_positive_floor",
+      "reactivate_only_if": "A different signed weight or transformed residue support has an independently verified pointwise positive floor, or the route stops being support-only and supplies a raw signed-distribution theorem.",
+      "status": "FALSIFIER_pointwise_positive_single_weight_floor"
+    },
+    {
+      "blocked": true,
+      "evidence": "Observed normalized aggregate L2 has finite cap violations on 120 row-local checked rows and lacks a universal raw moment theorem.",
+      "id": "normalized_l2_as_bridge",
+      "reactivate_only_if": "A source-backed pointwise raw twisted binary-prime moment theorem is proved, with explicit threshold and finite remainder, or a materially different raw Hilbert norm target is derived.",
+      "status": "HOLD_l2_logical_bridge_not_confirmed"
+    },
+    {
+      "blocked": true,
+      "evidence": "M(a)>0 on all even residues, but the principal term is T_N*M(a); it vanishes when T_N=0.",
+      "id": "principal_local_factor_as_independent_support",
+      "reactivate_only_if": "A major/minor arc estimate proves a strict raw weighted witness directly, rather than using M(a) only after positive mass exists.",
+      "status": "HOLD_signed_weight_principal_factor_TN_dependent"
+    },
+    {
+      "blocked": true,
+      "evidence": "No currently named source theorem pays the exact pointwise, strict-central, log-weighted q286 signed-region inequality.",
+      "id": "named_external_signed_region_bridge",
+      "reactivate_only_if": "A primary-source theorem or derived corollary is found that matches the exact fixed finite-modulus signed binary-prime weight for every sufficiently large covered N.",
+      "status": "SOURCE_FIT_no_existing_signed_region_pointwise_bridge"
+    }
+  ],
+  "candidate": {
+    "falsifier": "A raw pointwise signed weighted binary-prime theorem or a materially new signed weight outside the recorded no-good constraints reactivates the lane.",
+    "mechanism": "Preserve the failed conjunction as a no-good constraint while retaining its useful components and exact reactivation triggers.",
+    "name": "q286 signed-weight proof-engine sleep boundary",
+    "novelty_label": "new-to-this-task",
+    "prediction": "Future unchanged q286 local-factor, normalized L2, or support-only retries will not move the Goldbach bridge unless one of the raw reactivation triggers fires.",
+    "smallest_next_action": "Move attention to a different proof engine or a true raw circle-method estimate; keep q286 as a coefficient/visual reservoir."
+  },
+  "decision": "SLEEP_q286_signed_weight_proof_engine_until_raw_estimate.  The exact current q286 signed-weight proof-engine conjunction is dormant until a changed condition supplies a raw pointwise estimate, a materially new signed weight, or an explicitly labeled positive-mass theorem.  This preserves useful q286 components without letting finite diagnostics or normalized conditional statements masquerade as a Goldbach bridge.",
+  "goldbach_proved": false,
+  "positive_mass_theorem_proved": false,
+  "preserved_components": {
+    "k286_quarter_residual_calibration": {
+      "max_companion_residual_fraction": 0.24495753331096648,
+      "minimum_quarter_margin": 0.0013845125869415692,
+      "row_count": 560,
+      "state": "finite_falsifier_calibration",
+      "use": "Finite calibration for theorem-shape constants; not a universal bound."
+    },
+    "positive_local_factors": {
+      "maximum_M": 1.5716524655081634,
+      "minimum_M": 0.6039353780830684,
+      "state": "supported_component_not_bridge",
+      "use": "May still be the main coefficient in a raw weighted circle-method estimate, but cannot create support alone."
+    },
+    "signed_shape_margin": {
+      "minimum_local_uniform_shape_margin": 0.10534041937277128,
+      "shape_threshold_minimum": 0.48729403831397616,
+      "state": "supported_component_not_distribution_theorem",
+      "use": "Useful target for a raw signed-region distribution theorem; not itself a theorem about prime-pair mass."
+    },
+    "visualization_substrate": {
+      "state": "reservoir",
+      "use": "Linked 3D scatter/table may help notice structure; it cannot replace a universal pointwise raw estimate."
+    }
+  },
+  "q286_threshold_theorem_proved": false,
+  "question": "After the support-floor, L2 bridge, principal-factor, and source-fit audits, should the unchanged q286 signed-weight proof-engine route remain active?",
+  "raw_weighted_witness_theorem_proved": false,
+  "reactivation_triggers": [
+    {
+      "description": "A primary-source or repo-proved theorem gives a pointwise major/minor arc estimate for the exact signed q286 weight, every sufficiently large covered N, with finite remainder.",
+      "trigger": "raw_pointwise_weighted_binary_prime_theorem"
+    },
+    {
+      "description": "A new coefficient transformation changes the negative-weight obstruction, the principal factor, or the raw adverse-drag theorem target in a way the existing falsifiers do not cover.",
+      "trigger": "materially_new_signed_weight"
+    },
+    {
+      "description": "A universal pointwise unnormalized active-character moment theorem pays the aggregate L2 or signed witness target without first assuming T_N>0.",
+      "trigger": "raw_moment_theorem_for_active_characters"
+    },
+    {
+      "description": "A separate strict-central positive-mass theorem is proved; q286 may then be reused honestly as conditional distribution/control, not as the support-creating proof.",
+      "trigger": "explicit_positive_mass_theorem_labeled_as_such"
+    }
+  ],
+  "receipt": "q286-wbss-signed-weight-proof-engine-sleep-hold",
+  "schema_version": 1,
+  "signed_weight_major_arc_estimate_proved": false,
+  "sleep_scope": {
+    "attention_state": "dormant_until_changed_condition",
+    "epistemic_state": "supported_HOLD_for_exact_conjunction",
+    "not_slept": [
+      "raw direct W_phi(N)>0 theorem target",
+      "raw adverse_drag_raw(N)<local_main_raw(N) theorem target",
+      "K_286 finite falsifier/calibration lane",
+      "coefficient/visual structure for finding a new signed weight",
+      "future primary-source pointwise weighted binary-prime theorem"
+    ],
+    "sleep_exact_family": "q286 as proof engine via local-factor positivity, support-only signed weight, normalized aggregate L2, or named broad AP sources without an exact raw pointwise signed binary-prime theorem"
+  },
+  "source_commit": "b1ec65d097874a6b7853c882649ed0aa153a345a",
+  "sources": {
+    "k286_quarter_residual_lift_depth_stress": "evidence\\q286-wbss-k286-quarter-residual-lift-depth-stress.json",
+    "k286_quarter_residual_status": "PROBE_k286_quarter_residual_survives_lift_depth_stress",
+    "negative_region_mass_threshold_audit": "evidence\\q286-wbss-negative-region-mass-threshold-audit.json",
+    "negative_region_mass_threshold_status": "TARGET_signed_negative_region_correlation_obligation",
+    "signed_region_source_fit_audit": "evidence\\q286-wbss-signed-region-source-fit-audit.json",
+    "signed_region_source_fit_status": "SOURCE_FIT_no_existing_signed_region_pointwise_bridge",
+    "signed_weight_circle_status": "TARGET_bespoke_signed_weight_circle_method_or_collapse",
+    "signed_weight_circle_target": "evidence\\q286-wbss-signed-weight-circle-target.json",
+    "signed_weight_principal_factor_audit": "evidence\\q286-wbss-signed-weight-principal-factor-audit.json",
+    "signed_weight_principal_factor_status": "HOLD_signed_weight_principal_factor_TN_dependent",
+    "single_weight_major_arc_floor_audit": "evidence\\q286-wbss-single-weight-major-arc-floor-audit.json",
+    "single_weight_major_arc_floor_status": "FALSIFIER_pointwise_positive_single_weight_floor",
+    "zero_mass_l2_logical_bridge_audit": "evidence\\q286-wbss-zero-mass-l2-logical-bridge-audit.json",
+    "zero_mass_l2_logical_bridge_status": "HOLD_l2_logical_bridge_not_confirmed"
+  },
+  "status": "SLEEP_q286_signed_weight_proof_engine_until_raw_estimate",
+  "status_boundary": "Lane-level sleep/HOLD only.  No signed-weight major/minor arc estimate, raw weighted witness theorem, active-character moment theorem, positive-mass theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof is established.",
+  "strict_central_goldbach_theorem_proved": false
+}

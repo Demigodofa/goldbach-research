@@ -6,6 +6,47 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The q286-WBSS route now has a signed-weight proof-engine sleep/HOLD:
+
+```text
+tools/build_q286_wbss_signed_weight_proof_engine_sleep_hold.py
+notes/q286-wbss-signed-weight-proof-engine-sleep-hold.md
+evidence/q286-wbss-signed-weight-proof-engine-sleep-hold.json
+```
+
+Question: after the support-floor, aggregate-`L2`, principal-factor, and
+source-fit audits, should the unchanged q286 signed-weight route remain active
+as a standalone proof engine?
+
+Result:
+
+```text
+status: SLEEP_q286_signed_weight_proof_engine_until_raw_estimate
+blocked conjunctions: 4
+reactivation triggers: 4
+preserved positive local factor min M(a): 0.6039353780830684
+preserved signed-shape min margin:        0.10534041937277128
+preserved K_286 max residual fraction:    0.24495753331096648
+```
+
+Decision: the exact current q286 signed-weight proof-engine conjunction is
+dormant: support-only signed-weight positivity is blocked, normalized
+aggregate `L2` as a bridge is blocked, the principal local factor as
+independent support is blocked, and no named external signed-region bridge
+pays the exact target.  This does not discard the q286 structure.  Positive
+local factors, signed-shape margin, `K_286` finite calibration, and
+visual/coefficient structure remain preserved components.  Reactivate only
+with a raw pointwise weighted binary-prime theorem for the exact signed q286
+weight, a materially new signed weight outside the recorded no-good
+constraints, a raw active-character moment theorem that pays the target
+without assuming `T_N>0`, or a separate positive-mass theorem explicitly
+labeled as Goldbach-strength input.  No signed-weight major/minor arc
+estimate, raw weighted witness theorem, active-character moment theorem,
+positive-mass theorem, q286 threshold theorem, strict-central Goldbach
+theorem, or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-16
+
 The q286-WBSS route now has a signed-weight principal-factor audit:
 
 ```text
