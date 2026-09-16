@@ -6,6 +6,48 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The metric-soft moment-square route now has a finite falsifier for the broad
+checked-scale active-window phase-curve extension:
+
+```text
+tools/build_mobius_moment_square_degree5_checked_scale_phase_curve_sweep.py
+notes/mobius-moment-square-degree5-checked-scale-phase-curve-sweep.md
+evidence/mobius-moment-square-degree5-checked-scale-phase-curve-sweep.json
+```
+
+Result:
+
+```text
+status:                      SWEEP_degree5_checked_scale_active_window_phase_curve
+scales:                      127, 149, 167, 191, 211, 227
+total primes checked:        189
+component rows:              42507
+degree-5 total rows:         14169
+all dominance rows:          56676
+dominance slacks:            +56675 / 0 / -1
+failure rows:                1
+falsifier row:               M=149, start=1, p=163, (00,12)
+falsifier active/full ratio:  0.4980466670754268
+falsifier slack above 1/2:    -0.0019533329245732256
+```
+
+Decision: the broad checked-scale active-window phase-curve extension is
+falsified finitely.  The source-window checked-scale dominance audit, the
+weak-scale all-prime phase-curve sweep, and Goldbach are not refuted.  The
+failed statement is the broader row-start quantifier: active-window dominance
+does not survive every checked scale, prime, and local active row start
+`0..2A`.  The next theorem-shaped target must either use the source-window
+geometry more specifically, restrict admissible row starts, or prove a
+different analytic margin.  No pointwise universal adverse-drag estimate, L2
+logical bridge, phase-curve theorem, active-window translation theorem,
+checked-scale dominance theorem, primewise dominance theorem, degree-`5`
+coefficient theorem, robust-margin universal theorem, uniform active/full
+lower frame, Mobius covariance theorem, signed prime-correlation estimate,
+q286 theorem, strict-central Goldbach theorem, or Goldbach proof is
+established.
+
+## Latest active checkpoint note, 2026-09-16
+
 The metric-soft moment-square route now has a weak-scale degree-`5`
 active-window phase-curve sweep:
 

@@ -6,6 +6,43 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The metric-soft moment-square route now has a finite falsifier for the broad
+checked-scale active-window phase-curve extension:
+`tools/build_mobius_moment_square_degree5_checked_scale_phase_curve_sweep.py`
+generated
+`evidence/mobius-moment-square-degree5-checked-scale-phase-curve-sweep.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-checked-scale-phase-curve-sweep.md`.
+
+Question: across every checked scale, prime row, and active row start in the
+extended local band `0..2A`, does a degree-`5` active/full dominance failure
+appear?
+
+Answer: yes.  Among `56676` checked dominance rows, exactly one row fails the
+signed `1/2` threshold: `M=149`, prime `163`, active row start `1`,
+component `(00,12)`, with active/full ratio `0.4980466670754268` and slack
+`-0.0019533329245732256` above `1/2`.  The direct standard lifted receipt
+for that row independently matches the failing ratio.
+
+Decision: `SWEEP_degree5_checked_scale_active_window_phase_curve` with finite
+falsifier.  The original source-window checked-scale dominance audit, the
+weak-scale all-prime phase-curve sweep, and Goldbach are not refuted.  What
+is refuted is the broader quantifier tested here: active-window dominance
+cannot be promoted as surviving every checked scale, prime, and local active
+row start `0..2A`.  The next theorem-shaped target must either use the
+source-window geometry more specifically, restrict admissible row starts, or
+prove a different analytic margin that does not require this broad
+phase-curve dominance statement.  No pointwise universal adverse-drag
+estimate, L2 logical bridge, phase-curve theorem, active-window translation
+theorem, checked-scale dominance theorem, primewise dominance theorem,
+degree-`5` coefficient theorem, robust-margin universal theorem,
+coefficient-family theorem, universal Sturm-certificate theorem,
+half-frame curve-positivity theorem, uniform active/full lower-frame
+theorem, Mobius covariance theorem, signed prime-correlation estimate, q286
+theorem, strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Latest continuation evidence, 2026-09-16
+
 The metric-soft moment-square route now has a weak-scale degree-`5`
 active-window phase-curve sweep:
 `tools/build_mobius_moment_square_degree5_weak_scale_phase_curve_sweep.py`
