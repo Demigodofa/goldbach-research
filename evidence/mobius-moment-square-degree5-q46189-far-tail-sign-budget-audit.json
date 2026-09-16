@@ -1,0 +1,432 @@
+{
+  "adverse_row": {
+    "diagonal_half_contribution": 20990238237161.72,
+    "far_tail_budget": {
+      "absolute_over_diagonal": 7.328410100792978,
+      "negative_fraction_of_absolute": 0.5398178389404991,
+      "negative_over_diagonal": -3.9560065034797907,
+      "positive_fraction_of_absolute": 0.46018216105950077,
+      "positive_over_diagonal": 3.3724035973131867,
+      "total_over_diagonal": -0.5836029061666043
+    },
+    "half_margin": -112967899058.92188,
+    "middle_budget": {
+      "absolute_over_diagonal": 2.7281251203715953,
+      "negative_fraction_of_absolute": 0.5520580015470796,
+      "negative_over_diagonal": -1.5060833019227289,
+      "positive_fraction_of_absolute": 0.4479419984529204,
+      "positive_over_diagonal": 1.2220418184488662,
+      "total_over_diagonal": -0.2840414834738627
+    },
+    "nonmiddle_budget": {
+      "absolute_over_diagonal": 7.781253158587316,
+      "negative_fraction_of_absolute": 0.5463511742488759,
+      "negative_over_diagonal": -4.2512968003219544,
+      "positive_fraction_of_absolute": 0.4536488257511242,
+      "positive_over_diagonal": 3.529956358265362,
+      "total_over_diagonal": -0.721340442056593
+    },
+    "off_diagonal_over_diagonal_half": -1.0053819255304557,
+    "ratio_minus_half": -0.002690962765227678,
+    "reduced_denominator": 46189,
+    "role": "q46189_adverse"
+  },
+  "candidate_next_action": {
+    "falsifier": "A source-admissible replacement with far-tail positive share at or below the adverse/replacement separator falsifies this finite sign-budget mechanism.",
+    "mechanism": "Source-admissible replacements may survive because positive broad far-tail/non-middle mass occupies a larger share of the absolute broad budget than in the adverse Q row.",
+    "name": "broad signed-balance lower bound",
+    "novelty_label": "new-to-this-task",
+    "prediction": "A source-admissible family theorem should control signed balance or positive-share, not just the negative envelope.",
+    "smallest_next_test": "Derive the residue-class condition that forces positive far-tail share above the finite separator, or find a fresh source-admissible row below it."
+  },
+  "classification": {
+    "far_tail_negative_envelope_separates": false,
+    "far_tail_positive_share_separates_finite_family": true,
+    "finite_selected_family_diagnostic_only": true,
+    "nonmiddle_negative_envelope_separates": false,
+    "nonmiddle_positive_share_separates_finite_family": true
+  },
+  "coordinate00_residue_gap_sign_theorem_proved": false,
+  "decision": "The broad pressure separator is a signed-balance effect.  The negative far-tail envelope alone does not separate Q=46189 from the replacements; q=53295 is slightly worse by that metric.  The finite separator is the positive share of the broad absolute budget, especially in far+tail.",
+  "far_tail_positive_share_theorem_proved": false,
+  "far_tail_pressure_theorem_proved": false,
+  "finite_diagnostic_only": true,
+  "finite_far_tail_sign_budget_audit_only": true,
+  "fixture": {
+    "active_row_start": 43,
+    "divisor_range": [
+      3,
+      19
+    ],
+    "ell_freeze": 64,
+    "prime_modulus": 379,
+    "replacement_row_count": 10,
+    "row_count_A": 43,
+    "scale_modulus": 229,
+    "target_label": "00,12"
+  },
+  "goldbach_proved": false,
+  "non_separators": {
+    "far_tail_negative_envelope": {
+      "adverse_negative_over_diagonal": -3.9560065034797907,
+      "minimum_replacement_denominator": 53295,
+      "minimum_replacement_negative_over_diagonal": -4.043709440655922,
+      "reason": "Replacement q=53295 has a slightly more negative far-tail envelope than Q=46189, but its positive far-tail offset almost cancels that envelope.",
+      "separates_adverse_from_replacements": false
+    },
+    "nonmiddle_negative_envelope": {
+      "adverse_negative_over_diagonal": -4.2512968003219544,
+      "minimum_replacement_denominator": 53295,
+      "minimum_replacement_negative_over_diagonal": -4.243502046248286,
+      "reason": "The non-middle negative envelope is nearly tied with replacement q=53295, so a negative-envelope-only theorem would miss the signed-balance distinction.",
+      "separates_adverse_from_replacements": false
+    }
+  },
+  "nonmiddle_positive_share_theorem_proved": false,
+  "question": "Does the Q=46189 broad far-tail/non-middle separator come from a larger negative envelope or from signed balance inside the broad residue-gap budget?",
+  "replacement_residue_gap_bound_theorem_proved": false,
+  "replacement_rows": [
+    {
+      "diagonal_half_contribution": 24223579373024.215,
+      "far_tail_budget": {
+        "absolute_over_diagonal": 3.60299161638407,
+        "negative_fraction_of_absolute": 0.5255271351000128,
+        "negative_over_diagonal": -1.8934698619476844,
+        "positive_fraction_of_absolute": 0.4744728648999872,
+        "positive_over_diagonal": 1.7095217544363854,
+        "total_over_diagonal": -0.1839481075112994
+      },
+      "half_margin": 17270923935307.371,
+      "middle_budget": {
+        "absolute_over_diagonal": 1.3384908492425889,
+        "negative_fraction_of_absolute": 0.480562790375796,
+        "negative_over_diagonal": -0.6432288974044874,
+        "positive_fraction_of_absolute": 0.5194372096242039,
+        "positive_over_diagonal": 0.6952619518381014,
+        "total_over_diagonal": 0.05203305443361395
+      },
+      "nonmiddle_budget": {
+        "absolute_over_diagonal": 3.8767233748572436,
+        "negative_fraction_of_absolute": 0.5437293525766246,
+        "negative_over_diagonal": -2.107888290729796,
+        "positive_fraction_of_absolute": 0.4562706474233753,
+        "positive_over_diagonal": 1.7688350841274472,
+        "total_over_diagonal": -0.3390532066023492
+      },
+      "off_diagonal_over_diagonal_half": -0.2870201521687353,
+      "ratio_minus_half": 0.3564899239156324,
+      "reduced_denominator": 36465,
+      "role": "replacement"
+    },
+    {
+      "diagonal_half_contribution": 11896071468706.367,
+      "far_tail_budget": {
+        "absolute_over_diagonal": 3.6394422120631558,
+        "negative_fraction_of_absolute": 0.5242856988090882,
+        "negative_over_diagonal": -1.9081075034268251,
+        "positive_fraction_of_absolute": 0.47571430119091196,
+        "positive_over_diagonal": 1.7313347086363309,
+        "total_over_diagonal": -0.17677279479049446
+      },
+      "half_margin": 10141287433917.113,
+      "middle_budget": {
+        "absolute_over_diagonal": 1.5910041797658838,
+        "negative_fraction_of_absolute": 0.47803573324742354,
+        "negative_over_diagonal": -0.7605568496741,
+        "positive_fraction_of_absolute": 0.5219642667525765,
+        "positive_over_diagonal": 0.830447330091784,
+        "total_over_diagonal": 0.06989048041768406
+      },
+      "nonmiddle_budget": {
+        "absolute_over_diagonal": 3.813402219642637,
+        "negative_fraction_of_absolute": 0.5285047325571042,
+        "negative_over_diagonal": -2.015401120224899,
+        "positive_fraction_of_absolute": 0.4714952674428959,
+        "positive_over_diagonal": 1.7980010994177378,
+        "total_over_diagonal": -0.21740002080716156
+      },
+      "off_diagonal_over_diagonal_half": -0.1475095403894775,
+      "ratio_minus_half": 0.42624522980526125,
+      "reduced_denominator": 35530,
+      "role": "replacement"
+    },
+    {
+      "diagonal_half_contribution": 43845697056636.55,
+      "far_tail_budget": {
+        "absolute_over_diagonal": 5.835540784078027,
+        "negative_fraction_of_absolute": 0.5224784971600492,
+        "negative_over_diagonal": -3.048944578981263,
+        "positive_fraction_of_absolute": 0.4775215028399508,
+        "positive_over_diagonal": 2.7865962050967648,
+        "total_over_diagonal": -0.26234837388449833
+      },
+      "half_margin": 22640808441778.984,
+      "middle_budget": {
+        "absolute_over_diagonal": 1.1686103541245656,
+        "negative_fraction_of_absolute": 0.5674990565193793,
+        "negative_over_diagonal": -0.6631852734044686,
+        "positive_fraction_of_absolute": 0.43250094348062074,
+        "positive_over_diagonal": 0.505425080720097,
+        "total_over_diagonal": -0.15776019268437164
+      },
+      "nonmiddle_budget": {
+        "absolute_over_diagonal": 6.005666379294447,
+        "negative_fraction_of_absolute": 0.5271298047378503,
+        "negative_over_diagonal": -3.1657657458381547,
+        "positive_fraction_of_absolute": 0.47287019526214963,
+        "positive_over_diagonal": 2.8399006334562924,
+        "total_over_diagonal": -0.32586511238186233
+      },
+      "off_diagonal_over_diagonal_half": -0.48362530506623397,
+      "ratio_minus_half": 0.25818734746688266,
+      "reduced_denominator": 62985,
+      "role": "replacement"
+    },
+    {
+      "diagonal_half_contribution": 9588909394612.44,
+      "far_tail_budget": {
+        "absolute_over_diagonal": 3.5167153722666447,
+        "negative_fraction_of_absolute": 0.5123533679775216,
+        "negative_over_diagonal": -1.801800965199139,
+        "positive_fraction_of_absolute": 0.4876466320224784,
+        "positive_over_diagonal": 1.7149144070675055,
+        "total_over_diagonal": -0.08688655813163366
+      },
+      "half_margin": 4477969972929.314,
+      "middle_budget": {
+        "absolute_over_diagonal": 1.6656716254427488,
+        "negative_fraction_of_absolute": 0.6297436978120281,
+        "negative_over_diagonal": -1.0489462087468882,
+        "positive_fraction_of_absolute": 0.3702563021879719,
+        "positive_over_diagonal": 0.6167254166958608,
+        "total_over_diagonal": -0.43222079205102754
+      },
+      "nonmiddle_budget": {
+        "absolute_over_diagonal": 3.663646053704648,
+        "negative_fraction_of_absolute": 0.5137546716204209,
+        "negative_over_diagonal": -1.882215275254482,
+        "positive_fraction_of_absolute": 0.48624532837957923,
+        "positive_over_diagonal": 1.7814307784501662,
+        "total_over_diagonal": -0.10078449680431602
+      },
+      "off_diagonal_over_diagonal_half": -0.5330052888553436,
+      "ratio_minus_half": 0.23349735557232798,
+      "reduced_denominator": 41990,
+      "role": "replacement"
+    },
+    {
+      "diagonal_half_contribution": 22271465382173.652,
+      "far_tail_budget": {
+        "absolute_over_diagonal": 5.049965218041418,
+        "negative_fraction_of_absolute": 0.5055635185255105,
+        "negative_over_diagonal": -2.553078184064466,
+        "positive_fraction_of_absolute": 0.4944364814744896,
+        "positive_over_diagonal": 2.4968870339769524,
+        "total_over_diagonal": -0.056191150087513235
+      },
+      "half_margin": 22672587901461.613,
+      "middle_budget": {
+        "absolute_over_diagonal": 1.7546883300461522,
+        "negative_fraction_of_absolute": 0.5119263115382291,
+        "negative_over_diagonal": -0.8982711246997015,
+        "positive_fraction_of_absolute": 0.4880736884617709,
+        "positive_over_diagonal": 0.8564172053464508,
+        "total_over_diagonal": -0.041853919353250814
+      },
+      "nonmiddle_budget": {
+        "absolute_over_diagonal": 5.245041465676471,
+        "negative_fraction_of_absolute": 0.49429322697847494,
+        "negative_over_diagonal": -2.5925884717051333,
+        "positive_fraction_of_absolute": 0.505706773021525,
+        "positive_over_diagonal": 2.6524529939713384,
+        "total_over_diagonal": 0.05986452226620593
+      },
+      "off_diagonal_over_diagonal_half": 0.018010602912955122,
+      "ratio_minus_half": 0.5090053014564777,
+      "reduced_denominator": 49742,
+      "role": "replacement"
+    },
+    {
+      "diagonal_half_contribution": 22409869469989.832,
+      "far_tail_budget": {
+        "absolute_over_diagonal": 8.053724421270314,
+        "negative_fraction_of_absolute": 0.5020918557849174,
+        "negative_over_diagonal": -4.043709440655922,
+        "positive_fraction_of_absolute": 0.4979081442150825,
+        "positive_over_diagonal": 4.010014980614391,
+        "total_over_diagonal": -0.03369446004153091
+      },
+      "half_margin": 19417467655118.87,
+      "middle_budget": {
+        "absolute_over_diagonal": 1.9323058269410178,
+        "negative_fraction_of_absolute": 0.5058134884510561,
+        "negative_over_diagonal": -0.9773863510793389,
+        "positive_fraction_of_absolute": 0.4941865115489439,
+        "positive_over_diagonal": 0.9549194758616788,
+        "total_over_diagonal": -0.022466875217660068
+      },
+      "nonmiddle_budget": {
+        "absolute_over_diagonal": 8.37594043471054,
+        "negative_fraction_of_absolute": 0.5066299216578581,
+        "negative_over_diagonal": -4.243502046248286,
+        "positive_fraction_of_absolute": 0.4933700783421419,
+        "positive_over_diagonal": 4.132438388462253,
+        "total_over_diagonal": -0.11106365778603397
+      },
+      "off_diagonal_over_diagonal_half": -0.13353053300369405,
+      "ratio_minus_half": 0.4332347334981528,
+      "reduced_denominator": 53295,
+      "role": "replacement"
+    },
+    {
+      "diagonal_half_contribution": 28872797556320.266,
+      "far_tail_budget": {
+        "absolute_over_diagonal": 4.251886812527305,
+        "negative_fraction_of_absolute": 0.49009403489366304,
+        "negative_over_diagonal": -2.0838243638626626,
+        "positive_fraction_of_absolute": 0.5099059651063369,
+        "positive_over_diagonal": 2.168062448664642,
+        "total_over_diagonal": 0.08423808480197911
+      },
+      "half_margin": 33119492017959.594,
+      "middle_budget": {
+        "absolute_over_diagonal": 1.8795157503389626,
+        "negative_fraction_of_absolute": 0.48228717783408825,
+        "negative_over_diagonal": -0.906466346925697,
+        "positive_fraction_of_absolute": 0.5177128221659119,
+        "positive_over_diagonal": 0.9730494034132657,
+        "total_over_diagonal": 0.06658305648756882
+      },
+      "nonmiddle_budget": {
+        "absolute_over_diagonal": 4.4455131111090065,
+        "negative_fraction_of_absolute": 0.49094594595376334,
+        "negative_over_diagonal": -2.1825066395832686,
+        "positive_fraction_of_absolute": 0.5090540540462366,
+        "positive_over_diagonal": 2.2630064715257374,
+        "total_over_diagonal": 0.08049983194246924
+      },
+      "off_diagonal_over_diagonal_half": 0.1470828884300381,
+      "ratio_minus_half": 0.5735414442150191,
+      "reduced_denominator": 40755,
+      "role": "replacement"
+    },
+    {
+      "diagonal_half_contribution": 21974856736265.05,
+      "far_tail_budget": {
+        "absolute_over_diagonal": 2.576631058986389,
+        "negative_fraction_of_absolute": 0.4893797719483221,
+        "negative_over_diagonal": -1.2609511200417227,
+        "positive_fraction_of_absolute": 0.510620228051678,
+        "positive_over_diagonal": 1.3156799389446663,
+        "total_over_diagonal": 0.054728818902943475
+      },
+      "half_margin": 19140744261593.41,
+      "middle_budget": {
+        "absolute_over_diagonal": 1.3224166130138657,
+        "negative_fraction_of_absolute": 0.5573313073028874,
+        "negative_over_diagonal": -0.7370241797300742,
+        "positive_fraction_of_absolute": 0.4426686926971127,
+        "positive_over_diagonal": 0.5853924332837914,
+        "total_over_diagonal": -0.15163174644628283
+      },
+      "nonmiddle_budget": {
+        "absolute_over_diagonal": 2.694036860335053,
+        "negative_fraction_of_absolute": 0.4957942196306214,
+        "negative_over_diagonal": -1.335687902825947,
+        "positive_fraction_of_absolute": 0.5042057803693786,
+        "positive_over_diagonal": 1.358348957509106,
+        "total_over_diagonal": 0.022661054683159033
+      },
+      "off_diagonal_over_diagonal_half": -0.1289706917631238,
+      "ratio_minus_half": 0.43551465411843815,
+      "reduced_denominator": 34034,
+      "role": "replacement"
+    },
+    {
+      "diagonal_half_contribution": 28683313563140.617,
+      "far_tail_budget": {
+        "absolute_over_diagonal": 2.9360534690539453,
+        "negative_fraction_of_absolute": 0.48790818741627406,
+        "negative_over_diagonal": -1.432524526243374,
+        "positive_fraction_of_absolute": 0.5120918125837259,
+        "positive_over_diagonal": 1.5035289428105714,
+        "total_over_diagonal": 0.07100441656719739
+      },
+      "half_margin": 4380137469743.5,
+      "middle_budget": {
+        "absolute_over_diagonal": 1.8908632854831806,
+        "negative_fraction_of_absolute": 0.7485618599862344,
+        "negative_over_diagonal": -1.4154281379609719,
+        "positive_fraction_of_absolute": 0.25143814001376563,
+        "positive_over_diagonal": 0.47543514752220883,
+        "total_over_diagonal": -0.939992990438763
+      },
+      "nonmiddle_budget": {
+        "absolute_over_diagonal": 3.0861957039669154,
+        "negative_fraction_of_absolute": 0.4849815412332021,
+        "negative_over_diagonal": -1.4967479490571618,
+        "positive_fraction_of_absolute": 0.515018458766798,
+        "positive_over_diagonal": 1.589447754909754,
+        "total_over_diagonal": 0.09269980585259228
+      },
+      "off_diagonal_over_diagonal_half": -0.8472931845861708,
+      "ratio_minus_half": 0.07635340770691468,
+      "reduced_denominator": 38038,
+      "role": "replacement"
+    },
+    {
+      "diagonal_half_contribution": 39777700093247.94,
+      "far_tail_budget": {
+        "absolute_over_diagonal": 4.305603118414957,
+        "negative_fraction_of_absolute": 0.4609814778542389,
+        "negative_over_diagonal": -1.984803288580746,
+        "positive_fraction_of_absolute": 0.5390185221457611,
+        "positive_over_diagonal": 2.3207998298342103,
+        "total_over_diagonal": 0.3359965412534638
+      },
+      "half_margin": 41739143826365.67,
+      "middle_budget": {
+        "absolute_over_diagonal": 0.7825684154881587,
+        "negative_fraction_of_absolute": 0.6269836514644843,
+        "negative_over_diagonal": -0.49065760266354136,
+        "positive_fraction_of_absolute": 0.3730163485355157,
+        "positive_over_diagonal": 0.2919108128246172,
+        "total_over_diagonal": -0.19874678983892413
+      },
+      "nonmiddle_budget": {
+        "absolute_over_diagonal": 4.471839202053291,
+        "negative_fraction_of_absolute": 0.4722645523558512,
+        "negative_over_diagonal": -2.1118911389650443,
+        "positive_fraction_of_absolute": 0.5277354476441488,
+        "positive_over_diagonal": 2.359948063088247,
+        "total_over_diagonal": 0.24805692412320204
+      },
+      "off_diagonal_over_diagonal_half": 0.04931013428427792,
+      "ratio_minus_half": 0.5246550671421382,
+      "reduced_denominator": 58786,
+      "role": "replacement"
+    }
+  ],
+  "schema_version": 1,
+  "separation_summary": {
+    "adverse_below_far_tail_positive_fraction_separator": true,
+    "adverse_below_nonmiddle_positive_fraction_separator": true,
+    "adverse_far_tail_positive_fraction": 0.46018216105950077,
+    "adverse_nonmiddle_positive_fraction": 0.4536488257511242,
+    "all_replacements_above_far_tail_positive_fraction_separator": true,
+    "all_replacements_above_nonmiddle_positive_fraction_separator": true,
+    "far_tail_positive_fraction_gap": 0.014290703840486418,
+    "far_tail_positive_fraction_separator": 0.46732751297974395,
+    "minimum_replacement_far_tail_positive_fraction": 0.4744728648999872,
+    "minimum_replacement_far_tail_positive_fraction_denominator": 36465,
+    "minimum_replacement_nonmiddle_positive_fraction": 0.4562706474233753,
+    "minimum_replacement_nonmiddle_positive_fraction_denominator": 36465,
+    "nonmiddle_positive_fraction_gap": 0.0026218216722511123,
+    "nonmiddle_positive_fraction_separator": 0.45495973658724975
+  },
+  "source_commit": "c7ce5b910cb0d230faa6179cdc4c1dbd5ee6ba79",
+  "source_one_coordinate_ledger": "evidence\\mobius-moment-square-degree5-q46189-one-coordinate-ratio-ledger-audit.json",
+  "source_pressure_separation_audit": "evidence\\mobius-moment-square-degree5-q46189-residue-gap-pressure-separation-audit.json",
+  "status": "AUDIT_q46189_far_tail_sign_budget",
+  "strict_central_goldbach_theorem_proved": false
+}

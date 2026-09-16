@@ -6,6 +6,41 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The `Q=46189` replacement-family lane now has a far-tail sign-budget audit:
+
+```text
+tools/build_mobius_moment_square_degree5_q46189_far_tail_sign_budget_audit.py
+notes/mobius-moment-square-degree5-q46189-far-tail-sign-budget-audit.md
+evidence/mobius-moment-square-degree5-q46189-far-tail-sign-budget-audit.json
+```
+
+Result:
+
+```text
+Q far-tail positive share:                 0.46018216105950077
+min replacement far-tail positive share:   0.4744728648999872
+far-tail positive-share gap:               0.014290703840486418
+Q non-middle positive share:               0.4536488257511242
+min replacement non-middle positive share: 0.4562706474233753
+non-middle positive-share gap:             0.0026218216722511123
+Q far-tail negative / diag:                -3.9560065034797907
+min replacement far-tail negative / diag:  -4.043709440655922
+Q non-middle negative / diag:              -4.2512968003219544
+min replacement non-middle negative / diag:-4.243502046248286
+```
+
+Decision: the broad pressure separator is a signed-balance effect.  The
+negative far-tail envelope alone does not separate `Q=46189` from the
+replacements; `q=53295` is slightly worse by that metric.  The finite
+separator is the positive share of the broad absolute budget, especially
+far-tail positive share.  The next useful route is a broad signed-balance
+lower bound.  This proves no far-tail positive-share theorem, non-middle
+positive-share theorem, far-tail pressure theorem, replacement residue-gap
+bound theorem, coordinate-`00` residue-gap sign theorem, strict-central
+Goldbach theorem, or Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The `Q=46189` replacement-family lane now has a residue-gap pressure
 separation audit:
 
