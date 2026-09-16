@@ -1,0 +1,1657 @@
+{
+  "adverse_row": {
+    "diagonal_half_contribution": 20990238237161.72,
+    "far_slice_metrics": [
+      {
+        "absolute_over_diagonal": 1.52902252396194,
+        "delta_count": 860,
+        "distance_range": [
+          431,
+          860
+        ],
+        "negative_over_diagonal": -0.9172789615697116,
+        "positive_fraction_of_absolute": 0.4000879992317599,
+        "positive_over_diagonal": 0.6117435623922283,
+        "slice_name": "10A_to_20A",
+        "total_over_diagonal": -0.3055353991774832
+      },
+      {
+        "absolute_over_diagonal": 0.2041700120034272,
+        "delta_count": 860,
+        "distance_range": [
+          861,
+          1290
+        ],
+        "negative_over_diagonal": -0.10283848521344843,
+        "positive_fraction_of_absolute": 0.4963095500443905,
+        "positive_over_diagonal": 0.10133152678997875,
+        "slice_name": "20A_to_30A",
+        "total_over_diagonal": -0.0015069584234696641
+      },
+      {
+        "absolute_over_diagonal": 0.6660842296666531,
+        "delta_count": 860,
+        "distance_range": [
+          1291,
+          1720
+        ],
+        "negative_over_diagonal": -0.3207217251711135,
+        "positive_fraction_of_absolute": 0.5184967442756886,
+        "positive_over_diagonal": 0.3453625044955397,
+        "slice_name": "30A_to_40A",
+        "total_over_diagonal": 0.024640779324426095
+      },
+      {
+        "absolute_over_diagonal": 0.4004022455053977,
+        "delta_count": 860,
+        "distance_range": [
+          1721,
+          2150
+        ],
+        "negative_over_diagonal": -0.23061717378201185,
+        "positive_fraction_of_absolute": 0.42403626260656674,
+        "positive_over_diagonal": 0.16978507172338583,
+        "slice_name": "40A_to_50A",
+        "total_over_diagonal": -0.06083210205862602
+      },
+      {
+        "absolute_over_diagonal": 0.331869488578746,
+        "delta_count": 860,
+        "distance_range": [
+          2151,
+          2580
+        ],
+        "negative_over_diagonal": -0.20892013831376538,
+        "positive_fraction_of_absolute": 0.3704750044709434,
+        "positive_over_diagonal": 0.12294935026498062,
+        "slice_name": "50A_to_60A",
+        "total_over_diagonal": -0.08597078804878477
+      },
+      {
+        "absolute_over_diagonal": 0.35198832623768495,
+        "delta_count": 860,
+        "distance_range": [
+          2581,
+          3010
+        ],
+        "negative_over_diagonal": -0.1721119433566729,
+        "positive_fraction_of_absolute": 0.5110293991953245,
+        "positive_over_diagonal": 0.17987638288101201,
+        "slice_name": "60A_to_70A",
+        "total_over_diagonal": 0.007764439524339131
+      },
+      {
+        "absolute_over_diagonal": 0.061943478625085646,
+        "delta_count": 860,
+        "distance_range": [
+          3011,
+          3440
+        ],
+        "negative_over_diagonal": -0.03040656313045262,
+        "positive_fraction_of_absolute": 0.5091240626880345,
+        "positive_over_diagonal": 0.03153691549463303,
+        "slice_name": "70A_to_80A",
+        "total_over_diagonal": 0.0011303523641804202
+      },
+      {
+        "absolute_over_diagonal": 0.28780301264838926,
+        "delta_count": 860,
+        "distance_range": [
+          3441,
+          3870
+        ],
+        "negative_over_diagonal": -0.15680179739134148,
+        "positive_fraction_of_absolute": 0.455176664245321,
+        "positive_over_diagonal": 0.13100121525704775,
+        "slice_name": "80A_to_90A",
+        "total_over_diagonal": -0.025800582134293742
+      },
+      {
+        "absolute_over_diagonal": 0.1951510542212307,
+        "delta_count": 860,
+        "distance_range": [
+          3871,
+          4300
+        ],
+        "negative_over_diagonal": -0.11280125024309383,
+        "positive_fraction_of_absolute": 0.42197980588299544,
+        "positive_over_diagonal": 0.08234980397813685,
+        "slice_name": "90A_to_100A",
+        "total_over_diagonal": -0.030451446264956987
+      }
+    ],
+    "reduced_denominator": 46189,
+    "role": "q46189_adverse"
+  },
+  "best_single_slice_by_positive_share_gap": {
+    "adverse_positive_fraction": 0.3704750044709434,
+    "adverse_total_over_diagonal": -0.08597078804878477,
+    "distance_range": [
+      2151,
+      2580
+    ],
+    "minimum_replacement_positive_fraction": 0.41193052224841337,
+    "minimum_replacement_positive_fraction_denominator": 49742,
+    "minimum_replacement_total_denominator": 40755,
+    "minimum_replacement_total_over_diagonal": -0.019836945709586308,
+    "positive_fraction_gap": 0.041455517777469975,
+    "positive_fraction_separates": true,
+    "positive_fraction_separator": 0.3912027633596784,
+    "separates_by_both_share_and_total": true,
+    "slice_name": "50A_to_60A",
+    "total_gap": 0.06613384233919847,
+    "total_pressure_separates": true,
+    "total_separator": -0.05290386687918554
+  },
+  "best_single_slice_by_total_gap": {
+    "adverse_positive_fraction": 0.4000879992317599,
+    "adverse_total_over_diagonal": -0.3055353991774832,
+    "distance_range": [
+      431,
+      860
+    ],
+    "minimum_replacement_positive_fraction": 0.36940065071685235,
+    "minimum_replacement_positive_fraction_denominator": 35530,
+    "minimum_replacement_total_denominator": 62985,
+    "minimum_replacement_total_over_diagonal": -0.2186782096800982,
+    "positive_fraction_gap": -0.030687348514907564,
+    "positive_fraction_separates": false,
+    "positive_fraction_separator": 0.3847443249743061,
+    "separates_by_both_share_and_total": false,
+    "slice_name": "10A_to_20A",
+    "total_gap": 0.08685718949738497,
+    "total_pressure_separates": true,
+    "total_separator": -0.2621068044287907
+  },
+  "best_single_slice_separating_by_both": {
+    "adverse_positive_fraction": 0.3704750044709434,
+    "adverse_total_over_diagonal": -0.08597078804878477,
+    "distance_range": [
+      2151,
+      2580
+    ],
+    "minimum_replacement_positive_fraction": 0.41193052224841337,
+    "minimum_replacement_positive_fraction_denominator": 49742,
+    "minimum_replacement_total_denominator": 40755,
+    "minimum_replacement_total_over_diagonal": -0.019836945709586308,
+    "positive_fraction_gap": 0.041455517777469975,
+    "positive_fraction_separates": true,
+    "positive_fraction_separator": 0.3912027633596784,
+    "separates_by_both_share_and_total": true,
+    "slice_name": "50A_to_60A",
+    "total_gap": 0.06613384233919847,
+    "total_pressure_separates": true,
+    "total_separator": -0.05290386687918554
+  },
+  "candidate_next_action": {
+    "falsifier": "A source-admissible replacement row at or below the 50A..60A share or total separator falsifies this local witness.",
+    "mechanism": "The far-band separation has a local witness: distances 50A..60A already have enough positive share and total pressure in every replacement row, while Q=46189 is more adverse there.",
+    "name": "50A-to-60A signed-balance witness",
+    "novelty_label": "new-to-this-task",
+    "prediction": "A structural residue-distance theorem may be easier in the 50A..60A slice than in the whole far band, but the second witness slice 80A..90A should be preserved as a robustness check.",
+    "smallest_next_test": "Inspect the positive and negative residue-distance profile inside 50A..60A to see which exact distances carry the replacement advantage."
+  },
+  "classification": {
+    "best_slice_is_50A_to_60A": true,
+    "finite_selected_family_diagnostic_only": true,
+    "single_slices_separating_by_both": [
+      "50A_to_60A",
+      "80A_to_90A"
+    ],
+    "single_slices_separating_by_both_count": 2
+  },
+  "coordinate00_residue_gap_sign_theorem_proved": false,
+  "decision": "The far-band signed-balance separator has local witnesses.  The 50A..60A slice separates by both positive share and total pressure with the largest positive-share gap; 80A..90A also separates.  Several other slices fail, so the statement is not a uniform all-slice phenomenon.",
+  "distance_slice_positive_share_theorem_proved": false,
+  "distance_slice_pressure_theorem_proved": false,
+  "far_band_positive_share_theorem_proved": false,
+  "far_band_pressure_theorem_proved": false,
+  "finite_diagnostic_only": true,
+  "finite_far_band_slice_balance_audit_only": true,
+  "fixture": {
+    "active_row_start": 43,
+    "divisor_range": [
+      3,
+      19
+    ],
+    "ell_freeze": 64,
+    "prime_modulus": 379,
+    "replacement_row_count": 10,
+    "row_count_A": 43,
+    "scale_modulus": 229,
+    "target_label": "00,12"
+  },
+  "goldbach_proved": false,
+  "question": "Inside the far band 10A..100A, do smaller A-scaled distance slices already separate Q=46189 from every source-admissible replacement row?",
+  "replacement_residue_gap_bound_theorem_proved": false,
+  "replacement_rows": [
+    {
+      "diagonal_half_contribution": 39777700093247.94,
+      "far_slice_metrics": [
+        {
+          "absolute_over_diagonal": 1.0676265766641737,
+          "delta_count": 860,
+          "distance_range": [
+            431,
+            860
+          ],
+          "negative_over_diagonal": -0.3970568473119386,
+          "positive_fraction_of_absolute": 0.6280938897638229,
+          "positive_over_diagonal": 0.6705697293522351,
+          "slice_name": "10A_to_20A",
+          "total_over_diagonal": 0.27351288204029656
+        },
+        {
+          "absolute_over_diagonal": 0.4970514327857353,
+          "delta_count": 860,
+          "distance_range": [
+            861,
+            1290
+          ],
+          "negative_over_diagonal": -0.1851630460566699,
+          "positive_fraction_of_absolute": 0.6274770902099213,
+          "positive_over_diagonal": 0.31188838672906544,
+          "slice_name": "20A_to_30A",
+          "total_over_diagonal": 0.12672534067239558
+        },
+        {
+          "absolute_over_diagonal": 0.08837035415578276,
+          "delta_count": 860,
+          "distance_range": [
+            1291,
+            1720
+          ],
+          "negative_over_diagonal": -0.02627470274143074,
+          "positive_fraction_of_absolute": 0.7026751449347748,
+          "positive_over_diagonal": 0.06209565141435203,
+          "slice_name": "30A_to_40A",
+          "total_over_diagonal": 0.03582094867292129
+        },
+        {
+          "absolute_over_diagonal": 0.2585317869969921,
+          "delta_count": 860,
+          "distance_range": [
+            1721,
+            2150
+          ],
+          "negative_over_diagonal": -0.12445207714859224,
+          "positive_fraction_of_absolute": 0.5186198239134122,
+          "positive_over_diagonal": 0.13407970984839984,
+          "slice_name": "40A_to_50A",
+          "total_over_diagonal": 0.009627632699807582
+        },
+        {
+          "absolute_over_diagonal": 0.1755274799677713,
+          "delta_count": 860,
+          "distance_range": [
+            2151,
+            2580
+          ],
+          "negative_over_diagonal": -0.09061053003829392,
+          "positive_fraction_of_absolute": 0.4837815135559915,
+          "positive_over_diagonal": 0.08491694992947738,
+          "slice_name": "50A_to_60A",
+          "total_over_diagonal": -0.005693580108816538
+        },
+        {
+          "absolute_over_diagonal": 0.04050536498183901,
+          "delta_count": 860,
+          "distance_range": [
+            2581,
+            3010
+          ],
+          "negative_over_diagonal": -0.022097301247133536,
+          "positive_fraction_of_absolute": 0.4544598905097859,
+          "positive_over_diagonal": 0.018408063734705472,
+          "slice_name": "60A_to_70A",
+          "total_over_diagonal": -0.003689237512428065
+        },
+        {
+          "absolute_over_diagonal": 0.18097011153358056,
+          "delta_count": 860,
+          "distance_range": [
+            3011,
+            3440
+          ],
+          "negative_over_diagonal": -0.10855570346476658,
+          "positive_fraction_of_absolute": 0.4001456785054635,
+          "positive_over_diagonal": 0.072414408068814,
+          "slice_name": "70A_to_80A",
+          "total_over_diagonal": -0.03614129539595259
+        },
+        {
+          "absolute_over_diagonal": 0.172520106264349,
+          "delta_count": 860,
+          "distance_range": [
+            3441,
+            3870
+          ],
+          "negative_over_diagonal": -0.07692110570535816,
+          "positive_fraction_of_absolute": 0.55413251608196,
+          "positive_over_diagonal": 0.09559900055899082,
+          "slice_name": "80A_to_90A",
+          "total_over_diagonal": 0.01867789485363269
+        },
+        {
+          "absolute_over_diagonal": 0.02571654178053066,
+          "delta_count": 860,
+          "distance_range": [
+            3871,
+            4300
+          ],
+          "negative_over_diagonal": -0.011118784291485675,
+          "positive_fraction_of_absolute": 0.5676407665394799,
+          "positive_over_diagonal": 0.014597757489044984,
+          "slice_name": "90A_to_100A",
+          "total_over_diagonal": 0.003478973197559305
+        }
+      ],
+      "reduced_denominator": 58786,
+      "role": "replacement"
+    },
+    {
+      "diagonal_half_contribution": 28872797556320.266,
+      "far_slice_metrics": [
+        {
+          "absolute_over_diagonal": 0.8128613901041931,
+          "delta_count": 860,
+          "distance_range": [
+            431,
+            860
+          ],
+          "negative_over_diagonal": -0.3118814427060834,
+          "positive_fraction_of_absolute": 0.6163165743840948,
+          "positive_over_diagonal": 0.5009799473981097,
+          "slice_name": "10A_to_20A",
+          "total_over_diagonal": 0.18909850469202633
+        },
+        {
+          "absolute_over_diagonal": 0.33095146084767013,
+          "delta_count": 860,
+          "distance_range": [
+            861,
+            1290
+          ],
+          "negative_over_diagonal": -0.14603112326398737,
+          "positive_fraction_of_absolute": 0.558753652605261,
+          "positive_over_diagonal": 0.18492033758368273,
+          "slice_name": "20A_to_30A",
+          "total_over_diagonal": 0.038889214319695366
+        },
+        {
+          "absolute_over_diagonal": 0.37234185852451135,
+          "delta_count": 860,
+          "distance_range": [
+            1291,
+            1720
+          ],
+          "negative_over_diagonal": -0.21473410789598826,
+          "positive_fraction_of_absolute": 0.42328775833337506,
+          "positive_over_diagonal": 0.15760775062852309,
+          "slice_name": "30A_to_40A",
+          "total_over_diagonal": -0.05712635726746517
+        },
+        {
+          "absolute_over_diagonal": 0.08692604430600134,
+          "delta_count": 860,
+          "distance_range": [
+            1721,
+            2150
+          ],
+          "negative_over_diagonal": -0.03791437732181469,
+          "positive_fraction_of_absolute": 0.5638317879927144,
+          "positive_over_diagonal": 0.04901166698418665,
+          "slice_name": "40A_to_50A",
+          "total_over_diagonal": 0.01109728966237197
+        },
+        {
+          "absolute_over_diagonal": 0.28276502202017983,
+          "delta_count": 860,
+          "distance_range": [
+            2151,
+            2580
+          ],
+          "negative_over_diagonal": -0.15130098386488305,
+          "positive_fraction_of_absolute": 0.46492326814705776,
+          "positive_over_diagonal": 0.13146403815529675,
+          "slice_name": "50A_to_60A",
+          "total_over_diagonal": -0.019836945709586308
+        },
+        {
+          "absolute_over_diagonal": 0.06824820373708555,
+          "delta_count": 860,
+          "distance_range": [
+            2581,
+            3010
+          ],
+          "negative_over_diagonal": -0.03901191858169758,
+          "positive_fraction_of_absolute": 0.42838175299112236,
+          "positive_over_diagonal": 0.029236285155387978,
+          "slice_name": "60A_to_70A",
+          "total_over_diagonal": -0.0097756334263096
+        },
+        {
+          "absolute_over_diagonal": 0.2195618554642193,
+          "delta_count": 860,
+          "distance_range": [
+            3011,
+            3440
+          ],
+          "negative_over_diagonal": -0.09010999585374721,
+          "positive_fraction_of_absolute": 0.5895917546186346,
+          "positive_over_diagonal": 0.1294518596104721,
+          "slice_name": "70A_to_80A",
+          "total_over_diagonal": 0.03934186375672485
+        },
+        {
+          "absolute_over_diagonal": 0.09390383312852882,
+          "delta_count": 860,
+          "distance_range": [
+            3441,
+            3870
+          ],
+          "negative_over_diagonal": -0.043583095008258826,
+          "positive_fraction_of_absolute": 0.5358752294104394,
+          "positive_over_diagonal": 0.05032073812027,
+          "slice_name": "80A_to_90A",
+          "total_over_diagonal": 0.006737643112011161
+        },
+        {
+          "absolute_over_diagonal": 0.1200477668659159,
+          "delta_count": 860,
+          "distance_range": [
+            3871,
+            4300
+          ],
+          "negative_over_diagonal": -0.05929139140806404,
+          "positive_fraction_of_absolute": 0.5061016713931218,
+          "positive_over_diagonal": 0.06075637545785186,
+          "slice_name": "90A_to_100A",
+          "total_over_diagonal": 0.0014649840497878179
+        }
+      ],
+      "reduced_denominator": 40755,
+      "role": "replacement"
+    },
+    {
+      "diagonal_half_contribution": 43845697056636.55,
+      "far_slice_metrics": [
+        {
+          "absolute_over_diagonal": 1.3686426332143835,
+          "delta_count": 860,
+          "distance_range": [
+            431,
+            860
+          ],
+          "negative_over_diagonal": -0.7936604214472408,
+          "positive_fraction_of_absolute": 0.4201112823854857,
+          "positive_over_diagonal": 0.5749822117671426,
+          "slice_name": "10A_to_20A",
+          "total_over_diagonal": -0.2186782096800982
+        },
+        {
+          "absolute_over_diagonal": 0.6169445741392322,
+          "delta_count": 860,
+          "distance_range": [
+            861,
+            1290
+          ],
+          "negative_over_diagonal": -0.3255399972162222,
+          "positive_fraction_of_absolute": 0.47233509967987136,
+          "positive_over_diagonal": 0.29140457692301003,
+          "slice_name": "20A_to_30A",
+          "total_over_diagonal": -0.03413542029321218
+        },
+        {
+          "absolute_over_diagonal": 0.110436746768618,
+          "delta_count": 860,
+          "distance_range": [
+            1291,
+            1720
+          ],
+          "negative_over_diagonal": -0.0492497892291828,
+          "positive_fraction_of_absolute": 0.5540452732425314,
+          "positive_over_diagonal": 0.06118695753943521,
+          "slice_name": "30A_to_40A",
+          "total_over_diagonal": 0.011937168310252407
+        },
+        {
+          "absolute_over_diagonal": 0.3690875058602029,
+          "delta_count": 860,
+          "distance_range": [
+            1721,
+            2150
+          ],
+          "negative_over_diagonal": -0.18479306317136396,
+          "positive_fraction_of_absolute": 0.49932452267469346,
+          "positive_over_diagonal": 0.18429444268883893,
+          "slice_name": "40A_to_50A",
+          "total_over_diagonal": -0.0004986204825250083
+        },
+        {
+          "absolute_over_diagonal": 0.30917594697099016,
+          "delta_count": 860,
+          "distance_range": [
+            2151,
+            2580
+          ],
+          "negative_over_diagonal": -0.1330998774350211,
+          "positive_fraction_of_absolute": 0.569501189406853,
+          "positive_over_diagonal": 0.17607606953596902,
+          "slice_name": "50A_to_60A",
+          "total_over_diagonal": 0.042976192100947906
+        },
+        {
+          "absolute_over_diagonal": 0.07883985299768168,
+          "delta_count": 860,
+          "distance_range": [
+            2581,
+            3010
+          ],
+          "negative_over_diagonal": -0.053724319258466484,
+          "positive_fraction_of_absolute": 0.3185639341559113,
+          "positive_over_diagonal": 0.025115533739215188,
+          "slice_name": "60A_to_70A",
+          "total_over_diagonal": -0.028608785519251285
+        },
+        {
+          "absolute_over_diagonal": 0.13635213930896722,
+          "delta_count": 860,
+          "distance_range": [
+            3011,
+            3440
+          ],
+          "negative_over_diagonal": -0.07524729844282411,
+          "positive_fraction_of_absolute": 0.44813994980806693,
+          "positive_over_diagonal": 0.06110484086614312,
+          "slice_name": "70A_to_80A",
+          "total_over_diagonal": -0.014142457576680992
+        },
+        {
+          "absolute_over_diagonal": 0.2109914182237702,
+          "delta_count": 860,
+          "distance_range": [
+            3441,
+            3870
+          ],
+          "negative_over_diagonal": -0.10424054891001065,
+          "positive_fraction_of_absolute": 0.5059488685011031,
+          "positive_over_diagonal": 0.10675086931375956,
+          "slice_name": "80A_to_90A",
+          "total_over_diagonal": 0.002510320403748888
+        },
+        {
+          "absolute_over_diagonal": 0.12051159336996825,
+          "delta_count": 860,
+          "distance_range": [
+            3871,
+            4300
+          ],
+          "negative_over_diagonal": -0.05523392389539765,
+          "positive_fraction_of_absolute": 0.5416712836429722,
+          "positive_over_diagonal": 0.0652776694745706,
+          "slice_name": "90A_to_100A",
+          "total_over_diagonal": 0.010043745579172932
+        }
+      ],
+      "reduced_denominator": 62985,
+      "role": "replacement"
+    },
+    {
+      "diagonal_half_contribution": 22271465382173.652,
+      "far_slice_metrics": [
+        {
+          "absolute_over_diagonal": 1.1386232307609327,
+          "delta_count": 860,
+          "distance_range": [
+            431,
+            860
+          ],
+          "negative_over_diagonal": -0.6430631582048338,
+          "positive_fraction_of_absolute": 0.43522743886484744,
+          "positive_over_diagonal": 0.49556007255609896,
+          "slice_name": "10A_to_20A",
+          "total_over_diagonal": -0.14750308564873477
+        },
+        {
+          "absolute_over_diagonal": 0.18901565047573438,
+          "delta_count": 860,
+          "distance_range": [
+            861,
+            1290
+          ],
+          "negative_over_diagonal": -0.09270154037391384,
+          "positive_fraction_of_absolute": 0.50955627144846,
+          "positive_over_diagonal": 0.09631411010182055,
+          "slice_name": "20A_to_30A",
+          "total_over_diagonal": 0.003612569727906678
+        },
+        {
+          "absolute_over_diagonal": 0.36604373306055205,
+          "delta_count": 860,
+          "distance_range": [
+            1291,
+            1720
+          ],
+          "negative_over_diagonal": -0.16954574281537252,
+          "positive_fraction_of_absolute": 0.5368156110807509,
+          "positive_over_diagonal": 0.19649799024517953,
+          "slice_name": "30A_to_40A",
+          "total_over_diagonal": 0.02695224742980703
+        },
+        {
+          "absolute_over_diagonal": 0.4135677409020316,
+          "delta_count": 860,
+          "distance_range": [
+            1721,
+            2150
+          ],
+          "negative_over_diagonal": -0.14729250001855737,
+          "positive_fraction_of_absolute": 0.6438491558908873,
+          "positive_over_diagonal": 0.2662752408834742,
+          "slice_name": "40A_to_50A",
+          "total_over_diagonal": 0.11898274086491684
+        },
+        {
+          "absolute_over_diagonal": 0.07185472836528888,
+          "delta_count": 860,
+          "distance_range": [
+            2151,
+            2580
+          ],
+          "negative_over_diagonal": -0.04225557258375755,
+          "positive_fraction_of_absolute": 0.41193052224841337,
+          "positive_over_diagonal": 0.029599155781531328,
+          "slice_name": "50A_to_60A",
+          "total_over_diagonal": -0.01265641680222622
+        },
+        {
+          "absolute_over_diagonal": 0.24970201557697413,
+          "delta_count": 860,
+          "distance_range": [
+            2581,
+            3010
+          ],
+          "negative_over_diagonal": -0.1412758852403619,
+          "positive_fraction_of_absolute": 0.4342220870187104,
+          "positive_over_diagonal": 0.10842613033661225,
+          "slice_name": "60A_to_70A",
+          "total_over_diagonal": -0.03284975490374964
+        },
+        {
+          "absolute_over_diagonal": 0.1498806429702248,
+          "delta_count": 860,
+          "distance_range": [
+            3011,
+            3440
+          ],
+          "negative_over_diagonal": -0.06524638050876845,
+          "positive_fraction_of_absolute": 0.5646777381270623,
+          "positive_over_diagonal": 0.08463426246145633,
+          "slice_name": "70A_to_80A",
+          "total_over_diagonal": 0.019387881952687883
+        },
+        {
+          "absolute_over_diagonal": 0.08225488761910169,
+          "delta_count": 860,
+          "distance_range": [
+            3441,
+            3870
+          ],
+          "negative_over_diagonal": -0.03969760674172293,
+          "positive_fraction_of_absolute": 0.5173830043322055,
+          "positive_over_diagonal": 0.04255728087737876,
+          "slice_name": "80A_to_90A",
+          "total_over_diagonal": 0.0028596741356558394
+        },
+        {
+          "absolute_over_diagonal": 0.19775003310539346,
+          "delta_count": 860,
+          "distance_range": [
+            3871,
+            4300
+          ],
+          "negative_over_diagonal": -0.1102905597202118,
+          "positive_fraction_of_absolute": 0.4422728634314261,
+          "positive_over_diagonal": 0.08745947338518167,
+          "slice_name": "90A_to_100A",
+          "total_over_diagonal": -0.02283108633503016
+        }
+      ],
+      "reduced_denominator": 49742,
+      "role": "replacement"
+    },
+    {
+      "diagonal_half_contribution": 22409869469989.832,
+      "far_slice_metrics": [
+        {
+          "absolute_over_diagonal": 1.8724376871292412,
+          "delta_count": 860,
+          "distance_range": [
+            431,
+            860
+          ],
+          "negative_over_diagonal": -0.9504523607506805,
+          "positive_fraction_of_absolute": 0.4923984027431737,
+          "positive_over_diagonal": 0.9219853263785608,
+          "slice_name": "10A_to_20A",
+          "total_over_diagonal": -0.028467034372119716
+        },
+        {
+          "absolute_over_diagonal": 0.45165247149304555,
+          "delta_count": 860,
+          "distance_range": [
+            861,
+            1290
+          ],
+          "negative_over_diagonal": -0.16145846550462384,
+          "positive_fraction_of_absolute": 0.642516147490826,
+          "positive_over_diagonal": 0.2901940059884217,
+          "slice_name": "20A_to_30A",
+          "total_over_diagonal": 0.12873554048379793
+        },
+        {
+          "absolute_over_diagonal": 0.4707348978999678,
+          "delta_count": 860,
+          "distance_range": [
+            1291,
+            1720
+          ],
+          "negative_over_diagonal": -0.20601717858828228,
+          "positive_fraction_of_absolute": 0.5623498926734313,
+          "positive_over_diagonal": 0.26471771931168553,
+          "slice_name": "30A_to_40A",
+          "total_over_diagonal": 0.058700540723403194
+        },
+        {
+          "absolute_over_diagonal": 0.5151908303838639,
+          "delta_count": 860,
+          "distance_range": [
+            1721,
+            2150
+          ],
+          "negative_over_diagonal": -0.30611647152531285,
+          "positive_fraction_of_absolute": 0.40581925478520586,
+          "positive_over_diagonal": 0.20907435885855105,
+          "slice_name": "40A_to_50A",
+          "total_over_diagonal": -0.09704211266676184
+        },
+        {
+          "absolute_over_diagonal": 0.11879686397169932,
+          "delta_count": 860,
+          "distance_range": [
+            2151,
+            2580
+          ],
+          "negative_over_diagonal": -0.058355187593712304,
+          "positive_fraction_of_absolute": 0.5087817502689792,
+          "positive_over_diagonal": 0.060441676377987016,
+          "slice_name": "50A_to_60A",
+          "total_over_diagonal": 0.0020864887842747142
+        },
+        {
+          "absolute_over_diagonal": 0.32562788804904397,
+          "delta_count": 860,
+          "distance_range": [
+            2581,
+            3010
+          ],
+          "negative_over_diagonal": -0.1764755090387241,
+          "positive_fraction_of_absolute": 0.45804546995021345,
+          "positive_over_diagonal": 0.14915237901031983,
+          "slice_name": "60A_to_70A",
+          "total_over_diagonal": -0.027323130028404273
+        },
+        {
+          "absolute_over_diagonal": 0.35609649025086887,
+          "delta_count": 860,
+          "distance_range": [
+            3011,
+            3440
+          ],
+          "negative_over_diagonal": -0.20148738513202186,
+          "positive_fraction_of_absolute": 0.4341775595988756,
+          "positive_over_diagonal": 0.15460910511884704,
+          "slice_name": "70A_to_80A",
+          "total_over_diagonal": -0.04687828001317482
+        },
+        {
+          "absolute_over_diagonal": 0.056193527762626296,
+          "delta_count": 860,
+          "distance_range": [
+            3441,
+            3870
+          ],
+          "negative_over_diagonal": -0.027115587677252126,
+          "positive_fraction_of_absolute": 0.5174606621639012,
+          "positive_over_diagonal": 0.02907794008537417,
+          "slice_name": "80A_to_90A",
+          "total_over_diagonal": 0.0019623524081220515
+        },
+        {
+          "absolute_over_diagonal": 0.263709663446677,
+          "delta_count": 860,
+          "distance_range": [
+            3871,
+            4300
+          ],
+          "negative_over_diagonal": -0.1416265207508017,
+          "positive_fraction_of_absolute": 0.4629452751190551,
+          "positive_over_diagonal": 0.12208314269587532,
+          "slice_name": "90A_to_100A",
+          "total_over_diagonal": -0.01954337805492638
+        }
+      ],
+      "reduced_denominator": 53295,
+      "role": "replacement"
+    },
+    {
+      "diagonal_half_contribution": 21974856736265.05,
+      "far_slice_metrics": [
+        {
+          "absolute_over_diagonal": 0.468739670099342,
+          "delta_count": 860,
+          "distance_range": [
+            431,
+            860
+          ],
+          "negative_over_diagonal": -0.2291928876712682,
+          "positive_fraction_of_absolute": 0.5110443977939944,
+          "positive_over_diagonal": 0.23954678242807378,
+          "slice_name": "10A_to_20A",
+          "total_over_diagonal": 0.010353894756805591
+        },
+        {
+          "absolute_over_diagonal": 0.2786467482369731,
+          "delta_count": 860,
+          "distance_range": [
+            861,
+            1290
+          ],
+          "negative_over_diagonal": -0.11762716611086209,
+          "positive_fraction_of_absolute": 0.5778627712144448,
+          "positive_over_diagonal": 0.161019582126111,
+          "slice_name": "20A_to_30A",
+          "total_over_diagonal": 0.04339241601524891
+        },
+        {
+          "absolute_over_diagonal": 0.1291861449777575,
+          "delta_count": 860,
+          "distance_range": [
+            1291,
+            1720
+          ],
+          "negative_over_diagonal": -0.06534610454041788,
+          "positive_fraction_of_absolute": 0.49417095345891177,
+          "positive_over_diagonal": 0.06384004043733962,
+          "slice_name": "30A_to_40A",
+          "total_over_diagonal": -0.0015060641030782613
+        },
+        {
+          "absolute_over_diagonal": 0.21535382395742775,
+          "delta_count": 860,
+          "distance_range": [
+            1721,
+            2150
+          ],
+          "negative_over_diagonal": -0.1187266171162446,
+          "positive_fraction_of_absolute": 0.44869046235410665,
+          "positive_over_diagonal": 0.09662720684118314,
+          "slice_name": "40A_to_50A",
+          "total_over_diagonal": -0.02209941027506145
+        },
+        {
+          "absolute_over_diagonal": 0.07413614513107636,
+          "delta_count": 860,
+          "distance_range": [
+            2151,
+            2580
+          ],
+          "negative_over_diagonal": -0.0379175691926963,
+          "positive_fraction_of_absolute": 0.4885413973756504,
+          "positive_over_diagonal": 0.036218575938380064,
+          "slice_name": "50A_to_60A",
+          "total_over_diagonal": -0.0016989932543162356
+        },
+        {
+          "absolute_over_diagonal": 0.15752482220503283,
+          "delta_count": 860,
+          "distance_range": [
+            2581,
+            3010
+          ],
+          "negative_over_diagonal": -0.06508661879294858,
+          "positive_fraction_of_absolute": 0.5868167449303169,
+          "positive_over_diagonal": 0.09243820341208427,
+          "slice_name": "60A_to_70A",
+          "total_over_diagonal": 0.027351584619135685
+        },
+        {
+          "absolute_over_diagonal": 0.052544036937319856,
+          "delta_count": 860,
+          "distance_range": [
+            3011,
+            3440
+          ],
+          "negative_over_diagonal": -0.02329123611482475,
+          "positive_fraction_of_absolute": 0.5567292223357518,
+          "positive_over_diagonal": 0.029252800822495106,
+          "slice_name": "70A_to_80A",
+          "total_over_diagonal": 0.005961564707670351
+        },
+        {
+          "absolute_over_diagonal": 0.09661184712249794,
+          "delta_count": 860,
+          "distance_range": [
+            3441,
+            3870
+          ],
+          "negative_over_diagonal": -0.05023967504384917,
+          "positive_fraction_of_absolute": 0.4799843234531235,
+          "positive_over_diagonal": 0.04637217207864877,
+          "slice_name": "80A_to_90A",
+          "total_over_diagonal": -0.003867502965200392
+        },
+        {
+          "absolute_over_diagonal": 0.05708551630637661,
+          "delta_count": 860,
+          "distance_range": [
+            3871,
+            4300
+          ],
+          "negative_over_diagonal": -0.026283821830892753,
+          "positive_fraction_of_absolute": 0.5395710938335373,
+          "positive_over_diagonal": 0.030801694475483855,
+          "slice_name": "90A_to_100A",
+          "total_over_diagonal": 0.004517872644591106
+        }
+      ],
+      "reduced_denominator": 34034,
+      "role": "replacement"
+    },
+    {
+      "diagonal_half_contribution": 24223579373024.215,
+      "far_slice_metrics": [
+        {
+          "absolute_over_diagonal": 0.7305523536550472,
+          "delta_count": 860,
+          "distance_range": [
+            431,
+            860
+          ],
+          "negative_over_diagonal": -0.41917494575376335,
+          "positive_fraction_of_absolute": 0.4262218940825017,
+          "positive_over_diagonal": 0.3113774079012839,
+          "slice_name": "10A_to_20A",
+          "total_over_diagonal": -0.10779753785247943
+        },
+        {
+          "absolute_over_diagonal": 0.395318266373254,
+          "delta_count": 860,
+          "distance_range": [
+            861,
+            1290
+          ],
+          "negative_over_diagonal": -0.2159714318072118,
+          "positive_fraction_of_absolute": 0.4536770744529812,
+          "positive_over_diagonal": 0.17934683456604222,
+          "slice_name": "20A_to_30A",
+          "total_over_diagonal": -0.03662459724116954
+        },
+        {
+          "absolute_over_diagonal": 0.22613614339245047,
+          "delta_count": 860,
+          "distance_range": [
+            1291,
+            1720
+          ],
+          "negative_over_diagonal": -0.09697521517563581,
+          "positive_fraction_of_absolute": 0.5711644599539354,
+          "positive_over_diagonal": 0.12916092821681466,
+          "slice_name": "30A_to_40A",
+          "total_over_diagonal": 0.03218571304117883
+        },
+        {
+          "absolute_over_diagonal": 0.15343156608264658,
+          "delta_count": 860,
+          "distance_range": [
+            1721,
+            2150
+          ],
+          "negative_over_diagonal": -0.0791900170346715,
+          "positive_fraction_of_absolute": 0.48387402242889527,
+          "positive_over_diagonal": 0.07424154904797506,
+          "slice_name": "40A_to_50A",
+          "total_over_diagonal": -0.004948467986696449
+        },
+        {
+          "absolute_over_diagonal": 0.13671352687528826,
+          "delta_count": 860,
+          "distance_range": [
+            2151,
+            2580
+          ],
+          "negative_over_diagonal": -0.061906378028117916,
+          "positive_fraction_of_absolute": 0.5471817643575996,
+          "positive_over_diagonal": 0.07480714884717034,
+          "slice_name": "50A_to_60A",
+          "total_over_diagonal": 0.012900770819052429
+        },
+        {
+          "absolute_over_diagonal": 0.15287539242481119,
+          "delta_count": 860,
+          "distance_range": [
+            2581,
+            3010
+          ],
+          "negative_over_diagonal": -0.07402332954569561,
+          "positive_fraction_of_absolute": 0.515793036592841,
+          "positive_over_diagonal": 0.07885206287911557,
+          "slice_name": "60A_to_70A",
+          "total_over_diagonal": 0.004828733333419952
+        },
+        {
+          "absolute_over_diagonal": 0.09977476457662107,
+          "delta_count": 860,
+          "distance_range": [
+            3011,
+            3440
+          ],
+          "negative_over_diagonal": -0.04800143005817331,
+          "positive_fraction_of_absolute": 0.5189020965184933,
+          "positive_over_diagonal": 0.05177333451844777,
+          "slice_name": "70A_to_80A",
+          "total_over_diagonal": 0.0037719044602744565
+        },
+        {
+          "absolute_over_diagonal": 0.10697053321921376,
+          "delta_count": 860,
+          "distance_range": [
+            3441,
+            3870
+          ],
+          "negative_over_diagonal": -0.05428976218742603,
+          "positive_fraction_of_absolute": 0.49247927860497337,
+          "positive_over_diagonal": 0.05268077103178773,
+          "slice_name": "80A_to_90A",
+          "total_over_diagonal": -0.0016089911556383032
+        },
+        {
+          "absolute_over_diagonal": 0.12340096133520453,
+          "delta_count": 860,
+          "distance_range": [
+            3871,
+            4300
+          ],
+          "negative_over_diagonal": -0.08399630212193557,
+          "positive_fraction_of_absolute": 0.3193221413099913,
+          "positive_over_diagonal": 0.03940465921326896,
+          "slice_name": "90A_to_100A",
+          "total_over_diagonal": -0.0445916429086666
+        }
+      ],
+      "reduced_denominator": 36465,
+      "role": "replacement"
+    },
+    {
+      "diagonal_half_contribution": 11896071468706.367,
+      "far_slice_metrics": [
+        {
+          "absolute_over_diagonal": 0.594681012051773,
+          "delta_count": 860,
+          "distance_range": [
+            431,
+            860
+          ],
+          "negative_over_diagonal": -0.37500545923089174,
+          "positive_fraction_of_absolute": 0.36940065071685235,
+          "positive_over_diagonal": 0.21967555282088128,
+          "slice_name": "10A_to_20A",
+          "total_over_diagonal": -0.1553299064100104
+        },
+        {
+          "absolute_over_diagonal": 0.3017081256121565,
+          "delta_count": 860,
+          "distance_range": [
+            861,
+            1290
+          ],
+          "negative_over_diagonal": -0.13904786949461911,
+          "positive_fraction_of_absolute": 0.5391311745002052,
+          "positive_over_diagonal": 0.16266025611753737,
+          "slice_name": "20A_to_30A",
+          "total_over_diagonal": 0.023612386622918285
+        },
+        {
+          "absolute_over_diagonal": 0.24459865461929797,
+          "delta_count": 860,
+          "distance_range": [
+            1291,
+            1720
+          ],
+          "negative_over_diagonal": -0.11455094247550988,
+          "positive_fraction_of_absolute": 0.5316779536101658,
+          "positive_over_diagonal": 0.13004771214378807,
+          "slice_name": "30A_to_40A",
+          "total_over_diagonal": 0.015496769668278178
+        },
+        {
+          "absolute_over_diagonal": 0.20544439723408084,
+          "delta_count": 860,
+          "distance_range": [
+            1721,
+            2150
+          ],
+          "negative_over_diagonal": -0.08739832258993385,
+          "positive_fraction_of_absolute": 0.5745889215447756,
+          "positive_over_diagonal": 0.11804607464414699,
+          "slice_name": "40A_to_50A",
+          "total_over_diagonal": 0.030647752054213138
+        },
+        {
+          "absolute_over_diagonal": 0.15803092308961408,
+          "delta_count": 860,
+          "distance_range": [
+            2151,
+            2580
+          ],
+          "negative_over_diagonal": -0.07653006269835937,
+          "positive_fraction_of_absolute": 0.5157272943665482,
+          "positive_over_diagonal": 0.08150086039125473,
+          "slice_name": "50A_to_60A",
+          "total_over_diagonal": 0.00497079769289537
+        },
+        {
+          "absolute_over_diagonal": 0.16285043200366028,
+          "delta_count": 860,
+          "distance_range": [
+            2581,
+            3010
+          ],
+          "negative_over_diagonal": -0.11005820028982642,
+          "positive_fraction_of_absolute": 0.32417618463945674,
+          "positive_over_diagonal": 0.05279223171383387,
+          "slice_name": "60A_to_70A",
+          "total_over_diagonal": -0.05726596857599256
+        },
+        {
+          "absolute_over_diagonal": 0.1177313537344449,
+          "delta_count": 860,
+          "distance_range": [
+            3011,
+            3440
+          ],
+          "negative_over_diagonal": -0.029828301628560976,
+          "positive_fraction_of_absolute": 0.7466409696108501,
+          "positive_over_diagonal": 0.08790305210588392,
+          "slice_name": "70A_to_80A",
+          "total_over_diagonal": 0.058074750477322946
+        },
+        {
+          "absolute_over_diagonal": 0.1536318213290453,
+          "delta_count": 860,
+          "distance_range": [
+            3441,
+            3870
+          ],
+          "negative_over_diagonal": -0.07576850439062012,
+          "positive_fraction_of_absolute": 0.5068176388513889,
+          "positive_over_diagonal": 0.07786331693842517,
+          "slice_name": "80A_to_90A",
+          "total_over_diagonal": 0.00209481254780505
+        },
+        {
+          "absolute_over_diagonal": 0.0733244024975643,
+          "delta_count": 860,
+          "distance_range": [
+            3871,
+            4300
+          ],
+          "negative_over_diagonal": -0.046876195806510965,
+          "positive_fraction_of_absolute": 0.360701291659784,
+          "positive_over_diagonal": 0.026448206691053334,
+          "slice_name": "90A_to_100A",
+          "total_over_diagonal": -0.020427989115457616
+        }
+      ],
+      "reduced_denominator": 35530,
+      "role": "replacement"
+    },
+    {
+      "diagonal_half_contribution": 9588909394612.44,
+      "far_slice_metrics": [
+        {
+          "absolute_over_diagonal": 0.5970492842973205,
+          "delta_count": 860,
+          "distance_range": [
+            431,
+            860
+          ],
+          "negative_over_diagonal": -0.3008912107529379,
+          "positive_fraction_of_absolute": 0.49603622570779404,
+          "positive_over_diagonal": 0.29615807354438256,
+          "slice_name": "10A_to_20A",
+          "total_over_diagonal": -0.004733137208555365
+        },
+        {
+          "absolute_over_diagonal": 0.21525391323837134,
+          "delta_count": 860,
+          "distance_range": [
+            861,
+            1290
+          ],
+          "negative_over_diagonal": -0.13071976667233998,
+          "positive_fraction_of_absolute": 0.39271827998043685,
+          "positive_over_diagonal": 0.08453414656603138,
+          "slice_name": "20A_to_30A",
+          "total_over_diagonal": -0.0461856201063086
+        },
+        {
+          "absolute_over_diagonal": 0.37630522916714154,
+          "delta_count": 860,
+          "distance_range": [
+            1291,
+            1720
+          ],
+          "negative_over_diagonal": -0.21162410691162545,
+          "positive_fraction_of_absolute": 0.4376264518566404,
+          "positive_over_diagonal": 0.1646811222555161,
+          "slice_name": "30A_to_40A",
+          "total_over_diagonal": -0.04694298465610938
+        },
+        {
+          "absolute_over_diagonal": 0.05420598515097931,
+          "delta_count": 860,
+          "distance_range": [
+            1721,
+            2150
+          ],
+          "negative_over_diagonal": -0.024296224204805938,
+          "positive_fraction_of_absolute": 0.5517796764114896,
+          "positive_over_diagonal": 0.029909760946173376,
+          "slice_name": "40A_to_50A",
+          "total_over_diagonal": 0.005613536741367438
+        },
+        {
+          "absolute_over_diagonal": 0.18249284208022148,
+          "delta_count": 860,
+          "distance_range": [
+            2151,
+            2580
+          ],
+          "negative_over_diagonal": -0.10092366185048894,
+          "positive_fraction_of_absolute": 0.44697194311805283,
+          "positive_over_diagonal": 0.08156918022973256,
+          "slice_name": "50A_to_60A",
+          "total_over_diagonal": -0.01935448162075639
+        },
+        {
+          "absolute_over_diagonal": 0.10353455764814042,
+          "delta_count": 860,
+          "distance_range": [
+            2581,
+            3010
+          ],
+          "negative_over_diagonal": -0.04583398916990966,
+          "positive_fraction_of_absolute": 0.5573073357238332,
+          "positive_over_diagonal": 0.057700568478230754,
+          "slice_name": "60A_to_70A",
+          "total_over_diagonal": 0.011866579308321098
+        },
+        {
+          "absolute_over_diagonal": 0.1135639212373547,
+          "delta_count": 860,
+          "distance_range": [
+            3011,
+            3440
+          ],
+          "negative_over_diagonal": -0.05338646856419537,
+          "positive_fraction_of_absolute": 0.5298993907350664,
+          "positive_over_diagonal": 0.060177452673159326,
+          "slice_name": "70A_to_80A",
+          "total_over_diagonal": 0.006790984108963971
+        },
+        {
+          "absolute_over_diagonal": 0.14252294860803544,
+          "delta_count": 860,
+          "distance_range": [
+            3441,
+            3870
+          ],
+          "negative_over_diagonal": -0.07310394650869559,
+          "positive_fraction_of_absolute": 0.48707245238277386,
+          "positive_over_diagonal": 0.06941900209933986,
+          "slice_name": "80A_to_90A",
+          "total_over_diagonal": -0.003684944409355705
+        },
+        {
+          "absolute_over_diagonal": 0.06195221328006979,
+          "delta_count": 860,
+          "distance_range": [
+            3871,
+            4300
+          ],
+          "negative_over_diagonal": -0.027386840088980475,
+          "positive_fraction_of_absolute": 0.5579360504011096,
+          "positive_over_diagonal": 0.034565373191089314,
+          "slice_name": "90A_to_100A",
+          "total_over_diagonal": 0.007178533102108837
+        }
+      ],
+      "reduced_denominator": 41990,
+      "role": "replacement"
+    },
+    {
+      "diagonal_half_contribution": 28683313563140.617,
+      "far_slice_metrics": [
+        {
+          "absolute_over_diagonal": 0.6015847104297543,
+          "delta_count": 860,
+          "distance_range": [
+            431,
+            860
+          ],
+          "negative_over_diagonal": -0.27344223709936616,
+          "positive_fraction_of_absolute": 0.5454634528460222,
+          "positive_over_diagonal": 0.32814247333038815,
+          "slice_name": "10A_to_20A",
+          "total_over_diagonal": 0.05470023623102211
+        },
+        {
+          "absolute_over_diagonal": 0.2812088568105753,
+          "delta_count": 860,
+          "distance_range": [
+            861,
+            1290
+          ],
+          "negative_over_diagonal": -0.14484948494064415,
+          "positive_fraction_of_absolute": 0.48490425734273357,
+          "positive_over_diagonal": 0.1363593718699311,
+          "slice_name": "20A_to_30A",
+          "total_over_diagonal": -0.008490113070713035
+        },
+        {
+          "absolute_over_diagonal": 0.1819100686720962,
+          "delta_count": 860,
+          "distance_range": [
+            1291,
+            1720
+          ],
+          "negative_over_diagonal": -0.09756100609605901,
+          "positive_fraction_of_absolute": 0.4636855078543311,
+          "positive_over_diagonal": 0.08434906257603716,
+          "slice_name": "30A_to_40A",
+          "total_over_diagonal": -0.01321194352002185
+        },
+        {
+          "absolute_over_diagonal": 0.14192552836904032,
+          "delta_count": 860,
+          "distance_range": [
+            1721,
+            2150
+          ],
+          "negative_over_diagonal": -0.08947210547268897,
+          "positive_fraction_of_absolute": 0.36958412978361366,
+          "positive_over_diagonal": 0.05245342289635134,
+          "slice_name": "40A_to_50A",
+          "total_over_diagonal": -0.03701868257633763
+        },
+        {
+          "absolute_over_diagonal": 0.12969280230600783,
+          "delta_count": 860,
+          "distance_range": [
+            2151,
+            2580
+          ],
+          "negative_over_diagonal": -0.060368408075422444,
+          "positive_fraction_of_absolute": 0.5345276915754794,
+          "positive_over_diagonal": 0.06932439423058538,
+          "slice_name": "50A_to_60A",
+          "total_over_diagonal": 0.00895598615516295
+        },
+        {
+          "absolute_over_diagonal": 0.11455216500892124,
+          "delta_count": 860,
+          "distance_range": [
+            2581,
+            3010
+          ],
+          "negative_over_diagonal": -0.031259188170184075,
+          "positive_fraction_of_absolute": 0.7271183118385443,
+          "positive_over_diagonal": 0.08329297683873717,
+          "slice_name": "60A_to_70A",
+          "total_over_diagonal": 0.0520337886685531
+        },
+        {
+          "absolute_over_diagonal": 0.1481530026098136,
+          "delta_count": 860,
+          "distance_range": [
+            3011,
+            3440
+          ],
+          "negative_over_diagonal": -0.08825307687660182,
+          "positive_fraction_of_absolute": 0.40431125038328464,
+          "positive_over_diagonal": 0.05989992573321177,
+          "slice_name": "70A_to_80A",
+          "total_over_diagonal": -0.028353151143390036
+        },
+        {
+          "absolute_over_diagonal": 0.07032686419095471,
+          "delta_count": 860,
+          "distance_range": [
+            3441,
+            3870
+          ],
+          "negative_over_diagonal": -0.03436862641932982,
+          "positive_fraction_of_absolute": 0.5113015941388974,
+          "positive_over_diagonal": 0.035958237771624886,
+          "slice_name": "80A_to_90A",
+          "total_over_diagonal": 0.0015896113522950689
+        },
+        {
+          "absolute_over_diagonal": 0.08720772581967874,
+          "delta_count": 860,
+          "distance_range": [
+            3871,
+            4300
+          ],
+          "negative_over_diagonal": -0.04799969430365943,
+          "positive_fraction_of_absolute": 0.4495935554734059,
+          "positive_over_diagonal": 0.03920803151601931,
+          "slice_name": "90A_to_100A",
+          "total_over_diagonal": -0.008791662787640117
+        }
+      ],
+      "reduced_denominator": 38038,
+      "role": "replacement"
+    }
+  ],
+  "schema_version": 1,
+  "slice_summaries": [
+    {
+      "adverse_positive_fraction": 0.4000879992317599,
+      "adverse_total_over_diagonal": -0.3055353991774832,
+      "distance_range": [
+        431,
+        860
+      ],
+      "minimum_replacement_positive_fraction": 0.36940065071685235,
+      "minimum_replacement_positive_fraction_denominator": 35530,
+      "minimum_replacement_total_denominator": 62985,
+      "minimum_replacement_total_over_diagonal": -0.2186782096800982,
+      "positive_fraction_gap": -0.030687348514907564,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.3847443249743061,
+      "separates_by_both_share_and_total": false,
+      "slice_name": "10A_to_20A",
+      "total_gap": 0.08685718949738497,
+      "total_pressure_separates": true,
+      "total_separator": -0.2621068044287907
+    },
+    {
+      "adverse_positive_fraction": 0.4963095500443905,
+      "adverse_total_over_diagonal": -0.0015069584234696641,
+      "distance_range": [
+        861,
+        1290
+      ],
+      "minimum_replacement_positive_fraction": 0.39271827998043685,
+      "minimum_replacement_positive_fraction_denominator": 41990,
+      "minimum_replacement_total_denominator": 41990,
+      "minimum_replacement_total_over_diagonal": -0.0461856201063086,
+      "positive_fraction_gap": -0.10359127006395363,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.44451391501241366,
+      "separates_by_both_share_and_total": false,
+      "slice_name": "20A_to_30A",
+      "total_gap": -0.04467866168283893,
+      "total_pressure_separates": false,
+      "total_separator": -0.02384628926488913
+    },
+    {
+      "adverse_positive_fraction": 0.5184967442756886,
+      "adverse_total_over_diagonal": 0.024640779324426095,
+      "distance_range": [
+        1291,
+        1720
+      ],
+      "minimum_replacement_positive_fraction": 0.42328775833337506,
+      "minimum_replacement_positive_fraction_denominator": 40755,
+      "minimum_replacement_total_denominator": 40755,
+      "minimum_replacement_total_over_diagonal": -0.05712635726746517,
+      "positive_fraction_gap": -0.09520898594231353,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.47089225130453183,
+      "separates_by_both_share_and_total": false,
+      "slice_name": "30A_to_40A",
+      "total_gap": -0.08176713659189126,
+      "total_pressure_separates": false,
+      "total_separator": -0.01624278897151954
+    },
+    {
+      "adverse_positive_fraction": 0.42403626260656674,
+      "adverse_total_over_diagonal": -0.06083210205862602,
+      "distance_range": [
+        1721,
+        2150
+      ],
+      "minimum_replacement_positive_fraction": 0.36958412978361366,
+      "minimum_replacement_positive_fraction_denominator": 38038,
+      "minimum_replacement_total_denominator": 53295,
+      "minimum_replacement_total_over_diagonal": -0.09704211266676184,
+      "positive_fraction_gap": -0.05445213282295308,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.39681019619509017,
+      "separates_by_both_share_and_total": false,
+      "slice_name": "40A_to_50A",
+      "total_gap": -0.03621001060813582,
+      "total_pressure_separates": false,
+      "total_separator": -0.07893710736269394
+    },
+    {
+      "adverse_positive_fraction": 0.3704750044709434,
+      "adverse_total_over_diagonal": -0.08597078804878477,
+      "distance_range": [
+        2151,
+        2580
+      ],
+      "minimum_replacement_positive_fraction": 0.41193052224841337,
+      "minimum_replacement_positive_fraction_denominator": 49742,
+      "minimum_replacement_total_denominator": 40755,
+      "minimum_replacement_total_over_diagonal": -0.019836945709586308,
+      "positive_fraction_gap": 0.041455517777469975,
+      "positive_fraction_separates": true,
+      "positive_fraction_separator": 0.3912027633596784,
+      "separates_by_both_share_and_total": true,
+      "slice_name": "50A_to_60A",
+      "total_gap": 0.06613384233919847,
+      "total_pressure_separates": true,
+      "total_separator": -0.05290386687918554
+    },
+    {
+      "adverse_positive_fraction": 0.5110293991953245,
+      "adverse_total_over_diagonal": 0.007764439524339131,
+      "distance_range": [
+        2581,
+        3010
+      ],
+      "minimum_replacement_positive_fraction": 0.3185639341559113,
+      "minimum_replacement_positive_fraction_denominator": 62985,
+      "minimum_replacement_total_denominator": 35530,
+      "minimum_replacement_total_over_diagonal": -0.05726596857599256,
+      "positive_fraction_gap": -0.19246546503941325,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.4147966666756179,
+      "separates_by_both_share_and_total": false,
+      "slice_name": "60A_to_70A",
+      "total_gap": -0.06503040810033169,
+      "total_pressure_separates": false,
+      "total_separator": -0.024750764525826714
+    },
+    {
+      "adverse_positive_fraction": 0.5091240626880345,
+      "adverse_total_over_diagonal": 0.0011303523641804202,
+      "distance_range": [
+        3011,
+        3440
+      ],
+      "minimum_replacement_positive_fraction": 0.4001456785054635,
+      "minimum_replacement_positive_fraction_denominator": 58786,
+      "minimum_replacement_total_denominator": 53295,
+      "minimum_replacement_total_over_diagonal": -0.04687828001317482,
+      "positive_fraction_gap": -0.10897838418257094,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.454634870596749,
+      "separates_by_both_share_and_total": false,
+      "slice_name": "70A_to_80A",
+      "total_gap": -0.04800863237735524,
+      "total_pressure_separates": false,
+      "total_separator": -0.022873963824497197
+    },
+    {
+      "adverse_positive_fraction": 0.455176664245321,
+      "adverse_total_over_diagonal": -0.025800582134293742,
+      "distance_range": [
+        3441,
+        3870
+      ],
+      "minimum_replacement_positive_fraction": 0.4799843234531235,
+      "minimum_replacement_positive_fraction_denominator": 34034,
+      "minimum_replacement_total_denominator": 34034,
+      "minimum_replacement_total_over_diagonal": -0.003867502965200392,
+      "positive_fraction_gap": 0.02480765920780248,
+      "positive_fraction_separates": true,
+      "positive_fraction_separator": 0.46758049384922223,
+      "separates_by_both_share_and_total": true,
+      "slice_name": "80A_to_90A",
+      "total_gap": 0.02193307916909335,
+      "total_pressure_separates": true,
+      "total_separator": -0.014834042549747066
+    },
+    {
+      "adverse_positive_fraction": 0.42197980588299544,
+      "adverse_total_over_diagonal": -0.030451446264956987,
+      "distance_range": [
+        3871,
+        4300
+      ],
+      "minimum_replacement_positive_fraction": 0.3193221413099913,
+      "minimum_replacement_positive_fraction_denominator": 36465,
+      "minimum_replacement_total_denominator": 36465,
+      "minimum_replacement_total_over_diagonal": -0.0445916429086666,
+      "positive_fraction_gap": -0.10265766457300413,
+      "positive_fraction_separates": false,
+      "positive_fraction_separator": 0.37065097359649335,
+      "separates_by_both_share_and_total": false,
+      "slice_name": "90A_to_100A",
+      "total_gap": -0.014140196643709614,
+      "total_pressure_separates": false,
+      "total_separator": -0.0375215445868118
+    }
+  ],
+  "source_commit": "80f915f3ab9343be25c6d41d1bfc844fd551154c",
+  "source_far_tail_subband_balance_audit": "evidence\\mobius-moment-square-degree5-q46189-far-tail-subband-balance-audit.json",
+  "source_one_coordinate_ledger": "evidence\\mobius-moment-square-degree5-q46189-one-coordinate-ratio-ledger-audit.json",
+  "status": "AUDIT_q46189_far_band_slice_balance",
+  "strict_central_goldbach_theorem_proved": false
+}

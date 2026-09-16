@@ -6,6 +6,37 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The `Q=46189` replacement-family lane now has a far-band slice balance audit:
+`tools/build_mobius_moment_square_degree5_q46189_far_band_slice_balance_audit.py`
+generated
+`evidence/mobius-moment-square-degree5-q46189-far-band-slice-balance-audit.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-q46189-far-band-slice-balance-audit.md`.
+
+Question: inside the far band `10A..100A`, do smaller `A`-scaled distance
+slices already separate `Q=46189` from every source-admissible replacement
+row?
+
+Answer: yes, but not uniformly across every slice.  The best local witness is
+the `50A..60A` slice, distance range `2151..2580`, where `Q=46189` has
+positive share `0.3704750044709434` and the lowest replacement has
+`0.41193052224841337`, giving gap `0.041455517777469975`.  The same slice
+also separates by total pressure: `Q=46189` has `-0.08597078804878477`, while
+the worst replacement has `-0.019836945709586308`, giving gap
+`0.06613384233919847`.  The only single slices that separate by both share
+and total are `50A..60A` and `80A..90A`.
+
+Decision: the far-band signed-balance separator has local witnesses.  The
+next theorem-shaped target narrows again to a `50A..60A` signed-balance
+witness, with `80A..90A` preserved as a robustness check.  Several other
+slices fail, so this is not an all-slice phenomenon.  This remains finite
+selected-family evidence only; it proves no distance-slice positive-share
+theorem, distance-slice pressure theorem, far-band theorem, replacement
+residue-gap bound theorem, coordinate-`00` residue-gap sign theorem,
+strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The `Q=46189` replacement-family lane now has a far-tail sub-band balance
 audit:
 `tools/build_mobius_moment_square_degree5_q46189_far_tail_subband_balance_audit.py`

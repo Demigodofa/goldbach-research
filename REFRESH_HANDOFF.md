@@ -6,6 +6,40 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The `Q=46189` replacement-family lane now has a far-band slice balance audit:
+
+```text
+tools/build_mobius_moment_square_degree5_q46189_far_band_slice_balance_audit.py
+notes/mobius-moment-square-degree5-q46189-far-band-slice-balance-audit.md
+evidence/mobius-moment-square-degree5-q46189-far-band-slice-balance-audit.json
+```
+
+Result:
+
+```text
+slices separating by share and total: 50A_to_60A, 80A_to_90A
+best slice:                          50A_to_60A
+best distance range:                 [2151, 2580]
+Q positive share in best slice:      0.3704750044709434
+min replacement positive share:      0.41193052224841337
+positive-share gap:                  0.041455517777469975
+Q total / diag in best slice:        -0.08597078804878477
+min replacement total / diag:        -0.019836945709586308
+total gap:                           0.06613384233919847
+```
+
+Decision: the far-band signed-balance separator has local witnesses.  The
+`50A..60A` slice separates by both positive share and total pressure with the
+largest positive-share gap; `80A..90A` also separates.  Several other slices
+fail, so the statement is not a uniform all-slice phenomenon.  The next useful
+route is a `50A..60A` signed-balance witness, with `80A..90A` retained as a
+robustness check.  This proves no distance-slice positive-share theorem,
+distance-slice pressure theorem, far-band theorem, replacement residue-gap
+bound theorem, coordinate-`00` residue-gap sign theorem, strict-central
+Goldbach theorem, or Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The `Q=46189` replacement-family lane now has a far-tail sub-band balance
 audit:
 
