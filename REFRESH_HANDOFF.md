@@ -6,6 +6,40 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+Finite linear cutoff mixing has now been tested analytically, not by scanning
+coefficients. See `notes/finite-cutoff-mixture-obstruction.md`.
+For any fixed finite `0<theta_1<...<theta_k<1/2`, with cutoff residuals
+`D_i=Lambda-A_i`, the rectangular common-divisor argument proves
+`C(D_i,D_j)=Delta_0+O_J(N/log(N)^J)`. The reflected residual matrix has
+the same leading scalar in every entry.
+
+For uniformly bounded real weights, put `s=sum c_i`,
+`E=Lambda-sum c_i A_i`, `s_j=sum_(i>=j)c_i`, and `theta_0=0`. Then
+
+```text
+C(E,E) = Delta_0 + (s-1)^2 H + O_J(N/log(N)^J),
+||E||^2 = (N/3)log N * [1-theta_k
+              + sum_j(theta_j-theta_(j-1))(s_j-1)^2] + o(N log N).
+```
+
+The ordinary covariance kernel is `min(theta_i,theta_j)`, proved using
+exact Selberg coordinates and the published unshifted second moment.
+The norm minimum is attained by the largest cutoff alone. Thus normalized
+finite mixing cannot change the leading reflected gate, and plain norm
+Cauchy remains too large by a logarithmic factor already on `N=2^m`.
+Changing the coefficient sum merely shifts the necessary baseline too.
+
+This excludes that exact shortcut, not all multiscale or sign-sensitive
+methods. Do not repeat scans of finitely many fixed cutoffs with bounded
+coefficients. A reactivation needs new signed information or a genuinely
+different regime with justified estimates. The one-sided residual bound,
+effective starting point, q286 missing mass and Q46189 transfer remain OPEN.
+The full prove-or-disprove goal is unchanged. Validation/review is recorded
+in `notes/review-receipts.md`; the next action remains a fresh choice by
+mathematical value, not a prescribed route.
+
+## Cutoff-normalized complementary checkpoint, 2026-09-16
+
 The free frozen scale has earned an analytical simplification. See
 `notes/cutoff-normalized-complementary-remainder.md`.
 For fixed `0<theta<1/2`, `R=floor(N^theta)`, define

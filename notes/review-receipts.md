@@ -4,6 +4,50 @@ Owner: Rill. Purpose: preserve the reasoning and validation that support claimed
 results, including corrections that change future execution. No raw model
 reasoning is retained. Model agreement is not a proof by itself.
 
+## Finite cutoff mixture obstruction, 2026-09-16
+
+A separate fresh-context read-only Sol reviewer
+(`01a0ac59-7eed-7e81-8878-6849969107e0`) checked
+`notes/finite-cutoff-mixture-obstruction.md`, the helper extension, tests,
+and the primary Goldston-Yildirim PDF. This was review of a supplied
+derivation, not blind discovery. The consolidated verdict was conditional
+PASS with three narrow qualifications, all applied by Rill: rescaling a
+nonzero coefficient sum is covered only if normalized weights stay bounded;
+absorb the `o(H)` error in the final positive margin; and say rank at most
+one, including the zero case. No defect was found in the substantive proof.
+The reviewer then checked those exact corrections and confirmed final PASS;
+that confirmation did not rerun tests or broaden the review.
+
+The accepted scope is a fixed finite set `0<theta_i<1/2` with uniformly
+bounded real weights. The reviewer confirmed the rectangular common-divisor
+uniformity and tails, the Selberg-coordinate cross-covariance argument,
+completion of squares and unique norm minimizer, and the failure of plain
+norm Cauchy already on `N=2^m`. The primary inputs are Lemma 2.1 (printed
+p.16) and the unshifted Theorem 5.1(5.3) (printed p.31), not a forbidden
+large-shift application. This is not a no-go for genuinely signed,
+nonlinear, growing-family or other changed methods.
+
+Eight new exact-algebra tests and a 67-test combined regression run pass.
+The lead's 32-test new/parent suite also passes under optimized Python;
+the reviewer independently ran the 19-test new/immediate-parent suite in
+both modes. The fixtures validate algebra, support and boundaries, not the
+external theorems or asymptotic estimates. A helper's incorrect suffix
+telescoping is preserved as an explicit regression.
+
+The local Qwen advisory got the proposed minimizer and bilinear expansion
+but supplied incorrect intermediate telescoping and baseline factorization.
+Rill rejected those explanations and sent a linked correction. That follow-up
+returned only a runtime tool-work receipt, not a usable corrected derivation;
+it was not accepted as mathematical evidence. The checked proof and exact
+tests, not either advisory, establish the algebra. Future arithmetic-only
+helper corrections should use the exact-file route that disables native
+tools; saying "no tools needed" alone did not produce the required answer.
+No local helper output was promoted to this proof or shared knowledge.
+
+The useful negative result blocks unchanged finite cutoff coefficient scans.
+The full prove-or-disprove goal remains active; its one-sided residual bound,
+effective starting point and q286/Q46189 transfer gaps remain OPEN.
+
 ## Cutoff-normalized complementary remainder, 2026-09-16
 
 A separate read-only Sol review (`01a0ac44-b822-7c63-9584-9463e00f38b9`)

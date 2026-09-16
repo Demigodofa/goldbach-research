@@ -36,7 +36,7 @@ def singular_divisor_blocks(n):
     }
 
 
-def common_divisor_density_blocks(target, coefficients):
+def common_divisor_density_blocks(target, coefficients, right=None):
     """Regroup the squarefree bilinear CRT density by g, then coprime a,b.
 
     Rational coefficients permit exact tests of the grouping. For the
@@ -44,25 +44,61 @@ def common_divisor_density_blocks(target, coefficients):
     """
     central_interval(target)
     coefficients = _coefficients(coefficients)
-    if any(_mobius_phi(d)[0] == 0 for d in coefficients):
+    right = coefficients if right is None else _coefficients(right)
+    if any(_mobius_phi(d)[0] == 0 for d in coefficients.keys() | right.keys()):
         raise ValueError("nonzero coefficients must have squarefree indices")
     cutoff = max(coefficients, default=0)
+    right_cutoff = max(right, default=0)
     blocks = {}
-    for g in range(1, cutoff + 1):
+    for g in range(1, min(cutoff, right_cutoff) + 1):
         if target % g or not _mobius_phi(g)[0]:
             continue
         total = F(0)
         for a in range(1, cutoff // g + 1):
             if gcd(a, g) != 1:
                 continue
-            for b in range(1, cutoff // g + 1):
+            for b in range(1, right_cutoff // g + 1):
                 if gcd(b, g) != 1 or gcd(a, b) != 1:
                     continue
                 total += (coefficients.get(g * a, F(0))
-                          * coefficients.get(g * b, F(0)) / (g * a * b))
+                          * right.get(g * b, F(0)) / (g * a * b))
         if total:
             blocks[g] = total
     return blocks
+
+
+def selberg_coordinates(coefficients):
+    """Exact w(q)=sum_(q|d) c(d)/d; no squarefree-support restriction."""
+    coefficients = _coefficients(coefficients)
+    result = {}
+    for d, coefficient in coefficients.items():
+        for q in range(1, d + 1):
+            if d % q == 0:
+                result[q] = result.get(q, F(0)) + coefficient / d
+    return {q: value for q, value in result.items() if value}
+
+
+def cutoff_mixture_norm_parts(exponents, weights):
+    """Return the leading norm floor and nonnegative excess terms.
+
+    Exact rational fixtures for the analytic result in
+    notes/finite-cutoff-mixture-obstruction.md, not a finite-N norm bound.
+    Weights may be signed and need not sum to one.
+    """
+    exponents, weights = tuple(exponents), tuple(weights)
+    if not exponents or len(exponents) != len(weights):
+        raise ValueError("require equally sized nonempty exponent and weight lists")
+    if any(type(x) not in (int, F) for x in exponents + weights):
+        raise ValueError("require exact rational exponents and weights")
+    exponents, weights = tuple(map(F, exponents)), tuple(map(F, weights))
+    previous, suffix = F(0), sum(weights, F(0))
+    penalties = []
+    for exponent, weight in zip(exponents, weights):
+        if not previous < exponent < F(1, 2):
+            raise ValueError("require strictly increasing exponents in (0, 1/2)")
+        penalties.append((exponent - previous) * (suffix - 1) ** 2)
+        previous, suffix = exponent, suffix - weight
+    return 1 - exponents[-1], tuple(penalties)
 
 
 def cutoff_log_vectors(n, cutoff):

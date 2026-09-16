@@ -6,6 +6,26 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The finite-cutoff mixing shortcut now has an analytical obstruction:
+`notes/finite-cutoff-mixture-obstruction.md`. For any fixed finite set of
+exponents below `1/2`, all cross-cutoff reflected residual correlations
+equal `Delta_0+O_J(N/log(N)^J)`. The ordinary covariance instead has kernel
+`min(theta_i,theta_j)`. Exact completion of squares proves that the best
+leading norm over all bounded signed linear weights is obtained by the
+largest cutoff alone, with coefficient `1-theta_max>1/2` at scale
+`(N/3)log N`. This rules out plain norm Cauchy in this class, not methods
+that obtain additional signed information. It also blocks free apparent
+gains from changing the coefficient sum: the required main shifts with it.
+
+The candidate changed under evidence; retain its cross-cutoff and Selberg
+identities, but do not repeat coefficient scans in the same family. The
+open one-sided reflected estimate has not been proved, and neither have
+Goldbach, a numerical starting point, or the q286/Q46189 transfers. The
+full prove-or-disprove objective remains active with freedom to choose the
+next bounded question. Review and exact tests are recorded separately.
+
+## Cutoff-normalized reduction checkpoint, 2026-09-16
+
 A cutoff-normalized decomposition now isolates one residual correlation.
 See `notes/cutoff-normalized-complementary-remainder.md`. Choosing the free
 frozen scale to equal `R=floor(N^theta)`, `0<theta<1/2`, puts the short
