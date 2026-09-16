@@ -6,6 +6,38 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The metric-soft moment-square route now has a weak-row degree-`5` coefficient
+burden audit:
+`tools/build_mobius_moment_square_degree5_burden_audit.py` generated
+`evidence/mobius-moment-square-degree5-burden-audit.json`, with explanation
+in `notes/mobius-moment-square-degree5-burden-audit.md`.
+
+Question: for the weak `M=167` row, which concrete active/full Gram entries
+make the degree-`5` half-frame coefficient that controls the serialized
+critical-margin loss?
+
+Answer: the degree-`5` half-frame coefficient
+`-126085079418913.1` is the sum of exactly three same-sign contributors:
+`(00,12)` contributes `-17833463267559.586` (about `14.14%`),
+`(01,02)` contributes `-36071645892875.484` (about `28.61%`), and
+`(01,11)` contributes `-72179970258478.02` (about `57.25%`).  The exact
+decimal-rational provenance/source degree-`5` coefficient delta remains
+`-0.02000000000000000000000000000000000000000`, whose source-minimizer
+margin contribution is `-0.0000286101238055836`.
+
+Decision: `MEASURE_degree5_weak_row_coefficient_burden`.  The next exact
+coefficient route can target the `(00,12)`, `(01,02)`, and `(01,11)`
+active/full Gram entries directly instead of treating the weak-row
+degree-`5` term as an opaque polynomial coefficient.  This is finite
+degree-`5` burden evidence only.  No degree-`5` coefficient theorem,
+critical-margin sensitivity theorem, robust-margin universal theorem,
+coefficient-family theorem, universal Sturm-certificate theorem, half-frame
+curve-positivity theorem, uniform active/full lower-frame theorem, Mobius
+covariance theorem, signed prime-correlation estimate, q286 theorem,
+strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-16
+
 The metric-soft moment-square route now has a critical-margin coefficient
 sensitivity audit:
 `tools/build_mobius_moment_square_critical_margin_sensitivity_audit.py`

@@ -6,6 +6,46 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The metric-soft moment-square route now has a weak-row degree-`5` coefficient
+burden audit:
+
+```text
+tools/build_mobius_moment_square_degree5_burden_audit.py
+notes/mobius-moment-square-degree5-burden-audit.md
+evidence/mobius-moment-square-degree5-burden-audit.json
+```
+
+Result:
+
+```text
+status: MEASURE_degree5_weak_row_coefficient_burden
+weak row:                              M=167
+degree-5 half-frame coefficient:      -126085079418913.1
+contributors:                          (00,12), (01,02), (01,11)
+(00,12) half contribution:            -17833463267559.586  about 14.14%
+(01,02) half contribution:            -36071645892875.484  about 28.61%
+(01,11) half contribution:            -72179970258478.02   about 57.25%
+same-sign contributors:                true
+source degree-5 coefficient:          -126085079418913.08
+provenance degree-5 coefficient:      -126085079418913.1
+exact decimal provenance-source delta: -0.02000000000000000000000000000000000000000
+margin contribution at t_source:      -0.0000286101238055836
+```
+
+Decision: the weak-row degree-`5` burden is now localized to three concrete
+active/full Gram entries, dominated by `(01,11)`, with no internal same-degree
+cancellation.  The next exact-coefficient theorem route should derive and
+bound the `(00,12)`, `(01,02)`, and `(01,11)` active/full Gram entries before
+promoting any robust `21/50` pointwise lower-bound claim.  This is finite
+degree-`5` burden evidence only; no degree-`5` coefficient theorem,
+critical-margin sensitivity theorem, robust-margin universal theorem,
+coefficient-family theorem, universal Sturm-certificate theorem, half-frame
+curve-positivity theorem, uniform active/full lower frame, Mobius covariance
+theorem, signed prime-correlation estimate, q286 theorem, strict-central
+Goldbach theorem, or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-16
+
 The metric-soft moment-square route now has a critical-margin coefficient
 sensitivity audit:
 
