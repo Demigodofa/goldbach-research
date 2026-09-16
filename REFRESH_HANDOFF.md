@@ -6,6 +6,44 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The `Q=46189` replacement-family lane now has an all-replacement
+mirror-compensation falsifier:
+
+```text
+tools/build_mobius_moment_square_degree5_q46189_all_replacement_mirror_compensation_audit.py
+notes/mobius-moment-square-degree5-q46189-all-replacement-mirror-compensation-audit.md
+evidence/mobius-moment-square-degree5-q46189-all-replacement-mirror-compensation-audit.json
+```
+
+Result:
+
+```text
+replacement rows:                         34
+weakest total row:                        38038
+weakest middle-loss row:                  38038
+q=38038 off/diag-half:                    -0.8472931845861708
+q=38038 middle A..10A:                    -0.939992990438763
+q=38038 non-middle sum:                   0.09269980585259228
+q=38038 strongest mirror block:           0.07765412336759717
+q=38038 strongest mirror rank:            9
+negative non-middle rows:                 15
+nonpositive best-mirror rows:             7
+```
+
+Decision: the broad mirror-block theorem target is refuted on the checked
+replacement landscape.  Fifteen replacement rows have nonpositive aggregate
+non-middle contribution, and seven have nonpositive best mirror-block
+non-middle contribution.  `q=38038` remains special only in a narrower way: it
+is still both the weakest total row and the most severe `middle_A_to_10A` loss
+row, and that tight row has positive non-middle compensation.  The live target
+therefore shifts to conditional compensation in the tight middle-loss regime,
+not universal mirror-block positivity across all replacement packets.  This
+proves no universal mirror-block theorem, tight-middle-loss theorem,
+replacement-packet compensation theorem, coordinate-`00` residue-gap sign
+theorem, strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The `Q=46189` replacement-family lane now has a source-pair bucket
 compensation audit:
 

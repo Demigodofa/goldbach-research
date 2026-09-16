@@ -1,0 +1,984 @@
+{
+  "all_replacement_rows": [
+    {
+      "margin_above_minus_one": 0.6206996364660295,
+      "middle_A_to_10A": -0.056411765972949605,
+      "non_middle_sum": -0.32288859756102084,
+      "off_diagonal_over_diagonal_half": -0.37930036353397045,
+      "reduced_denominator": 16302,
+      "strongest_non_middle_mirror_block": {
+        "middle_A_to_10A": -0.026723939291165965,
+        "mirror_source_pair_block": [
+          [
+            78,
+            209
+          ],
+          [
+            209,
+            78
+          ]
+        ],
+        "non_middle_sum": 0.003387164412688864,
+        "total": -0.0233367748784771
+      },
+      "strongest_non_middle_mirror_block_share": -0.010490195188911072
+    },
+    {
+      "margin_above_minus_one": 0.8941683481564524,
+      "middle_A_to_10A": -0.22609314514475773,
+      "non_middle_sum": 0.12026149330121008,
+      "off_diagonal_over_diagonal_half": -0.10583165184354765,
+      "reduced_denominator": 17017,
+      "strongest_non_middle_mirror_block": {
+        "middle_A_to_10A": -0.07106643675204585,
+        "mirror_source_pair_block": [
+          [
+            119,
+            143
+          ],
+          [
+            143,
+            119
+          ]
+        ],
+        "non_middle_sum": 0.014061043687623984,
+        "total": -0.05700539306442187
+      },
+      "strongest_non_middle_mirror_block_share": 0.11692058115731464
+    },
+    {
+      "margin_above_minus_one": 0.7238893849574757,
+      "middle_A_to_10A": -0.19276289267127256,
+      "non_middle_sum": -0.08334772237125168,
+      "off_diagonal_over_diagonal_half": -0.27611061504252427,
+      "reduced_denominator": 17290,
+      "strongest_non_middle_mirror_block": {
+        "middle_A_to_10A": -0.010311914502308974,
+        "mirror_source_pair_block": [
+          [
+            70,
+            247
+          ],
+          [
+            247,
+            70
+          ]
+        ],
+        "non_middle_sum": 0.06106149240408533,
+        "total": 0.05074957790177635
+      },
+      "strongest_non_middle_mirror_block_share": -0.7326114099687345
+    },
+    {
+      "margin_above_minus_one": 0.5064737574289093,
+      "middle_A_to_10A": -0.2877707648415571,
+      "non_middle_sum": -0.20575547772953362,
+      "off_diagonal_over_diagonal_half": -0.49352624257109073,
+      "reduced_denominator": 17765,
+      "strongest_non_middle_mirror_block": {
+        "middle_A_to_10A": -0.0003192863010679484,
+        "mirror_source_pair_block": [
+          [
+            95,
+            187
+          ],
+          [
+            187,
+            95
+          ]
+        ],
+        "non_middle_sum": -0.010191757009449631,
+        "total": -0.01051104331051758
+      },
+      "strongest_non_middle_mirror_block_share": 0.04953334473479601
+    },
+    {
+      "margin_above_minus_one": 0.7428890434285563,
+      "middle_A_to_10A": -0.11885798278690261,
+      "non_middle_sum": -0.13825297378454104,
+      "off_diagonal_over_diagonal_half": -0.25711095657144367,
+      "reduced_denominator": 19019,
+      "strongest_non_middle_mirror_block": {
+        "middle_A_to_10A": 0.06927085267839794,
+        "mirror_source_pair_block": [
+          [
+            77,
+            247
+          ],
+          [
+            247,
+            77
+          ]
+        ],
+        "non_middle_sum": 0.012930326771118751,
+        "total": 0.08220117944951669
+      },
+      "strongest_non_middle_mirror_block_share": -0.0935265724646899
+    },
+    {
+      "margin_above_minus_one": 1.196887231072203,
+      "middle_A_to_10A": 0.10283468067983875,
+      "non_middle_sum": 0.09405255039236418,
+      "off_diagonal_over_diagonal_half": 0.19688723107220293,
+      "reduced_denominator": 19635,
+      "strongest_non_middle_mirror_block": {
+        "middle_A_to_10A": 0.11267508434161572,
+        "mirror_source_pair_block": [
+          [
+            105,
+            187
+          ],
+          [
+            187,
+            105
+          ]
+        ],
+        "non_middle_sum": 0.0713709202094763,
+        "total": 0.18404600455109202
+      },
+      "strongest_non_middle_mirror_block_share": 0.7588408811003458
+    },
+    {
+      "margin_above_minus_one": 0.9606209361316504,
+      "middle_A_to_10A": -0.338868156104304,
+      "non_middle_sum": 0.29948909223595443,
+      "off_diagonal_over_diagonal_half": -0.03937906386834956,
+      "reduced_denominator": 20995,
+      "strongest_non_middle_mirror_block": {
+        "middle_A_to_10A": -0.31669185800094146,
+        "mirror_source_pair_block": [
+          [
+            65,
+            323
+          ],
+          [
+            323,
+            65
+          ]
+        ],
+        "non_middle_sum": 0.03550260302292349,
+        "total": -0.28118925497801794
+      },
+      "strongest_non_middle_mirror_block_share": 0.11854389339479694
+    },
+    {
+      "margin_above_minus_one": 0.23944743767591103,
+      "middle_A_to_10A": -0.1891059052848317,
+      "non_middle_sum": -0.5714466570392572,
+      "off_diagonal_over_diagonal_half": -0.760552562324089,
+      "reduced_denominator": 21318,
+      "strongest_non_middle_mirror_block": {
+        "middle_A_to_10A": -0.0962750307772868,
+        "mirror_source_pair_block": [
+          [
+            114,
+            187
+          ],
+          [
+            187,
+            114
+          ]
+        ],
+        "non_middle_sum": -0.021734423472453288,
+        "total": -0.11800945424974009
+      },
+      "strongest_non_middle_mirror_block_share": 0.03803403730640807
+    },
+    {
+      "margin_above_minus_one": 0.9612308454159111,
+      "middle_A_to_10A": -0.020966909790831056,
+      "non_middle_sum": -0.017802244793257864,
+      "off_diagonal_over_diagonal_half": -0.038769154584088916,
+      "reduced_denominator": 21945,
+      "strongest_non_middle_mirror_block": {
+        "middle_A_to_10A": -0.02065964179149287,
+        "mirror_source_pair_block": [
+          [
+            105,
+            209
+          ],
+          [
+            209,
+            105
+          ]
+        ],
+        "non_middle_sum": 0.07933806148019858,
+        "total": 0.058678419688705706
+      },
+      "strongest_non_middle_mirror_block_share": -4.456632430436289
+    },
+    {
+      "margin_above_minus_one": 0.5903320010235338,
+      "middle_A_to_10A": -0.42005833170570367,
+      "non_middle_sum": 0.010390332729237471,
+      "off_diagonal_over_diagonal_half": -0.4096679989764662,
+      "reduced_denominator": 22610,
+      "strongest_non_middle_mirror_block": {
+        "middle_A_to_10A": 0.007361188007507142,
+        "mirror_source_pair_block": [
+          [
+            85,
+            266
+          ],
+          [
+            266,
+            85
+          ]
+        ],
+        "non_middle_sum": 0.0027174330939486796,
+        "total": 0.010078621101455822
+      },
+      "strongest_non_middle_mirror_block_share": 0.2615347520394669
+    },
+    {
+      "margin_above_minus_one": 1.6536556358492223,
+      "middle_A_to_10A": 0.05388962059818308,
+      "non_middle_sum": 0.5997660152510392,
+      "off_diagonal_over_diagonal_half": 0.6536556358492223,
+      "reduced_denominator": 23205,
+      "strongest_non_middle_mirror_block": {
+        "middle_A_to_10A": -0.11720496166680608,
+        "mirror_source_pair_block": [
+          [
+            91,
+            255
+          ],
+          [
+            255,
+            91
+          ]
+        ],
+        "non_middle_sum": 0.09711373826128106,
+        "total": -0.02009122340552502
+      },
+      "strongest_non_middle_mirror_block_share": 0.16191937487593883
+    },
+    {
+      "margin_above_minus_one": 0.737100071028838,
+      "middle_A_to_10A": -0.3292272129018169,
+      "non_middle_sum": 0.0663272839306549,
+      "off_diagonal_over_diagonal_half": -0.262899928971162,
+      "reduced_denominator": 24310,
+      "strongest_non_middle_mirror_block": {
+        "middle_A_to_10A": -0.030940854943008023,
+        "mirror_source_pair_block": [
+          [
+            130,
+            187
+          ],
+          [
+            187,
+            130
+          ]
+        ],
+        "non_middle_sum": 0.022912831127099874,
+        "total": -0.008028023815908149
+      },
+      "strongest_non_middle_mirror_block_share": 0.3454510688400148
+    },
+    {
+      "margin_above_minus_one": 1.5846979689588865,
+      "middle_A_to_10A": -0.3070122384519499,
+      "non_middle_sum": 0.8917102074108364,
+      "off_diagonal_over_diagonal_half": 0.5846979689588865,
+      "reduced_denominator": 24871,
+      "strongest_non_middle_mirror_block": {
+        "middle_A_to_10A": -0.27225960111492087,
+        "mirror_source_pair_block": [
+          [
+            119,
+            209
+          ],
+          [
+            209,
+            119
+          ]
+        ],
+        "non_middle_sum": 0.9215049554041037,
+        "total": 0.6492453542891828
+      },
+      "strongest_non_middle_mirror_block_share": 1.0334130390631941
+    },
+    {
+      "margin_above_minus_one": 0.7776481770662624,
+      "middle_A_to_10A": -0.32416562700386536,
+      "non_middle_sum": 0.10181380407012787,
+      "off_diagonal_over_diagonal_half": -0.2223518229337375,
+      "reduced_denominator": 25194,
+      "strongest_non_middle_mirror_block": {
+        "middle_A_to_10A": 0.016161632123316505,
+        "mirror_source_pair_block": [
+          [
+            78,
+            323
+          ],
+          [
+            323,
+            78
+          ]
+        ],
+        "non_middle_sum": 0.013080266571876022,
+        "total": 0.029241898695192527
+      },
+      "strongest_non_middle_mirror_block_share": 0.1284724275979957
+    },
+    {
+      "margin_above_minus_one": 1.7357893889762075,
+      "middle_A_to_10A": 0.06514938506787141,
+      "non_middle_sum": 0.670640003908336,
+      "off_diagonal_over_diagonal_half": 0.7357893889762075,
+      "reduced_denominator": 25935,
+      "strongest_non_middle_mirror_block": {
+        "middle_A_to_10A": 0.14596859767843415,
+        "mirror_source_pair_block": [
+          [
+            91,
+            285
+          ],
+          [
+            285,
+            91
+          ]
+        ],
+        "non_middle_sum": 0.47455969068189363,
+        "total": 0.6205282883603278
+      },
+      "strongest_non_middle_mirror_block_share": 0.7076221041337658
+    },
+    {
+      "margin_above_minus_one": 1.1748066495278284,
+      "middle_A_to_10A": 0.2041031533958293,
+      "non_middle_sum": -0.02929650386800091,
+      "off_diagonal_over_diagonal_half": 0.17480664952782837,
+      "reduced_denominator": 27170,
+      "strongest_non_middle_mirror_block": {
+        "middle_A_to_10A": -0.012829973859384216,
+        "mirror_source_pair_block": [
+          [
+            143,
+            190
+          ],
+          [
+            190,
+            143
+          ]
+        ],
+        "non_middle_sum": -0.008225242292048497,
+        "total": -0.021055216151432715
+      },
+      "strongest_non_middle_mirror_block_share": 0.28075849354272314
+    },
+    {
+      "margin_above_minus_one": 1.0785679608359238,
+      "middle_A_to_10A": -0.2900192147151626,
+      "non_middle_sum": 0.3685871755510863,
+      "off_diagonal_over_diagonal_half": 0.07856796083592366,
+      "reduced_denominator": 29393,
+      "strongest_non_middle_mirror_block": {
+        "middle_A_to_10A": -0.42044531375654276,
+        "mirror_source_pair_block": [
+          [
+            91,
+            323
+          ],
+          [
+            323,
+            91
+          ]
+        ],
+        "non_middle_sum": 0.1368642267066809,
+        "total": -0.28358108704986185
+      },
+      "strongest_non_middle_mirror_block_share": 0.37132118474293335
+    },
+    {
+      "margin_above_minus_one": 1.3825725533030468,
+      "middle_A_to_10A": -0.15586283973604548,
+      "non_middle_sum": 0.5384353930390923,
+      "off_diagonal_over_diagonal_half": 0.3825725533030468,
+      "reduced_denominator": 30030,
+      "strongest_non_middle_mirror_block": {
+        "middle_A_to_10A": -0.0625742277818834,
+        "mirror_source_pair_block": [
+          [
+            165,
+            182
+          ],
+          [
+            182,
+            165
+          ]
+        ],
+        "non_middle_sum": 0.11399407349268217,
+        "total": 0.05141984571079877
+      },
+      "strongest_non_middle_mirror_block_share": 0.21171355926152094
+    },
+    {
+      "margin_above_minus_one": 0.9039123599636003,
+      "middle_A_to_10A": -0.13726011679965214,
+      "non_middle_sum": 0.04117247676325242,
+      "off_diagonal_over_diagonal_half": -0.09608764003639972,
+      "reduced_denominator": 33915,
+      "strongest_non_middle_mirror_block": {
+        "middle_A_to_10A": 0.1682091293433254,
+        "mirror_source_pair_block": [
+          [
+            119,
+            285
+          ],
+          [
+            285,
+            119
+          ]
+        ],
+        "non_middle_sum": 0.0708569774055943,
+        "total": 0.2390661067489197
+      },
+      "strongest_non_middle_mirror_block_share": 1.7209792311750387
+    },
+    {
+      "margin_above_minus_one": 0.8710293082368763,
+      "middle_A_to_10A": -0.15163174644628274,
+      "non_middle_sum": 0.022661054683159067,
+      "off_diagonal_over_diagonal_half": -0.12897069176312367,
+      "reduced_denominator": 34034,
+      "strongest_non_middle_mirror_block": {
+        "middle_A_to_10A": -0.029192100600259285,
+        "mirror_source_pair_block": [
+          [
+            143,
+            238
+          ],
+          [
+            238,
+            143
+          ]
+        ],
+        "non_middle_sum": 0.036961916952278795,
+        "total": 0.00776981635201951
+      },
+      "strongest_non_middle_mirror_block_share": 1.6310766409185555
+    },
+    {
+      "margin_above_minus_one": 0.8524904596105226,
+      "middle_A_to_10A": 0.06989048041768418,
+      "non_middle_sum": -0.2174000208071616,
+      "off_diagonal_over_diagonal_half": -0.1475095403894774,
+      "reduced_denominator": 35530,
+      "strongest_non_middle_mirror_block": {
+        "middle_A_to_10A": 0.0021255041357961177,
+        "mirror_source_pair_block": [
+          [
+            187,
+            190
+          ],
+          [
+            190,
+            187
+          ]
+        ],
+        "non_middle_sum": -0.004461866250073412,
+        "total": -0.002336362114277294
+      },
+      "strongest_non_middle_mirror_block_share": 0.02052376183547462
+    },
+    {
+      "margin_above_minus_one": 0.7129798478312648,
+      "middle_A_to_10A": 0.05203305443361395,
+      "non_middle_sum": -0.3390532066023492,
+      "off_diagonal_over_diagonal_half": -0.2870201521687353,
+      "reduced_denominator": 36465,
+      "strongest_non_middle_mirror_block": {
+        "middle_A_to_10A": -0.0016345116948005966,
+        "mirror_source_pair_block": [
+          [
+            187,
+            195
+          ],
+          [
+            195,
+            187
+          ]
+        ],
+        "non_middle_sum": -0.003191251285395802,
+        "total": -0.004825762980196399
+      },
+      "strongest_non_middle_mirror_block_share": 0.009412243338959445
+    },
+    {
+      "margin_above_minus_one": 0.15270681541382924,
+      "middle_A_to_10A": -0.939992990438763,
+      "non_middle_sum": 0.09269980585259228,
+      "off_diagonal_over_diagonal_half": -0.8472931845861708,
+      "reduced_denominator": 38038,
+      "strongest_non_middle_mirror_block": {
+        "middle_A_to_10A": 0.028218239391922754,
+        "mirror_source_pair_block": [
+          [
+            143,
+            266
+          ],
+          [
+            266,
+            143
+          ]
+        ],
+        "non_middle_sum": 0.07765412336759717,
+        "total": 0.10587236275951992
+      },
+      "strongest_non_middle_mirror_block_share": 0.8376945631480589
+    },
+    {
+      "margin_above_minus_one": 1.1971969603316956,
+      "middle_A_to_10A": 0.3087148923658454,
+      "non_middle_sum": -0.11151793203414968,
+      "off_diagonal_over_diagonal_half": 0.19719696033169568,
+      "reduced_denominator": 39270,
+      "strongest_non_middle_mirror_block": {
+        "middle_A_to_10A": 0.010869810727665553,
+        "mirror_source_pair_block": [
+          [
+            187,
+            210
+          ],
+          [
+            210,
+            187
+          ]
+        ],
+        "non_middle_sum": -0.004216839587241698,
+        "total": 0.006652971140423855
+      },
+      "strongest_non_middle_mirror_block_share": 0.03781310781435933
+    },
+    {
+      "margin_above_minus_one": 1.1470828884300377,
+      "middle_A_to_10A": 0.06658305648756867,
+      "non_middle_sum": 0.0804998319424691,
+      "off_diagonal_over_diagonal_half": 0.14708288843003778,
+      "reduced_denominator": 40755,
+      "strongest_non_middle_mirror_block": {
+        "middle_A_to_10A": 0.010462332938226349,
+        "mirror_source_pair_block": [
+          [
+            195,
+            209
+          ],
+          [
+            209,
+            195
+          ]
+        ],
+        "non_middle_sum": 0.01690889274583721,
+        "total": 0.02737122568406356
+      },
+      "strongest_non_middle_mirror_block_share": 0.21004879560396483
+    },
+    {
+      "margin_above_minus_one": 0.4669947111446564,
+      "middle_A_to_10A": -0.43222079205102754,
+      "non_middle_sum": -0.10078449680431602,
+      "off_diagonal_over_diagonal_half": -0.5330052888553436,
+      "reduced_denominator": 41990,
+      "strongest_non_middle_mirror_block": {
+        "middle_A_to_10A": -0.21465561222580193,
+        "mirror_source_pair_block": [
+          [
+            130,
+            323
+          ],
+          [
+            323,
+            130
+          ]
+        ],
+        "non_middle_sum": 0.04212825154614576,
+        "total": -0.17252736067965618
+      },
+      "strongest_non_middle_mirror_block_share": -0.4180032929860463
+    },
+    {
+      "margin_above_minus_one": 1.4242281521747224,
+      "middle_A_to_10A": 0.17648250408716462,
+      "non_middle_sum": 0.2477456480875578,
+      "off_diagonal_over_diagonal_half": 0.42422815217472243,
+      "reduced_denominator": 43890,
+      "strongest_non_middle_mirror_block": {
+        "middle_A_to_10A": -0.009328593355364075,
+        "mirror_source_pair_block": [
+          [
+            154,
+            285
+          ],
+          [
+            285,
+            154
+          ]
+        ],
+        "non_middle_sum": 0.0749040267206248,
+        "total": 0.06557543336526073
+      },
+      "strongest_non_middle_mirror_block_share": 0.30234245202221416
+    },
+    {
+      "margin_above_minus_one": 0.433212649813947,
+      "middle_A_to_10A": -0.2887717073900284,
+      "non_middle_sum": -0.27801564279602464,
+      "off_diagonal_over_diagonal_half": -0.566787350186053,
+      "reduced_denominator": 46410,
+      "strongest_non_middle_mirror_block": {
+        "middle_A_to_10A": -0.07341346311947304,
+        "mirror_source_pair_block": [
+          [
+            182,
+            255
+          ],
+          [
+            255,
+            182
+          ]
+        ],
+        "non_middle_sum": 0.1245550755938936,
+        "total": 0.05114161247442056
+      },
+      "strongest_non_middle_mirror_block_share": -0.44801463090793614
+    },
+    {
+      "margin_above_minus_one": 1.0180106029129552,
+      "middle_A_to_10A": -0.041853919353250814,
+      "non_middle_sum": 0.059864522266205936,
+      "off_diagonal_over_diagonal_half": 0.01801060291295512,
+      "reduced_denominator": 49742,
+      "strongest_non_middle_mirror_block": {
+        "middle_A_to_10A": -0.1849122575947023,
+        "mirror_source_pair_block": [
+          [
+            209,
+            238
+          ],
+          [
+            238,
+            209
+          ]
+        ],
+        "non_middle_sum": 0.006317453618043826,
+        "total": -0.17859480397665847
+      },
+      "strongest_non_middle_mirror_block_share": 0.10552917452429225
+    },
+    {
+      "margin_above_minus_one": 1.2849325335717765,
+      "middle_A_to_10A": -0.24020794846524463,
+      "non_middle_sum": 0.5251404820370212,
+      "off_diagonal_over_diagonal_half": 0.2849325335717766,
+      "reduced_denominator": 51870,
+      "strongest_non_middle_mirror_block": {
+        "middle_A_to_10A": 0.03626109748751285,
+        "mirror_source_pair_block": [
+          [
+            182,
+            285
+          ],
+          [
+            285,
+            182
+          ]
+        ],
+        "non_middle_sum": 0.40946956520539723,
+        "total": 0.44573066269291006
+      },
+      "strongest_non_middle_mirror_block_share": 0.779733384135734
+    },
+    {
+      "margin_above_minus_one": 0.866469466996306,
+      "middle_A_to_10A": -0.022466875217659926,
+      "non_middle_sum": -0.11106365778603407,
+      "off_diagonal_over_diagonal_half": -0.133530533003694,
+      "reduced_denominator": 53295,
+      "strongest_non_middle_mirror_block": {
+        "middle_A_to_10A": 0.11811221910243794,
+        "mirror_source_pair_block": [
+          [
+            165,
+            323
+          ],
+          [
+            323,
+            165
+          ]
+        ],
+        "non_middle_sum": 0.013334171822353856,
+        "total": 0.1314463909247918
+      },
+      "strongest_non_middle_mirror_block_share": -0.12005882111358472
+    },
+    {
+      "margin_above_minus_one": 1.049310134284278,
+      "middle_A_to_10A": -0.1987467898389241,
+      "non_middle_sum": 0.24805692412320215,
+      "off_diagonal_over_diagonal_half": 0.04931013428427805,
+      "reduced_denominator": 58786,
+      "strongest_non_middle_mirror_block": {
+        "middle_A_to_10A": 0.0114591943625106,
+        "mirror_source_pair_block": [
+          [
+            238,
+            247
+          ],
+          [
+            247,
+            238
+          ]
+        ],
+        "non_middle_sum": -0.0354531905077389,
+        "total": -0.0239939961452283
+      },
+      "strongest_non_middle_mirror_block_share": -0.14292360768825144
+    },
+    {
+      "margin_above_minus_one": 0.516374694933766,
+      "middle_A_to_10A": -0.1577601926843717,
+      "non_middle_sum": -0.3258651123818623,
+      "off_diagonal_over_diagonal_half": -0.48362530506623397,
+      "reduced_denominator": 62985,
+      "strongest_non_middle_mirror_block": {
+        "middle_A_to_10A": 0.006955667334672247,
+        "mirror_source_pair_block": [
+          [
+            221,
+            285
+          ],
+          [
+            285,
+            221
+          ]
+        ],
+        "non_middle_sum": 0.04900432983313018,
+        "total": 0.05595999716780243
+      },
+      "strongest_non_middle_mirror_block_share": -0.15038225318120238
+    },
+    {
+      "margin_above_minus_one": 0.5693124156230875,
+      "middle_A_to_10A": -0.07939141932343322,
+      "non_middle_sum": -0.35129616505347927,
+      "off_diagonal_over_diagonal_half": -0.4306875843769125,
+      "reduced_denominator": 67830,
+      "strongest_non_middle_mirror_block": {
+        "middle_A_to_10A": -0.010481320289380265,
+        "mirror_source_pair_block": [
+          [
+            255,
+            266
+          ],
+          [
+            266,
+            255
+          ]
+        ],
+        "non_middle_sum": 0.010255992342893662,
+        "total": -0.0002253279464866035
+      },
+      "strongest_non_middle_mirror_block_share": -0.029194717629019235
+    }
+  ],
+  "candidate_next_action": {
+    "falsifier": "A replacement packet with middle loss at least as severe as q=38038 and no positive non-middle compensation, or a packet with total off/diag-half below q=38038, falsifies this conditional target.",
+    "mechanism": "A universal positive mirror-block rescue is too broad.  The surviving structure is conditional: q=38038 is still both the weakest total row and the largest middle-loss row, and that tight row has positive non-middle compensation.",
+    "name": "tight-middle-loss conditional compensation target",
+    "novelty_label": "new-to-this-task",
+    "prediction": "A viable theorem must condition on severe middle-bucket loss or an equivalent source-pair geometry, then prove enough non-middle compensation only in that tight regime.",
+    "smallest_next_test": "Search for a source-pair invariant that characterizes the severe-middle-loss regime and separates q=38038 from rows where non-middle compensation is negative."
+  },
+  "classification": {
+    "finite_all_replacement_mirror_compensation_audit_only": true,
+    "q38038_is_weakest_middle_loss_replacement": true,
+    "q38038_is_weakest_total_replacement": true,
+    "q38038_mirror_pattern_not_universal": true,
+    "tight_middle_loss_condition_still_alive": true,
+    "universal_positive_best_mirror_block_refuted": true,
+    "universal_positive_non_middle_compensation_refuted": true
+  },
+  "coordinate00_residue_gap_sign_theorem_proved": false,
+  "decision": "The broad mirror-block theorem target is refuted on the checked replacement landscape.  15 replacement rows have nonpositive aggregate non-middle contribution, and 7 have nonpositive best mirror-block non-middle contribution.  However q=38038 remains the weakest total row and the most severe middle-loss row, with positive non-middle compensation.  The live theorem target should therefore be conditional compensation in the tight middle-loss regime, not universal mirror-block positivity across all replacement packets.",
+  "finite_all_replacement_mirror_compensation_audit_only": true,
+  "finite_diagnostic_only": true,
+  "fixture": {
+    "active_row_start": 43,
+    "divisor_range": [
+      3,
+      19
+    ],
+    "ell_freeze": 64,
+    "prime_modulus": 379,
+    "replacement_denominator_count": 34,
+    "row_count_A": 43,
+    "scale_modulus": 229,
+    "target_label": "00,12"
+  },
+  "goldbach_proved": false,
+  "q38038_row": {
+    "margin_above_minus_one": 0.15270681541382924,
+    "middle_A_to_10A": -0.939992990438763,
+    "non_middle_sum": 0.09269980585259228,
+    "off_diagonal_over_diagonal_half": -0.8472931845861708,
+    "reduced_denominator": 38038,
+    "strongest_non_middle_mirror_block": {
+      "middle_A_to_10A": 0.028218239391922754,
+      "mirror_source_pair_block": [
+        [
+          143,
+          266
+        ],
+        [
+          266,
+          143
+        ]
+      ],
+      "non_middle_sum": 0.07765412336759717,
+      "total": 0.10587236275951992
+    },
+    "strongest_non_middle_mirror_block_share": 0.8376945631480589
+  },
+  "question": "Across all 34 Q46189 replacement packets, is the q=38038 mirror-block non-middle compensation pattern a universal replacement-packet theorem target?",
+  "replacement_packet_compensation_theorem_proved": false,
+  "schema_version": 1,
+  "source_commit": "596fa966d255ebef82c2a0eeb06d30a34a79e3c7",
+  "source_packet_ratio_landscape_audit": "evidence\\mobius-moment-square-degree5-q46189-packet-ratio-landscape-audit.json",
+  "source_source_pair_bucket_compensation_audit": "evidence\\mobius-moment-square-degree5-q46189-source-pair-bucket-compensation-audit.json",
+  "status": "AUDIT_q46189_all_replacement_mirror_compensation",
+  "strict_central_goldbach_theorem_proved": false,
+  "summary": {
+    "largest_mirror_block_row": {
+      "margin_above_minus_one": 1.5846979689588865,
+      "middle_A_to_10A": -0.3070122384519499,
+      "non_middle_sum": 0.8917102074108364,
+      "off_diagonal_over_diagonal_half": 0.5846979689588865,
+      "reduced_denominator": 24871,
+      "strongest_non_middle_mirror_block": {
+        "middle_A_to_10A": -0.27225960111492087,
+        "mirror_source_pair_block": [
+          [
+            119,
+            209
+          ],
+          [
+            209,
+            119
+          ]
+        ],
+        "non_middle_sum": 0.9215049554041037,
+        "total": 0.6492453542891828
+      },
+      "strongest_non_middle_mirror_block_share": 1.0334130390631941
+    },
+    "largest_non_middle_row": {
+      "margin_above_minus_one": 1.5846979689588865,
+      "middle_A_to_10A": -0.3070122384519499,
+      "non_middle_sum": 0.8917102074108364,
+      "off_diagonal_over_diagonal_half": 0.5846979689588865,
+      "reduced_denominator": 24871,
+      "strongest_non_middle_mirror_block": {
+        "middle_A_to_10A": -0.27225960111492087,
+        "mirror_source_pair_block": [
+          [
+            119,
+            209
+          ],
+          [
+            209,
+            119
+          ]
+        ],
+        "non_middle_sum": 0.9215049554041037,
+        "total": 0.6492453542891828
+      },
+      "strongest_non_middle_mirror_block_share": 1.0334130390631941
+    },
+    "negative_non_middle_count": 15,
+    "negative_non_middle_denominators": [
+      16302,
+      17290,
+      17765,
+      19019,
+      21318,
+      21945,
+      27170,
+      35530,
+      36465,
+      39270,
+      41990,
+      46410,
+      53295,
+      62985,
+      67830
+    ],
+    "nonpositive_best_mirror_count": 7,
+    "nonpositive_best_mirror_denominators": [
+      17765,
+      21318,
+      27170,
+      35530,
+      36465,
+      39270,
+      58786
+    ],
+    "q38038_ranks": {
+      "middle_loss_ascending": 1,
+      "non_middle_descending": 13,
+      "off_diagonal_ascending": 1
+    },
+    "q38038_strongest_mirror_rank_descending": 9,
+    "replacement_denominator_count": 34,
+    "weakest_middle_row": {
+      "margin_above_minus_one": 0.15270681541382924,
+      "middle_A_to_10A": -0.939992990438763,
+      "non_middle_sum": 0.09269980585259228,
+      "off_diagonal_over_diagonal_half": -0.8472931845861708,
+      "reduced_denominator": 38038,
+      "strongest_non_middle_mirror_block": {
+        "middle_A_to_10A": 0.028218239391922754,
+        "mirror_source_pair_block": [
+          [
+            143,
+            266
+          ],
+          [
+            266,
+            143
+          ]
+        ],
+        "non_middle_sum": 0.07765412336759717,
+        "total": 0.10587236275951992
+      },
+      "strongest_non_middle_mirror_block_share": 0.8376945631480589
+    },
+    "weakest_total_row": {
+      "margin_above_minus_one": 0.15270681541382924,
+      "middle_A_to_10A": -0.939992990438763,
+      "non_middle_sum": 0.09269980585259228,
+      "off_diagonal_over_diagonal_half": -0.8472931845861708,
+      "reduced_denominator": 38038,
+      "strongest_non_middle_mirror_block": {
+        "middle_A_to_10A": 0.028218239391922754,
+        "mirror_source_pair_block": [
+          [
+            143,
+            266
+          ],
+          [
+            266,
+            143
+          ]
+        ],
+        "non_middle_sum": 0.07765412336759717,
+        "total": 0.10587236275951992
+      },
+      "strongest_non_middle_mirror_block_share": 0.8376945631480589
+    }
+  },
+  "tight_middle_loss_compensation_theorem_proved": false,
+  "universal_mirror_block_compensation_refuted_on_checked_rows": true,
+  "universal_mirror_block_compensation_theorem_proved": false
+}

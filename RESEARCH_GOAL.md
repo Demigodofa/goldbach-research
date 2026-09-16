@@ -6,6 +6,40 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The `Q=46189` replacement-family lane now has an all-replacement
+mirror-compensation falsifier:
+`tools/build_mobius_moment_square_degree5_q46189_all_replacement_mirror_compensation_audit.py`
+generated
+`evidence/mobius-moment-square-degree5-q46189-all-replacement-mirror-compensation-audit.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-q46189-all-replacement-mirror-compensation-audit.md`.
+
+Question: across all `34` replacement packets, is the `q=38038`
+mirror-block non-middle compensation pattern a universal replacement-packet
+theorem target?
+
+Answer: no.  The broad mirror-block theorem target is refuted on the checked
+replacement landscape.  Fifteen replacement rows have nonpositive aggregate
+non-middle contribution, and seven have nonpositive best mirror-block
+non-middle contribution.  `q=38038` remains both the weakest total row and the
+most severe `middle_A_to_10A` loss row: its total is
+`-0.8472931845861708`, its middle contribution is
+`-0.939992990438763`, and its non-middle contribution is
+`0.09269980585259228`.  But its strongest mirror block ranks only `9` by
+non-middle contribution, so mirror-block positivity is not the universal
+object.
+
+Decision: the live theorem target shifts from universal mirror-block
+positivity to conditional compensation in the tight middle-loss regime.  A
+viable next proof object must characterize severe middle-bucket loss, or an
+equivalent source-pair geometry, then prove enough non-middle compensation in
+that regime only.  This proves no universal mirror-block theorem,
+tight-middle-loss theorem, replacement-packet compensation theorem,
+coordinate-`00` residue-gap sign theorem, strict-central Goldbach theorem, or
+Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The `Q=46189` replacement-family lane now has a source-pair bucket
 compensation audit:
 `tools/build_mobius_moment_square_degree5_q46189_source_pair_bucket_compensation_audit.py`
