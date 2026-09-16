@@ -6,6 +6,55 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 residual support-order route now has a positive-mass obligation
+classifier:
+`tools/build_q286_residual_support_order_positive_mass_obligation.py`
+generated
+`evidence/q286-residual-support-order-positive-mass-obligation.json`, with
+explanation in
+`notes/q286-residual-support-order-positive-mass-obligation.md`.
+
+Question: is `total_weight(N)>0` just a denominator side condition?
+
+Answer: no.  In this route,
+
+```text
+strict_central_total_weight(N)
+  = sum log(p)log(N-p)
+```
+
+over strict-central prime pairs `N/3<p<2N/3`.  Since every summand is
+positive, `strict_central_total_weight(N)>0` if and only if at least one
+strict-central prime pair exists for `N`.
+
+Finite calibration:
+
+```text
+horizon rows:                         224
+positive pair-count rows:             224
+positive total-weight rows:           224
+zero pair-count targets:                0
+zero/nonpositive weight targets:        0
+minimum pair count target:          24148
+minimum ordered central pair count:   106
+minimum strict-central total weight:
+                         9320.216763448925
+```
+
+Decision:
+`TARGET_positive_mass_is_strict_central_existence_obligation`.  The checked
+horizon has positive mass everywhere, but the universal theorem obligation is
+strict-central prime-pair existence in the named period classes.  Do not treat
+positive mass as a solved or minor normalization lemma.  The next proof shape
+must either prove positive strict-central mass plus raw/normalized
+support-order domination, or prove one raw lower-bound theorem that already
+implies positive strict-central mass.  This proves no positive-mass theorem,
+strict-central existence theorem, raw pointwise estimate, one-period threshold
+theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach
+proof.
+
+## Latest continuation evidence, 2026-09-15
+
 The q286 residual support-order route now has a raw-scale bridge audit:
 `tools/build_q286_residual_support_order_raw_scale_bridge.py` generated
 `evidence/q286-residual-support-order-raw-scale-bridge.json`, with explanation

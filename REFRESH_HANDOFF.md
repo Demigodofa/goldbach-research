@@ -6,6 +6,43 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 residual support-order route now has a positive-mass obligation
+classifier:
+
+```text
+tools/build_q286_residual_support_order_positive_mass_obligation.py
+notes/q286-residual-support-order-positive-mass-obligation.md
+evidence/q286-residual-support-order-positive-mass-obligation.json
+```
+
+Result:
+
+```text
+horizon rows:                         224
+positive pair-count rows:             224
+positive total-weight rows:           224
+zero pair-count targets:                0
+zero/nonpositive weight targets:        0
+minimum pair count target:          24148
+minimum ordered central pair count:   106
+minimum strict-central total weight:
+                         9320.216763448925
+```
+
+Decision:
+`TARGET_positive_mass_is_strict_central_existence_obligation`.
+`strict_central_total_weight(N)>0` is equivalent to existence of at least one
+strict-central prime pair in the window `N/3<p<2N/3`, because every summand
+`log(p)log(N-p)` is positive.  The denominator is therefore theorem-strength,
+not a cheap side condition.  The next proof shape must either prove positive
+strict-central mass plus support-order domination, or prove a single raw
+lower-bound theorem that already implies positive strict-central mass.  No
+positive-mass theorem, strict-central existence theorem, raw pointwise
+estimate, one-period threshold theorem, q286 threshold theorem,
+strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Latest active checkpoint note, 2026-09-15
+
 The q286 residual support-order route now has a raw-scale bridge audit:
 
 ```text

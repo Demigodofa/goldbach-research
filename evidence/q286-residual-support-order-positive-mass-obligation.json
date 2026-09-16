@@ -1,0 +1,59 @@
+{
+  "decision": "The positive-mass obligation is now classified.  On the checked 224-row horizon, every row has at least one strict-central prime pair and positive total weight, with the minimum pair count 106 at target 24148.  Universally, however, total_weight(N)>0 is equivalent to strict-central prime-pair existence in the window, so it is not a solved denominator technicality.  Goldbach remains open.",
+  "finite_calibration": {
+    "pair_count_summary": {
+      "count": 224,
+      "maximum": 8722.0,
+      "mean": 3194.2410714285716,
+      "minimum": 106.0
+    },
+    "positive_pair_count_rows": 224,
+    "positive_pair_zero_weight_targets": [],
+    "positive_total_weight_rows": 224,
+    "positive_weight_zero_pair_count_targets": [],
+    "row_count": 224,
+    "smallest_pair_count_row": {
+      "ordered_central_prime_pair_count": 106,
+      "strict_central_total_weight": 9320.216763448925,
+      "target": 24148
+    },
+    "smallest_total_weight_row": {
+      "ordered_central_prime_pair_count": 106,
+      "strict_central_total_weight": 9320.216763448925,
+      "target": 24148
+    },
+    "total_weight_summary": {
+      "count": 224,
+      "maximum": 1599148.4931985384,
+      "mean": 561061.8659585209,
+      "minimum": 9320.216763448925
+    },
+    "zero_or_negative_weight_targets": [],
+    "zero_pair_count_targets": []
+  },
+  "goldbach_proved": false,
+  "one_period_threshold_theorem_proved": false,
+  "positive_mass_theorem_proved": false,
+  "q286_threshold_theorem_proved": false,
+  "raw_pointwise_estimate_proved": false,
+  "route_decision": {
+    "raw_inequality_route_avoids_normalized_division": true,
+    "raw_inequality_route_still_implies_positive_mass_when_strict": "A strict positive raw support-order witness cannot be produced from an empty strict-central pair set; if no pair exists, all raw prime-pair sums in this witness vanish.",
+    "recommended_next_theorem_shape": "Do not try to pay the denominator as a minor side condition. Either prove a single raw lower-bound theorem that already implies positive strict-central mass, or explicitly treat positive mass as the strict-central existence half of the problem.",
+    "separate_positive_mass_lemma_is_goldbach_strength": true
+  },
+  "schema_version": 1,
+  "source_commit": "16a2aabf63e7bfc1f783010625a1e3ef4b85b3dc",
+  "sources": {
+    "raw_scale_bridge": "evidence\\q286-residual-support-order-raw-scale-bridge.json"
+  },
+  "status": "TARGET_positive_mass_is_strict_central_existence_obligation",
+  "status_boundary": "logical positive-mass obligation audit only; no positive-mass theorem, raw pointwise estimate, one-period threshold theorem, low-order base theorem, high-order tail domination theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof",
+  "strict_central_existence_theorem_proved": false,
+  "theorem_obligation": {
+    "equivalence": "Because every summand log(p)log(N-p) is positive, strict_central_total_weight(N)>0 if and only if at least one strict-central prime pair exists for N.",
+    "expanded_weight": "strict_central_total_weight(N) = sum log(p)log(N-p) over strict-central prime pairs N/3 < p < 2N/3.",
+    "interpretation": "The denominator condition is a strict-central Goldbach-in-window existence theorem for the named classes, not a cheap normalization lemma.",
+    "positive_mass_statement": "For every sufficiently large eligible N in the named period classes, strict_central_total_weight(N)>0."
+  }
+}
