@@ -6,6 +6,33 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The source-start lane now has a fixed-prime cross-scale stress audit for
+`p=379`:
+`tools/build_mobius_moment_square_degree5_source_start_p379_cross_scale_audit.py`
+generated
+`evidence/mobius-moment-square-degree5-source-start-p379-cross-scale-audit.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-source-start-p379-cross-scale-audit.md`.
+
+Question: after `p=379` was the weakest row in the full `M=229` and `M=251`
+fresh sweeps, is it a repeatable cross-scale source-start stress point?
+
+Answer: yes as finite attention evidence, with an important limit.  The audit
+fixes `p=379` and checks scales `191`, `211`, `227`, `229`, `251`, `293`,
+`331`, `353`, and `379`.  All `36` component and total rows pass
+`full < 0` and `active/full > 1/2`.  The global weakest row remains
+`M=229`, `p=379`, component `(00,12)`, with ratio `0.9018909662403138` and
+slack `0.40189096624031384`.
+
+Decision: `p=379` remains a concrete attention point in the lower nearby
+source-start scales, where `(00,12)` is weakest through `M=331`.  But the
+weakest component switches to `(01,02)` at `M=353` and `M=379`, and no row
+fails.  This is not a `p=379` theorem, not a source-start theorem, not a
+source-window theorem, not a strict-central Goldbach theorem, and not a
+Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The narrowed source-start lane now has a second full fresh-scale prime-row
 sweep, for `M=251`:
 `tools/build_mobius_moment_square_degree5_source_start_m251_full_prime_sweep.py`
