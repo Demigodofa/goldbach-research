@@ -6,6 +6,24 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The complete-period part of the actual long residual has been bounded
+uniformly, including the absolute envelope across Ramanujan conductors:
+`notes/residual-periodic-envelope-and-window-gap.md`. For the full divisor
+cutoff through the strict central endpoint, the envelope is
+`O_(theta,J)(log(N)^(-J))`, with no normalization by actual prime mass.
+Its contribution at mass scale is therefore `O_J(N/log(N)^J)`.
+
+This is a new analytical estimate, not just an identity. It identifies
+the remaining term as the weighted long-long CRT interval discrepancy
+`E_D`, with `Delta_0=E_D+O_J(N/log(N)^J)`. The pointwise one-sided lower
+bound for that term is still OPEN; the new estimate does not control
+incomplete-period couplings. A finite arithmetic sign-transfer falsifier
+is included with its exact scope. No Goldbach proof, effective starting
+point, or q286/Q46189 transfer is established. The full prove-or-disprove
+goal and freedom to choose a genuinely better next question remain active.
+
+## Finite-cutoff mixture obstruction checkpoint, 2026-09-16
+
 The finite-cutoff mixing shortcut now has an analytical obstruction:
 `notes/finite-cutoff-mixture-obstruction.md`. For any fixed finite set of
 exponents below `1/2`, all cross-cutoff reflected residual correlations

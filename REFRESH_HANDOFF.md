@@ -6,6 +6,41 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The ACTUAL long residual now has a universally negligible complete-period
+envelope. See `notes/residual-periodic-envelope-and-window-gap.md`.
+For fixed `0<theta<1/2`, `R=floor(N^theta)` and
+`U=ceil(2N/3)-1`, put `b_d=mu(d)log(R/d)` on `R<d<=U` and
+`y(q)=sum_(q|d)b_d/d`. With `c_q(N)` the Ramanujan sum and `L=1+log N`,
+
+```text
+K_D(N) = sum_q c_q(N)y(q)^2,
+B_D(N) = sum_q |c_q(N)|y(q)^2
+       << L^3 exp(-c sqrt(log R)) + tau(N)L^4/sqrt R
+        = O_(theta,J)(log(N)^(-J)).
+```
+
+This controls even the adverse periodic conductors without cancellation
+between them. The proof uses both smoothed and unsmoothed parts of
+Goldston-Yildirim Lemma 2.1 (2.11)--(2.13), and an elementary target-uniform
+gcd tail. It is not a finite fitted cap, an L2 rescue, or a two-prime estimate.
+
+The remaining object is the full long-long CRT window discrepancy
+`E_D=sum b_d b_e [exact_strict_central_count-N/(3*lcm(d,e))]`, summing
+compatible pairs. Exactly `C(D,D)=(N/3)K_D+E_D`; the new estimate and
+the parent reduction give `Delta_0=E_D+O_J(N/log(N)^J)`.
+The sufficient one-sided bound `E_D>=-(1-epsilon)H` remains OPEN.
+Both same-conductor endpoint effects and cross-conductor couplings remain.
+
+A checked arithmetic example prevents automatic sign transfer: `f=c_15`,
+`N=34`, has complete-period reflected mean `1` but central reflected sum
+`-3`. This is not the actual residual and not a Goldbach counterexample.
+The full goal, absence of an effective starting point, q286 missing-mass and
+Q46189 window-transfer gaps remain unchanged. Tests and separate review
+are recorded in `notes/review-receipts.md`. Choose the next question by
+mathematical value; do not turn periodic control into a window claim.
+
+## Finite-cutoff mixture checkpoint, 2026-09-16
+
 Finite linear cutoff mixing has now been tested analytically, not by scanning
 coefficients. See `notes/finite-cutoff-mixture-obstruction.md`.
 For any fixed finite `0<theta_1<...<theta_k<1/2`, with cutoff residuals

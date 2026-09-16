@@ -4,6 +4,48 @@ Owner: Rill. Purpose: preserve the reasoning and validation that support claimed
 results, including corrections that change future execution. No raw model
 reasoning is retained. Model agreement is not a proof by itself.
 
+## Full residual periodic envelope and interval gap, 2026-09-16
+
+A separate fresh-context read-only Sol review
+(`01a0ac6a-401a-7d81-8414-e89168828373`) returned PASS with no material
+findings for `notes/residual-periodic-envelope-and-window-gap.md`, its
+small exact helper and tests. This was a supplied-derivation review, not
+blind discovery. The reviewer checked the primary Goldston-Yildirim PDF,
+including the explicit unsmoothed estimate in Lemma 2.1 (2.13), rather
+than differentiating an error term.
+
+The accepted theorem bounds the ABSOLUTE Ramanujan-conductor envelope of
+the actual frozen long residual by
+`L^3 exp(-c sqrt(log R))+tau(N)L^4/sqrt R`, uniformly in the target at
+fixed `0<theta<1/2`. Low-conductor mains cancel inside each coefficient;
+the high-conductor gcd tail retains divisors on both sides of the split.
+This gives `Delta_0=E_D+O_(theta,J)(N/log(N)^J)`, where `E_D` is the
+full weighted long-long CRT interval discrepancy. The incomplete reflected
+operator, including same-conductor endpoint and cross-conductor terms,
+remains uncontrolled at the required pointwise scale.
+
+Eight new exact tests pass; the lead's affected four-module suite passes
+40 tests normally and under optimized Python, and the combined regression
+suite passes 75 tests. The reviewer independently ran 45 new/affected
+tests in both modes. These are not a repository-wide test run and do not
+prove the external theorem or asymptotics. The helper is deliberately
+fixture-scale, not a scalable large-target evaluator.
+
+The exact `c_15`, `N=34` sign-transfer falsifier has periodic mean `1`,
+strict central sum `-3`, and discrepancy `-43/3`. It is not the actual
+Goldbach residual or a counterexample to Goldbach. A bounded local Qwen
+check reproduced the value vector and these totals, but incorrectly wrote
+`34 mod 15 = 14`. Rill rejected that intermediate statement; a linked
+correction confirmed remainder `4`. Rill checked `c_15(4)=mu(15)=1`
+directly, not from the helper's vague qualification. Both calls used exact
+file input, returned untruncated answers and confirmed native tools disabled
+with zero tool calls. No helper output serves as proof authority.
+
+This checkpoint controls a real component of the full divisor expansion;
+it does not estimate the remaining interval error or establish an effective
+starting point, q286/Q46189 transfer, or Goldbach. The full prove-or-disprove
+goal stays active. Do not promote complete-period control into window control.
+
 ## Finite cutoff mixture obstruction, 2026-09-16
 
 A separate fresh-context read-only Sol reviewer

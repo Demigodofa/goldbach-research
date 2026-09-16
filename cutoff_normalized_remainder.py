@@ -11,7 +11,7 @@ from math import gcd
 from complementary_divisor_correlation import (
     _coefficients, central_interval, frozen_mobius_log_vector,
 )
-from major_arc_kernel import _factorization, _mobius_phi
+from major_arc_kernel import _factorization, _mobius_phi, ramanujan
 
 
 def singular_multiplier(n):
@@ -76,6 +76,17 @@ def selberg_coordinates(coefficients):
             if d % q == 0:
                 result[q] = result.get(q, F(0)) + coefficient / d
     return {q: value for q, value in result.items() if value}
+
+
+def ramanujan_density_channels(target, coefficients):
+    """Signed complete-period reflected density by conductor, not window mass.
+
+    For real rational coefficients each entry is c_q(target)*w(q)^2, so
+    summing absolute entries gives the conductorwise absolute envelope.
+    """
+    central_interval(target)
+    return {q: ramanujan(q, target) * value ** 2
+            for q, value in selberg_coordinates(coefficients).items()}
 
 
 def cutoff_mixture_norm_parts(exponents, weights):
