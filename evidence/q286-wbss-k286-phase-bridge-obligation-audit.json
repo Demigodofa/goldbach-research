@@ -1,0 +1,70 @@
+{
+  "answer": "A phase route cannot be accepted from top-pair labels, small phase bands, or finite cover counts.  It must prove a universal pointwise lower bound for the signed K_286 phase sum, or the full unnormalized adverse-drag inequality A_-(N)<M(N), for every sufficiently large covered even N.",
+  "broad_phase_envelope_theorem_proved": false,
+  "candidate": {
+    "falsifier": "A covered row family where the signed K_286 adverse component alone reaches the local main term, or where any proposed B_286 plus companion bounds exceed M(N), kills this route.",
+    "mechanism": "Exploit cancellation across many conjugate phase pairs instead of isolating a few labels.  The theorem target is a signed sum bound, not an absolute-envelope sparsity bound.",
+    "name": "broad K286 signed phase-cancellation theorem",
+    "novelty_label": "new-to-this-task",
+    "prediction": "Rows with broad absolute envelopes can still be safe when the signed pair sum has small adverse projection relative to the local main term.",
+    "visualization_role": "A linked 3D scatter/table can help locate phase families, lift drift, and strange rows, but any discovered pattern must be converted into the pointwise inequalities above."
+  },
+  "coefficient_direction_nonalignment_theorem_proved": false,
+  "decision": "TARGET_broad_k286_phase_cancellation_bridge_required.  The finite phase-envelope audit is useful because it rules out tiny sparse phase-label shortcuts and points toward broad signed phase cancellation.  It does not relax the logical gate: the route still needs a universal, pointwise, unnormalized estimate strong enough to imply A_-(N)<M(N), plus a finite remainder.",
+  "finite_phase_diagnostic": {
+    "cover_count_max_90": 19.0,
+    "cover_count_mean_50": 6.625,
+    "cover_count_mean_75": 11.9375,
+    "cover_count_mean_90": 16.875,
+    "cover_count_min_90": 15.0,
+    "diagnostic_consequence": "The checked rows require many of the 30 active conjugate pairs to cover the absolute envelope.  This is a falsifier for tiny sparse phase-label proofs, not a universal bound.",
+    "entropy_effective_count_mean": 19.250858986362026,
+    "finite_evidence_is_acceptance_condition": false,
+    "inverse_participation_count_mean": 16.20730306629838,
+    "pair_cancellation_ratio_mean": 0.1837093859655672,
+    "pair_count_per_row": 30.0,
+    "row_count": 32,
+    "top_pair_fraction_max": 0.16050600038977816,
+    "top_pair_fraction_mean": 0.11641633995627859
+  },
+  "goldbach_proved": false,
+  "logical_bridge_boundary": {
+    "active_acceptance_target": "universal pointwise unnormalized adverse-drag inequality",
+    "finite_remainder_requirement": "After the universal statement is proved, all covered even targets below N0 must be verified by an independent finite remainder check.",
+    "l2_status": "reservoir: arithmetically meaningful, not accepted as the bridge",
+    "normalization_boundary": "The acceptance target is unnormalized and pointwise: adverse_drag(N) and local_main(N) must be compared as actual terms in the q286-WBSS signed expectation, not merely as a fitted decimal or finite normalized ratio.",
+    "required_universal_statement": "There exist an explicit threshold N0 and an explicit covered even-target class such that, for every covered even N>=N0, adverse_drag(N) < local_main(N).",
+    "zero_mass_check_status": "finite diagnostic only; not a proof of positivity for unobserved N"
+  },
+  "phase_cancellation_theorem_proved": false,
+  "phase_theorem_obligation": {
+    "acceptable_full_goal": "Prove A_-(N)=sum_d max(0,-E_d(N)) < M(N) directly for every sufficiently large covered even N.",
+    "acceptable_k286_subgoal": "Prove E_286(N) >= -B_286(N) pointwise with companion bounds B_70(N), B_130(N), and B_154(N) such that B_70(N)+B_130(N)+B_154(N)+B_286(N) < M(N).",
+    "not_enough": [
+      "a list of dominant phase-pair labels observed on finite rows",
+      "a small phase band seeded by early lifts",
+      "finite cover-count means such as 16.875 pairs for 90%",
+      "a normalized L2 premise that first needs positive mass",
+      "a fitted residual absorption constant"
+    ],
+    "signed_pair_sum_form": "E_286(N)=sum_p P_p(N), where p ranges over the active K_286 conjugate phase pairs and P_p(N) is the real pair contribution at target N.",
+    "smallest_next_theorem_move": "Look for a source-backed signed correlation inequality that bounds the K_286 phase-pair sum as a whole; treat pair-label visualization as a locator for structure, not proof."
+  },
+  "q286_threshold_theorem_proved": false,
+  "question": "After the finite K_286 phase envelope is broad, what exact non-circular theorem would a phase route have to prove?",
+  "receipt": "q286-wbss-k286-phase-bridge-obligation-audit",
+  "schema_version": 1,
+  "source_commit": "663577bf06a2be4414d0ebd78ba1d2728a0245f4",
+  "sources": {
+    "logic_bridge_gate": "evidence\\q286-wbss-logic-bridge-gate-audit.json",
+    "logic_bridge_source_commit": "5b835a7c5f11ee6fc702b8dc6e476df3a5e7a96a",
+    "phase_envelope_concentration": "evidence\\q286-wbss-k286-zero-residue-phase-envelope-concentration-audit.json",
+    "phase_envelope_source_commit": "5a74859d60fa324e9cb82f9e4c6f7e3fc38e0579",
+    "pointwise_adverse_drag_target": "evidence\\q286-wbss-pointwise-adverse-drag-theorem-target.json",
+    "pointwise_source_commit": "bf30a11a557da46aa6c273d58985c58d0e6cf4dc"
+  },
+  "status": "TARGET_broad_k286_phase_cancellation_bridge_required",
+  "status_boundary": "Theorem-target audit only.  No broad phase-envelope theorem, no phase-cancellation theorem, no coefficient-direction nonalignment theorem, no universal pointwise raw bound, no q286 threshold theorem, no strict-central Goldbach theorem, and no Goldbach proof is established.",
+  "strict_central_goldbach_theorem_proved": false,
+  "universal_pointwise_raw_bound_proved": false
+}

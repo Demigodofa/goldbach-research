@@ -6,6 +6,41 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The q286-WBSS route now has a `K_286` phase bridge-obligation audit:
+
+```text
+tools/build_q286_wbss_k286_phase_bridge_obligation_audit.py
+notes/q286-wbss-k286-phase-bridge-obligation-audit.md
+evidence/q286-wbss-k286-phase-bridge-obligation-audit.json
+```
+
+Question: after the finite `K_286` phase envelope turns out to be broad, what
+exact non-circular theorem would a phase route have to prove?
+
+Result:
+
+```text
+extended phase rows:                 32
+active conjugate pairs per row:      30
+pairs to cover 50% envelope mean:     6.625
+pairs to cover 75% envelope mean:    11.9375
+pairs to cover 90% envelope mean:    16.875
+pairs to cover 90% envelope range:   15..19
+active acceptance target: universal pointwise unnormalized adverse-drag inequality
+```
+
+Decision: `TARGET_broad_k286_phase_cancellation_bridge_required`.  A phase
+route cannot be accepted from top-pair labels, small phase bands, or finite
+cover counts.  An acceptable theorem must prove a pointwise signed-sum bound
+`E_286(N) >= -B_286(N)` with companion bounds whose sum stays below `M(N)`,
+or prove the full gate `A_-(N)<M(N)` directly, for every sufficiently large
+covered even `N`, plus finite remainder.  No broad phase-envelope theorem,
+phase-cancellation theorem, coefficient-direction nonalignment theorem,
+universal pointwise raw estimate, q286 threshold theorem, strict-central
+Goldbach theorem, or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-16
+
 The q286-WBSS route now has a zero-residue `K_286` phase-envelope
 concentration audit:
 
