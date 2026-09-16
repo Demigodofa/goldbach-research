@@ -1,0 +1,83 @@
+{
+  "answer": "As currently encoded, the q286-WBSS pointwise gate is still conditional on strict-central prime-pair mass.  Its projected errors use the normalized actual orbit measure mu_N, and the local main M(N)=<u_a,phi_a> has no raw pair-count factor.  Thus A_-(N)<M(N) is a distribution/anti-alignment theorem once mu_N exists.  A Goldbach bridge needs either a separate theorem T_N>0 or a direct raw unnormalized witness theorem.",
+  "corrected_theorem_paths": {
+    "path_A_raw_witness": {
+      "statement": "Prove a direct raw weighted witness W_Phi(N)>0 for every sufficiently large covered even N.",
+      "status": "preferred_clean_bridge_but_unproved",
+      "why_it_closes_mass_gap": "If no strict-central prime pair exists, every raw summand is absent and W_Phi(N)=0.  Strict raw positivity therefore forces nonempty support."
+    },
+    "path_B_positive_mass_plus_distribution": {
+      "statement": "Prove T_N>0 for every sufficiently large covered even N, then prove the normalized distribution inequality A_-(N)<M(N) for those N.",
+      "status": "two_theorem_bridge_unproved",
+      "why_it_closes_mass_gap": "T_N>0 makes mu_N well-defined; the pointwise anti-alignment theorem then proves the frozen WBSS expectation positive on existing mass."
+    },
+    "path_C_rawized_adverse_drag": {
+      "statement": "Multiply the normalized decomposition by a proved raw mass lower bound and bound raw adverse drag below raw local main.",
+      "status": "possible_but_requires_independent_mass_input",
+      "why_it_closes_mass_gap": "This is only non-circular if the raw mass lower bound does not already assume the desired prime-pair support."
+    }
+  },
+  "decision": "Correct the bridge boundary.  The current pointwise adverse-drag inequality is a valid conditional distribution target, not a standalone Goldbach bridge, because it is stated through the normalized actual orbit measure mu_N.  The next proof object should be a raw unnormalized witness theorem W_Phi(N)>0, or a two-theorem package consisting of positive strict-central mass plus normalized adverse-drag control.",
+  "finite_calibration": {
+    "actual_formula_expectation_summary": {
+      "count": 348,
+      "maximum": 1.2986178644488715,
+      "mean": 0.9159245700653104,
+      "minimum": 0.609620382302563
+    },
+    "adverse_drag_ratio_summary": {
+      "count": 348,
+      "maximum": 0.23148438379145228,
+      "mean": 0.04133330485045476,
+      "minimum": 0.0
+    },
+    "adverse_drag_summary": {
+      "count": 348,
+      "maximum": 0.20589698744441423,
+      "mean": 0.03708853304718942,
+      "minimum": 0.0
+    },
+    "finite_evidence_is_acceptance_condition": false,
+    "local_main_summary": {
+      "count": 348,
+      "maximum": 1.0931524812700582,
+      "mean": 0.8897464104299735,
+      "minimum": 0.717245423802844
+    },
+    "positive_actual_formula_rows": 348,
+    "row_count": 348
+  },
+  "goldbach_proved": false,
+  "mass_boundary_audit": {
+    "finite_zero_actual_mass_count": 0,
+    "finite_zero_mass_check_passed": true,
+    "finite_zero_mass_meaning": "No checked row has zero strict-central pair count or zero actual mass; finite cap failures are not caused by a zero-mass normalization defect.",
+    "finite_zero_pair_count": 0,
+    "local_main_definition": "M(N)=<u_a,phi_a>, where a=N mod 10010 and u_a is the local uniform strict-central orbit measure for the q286-WBSS coefficient phi_a.",
+    "local_main_has_no_pair_count_factor": true,
+    "logical_consequence": "The checked rows have mass, so the normalized diagnostics are arithmetically meaningful there.  This finite fact does not supply a universal positive-mass theorem.",
+    "projected_errors_definition": "E_d(N)=<mu_N-u_a,phi_{a,d}> for d in {70,130,154,286}, with mu_N the actual strict-central binary-prime orbit measure and phi_a=sum_d phi_{a,d}+constant as in the four-modulus projection formula.",
+    "uses_normalized_actual_measure_mu_N": true
+  },
+  "pointwise_adverse_drag_theorem_proved": false,
+  "positive_mass_theorem_proved": false,
+  "q286_threshold_theorem_proved": false,
+  "question": "Does the surviving pointwise adverse-drag gate avoid the positive-mass problem, or does it still need rawization?",
+  "raw_witness_theorem_proved": false,
+  "route_decision": {
+    "active_acceptance_rephrased": "direct raw unnormalized witness positivity, or positive strict-central mass plus normalized pointwise adverse-drag control",
+    "l2_remains_reservoir": "reservoir: arithmetically meaningful, not accepted as the bridge",
+    "previous_logic_gate_needs_correction": true,
+    "previous_logic_gate_still_useful": true,
+    "smallest_next_step": "Build or reject a raw WBSS witness identity W_Phi(N) whose strict positivity forces a strict-central prime pair without first normalizing by existing mass."
+  },
+  "schema_version": 1,
+  "source_commit": "a39f64356a00621b26ad62e62157b4e101027b81",
+  "sources": {
+    "l2_observed_moment_zero_mass_check": "evidence\\q286-wbss-multiplicative-character-l2-observed-moment-audit.json",
+    "logic_bridge_gate": "evidence\\q286-wbss-logic-bridge-gate-audit.json",
+    "pointwise_adverse_drag_target": "evidence\\q286-wbss-pointwise-adverse-drag-theorem-target.json"
+  },
+  "status": "CORRECTION_pointwise_gate_requires_mass_or_raw_witness",
+  "status_boundary": "logical rawization obligation only; no positive-mass theorem, raw witness theorem, pointwise adverse-drag theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof"
+}

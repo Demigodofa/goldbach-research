@@ -6,6 +6,52 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS route now has a rawization-obligation correction:
+`tools/build_q286_wbss_rawization_obligation_audit.py` generated
+`evidence/q286-wbss-rawization-obligation-audit.json`, with explanation in
+`notes/q286-wbss-rawization-obligation-audit.md`.
+
+Question: does the surviving pointwise adverse-drag gate avoid the
+positive-mass problem, or does it still need rawization?
+
+Answer: it still needs rawization or a separate positive-mass theorem.  As
+currently encoded, the q286-WBSS pointwise gate uses the normalized actual
+strict-central orbit measure:
+
+```text
+E_d(N)=<mu_N-u_a,phi_{a,d}>
+M(N)=<u_a,phi_a>
+```
+
+Thus `A_-(N)<M(N)` is a distribution or anti-alignment theorem once `mu_N`
+exists.  It does not by itself prove that strict-central prime-pair mass
+exists.
+
+Finite calibration:
+
+```text
+checked rows:             348
+zero pair-count rows:       0
+zero actual-mass rows:      0
+positive expectation rows: 348
+```
+
+Decision: `CORRECTION_pointwise_gate_requires_mass_or_raw_witness`.  The
+active bridge must be rephrased as either:
+
+```text
+Path A: prove a direct raw weighted witness W_Phi(N)>0; or
+Path B: prove T_N>0, then prove normalized A_-(N)<M(N).
+```
+
+Path A is the clean bridge: if no strict-central prime pair exists, every raw
+summand is absent and `W_Phi(N)=0`; strict raw positivity therefore forces
+nonempty support.  No positive-mass theorem, raw witness theorem, pointwise
+adverse-drag theorem, q286 threshold theorem, strict-central Goldbach theorem,
+or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286-WBSS route now has a logic bridge gate audit:
 `tools/build_q286_wbss_logic_bridge_gate_audit.py` generated
 `evidence/q286-wbss-logic-bridge-gate-audit.json`, with explanation in

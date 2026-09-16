@@ -6,6 +6,42 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS route now has a rawization-obligation correction:
+
+```text
+tools/build_q286_wbss_rawization_obligation_audit.py
+notes/q286-wbss-rawization-obligation-audit.md
+evidence/q286-wbss-rawization-obligation-audit.json
+```
+
+Result:
+
+```text
+checked rows:             348
+zero pair-count rows:       0
+zero actual-mass rows:      0
+positive expectation rows: 348
+```
+
+Decision: `CORRECTION_pointwise_gate_requires_mass_or_raw_witness`.  The
+previous pointwise gate `A_-(N)<M(N)` is still stated through the normalized
+actual orbit measure `mu_N`.  It is a valid conditional distribution target
+once strict-central mass exists, but it does not create that mass.
+
+The active bridge must now be one of:
+
+```text
+Path A: prove a direct raw weighted witness W_Phi(N)>0; or
+Path B: prove T_N>0, then prove normalized A_-(N)<M(N).
+```
+
+Path A is cleaner because `W_Phi(N)>0` itself forces nonempty strict-central
+support.  No positive-mass theorem, raw witness theorem, pointwise
+adverse-drag theorem, q286 threshold theorem, strict-central Goldbach theorem,
+or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286-WBSS route now has a logic bridge gate audit:
 
 ```text
