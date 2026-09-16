@@ -6,6 +6,33 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The q286-WBSS route now has an active-character collapse audit:
+`tools/build_q286_wbss_active_character_collapse_audit.py` generated
+`evidence/q286-wbss-active-character-collapse-audit.json`, with explanation in
+`notes/q286-wbss-active-character-collapse-audit.md`.
+
+Question: after closing the named source-fit routes, should the raw
+active-character target remain the active q286 proof engine?
+
+Answer: no, not as an engine that lowers the problem.  The raw
+active-character target is logically clean only when stated as a strict
+unnormalized theorem, but proving `W_phi(N)>0` or the raw aggregate `L2`
+payment would itself create strict-central Goldbach support for each covered
+target.  The normalized character-distribution form is only conditional after
+`T_N>0` is already known.
+
+Decision: `SLEEP_active_character_route_until_independent_raw_theorem_or_new_engine`.
+The active-character package remains useful coefficient structure, but it is
+not the active proof engine after source-fit closure.  The next
+evidence-bearing Goldbach move should switch proof engines or introduce a
+genuinely new raw signed-weight theorem; more finite q286 evidence is not an
+acceptance condition.  No active-character moment theorem, signed-weight
+major/minor arc estimate, raw weighted witness theorem, positive-mass theorem,
+q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof is
+established.
+
+## Previous continuation evidence, 2026-09-16
+
 The q286-WBSS route now has a Bauer-Wang source-fit audit:
 `tools/build_q286_wbss_bauer_wang_source_fit_audit.py` generated
 `evidence/q286-wbss-bauer-wang-source-fit-audit.json`, with explanation in

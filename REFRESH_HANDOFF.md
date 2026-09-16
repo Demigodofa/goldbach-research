@@ -6,6 +6,41 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The q286-WBSS route now has an active-character collapse audit:
+
+```text
+tools/build_q286_wbss_active_character_collapse_audit.py
+notes/q286-wbss-active-character-collapse-audit.md
+evidence/q286-wbss-active-character-collapse-audit.json
+```
+
+Question: after closing the named source-fit routes, should the raw
+active-character target remain the active q286 proof engine?
+
+Result:
+
+```text
+status: SLEEP_active_character_route_until_independent_raw_theorem_or_new_engine
+active complex characters: 122
+active real channels: 64
+aggregate character L2: 5.525106448699807
+normalized L2 cap when mass-positive: 0.10930746469603118
+direct raw pointwise source bridges found: 0
+```
+
+Decision: the active-character package remains useful coefficient structure,
+but it is not the active proof engine after source-fit closure.  A direct
+`W_phi(N)>0` or raw aggregate `L2` theorem would be non-circular, but proving
+it would itself be a pointwise strict-central binary-prime theorem.  The next
+evidence-bearing Goldbach move should switch proof engines or introduce a
+genuinely new raw signed-weight theorem; more finite q286 evidence is not an
+acceptance condition.  No active-character moment theorem, signed-weight
+major/minor arc estimate, raw weighted witness theorem, positive-mass theorem,
+q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof is
+established.
+
+## Previous active checkpoint note, 2026-09-16
+
 The q286-WBSS route now has a Bauer-Wang source-fit audit:
 
 ```text
