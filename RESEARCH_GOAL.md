@@ -6,6 +6,39 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The `Q=46189` replacement-family lane now has a residue-gap pressure
+separation audit:
+`tools/build_mobius_moment_square_degree5_q46189_residue_gap_pressure_separation_audit.py`
+generated
+`evidence/mobius-moment-square-degree5-q46189-residue-gap-pressure-separation-audit.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-q46189-residue-gap-pressure-separation-audit.md`.
+
+Question: which normalized residue-gap pressure components separate the
+adverse `Q=46189` row from all source-admissible replacement rows?
+
+Answer: broad pressure separates this finite family.  For `Q=46189`,
+far+tail pressure divided by diagonal half is `-0.5836029061666043`; the
+worst replacement value is only `-0.26234837388449833`, at denominator
+`62985`, leaving a finite separation gap `0.32125453228210593`.  The
+non-middle pressure ratio is also separated: `Q=46189` has
+`-0.721340442056593`, while the worst replacement is
+`-0.3390532066023492`, at denominator `36465`, leaving gap
+`0.38228723545424376`.
+
+Decision: the first useful separator is broad residue-gap pressure, not the
+single largest negative gap and not the middle bucket alone.  Those simpler
+statistics point in the wrong direction: replacement `q=38038` has more
+negative middle pressure and a larger normalized single negative gap than
+`Q=46189`, yet survives.  The next theorem-shaped target is a
+source-admissible far-tail or non-middle lower bound.  This remains finite
+selected-family evidence only; it proves no far-tail pressure theorem,
+non-middle pressure theorem, replacement residue-gap bound theorem,
+coordinate-`00` residue-gap sign theorem, strict-central Goldbach theorem, or
+Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The `Q=46189` replacement-family lane now has an all-replacement
 coordinate-`00` Dirichlet-kernel family audit:
 `tools/build_mobius_moment_square_degree5_q46189_replacement_kernel_family_audit.py`

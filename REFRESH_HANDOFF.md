@@ -6,6 +6,42 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The `Q=46189` replacement-family lane now has a residue-gap pressure
+separation audit:
+
+```text
+tools/build_mobius_moment_square_degree5_q46189_residue_gap_pressure_separation_audit.py
+notes/mobius-moment-square-degree5-q46189-residue-gap-pressure-separation-audit.md
+evidence/mobius-moment-square-degree5-q46189-residue-gap-pressure-separation-audit.json
+```
+
+Result:
+
+```text
+Q far+tail / diag:                 -0.5836029061666043
+min replacement far+tail / diag:   -0.26234837388449833
+far+tail separation gap:           0.32125453228210593
+Q non-middle / diag:               -0.721340442056593
+min replacement non-middle / diag: -0.3390532066023492
+non-middle separation gap:         0.38228723545424376
+Q middle / diag:                   -0.2840414834738627
+min replacement middle / diag:     -0.939992990438763
+Q top negative gap / diag:         -0.09990152182661793
+min replacement top gap / diag:    -0.4983022129718098
+```
+
+Decision: the first useful finite separator is broad pressure, not a top gap.
+`Q=46189` has far+tail and non-middle pressure below every checked
+source-admissible replacement row.  The middle bucket alone and the single
+largest negative residue gap are explicit non-separators, because `q=38038`
+is worse by both and still survives.  The next useful route is a
+source-admissible far-tail or non-middle lower bound.  This proves no
+far-tail pressure theorem, non-middle pressure theorem, replacement
+residue-gap bound theorem, coordinate-`00` residue-gap sign theorem,
+strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The `Q=46189` replacement-family lane now has an all-replacement
 coordinate-`00` Dirichlet-kernel family audit:
 
