@@ -6,6 +6,44 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 residual structural-mask route now has an all-row tail-stress audit:
+`tools/build_q286_residual_structural_mask_tail_stress_audit.py` generated
+`evidence/q286-residual-structural-mask-tail-stress-audit.json`, with
+explanation in `notes/q286-residual-structural-mask-tail-stress-audit.md`.
+
+Question: does the structural support-lattice mask survive if its omitted
+adverse tail is not fitted only on the five positive rows, but instead uses a
+harsher envelope over all seven frozen signed-pair operator targets?
+
+Answer: no.  The two-subcube mask and the `support size <= 2` mask both fail
+under the all-row adverse-tail envelope:
+
+```text
+two-subcube positive-row tail envelope: 0.16918918294282279
+two-subcube positive-row tight margin:  0.005504640544899547
+two-subcube all-row tail envelope:      0.513201992453516
+two-subcube all-row tight margin:      -0.3385081689657937
+two-subcube tight target:               94856
+
+support-size <=2 positive-row tail envelope: 0.04969241094998337
+support-size <=2 positive-row tight margin:  0.004018492886067315
+support-size <=2 all-row tail envelope:      0.240935485957854
+support-size <=2 all-row tight margin:      -0.18722458212180332
+```
+
+Decision:
+`HOLD_all_row_tail_envelope_breaks_structural_masks`.  The structural
+support-lattice masks remain useful only if the tail theorem is restricted to a
+mathematically defined positive/stable class, uses signed tail control instead
+of adverse supremum control, or is replaced by a broader signed packet package.
+This rejects the unqualified all-row adverse-tail version of the structural
+mask route on the frozen seven-row fixture.  This proves no structural-mask
+theorem, tail-bound theorem, support-packet theorem, character-sum theorem,
+signed binary-prime correlation theorem, q286 threshold theorem, strict-central
+Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 residual support-packet route now has a structural-mask audit:
 `tools/build_q286_residual_support_packet_structural_mask_audit.py` generated
 `evidence/q286-residual-support-packet-structural-mask-audit.json`, with

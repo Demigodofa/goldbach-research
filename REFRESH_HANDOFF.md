@@ -6,6 +6,43 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 residual structural-mask route now has an all-row tail-stress audit:
+
+```text
+tools/build_q286_residual_structural_mask_tail_stress_audit.py
+notes/q286-residual-structural-mask-tail-stress-audit.md
+evidence/q286-residual-structural-mask-tail-stress-audit.json
+```
+
+Result:
+
+```text
+two-subcube positive-row tail envelope: 0.16918918294282279
+two-subcube positive-row tight margin:  0.005504640544899547
+two-subcube all-row tail envelope:      0.513201992453516
+two-subcube all-row tight margin:      -0.3385081689657937
+two-subcube tight target:               94856
+
+support-size <=2 positive-row tail envelope: 0.04969241094998337
+support-size <=2 positive-row tight margin:  0.004018492886067315
+support-size <=2 all-row tail envelope:      0.240935485957854
+support-size <=2 all-row tight margin:      -0.18722458212180332
+```
+
+Decision:
+`HOLD_all_row_tail_envelope_breaks_structural_masks`.  The structural
+support-lattice masks do not survive an unqualified all-row adverse-tail
+envelope.  They remain useful only if the tail theorem is restricted to a
+mathematically defined positive/stable class, uses signed tail control instead
+of adverse supremum control, or is replaced by a broader signed packet package.
+This rejects the unqualified adverse-tail version of the structural-mask route
+on the frozen seven-row stress fixture.  This proves no structural-mask
+theorem, tail-bound theorem, support-packet theorem, character-sum theorem,
+signed binary-prime correlation theorem, q286 threshold theorem,
+strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 residual support-packet route now has a structural-mask audit:
 
 ```text
