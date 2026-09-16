@@ -6,6 +6,42 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The metric-soft moment-square route now has a weakest-prime degree-`5`
+active-window phase-curve sweep:
+`tools/build_mobius_moment_square_degree5_weak_prime_phase_curve_sweep.py`
+generated
+`evidence/mobius-moment-square-degree5-weak-prime-phase-curve-sweep.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-weak-prime-phase-curve-sweep.md`.
+
+Question: for the weakest checked prime row, does sweeping the active row
+start over the extended local band `0..70` expose a concrete active/full
+dominance failure?
+
+Answer: no finite falsifier was found.  For `M=167`, prime `181`,
+`ell_freeze=52`, all `284/284` checked rows clear the signed `1/2`
+threshold: `213` component rows and `71` degree-`5` total rows have positive
+slack.  The broader sweep is materially tighter than the five-start
+translation stress.  The weakest row moves to active row start `44`,
+component `(00,12)`, with active/full ratio `0.5370450115638492` and slack
+`0.037045011563849206` above `1/2`.
+
+Decision: `SWEEP_degree5_weak_prime_active_window_phase_curve`.  This is
+useful curve-shape evidence for the active-window theorem target, but it is
+not a period theorem: the phase periods are controlled by reduced
+denominators inside the exact residue expansion, not by the prime or row
+count alone.  This is finite weak-prime phase-curve evidence only.  No
+pointwise universal adverse-drag estimate, L2 logical bridge, phase-curve
+theorem, active-window translation theorem, checked-scale dominance theorem,
+primewise dominance theorem, degree-`5` coefficient theorem,
+robust-margin universal theorem, coefficient-family theorem, universal
+Sturm-certificate theorem, half-frame curve-positivity theorem, uniform
+active/full lower-frame theorem, Mobius covariance theorem, signed
+prime-correlation estimate, q286 theorem, strict-central Goldbach theorem,
+or Goldbach proof is established.
+
+## Latest continuation evidence, 2026-09-16
+
 The metric-soft moment-square route now has a weak-scale degree-`5`
 active-window translation stress audit:
 `tools/build_mobius_moment_square_degree5_active_window_translation_stress.py`

@@ -6,6 +6,48 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The metric-soft moment-square route now has a weakest-prime degree-`5`
+active-window phase-curve sweep:
+
+```text
+tools/build_mobius_moment_square_degree5_weak_prime_phase_curve_sweep.py
+notes/mobius-moment-square-degree5-weak-prime-phase-curve-sweep.md
+evidence/mobius-moment-square-degree5-weak-prime-phase-curve-sweep.json
+```
+
+Result:
+
+```text
+status:                      SWEEP_degree5_weak_prime_active_window_phase_curve
+scale:                       M=167
+prime:                       181
+ell_freeze:                  52
+tested active row starts:    0..70
+component rows:              213
+degree-5 total rows:         71
+all dominance rows:          284
+dominance slacks:            +284 / 0 / 0
+failure rows:                0
+weakest row:                 start=44, p=181, (00,12)
+weakest active/full ratio:   0.5370450115638492
+weakest slack above 1/2:     0.037045011563849206
+```
+
+Decision: the weakest-prime extended local phase-curve sweep survives; no
+finite falsifier was found.  It is materially tighter than the five-start
+active-window translation stress, moving the weakest start from `36` to `44`.
+It is not a period theorem: the phase periods are controlled by reduced
+denominators inside the exact residue expansion, not by the prime or row
+count alone.  This remains finite phase-curve evidence only; no pointwise
+universal adverse-drag estimate, L2 logical bridge, phase-curve theorem,
+active-window translation theorem, checked-scale dominance theorem,
+primewise dominance theorem, degree-`5` coefficient theorem,
+robust-margin universal theorem, uniform active/full lower frame, Mobius
+covariance theorem, signed prime-correlation estimate, q286 theorem,
+strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Latest active checkpoint note, 2026-09-16
+
 The metric-soft moment-square route now has a weak-scale degree-`5`
 active-window translation stress audit:
 
