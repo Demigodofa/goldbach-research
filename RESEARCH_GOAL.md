@@ -6,6 +6,44 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS route now has a negative-region mass threshold audit:
+`tools/build_q286_wbss_negative_region_mass_threshold_audit.py` generated
+`evidence/q286-wbss-negative-region-mass-threshold-audit.json`, with
+explanation in `notes/q286-wbss-negative-region-mass-threshold-audit.md`.
+
+Question: after the pointwise positive floor fails, what negative-region mass
+or signed-shape control would still make the single q286 weight positive?
+
+Answer: a crude sign-mass theorem is far too strong.  The robust sign-mass
+threshold, using only the smallest positive and most negative coefficients, is
+only `0.0007147368046632611..0.0033012537800608146`, while the local-uniform
+negative fraction is `0.296969696969697..0.47205387205387206`.  Local-uniform
+passes the robust threshold on `0/5005` target residues.
+
+The meaningful target is signed shape or correlation.  If the within-sign
+conditional averages are no worse than their local-uniform averages, the
+negative-mass cutoff is `0.48729403831397616..0.6355852930606508`, and
+local-uniform has positive margin on `5005/5005` target residues.  The minimum
+margin is `0.10534041937277128`.
+
+Decision: `TARGET_signed_negative_region_correlation_obligation`.  The
+pointwise floor failure does not force q286 to sleep, but it sleeps the
+support-only and robust sign-mass-only shortcuts.  The surviving theorem target
+is raw signed-region control:
+
+```text
+sum_{u:phi(u)>0} P_N(u)phi(u)
+  > sum_{u:phi(u)<0} P_N(u)(-phi(u)).
+```
+
+Normalized negative-region fractions are diagnostics only unless embedded in a
+raw strict positivity proof; by themselves they are conditional on `T_N>0`.
+This proves no signed negative-region distribution theorem, raw adverse-drag
+theorem, positive-mass theorem, q286 threshold theorem, strict-central
+Goldbach theorem, or Goldbach proof.
+
+## Latest continuation evidence, 2026-09-15
+
 The q286-WBSS route now has a single-weight major-arc floor audit:
 `tools/build_q286_wbss_single_weight_major_arc_floor_audit.py` generated
 `evidence/q286-wbss-single-weight-major-arc-floor-audit.json`, with

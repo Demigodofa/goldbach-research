@@ -6,6 +6,47 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS route now has a negative-region mass threshold audit:
+
+```text
+tools/build_q286_wbss_negative_region_mass_threshold_audit.py
+notes/q286-wbss-negative-region-mass-threshold-audit.md
+evidence/q286-wbss-negative-region-mass-threshold-audit.json
+```
+
+Question: after the pointwise positive floor fails, what negative-region mass
+or signed-shape control would still make the single q286 weight positive?
+
+Answer:
+
+```text
+robust sign-mass threshold: 0.0007147368046632611..0.0033012537800608146
+local-uniform negative fraction: 0.296969696969697..0.47205387205387206
+local-uniform rows passing robust threshold: 0 / 5005
+
+shape mass threshold: 0.48729403831397616..0.6355852930606508
+local-uniform margin to shape threshold: 0.10534041937277128..0.27126236049137376
+local-uniform rows passing shape threshold: 5005 / 5005
+```
+
+Decision: `TARGET_signed_negative_region_correlation_obligation`.  The
+pointwise floor failure does not force q286 to sleep, but it sleeps the
+support-only and robust sign-mass-only shortcuts.  The surviving theorem target
+is raw signed-region control:
+
+```text
+sum_{u:phi(u)>0} P_N(u)phi(u)
+  > sum_{u:phi(u)<0} P_N(u)(-phi(u)).
+```
+
+Normalized negative-region fractions are diagnostics only unless embedded in a
+raw strict positivity proof; by themselves they are conditional on `T_N>0`.
+This proves no signed negative-region distribution theorem, raw adverse-drag
+theorem, positive-mass theorem, q286 threshold theorem, strict-central
+Goldbach theorem, or Goldbach proof.
+
+## Latest active checkpoint note, 2026-09-15
+
 The q286-WBSS route now has a single-weight major-arc floor audit:
 
 ```text
