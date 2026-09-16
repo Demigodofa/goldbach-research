@@ -6,6 +6,47 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS route now has a raw character circle-method decomposition and
+logical bridge classifier:
+`tools/build_q286_wbss_raw_character_circle_decomposition.py` generated
+`evidence/q286-wbss-raw-character-circle-decomposition.json`, with explanation
+in `notes/q286-wbss-raw-character-circle-decomposition.md`.
+
+Question: can the raw q286 character target be written as an exact
+circle-method object whose strict positivity would be genuinely non-circular,
+and what collapses the route?
+
+Answer: yes as a theorem target, not as a theorem.  With prime-only weight
+`P(n)=log(n)` for primes and `0` otherwise, and
+`I_N={n: N/3<n<2N/3}`,
+
+```text
+C_0(N)=int_0^1 P_N(alpha)P_N(alpha)e(-alpha N)dalpha = T_N
+C_{d,chi}(N)=int_0^1 P_{d,chi,N}(alpha)P_N(alpha)e(-alpha N)dalpha
+D_raw_{d,chi}(N)=C_{d,chi}(N)-U_{a,d,chi}C_0(N)
+W_phi(N)=C_0(N)M(a)
+  + sum_{d,chi} c_hat_{d,chi}(C_{d,chi}(N)-U_{a,d,chi}C_0(N)).
+```
+
+Zero-mass check: if `T_N=0`, then `C_0`, every `C_{d,chi}`, every
+`D_raw_{d,chi}`, every `E_raw_d`, `W_phi`, and `G_raw` are all zero.  Thus the
+strict raw `L2` target becomes `0<0`, and `W_phi(N)>0` is false.  The raw
+strict targets are therefore non-circular theorem shapes, but they are not
+confirmed.
+
+Decision:
+`TARGET_raw_character_circle_method_decomposition_bridge_unproved`.  The
+acceptance condition is a universal, pointwise, unnormalized analytical
+estimate such as `adverse_drag_raw(N)<local_main_raw(N)` or `W_phi(N)>0` for
+every sufficiently large covered `N`, plus an explicit finite remainder.
+Finite evidence is diagnostic only.  If a proof first imports pointwise
+`T_N>0`, q286 collapses to strict-central Goldbach-strength input plus
+decoration.  This proves no major/minor arc estimate, raw character moment
+theorem, adverse-drag theorem, strict raw-gap theorem, positive-mass theorem,
+q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof.
+
+## Latest continuation evidence, 2026-09-15
+
 The q286-WBSS route now has an exact raw character expansion target:
 `tools/build_q286_wbss_raw_character_expansion_target.py` generated
 `evidence/q286-wbss-raw-character-expansion-target.json`, with explanation in

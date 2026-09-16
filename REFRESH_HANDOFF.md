@@ -6,6 +6,44 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS route now has a raw character circle-method decomposition and
+logical bridge classifier:
+
+```text
+tools/build_q286_wbss_raw_character_circle_decomposition.py
+notes/q286-wbss-raw-character-circle-decomposition.md
+evidence/q286-wbss-raw-character-circle-decomposition.json
+```
+
+Exact identity:
+
+```text
+C_0(N)=int_0^1 P_N(alpha)P_N(alpha)e(-alpha N)dalpha = T_N
+C_{d,chi}(N)=int_0^1 P_{d,chi,N}(alpha)P_N(alpha)e(-alpha N)dalpha
+D_raw_{d,chi}(N)=C_{d,chi}(N)-U_{a,d,chi}C_0(N)
+W_phi(N)=C_0(N)M(a)
+  + sum_{d,chi} c_hat_{d,chi}(C_{d,chi}(N)-U_{a,d,chi}C_0(N)).
+```
+
+Zero-mass check: if `T_N=0`, then `C_0`, every `C_{d,chi}`, every
+`D_raw_{d,chi}`, every `E_raw_d`, `W_phi`, and `G_raw` are all zero.  The
+strict raw `L2` target becomes `0<0`, and `W_phi(N)>0` is false.  The raw
+strict targets are therefore non-circular theorem shapes, but they are not
+confirmed.
+
+Decision:
+`TARGET_raw_character_circle_method_decomposition_bridge_unproved`.  The
+acceptance condition is a universal, pointwise, unnormalized analytical
+estimate such as `adverse_drag_raw(N)<local_main_raw(N)` or `W_phi(N)>0` for
+every sufficiently large covered `N`, plus an explicit finite remainder.
+Finite evidence is diagnostic only.  If a proof first imports pointwise
+`T_N>0`, q286 collapses to strict-central Goldbach-strength input plus
+decoration.  This proves no major/minor arc estimate, raw character moment
+theorem, adverse-drag theorem, strict raw-gap theorem, positive-mass theorem,
+q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof.
+
+## Latest active checkpoint note, 2026-09-15
+
 The q286-WBSS route now has an exact raw character expansion target:
 
 ```text

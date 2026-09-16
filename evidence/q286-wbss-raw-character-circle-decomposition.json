@@ -1,0 +1,91 @@
+{
+  "adverse_drag_theorem_proved": false,
+  "answer": "Yes as a precise theorem target.  The raw moments are exact strict-central prime-pair Fourier coefficients.  But this is only a logical decomposition: no major/minor arc estimate has been proved.  The route survives only if strict positivity is proved directly for the raw witness or raw adverse-drag gap.  If the proof first assumes or separately proves T_N>0 and only then controls normalized character/L2 error, the q286 mechanism has not reduced the Goldbach-strength core.",
+  "candidate": {
+    "falsifier": "If the combined major term is only T_N times a positive constant and all error control is conditional on T_N>0, the route has not reduced the existence problem.",
+    "mechanism": "Combine the q286 coefficients before integration so the proof target is one signed strict-central binary-prime convolution, not post-support normalized residue statistics.",
+    "name": "raw q286 single-weight circle-method witness",
+    "novelty_label": "new-to-this-task",
+    "prediction": "If q286 helps, the combined left-prime weight has a local major-arc surplus or an adverse-drag envelope smaller than the principal local main.",
+    "smallest_next_test": "Compute the finite single-weight coefficients by residue and check whether their average local major-arc factors suggest a positive singular-series target or only a T_N-dependent renormalization."
+  },
+  "circle_method_estimate_proved": false,
+  "collapse_classifier": {
+    "collapses_if": "The proof first establishes or assumes T_N>0 for every sufficiently large N, and then applies q286 only as a conditional distribution or normalized L2 estimate.",
+    "logical_bridge_status": "Arithmetic decomposition confirmed; logical bridge not proved.  L2 is a target, not an accepted bridge.",
+    "sleep_decision_if_collapsed": "If all available analytic routes need T_N>0 before q286 has content, sleep q286 as a proof engine and preserve it as coefficient/visual structure for finding a sharper signed major-arc weight.",
+    "survives_as_q286_proof_engine_if": "The same circle-method argument proves W_phi(N)>0, G_raw(N)>0, or adverse_drag_raw(N)<local_main_raw(N) without first assuming pointwise T_N>0."
+  },
+  "decision": "TARGET_raw_character_circle_method_decomposition_bridge_unproved.  The raw q286 target is non-circular as a strict unnormalized theorem shape, because zero mass makes the strict inequalities false.  That does not confirm the L2 target or the logical bridge.  The needed result is a universal pointwise analytic estimate, such as adverse_drag_raw(N)<local_main_raw(N) or W_phi(N)>0, for every sufficiently large covered N.  A proof that first imports pointwise T_N>0 collapses to strict-central Goldbach-strength input plus q286 decoration.",
+  "exact_fourier_identities": {
+    "central_mass": "C_0(N)=int_0^1 P_N(alpha)*P_N(alpha)*e(-alpha*N)dalpha = T_N.",
+    "modulus_error": "E_raw_d(N)=sum_chi c_hat_{d,chi}*D_raw_{d,chi}(N).",
+    "raw_character_moment": "D_raw_{d,chi}(N)=C_{d,chi}(N)-U_{a,d,chi}*C_0(N).",
+    "raw_witness": "W_phi(N)=C_0(N)*M(a)+sum_{d,chi} c_hat_{d,chi}*(C_{d,chi}(N)-U_{a,d,chi}*C_0(N)).",
+    "single_weight_form": "W_phi(N)=int_0^1 Q_{a,N}(alpha)*P_N(alpha)*e(-alpha*N)dalpha, with Q_{a,N}(alpha)=sum_{n in I_N}P(n)*[M(a)+sum_{d,chi}c_hat_{d,chi}*(chi_d(n)-U_{a,d,chi})]*e(alpha*n).",
+    "twisted_left_sum": "P_{d,chi,N}(alpha)=sum_{n in I_N} P(n)*chi_d(n)*e(alpha*n).",
+    "twisted_pair_mass": "C_{d,chi}(N)=int_0^1 P_{d,chi,N}(alpha)*P_N(alpha)*e(-alpha*N)dalpha = sum_{p in I_N, N-p prime} log(p)log(N-p)chi_d(p).",
+    "uniform_character_projection": "U_{a,d,chi}=sum_s chi_d(s)*U_{a,d}(s), where a=N mod 10010 and U_{a,d} is the local-uniform projected mass from the raw target.",
+    "untwisted_sum": "P_N(alpha)=sum_{n in I_N} P(n)*e(alpha*n)."
+  },
+  "finite_evidence_acceptance_condition": false,
+  "goldbach_proved": false,
+  "inherited_numbers": {
+    "active_complex_character_count": 122,
+    "active_real_channel_count": 64,
+    "aggregate_character_l2": 5.525106448699807,
+    "aggregate_character_moment_l2_cap_normalized": 0.10930746469603118,
+    "observed_global_min_l2_cap_violations": 301,
+    "observed_l2_row_count": 348,
+    "observed_row_local_l2_cap_violations": 120
+  },
+  "major_minor_arc_obligation": {
+    "finite_remainder_task": "Give an explicit N0 and verify the finite remainder below N0.  Finite q286 windows alone are diagnostics, not the acceptance condition.",
+    "major_arc_task": "Show the major arcs produce a positive main term for the actual single-weight witness W_phi(N), or for T_N*M(a) minus a proved adverse-drag envelope, with all local factors and strict-central truncation included.",
+    "minor_arc_task": "Bound the complementary arcs pointwise for every covered even N>=N0 strongly enough that they cannot erase the positive major-arc contribution.",
+    "no_division_by_T_N_rule": "A proof of strict positivity must not divide by T_N or use a normalized distribution ratio until strict-central mass has already been created inside the same argument or imported as an explicitly Goldbach-strength theorem."
+  },
+  "notation": {
+    "e_alpha": "e(alpha*x)=exp(2*pi*i*alpha*x).",
+    "large_N_unit_condition": "For N>3*286, every strict-central prime p>N/3 is coprime to d in {70,130,154,286}; smaller exceptions belong to the finite check below an explicit threshold.",
+    "prime_log_weight": "P(n)=log(n) if n is prime, and P(n)=0 otherwise.  This uses prime-only weights, not Lambda, so no prime-power correction is hidden in the identity.",
+    "strict_central_interval": "I_N={n integer: N/3<n<2N/3}."
+  },
+  "positive_mass_theorem_proved": false,
+  "q286_threshold_theorem_proved": false,
+  "question": "Can the raw q286-WBSS character target be written as an exact circle-method object whose strict positivity would be genuinely non-circular, and what collapses the route?",
+  "raw_character_moment_theorem_proved": false,
+  "receipt": "q286-wbss-raw-character-circle-decomposition",
+  "schema_version": 1,
+  "source_commit": "487f73dd2f630c9e1831691f06684b0d28f22453",
+  "sources": {
+    "raw_character_expansion_status": "TARGET_raw_character_expanded_q286_WBSS_theorem",
+    "raw_character_expansion_target": "evidence\\q286-wbss-raw-character-expansion-target.json"
+  },
+  "status": "TARGET_raw_character_circle_method_decomposition_bridge_unproved",
+  "status_boundary": "Circle-method decomposition and collapse classifier only; no major/minor arc estimate, raw character moment theorem, adverse-drag theorem, strict raw-gap theorem, positive-mass theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof is established.",
+  "strict_raw_gap_theorem_proved": false,
+  "universal_pointwise_bound_proved": false,
+  "universal_pointwise_targets": {
+    "acceptance_condition": "A universal, pointwise, unnormalized analytical estimate for every sufficiently large covered N, such as adverse_drag_raw(N)<local_main_raw(N), plus an explicit finite remainder.  Finite evidence is not an acceptance condition.",
+    "adverse_drag_less_than_local_main": "For every covered even N>=N0, prove sum_d max(0,-E_raw_d(N)) < T_N*M(a), or prove a sharper component/signed envelope that implies it.",
+    "aggregate_L2_raw": "For every sufficiently large covered even N, prove C2*sqrt(sum_{d,chi}|D_raw_{d,chi}(N)|^2) < T_N*M(a).",
+    "direct_signed_witness": "Prove W_phi(N)=T_N*M(a)+sum_{d,chi}c_hat_{d,chi}D_raw_{d,chi}(N)>0 directly."
+  },
+  "visualization_candidate": {
+    "animation": "Successive N-windows or modulus/character changes.",
+    "brightness": "Distance from failure.",
+    "color": "Conductor, modulus family, or residue class.",
+    "linked_table_payload": "Exact N, residues, active channels, C_0, C_{d,chi}, D_raw, E_raw_d, local main, adverse drag, and coefficients.",
+    "role": "Exploratory only.  A linked 3D scatter/table may help notice structure, but visual clusters cannot replace the universal pointwise estimate.",
+    "x_axis": "log(N).",
+    "y_axis": "A genuinely ordered analytic quantity, such as local main, driver margin, or normalized/raw moment size; not a residue label treated as numeric.",
+    "z_axis": "Strict closure margin or adverse-drag margin."
+  },
+  "zero_mass_check": {
+    "conclusion": "The raw strict targets are non-circular theorem shapes: if proved for all sufficiently large covered N, they force strict-central prime-pair support.  They are not confirmed by the present arithmetic decomposition.",
+    "if_T_N_is_zero": "There are no strict-central prime pairs, so C_0(N)=0 and C_{d,chi}(N)=0 for every active character.  Therefore D_raw_{d,chi}(N)=0, E_raw_d(N)=0, W_phi(N)=0, and G_raw(N)=0.",
+    "strict_L2_target_at_zero_mass": "C2*sqrt(sum|D_raw|^2)<T_N*M(a) becomes 0<0, which is false.",
+    "strict_witness_at_zero_mass": "W_phi(N)>0 is false because W_phi(N)=0."
+  }
+}
