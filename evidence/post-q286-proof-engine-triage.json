@@ -1,0 +1,277 @@
+{
+  "goldbach_proved": false,
+  "mobius_covariance_theorem_proved": false,
+  "older_non_q286_route_triage": {
+    "balanced_semiprime_budget": {
+      "decision": "useful rare-factor and support bookkeeping, but it explicitly asserts no lower bound for T_kappa",
+      "open_requirement": "a lower bound for the signed total T_kappa exceeding the semiprime budget",
+      "role": "reservoir_not_active_engine"
+    },
+    "cofactor_averaging_budget": {
+      "decision": "the unchanged Bettin-Chandee generic L2 plug-in fails the exponent budget; only a structurally stronger cofactor method would be a changed condition",
+      "role": "negative_source_gate"
+    },
+    "large_modulus_source_gate": {
+      "decision": "the bare 3/5 exponent match is not licensed because the fixed-residue, well-factorable, endpoint, and shifting hypotheses are not matched",
+      "role": "negative_source_gate"
+    },
+    "periodic_character_comparison": {
+      "decision": "retains a positive prime-versus-model comparison under a zero hypothesis, but the old Type I insertion is incompatible and gives no prime-prime positivity",
+      "role": "conditional_component_not_prime_pair_engine"
+    }
+  },
+  "q286_reactivated": false,
+  "q286_state": {
+    "active_character_status": "SLEEP_active_character_route_until_independent_raw_theorem_or_new_engine",
+    "component_pair_triage_status": "HOLD_component_pair_is_sharper_current_theorem_obligation",
+    "decision": "q286 remains a structured reservoir.  It is not accepted by more finite horizon evidence unless a changed condition supplies an independent raw pointwise estimate, a materially new signed weight, or a source-backed cone theorem.",
+    "reactivation_triggers": [
+      {
+        "description": "A primary-source or repo-proved theorem gives a pointwise major/minor arc estimate for the exact signed q286 weight, every sufficiently large covered N, with finite remainder.",
+        "trigger": "raw_pointwise_weighted_binary_prime_theorem"
+      },
+      {
+        "description": "A new coefficient transformation changes the negative-weight obstruction, the principal factor, or the raw adverse-drag theorem target in a way the existing falsifiers do not cover.",
+        "trigger": "materially_new_signed_weight"
+      },
+      {
+        "description": "A universal pointwise unnormalized active-character moment theorem pays the aggregate L2 or signed witness target without first assuming T_N>0.",
+        "trigger": "raw_moment_theorem_for_active_characters"
+      },
+      {
+        "description": "A separate strict-central positive-mass theorem is proved; q286 may then be reused honestly as conditional distribution/control, not as the support-creating proof.",
+        "trigger": "explicit_positive_mass_theorem_labeled_as_such"
+      }
+    ],
+    "signed_weight_sleep_status": "SLEEP_q286_signed_weight_proof_engine_until_raw_estimate"
+  },
+  "route_decision": {
+    "active_next_engine": "mobius_incomplete_prime_row_covariance",
+    "sleep_or_reservoir": [
+      "q286 active-character finite receipts",
+      "q286 componentwise finite envelopes",
+      "balanced semiprime signed-total route until a T_kappa lower bound exists",
+      "generic cofactor averaging source plug-ins",
+      "large-modulus bare exponent matches"
+    ],
+    "why_this_changes_next_action": "The next work should not tighten .125/.126/.13 or add another finite q286 horizon.  It should either prove or falsify the Mobius incomplete-row covariance boundary operator, because that is a universal analytical estimate with an explicit obstruction and benchmark."
+  },
+  "schema_version": 1,
+  "selected_non_q286_target": {
+    "balanced_source_gate_at_y_3_4_alpha_1_2": {
+      "block": {
+        "decimal": 0.75,
+        "fraction": "3/4"
+      },
+      "box_count": {
+        "decimal": 0.25,
+        "fraction": "1/4"
+      },
+      "dual_target": {
+        "decimal": 0.7495,
+        "fraction": "1499/2000"
+      },
+      "localization": {
+        "decimal": 0.25,
+        "fraction": "1/4"
+      },
+      "log_factor": {
+        "decimal": 0.5,
+        "fraction": "1/2"
+      },
+      "low_projector_fits_target": true,
+      "low_projector_rank_term": {
+        "decimal": 0.405,
+        "fraction": "81/200"
+      },
+      "mobius_factor": {
+        "decimal": 0.5,
+        "fraction": "1/2"
+      },
+      "mpss_6_1_first": {
+        "decimal": 1.2044230769230768,
+        "fraction": "6263/5200"
+      },
+      "mpss_6_1_first_excess_over_parseval": {
+        "decimal": 0.45442307692307693,
+        "fraction": "2363/5200"
+      },
+      "mpss_6_1_second": {
+        "decimal": 1.1775,
+        "fraction": "471/400"
+      },
+      "mpss_6_1_second_excess_over_parseval": {
+        "decimal": 0.4275,
+        "fraction": "171/400"
+      },
+      "mpss_theorem_6_1_applicable": true,
+      "optimistic_ps_theorem_1_1": {
+        "decimal": 1.17125,
+        "fraction": "937/800"
+      },
+      "ordered_cell_supports": [
+        {
+          "decimal": 0.49,
+          "fraction": "49/100"
+        },
+        {
+          "decimal": 0.25,
+          "fraction": "1/4"
+        },
+        {
+          "decimal": 0.25,
+          "fraction": "1/4"
+        }
+      ],
+      "parseval_dual": {
+        "decimal": 0.75,
+        "fraction": "3/4"
+      },
+      "ps_1_1_excess_over_parseval": {
+        "decimal": 0.42125,
+        "fraction": "337/800"
+      },
+      "ps_1_3_excess_over_parseval": {
+        "decimal": 0.455625,
+        "fraction": "729/1600"
+      },
+      "ps_theorem_1_3": {
+        "decimal": 1.205625,
+        "fraction": "1929/1600"
+      },
+      "wright_2_2_upper_range_possible": false
+    },
+    "falsifiers": [
+      "any proposed theorem that first takes absolute values or applies generic Cauchy reproduces the long-block Y^2 collision loss",
+      "a source theorem whose hypotheses only see max-norm active-band coefficients, not the L2-normalized band energy, is too weak at the balanced block",
+      "a prime-exponent rebalance that needs Wright 2.2 or classical BV in the unchanged unpaid range has an empty source range"
+    ],
+    "first_unpaid_balanced_block_probe": {
+      "a_oriented_family_exponent": {
+        "decimal": 1.849,
+        "fraction": "1849/1000"
+      },
+      "b_oriented_family_exponent": {
+        "decimal": 1.849,
+        "fraction": "1849/1000"
+      },
+      "best_family_exponent": {
+        "decimal": 1.849,
+        "fraction": "1849/1000"
+      },
+      "best_family_fits": false,
+      "block_length": {
+        "decimal": 0.75,
+        "fraction": "3/4"
+      },
+      "collision_exponent": {
+        "decimal": 1.5,
+        "fraction": "3/2"
+      },
+      "collision_fits": false,
+      "factor_by_factor_route_proves_block": false,
+      "log_factor": {
+        "decimal": 0.5,
+        "fraction": "1/2"
+      },
+      "mobius_factor": {
+        "decimal": 0.5,
+        "fraction": "1/2"
+      },
+      "regime": "balanced",
+      "short_factor_cap": {
+        "decimal": 0.15,
+        "fraction": "3/20"
+      },
+      "shorter_factor": {
+        "decimal": 0.5,
+        "fraction": "1/2"
+      },
+      "shorter_factor_below_block_length": true,
+      "signed_bilinear_input_still_required": true,
+      "target": {
+        "decimal": 1.499,
+        "fraction": "1499/1000"
+      }
+    },
+    "known_paid_part": {
+      "collision_at_threshold": {
+        "decimal": 1.499,
+        "fraction": "1499/1000"
+      },
+      "divisor_family": {
+        "decimal": 0.599,
+        "fraction": "599/1000"
+      },
+      "family_at_threshold": {
+        "decimal": 1.3485,
+        "fraction": "2697/2000"
+      },
+      "family_margin_at_threshold": {
+        "decimal": 0.1505,
+        "fraction": "301/2000"
+      },
+      "long_blocks_require_arithmetic_input": true,
+      "paid_length_threshold": {
+        "decimal": 0.7495,
+        "fraction": "1499/2000"
+      },
+      "short_blocks_paid_uniformly_in_location": true,
+      "target": {
+        "decimal": 1.499,
+        "fraction": "1499/1000"
+      }
+    },
+    "name": "Mobius incomplete prime-row covariance",
+    "prime_exponent_rebalance_gate_at_mu_59_100": {
+      "absolute_band_benchmark": {
+        "decimal": 1.499,
+        "fraction": "1499/1000"
+      },
+      "classical_bv_with_small_divisor": false,
+      "companion": {
+        "decimal": 0.59,
+        "fraction": "59/100"
+      },
+      "in_unpaid_companion_range": true,
+      "relative_balanced_interval_nonempty": true,
+      "u1_type_i": {
+        "decimal": 1.498,
+        "fraction": "749/500"
+      },
+      "u1_type_i_fits": true,
+      "u1_type_i_margin": {
+        "decimal": 0.001,
+        "fraction": "1/1000"
+      },
+      "wright_long_factor_upper_endpoint": {
+        "decimal": 0.5173529411764706,
+        "fraction": "1759/3400"
+      },
+      "wright_possible_for_some_factor_scale": false
+    },
+    "required_theorem_shape": "a local signed covariance or boundary-operator estimate for the actual Mobius-log coefficients on prime rows, strong enough to beat the N^(1499/1000+epsilon) benchmark uniformly over the surviving long dyadic blocks",
+    "role": "next_analytical_proof_engine_candidate",
+    "smallest_next_test": "derive the exact incomplete-row boundary operator after the complete-period conductor closure, then test whether its operator norm factors through the actual arithmetic row spacing with only subpower loss",
+    "why_selected": "It names a pointwise asymptotic estimate rather than another finite q286 fit: all short and medium dyadic blocks are paid, leaving a precise long-block incomplete prime-row covariance where signs, prime-modulus averaging, or a new local asymptotic-large-sieve theorem must enter before Cauchy.",
+    "wright_factor_range_at_mu_59_100": null
+  },
+  "source_commit": "114ef43a8b13e8289f7f5ea508ced133462686d2",
+  "source_theorem_directly_applies": false,
+  "sources": {
+    "balanced_semiprime_budget": "balanced_semiprime_budget.py",
+    "cofactor_averaging_budget": "cofactor_averaging_budget.py",
+    "mobius_balanced_trilinear_source_gate": "mobius_balanced_trilinear_source_gate.py",
+    "mobius_covariance_dyadic_scale_gate": "mobius_covariance_dyadic_scale_gate.py",
+    "mobius_covariance_source_gate": "mobius_covariance_source_gate.py",
+    "mobius_long_block_factor_gate": "mobius_long_block_factor_gate.py",
+    "mobius_prime_exponent_rebalance_gate": "mobius_prime_exponent_rebalance_gate.py",
+    "q286_active_character_collapse": "evidence\\q286-wbss-active-character-collapse-audit.json",
+    "q286_non_circular_route_triage": "evidence\\q286-non-circular-route-triage-audit.json",
+    "q286_signed_weight_sleep_hold": "evidence\\q286-wbss-signed-weight-proof-engine-sleep-hold.json"
+  },
+  "status": "TARGET_mobius_incomplete_prime_row_covariance_after_q286_sleep",
+  "status_boundary": "proof-engine triage only; no finite q286 horizon result, fitted constant, normalized L2 diagnostic, source exponent match, or visual structure is accepted as a Goldbach bridge",
+  "strict_central_goldbach_theorem_proved": false,
+  "universal_pointwise_acceptance_condition": "prove an unnormalized analytical estimate strong enough to put the relevant adverse/covariance term below the local main term for every sufficiently large N, plus a finite remainder"
+}

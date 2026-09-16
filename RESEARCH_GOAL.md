@@ -6,6 +6,39 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The post-q286 proof-engine triage now selects the next analytical target:
+`tools/build_post_q286_proof_engine_triage.py` generated
+`evidence/post-q286-proof-engine-triage.json`, with explanation in
+`notes/post-q286-proof-engine-triage.md`.
+
+Question: after q286 active-character and signed-weight proof engines are put
+to sleep, what is the next evidence-bearing theorem target, given that finite
+q286 horizon evidence and fitted constants are no longer acceptance
+conditions?
+
+Answer: target the Mobius incomplete prime-row covariance.  This is the
+surviving non-q286 analytical route that asks for a universal estimate rather
+than another finite fit.  Short and medium dyadic blocks are already paid
+through length exponent `1499/2000 = 0.7495`; the first clean unpaid balanced
+probe at `y=3/4`, `alpha=1/2` has collision exponent `3/2`, exceeding the
+application benchmark `1499/1000`.  Existing balanced trilinear and
+prime-exponent rebalance source gates do not close it: Petridis-Shparlinski
+Theorem 1.3 is worse than Parseval by `729/1600`, and Wright/BV have no source
+range in the unchanged unpaid prime-companion window.
+
+Decision: `TARGET_mobius_incomplete_prime_row_covariance_after_q286_sleep`.
+The next test is to derive the exact incomplete-row boundary operator after
+complete-period conductor closure, then test whether its operator norm factors
+through actual arithmetic row spacing with only subpower loss.  Keep q286
+active-character finite receipts, q286 componentwise finite envelopes,
+balanced semiprime signed-total bookkeeping, generic cofactor averaging, and
+large-modulus exponent matches in sleep/reservoir unless a changed condition
+appears.  No Mobius covariance theorem, source theorem application,
+strict-central Goldbach theorem, q286 theorem, or Goldbach proof is
+established.
+
+## Previous continuation evidence, 2026-09-16
+
 The q286-WBSS route now has an active-character collapse audit:
 `tools/build_q286_wbss_active_character_collapse_audit.py` generated
 `evidence/q286-wbss-active-character-collapse-audit.json`, with explanation in

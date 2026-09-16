@@ -6,6 +6,41 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The active proof-engine slot has moved from q286 finite evidence to the Mobius
+incomplete prime-row covariance target:
+
+```text
+tools/build_post_q286_proof_engine_triage.py
+notes/post-q286-proof-engine-triage.md
+evidence/post-q286-proof-engine-triage.json
+```
+
+Result:
+
+```text
+status: TARGET_mobius_incomplete_prime_row_covariance_after_q286_sleep
+paid dyadic length threshold: 1499/2000 = 0.7495
+first unpaid balanced probe y: 3/4
+first unpaid collision exponent: 3/2
+application benchmark: 1499/1000
+PS 1.3 excess over Parseval at the probe: 729/1600
+Wright/BV rebalance in unchanged unpaid window: unavailable
+```
+
+Decision: more finite q286 horizon evidence, componentwise fitted envelopes,
+or `.125/.126/.13` tightening is not the acceptance condition.  The next
+evidence-bearing move is to derive the exact incomplete-row boundary operator
+after complete-period conductor closure and test whether its operator norm
+factors through actual arithmetic row spacing with only subpower loss.  Q286
+active-character receipts, q286 componentwise envelopes, balanced semiprime
+bookkeeping, generic cofactor averaging, and large-modulus exponent matches
+stay in sleep/reservoir unless a changed condition supplies a real theorem
+object.  No Mobius covariance theorem, source theorem application,
+strict-central Goldbach theorem, q286 theorem, or Goldbach proof is
+established.
+
+## Previous active checkpoint note, 2026-09-16
+
 The q286-WBSS route now has an active-character collapse audit:
 
 ```text
