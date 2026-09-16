@@ -6,6 +6,43 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 direct witness now has a raw sign-split source-budget audit:
+
+```text
+tools/build_q286_direct_witness_sign_split_budget_audit.py
+notes/q286-direct-witness-sign-split-budget-audit.md
+evidence/q286-direct-witness-sign-split-budget-audit.json
+```
+
+Result on the same `196` post-discovery rows:
+
+```text
+anti-landing tight symmetric budget: 0.009481452906409388
+
+full coefficient direct sign split:
+  tightest target:                 94856
+  tightest P/D:       1.0145084566730913
+  tightest symmetric budget: 0.007201983503733535
+
+edge-beta direct sign split:
+  tightest target:                 94856
+  tightest P/D:       1.0191444227555964
+  tightest symmetric budget: 0.009481452906409388
+```
+
+Decision:
+`HOLD_direct_sign_split_not_escape_from_sharp_correlation`.  Bypassing the
+dual-edge anti-landing construction and proving direct `B_Phi(N)>0` by raw
+positive/negative coefficient landing is not easier: the full coefficient
+split is even tighter, and the edge-beta split is identical to the
+anti-landing budget.  The next proof object must be a more adapted signed
+binary-prime correlation estimate, not broad `L1`, mass-majority, AP counts,
+or raw sign-split landing.  This proves no direct witness theorem, signed
+binary-prime correlation theorem, q286 threshold theorem, strict-central
+Goldbach theorem, or Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 direct-witness/anti-landing route now has a source-theorem budget
 audit:
 
