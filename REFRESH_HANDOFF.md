@@ -6,6 +6,45 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The `Q=46189` replacement-family lane now has an explicit source-conductor
+scalar formula audit:
+
+```text
+tools/build_mobius_moment_square_degree5_q46189_source_conductor_scalar_formula_audit.py
+notes/mobius-moment-square-degree5-q46189-source-conductor-scalar-formula-audit.md
+evidence/mobius-moment-square-degree5-q46189-source-conductor-scalar-formula-audit.json
+```
+
+Result:
+
+```text
+Q=46189 formula scalar:          -0.07475328212536136
+Q=46189 raw scalar:              -0.07475328212536138
+Q=46189 formula pair deviation:  2.7755575615628914e-17
+replacement rows:                10
+max formula-minus-raw error:     2.7755575615628914e-17
+max formula pair deviation:      2.7755575615628914e-17
+all replacement rows verified:   true
+```
+
+Decision: the raw source-pair scalar identity has an explicit
+source-conductor formula:
+
+```text
+B_d=(a_d L^2,b_d L,c_d)
+(B_d[1] B_e[2] + B_d[2] B_e[1]) / (B_d[0] B_e[0])
+= (b_d c_e + c_d b_e) / (a_d a_e L^3)
+```
+
+This is still finite diagnostic evidence only because the coefficient source
+is floating/logarithmic.  The next useful route is exact log-polynomial
+reconstruction, not more numerical aggregation.  This proves no
+source-conductor scalar formula theorem, exact log-polynomial identity
+theorem, raw scalar identity theorem, symbolic replacement ratio theorem,
+source-start theorem, strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The `Q=46189` replacement-family lane now has a raw source-pair scalar
 identity audit:
 

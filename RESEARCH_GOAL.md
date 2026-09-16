@@ -6,6 +6,42 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The `Q=46189` replacement-family lane now has an explicit source-conductor
+scalar formula audit:
+`tools/build_mobius_moment_square_degree5_q46189_source_conductor_scalar_formula_audit.py`
+generated
+`evidence/mobius-moment-square-degree5-q46189-source-conductor-scalar-formula-audit.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-q46189-source-conductor-scalar-formula-audit.md`.
+
+Question: does the source-conductor coefficient formula reproduce the common
+raw source-pair scalar for `Q=46189` and every replacement row?
+
+Answer: yes for this finite family.  For a source conductor `d`, write
+`B_d=(a_d L^2,b_d L,c_d)`.  For each ordered source pair `(d,e)`, the scalar
+
+```text
+(B_d[1] B_e[2] + B_d[2] B_e[1]) / (B_d[0] B_e[0])
+= (b_d c_e + c_d b_e) / (a_d a_e L^3)
+```
+
+reproduces the raw coordinate `12` / coordinate `00` scalar.  For `Q=46189`,
+the formula scalar is `-0.07475328212536136`, the raw scalar is
+`-0.07475328212536138`, and the maximum formula-minus-raw error across
+`Q=46189` and all ten replacement rows is `2.7755575615628914e-17`.
+
+Decision: the raw scalar identity now has an explicit source-conductor
+formula.  This is still finite diagnostic evidence only because the current
+coefficient source is floating/logarithmic.  The next theorem-shaped object is
+exact log-polynomial reconstruction: rebuild the conductor coefficients as
+symbolic logarithmic expressions and prove or falsify equality of the six
+source-pair scalar formulas.  This proves no source-conductor scalar formula
+theorem, exact log-polynomial identity theorem, raw scalar identity theorem,
+symbolic replacement ratio theorem, source-start theorem, strict-central
+Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The `Q=46189` replacement-family lane now has a raw source-pair scalar
 identity audit:
 `tools/build_mobius_moment_square_degree5_q46189_raw_scalar_identity_audit.py`

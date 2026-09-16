@@ -1,0 +1,1713 @@
+{
+  "answer": "Yes for this finite family.  For each ordered source-conductor pair, writing B_d=(a_d L^2,b_d L,c_d), the formula (B_d1 B_e2 + B_d2 B_e1)/(B_d0 B_e0) reproduces the raw coordinate-12/coordinate-00 scalar and is common across the six source pairs.  The coefficient source is still floating/log data, so this is a formula checkpoint rather than an exact symbolic proof.",
+  "candidate_next_action": {
+    "falsifier": "If exact log-polynomial reconstruction shows the six formula scalars are only numerically close and not identical, the exact source-conductor identity target fails.",
+    "mechanism": "Promote the floating source-conductor formula to an exact log-polynomial identity for the six source pairs in the Q=46189 packet.",
+    "name": "exact log-polynomial scalar equality",
+    "novelty_label": "new-to-this-task",
+    "prediction": "The six source-pair scalars should be equal because the log-polynomial numerator and denominator share a common closed form after conductor factorization.",
+    "smallest_next_test": "Rebuild the relevant conductor coefficient polynomials as symbolic expressions in logarithms of prime factors, then prove or falsify equality of the six scalar formulas for Q=46189."
+  },
+  "classification": {
+    "all_replacements_formula_verified": true,
+    "all_replacements_ratio_above_half": true,
+    "all_rows_have_six_formula_pairs": true,
+    "coefficient_source_is_float_logarithmic": true,
+    "finite_source_conductor_formula_checkpoint_only": true,
+    "q46189_formula_verified": true,
+    "q46189_ratio_below_half": true
+  },
+  "decision": "The raw scalar identity has an explicit source-conductor formula. The remaining proof gap is exactness: the current coefficient pipeline is floating/logarithmic, so the next step is exact log-polynomial reconstruction, not more numerical aggregation.",
+  "exact_log_polynomial_identity_theorem_proved": false,
+  "exact_scalar_identity_theorem_proved": false,
+  "finite_diagnostic_only": true,
+  "finite_source_conductor_formula_audit_only": true,
+  "fixture": {
+    "adverse_denominator": 46189,
+    "divisor_range": [
+      3,
+      19
+    ],
+    "ell_freeze": 64,
+    "prime_modulus": 379,
+    "row_count_A": 43,
+    "scale_modulus": 229,
+    "target_label": "00,12"
+  },
+  "formula": {
+    "basis_definition": "B_d=(a_d*L^2,b_d*L,c_d)",
+    "freeze_logarithm": 10.096419288442098,
+    "scalar_formula": "(B_d[1]*B_e[2] + B_d[2]*B_e[1]) / (B_d[0]*B_e[0])",
+    "unscaled_scalar_formula": "(b_d*c_e + c_d*b_e) / (a_d*a_e*L^3)"
+  },
+  "goldbach_proved": false,
+  "omitted_high_prime_family_formula_summaries": {
+    "11": {
+      "all_rows_formula_verified": true,
+      "maximum_formula_minus_raw_scalar": 1.3877787807814457e-17,
+      "maximum_formula_pair_deviation": 2.7755575615628914e-17,
+      "minimum_ratio_minus_half": 0.23349735557232576,
+      "row_count": 3
+    },
+    "13": {
+      "all_rows_formula_verified": true,
+      "maximum_formula_minus_raw_scalar": 2.7755575615628914e-17,
+      "maximum_formula_pair_deviation": 2.7755575615628914e-17,
+      "minimum_ratio_minus_half": 0.4262452298052626,
+      "row_count": 3
+    },
+    "17": {
+      "all_rows_formula_verified": true,
+      "maximum_formula_minus_raw_scalar": 1.3877787807814457e-17,
+      "maximum_formula_pair_deviation": 1.3877787807814457e-17,
+      "minimum_ratio_minus_half": 0.07635340770691146,
+      "row_count": 2
+    },
+    "19": {
+      "all_rows_formula_verified": true,
+      "maximum_formula_minus_raw_scalar": 1.3877787807814457e-17,
+      "maximum_formula_pair_deviation": 1.3877787807814457e-17,
+      "minimum_ratio_minus_half": 0.3564899239156273,
+      "row_count": 2
+    }
+  },
+  "q46189_formula_row": {
+    "cellwise_margin_full_over_2_minus_active": -8444721229.472412,
+    "factorization": {
+      "11": 1,
+      "13": 1,
+      "17": 1,
+      "19": 1
+    },
+    "formula_scalar_mean": -0.07475328212536136,
+    "high_prime_support": [
+      11,
+      13,
+      17,
+      19
+    ],
+    "max_abs_formula_minus_raw_scalar": 2.7755575615628914e-17,
+    "max_abs_formula_pair_deviation": 2.7755575615628914e-17,
+    "missing_high_primes": [],
+    "ordered_source_conductor_formula_rows": [
+      {
+        "formula_minus_raw_scalar": 1.3877787807814457e-17,
+        "formula_pair_frequency_count": 34560,
+        "formula_scalar": -0.07475328212536136,
+        "formula_unscaled_scalar": -0.07475328212536135,
+        "left_polynomial_coefficients": [
+          0.013986013986013986,
+          -0.06941041440922947,
+          0.08602069845068863
+        ],
+        "left_source_conductor": 143,
+        "right_polynomial_coefficients": [
+          0.006191950464396285,
+          -0.0357749369858988,
+          0.0516546365729636
+        ],
+        "right_source_conductor": 323,
+        "unscaled_denominator_value": 0.08912992992161178,
+        "unscaled_numerator_coefficient": -0.006662754797243932
+      },
+      {
+        "formula_minus_raw_scalar": -1.3877787807814457e-17,
+        "formula_pair_frequency_count": 34560,
+        "formula_scalar": -0.07475328212536139,
+        "formula_unscaled_scalar": -0.07475328212536136,
+        "left_polynomial_coefficients": [
+          0.0106951871657754,
+          -0.05594768574176029,
+          0.07266041587745097
+        ],
+        "left_source_conductor": 187,
+        "right_polynomial_coefficients": [
+          0.008097165991902834,
+          -0.044610431875530175,
+          0.0611525252445155
+        ],
+        "right_source_conductor": 247,
+        "unscaled_denominator_value": 0.08912992992161178,
+        "unscaled_numerator_coefficient": -0.006662754797243933
+      },
+      {
+        "formula_minus_raw_scalar": 2.7755575615628914e-17,
+        "formula_pair_frequency_count": 34560,
+        "formula_scalar": -0.07475328212536135,
+        "formula_unscaled_scalar": -0.07475328212536135,
+        "left_polynomial_coefficients": [
+          0.009569377990430622,
+          -0.051122815808275705,
+          0.067564175207526
+        ],
+        "left_source_conductor": 209,
+        "right_polynomial_coefficients": [
+          0.00904977375565611,
+          -0.04885215114495704,
+          0.06576514702613975
+        ],
+        "right_source_conductor": 221,
+        "unscaled_denominator_value": 0.08912992992161178,
+        "unscaled_numerator_coefficient": -0.006662754797243932
+      },
+      {
+        "formula_minus_raw_scalar": 2.7755575615628914e-17,
+        "formula_pair_frequency_count": 34560,
+        "formula_scalar": -0.07475328212536135,
+        "formula_unscaled_scalar": -0.07475328212536135,
+        "left_polynomial_coefficients": [
+          0.00904977375565611,
+          -0.04885215114495704,
+          0.06576514702613975
+        ],
+        "left_source_conductor": 221,
+        "right_polynomial_coefficients": [
+          0.009569377990430622,
+          -0.051122815808275705,
+          0.067564175207526
+        ],
+        "right_source_conductor": 209,
+        "unscaled_denominator_value": 0.08912992992161178,
+        "unscaled_numerator_coefficient": -0.006662754797243932
+      },
+      {
+        "formula_minus_raw_scalar": -1.3877787807814457e-17,
+        "formula_pair_frequency_count": 34560,
+        "formula_scalar": -0.07475328212536139,
+        "formula_unscaled_scalar": -0.07475328212536136,
+        "left_polynomial_coefficients": [
+          0.008097165991902834,
+          -0.044610431875530175,
+          0.0611525252445155
+        ],
+        "left_source_conductor": 247,
+        "right_polynomial_coefficients": [
+          0.0106951871657754,
+          -0.05594768574176029,
+          0.07266041587745097
+        ],
+        "right_source_conductor": 187,
+        "unscaled_denominator_value": 0.08912992992161178,
+        "unscaled_numerator_coefficient": -0.006662754797243933
+      },
+      {
+        "formula_minus_raw_scalar": 1.3877787807814457e-17,
+        "formula_pair_frequency_count": 34560,
+        "formula_scalar": -0.07475328212536136,
+        "formula_unscaled_scalar": -0.07475328212536135,
+        "left_polynomial_coefficients": [
+          0.006191950464396285,
+          -0.0357749369858988,
+          0.0516546365729636
+        ],
+        "left_source_conductor": 323,
+        "right_polynomial_coefficients": [
+          0.013986013986013986,
+          -0.06941041440922947,
+          0.08602069845068863
+        ],
+        "right_source_conductor": 143,
+        "unscaled_denominator_value": 0.08912992992161178,
+        "unscaled_numerator_coefficient": -0.006662754797243932
+      }
+    ],
+    "ordered_source_conductor_pair_count": 6,
+    "ratio_minus_half": -0.0026909627652297874,
+    "raw_scalar": -0.07475328212536138,
+    "reduced_denominator": 46189,
+    "source_conductor_formula_verified_to_tolerance": true
+  },
+  "question": "Does the explicit source-conductor coefficient formula reproduce the common raw scalar for Q=46189 and every replacement row?",
+  "raw_scalar_identity_theorem_proved": false,
+  "replacement_family_payment_theorem_proved": false,
+  "replacement_formula_rows": [
+    {
+      "cellwise_margin_full_over_2_minus_active": 3346664546754.784,
+      "factorization": {
+        "13": 1,
+        "17": 1,
+        "19": 1,
+        "2": 1,
+        "7": 1
+      },
+      "formula_scalar_mean": -0.08018047904089408,
+      "high_prime_support": [
+        13,
+        17,
+        19
+      ],
+      "max_abs_formula_minus_raw_scalar": 1.3877787807814457e-17,
+      "max_abs_formula_pair_deviation": 1.3877787807814457e-17,
+      "missing_high_primes": [
+        11
+      ],
+      "ordered_source_conductor_formula_rows": [
+        {
+          "formula_minus_raw_scalar": -1.3877787807814457e-17,
+          "formula_pair_frequency_count": 20736,
+          "formula_scalar": -0.08018047904089409,
+          "formula_unscaled_scalar": -0.08018047904089408,
+          "left_polynomial_coefficients": [
+            -0.01098901098901099,
+            0.057186886671173574,
+            -0.07438514727363535
+          ],
+          "left_source_conductor": 182,
+          "right_polynomial_coefficients": [
+            0.006191950464396285,
+            -0.0357749369858988,
+            0.0516546365729636
+          ],
+          "right_source_conductor": 323,
+          "unscaled_denominator_value": -0.07003065922412355,
+          "unscaled_numerator_coefficient": 0.005615091804139834
+        },
+        {
+          "formula_minus_raw_scalar": 0.0,
+          "formula_pair_frequency_count": 20736,
+          "formula_scalar": -0.08018047904089408,
+          "formula_unscaled_scalar": -0.08018047904089408,
+          "left_polynomial_coefficients": [
+            0.00904977375565611,
+            -0.04885215114495704,
+            0.06576514702613975
+          ],
+          "left_source_conductor": 221,
+          "right_polynomial_coefficients": [
+            -0.007518796992481203,
+            0.041981175253997735,
+            -0.058425137365218524
+          ],
+          "right_source_conductor": 266,
+          "unscaled_denominator_value": -0.07003065922412355,
+          "unscaled_numerator_coefficient": 0.005615091804139834
+        },
+        {
+          "formula_minus_raw_scalar": 0.0,
+          "formula_pair_frequency_count": 20736,
+          "formula_scalar": -0.08018047904089408,
+          "formula_unscaled_scalar": -0.08018047904089409,
+          "left_polynomial_coefficients": [
+            -0.008403361344537815,
+            0.045985467845978775,
+            -0.06283203732769171
+          ],
+          "left_source_conductor": 238,
+          "right_polynomial_coefficients": [
+            0.008097165991902834,
+            -0.044610431875530175,
+            0.0611525252445155
+          ],
+          "right_source_conductor": 247,
+          "unscaled_denominator_value": -0.07003065922412353,
+          "unscaled_numerator_coefficient": 0.005615091804139834
+        },
+        {
+          "formula_minus_raw_scalar": 0.0,
+          "formula_pair_frequency_count": 20736,
+          "formula_scalar": -0.08018047904089408,
+          "formula_unscaled_scalar": -0.08018047904089409,
+          "left_polynomial_coefficients": [
+            0.008097165991902834,
+            -0.044610431875530175,
+            0.0611525252445155
+          ],
+          "left_source_conductor": 247,
+          "right_polynomial_coefficients": [
+            -0.008403361344537815,
+            0.045985467845978775,
+            -0.06283203732769171
+          ],
+          "right_source_conductor": 238,
+          "unscaled_denominator_value": -0.07003065922412353,
+          "unscaled_numerator_coefficient": 0.005615091804139834
+        },
+        {
+          "formula_minus_raw_scalar": 0.0,
+          "formula_pair_frequency_count": 20736,
+          "formula_scalar": -0.08018047904089408,
+          "formula_unscaled_scalar": -0.08018047904089408,
+          "left_polynomial_coefficients": [
+            -0.007518796992481203,
+            0.041981175253997735,
+            -0.058425137365218524
+          ],
+          "left_source_conductor": 266,
+          "right_polynomial_coefficients": [
+            0.00904977375565611,
+            -0.04885215114495704,
+            0.06576514702613975
+          ],
+          "right_source_conductor": 221,
+          "unscaled_denominator_value": -0.07003065922412355,
+          "unscaled_numerator_coefficient": 0.005615091804139834
+        },
+        {
+          "formula_minus_raw_scalar": -1.3877787807814457e-17,
+          "formula_pair_frequency_count": 20736,
+          "formula_scalar": -0.08018047904089409,
+          "formula_unscaled_scalar": -0.08018047904089408,
+          "left_polynomial_coefficients": [
+            0.006191950464396285,
+            -0.0357749369858988,
+            0.0516546365729636
+          ],
+          "left_source_conductor": 323,
+          "right_polynomial_coefficients": [
+            -0.01098901098901099,
+            0.057186886671173574,
+            -0.07438514727363535
+          ],
+          "right_source_conductor": 182,
+          "unscaled_denominator_value": -0.07003065922412355,
+          "unscaled_numerator_coefficient": 0.005615091804139834
+        }
+      ],
+      "ordered_source_conductor_pair_count": 6,
+      "ratio_minus_half": 0.5246550671421417,
+      "raw_scalar": -0.08018047904089408,
+      "reduced_denominator": 58786,
+      "source_conductor_formula_verified_to_tolerance": true
+    },
+    {
+      "cellwise_margin_full_over_2_minus_active": 2392162326353.543,
+      "factorization": {
+        "11": 1,
+        "13": 1,
+        "19": 1,
+        "3": 1,
+        "5": 1
+      },
+      "formula_scalar_mean": -0.0722282311895475,
+      "high_prime_support": [
+        11,
+        13,
+        19
+      ],
+      "max_abs_formula_minus_raw_scalar": 1.3877787807814457e-17,
+      "max_abs_formula_pair_deviation": 0.0,
+      "missing_high_primes": [
+        17
+      ],
+      "ordered_source_conductor_formula_rows": [
+        {
+          "formula_minus_raw_scalar": -1.3877787807814457e-17,
+          "formula_pair_frequency_count": 17280,
+          "formula_scalar": -0.0722282311895475,
+          "formula_unscaled_scalar": -0.07222823118954749,
+          "left_polynomial_coefficients": [
+            0.013986013986013986,
+            -0.06941041440922947,
+            0.08602069845068863
+          ],
+          "left_source_conductor": 143,
+          "right_polynomial_coefficients": [
+            -0.007017543859649123,
+            0.03966659073872737,
+            -0.05595570926080607
+          ],
+          "right_source_conductor": 285,
+          "unscaled_denominator_value": -0.10101392057782668,
+          "unscaled_numerator_coefficient": 0.007296056808857854
+        },
+        {
+          "formula_minus_raw_scalar": -1.3877787807814457e-17,
+          "formula_pair_frequency_count": 17280,
+          "formula_scalar": -0.0722282311895475,
+          "formula_unscaled_scalar": -0.07222823118954749,
+          "left_polynomial_coefficients": [
+            -0.012121212121212121,
+            0.061890248168491896,
+            -0.07871055485725656
+          ],
+          "left_source_conductor": 165,
+          "right_polynomial_coefficients": [
+            0.008097165991902834,
+            -0.044610431875530175,
+            0.0611525252445155
+          ],
+          "right_source_conductor": 247,
+          "unscaled_denominator_value": -0.10101392057782668,
+          "unscaled_numerator_coefficient": 0.007296056808857854
+        },
+        {
+          "formula_minus_raw_scalar": -1.3877787807814457e-17,
+          "formula_pair_frequency_count": 17280,
+          "formula_scalar": -0.0722282311895475,
+          "formula_unscaled_scalar": -0.0722282311895475,
+          "left_polynomial_coefficients": [
+            -0.010256410256410256,
+            0.054082046754499964,
+            -0.07124114485426358
+          ],
+          "left_source_conductor": 195,
+          "right_polynomial_coefficients": [
+            0.009569377990430622,
+            -0.051122815808275705,
+            0.067564175207526
+          ],
+          "right_source_conductor": 209,
+          "unscaled_denominator_value": -0.10101392057782667,
+          "unscaled_numerator_coefficient": 0.007296056808857854
+        },
+        {
+          "formula_minus_raw_scalar": -1.3877787807814457e-17,
+          "formula_pair_frequency_count": 17280,
+          "formula_scalar": -0.0722282311895475,
+          "formula_unscaled_scalar": -0.0722282311895475,
+          "left_polynomial_coefficients": [
+            0.009569377990430622,
+            -0.051122815808275705,
+            0.067564175207526
+          ],
+          "left_source_conductor": 209,
+          "right_polynomial_coefficients": [
+            -0.010256410256410256,
+            0.054082046754499964,
+            -0.07124114485426358
+          ],
+          "right_source_conductor": 195,
+          "unscaled_denominator_value": -0.10101392057782667,
+          "unscaled_numerator_coefficient": 0.007296056808857854
+        },
+        {
+          "formula_minus_raw_scalar": -1.3877787807814457e-17,
+          "formula_pair_frequency_count": 17280,
+          "formula_scalar": -0.0722282311895475,
+          "formula_unscaled_scalar": -0.07222823118954749,
+          "left_polynomial_coefficients": [
+            0.008097165991902834,
+            -0.044610431875530175,
+            0.0611525252445155
+          ],
+          "left_source_conductor": 247,
+          "right_polynomial_coefficients": [
+            -0.012121212121212121,
+            0.061890248168491896,
+            -0.07871055485725656
+          ],
+          "right_source_conductor": 165,
+          "unscaled_denominator_value": -0.10101392057782668,
+          "unscaled_numerator_coefficient": 0.007296056808857854
+        },
+        {
+          "formula_minus_raw_scalar": -1.3877787807814457e-17,
+          "formula_pair_frequency_count": 17280,
+          "formula_scalar": -0.0722282311895475,
+          "formula_unscaled_scalar": -0.07222823118954749,
+          "left_polynomial_coefficients": [
+            -0.007017543859649123,
+            0.03966659073872737,
+            -0.05595570926080607
+          ],
+          "left_source_conductor": 285,
+          "right_polynomial_coefficients": [
+            0.013986013986013986,
+            -0.06941041440922947,
+            0.08602069845068863
+          ],
+          "right_source_conductor": 143,
+          "unscaled_denominator_value": -0.10101392057782668,
+          "unscaled_numerator_coefficient": 0.007296056808857854
+        }
+      ],
+      "ordered_source_conductor_pair_count": 6,
+      "ratio_minus_half": 0.5735414442150175,
+      "raw_scalar": -0.07222823118954749,
+      "reduced_denominator": 40755,
+      "source_conductor_formula_verified_to_tolerance": true
+    },
+    {
+      "cellwise_margin_full_over_2_minus_active": 1850503895631.418,
+      "factorization": {
+        "13": 1,
+        "17": 1,
+        "19": 1,
+        "3": 1,
+        "5": 1
+      },
+      "formula_scalar_mean": -0.08173311922098692,
+      "high_prime_support": [
+        13,
+        17,
+        19
+      ],
+      "max_abs_formula_minus_raw_scalar": 1.3877787807814457e-17,
+      "max_abs_formula_pair_deviation": 2.7755575615628914e-17,
+      "missing_high_primes": [
+        11
+      ],
+      "ordered_source_conductor_formula_rows": [
+        {
+          "formula_minus_raw_scalar": -1.3877787807814457e-17,
+          "formula_pair_frequency_count": 27648,
+          "formula_scalar": -0.08173311922098693,
+          "formula_unscaled_scalar": -0.08173311922098692,
+          "left_polynomial_coefficients": [
+            -0.010256410256410256,
+            0.054082046754499964,
+            -0.07124114485426358
+          ],
+          "left_source_conductor": 195,
+          "right_polynomial_coefficients": [
+            0.006191950464396285,
+            -0.0357749369858988,
+            0.0516546365729636
+          ],
+          "right_source_conductor": 323,
+          "unscaled_denominator_value": -0.06536194860918197,
+          "unscaled_numerator_coefficient": 0.00534223593819029
+        },
+        {
+          "formula_minus_raw_scalar": 1.3877787807814457e-17,
+          "formula_pair_frequency_count": 27648,
+          "formula_scalar": -0.0817331192209869,
+          "formula_unscaled_scalar": -0.08173311922098692,
+          "left_polynomial_coefficients": [
+            0.00904977375565611,
+            -0.04885215114495704,
+            0.06576514702613975
+          ],
+          "left_source_conductor": 221,
+          "right_polynomial_coefficients": [
+            -0.007017543859649123,
+            0.03966659073872737,
+            -0.05595570926080607
+          ],
+          "right_source_conductor": 285,
+          "unscaled_denominator_value": -0.06536194860918197,
+          "unscaled_numerator_coefficient": 0.00534223593819029
+        },
+        {
+          "formula_minus_raw_scalar": 1.3877787807814457e-17,
+          "formula_pair_frequency_count": 27648,
+          "formula_scalar": -0.0817331192209869,
+          "formula_unscaled_scalar": -0.0817331192209869,
+          "left_polynomial_coefficients": [
+            0.008097165991902834,
+            -0.044610431875530175,
+            0.0611525252445155
+          ],
+          "left_source_conductor": 247,
+          "right_polynomial_coefficients": [
+            -0.00784313725490196,
+            0.043460890550262164,
+            -0.06017634483244628
+          ],
+          "right_source_conductor": 255,
+          "unscaled_denominator_value": -0.06536194860918196,
+          "unscaled_numerator_coefficient": 0.005342235938190288
+        },
+        {
+          "formula_minus_raw_scalar": 1.3877787807814457e-17,
+          "formula_pair_frequency_count": 27648,
+          "formula_scalar": -0.0817331192209869,
+          "formula_unscaled_scalar": -0.0817331192209869,
+          "left_polynomial_coefficients": [
+            -0.00784313725490196,
+            0.043460890550262164,
+            -0.06017634483244628
+          ],
+          "left_source_conductor": 255,
+          "right_polynomial_coefficients": [
+            0.008097165991902834,
+            -0.044610431875530175,
+            0.0611525252445155
+          ],
+          "right_source_conductor": 247,
+          "unscaled_denominator_value": -0.06536194860918196,
+          "unscaled_numerator_coefficient": 0.005342235938190288
+        },
+        {
+          "formula_minus_raw_scalar": 1.3877787807814457e-17,
+          "formula_pair_frequency_count": 27648,
+          "formula_scalar": -0.0817331192209869,
+          "formula_unscaled_scalar": -0.08173311922098692,
+          "left_polynomial_coefficients": [
+            -0.007017543859649123,
+            0.03966659073872737,
+            -0.05595570926080607
+          ],
+          "left_source_conductor": 285,
+          "right_polynomial_coefficients": [
+            0.00904977375565611,
+            -0.04885215114495704,
+            0.06576514702613975
+          ],
+          "right_source_conductor": 221,
+          "unscaled_denominator_value": -0.06536194860918197,
+          "unscaled_numerator_coefficient": 0.00534223593819029
+        },
+        {
+          "formula_minus_raw_scalar": -1.3877787807814457e-17,
+          "formula_pair_frequency_count": 27648,
+          "formula_scalar": -0.08173311922098693,
+          "formula_unscaled_scalar": -0.08173311922098692,
+          "left_polynomial_coefficients": [
+            0.006191950464396285,
+            -0.0357749369858988,
+            0.0516546365729636
+          ],
+          "left_source_conductor": 323,
+          "right_polynomial_coefficients": [
+            -0.010256410256410256,
+            0.054082046754499964,
+            -0.07124114485426358
+          ],
+          "right_source_conductor": 195,
+          "unscaled_denominator_value": -0.06536194860918197,
+          "unscaled_numerator_coefficient": 0.00534223593819029
+        }
+      ],
+      "ordered_source_conductor_pair_count": 6,
+      "ratio_minus_half": 0.2581873474668748,
+      "raw_scalar": -0.08173311922098692,
+      "reduced_denominator": 62985,
+      "source_conductor_formula_verified_to_tolerance": true
+    },
+    {
+      "cellwise_margin_full_over_2_minus_active": 1731086923068.5696,
+      "factorization": {
+        "11": 1,
+        "17": 1,
+        "19": 1,
+        "2": 1,
+        "7": 1
+      },
+      "formula_scalar_mean": -0.0763515365159074,
+      "high_prime_support": [
+        11,
+        17,
+        19
+      ],
+      "max_abs_formula_minus_raw_scalar": 2.7755575615628914e-17,
+      "max_abs_formula_pair_deviation": 2.7755575615628914e-17,
+      "missing_high_primes": [
+        13
+      ],
+      "ordered_source_conductor_formula_rows": [
+        {
+          "formula_minus_raw_scalar": 2.7755575615628914e-17,
+          "formula_pair_frequency_count": 17280,
+          "formula_scalar": -0.07635153651590738,
+          "formula_unscaled_scalar": -0.07635153651590738,
+          "left_polynomial_coefficients": [
+            -0.012987012987012988,
+            0.06541496886251467,
+            -0.08218419604322492
+          ],
+          "left_source_conductor": 154,
+          "right_polynomial_coefficients": [
+            0.006191950464396285,
+            -0.0357749369858988,
+            0.0516546365729636
+          ],
+          "right_source_conductor": 323,
+          "unscaled_denominator_value": -0.08276350635578236,
+          "unscaled_numerator_coefficient": 0.0063191208777080505
+        },
+        {
+          "formula_minus_raw_scalar": 0.0,
+          "formula_pair_frequency_count": 17280,
+          "formula_scalar": -0.07635153651590741,
+          "formula_unscaled_scalar": -0.07635153651590741,
+          "left_polynomial_coefficients": [
+            0.0106951871657754,
+            -0.05594768574176029,
+            0.07266041587745097
+          ],
+          "left_source_conductor": 187,
+          "right_polynomial_coefficients": [
+            -0.007518796992481203,
+            0.041981175253997735,
+            -0.058425137365218524
+          ],
+          "right_source_conductor": 266,
+          "unscaled_denominator_value": -0.08276350635578235,
+          "unscaled_numerator_coefficient": 0.006319120877708051
+        },
+        {
+          "formula_minus_raw_scalar": 1.3877787807814457e-17,
+          "formula_pair_frequency_count": 17280,
+          "formula_scalar": -0.0763515365159074,
+          "formula_unscaled_scalar": -0.0763515365159074,
+          "left_polynomial_coefficients": [
+            0.009569377990430622,
+            -0.051122815808275705,
+            0.067564175207526
+          ],
+          "left_source_conductor": 209,
+          "right_polynomial_coefficients": [
+            -0.008403361344537815,
+            0.045985467845978775,
+            -0.06283203732769171
+          ],
+          "right_source_conductor": 238,
+          "unscaled_denominator_value": -0.08276350635578235,
+          "unscaled_numerator_coefficient": 0.0063191208777080505
+        },
+        {
+          "formula_minus_raw_scalar": 1.3877787807814457e-17,
+          "formula_pair_frequency_count": 17280,
+          "formula_scalar": -0.0763515365159074,
+          "formula_unscaled_scalar": -0.0763515365159074,
+          "left_polynomial_coefficients": [
+            -0.008403361344537815,
+            0.045985467845978775,
+            -0.06283203732769171
+          ],
+          "left_source_conductor": 238,
+          "right_polynomial_coefficients": [
+            0.009569377990430622,
+            -0.051122815808275705,
+            0.067564175207526
+          ],
+          "right_source_conductor": 209,
+          "unscaled_denominator_value": -0.08276350635578235,
+          "unscaled_numerator_coefficient": 0.0063191208777080505
+        },
+        {
+          "formula_minus_raw_scalar": 0.0,
+          "formula_pair_frequency_count": 17280,
+          "formula_scalar": -0.07635153651590741,
+          "formula_unscaled_scalar": -0.07635153651590741,
+          "left_polynomial_coefficients": [
+            -0.007518796992481203,
+            0.041981175253997735,
+            -0.058425137365218524
+          ],
+          "left_source_conductor": 266,
+          "right_polynomial_coefficients": [
+            0.0106951871657754,
+            -0.05594768574176029,
+            0.07266041587745097
+          ],
+          "right_source_conductor": 187,
+          "unscaled_denominator_value": -0.08276350635578235,
+          "unscaled_numerator_coefficient": 0.006319120877708051
+        },
+        {
+          "formula_minus_raw_scalar": 2.7755575615628914e-17,
+          "formula_pair_frequency_count": 17280,
+          "formula_scalar": -0.07635153651590738,
+          "formula_unscaled_scalar": -0.07635153651590738,
+          "left_polynomial_coefficients": [
+            0.006191950464396285,
+            -0.0357749369858988,
+            0.0516546365729636
+          ],
+          "left_source_conductor": 323,
+          "right_polynomial_coefficients": [
+            -0.012987012987012988,
+            0.06541496886251467,
+            -0.08218419604322492
+          ],
+          "right_source_conductor": 154,
+          "unscaled_denominator_value": -0.08276350635578236,
+          "unscaled_numerator_coefficient": 0.0063191208777080505
+        }
+      ],
+      "ordered_source_conductor_pair_count": 6,
+      "ratio_minus_half": 0.5090053014564786,
+      "raw_scalar": -0.07635153651590741,
+      "reduced_denominator": 49742,
+      "source_conductor_formula_verified_to_tolerance": true
+    },
+    {
+      "cellwise_margin_full_over_2_minus_active": 1511445502783.3352,
+      "factorization": {
+        "11": 1,
+        "17": 1,
+        "19": 1,
+        "3": 1,
+        "5": 1
+      },
+      "formula_scalar_mean": -0.07783947575598901,
+      "high_prime_support": [
+        11,
+        17,
+        19
+      ],
+      "max_abs_formula_minus_raw_scalar": 1.3877787807814457e-17,
+      "max_abs_formula_pair_deviation": 1.3877787807814457e-17,
+      "missing_high_primes": [
+        13
+      ],
+      "ordered_source_conductor_formula_rows": [
+        {
+          "formula_minus_raw_scalar": 0.0,
+          "formula_pair_frequency_count": 23040,
+          "formula_scalar": -0.07783947575598901,
+          "formula_unscaled_scalar": -0.077839475755989,
+          "left_polynomial_coefficients": [
+            -0.012121212121212121,
+            0.061890248168491896,
+            -0.07871055485725656
+          ],
+          "left_source_conductor": 165,
+          "right_polynomial_coefficients": [
+            0.006191950464396285,
+            -0.0357749369858988,
+            0.0516546365729636
+          ],
+          "right_source_conductor": 323,
+          "unscaled_denominator_value": -0.07724593926539687,
+          "unscaled_numerator_coefficient": 0.0060127834166974585
+        },
+        {
+          "formula_minus_raw_scalar": -1.3877787807814457e-17,
+          "formula_pair_frequency_count": 23040,
+          "formula_scalar": -0.07783947575598903,
+          "formula_unscaled_scalar": -0.07783947575598903,
+          "left_polynomial_coefficients": [
+            0.0106951871657754,
+            -0.05594768574176029,
+            0.07266041587745097
+          ],
+          "left_source_conductor": 187,
+          "right_polynomial_coefficients": [
+            -0.007017543859649123,
+            0.03966659073872737,
+            -0.05595570926080607
+          ],
+          "right_source_conductor": 285,
+          "unscaled_denominator_value": -0.07724593926539687,
+          "unscaled_numerator_coefficient": 0.00601278341669746
+        },
+        {
+          "formula_minus_raw_scalar": 1.3877787807814457e-17,
+          "formula_pair_frequency_count": 23040,
+          "formula_scalar": -0.077839475755989,
+          "formula_unscaled_scalar": -0.077839475755989,
+          "left_polynomial_coefficients": [
+            0.009569377990430622,
+            -0.051122815808275705,
+            0.067564175207526
+          ],
+          "left_source_conductor": 209,
+          "right_polynomial_coefficients": [
+            -0.00784313725490196,
+            0.043460890550262164,
+            -0.06017634483244628
+          ],
+          "right_source_conductor": 255,
+          "unscaled_denominator_value": -0.07724593926539687,
+          "unscaled_numerator_coefficient": 0.0060127834166974585
+        },
+        {
+          "formula_minus_raw_scalar": 1.3877787807814457e-17,
+          "formula_pair_frequency_count": 23040,
+          "formula_scalar": -0.077839475755989,
+          "formula_unscaled_scalar": -0.077839475755989,
+          "left_polynomial_coefficients": [
+            -0.00784313725490196,
+            0.043460890550262164,
+            -0.06017634483244628
+          ],
+          "left_source_conductor": 255,
+          "right_polynomial_coefficients": [
+            0.009569377990430622,
+            -0.051122815808275705,
+            0.067564175207526
+          ],
+          "right_source_conductor": 209,
+          "unscaled_denominator_value": -0.07724593926539687,
+          "unscaled_numerator_coefficient": 0.0060127834166974585
+        },
+        {
+          "formula_minus_raw_scalar": -1.3877787807814457e-17,
+          "formula_pair_frequency_count": 23040,
+          "formula_scalar": -0.07783947575598903,
+          "formula_unscaled_scalar": -0.07783947575598903,
+          "left_polynomial_coefficients": [
+            -0.007017543859649123,
+            0.03966659073872737,
+            -0.05595570926080607
+          ],
+          "left_source_conductor": 285,
+          "right_polynomial_coefficients": [
+            0.0106951871657754,
+            -0.05594768574176029,
+            0.07266041587745097
+          ],
+          "right_source_conductor": 187,
+          "unscaled_denominator_value": -0.07724593926539687,
+          "unscaled_numerator_coefficient": 0.00601278341669746
+        },
+        {
+          "formula_minus_raw_scalar": 0.0,
+          "formula_pair_frequency_count": 23040,
+          "formula_scalar": -0.07783947575598901,
+          "formula_unscaled_scalar": -0.077839475755989,
+          "left_polynomial_coefficients": [
+            0.006191950464396285,
+            -0.0357749369858988,
+            0.0516546365729636
+          ],
+          "left_source_conductor": 323,
+          "right_polynomial_coefficients": [
+            -0.012121212121212121,
+            0.061890248168491896,
+            -0.07871055485725656
+          ],
+          "right_source_conductor": 165,
+          "unscaled_denominator_value": -0.07724593926539687,
+          "unscaled_numerator_coefficient": 0.0060127834166974585
+        }
+      ],
+      "ordered_source_conductor_pair_count": 6,
+      "ratio_minus_half": 0.43323473349815567,
+      "raw_scalar": -0.07783947575598901,
+      "reduced_denominator": 53295,
+      "source_conductor_formula_verified_to_tolerance": true
+    },
+    {
+      "cellwise_margin_full_over_2_minus_active": 1316046274899.9194,
+      "factorization": {
+        "11": 1,
+        "13": 1,
+        "17": 1,
+        "2": 1,
+        "7": 1
+      },
+      "formula_scalar_mean": -0.06875627493444002,
+      "high_prime_support": [
+        11,
+        13,
+        17
+      ],
+      "max_abs_formula_minus_raw_scalar": 1.3877787807814457e-17,
+      "max_abs_formula_pair_deviation": 1.3877787807814457e-17,
+      "missing_high_primes": [
+        19
+      ],
+      "ordered_source_conductor_formula_rows": [
+        {
+          "formula_minus_raw_scalar": 0.0,
+          "formula_pair_frequency_count": 11520,
+          "formula_scalar": -0.06875627493444002,
+          "formula_unscaled_scalar": -0.06875627493444,
+          "left_polynomial_coefficients": [
+            0.013986013986013986,
+            -0.06941041440922947,
+            0.08602069845068863
+          ],
+          "left_source_conductor": 143,
+          "right_polynomial_coefficients": [
+            -0.008403361344537815,
+            0.045985467845978775,
+            -0.06283203732769171
+          ],
+          "right_source_conductor": 238,
+          "unscaled_denominator_value": -0.12096204775075883,
+          "unscaled_numerator_coefficient": 0.008316899811784035
+        },
+        {
+          "formula_minus_raw_scalar": 1.3877787807814457e-17,
+          "formula_pair_frequency_count": 11520,
+          "formula_scalar": -0.06875627493444,
+          "formula_unscaled_scalar": -0.06875627493443999,
+          "left_polynomial_coefficients": [
+            -0.012987012987012988,
+            0.06541496886251467,
+            -0.08218419604322492
+          ],
+          "left_source_conductor": 154,
+          "right_polynomial_coefficients": [
+            0.00904977375565611,
+            -0.04885215114495704,
+            0.06576514702613975
+          ],
+          "right_source_conductor": 221,
+          "unscaled_denominator_value": -0.12096204775075886,
+          "unscaled_numerator_coefficient": 0.008316899811784035
+        },
+        {
+          "formula_minus_raw_scalar": -1.3877787807814457e-17,
+          "formula_pair_frequency_count": 11520,
+          "formula_scalar": -0.06875627493444003,
+          "formula_unscaled_scalar": -0.06875627493444003,
+          "left_polynomial_coefficients": [
+            -0.01098901098901099,
+            0.057186886671173574,
+            -0.07438514727363535
+          ],
+          "left_source_conductor": 182,
+          "right_polynomial_coefficients": [
+            0.0106951871657754,
+            -0.05594768574176029,
+            0.07266041587745097
+          ],
+          "right_source_conductor": 187,
+          "unscaled_denominator_value": -0.12096204775075885,
+          "unscaled_numerator_coefficient": 0.008316899811784038
+        },
+        {
+          "formula_minus_raw_scalar": -1.3877787807814457e-17,
+          "formula_pair_frequency_count": 11520,
+          "formula_scalar": -0.06875627493444003,
+          "formula_unscaled_scalar": -0.06875627493444003,
+          "left_polynomial_coefficients": [
+            0.0106951871657754,
+            -0.05594768574176029,
+            0.07266041587745097
+          ],
+          "left_source_conductor": 187,
+          "right_polynomial_coefficients": [
+            -0.01098901098901099,
+            0.057186886671173574,
+            -0.07438514727363535
+          ],
+          "right_source_conductor": 182,
+          "unscaled_denominator_value": -0.12096204775075885,
+          "unscaled_numerator_coefficient": 0.008316899811784038
+        },
+        {
+          "formula_minus_raw_scalar": 1.3877787807814457e-17,
+          "formula_pair_frequency_count": 11520,
+          "formula_scalar": -0.06875627493444,
+          "formula_unscaled_scalar": -0.06875627493443999,
+          "left_polynomial_coefficients": [
+            0.00904977375565611,
+            -0.04885215114495704,
+            0.06576514702613975
+          ],
+          "left_source_conductor": 221,
+          "right_polynomial_coefficients": [
+            -0.012987012987012988,
+            0.06541496886251467,
+            -0.08218419604322492
+          ],
+          "right_source_conductor": 154,
+          "unscaled_denominator_value": -0.12096204775075886,
+          "unscaled_numerator_coefficient": 0.008316899811784035
+        },
+        {
+          "formula_minus_raw_scalar": 0.0,
+          "formula_pair_frequency_count": 11520,
+          "formula_scalar": -0.06875627493444002,
+          "formula_unscaled_scalar": -0.06875627493444,
+          "left_polynomial_coefficients": [
+            -0.008403361344537815,
+            0.045985467845978775,
+            -0.06283203732769171
+          ],
+          "left_source_conductor": 238,
+          "right_polynomial_coefficients": [
+            0.013986013986013986,
+            -0.06941041440922947,
+            0.08602069845068863
+          ],
+          "right_source_conductor": 143,
+          "unscaled_denominator_value": -0.12096204775075883,
+          "unscaled_numerator_coefficient": 0.008316899811784035
+        }
+      ],
+      "ordered_source_conductor_pair_count": 6,
+      "ratio_minus_half": 0.43551465411843837,
+      "raw_scalar": -0.06875627493444002,
+      "reduced_denominator": 34034,
+      "source_conductor_formula_verified_to_tolerance": true
+    },
+    {
+      "cellwise_margin_full_over_2_minus_active": 1210884155652.7246,
+      "factorization": {
+        "11": 1,
+        "13": 1,
+        "17": 1,
+        "3": 1,
+        "5": 1
+      },
+      "formula_scalar_mean": -0.07011113940333541,
+      "high_prime_support": [
+        11,
+        13,
+        17
+      ],
+      "max_abs_formula_minus_raw_scalar": 1.3877787807814457e-17,
+      "max_abs_formula_pair_deviation": 1.3877787807814457e-17,
+      "missing_high_primes": [
+        19
+      ],
+      "ordered_source_conductor_formula_rows": [
+        {
+          "formula_minus_raw_scalar": 0.0,
+          "formula_pair_frequency_count": 15360,
+          "formula_scalar": -0.07011113940333541,
+          "formula_unscaled_scalar": -0.07011113940333541,
+          "left_polynomial_coefficients": [
+            0.013986013986013986,
+            -0.06941041440922947,
+            0.08602069845068863
+          ],
+          "left_source_conductor": 143,
+          "right_polynomial_coefficients": [
+            -0.00784313725490196,
+            0.043460890550262164,
+            -0.06017634483244628
+          ],
+          "right_source_conductor": 255,
+          "unscaled_denominator_value": -0.11289791123404158,
+          "unscaled_numerator_coefficient": 0.007915401192875276
+        },
+        {
+          "formula_minus_raw_scalar": 1.3877787807814457e-17,
+          "formula_pair_frequency_count": 15360,
+          "formula_scalar": -0.0701111394033354,
+          "formula_unscaled_scalar": -0.07011113940333541,
+          "left_polynomial_coefficients": [
+            -0.012121212121212121,
+            0.061890248168491896,
+            -0.07871055485725656
+          ],
+          "left_source_conductor": 165,
+          "right_polynomial_coefficients": [
+            0.00904977375565611,
+            -0.04885215114495704,
+            0.06576514702613975
+          ],
+          "right_source_conductor": 221,
+          "unscaled_denominator_value": -0.1128979112340416,
+          "unscaled_numerator_coefficient": 0.007915401192875277
+        },
+        {
+          "formula_minus_raw_scalar": -1.3877787807814457e-17,
+          "formula_pair_frequency_count": 15360,
+          "formula_scalar": -0.07011113940333542,
+          "formula_unscaled_scalar": -0.07011113940333542,
+          "left_polynomial_coefficients": [
+            0.0106951871657754,
+            -0.05594768574176029,
+            0.07266041587745097
+          ],
+          "left_source_conductor": 187,
+          "right_polynomial_coefficients": [
+            -0.010256410256410256,
+            0.054082046754499964,
+            -0.07124114485426358
+          ],
+          "right_source_conductor": 195,
+          "unscaled_denominator_value": -0.11289791123404158,
+          "unscaled_numerator_coefficient": 0.007915401192875277
+        },
+        {
+          "formula_minus_raw_scalar": -1.3877787807814457e-17,
+          "formula_pair_frequency_count": 15360,
+          "formula_scalar": -0.07011113940333542,
+          "formula_unscaled_scalar": -0.07011113940333542,
+          "left_polynomial_coefficients": [
+            -0.010256410256410256,
+            0.054082046754499964,
+            -0.07124114485426358
+          ],
+          "left_source_conductor": 195,
+          "right_polynomial_coefficients": [
+            0.0106951871657754,
+            -0.05594768574176029,
+            0.07266041587745097
+          ],
+          "right_source_conductor": 187,
+          "unscaled_denominator_value": -0.11289791123404158,
+          "unscaled_numerator_coefficient": 0.007915401192875277
+        },
+        {
+          "formula_minus_raw_scalar": 1.3877787807814457e-17,
+          "formula_pair_frequency_count": 15360,
+          "formula_scalar": -0.0701111394033354,
+          "formula_unscaled_scalar": -0.07011113940333541,
+          "left_polynomial_coefficients": [
+            0.00904977375565611,
+            -0.04885215114495704,
+            0.06576514702613975
+          ],
+          "left_source_conductor": 221,
+          "right_polynomial_coefficients": [
+            -0.012121212121212121,
+            0.061890248168491896,
+            -0.07871055485725656
+          ],
+          "right_source_conductor": 165,
+          "unscaled_denominator_value": -0.1128979112340416,
+          "unscaled_numerator_coefficient": 0.007915401192875277
+        },
+        {
+          "formula_minus_raw_scalar": 0.0,
+          "formula_pair_frequency_count": 15360,
+          "formula_scalar": -0.07011113940333541,
+          "formula_unscaled_scalar": -0.07011113940333541,
+          "left_polynomial_coefficients": [
+            -0.00784313725490196,
+            0.043460890550262164,
+            -0.06017634483244628
+          ],
+          "left_source_conductor": 255,
+          "right_polynomial_coefficients": [
+            0.013986013986013986,
+            -0.06941041440922947,
+            0.08602069845068863
+          ],
+          "right_source_conductor": 143,
+          "unscaled_denominator_value": -0.11289791123404158,
+          "unscaled_numerator_coefficient": 0.007915401192875276
+        }
+      ],
+      "ordered_source_conductor_pair_count": 6,
+      "ratio_minus_half": 0.3564899239156273,
+      "raw_scalar": -0.07011113940333541,
+      "reduced_denominator": 36465,
+      "source_conductor_formula_verified_to_tolerance": true
+    },
+    {
+      "cellwise_margin_full_over_2_minus_active": 700712115196.3881,
+      "factorization": {
+        "11": 1,
+        "17": 1,
+        "19": 1,
+        "2": 1,
+        "5": 1
+      },
+      "formula_scalar_mean": -0.06909498619010433,
+      "high_prime_support": [
+        11,
+        17,
+        19
+      ],
+      "max_abs_formula_minus_raw_scalar": 1.3877787807814457e-17,
+      "max_abs_formula_pair_deviation": 1.3877787807814457e-17,
+      "missing_high_primes": [
+        13
+      ],
+      "ordered_source_conductor_formula_rows": [
+        {
+          "formula_minus_raw_scalar": 0.0,
+          "formula_pair_frequency_count": 11520,
+          "formula_scalar": -0.06909498619010432,
+          "formula_unscaled_scalar": -0.06909498619010432,
+          "left_polynomial_coefficients": [
+            -0.01818181818181818,
+            0.08546327937804393,
+            -0.10038832563102582
+          ],
+          "left_source_conductor": 110,
+          "right_polynomial_coefficients": [
+            0.006191950464396285,
+            -0.0357749369858988,
+            0.0516546365729636
+          ],
+          "right_source_conductor": 323,
+          "unscaled_denominator_value": -0.11586890889809531,
+          "unscaled_numerator_coefficient": 0.00800596066017635
+        },
+        {
+          "formula_minus_raw_scalar": 0.0,
+          "formula_pair_frequency_count": 11520,
+          "formula_scalar": -0.06909498619010432,
+          "formula_unscaled_scalar": -0.06909498619010433,
+          "left_polynomial_coefficients": [
+            -0.011764705882352941,
+            0.06042115808294426,
+            -0.076749586015243
+          ],
+          "left_source_conductor": 170,
+          "right_polynomial_coefficients": [
+            0.009569377990430622,
+            -0.051122815808275705,
+            0.067564175207526
+          ],
+          "right_source_conductor": 209,
+          "unscaled_denominator_value": -0.11586890889809531,
+          "unscaled_numerator_coefficient": 0.008005960660176352
+        },
+        {
+          "formula_minus_raw_scalar": -1.3877787807814457e-17,
+          "formula_pair_frequency_count": 11520,
+          "formula_scalar": -0.06909498619010433,
+          "formula_unscaled_scalar": -0.06909498619010433,
+          "left_polynomial_coefficients": [
+            0.0106951871657754,
+            -0.05594768574176029,
+            0.07266041587745097
+          ],
+          "left_source_conductor": 187,
+          "right_polynomial_coefficients": [
+            -0.010526315789473684,
+            0.055231832338531434,
+            -0.07136654000693948
+          ],
+          "right_source_conductor": 190,
+          "unscaled_denominator_value": -0.11586890889809531,
+          "unscaled_numerator_coefficient": 0.008005960660176352
+        },
+        {
+          "formula_minus_raw_scalar": -1.3877787807814457e-17,
+          "formula_pair_frequency_count": 11520,
+          "formula_scalar": -0.06909498619010433,
+          "formula_unscaled_scalar": -0.06909498619010433,
+          "left_polynomial_coefficients": [
+            -0.010526315789473684,
+            0.055231832338531434,
+            -0.07136654000693948
+          ],
+          "left_source_conductor": 190,
+          "right_polynomial_coefficients": [
+            0.0106951871657754,
+            -0.05594768574176029,
+            0.07266041587745097
+          ],
+          "right_source_conductor": 187,
+          "unscaled_denominator_value": -0.11586890889809531,
+          "unscaled_numerator_coefficient": 0.008005960660176352
+        },
+        {
+          "formula_minus_raw_scalar": 0.0,
+          "formula_pair_frequency_count": 11520,
+          "formula_scalar": -0.06909498619010432,
+          "formula_unscaled_scalar": -0.06909498619010433,
+          "left_polynomial_coefficients": [
+            0.009569377990430622,
+            -0.051122815808275705,
+            0.067564175207526
+          ],
+          "left_source_conductor": 209,
+          "right_polynomial_coefficients": [
+            -0.011764705882352941,
+            0.06042115808294426,
+            -0.076749586015243
+          ],
+          "right_source_conductor": 170,
+          "unscaled_denominator_value": -0.11586890889809531,
+          "unscaled_numerator_coefficient": 0.008005960660176352
+        },
+        {
+          "formula_minus_raw_scalar": 0.0,
+          "formula_pair_frequency_count": 11520,
+          "formula_scalar": -0.06909498619010432,
+          "formula_unscaled_scalar": -0.06909498619010432,
+          "left_polynomial_coefficients": [
+            0.006191950464396285,
+            -0.0357749369858988,
+            0.0516546365729636
+          ],
+          "left_source_conductor": 323,
+          "right_polynomial_coefficients": [
+            -0.01818181818181818,
+            0.08546327937804393,
+            -0.10038832563102582
+          ],
+          "right_source_conductor": 110,
+          "unscaled_denominator_value": -0.11586890889809531,
+          "unscaled_numerator_coefficient": 0.00800596066017635
+        }
+      ],
+      "ordered_source_conductor_pair_count": 6,
+      "ratio_minus_half": 0.4262452298052626,
+      "raw_scalar": -0.06909498619010432,
+      "reduced_denominator": 35530,
+      "source_conductor_formula_verified_to_tolerance": true
+    },
+    {
+      "cellwise_margin_full_over_2_minus_active": 325138180598.27893,
+      "factorization": {
+        "13": 1,
+        "17": 1,
+        "19": 1,
+        "2": 1,
+        "5": 1
+      },
+      "formula_scalar_mean": -0.072608387855175,
+      "high_prime_support": [
+        13,
+        17,
+        19
+      ],
+      "max_abs_formula_minus_raw_scalar": 0.0,
+      "max_abs_formula_pair_deviation": 0.0,
+      "missing_high_primes": [
+        11
+      ],
+      "ordered_source_conductor_formula_rows": [
+        {
+          "formula_minus_raw_scalar": 0.0,
+          "formula_pair_frequency_count": 13824,
+          "formula_scalar": -0.072608387855175,
+          "formula_unscaled_scalar": -0.072608387855175,
+          "left_polynomial_coefficients": [
+            -0.015384615384615385,
+            0.07488514539162436,
+            -0.09086175622731678
+          ],
+          "left_source_conductor": 130,
+          "right_polynomial_coefficients": [
+            0.006191950464396285,
+            -0.0357749369858988,
+            0.0516546365729636
+          ],
+          "right_source_conductor": 323,
+          "unscaled_denominator_value": -0.09804292291377296,
+          "unscaled_numerator_coefficient": 0.0071187385733782515
+        },
+        {
+          "formula_minus_raw_scalar": 0.0,
+          "formula_pair_frequency_count": 13824,
+          "formula_scalar": -0.072608387855175,
+          "formula_unscaled_scalar": -0.072608387855175,
+          "left_polynomial_coefficients": [
+            -0.011764705882352941,
+            0.06042115808294426,
+            -0.076749586015243
+          ],
+          "left_source_conductor": 170,
+          "right_polynomial_coefficients": [
+            0.008097165991902834,
+            -0.044610431875530175,
+            0.0611525252445155
+          ],
+          "right_source_conductor": 247,
+          "unscaled_denominator_value": -0.09804292291377296,
+          "unscaled_numerator_coefficient": 0.0071187385733782515
+        },
+        {
+          "formula_minus_raw_scalar": 0.0,
+          "formula_pair_frequency_count": 13824,
+          "formula_scalar": -0.072608387855175,
+          "formula_unscaled_scalar": -0.072608387855175,
+          "left_polynomial_coefficients": [
+            -0.010526315789473684,
+            0.055231832338531434,
+            -0.07136654000693948
+          ],
+          "left_source_conductor": 190,
+          "right_polynomial_coefficients": [
+            0.00904977375565611,
+            -0.04885215114495704,
+            0.06576514702613975
+          ],
+          "right_source_conductor": 221,
+          "unscaled_denominator_value": -0.09804292291377296,
+          "unscaled_numerator_coefficient": 0.0071187385733782515
+        },
+        {
+          "formula_minus_raw_scalar": 0.0,
+          "formula_pair_frequency_count": 13824,
+          "formula_scalar": -0.072608387855175,
+          "formula_unscaled_scalar": -0.072608387855175,
+          "left_polynomial_coefficients": [
+            0.00904977375565611,
+            -0.04885215114495704,
+            0.06576514702613975
+          ],
+          "left_source_conductor": 221,
+          "right_polynomial_coefficients": [
+            -0.010526315789473684,
+            0.055231832338531434,
+            -0.07136654000693948
+          ],
+          "right_source_conductor": 190,
+          "unscaled_denominator_value": -0.09804292291377296,
+          "unscaled_numerator_coefficient": 0.0071187385733782515
+        },
+        {
+          "formula_minus_raw_scalar": 0.0,
+          "formula_pair_frequency_count": 13824,
+          "formula_scalar": -0.072608387855175,
+          "formula_unscaled_scalar": -0.072608387855175,
+          "left_polynomial_coefficients": [
+            0.008097165991902834,
+            -0.044610431875530175,
+            0.0611525252445155
+          ],
+          "left_source_conductor": 247,
+          "right_polynomial_coefficients": [
+            -0.011764705882352941,
+            0.06042115808294426,
+            -0.076749586015243
+          ],
+          "right_source_conductor": 170,
+          "unscaled_denominator_value": -0.09804292291377296,
+          "unscaled_numerator_coefficient": 0.0071187385733782515
+        },
+        {
+          "formula_minus_raw_scalar": 0.0,
+          "formula_pair_frequency_count": 13824,
+          "formula_scalar": -0.072608387855175,
+          "formula_unscaled_scalar": -0.072608387855175,
+          "left_polynomial_coefficients": [
+            0.006191950464396285,
+            -0.0357749369858988,
+            0.0516546365729636
+          ],
+          "left_source_conductor": 323,
+          "right_polynomial_coefficients": [
+            -0.015384615384615385,
+            0.07488514539162436,
+            -0.09086175622731678
+          ],
+          "right_source_conductor": 130,
+          "unscaled_denominator_value": -0.09804292291377296,
+          "unscaled_numerator_coefficient": 0.0071187385733782515
+        }
+      ],
+      "ordered_source_conductor_pair_count": 6,
+      "ratio_minus_half": 0.23349735557232576,
+      "raw_scalar": -0.072608387855175,
+      "reduced_denominator": 41990,
+      "source_conductor_formula_verified_to_tolerance": true
+    },
+    {
+      "cellwise_margin_full_over_2_minus_active": 310273010682.6763,
+      "factorization": {
+        "11": 1,
+        "13": 1,
+        "19": 1,
+        "2": 1,
+        "7": 1
+      },
+      "formula_scalar_mean": -0.07083636365889086,
+      "high_prime_support": [
+        11,
+        13,
+        19
+      ],
+      "max_abs_formula_minus_raw_scalar": 1.3877787807814457e-17,
+      "max_abs_formula_pair_deviation": 1.3877787807814457e-17,
+      "missing_high_primes": [
+        17
+      ],
+      "ordered_source_conductor_formula_rows": [
+        {
+          "formula_minus_raw_scalar": 0.0,
+          "formula_pair_frequency_count": 12960,
+          "formula_scalar": -0.07083636365889086,
+          "formula_unscaled_scalar": -0.07083636365889089,
+          "left_polynomial_coefficients": [
+            0.013986013986013986,
+            -0.06941041440922947,
+            0.08602069845068863
+          ],
+          "left_source_conductor": 143,
+          "right_polynomial_coefficients": [
+            -0.007518796992481203,
+            0.041981175253997735,
+            -0.058425137365218524
+          ],
+          "right_source_conductor": 266,
+          "unscaled_denominator_value": -0.1082292006191,
+          "unscaled_numerator_coefficient": 0.007666563013565626
+        },
+        {
+          "formula_minus_raw_scalar": 1.3877787807814457e-17,
+          "formula_pair_frequency_count": 12960,
+          "formula_scalar": -0.07083636365889084,
+          "formula_unscaled_scalar": -0.07083636365889087,
+          "left_polynomial_coefficients": [
+            -0.012987012987012988,
+            0.06541496886251467,
+            -0.08218419604322492
+          ],
+          "left_source_conductor": 154,
+          "right_polynomial_coefficients": [
+            0.008097165991902834,
+            -0.044610431875530175,
+            0.0611525252445155
+          ],
+          "right_source_conductor": 247,
+          "unscaled_denominator_value": -0.10822920061910002,
+          "unscaled_numerator_coefficient": 0.007666563013565626
+        },
+        {
+          "formula_minus_raw_scalar": -1.3877787807814457e-17,
+          "formula_pair_frequency_count": 12960,
+          "formula_scalar": -0.07083636365889087,
+          "formula_unscaled_scalar": -0.07083636365889087,
+          "left_polynomial_coefficients": [
+            -0.01098901098901099,
+            0.057186886671173574,
+            -0.07438514727363535
+          ],
+          "left_source_conductor": 182,
+          "right_polynomial_coefficients": [
+            0.009569377990430622,
+            -0.051122815808275705,
+            0.067564175207526
+          ],
+          "right_source_conductor": 209,
+          "unscaled_denominator_value": -0.10822920061910002,
+          "unscaled_numerator_coefficient": 0.007666563013565626
+        },
+        {
+          "formula_minus_raw_scalar": -1.3877787807814457e-17,
+          "formula_pair_frequency_count": 12960,
+          "formula_scalar": -0.07083636365889087,
+          "formula_unscaled_scalar": -0.07083636365889087,
+          "left_polynomial_coefficients": [
+            0.009569377990430622,
+            -0.051122815808275705,
+            0.067564175207526
+          ],
+          "left_source_conductor": 209,
+          "right_polynomial_coefficients": [
+            -0.01098901098901099,
+            0.057186886671173574,
+            -0.07438514727363535
+          ],
+          "right_source_conductor": 182,
+          "unscaled_denominator_value": -0.10822920061910002,
+          "unscaled_numerator_coefficient": 0.007666563013565626
+        },
+        {
+          "formula_minus_raw_scalar": 1.3877787807814457e-17,
+          "formula_pair_frequency_count": 12960,
+          "formula_scalar": -0.07083636365889084,
+          "formula_unscaled_scalar": -0.07083636365889087,
+          "left_polynomial_coefficients": [
+            0.008097165991902834,
+            -0.044610431875530175,
+            0.0611525252445155
+          ],
+          "left_source_conductor": 247,
+          "right_polynomial_coefficients": [
+            -0.012987012987012988,
+            0.06541496886251467,
+            -0.08218419604322492
+          ],
+          "right_source_conductor": 154,
+          "unscaled_denominator_value": -0.10822920061910002,
+          "unscaled_numerator_coefficient": 0.007666563013565626
+        },
+        {
+          "formula_minus_raw_scalar": 0.0,
+          "formula_pair_frequency_count": 12960,
+          "formula_scalar": -0.07083636365889086,
+          "formula_unscaled_scalar": -0.07083636365889089,
+          "left_polynomial_coefficients": [
+            -0.007518796992481203,
+            0.041981175253997735,
+            -0.058425137365218524
+          ],
+          "left_source_conductor": 266,
+          "right_polynomial_coefficients": [
+            0.013986013986013986,
+            -0.06941041440922947,
+            0.08602069845068863
+          ],
+          "right_source_conductor": 143,
+          "unscaled_denominator_value": -0.1082292006191,
+          "unscaled_numerator_coefficient": 0.007666563013565626
+        }
+      ],
+      "ordered_source_conductor_pair_count": 6,
+      "ratio_minus_half": 0.07635340770691146,
+      "raw_scalar": -0.07083636365889086,
+      "reduced_denominator": 38038,
+      "source_conductor_formula_verified_to_tolerance": true
+    }
+  ],
+  "schema_version": 1,
+  "source_commit": "5fe8a396f8f6c23f486a242d712328c30b105e72",
+  "source_conductor_scalar_formula_theorem_proved": false,
+  "source_raw_scalar_identity_audit": "evidence\\mobius-moment-square-degree5-q46189-raw-scalar-identity-audit.json",
+  "source_start_theorem_proved": false,
+  "status": "AUDIT_q46189_source_conductor_scalar_formula",
+  "strict_central_goldbach_theorem_proved": false,
+  "symbolic_replacement_ratio_theorem_proved": false
+}
