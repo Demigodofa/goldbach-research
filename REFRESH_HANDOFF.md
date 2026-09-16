@@ -6,6 +6,43 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The `Q=46189` replacement-family lane now has an all-replacement
+coordinate-`00` Dirichlet-kernel family audit:
+
+```text
+tools/build_mobius_moment_square_degree5_q46189_replacement_kernel_family_audit.py
+notes/mobius-moment-square-degree5-q46189-replacement-kernel-family-audit.md
+evidence/mobius-moment-square-degree5-q46189-replacement-kernel-family-audit.json
+```
+
+Result:
+
+```text
+replacement rows:              10
+weakest replacement q:         38038
+minimum ratio minus half:      0.07635340770691468
+minimum half-margin:           4380137469743.5
+minimum offdiag/diag-half:     -0.8472931845861708
+max active reconstruction err: 0.6484375
+max ledger active-energy err:  1.0859375
+max relative energy err:       1.6333201630305224e-14
+all rows positive after drag:  true
+kernel identities verified:    true within recorded roundoff tolerance
+strict abs<1 flags all pass:   false
+```
+
+Decision: the weakest replacement row was not cherry-picked.  `q=38038` is
+worst across the checked replacement family by ratio gap, half-margin, and
+off-diagonal pressure.  The one strict absolute `<1` pair-builder flag failure
+is retained as a numerical-tolerance fact at `q=62985`, not hidden.  The next
+useful route is a replacement residue-gap lower bound across the
+source-admissible family.  This proves no replacement residue-gap bound
+theorem, coordinate-`00` residue-gap sign theorem, symbolic coordinate-`00`
+energy ratio theorem, one-coordinate active/full ratio theorem,
+strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The `Q=46189` replacement-family lane now has a coordinate-`00`
 Dirichlet-kernel decomposition checkpoint:
 

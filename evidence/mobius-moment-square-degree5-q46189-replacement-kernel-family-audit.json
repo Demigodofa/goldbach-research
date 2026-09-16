@@ -1,0 +1,832 @@
+{
+  "answer": "Yes for this finite family.  Denominator 38038 is simultaneously weakest by ratio gap, half-margin, and off-diagonal-over-diagonal pressure.  All ten replacement rows have verified Dirichlet-kernel decompositions and retain positive coordinate-00 half-margin after off-diagonal drag.",
+  "candidate_next_action": {
+    "falsifier": "A source-admissible replacement row with off-diagonal-over-diagonal pressure below -1, or lower than q=38038 while still in the same replacement family, falsifies this finite worst-case pattern.",
+    "mechanism": "Use q=38038 as the finite worst replacement model and seek a structural lower bound showing replacement rows retain positive diagonal remainder after grouped off-diagonal Dirichlet-kernel drag.",
+    "name": "replacement residue-gap bound pattern",
+    "novelty_label": "new-to-this-task",
+    "prediction": "Replacement-family rows should remain positive whenever their off-diagonal-over-diagonal pressure is above the q=38038 floor, while Q-style adverse rows cross below -1.",
+    "smallest_next_test": "Compare the q=38038 residue-gap bucket pattern against the Q=46189 adverse pattern and derive the first candidate inequality separating offdiag/diag > -1 from Q-style overpayment."
+  },
+  "classification": {
+    "all_kernel_identities_verified_with_roundoff": true,
+    "all_omitted_high_prime_families_survive": true,
+    "all_replacements_survive_off_diagonal_drag": true,
+    "all_strict_abs_lt_1_pair_builder_flags": false,
+    "finite_replacement_kernel_family_only": true,
+    "q38038_is_weakest_by_ratio_margin_and_offdiag_pressure": true
+  },
+  "coordinate00_residue_gap_sign_theorem_proved": false,
+  "decision": "The weakest replacement row was not cherry-picked: q=38038 is worst across the checked replacement family by ratio gap, margin, and off-diagonal pressure.  The theorem-shaped target narrows to a replacement residue-gap lower bound.  No universal sign theorem or Goldbach proof is established.",
+  "finite_diagnostic_only": true,
+  "finite_replacement_kernel_family_audit_only": true,
+  "fixture": {
+    "active_row_start": 43,
+    "divisor_range": [
+      3,
+      19
+    ],
+    "ell_freeze": 64,
+    "prime_modulus": 379,
+    "replacement_row_count": 10,
+    "row_count_A": 43,
+    "scale_modulus": 229,
+    "target_label": "00,12"
+  },
+  "goldbach_proved": false,
+  "kernel_identity_verification_tolerance": {
+    "absolute_tolerance": 2.0,
+    "method": "Double-precision FFT/direct-transform cross-check.  The family audit records the older strict absolute < 1 pair-builder flag separately because one large-energy replacement row misses that sub-unit threshold by floating roundoff.",
+    "relative_tolerance": 1e-12
+  },
+  "omitted_high_prime_family_kernel_summaries": {
+    "11": {
+      "all_kernel_identities_verified": true,
+      "all_rows_positive_after_off_diagonal": true,
+      "all_strict_abs_lt_1_pair_builder_flags": false,
+      "minimum_margin": 4477969972929.314,
+      "minimum_off_diagonal_over_diagonal_half": -0.5330052888553436,
+      "minimum_ratio_minus_half": 0.23349735557232798,
+      "row_count": 3
+    },
+    "13": {
+      "all_kernel_identities_verified": true,
+      "all_rows_positive_after_off_diagonal": true,
+      "all_strict_abs_lt_1_pair_builder_flags": true,
+      "minimum_margin": 10141287433917.113,
+      "minimum_off_diagonal_over_diagonal_half": -0.1475095403894775,
+      "minimum_ratio_minus_half": 0.42624522980526125,
+      "row_count": 3
+    },
+    "17": {
+      "all_kernel_identities_verified": true,
+      "all_rows_positive_after_off_diagonal": true,
+      "all_strict_abs_lt_1_pair_builder_flags": true,
+      "minimum_margin": 4380137469743.5,
+      "minimum_off_diagonal_over_diagonal_half": -0.8472931845861708,
+      "minimum_ratio_minus_half": 0.07635340770691468,
+      "row_count": 2
+    },
+    "19": {
+      "all_kernel_identities_verified": true,
+      "all_rows_positive_after_off_diagonal": true,
+      "all_strict_abs_lt_1_pair_builder_flags": true,
+      "minimum_margin": 17270923935307.371,
+      "minimum_off_diagonal_over_diagonal_half": -0.2870201521687353,
+      "minimum_ratio_minus_half": 0.3564899239156324,
+      "row_count": 2
+    }
+  },
+  "one_coordinate_active_full_ratio_theorem_proved": false,
+  "question": "Across all ten Q=46189 replacement rows, is the previously selected weakest replacement also worst by residue-gap kernel metrics, and do all rows survive off-diagonal drag?",
+  "replacement_kernel_rows": [
+    {
+      "active_reconstruction_abs_error": 0.18359375,
+      "component_half_margin_active_minus_half_full": 4380137469743.5,
+      "diagonal_half_contribution": 28683313563140.617,
+      "factorization": {
+        "11": 1,
+        "13": 1,
+        "19": 1,
+        "2": 1,
+        "7": 1
+      },
+      "far_10A_to_100A_contribution": 614226464650.8812,
+      "finite_dirichlet_kernel_identity_verified_strict_abs_lt_1": true,
+      "finite_dirichlet_kernel_identity_verified_with_roundoff": true,
+      "high_prime_support": [
+        11,
+        13,
+        19
+      ],
+      "kernel_identity_errors": {
+        "active_energy_abs_error": 0.296875,
+        "direct_active_abs_error": 0.18359375,
+        "full_energy_abs_error": 0.140625,
+        "relative_energy_error": 8.978947772413045e-15,
+        "scalar_cancelled_margin_abs_error": 0.0159912109375,
+        "strict_abs_lt_1_pair_builder_flag": true,
+        "verified_with_roundoff_tolerance": true
+      },
+      "middle_A_to_10A_contribution": -26962113691909.28,
+      "missing_high_primes": [
+        17
+      ],
+      "near_1_to_A_contribution": 622295653747.3829,
+      "off_diagonal_over_diagonal_half": -0.8472931845861708,
+      "off_diagonal_total_contribution": -24303176093397.117,
+      "ratio_minus_half": 0.07635340770691468,
+      "reduced_denominator": 38038,
+      "scalar_cancelled_margin_abs_error": 0.0159912109375,
+      "tail_over_100A_contribution": 1422415480113.8982,
+      "top_negative_gap_pair": {
+        "circular_distance": 68,
+        "component_active_contribution": -14292958623877.297,
+        "deltas": [
+          68,
+          37970
+        ]
+      },
+      "top_positive_gap_pair": {
+        "circular_distance": 552,
+        "component_active_contribution": 2776505868528.0645,
+        "deltas": [
+          552,
+          37486
+        ]
+      }
+    },
+    {
+      "active_reconstruction_abs_error": 0.04296875,
+      "component_half_margin_active_minus_half_full": 4477969972929.314,
+      "diagonal_half_contribution": 9588909394612.44,
+      "factorization": {
+        "13": 1,
+        "17": 1,
+        "19": 1,
+        "2": 1,
+        "5": 1
+      },
+      "far_10A_to_100A_contribution": -857742661833.9949,
+      "finite_dirichlet_kernel_identity_verified_strict_abs_lt_1": true,
+      "finite_dirichlet_kernel_identity_verified_with_roundoff": true,
+      "high_prime_support": [
+        13,
+        17,
+        19
+      ],
+      "kernel_identity_errors": {
+        "active_energy_abs_error": 0.087890625,
+        "direct_active_abs_error": 0.04296875,
+        "full_energy_abs_error": 0.0703125,
+        "relative_energy_error": 6.2480542203839065e-15,
+        "scalar_cancelled_margin_abs_error": 0.00390625,
+        "strict_abs_lt_1_pair_builder_flag": true,
+        "verified_with_roundoff_tolerance": true
+      },
+      "middle_A_to_10A_contribution": -4144526013444.9277,
+      "missing_high_primes": [
+        11
+      ],
+      "near_1_to_A_contribution": -133266074704.23135,
+      "off_diagonal_over_diagonal_half": -0.5330052888553436,
+      "off_diagonal_total_contribution": -5110939421683.121,
+      "ratio_minus_half": 0.23349735557232798,
+      "reduced_denominator": 41990,
+      "scalar_cancelled_margin_abs_error": 0.00390625,
+      "tail_over_100A_contribution": 24595328300.03296,
+      "top_negative_gap_pair": {
+        "circular_distance": 348,
+        "component_active_contribution": -1980248492883.077,
+        "deltas": [
+          348,
+          41642
+        ]
+      },
+      "top_positive_gap_pair": {
+        "circular_distance": 426,
+        "component_active_contribution": 579039434419.8518,
+        "deltas": [
+          426,
+          41564
+        ]
+      }
+    },
+    {
+      "active_reconstruction_abs_error": 0.6484375,
+      "component_half_margin_active_minus_half_full": 22640808441778.984,
+      "diagonal_half_contribution": 43845697056636.55,
+      "factorization": {
+        "13": 1,
+        "17": 1,
+        "19": 1,
+        "3": 1,
+        "5": 1
+      },
+      "far_10A_to_100A_contribution": -10022953908932.672,
+      "finite_dirichlet_kernel_identity_verified_strict_abs_lt_1": false,
+      "finite_dirichlet_kernel_identity_verified_with_roundoff": true,
+      "high_prime_support": [
+        13,
+        17,
+        19
+      ],
+      "kernel_identity_errors": {
+        "active_energy_abs_error": 1.0859375,
+        "direct_active_abs_error": 0.6484375,
+        "full_energy_abs_error": 0.578125,
+        "relative_energy_error": 1.6333201630305224e-14,
+        "scalar_cancelled_margin_abs_error": 0.06494140625,
+        "strict_abs_lt_1_pair_builder_flag": false,
+        "verified_with_roundoff_tolerance": true
+      },
+      "middle_A_to_10A_contribution": -6917105616035.567,
+      "missing_high_primes": [
+        11
+      ],
+      "near_1_to_A_contribution": -2784935674181.0264,
+      "off_diagonal_over_diagonal_half": -0.48362530506623397,
+      "off_diagonal_total_contribution": -21204888614857.527,
+      "ratio_minus_half": 0.25818734746688266,
+      "reduced_denominator": 62985,
+      "scalar_cancelled_margin_abs_error": 0.06494140625,
+      "tail_over_100A_contribution": -1479893415708.2605,
+      "top_negative_gap_pair": {
+        "circular_distance": 450,
+        "component_active_contribution": -9641913594183.926,
+        "deltas": [
+          450,
+          62535
+        ]
+      },
+      "top_positive_gap_pair": {
+        "circular_distance": 663,
+        "component_active_contribution": 4090607996907.868,
+        "deltas": [
+          663,
+          62322
+        ]
+      }
+    },
+    {
+      "active_reconstruction_abs_error": 0.234375,
+      "component_half_margin_active_minus_half_full": 17270923935307.371,
+      "diagonal_half_contribution": 24223579373024.215,
+      "factorization": {
+        "11": 1,
+        "13": 1,
+        "17": 1,
+        "3": 1,
+        "5": 1
+      },
+      "far_10A_to_100A_contribution": -3436941133360.9033,
+      "finite_dirichlet_kernel_identity_verified_strict_abs_lt_1": true,
+      "finite_dirichlet_kernel_identity_verified_with_roundoff": true,
+      "high_prime_support": [
+        11,
+        13,
+        17
+      ],
+      "kernel_identity_errors": {
+        "active_energy_abs_error": 0.3515625,
+        "direct_active_abs_error": 0.234375,
+        "full_energy_abs_error": 0.109375,
+        "relative_energy_error": 8.472507729220451e-15,
+        "scalar_cancelled_margin_abs_error": 0.02099609375,
+        "strict_abs_lt_1_pair_builder_flag": true,
+        "verified_with_roundoff_tolerance": true
+      },
+      "middle_A_to_10A_contribution": 1260426824093.537,
+      "missing_high_primes": [
+        19
+      ],
+      "near_1_to_A_contribution": -3757200678992.832,
+      "off_diagonal_over_diagonal_half": -0.2870201521687353,
+      "off_diagonal_total_contribution": -6952655437716.847,
+      "ratio_minus_half": 0.3564899239156324,
+      "reduced_denominator": 36465,
+      "scalar_cancelled_margin_abs_error": 0.02099609375,
+      "tail_over_100A_contribution": -1018940449456.6489,
+      "top_negative_gap_pair": {
+        "circular_distance": 570,
+        "component_active_contribution": -2937804870146.158,
+        "deltas": [
+          570,
+          35895
+        ]
+      },
+      "top_positive_gap_pair": {
+        "circular_distance": 269,
+        "component_active_contribution": 2669265393299.1787,
+        "deltas": [
+          269,
+          36196
+        ]
+      }
+    },
+    {
+      "active_reconstruction_abs_error": 0.0234375,
+      "component_half_margin_active_minus_half_full": 10141287433917.113,
+      "diagonal_half_contribution": 11896071468706.367,
+      "factorization": {
+        "11": 1,
+        "17": 1,
+        "19": 1,
+        "2": 1,
+        "5": 1
+      },
+      "far_10A_to_100A_contribution": -1167320987553.184,
+      "finite_dirichlet_kernel_identity_verified_strict_abs_lt_1": true,
+      "finite_dirichlet_kernel_identity_verified_with_roundoff": true,
+      "high_prime_support": [
+        11,
+        17,
+        19
+      ],
+      "kernel_identity_errors": {
+        "active_energy_abs_error": 0.08984375,
+        "direct_active_abs_error": 0.0234375,
+        "full_energy_abs_error": 0.12890625,
+        "relative_energy_error": 5.418017634607341e-15,
+        "scalar_cancelled_margin_abs_error": 0.001708984375,
+        "strict_abs_lt_1_pair_builder_flag": true,
+        "verified_with_roundoff_tolerance": true
+      },
+      "middle_A_to_10A_contribution": 831422150030.9924,
+      "missing_high_primes": [
+        13
+      ],
+      "near_1_to_A_contribution": -483304384269.5587,
+      "off_diagonal_over_diagonal_half": -0.1475095403894775,
+      "off_diagonal_total_contribution": -1754784034789.2527,
+      "ratio_minus_half": 0.42624522980526125,
+      "reduced_denominator": 35530,
+      "scalar_cancelled_margin_abs_error": 0.001708984375,
+      "tail_over_100A_contribution": -935580812997.5023,
+      "top_negative_gap_pair": {
+        "circular_distance": 298,
+        "component_active_contribution": -1689172746560.6162,
+        "deltas": [
+          298,
+          35232
+        ]
+      },
+      "top_positive_gap_pair": {
+        "circular_distance": 46,
+        "component_active_contribution": 967241130654.8232,
+        "deltas": [
+          46,
+          35484
+        ]
+      }
+    },
+    {
+      "active_reconstruction_abs_error": 0.1328125,
+      "component_half_margin_active_minus_half_full": 19417467655118.87,
+      "diagonal_half_contribution": 22409869469989.832,
+      "factorization": {
+        "11": 1,
+        "17": 1,
+        "19": 1,
+        "3": 1,
+        "5": 1
+      },
+      "far_10A_to_100A_contribution": -622299950719.5209,
+      "finite_dirichlet_kernel_identity_verified_strict_abs_lt_1": true,
+      "finite_dirichlet_kernel_identity_verified_with_roundoff": true,
+      "high_prime_support": [
+        11,
+        17,
+        19
+      ],
+      "kernel_identity_errors": {
+        "active_energy_abs_error": 0.1484375,
+        "direct_active_abs_error": 0.1328125,
+        "full_energy_abs_error": 0.0,
+        "relative_energy_error": 3.5488154446937843e-15,
+        "scalar_cancelled_margin_abs_error": 0.011474609375,
+        "strict_abs_lt_1_pair_builder_flag": true,
+        "verified_with_roundoff_tolerance": true
+      },
+      "middle_A_to_10A_contribution": -503479741026.3115,
+      "missing_high_primes": [
+        13
+      ],
+      "near_1_to_A_contribution": -1733833622452.145,
+      "off_diagonal_over_diagonal_half": -0.13353053300369405,
+      "off_diagonal_total_contribution": -2992401814870.953,
+      "ratio_minus_half": 0.4332347334981528,
+      "reduced_denominator": 53295,
+      "scalar_cancelled_margin_abs_error": 0.011474609375,
+      "tail_over_100A_contribution": -132788500672.9751,
+      "top_negative_gap_pair": {
+        "circular_distance": 418,
+        "component_active_contribution": -1441111174438.1338,
+        "deltas": [
+          418,
+          52877
+        ]
+      },
+      "top_positive_gap_pair": {
+        "circular_distance": 508,
+        "component_active_contribution": 1955876242357.1924,
+        "deltas": [
+          508,
+          52787
+        ]
+      }
+    },
+    {
+      "active_reconstruction_abs_error": 0.0,
+      "component_half_margin_active_minus_half_full": 19140744261593.41,
+      "diagonal_half_contribution": 21974856736265.05,
+      "factorization": {
+        "11": 1,
+        "13": 1,
+        "17": 1,
+        "2": 1,
+        "7": 1
+      },
+      "far_10A_to_100A_contribution": 1371348892728.5898,
+      "finite_dirichlet_kernel_identity_verified_strict_abs_lt_1": true,
+      "finite_dirichlet_kernel_identity_verified_with_roundoff": true,
+      "high_prime_support": [
+        11,
+        13,
+        17
+      ],
+      "kernel_identity_errors": {
+        "active_energy_abs_error": 0.0546875,
+        "direct_active_abs_error": 0.0,
+        "full_energy_abs_error": 0.046875,
+        "relative_energy_error": 1.3300912226200554e-15,
+        "scalar_cancelled_margin_abs_error": 0.001953125,
+        "strict_abs_lt_1_pair_builder_flag": true,
+        "verified_with_roundoff_tolerance": true
+      },
+      "middle_A_to_10A_contribution": -3332085904826.7324,
+      "missing_high_primes": [
+        19
+      ],
+      "near_1_to_A_contribution": -704684524582.0895,
+      "off_diagonal_over_diagonal_half": -0.1289706917631238,
+      "off_diagonal_total_contribution": -2834112474671.645,
+      "ratio_minus_half": 0.43551465411843815,
+      "reduced_denominator": 34034,
+      "scalar_cancelled_margin_abs_error": 0.001953125,
+      "tail_over_100A_contribution": -168690937991.4124,
+      "top_negative_gap_pair": {
+        "circular_distance": 300,
+        "component_active_contribution": -3594264130940.8926,
+        "deltas": [
+          300,
+          33734
+        ]
+      },
+      "top_positive_gap_pair": {
+        "circular_distance": 76,
+        "component_active_contribution": 2369616450003.621,
+        "deltas": [
+          76,
+          33958
+        ]
+      }
+    },
+    {
+      "active_reconstruction_abs_error": 0.046875,
+      "component_half_margin_active_minus_half_full": 22672587901461.613,
+      "diagonal_half_contribution": 22271465382173.652,
+      "factorization": {
+        "11": 1,
+        "17": 1,
+        "19": 1,
+        "2": 1,
+        "7": 1
+      },
+      "far_10A_to_100A_contribution": -980951805813.3877,
+      "finite_dirichlet_kernel_identity_verified_strict_abs_lt_1": true,
+      "finite_dirichlet_kernel_identity_verified_with_roundoff": true,
+      "high_prime_support": [
+        11,
+        17,
+        19
+      ],
+      "kernel_identity_errors": {
+        "active_energy_abs_error": 0.046875,
+        "direct_active_abs_error": 0.046875,
+        "full_energy_abs_error": 0.0078125,
+        "relative_energy_error": 1.0429633416500914e-15,
+        "scalar_cancelled_margin_abs_error": 0.003662109375,
+        "strict_abs_lt_1_pair_builder_flag": true,
+        "verified_with_roundoff_tolerance": true
+      },
+      "middle_A_to_10A_contribution": -932148115984.2134,
+      "missing_high_primes": [
+        13
+      ],
+      "near_1_to_A_contribution": 2584729889230.744,
+      "off_diagonal_over_diagonal_half": 0.018010602912955122,
+      "off_diagonal_total_contribution": 401122519287.95593,
+      "ratio_minus_half": 0.5090053014564777,
+      "reduced_denominator": 49742,
+      "scalar_cancelled_margin_abs_error": 0.003662109375,
+      "tail_over_100A_contribution": -270507448145.18726,
+      "top_negative_gap_pair": {
+        "circular_distance": 86,
+        "component_active_contribution": -5594511141401.619,
+        "deltas": [
+          86,
+          49656
+        ]
+      },
+      "top_positive_gap_pair": {
+        "circular_distance": 100,
+        "component_active_contribution": 1893457255580.164,
+        "deltas": [
+          100,
+          49642
+        ]
+      }
+    },
+    {
+      "active_reconstruction_abs_error": 0.265625,
+      "component_half_margin_active_minus_half_full": 41739143826365.67,
+      "diagonal_half_contribution": 39777700093247.94,
+      "factorization": {
+        "13": 1,
+        "17": 1,
+        "19": 1,
+        "2": 1,
+        "7": 1
+      },
+      "far_10A_to_100A_contribution": 16798900766164.812,
+      "finite_dirichlet_kernel_identity_verified_strict_abs_lt_1": true,
+      "finite_dirichlet_kernel_identity_verified_with_roundoff": true,
+      "high_prime_support": [
+        13,
+        17,
+        19
+      ],
+      "kernel_identity_errors": {
+        "active_energy_abs_error": 0.578125,
+        "direct_active_abs_error": 0.265625,
+        "full_energy_abs_error": 0.328125,
+        "relative_energy_error": 7.092092532067405e-15,
+        "scalar_cancelled_margin_abs_error": 0.033203125,
+        "strict_abs_lt_1_pair_builder_flag": true,
+        "verified_with_roundoff_tolerance": true
+      },
+      "middle_A_to_10A_contribution": -7905690200708.501,
+      "missing_high_primes": [
+        11
+      ],
+      "near_1_to_A_contribution": -3498035716522.5996,
+      "off_diagonal_over_diagonal_half": 0.04931013428427792,
+      "off_diagonal_total_contribution": 1961443733117.79,
+      "ratio_minus_half": 0.5246550671421382,
+      "reduced_denominator": 58786,
+      "scalar_cancelled_margin_abs_error": 0.033203125,
+      "tail_over_100A_contribution": -3433731115815.922,
+      "top_negative_gap_pair": {
+        "circular_distance": 338,
+        "component_active_contribution": -3842906211238.5693,
+        "deltas": [
+          338,
+          58448
+        ]
+      },
+      "top_positive_gap_pair": {
+        "circular_distance": 758,
+        "component_active_contribution": 6961362463196.355,
+        "deltas": [
+          758,
+          58028
+        ]
+      }
+    },
+    {
+      "active_reconstruction_abs_error": 0.125,
+      "component_half_margin_active_minus_half_full": 33119492017959.594,
+      "diagonal_half_contribution": 28872797556320.266,
+      "factorization": {
+        "11": 1,
+        "13": 1,
+        "19": 1,
+        "3": 1,
+        "5": 1
+      },
+      "far_10A_to_100A_contribution": 5771399764382.244,
+      "finite_dirichlet_kernel_identity_verified_strict_abs_lt_1": true,
+      "finite_dirichlet_kernel_identity_verified_with_roundoff": true,
+      "high_prime_support": [
+        11,
+        13,
+        19
+      ],
+      "kernel_identity_errors": {
+        "active_energy_abs_error": 0.1171875,
+        "direct_active_abs_error": 0.125,
+        "full_energy_abs_error": 0.234375,
+        "relative_energy_error": 4.058751140114136e-15,
+        "scalar_cancelled_margin_abs_error": 0.00048828125,
+        "strict_abs_lt_1_pair_builder_flag": true,
+        "verified_with_roundoff_tolerance": true
+      },
+      "middle_A_to_10A_contribution": 1922439110646.6113,
+      "missing_high_primes": [
+        17
+      ],
+      "near_1_to_A_contribution": -107933818026.9638,
+      "off_diagonal_over_diagonal_half": 0.1470828884300381,
+      "off_diagonal_total_contribution": 4246694461639.3306,
+      "ratio_minus_half": 0.5735414442150191,
+      "reduced_denominator": 40755,
+      "scalar_cancelled_margin_abs_error": 0.00048828125,
+      "tail_over_100A_contribution": -3339210595362.5625,
+      "top_negative_gap_pair": {
+        "circular_distance": 75,
+        "component_active_contribution": -3661907942406.8604,
+        "deltas": [
+          75,
+          40680
+        ]
+      },
+      "top_positive_gap_pair": {
+        "circular_distance": 429,
+        "component_active_contribution": 3226738889887.468,
+        "deltas": [
+          429,
+          40326
+        ]
+      }
+    }
+  ],
+  "replacement_residue_gap_bound_theorem_proved": false,
+  "schema_version": 1,
+  "source_commit": "37eb1b66084d150b12b349c997b1a066bc5b388f",
+  "source_one_coordinate_ledger": "evidence\\mobius-moment-square-degree5-q46189-one-coordinate-ratio-ledger-audit.json",
+  "source_pair_kernel_decomposition": "evidence\\mobius-moment-square-degree5-q46189-coordinate00-kernel-decomposition-audit.json",
+  "status": "AUDIT_q46189_replacement_kernel_family",
+  "strict_central_goldbach_theorem_proved": false,
+  "summary": {
+    "all_kernel_identities_verified_with_roundoff": true,
+    "all_replacements_positive_after_off_diagonal": true,
+    "all_strict_abs_lt_1_pair_builder_flags": false,
+    "maximum_active_reconstruction_abs_error": 0.6484375,
+    "maximum_ledger_active_energy_abs_error": 1.0859375,
+    "maximum_relative_energy_error": 1.6333201630305224e-14,
+    "maximum_scalar_cancelled_margin_abs_error": 0.06494140625,
+    "minimum_half_margin": 4380137469743.5,
+    "minimum_off_diagonal_over_diagonal_half": -0.8472931845861708,
+    "minimum_ratio_minus_half": 0.07635340770691468
+  },
+  "symbolic_coordinate_00_energy_ratio_theorem_proved": false,
+  "weakest_by_half_margin": {
+    "active_reconstruction_abs_error": 0.18359375,
+    "component_half_margin_active_minus_half_full": 4380137469743.5,
+    "diagonal_half_contribution": 28683313563140.617,
+    "factorization": {
+      "11": 1,
+      "13": 1,
+      "19": 1,
+      "2": 1,
+      "7": 1
+    },
+    "far_10A_to_100A_contribution": 614226464650.8812,
+    "finite_dirichlet_kernel_identity_verified_strict_abs_lt_1": true,
+    "finite_dirichlet_kernel_identity_verified_with_roundoff": true,
+    "high_prime_support": [
+      11,
+      13,
+      19
+    ],
+    "kernel_identity_errors": {
+      "active_energy_abs_error": 0.296875,
+      "direct_active_abs_error": 0.18359375,
+      "full_energy_abs_error": 0.140625,
+      "relative_energy_error": 8.978947772413045e-15,
+      "scalar_cancelled_margin_abs_error": 0.0159912109375,
+      "strict_abs_lt_1_pair_builder_flag": true,
+      "verified_with_roundoff_tolerance": true
+    },
+    "middle_A_to_10A_contribution": -26962113691909.28,
+    "missing_high_primes": [
+      17
+    ],
+    "near_1_to_A_contribution": 622295653747.3829,
+    "off_diagonal_over_diagonal_half": -0.8472931845861708,
+    "off_diagonal_total_contribution": -24303176093397.117,
+    "ratio_minus_half": 0.07635340770691468,
+    "reduced_denominator": 38038,
+    "scalar_cancelled_margin_abs_error": 0.0159912109375,
+    "tail_over_100A_contribution": 1422415480113.8982,
+    "top_negative_gap_pair": {
+      "circular_distance": 68,
+      "component_active_contribution": -14292958623877.297,
+      "deltas": [
+        68,
+        37970
+      ]
+    },
+    "top_positive_gap_pair": {
+      "circular_distance": 552,
+      "component_active_contribution": 2776505868528.0645,
+      "deltas": [
+        552,
+        37486
+      ]
+    }
+  },
+  "weakest_by_off_diagonal_pressure": {
+    "active_reconstruction_abs_error": 0.18359375,
+    "component_half_margin_active_minus_half_full": 4380137469743.5,
+    "diagonal_half_contribution": 28683313563140.617,
+    "factorization": {
+      "11": 1,
+      "13": 1,
+      "19": 1,
+      "2": 1,
+      "7": 1
+    },
+    "far_10A_to_100A_contribution": 614226464650.8812,
+    "finite_dirichlet_kernel_identity_verified_strict_abs_lt_1": true,
+    "finite_dirichlet_kernel_identity_verified_with_roundoff": true,
+    "high_prime_support": [
+      11,
+      13,
+      19
+    ],
+    "kernel_identity_errors": {
+      "active_energy_abs_error": 0.296875,
+      "direct_active_abs_error": 0.18359375,
+      "full_energy_abs_error": 0.140625,
+      "relative_energy_error": 8.978947772413045e-15,
+      "scalar_cancelled_margin_abs_error": 0.0159912109375,
+      "strict_abs_lt_1_pair_builder_flag": true,
+      "verified_with_roundoff_tolerance": true
+    },
+    "middle_A_to_10A_contribution": -26962113691909.28,
+    "missing_high_primes": [
+      17
+    ],
+    "near_1_to_A_contribution": 622295653747.3829,
+    "off_diagonal_over_diagonal_half": -0.8472931845861708,
+    "off_diagonal_total_contribution": -24303176093397.117,
+    "ratio_minus_half": 0.07635340770691468,
+    "reduced_denominator": 38038,
+    "scalar_cancelled_margin_abs_error": 0.0159912109375,
+    "tail_over_100A_contribution": 1422415480113.8982,
+    "top_negative_gap_pair": {
+      "circular_distance": 68,
+      "component_active_contribution": -14292958623877.297,
+      "deltas": [
+        68,
+        37970
+      ]
+    },
+    "top_positive_gap_pair": {
+      "circular_distance": 552,
+      "component_active_contribution": 2776505868528.0645,
+      "deltas": [
+        552,
+        37486
+      ]
+    }
+  },
+  "weakest_by_ratio_gap": {
+    "active_reconstruction_abs_error": 0.18359375,
+    "component_half_margin_active_minus_half_full": 4380137469743.5,
+    "diagonal_half_contribution": 28683313563140.617,
+    "factorization": {
+      "11": 1,
+      "13": 1,
+      "19": 1,
+      "2": 1,
+      "7": 1
+    },
+    "far_10A_to_100A_contribution": 614226464650.8812,
+    "finite_dirichlet_kernel_identity_verified_strict_abs_lt_1": true,
+    "finite_dirichlet_kernel_identity_verified_with_roundoff": true,
+    "high_prime_support": [
+      11,
+      13,
+      19
+    ],
+    "kernel_identity_errors": {
+      "active_energy_abs_error": 0.296875,
+      "direct_active_abs_error": 0.18359375,
+      "full_energy_abs_error": 0.140625,
+      "relative_energy_error": 8.978947772413045e-15,
+      "scalar_cancelled_margin_abs_error": 0.0159912109375,
+      "strict_abs_lt_1_pair_builder_flag": true,
+      "verified_with_roundoff_tolerance": true
+    },
+    "middle_A_to_10A_contribution": -26962113691909.28,
+    "missing_high_primes": [
+      17
+    ],
+    "near_1_to_A_contribution": 622295653747.3829,
+    "off_diagonal_over_diagonal_half": -0.8472931845861708,
+    "off_diagonal_total_contribution": -24303176093397.117,
+    "ratio_minus_half": 0.07635340770691468,
+    "reduced_denominator": 38038,
+    "scalar_cancelled_margin_abs_error": 0.0159912109375,
+    "tail_over_100A_contribution": 1422415480113.8982,
+    "top_negative_gap_pair": {
+      "circular_distance": 68,
+      "component_active_contribution": -14292958623877.297,
+      "deltas": [
+        68,
+        37970
+      ]
+    },
+    "top_positive_gap_pair": {
+      "circular_distance": 552,
+      "component_active_contribution": 2776505868528.0645,
+      "deltas": [
+        552,
+        37486
+      ]
+    }
+  }
+}

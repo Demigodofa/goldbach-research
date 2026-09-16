@@ -6,6 +6,40 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The `Q=46189` replacement-family lane now has an all-replacement
+coordinate-`00` Dirichlet-kernel family audit:
+`tools/build_mobius_moment_square_degree5_q46189_replacement_kernel_family_audit.py`
+generated
+`evidence/mobius-moment-square-degree5-q46189-replacement-kernel-family-audit.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-q46189-replacement-kernel-family-audit.md`.
+
+Question: across all ten `Q=46189` replacement rows, is the previously
+selected weakest replacement also worst by residue-gap kernel metrics, and do
+all rows survive off-diagonal drag?
+
+Answer: yes as finite evidence.  Denominator `38038` is simultaneously
+weakest by ratio gap, half-margin, and off-diagonal-over-diagonal pressure.
+All ten replacement rows remain positive after off-diagonal drag.  The
+minimum ratio-minus-half is `0.07635340770691468`, the minimum half-margin is
+`4380137469743.5`, and the minimum offdiag/diag-half ratio is
+`-0.8472931845861708`.  The largest active reconstruction error is
+`0.6484375`.  One older strict absolute `<1` pair-builder flag fails at
+`q=62985` because its ledger active-energy difference is `1.0859375` on an
+energy scale of about `6.6e13`; the maximum relative energy error is
+`1.6333201630305224e-14`, and the family audit records the identities as
+verified only within the stated floating roundoff tolerance.
+
+Decision: the weakest replacement row was not cherry-picked.  The theorem-
+shaped target narrows from a single replacement comparison to a replacement
+residue-gap lower bound across the source-admissible family.  This remains
+finite diagnostic evidence only; it proves no replacement residue-gap bound
+theorem, coordinate-`00` residue-gap sign theorem, symbolic coordinate-`00`
+energy ratio theorem, one-coordinate active/full ratio theorem,
+strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The `Q=46189` replacement-family lane now has a coordinate-`00`
 Dirichlet-kernel decomposition checkpoint:
 `tools/build_mobius_moment_square_degree5_q46189_coordinate00_kernel_decomposition_audit.py`
