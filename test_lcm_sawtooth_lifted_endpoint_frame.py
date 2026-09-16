@@ -92,6 +92,8 @@ class LcmSawtoothLiftedEndpointFrameTests(unittest.TestCase):
         modulus, row_count, ell_freeze, lower, upper = (31, 1, 10, 2, 8)
         receipt = lifted_endpoint_residue_gram_receipt(
             modulus, row_count, ell_freeze, lower, upper)
+        self.assertEqual(receipt["active_row_start"], row_count)
+        self.assertEqual(receipt["active_row_stop"], 2 * row_count)
         denominators, numerators, geometrics, coordinates = (
             _lifted_frequency_data(modulus, ell_freeze, lower, upper))
         parameter = np.array((2.0, -1.0, 3.0))
@@ -156,6 +158,55 @@ class LcmSawtoothLiftedEndpointFrameTests(unittest.TestCase):
             receipt[
                 "active_over_full_largest_generalized_eigenvalue"]
             * (1 + 1e-10))
+
+    def test_active_row_start_changes_only_active_window_rows(self):
+        modulus, row_count, ell_freeze, lower, upper = (31, 2, 10, 2, 8)
+        shifted = lifted_endpoint_residue_gram_receipt(
+            modulus, row_count, ell_freeze, lower, upper,
+            active_row_start=0)
+        self.assertEqual(shifted["active_row_start"], 0)
+        self.assertEqual(shifted["active_row_stop"], row_count)
+        denominators, numerators, geometrics, coordinates = (
+            _lifted_frequency_data(modulus, ell_freeze, lower, upper))
+        parameter = np.array((2.0, -1.0, 3.0))
+        lift = np.array((4.0, -2.0, 6.0, 1.0, -3.0, 9.0))
+        coefficients = geometrics * (coordinates @ parameter)
+        cells = {}
+        for left in range(len(coefficients)):
+            for right in range(len(coefficients)):
+                common = math.lcm(
+                    int(denominators[left]), int(denominators[right]))
+                difference = (
+                    int(numerators[left])
+                    * (common // int(denominators[left]))
+                    - int(numerators[right])
+                    * (common // int(denominators[right])))
+                common_factor = math.gcd(abs(difference), common)
+                reduced = common // common_factor
+                if reduced <= modulus * row_count:
+                    continue
+                residue = modulus * (difference // common_factor) % reduced
+                product = coefficients[left] * coefficients[right].conjugate()
+                key = (reduced, residue)
+                cells[key] = cells.get(key, 0j) + product
+        direct_active = 0.0
+        for ell in range(0, row_count):
+            transforms = {}
+            for (reduced, residue), value in cells.items():
+                transforms[reduced] = transforms.get(reduced, 0j) + (
+                    value * np.exp(2j * np.pi * residue * ell / reduced))
+            direct_active += sum(
+                reduced * abs(value) ** 2
+                for reduced, value in transforms.items()) / row_count
+        active_gram = np.asarray(
+            shifted["active_window_residue_energy_gram"])
+        self.assertAlmostEqual(
+            float(lift @ active_gram @ lift), direct_active,
+            delta=1e-8 * direct_active)
+        with self.assertRaises(ValueError):
+            lifted_endpoint_residue_gram_receipt(
+                modulus, row_count, ell_freeze, lower, upper,
+                active_row_start=-1)
 
     def test_conductor_exclusion_removes_only_requested_frequencies(self):
         baseline = _lifted_frequency_data(31, 10, 2, 8)

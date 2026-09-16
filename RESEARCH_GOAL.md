@@ -7,6 +7,41 @@ expired deadline after a session boundary.
 ## Latest continuation evidence, 2026-09-16
 
 The metric-soft moment-square route now has a weak-scale degree-`5`
+active-window translation stress audit:
+`tools/build_mobius_moment_square_degree5_active_window_translation_stress.py`
+generated
+`evidence/mobius-moment-square-degree5-active-window-translation-stress.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-active-window-translation-stress.md`.
+
+Question: does the weak-block active/full dominance result depend
+delicately on the exact active row interval `[35,70)`?
+
+Answer: no finite falsifier was found for the local active-row translations
+with starts `33, 34, 35, 36, 37`.  For each of the five row windows, all
+`29` prime rows in `[167,334]` were checked across the three degree-`5`
+components `(00,12)`, `(01,02)`, `(01,11)` and the degree-`5` total.  All
+`580/580` dominance rows clear the signed `1/2` threshold, with `435`
+component rows and `145` degree-`5` total rows having positive slack.
+
+Decision: `STRESS_degree5_active_window_translation_dominance`.  This is
+stronger finite robustness evidence than the previous logarithmic
+coefficient-freeze perturbation because the active row set itself is moved.
+The weakest checked row is prime `181`, component `(00,12)`, at active row
+start `36`, with active/full ratio `0.5490505738773274` and slack
+`0.049050573877327364` above `1/2`.  This is finite active-window
+translation evidence only.  No pointwise universal adverse-drag estimate,
+L2 logical bridge, active-window translation theorem, ell-freeze dominance
+theorem, checked-scale dominance theorem, primewise dominance theorem,
+degree-`5` coefficient theorem, robust-margin universal theorem,
+coefficient-family theorem, universal Sturm-certificate theorem,
+half-frame curve-positivity theorem, uniform active/full lower-frame
+theorem, Mobius covariance theorem, signed prime-correlation estimate, q286
+theorem, strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Latest continuation evidence, 2026-09-16
+
+The metric-soft moment-square route now has a weak-scale degree-`5`
 ell-freeze perturbation stress audit:
 `tools/build_mobius_moment_square_degree5_ell_freeze_perturbation_stress.py`
 generated

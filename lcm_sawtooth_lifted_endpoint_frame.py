@@ -184,11 +184,16 @@ def _lifted_frequency_data(
 
 def lifted_endpoint_residue_gram_receipt(
         modulus, row_count, ell_freeze,
-        divisor_lower, divisor_upper, excluded_conductors=()):
+        divisor_lower, divisor_upper, excluded_conductors=(),
+        active_row_start=None):
     """Construct the exact one-prime lifted endpoint and residue matrices."""
     excluded_conductors = tuple(excluded_conductors)
     _validate_inputs(
         modulus, ell_freeze, row_count, divisor_lower, divisor_upper)
+    if active_row_start is None:
+        active_row_start = row_count
+    if type(active_row_start) is not int or active_row_start < 0:
+        raise ValueError("active_row_start must be a nonnegative integer")
     denominators, numerators, geometrics, coordinates = (
         _lifted_frequency_data(
             modulus, ell_freeze, divisor_lower, divisor_upper,
@@ -269,7 +274,8 @@ def lifted_endpoint_residue_gram_receipt(
             reduced_denominator, []).append((key[1], value))
 
     active_gram = np.zeros((6, 6), dtype=float)
-    rows = np.arange(row_count, 2 * row_count, dtype=np.int64)
+    rows = np.arange(
+        active_row_start, active_row_start + row_count, dtype=np.int64)
     residue_chunk_size = 8192
     for reduced_denominator, cells in cells_by_denominator.items():
         residues = np.asarray(
@@ -305,6 +311,8 @@ def lifted_endpoint_residue_gram_receipt(
     return {
         "modulus": modulus,
         "row_count": row_count,
+        "active_row_start": active_row_start,
+        "active_row_stop": active_row_start + row_count,
         "ell_freeze": ell_freeze,
         "divisor_range": (divisor_lower, divisor_upper),
         "excluded_conductors": tuple(sorted(set(excluded_conductors))),

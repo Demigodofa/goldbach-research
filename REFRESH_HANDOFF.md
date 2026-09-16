@@ -7,6 +7,47 @@ for the next session; the proofs and executable truth remain in the modules.
 ## Latest active checkpoint note, 2026-09-16
 
 The metric-soft moment-square route now has a weak-scale degree-`5`
+active-window translation stress audit:
+
+```text
+tools/build_mobius_moment_square_degree5_active_window_translation_stress.py
+notes/mobius-moment-square-degree5-active-window-translation-stress.md
+evidence/mobius-moment-square-degree5-active-window-translation-stress.json
+```
+
+Result:
+
+```text
+status:                      STRESS_degree5_active_window_translation_dominance
+scale:                       M=167
+ell_freeze:                  52
+tested active row starts:    33, 34, 35, 36, 37
+prime count per window:      29
+component rows:              435
+degree-5 total rows:         145
+all dominance rows:          580
+dominance slacks:            +580 / 0 / 0
+failure rows:                0
+weakest row:                 start=36, p=181, (00,12)
+weakest active/full ratio:   0.5490505738773274
+weakest slack above 1/2:     0.049050573877327364
+```
+
+Decision: the weak-block dominance result survives the local active-window
+translation `active_row_start=33..37`; no finite falsifier was found.  This
+is stronger finite robustness evidence than the previous logarithmic
+coefficient-freeze perturbation because the active row set itself is moved.
+It still remains finite perturbation evidence only; no pointwise universal
+adverse-drag estimate, L2 logical bridge, active-window translation theorem,
+ell-freeze dominance theorem, checked-scale dominance theorem, primewise
+dominance theorem, degree-`5` coefficient theorem, robust-margin universal
+theorem, uniform active/full lower frame, Mobius covariance theorem, signed
+prime-correlation estimate, q286 theorem, strict-central Goldbach theorem, or
+Goldbach proof is established.
+
+## Latest active checkpoint note, 2026-09-16
+
+The metric-soft moment-square route now has a weak-scale degree-`5`
 ell-freeze perturbation stress audit:
 
 ```text
