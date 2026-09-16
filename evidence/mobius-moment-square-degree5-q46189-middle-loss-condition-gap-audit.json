@@ -1,0 +1,347 @@
+{
+  "candidate_next_action": {
+    "falsifier": "If a source-factor invariant cannot separate q=38038 from q=41990 without fitting to the observed output values, this conditional lane should sleep as a singleton locator.",
+    "mechanism": "A middle-loss threshold broad enough to include even the second-worst row already includes q=41990, whose non-middle contribution is negative.  The checked target is therefore not monotone middle-loss compensation; it is the isolated source-factor geometry of q=38038.",
+    "name": "source-factor isolation theorem target",
+    "novelty_label": "new-to-this-task",
+    "prediction": "The next useful invariant should distinguish the missing-17 small-(2,7) packet q=38038 from the second middle-loss row q=41990, the missing-11 small-(2,5) packet, before it predicts compensation.",
+    "smallest_next_test": "Compare the exact source-pair coordinate geometry of q=38038 and q=41990 and look for an input-side invariant explaining the 0.5077721983877355 middle-loss gap."
+  },
+  "classification": {
+    "any_two_row_middle_loss_condition_refuted": true,
+    "finite_middle_loss_condition_gap_audit_only": true,
+    "middle_loss_threshold_compensation_singleton_only": true,
+    "plain_middle_loss_monotonicity_refuted": true,
+    "q38038_isolated_middle_loss_observed": true,
+    "source_factor_isolation_explanation_required": true
+  },
+  "coordinate00_residue_gap_sign_theorem_proved": false,
+  "decision": "The plain tight-middle-loss condition is not yet a nontrivial theorem target.  q=38038 is uniquely worst by middle loss and has positive non-middle compensation, but the prefix of the two worst middle-loss rows already fails because q=41990 has negative non-middle contribution.  The live target must shift from a middle-loss threshold to a source-factor isolation explanation for q=38038 versus q=41990.",
+  "finite_diagnostic_only": true,
+  "finite_middle_loss_condition_gap_audit_only": true,
+  "goldbach_proved": false,
+  "middle_loss_compensation_theorem_proved": false,
+  "question": "Does the checked replacement landscape support a nontrivial middle-loss conditional compensation principle, or only the singleton q=38038 locator?",
+  "replacement_packet_compensation_theorem_proved": false,
+  "schema_version": 1,
+  "source_all_replacement_mirror_compensation_audit": "evidence\\mobius-moment-square-degree5-q46189-all-replacement-mirror-compensation-audit.json",
+  "source_commit": "c3df878759145fbbce19d24684daa45478c1317e",
+  "source_factor_geometry_route_triage": "evidence\\mobius-moment-square-degree5-q46189-factor-geometry-route-triage.json",
+  "source_factor_isolation_theorem_proved": false,
+  "status": "AUDIT_q46189_middle_loss_condition_gap",
+  "strict_central_goldbach_theorem_proved": false,
+  "summary": {
+    "middle_loss_isolation_gap": 0.5077721983877355,
+    "middle_loss_prefix_checks": [
+      {
+        "all_prefix_rows_have_positive_non_middle": true,
+        "denominators": [
+          38038
+        ],
+        "minimum_non_middle_sum": 0.09269980585259228,
+        "nonpositive_non_middle_denominators": [],
+        "prefix_size": 1
+      },
+      {
+        "all_prefix_rows_have_positive_non_middle": false,
+        "denominators": [
+          38038,
+          41990
+        ],
+        "minimum_non_middle_sum": -0.10078449680431602,
+        "nonpositive_non_middle_denominators": [
+          41990
+        ],
+        "prefix_size": 2
+      },
+      {
+        "all_prefix_rows_have_positive_non_middle": false,
+        "denominators": [
+          38038,
+          41990,
+          22610
+        ],
+        "minimum_non_middle_sum": -0.10078449680431602,
+        "nonpositive_non_middle_denominators": [
+          41990
+        ],
+        "prefix_size": 3
+      },
+      {
+        "all_prefix_rows_have_positive_non_middle": false,
+        "denominators": [
+          38038,
+          41990,
+          22610,
+          20995
+        ],
+        "minimum_non_middle_sum": -0.10078449680431602,
+        "nonpositive_non_middle_denominators": [
+          41990
+        ],
+        "prefix_size": 4
+      },
+      {
+        "all_prefix_rows_have_positive_non_middle": false,
+        "denominators": [
+          38038,
+          41990,
+          22610,
+          20995,
+          24310
+        ],
+        "minimum_non_middle_sum": -0.10078449680431602,
+        "nonpositive_non_middle_denominators": [
+          41990
+        ],
+        "prefix_size": 5
+      },
+      {
+        "all_prefix_rows_have_positive_non_middle": false,
+        "denominators": [
+          38038,
+          41990,
+          22610,
+          20995,
+          24310,
+          25194
+        ],
+        "minimum_non_middle_sum": -0.10078449680431602,
+        "nonpositive_non_middle_denominators": [
+          41990
+        ],
+        "prefix_size": 6
+      },
+      {
+        "all_prefix_rows_have_positive_non_middle": false,
+        "denominators": [
+          38038,
+          41990,
+          22610,
+          20995,
+          24310,
+          25194,
+          24871
+        ],
+        "minimum_non_middle_sum": -0.10078449680431602,
+        "nonpositive_non_middle_denominators": [
+          41990
+        ],
+        "prefix_size": 7
+      },
+      {
+        "all_prefix_rows_have_positive_non_middle": false,
+        "denominators": [
+          38038,
+          41990,
+          22610,
+          20995,
+          24310,
+          25194,
+          24871,
+          29393
+        ],
+        "minimum_non_middle_sum": -0.10078449680431602,
+        "nonpositive_non_middle_denominators": [
+          41990
+        ],
+        "prefix_size": 8
+      },
+      {
+        "all_prefix_rows_have_positive_non_middle": false,
+        "denominators": [
+          38038,
+          41990,
+          22610,
+          20995,
+          24310,
+          25194,
+          24871,
+          29393,
+          46410,
+          17765,
+          51870,
+          17017
+        ],
+        "minimum_non_middle_sum": -0.27801564279602464,
+        "nonpositive_non_middle_denominators": [
+          41990,
+          46410,
+          17765
+        ],
+        "prefix_size": 12
+      },
+      {
+        "all_prefix_rows_have_positive_non_middle": false,
+        "denominators": [
+          38038,
+          41990,
+          22610,
+          20995,
+          24310,
+          25194,
+          24871,
+          29393,
+          46410,
+          17765,
+          51870,
+          17017,
+          58786,
+          17290,
+          21318,
+          62985,
+          30030
+        ],
+        "minimum_non_middle_sum": -0.5714466570392572,
+        "nonpositive_non_middle_denominators": [
+          41990,
+          46410,
+          17765,
+          17290,
+          21318,
+          62985
+        ],
+        "prefix_size": 17
+      },
+      {
+        "all_prefix_rows_have_positive_non_middle": false,
+        "denominators": [
+          38038,
+          41990,
+          22610,
+          20995,
+          24310,
+          25194,
+          24871,
+          29393,
+          46410,
+          17765,
+          51870,
+          17017,
+          58786,
+          17290,
+          21318,
+          62985,
+          30030,
+          34034,
+          33915,
+          19019,
+          67830,
+          16302,
+          49742,
+          53295,
+          21945,
+          36465,
+          23205,
+          25935,
+          40755,
+          35530,
+          19635,
+          43890,
+          27170,
+          39270
+        ],
+        "minimum_non_middle_sum": -0.5714466570392572,
+        "nonpositive_non_middle_denominators": [
+          41990,
+          46410,
+          17765,
+          17290,
+          21318,
+          62985,
+          19019,
+          67830,
+          16302,
+          53295,
+          21945,
+          36465,
+          35530,
+          27170,
+          39270
+        ],
+        "prefix_size": 34
+      }
+    ],
+    "pearson_middle_loss_vs_non_middle_sum": -0.07010130361032416,
+    "q38038_unique_worst_middle_loss": true,
+    "replacement_row_count": 34,
+    "second_middle_loss_row": {
+      "factor_geometry": {
+        "missing_high_primes": [
+          11
+        ],
+        "raw_scalar_real": -0.072608387855175,
+        "reduced_denominator": 41990,
+        "role": "original_replacement",
+        "small_prime_support": [
+          2,
+          5
+        ]
+      },
+      "middle_A_to_10A": -0.43222079205102754,
+      "non_middle_sum": -0.10078449680431602,
+      "off_diagonal_over_diagonal_half": -0.5330052888553436,
+      "reduced_denominator": 41990,
+      "strongest_non_middle_mirror_block": {
+        "middle_A_to_10A": -0.21465561222580193,
+        "mirror_source_pair_block": [
+          [
+            130,
+            323
+          ],
+          [
+            323,
+            130
+          ]
+        ],
+        "non_middle_sum": 0.04212825154614576,
+        "total": -0.17252736067965618
+      }
+    },
+    "smallest_middle_loss_prefix_failure": {
+      "all_prefix_rows_have_positive_non_middle": false,
+      "denominators": [
+        38038,
+        41990
+      ],
+      "minimum_non_middle_sum": -0.10078449680431602,
+      "nonpositive_non_middle_denominators": [
+        41990
+      ],
+      "prefix_size": 2
+    },
+    "worst_middle_loss_row": {
+      "factor_geometry": {
+        "missing_high_primes": [
+          17
+        ],
+        "raw_scalar_real": -0.07083636365889087,
+        "reduced_denominator": 38038,
+        "role": "original_replacement",
+        "small_prime_support": [
+          2,
+          7
+        ]
+      },
+      "middle_A_to_10A": -0.939992990438763,
+      "non_middle_sum": 0.09269980585259228,
+      "off_diagonal_over_diagonal_half": -0.8472931845861708,
+      "reduced_denominator": 38038,
+      "strongest_non_middle_mirror_block": {
+        "middle_A_to_10A": 0.028218239391922754,
+        "mirror_source_pair_block": [
+          [
+            143,
+            266
+          ],
+          [
+            266,
+            143
+          ]
+        ],
+        "non_middle_sum": 0.07765412336759717,
+        "total": 0.10587236275951992
+      }
+    }
+  }
+}

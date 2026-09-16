@@ -6,6 +6,36 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The `Q=46189` replacement-family lane now has a middle-loss condition gap
+audit:
+`tools/build_mobius_moment_square_degree5_q46189_middle_loss_condition_gap_audit.py`
+generated
+`evidence/mobius-moment-square-degree5-q46189-middle-loss-condition-gap-audit.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-q46189-middle-loss-condition-gap-audit.md`.
+
+Question: does the checked replacement landscape support a nontrivial
+middle-loss conditional compensation principle, or only the singleton
+`q=38038` locator?
+
+Answer: only the singleton locator so far.  `q=38038` is uniquely worst by
+middle loss with `middle_A_to_10A = -0.939992990438763` and has positive
+non-middle compensation `0.09269980585259228`.  But the second-worst
+middle-loss row, `q=41990`, already has negative non-middle contribution
+`-0.10078449680431602`.  The isolation gap from `q=38038` to `q=41990` is
+`0.5077721983877355`, and the middle/non-middle Pearson correlation across
+the `34` replacement rows is only `-0.07010130361032416`.
+
+Decision: do not promote a bare middle-loss threshold or fitted estimate into
+a theorem target.  The next useful object must be a source-factor isolation
+explanation that distinguishes the missing-17 small-(2,7) packet `q=38038`
+from the missing-11 small-(2,5) packet `q=41990` before making a compensation
+claim.  This proves no middle-loss compensation theorem, source-factor
+isolation theorem, replacement-packet compensation theorem, coordinate-`00`
+residue-gap sign theorem, strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The `Q=46189` replacement-family lane now has an all-replacement
 mirror-compensation falsifier:
 `tools/build_mobius_moment_square_degree5_q46189_all_replacement_mirror_compensation_audit.py`
