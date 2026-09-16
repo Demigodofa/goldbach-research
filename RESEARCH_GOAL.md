@@ -6,6 +6,33 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The metric-soft moment-square direction now has an unnormalized payment-margin
+audit:
+`tools/build_mobius_moment_square_payment_margin_audit.py` generated
+`evidence/mobius-moment-square-payment-margin-audit.json`, with explanation in
+`notes/mobius-moment-square-payment-margin-audit.md`.
+
+Question: after the active/full ratio audit, what exact pointwise inequality
+would a proof need to establish for the metric-soft moment-square channel?
+
+Answer: on the checked scales `M=127`, `149`, `167`, `191`, `211`, and `227`,
+both theorem-relevant directions keep the raw half-frame margin
+`active - 0.5*full` positive.  Across `12` checked directions, the minimum
+normalized half-frame margin is `0.4122467414896579` of full, and the minimum
+raw half-frame margin is `0.4270438141147679`.  Active does not always exceed
+full; the most negative active-full/full value is `-0.08775325851034213`.
+
+Decision: `TARGET_moment_square_half_frame_payment_margin`.  The proof-shaped
+target is a universal pointwise estimate proving
+`active(y_N,N) - 0.5*full(y_N,N) > 0` for the metric-soft moment-square
+channel, or a genuine large-scale falsifier where that margin becomes
+nonpositive.  This is finite diagnostic evidence only.  No moment-square
+half-frame payment theorem, uniform active/full lower-frame theorem, Mobius
+covariance theorem, signed prime-correlation estimate, q286 theorem,
+strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-16
+
 The metric-soft moment-square direction now has an active/full ratio audit:
 `tools/build_mobius_moment_square_active_ratio_audit.py` generated
 `evidence/mobius-moment-square-active-ratio-audit.json`, with explanation in

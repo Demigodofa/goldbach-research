@@ -1,0 +1,276 @@
+{
+  "all_half_frame_margins_positive": true,
+  "decision": "The checked moment-square directions are active-paid relative to the one-half full-frame target in unnormalized quadratic form.  Some directions still have active below full, so the right theorem target is not active>=full.  The proof-shaped target is a universal pointwise estimate proving active(y_N,N) - one_half*full(y_N,N) > 0 for the metric-soft moment-square channel, or a direct falsifier where that margin turns nonpositive.",
+  "direction_count": 12,
+  "finite_diagnostic_only": true,
+  "goldbach_proved": false,
+  "minimum_half_frame_margin_over_full": 0.4122467414896579,
+  "minimum_raw_half_frame_margin": 0.4270438141147679,
+  "mobius_covariance_theorem_proved": false,
+  "moment_square_half_frame_payment_theorem_proved": false,
+  "most_negative_active_minus_full_over_full": -0.08775325851034213,
+  "most_negative_active_minus_full_row": {
+    "active_minus_full": -0.20939094066852704,
+    "active_minus_full_over_full": -0.08775325851034213,
+    "active_over_full_ratio": 0.9122467414896579,
+    "active_value": 2.1767419987008907,
+    "direction": "diagonal_equilibrated_full_soft_parameter",
+    "full_value": 2.3861329393694177,
+    "half_frame_margin": 0.9836755290161818,
+    "half_frame_margin_over_full": 0.4122467414896579,
+    "half_frame_margin_positive": true,
+    "parameter": 0.27603534765337445,
+    "scale_modulus": 127
+  },
+  "q286_reactivated": false,
+  "question": "At the moment-square active/full minimizer and at the diagonal-equilibrated full-soft parameter, is the unnormalized active payment margin active - one_half*full positive?",
+  "scale_results": [
+    {
+      "directions": [
+        {
+          "active_minus_full": -2478290158375.5312,
+          "active_minus_full_over_full": -0.04491132536826445,
+          "active_over_full_ratio": 0.9550886746317355,
+          "active_value": 52703562927767.36,
+          "direction": "moment_square_active_over_full_minimizer",
+          "full_value": 55181853086142.89,
+          "half_frame_margin": 25112636384695.914,
+          "half_frame_margin_over_full": 0.4550886746317355,
+          "half_frame_margin_positive": true,
+          "parameter": null
+        },
+        {
+          "active_minus_full": -0.20939094066852704,
+          "active_minus_full_over_full": -0.08775325851034213,
+          "active_over_full_ratio": 0.9122467414896579,
+          "active_value": 2.1767419987008907,
+          "direction": "diagonal_equilibrated_full_soft_parameter",
+          "full_value": 2.3861329393694177,
+          "half_frame_margin": 0.9836755290161818,
+          "half_frame_margin_over_full": 0.4122467414896579,
+          "half_frame_margin_positive": true,
+          "parameter": 0.27603534765337445
+        }
+      ],
+      "divisor_range": [
+        3,
+        13
+      ],
+      "prime_count": 24,
+      "row_count": 28,
+      "scale_modulus": 127
+    },
+    {
+      "directions": [
+        {
+          "active_minus_full": 1982.7493021264672,
+          "active_minus_full_over_full": 0.05324808931024481,
+          "active_over_full_ratio": 1.0532480893102447,
+          "active_value": 39218.81406633183,
+          "direction": "moment_square_active_over_full_minimizer",
+          "full_value": 37236.06476420537,
+          "half_frame_margin": 20600.78168422915,
+          "half_frame_margin_over_full": 0.5532480893102448,
+          "half_frame_margin_positive": true,
+          "parameter": 0.21679104539467867
+        },
+        {
+          "active_minus_full": -0.037986257116244815,
+          "active_minus_full_over_full": -0.026865554859935758,
+          "active_over_full_ratio": 0.9731344451400642,
+          "active_value": 1.3759527928787065,
+          "direction": "diagonal_equilibrated_full_soft_parameter",
+          "full_value": 1.4139390499949513,
+          "half_frame_margin": 0.6689832678812309,
+          "half_frame_margin_over_full": 0.47313444514006425,
+          "half_frame_margin_positive": true,
+          "parameter": 0.2698749461997662
+        }
+      ],
+      "divisor_range": [
+        3,
+        15
+      ],
+      "prime_count": 28,
+      "row_count": 32,
+      "scale_modulus": 149
+    },
+    {
+      "directions": [
+        {
+          "active_minus_full": -5290.835341639817,
+          "active_minus_full_over_full": -0.055861010734110414,
+          "active_over_full_ratio": 0.9441389892658896,
+          "active_value": 89423.44340321422,
+          "direction": "moment_square_active_over_full_minimizer",
+          "full_value": 94714.27874485403,
+          "half_frame_margin": 42066.3040307872,
+          "half_frame_margin_over_full": 0.44413898926588957,
+          "half_frame_margin_positive": true,
+          "parameter": 0.32428180355939223
+        },
+        {
+          "active_minus_full": -0.0821490324460683,
+          "active_minus_full_over_full": -0.08066593335011972,
+          "active_over_full_ratio": 0.9193340666498803,
+          "active_value": 0.9362366606756041,
+          "direction": "diagonal_equilibrated_full_soft_parameter",
+          "full_value": 1.0183856931216724,
+          "half_frame_margin": 0.4270438141147679,
+          "half_frame_margin_over_full": 0.41933406664988027,
+          "half_frame_margin_positive": true,
+          "parameter": 0.2698106456761942
+        }
+      ],
+      "divisor_range": [
+        3,
+        16
+      ],
+      "prime_count": 29,
+      "row_count": 35,
+      "scale_modulus": 167
+    },
+    {
+      "directions": [
+        {
+          "active_minus_full": 402040367788.53125,
+          "active_minus_full_over_full": 0.009524294413761372,
+          "active_over_full_ratio": 1.0095242944137615,
+          "active_value": 42614129822691.875,
+          "direction": "moment_square_active_over_full_minimizer",
+          "full_value": 42212089454903.34,
+          "half_frame_margin": 21508085095240.203,
+          "half_frame_margin_over_full": 0.5095242944137613,
+          "half_frame_margin_positive": true,
+          "parameter": 0.8636998830770168
+        },
+        {
+          "active_minus_full": 9.33512287796475,
+          "active_minus_full_over_full": 0.044633040891496736,
+          "active_over_full_ratio": 1.0446330408914968,
+          "active_value": 218.48786469222978,
+          "direction": "diagonal_equilibrated_full_soft_parameter",
+          "full_value": 209.15274181426503,
+          "half_frame_margin": 113.91149378509726,
+          "half_frame_margin_over_full": 0.5446330408914968,
+          "half_frame_margin_positive": true,
+          "parameter": 0.2678068447008048
+        }
+      ],
+      "divisor_range": [
+        3,
+        17
+      ],
+      "prime_count": 33,
+      "row_count": 38,
+      "scale_modulus": 191
+    },
+    {
+      "directions": [
+        {
+          "active_minus_full": 32334015.14918518,
+          "active_minus_full_over_full": 0.0031551743516951506,
+          "active_over_full_ratio": 1.003155174351695,
+          "active_value": 10280266948.495132,
+          "direction": "moment_square_active_over_full_minimizer",
+          "full_value": 10247932933.345947,
+          "half_frame_margin": 5156300481.822159,
+          "half_frame_margin_over_full": 0.5031551743516951,
+          "half_frame_margin_positive": true,
+          "parameter": 0.4659236293062803
+        },
+        {
+          "active_minus_full": 6.350580620346591,
+          "active_minus_full_over_full": 0.05684713390699486,
+          "active_over_full_ratio": 1.056847133906995,
+          "active_value": 118.06387527362676,
+          "direction": "diagonal_equilibrated_full_soft_parameter",
+          "full_value": 111.71329465328017,
+          "half_frame_margin": 62.20722794698668,
+          "half_frame_margin_over_full": 0.5568471339069948,
+          "half_frame_margin_positive": true,
+          "parameter": 0.26180281353975055
+        }
+      ],
+      "divisor_range": [
+        3,
+        18
+      ],
+      "prime_count": 36,
+      "row_count": 41,
+      "scale_modulus": 211
+    },
+    {
+      "directions": [
+        {
+          "active_minus_full": 773409383.893219,
+          "active_minus_full_over_full": 0.014148956954217461,
+          "active_over_full_ratio": 1.0141489569542175,
+          "active_value": 55435345694.51889,
+          "direction": "moment_square_active_over_full_minimizer",
+          "full_value": 54661936310.62567,
+          "half_frame_margin": 28104377539.206055,
+          "half_frame_margin_over_full": 0.5141489569542175,
+          "half_frame_margin_positive": true,
+          "parameter": 0.5089460284142079
+        },
+        {
+          "active_minus_full": 4.5057797983899945,
+          "active_minus_full_over_full": 0.052376135179263074,
+          "active_over_full_ratio": 1.052376135179263,
+          "active_value": 90.53312379711133,
+          "direction": "diagonal_equilibrated_full_soft_parameter",
+          "full_value": 86.02734399872134,
+          "half_frame_margin": 47.51945179775066,
+          "half_frame_margin_over_full": 0.5523761351792631,
+          "half_frame_margin_positive": true,
+          "parameter": 0.2611584292390576
+        }
+      ],
+      "divisor_range": [
+        3,
+        18
+      ],
+      "prime_count": 39,
+      "row_count": 43,
+      "scale_modulus": 227
+    }
+  ],
+  "scales": [
+    127,
+    149,
+    167,
+    191,
+    211,
+    227
+  ],
+  "signed_prime_correlation_proved": false,
+  "status": "TARGET_moment_square_half_frame_payment_margin",
+  "uniform_active_full_lower_frame_proved": false,
+  "weakest_half_frame_margin_ratio_row": {
+    "active_minus_full": -0.20939094066852704,
+    "active_minus_full_over_full": -0.08775325851034213,
+    "active_over_full_ratio": 0.9122467414896579,
+    "active_value": 2.1767419987008907,
+    "direction": "diagonal_equilibrated_full_soft_parameter",
+    "full_value": 2.3861329393694177,
+    "half_frame_margin": 0.9836755290161818,
+    "half_frame_margin_over_full": 0.4122467414896579,
+    "half_frame_margin_positive": true,
+    "parameter": 0.27603534765337445,
+    "scale_modulus": 127
+  },
+  "weakest_raw_half_frame_margin_row": {
+    "active_minus_full": -0.0821490324460683,
+    "active_minus_full_over_full": -0.08066593335011972,
+    "active_over_full_ratio": 0.9193340666498803,
+    "active_value": 0.9362366606756041,
+    "direction": "diagonal_equilibrated_full_soft_parameter",
+    "full_value": 1.0183856931216724,
+    "half_frame_margin": 0.4270438141147679,
+    "half_frame_margin_over_full": 0.41933406664988027,
+    "half_frame_margin_positive": true,
+    "parameter": 0.2698106456761942,
+    "scale_modulus": 167
+  }
+}

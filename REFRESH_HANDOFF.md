@@ -6,6 +6,39 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The metric-soft moment-square direction now has an unnormalized
+payment-margin audit:
+
+```text
+tools/build_mobius_moment_square_payment_margin_audit.py
+notes/mobius-moment-square-payment-margin-audit.md
+evidence/mobius-moment-square-payment-margin-audit.json
+```
+
+Result:
+
+```text
+status: TARGET_moment_square_half_frame_payment_margin
+checked scales:                         127, 149, 167, 191, 211, 227
+checked directions:                     12
+all half-frame margins positive:        true
+minimum half-frame margin/full:         0.4122467414896579
+minimum raw half-frame margin:          0.4270438141147679
+most negative active-full/full:        -0.08775325851034213
+```
+
+Decision: the proof-shaped target is now the unnormalized pointwise
+half-frame inequality `active(y_N,N) - 0.5*full(y_N,N) > 0` for the
+metric-soft moment-square channel, or a legitimate large-scale falsifier where
+that margin becomes nonpositive.  Active does not always exceed full in the
+checked directions, so do not promote the target to `active >= full`.  This is
+finite diagnostic evidence only; no moment-square half-frame payment theorem,
+uniform active/full lower frame, Mobius covariance theorem, signed
+prime-correlation estimate, q286 theorem, strict-central Goldbach theorem, or
+Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-16
+
 The metric-soft moment-square direction now has an active/full ratio audit:
 
 ```text
