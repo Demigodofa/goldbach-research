@@ -1,0 +1,99 @@
+{
+  "acceptance_gate": {
+    "current_required_bridge": "Prove a universal pointwise unnormalized estimate, preferably A_raw_-(N) < L_raw(N) or equivalently adverse_drag(N) < local_main(N), for every sufficiently large covered even N; then verify the finite remainder independently.",
+    "finite_evidence_is_acceptance_condition": false,
+    "finite_remainder_position": "Finite verification becomes acceptance only after a universal sufficiently-large theorem supplies an explicit threshold N0.",
+    "invalid_closeouts": [
+      "checked-row zero-mass sanity alone",
+      "normalized L2 after assuming positive mass",
+      "another finite horizon pass",
+      "fitted residual constants such as .125, .126, or .13",
+      "source-window metric-soft dominance without a Goldbach implication theorem"
+    ]
+  },
+  "aggregate_l2_theorem_proved": false,
+  "answer": "The checked zero-mass arithmetic audit is real but finite; the raw strict aggregate-L2 shape is non-circular as a theorem shape but its bridge is not confirmed; normalized observed L2 already has finite cap violations.  The live bridge target is a universal pointwise unnormalized adverse-drag estimate.  The metric-soft source-window audit is useful source-window evidence, not a Goldbach bridge by itself.",
+  "bridge_table": [
+    {
+      "checked_row_count": 348,
+      "finite_evidence_role": "calibration_and_falsifier_only",
+      "finite_rows_pass_gate": true,
+      "logical_bridge_confirmed": false,
+      "non_circular_shape": true,
+      "required_universal_statement": "There exist an explicit threshold N0 and an explicit covered even-target class such that, for every covered even N>=N0, A_raw_-(N) < L_raw(N).",
+      "route": "q286 raw adverse-drag",
+      "state": "live_theorem_target",
+      "theorem_proved": false,
+      "worst_checked_ratio": 0.23148438379145228,
+      "worst_checked_target": 1124642
+    },
+    {
+      "checked_row_count": 348,
+      "finite_evidence_role": "zero_mass_sanity_only; observed_normalized_cap_has_violations",
+      "global_min_cap_violations": 301,
+      "logical_bridge_confirmed": false,
+      "non_circular_shape": true,
+      "route": "q286 normalized/aggregate L2",
+      "row_local_cap_violations": 120,
+      "state": "hold_not_confirmed",
+      "theorem_proved": false,
+      "worst_row_local_ratio": 1.5570989543984672
+    },
+    {
+      "checked_start_count": 440,
+      "failing_start_count": 1,
+      "finite_evidence_role": "source-window/admissible-window diagnostic only",
+      "logical_bridge_confirmed": false,
+      "minimum_source_start_slack": 0.056367749089376695,
+      "non_circular_shape": null,
+      "route": "metric-soft source-admissible window",
+      "source_start_failure_count": 0,
+      "state": "finite_source_window_evidence",
+      "theorem_proved": false
+    }
+  ],
+  "decision": "TARGET_pointwise_unnormalized_bridge_not_finite_acceptance.  The current accepted bridge target is universal, pointwise, and raw/unnormalized.  L2 remains a HOLD unless it proves a strict raw theorem; finite zero-mass and observed L2 receipts do not confirm the bridge.  Metric-soft source-window evidence remains useful but separate from the q286-to-Goldbach logical bridge.",
+  "goldbach_proved": false,
+  "metric_soft_source_window_status": {
+    "all_source_starts_pass": true,
+    "broad_all_translation_quantifier_falsified": true,
+    "failing_translated_start_count": 1,
+    "role": "Finite source-window guidance for a local theorem target; not a logical bridge to Goldbach without a separate source-backed implication.",
+    "source_start_failure_count": 0
+  },
+  "pointwise_adverse_drag_status": {
+    "checked_rows": 348,
+    "checked_rows_failing_adverse_below_local": 0,
+    "checked_rows_with_adverse_below_local": 348,
+    "finite_evidence_is_acceptance_condition": false,
+    "required_statement": "There exist an explicit threshold N0 and an explicit covered even-target class such that, for every covered even N>=N0, adverse_drag(N) < local_main(N).",
+    "universal_bound_open": true,
+    "worst_checked_ratio": 0.23148438379145228,
+    "worst_checked_target": 1124642
+  },
+  "pointwise_adverse_drag_theorem_proved": false,
+  "q286_threshold_theorem_proved": false,
+  "question": "What is currently accepted as a logical bridge toward Goldbach, and what remains only finite arithmetic or theorem-shaped but unproved evidence?",
+  "raw_adverse_drag_theorem_proved": false,
+  "schema_version": 1,
+  "source_commit": "11d1d5f31fd3976aaf80c62fd323709d97988ad3",
+  "source_window_theorem_proved": false,
+  "sources": {
+    "l2_bridge": "evidence\\q286-wbss-zero-mass-l2-logical-bridge-audit.json",
+    "l2_bridge_status": "HOLD_l2_logical_bridge_not_confirmed",
+    "pointwise_adverse_drag": "evidence\\q286-wbss-pointwise-adverse-drag-theorem-target.json",
+    "raw_adverse_drag": "evidence\\q286-wbss-raw-adverse-drag-theorem-target.json",
+    "source_admissible_window": "evidence\\mobius-moment-square-degree5-source-admissible-window-audit.json",
+    "source_admissible_window_status": "DERIVE_degree5_source_admissible_window_audit"
+  },
+  "status": "GATE_current_goldbach_bridge_acceptance",
+  "status_boundary": "Bridge acceptance-gate audit only.  No aggregate L2 theorem, source-window theorem, raw adverse-drag theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof is established.",
+  "strict_central_goldbach_theorem_proved": false,
+  "zero_mass_l2_status": {
+    "l2_logical_bridge_confirmed": false,
+    "observed_global_min_cap_violations": 301,
+    "observed_row_local_cap_violations": 120,
+    "raw_strict_l2_shape_is_noncircular": true,
+    "zero_mass_arithmetic_sanity_confirmed_on_checked_rows": true
+  }
+}

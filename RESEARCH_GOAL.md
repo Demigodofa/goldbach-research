@@ -6,6 +6,38 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The route now has a current bridge acceptance-gate audit:
+`tools/build_goldbach_bridge_acceptance_gate_audit.py` generated
+`evidence/goldbach-bridge-acceptance-gate-audit.json`, with explanation in
+`notes/goldbach-bridge-acceptance-gate-audit.md`.
+
+Question: what is currently accepted as a logical bridge toward Goldbach,
+and what remains only finite arithmetic or theorem-shaped but unproved
+evidence?
+
+Answer: the zero-mass arithmetic audit is good only on its checked rows; the
+raw strict aggregate-`L2` shape is non-circular as a theorem shape; the
+actual `L2` bridge is not confirmed.  The observed normalized `L2` lane still
+has `120` row-local cap violations and `301` global-minimum cap violations.
+The q286 raw adverse-drag lane remains the live theorem target: prove
+`A_raw_-(N)<L_raw(N)`, equivalently `adverse_drag(N)<local_main(N)`, for
+every sufficiently large covered even `N`, followed by finite remainder
+verification.  The current finite adverse-drag calibration has `348/348`
+checked rows below local main, with worst checked adverse ratio
+`0.23148438379145228` at target `1124642`, but this is calibration and
+falsifier evidence only.  The metric-soft source-admissible window audit is
+useful finite source-window evidence, not a Goldbach bridge by itself.
+
+Decision: `TARGET_pointwise_unnormalized_bridge_not_finite_acceptance`.
+Finite evidence is not the acceptance condition.  `L2` remains a HOLD unless
+it proves a strict raw theorem; source-window metric-soft dominance needs a
+separate implication theorem; the live bridge target is universal,
+pointwise, and raw/unnormalized.  This proves no aggregate `L2` theorem,
+source-window theorem, raw adverse-drag theorem, q286 threshold theorem,
+strict-central Goldbach theorem, or Goldbach proof.
+
+## Latest continuation evidence, 2026-09-16
+
 The metric-soft moment-square route now has a derived source-admissible
 row-window audit after the broad checked-scale phase-curve falsifier:
 `tools/build_mobius_moment_square_degree5_source_admissible_window_audit.py`

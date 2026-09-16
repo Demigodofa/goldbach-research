@@ -6,6 +6,44 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The route now has a current bridge acceptance-gate audit:
+
+```text
+tools/build_goldbach_bridge_acceptance_gate_audit.py
+notes/goldbach-bridge-acceptance-gate-audit.md
+evidence/goldbach-bridge-acceptance-gate-audit.json
+```
+
+Result:
+
+```text
+status:                         GATE_current_goldbach_bridge_acceptance
+zero-mass arithmetic sanity:     confirmed on 348 checked rows only
+raw strict L2 shape noncircular: true
+L2 logical bridge confirmed:     false
+row-local L2 cap violations:     120
+global-min L2 cap violations:    301
+live theorem target:             A_raw_-(N) < L_raw(N)
+checked adverse rows below main: 348 / 348
+worst checked adverse ratio:     0.23148438379145228
+worst checked target:            1124642
+finite evidence acceptance:      false
+```
+
+Decision: `TARGET_pointwise_unnormalized_bridge_not_finite_acceptance`.
+The zero-mass arithmetic audit is useful but finite.  Raw strict `L2` is
+non-circular as a theorem shape, but the `L2` bridge is not confirmed and the
+observed normalized `L2` lane has finite cap violations.  The live bridge
+target is universal, pointwise, and raw/unnormalized:
+`adverse_drag(N)<local_main(N)` or `A_raw_-(N)<L_raw(N)` for every sufficiently
+large covered even `N`, followed by independent finite remainder verification.
+The metric-soft source-window audit remains separate finite guidance and is
+not a Goldbach bridge without an implication theorem.  No aggregate `L2`
+theorem, source-window theorem, raw adverse-drag theorem, q286 threshold
+theorem, strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Latest active checkpoint note, 2026-09-16
+
 The metric-soft moment-square route now has a derived source-admissible
 row-window audit:
 
