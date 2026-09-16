@@ -6,6 +6,46 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The q286-WBSS route now has a targeted raw-horizon probe for the unique
+`K_286` no-reflection-discount residue:
+
+```text
+tools/build_q286_wbss_k286_zero_residue_raw_horizon_probe.py
+notes/q286-wbss-k286-zero-residue-raw-horizon-probe.md
+evidence/q286-wbss-k286-zero-residue-raw-horizon-probe.json
+```
+
+Question: after finding that `N == 0 mod 286` was absent from the raw finite
+calibration, does a targeted near-horizon zero-residue probe immediately
+falsify the raw adverse-drag route?
+
+Result:
+
+```text
+target_mod_286:                         0
+period residues checked:               35
+lifts per period residue:               2
+finite probe rows:                     70
+target range:             1156012..1175746
+zero total-weight rows:                 0
+positive raw witness rows:             70 / 70
+positive raw adverse-gap rows:         70 / 70
+raw adverse below raw local rows:      70 / 70
+largest raw adverse ratio:              0.22064948972651888
+tightest raw adverse gap:          423543.19091507455
+```
+
+Decision: `PROBE_zero_residue_raw_horizon_survives_finite_check_not_proof`.
+The previously unsampled no-discount lane is not an immediate finite failure
+in this near horizon.  This is calibration and falsifier evidence only.  The
+necessary theorem lane remains: for every sufficiently large covered even
+`N == 0 mod 286`, prove `A_raw_-(N) < L_raw(N)` or an equivalent raw witness
+lower bound.  No zero-residue raw adverse-drag theorem, universal pointwise
+raw estimate, binary-prime moment theorem, q286 threshold theorem,
+strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-16
+
 The q286-WBSS route now has a raw-coverage audit for the unique `K_286`
 no-reflection-discount residue:
 
