@@ -1,0 +1,919 @@
+{
+  "aggregate_character_moment_theorem_proved": false,
+  "answer": "The zero lane also has looser active-character payments than the global all-residue minimum.  Its tightest aggregate character L2 cap is about 0.1292282662, compared with the global cap 0.1093074647.  The same tight residue is 9724 mod 10010.  This sharpens the theorem target but still leaves the needed pointwise twisted binary-prime moment theorem open.",
+  "binary_prime_moment_theorem_proved": false,
+  "candidate": {
+    "falsifier": "If all zero-lane character caps are looser than the global caps, then coefficient norm size is not the bottleneck for the K_286 no-reflection lane.",
+    "mechanism": "Reuse the exact zero-lane local-main schedule but pay it in active multiplicative-character coordinates, including the aggregate Hilbert L2 theorem shape.",
+    "name": "zero-residue active-character moment payment schedule",
+    "novelty_label": "new-to-this-task",
+    "prediction": "If the zero lane is the coefficient-size bottleneck, its active-character caps should be tighter than the global all-residue caps.",
+    "smallest_next_action": "Stop refining coefficient-size payments for the zero lane unless a new signed structure appears; target the raw twisted binary-prime moment theorem itself."
+  },
+  "coefficient_character_budget": {
+    "active_character_count": 122,
+    "active_real_channel_count": 64,
+    "aggregate_character_l2": 5.525106448699807,
+    "character_l2_by_modulus": {
+      "130": 0.18221772146455884,
+      "154": 2.205804783828344,
+      "286": 4.628792495952571,
+      "70": 2.0499520132192397
+    },
+    "global_aggregate_character_l2_cap": 0.10930746469603118,
+    "global_character_linf_cap": 0.012286599575574883,
+    "global_residue_l1_cap": 0.0016192946592982506,
+    "total_character_l1": 49.153988812629684
+  },
+  "comparison_to_global_character_budget": {
+    "global_aggregate_l2_cap": 0.10930746469603118,
+    "global_character_linf_cap": 0.012286599575574883,
+    "interpretation": "The zero-residue no-reflection-discount lane is not worse than the global all-residue active-character payment either. The live obstruction is therefore not coefficient-norm size alone; it is the missing pointwise signed/twisted binary-prime moment theorem.",
+    "zero_lane_is_worse_than_global_character_budget": false,
+    "zero_lane_tightest_aggregate_l2_cap": 0.12922863058340583,
+    "zero_lane_tightest_character_linf_cap": 0.014525818909930746,
+    "zero_lane_tightest_l2_relaxation_factor": 1.1822489062642942,
+    "zero_lane_tightest_linf_relaxation_factor": 1.1822489062642942
+  },
+  "decision": "TARGET_zero_residue_character_moment_budget_schedule_unproved.  The zero-lane active-character payment schedule is now pinned. Like the residue-L1 schedule, it shows the no-reflection lane is not worse than the global all-residue coefficient payment.  This does not prove any moment theorem; it redirects the proof pressure to a pointwise raw signed/character binary-prime estimate rather than more coefficient-size accounting.",
+  "goldbach_proved": false,
+  "q286_threshold_theorem_proved": false,
+  "question": "After crude residue-L1 failed to explain the K_286 zero lane, what active-character moment payments would be sufficient on N == 0 mod 286?",
+  "receipt": "q286-wbss-k286-zero-residue-character-budget-schedule",
+  "schema_version": 1,
+  "source_commit": "f2541ecf57d2e510353c2bae4ba44d3032397456",
+  "sources": {
+    "multiplicative_character_l2_payment_audit": "evidence\\q286-wbss-multiplicative-character-l2-payment-audit.json",
+    "multiplicative_character_l2_source_commit": "61cac49477842200b550135935b6d152e339bb3c",
+    "multiplicative_character_payment_audit": "evidence\\q286-wbss-multiplicative-character-payment-audit.json",
+    "multiplicative_character_payment_source_commit": "203ee8fe8e29162544f373b3816ad9f5683a5a96",
+    "zero_residue_raw_budget_schedule": "evidence\\q286-wbss-k286-zero-residue-raw-budget-schedule.json",
+    "zero_residue_raw_budget_source_commit": "bce4d6a62c34c18c94b4c98e6d2d69b66d9a9953"
+  },
+  "status": "TARGET_zero_residue_character_moment_budget_schedule_unproved",
+  "status_boundary": "Coefficient character-payment schedule only.  No zero-residue raw adverse-drag theorem, no aggregate character-moment theorem, no universal pointwise raw estimate, no binary-prime moment theorem, no q286 threshold theorem, no strict-central Goldbach theorem, and no Goldbach proof is established.",
+  "strict_central_goldbach_theorem_proved": false,
+  "universal_pointwise_raw_bound_proved": false,
+  "zero_residue_character_schedule": {
+    "aggregate_character_l2_cap_summary": {
+      "count": 35,
+      "maximum": 0.2301361335303773,
+      "mean": 0.18099198798881438,
+      "minimum": 0.12922863058340583
+    },
+    "aggregate_l2_vs_residue_l1_cap_summary": {
+      "count": 35,
+      "maximum": 67.50313420004824,
+      "mean": 67.50313420004822,
+      "minimum": 67.50313420004822
+    },
+    "character_linf_cap_summary": {
+      "count": 35,
+      "maximum": 0.025868228930402082,
+      "mean": 0.020344228905041683,
+      "minimum": 0.014525818909930746
+    },
+    "loosest_aggregate_l2_row": {
+      "aggregate_character_l2_cap": 0.2301361335303773,
+      "aggregate_l2_relaxation_vs_global": 2.1054018055432335,
+      "aggregate_l2_relaxation_vs_residue_l1_cap": 67.50313420004824,
+      "character_linf_cap": 0.025868228930402082,
+      "character_linf_relaxation_vs_global": 2.105401805543233,
+      "local_uniform_main_term": 1.2715266354475274,
+      "period_residue_index": 6,
+      "probe_summary": {
+        "largest_raw_adverse_drag_ratio": 0.013351396644989492,
+        "probe_row_count": 2,
+        "smallest_raw_adverse_gate_gap_over_target": 0.7234693385867842,
+        "targets": [
+          1162876,
+          1172886
+        ],
+        "tightest_raw_adverse_gate_gap": 841305.1305784453
+      },
+      "residue_l1_cap_from_previous_schedule": 0.0034092658993930512,
+      "target_mod_286": 0,
+      "target_residue": 1716
+    },
+    "period": 10010,
+    "period_residue_count": 35,
+    "rows": [
+      {
+        "aggregate_character_l2_cap": 0.18099198798881438,
+        "aggregate_l2_relaxation_vs_global": 1.6558062936701337,
+        "aggregate_l2_relaxation_vs_residue_l1_cap": 67.50313420004822,
+        "character_linf_cap": 0.020344228905041686,
+        "character_linf_relaxation_vs_global": 1.6558062936701339,
+        "local_uniform_main_term": 0.9999999999999964,
+        "period_residue_index": 0,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.03377718461466521,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.854774524529886,
+          "targets": [
+            1161160,
+            1171170
+          ],
+          "tightest_raw_adverse_gate_gap": 992529.9869031224
+        },
+        "residue_l1_cap_from_previous_schedule": 0.0026812382881724784,
+        "target_mod_286": 0,
+        "target_residue": 0
+      },
+      {
+        "aggregate_character_l2_cap": 0.1292286305834065,
+        "aggregate_l2_relaxation_vs_global": 1.1822489062643005,
+        "aggregate_l2_relaxation_vs_residue_l1_cap": 67.50313420004822,
+        "character_linf_cap": 0.014525818909930825,
+        "character_linf_relaxation_vs_global": 1.1822489062643005,
+        "local_uniform_main_term": 0.7140019401930244,
+        "period_residue_index": 1,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.07188421512485618,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.3646688618455568,
+          "targets": [
+            1161446,
+            1171456
+          ],
+          "tightest_raw_adverse_gate_gap": 423543.19091507455
+        },
+        "residue_l1_cap_from_previous_schedule": 0.0019144093398749799,
+        "target_mod_286": 0,
+        "target_residue": 286
+      },
+      {
+        "aggregate_character_l2_cap": 0.21005198866570832,
+        "aggregate_l2_relaxation_vs_global": 1.9216618851222431,
+        "aggregate_l2_relaxation_vs_residue_l1_cap": 67.50313420004824,
+        "character_linf_cap": 0.02361069010214138,
+        "character_linf_relaxation_vs_global": 1.921661885122243,
+        "local_uniform_main_term": 1.1605595971391238,
+        "period_residue_index": 2,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.029044477614093372,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.6401772921134062,
+          "targets": [
+            1161732,
+            1171742
+          ],
+          "tightest_raw_adverse_gate_gap": 750122.6206155468
+        },
+        "residue_l1_cap_from_previous_schedule": 0.0031117368275554564,
+        "target_mod_286": 0,
+        "target_residue": 572
+      },
+      {
+        "aggregate_character_l2_cap": 0.19697776570009146,
+        "aggregate_l2_relaxation_vs_global": 1.802052277471252,
+        "aggregate_l2_relaxation_vs_residue_l1_cap": 67.50313420004822,
+        "character_linf_cap": 0.022141094747542035,
+        "character_linf_relaxation_vs_global": 1.802052277471252,
+        "local_uniform_main_term": 1.088323123520055,
+        "period_residue_index": 3,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.026842539761857395,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.6136659711175283,
+          "targets": [
+            1162018,
+            1172028
+          ],
+          "tightest_raw_adverse_gate_gap": 713090.904426048
+        },
+        "residue_l1_cap_from_previous_schedule": 0.0029180536286854473,
+        "target_mod_286": 0,
+        "target_residue": 858
+      },
+      {
+        "aggregate_character_l2_cap": 0.17819291553136382,
+        "aggregate_l2_relaxation_vs_global": 1.6301989624120683,
+        "aggregate_l2_relaxation_vs_residue_l1_cap": 67.50313420004822,
+        "character_linf_cap": 0.020029601879674733,
+        "character_linf_relaxation_vs_global": 1.6301989624120683,
+        "local_uniform_main_term": 0.9845348267149583,
+        "period_residue_index": 4,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.01702964406778403,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.523772848290187,
+          "targets": [
+            1162304,
+            1172314
+          ],
+          "tightest_raw_adverse_gate_gap": 610781.6275685012
+        },
+        "residue_l1_cap_from_previous_schedule": 0.0026397724734274117,
+        "target_mod_286": 0,
+        "target_residue": 1144
+      },
+      {
+        "aggregate_character_l2_cap": 0.19051683794609361,
+        "aggregate_l2_relaxation_vs_global": 1.7429444409482406,
+        "aggregate_l2_relaxation_vs_residue_l1_cap": 67.50313420004824,
+        "character_linf_cap": 0.021414860428405253,
+        "character_linf_relaxation_vs_global": 1.7429444409482404,
+        "local_uniform_main_term": 1.052625809921858,
+        "period_residue_index": 5,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.09193039689512138,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.6782962808590807,
+          "targets": [
+            1162590,
+            1172600
+          ],
+          "tightest_raw_adverse_gate_gap": 795370.218935358
+        },
+        "residue_l1_cap_from_previous_schedule": 0.002822340624681061,
+        "target_mod_286": 0,
+        "target_residue": 1430
+      },
+      {
+        "aggregate_character_l2_cap": 0.2301361335303773,
+        "aggregate_l2_relaxation_vs_global": 2.1054018055432335,
+        "aggregate_l2_relaxation_vs_residue_l1_cap": 67.50313420004824,
+        "character_linf_cap": 0.025868228930402082,
+        "character_linf_relaxation_vs_global": 2.105401805543233,
+        "local_uniform_main_term": 1.2715266354475274,
+        "period_residue_index": 6,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.013351396644989492,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.7234693385867842,
+          "targets": [
+            1162876,
+            1172886
+          ],
+          "tightest_raw_adverse_gate_gap": 841305.1305784453
+        },
+        "residue_l1_cap_from_previous_schedule": 0.0034092658993930512,
+        "target_mod_286": 0,
+        "target_residue": 1716
+      },
+      {
+        "aggregate_character_l2_cap": 0.1863292009437699,
+        "aggregate_l2_relaxation_vs_global": 1.7046338185770333,
+        "aggregate_l2_relaxation_vs_residue_l1_cap": 67.50313420004824,
+        "character_linf_cap": 0.02094415315183917,
+        "character_linf_relaxation_vs_global": 1.7046338185770333,
+        "local_uniform_main_term": 1.0294886697155052,
+        "period_residue_index": 7,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.12493163822322251,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.5763607671664476,
+          "targets": [
+            1163162,
+            1173172
+          ],
+          "tightest_raw_adverse_gate_gap": 676170.3139381956
+        },
+        "residue_l1_cap_from_previous_schedule": 0.0027603044384809728,
+        "target_mod_286": 0,
+        "target_residue": 2002
+      },
+      {
+        "aggregate_character_l2_cap": 0.15912405868302637,
+        "aggregate_l2_relaxation_vs_global": 1.4557474105316428,
+        "aggregate_l2_relaxation_vs_residue_l1_cap": 67.50313420004822,
+        "character_linf_cap": 0.017886185516382318,
+        "character_linf_relaxation_vs_global": 1.4557474105316428,
+        "local_uniform_main_term": 0.8791773627728756,
+        "period_residue_index": 8,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.08707983939541787,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.4263412458331265,
+          "targets": [
+            1163448,
+            1173458
+          ],
+          "tightest_raw_adverse_gate_gap": 500293.54565284896
+        },
+        "residue_l1_cap_from_previous_schedule": 0.0023572840071611474,
+        "target_mod_286": 0,
+        "target_residue": 2288
+      },
+      {
+        "aggregate_character_l2_cap": 0.18025064383448214,
+        "aggregate_l2_relaxation_vs_global": 1.6490241022032122,
+        "aggregate_l2_relaxation_vs_residue_l1_cap": 67.50313420004824,
+        "character_linf_cap": 0.020260898834242737,
+        "character_linf_relaxation_vs_global": 1.649024102203212,
+        "local_uniform_main_term": 0.9959039946321894,
+        "period_residue_index": 9,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.02461712739769897,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.5317998675808855,
+          "targets": [
+            1163734,
+            1173744
+          ],
+          "tightest_raw_adverse_gate_gap": 618873.5870993742
+        },
+        "residue_l1_cap_from_previous_schedule": 0.0026702559217517538,
+        "target_mod_286": 0,
+        "target_residue": 2574
+      },
+      {
+        "aggregate_character_l2_cap": 0.18396730894475194,
+        "aggregate_l2_relaxation_vs_global": 1.683026035379554,
+        "aggregate_l2_relaxation_vs_residue_l1_cap": 67.50313420004822,
+        "character_linf_cap": 0.020678666971975908,
+        "character_linf_relaxation_vs_global": 1.683026035379554,
+        "local_uniform_main_term": 1.0164389650005987,
+        "period_residue_index": 10,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.011065579356252424,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.7144503564707354,
+          "targets": [
+            1164020,
+            1174030
+          ],
+          "tightest_raw_adverse_gate_gap": 837217.7859663985
+        },
+        "residue_l1_cap_from_previous_schedule": 0.0027253150705500205,
+        "target_mod_286": 0,
+        "target_residue": 2860
+      },
+      {
+        "aggregate_character_l2_cap": 0.17471961536193636,
+        "aggregate_l2_relaxation_vs_global": 1.5984234548647456,
+        "aggregate_l2_relaxation_vs_residue_l1_cap": 67.50313420004822,
+        "character_linf_cap": 0.01963918894213012,
+        "character_linf_relaxation_vs_global": 1.5984234548647454,
+        "local_uniform_main_term": 0.9653444735505845,
+        "period_residue_index": 11,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.08575219869721368,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.4602908050968767,
+          "targets": [
+            1164306,
+            1174316
+          ],
+          "tightest_raw_adverse_gate_gap": 540526.8570781439
+        },
+        "residue_l1_cap_from_previous_schedule": 0.002588318563759541,
+        "target_mod_286": 0,
+        "target_residue": 3146
+      },
+      {
+        "aggregate_character_l2_cap": 0.21036400792259716,
+        "aggregate_l2_relaxation_vs_global": 1.9245163951756645,
+        "aggregate_l2_relaxation_vs_residue_l1_cap": 67.50313420004824,
+        "character_linf_cap": 0.023645762324152223,
+        "character_linf_relaxation_vs_global": 1.9245163951756645,
+        "local_uniform_main_term": 1.1622835367474789,
+        "period_residue_index": 12,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.028405904949750784,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.5921342934147351,
+          "targets": [
+            1164592,
+            1174602
+          ],
+          "tightest_raw_adverse_gate_gap": 689594.8610364532
+        },
+        "residue_l1_cap_from_previous_schedule": 0.003116359120439875,
+        "target_mod_286": 0,
+        "target_residue": 3432
+      },
+      {
+        "aggregate_character_l2_cap": 0.15547844550558174,
+        "aggregate_l2_relaxation_vs_global": 1.422395496391263,
+        "aggregate_l2_relaxation_vs_residue_l1_cap": 67.50313420004824,
+        "character_linf_cap": 0.017476403902260514,
+        "character_linf_relaxation_vs_global": 1.4223954963912628,
+        "local_uniform_main_term": 0.8590349618967111,
+        "period_residue_index": 13,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.024905839472471367,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.44468808659967557,
+          "targets": [
+            1164878,
+            1174888
+          ],
+          "tightest_raw_adverse_gate_gap": 522458.6966889196
+        },
+        "residue_l1_cap_from_previous_schedule": 0.002303277430716256,
+        "target_mod_286": 0,
+        "target_residue": 3718
+      },
+      {
+        "aggregate_character_l2_cap": 0.17565477503385865,
+        "aggregate_l2_relaxation_vs_global": 1.606978768763232,
+        "aggregate_l2_relaxation_vs_residue_l1_cap": 67.50313420004824,
+        "character_linf_cap": 0.019744304658244175,
+        "character_linf_relaxation_vs_global": 1.606978768763232,
+        "local_uniform_main_term": 0.9705113302844863,
+        "period_residue_index": 14,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.06720773777985746,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.5772649031483029,
+          "targets": [
+            1165164,
+            1175174
+          ],
+          "tightest_raw_adverse_gate_gap": 678386.7052924037
+        },
+        "residue_l1_cap_from_previous_schedule": 0.00260217213786398,
+        "target_mod_286": 0,
+        "target_residue": 4004
+      },
+      {
+        "aggregate_character_l2_cap": 0.16849181707559788,
+        "aggregate_l2_relaxation_vs_global": 1.5414484046826091,
+        "aggregate_l2_relaxation_vs_residue_l1_cap": 67.50313420004824,
+        "character_linf_cap": 0.018939159314743922,
+        "character_linf_relaxation_vs_global": 1.541448404682609,
+        "local_uniform_main_term": 0.9309352250775341,
+        "period_residue_index": 15,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.05963270623949938,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.6432240597150543,
+          "targets": [
+            1165450,
+            1175460
+          ],
+          "tightest_raw_adverse_gate_gap": 749645.48039491
+        },
+        "residue_l1_cap_from_previous_schedule": 0.002496059169286357,
+        "target_mod_286": 0,
+        "target_residue": 4290
+      },
+      {
+        "aggregate_character_l2_cap": 0.1614007113615874,
+        "aggregate_l2_relaxation_vs_global": 1.4765753812918474,
+        "aggregate_l2_relaxation_vs_residue_l1_cap": 67.50313420004822,
+        "character_linf_cap": 0.018142090453084736,
+        "character_linf_relaxation_vs_global": 1.4765753812918476,
+        "local_uniform_main_term": 0.8917561111686428,
+        "period_residue_index": 16,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.11736994278866014,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.4300984530919524,
+          "targets": [
+            1165736,
+            1175746
+          ],
+          "tightest_raw_adverse_gate_gap": 505686.53582905064
+        },
+        "residue_l1_cap_from_previous_schedule": 0.0023910106289771666,
+        "target_mod_286": 0,
+        "target_residue": 4576
+      },
+      {
+        "aggregate_character_l2_cap": 0.1859789391856149,
+        "aggregate_l2_relaxation_vs_global": 1.7014294467701396,
+        "aggregate_l2_relaxation_vs_residue_l1_cap": 67.50313420004822,
+        "character_linf_cap": 0.020904782318556605,
+        "character_linf_relaxation_vs_global": 1.7014294467701396,
+        "local_uniform_main_term": 1.0275534362167902,
+        "period_residue_index": 17,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.07919984903062546,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.5368343307109897,
+          "targets": [
+            1156012,
+            1166022
+          ],
+          "tightest_raw_adverse_gate_gap": 620586.9283138727
+        },
+        "residue_l1_cap_from_previous_schedule": 0.002755115616327664,
+        "target_mod_286": 0,
+        "target_residue": 4862
+      },
+      {
+        "aggregate_character_l2_cap": 0.1859789391856143,
+        "aggregate_l2_relaxation_vs_global": 1.701429446770134,
+        "aggregate_l2_relaxation_vs_residue_l1_cap": 67.50313420004822,
+        "character_linf_cap": 0.020904782318556536,
+        "character_linf_relaxation_vs_global": 1.7014294467701339,
+        "local_uniform_main_term": 1.0275534362167869,
+        "period_residue_index": 18,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.15135513988955193,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.46060523229678013,
+          "targets": [
+            1156298,
+            1166308
+          ],
+          "tightest_raw_adverse_gate_gap": 537207.567269593
+        },
+        "residue_l1_cap_from_previous_schedule": 0.0027551156163276554,
+        "target_mod_286": 0,
+        "target_residue": 5148
+      },
+      {
+        "aggregate_character_l2_cap": 0.16140071136158668,
+        "aggregate_l2_relaxation_vs_global": 1.476575381291841,
+        "aggregate_l2_relaxation_vs_residue_l1_cap": 67.50313420004824,
+        "character_linf_cap": 0.018142090453084653,
+        "character_linf_relaxation_vs_global": 1.4765753812918407,
+        "local_uniform_main_term": 0.8917561111686388,
+        "period_residue_index": 19,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.046226856741346425,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.46793905211168757,
+          "targets": [
+            1156584,
+            1166594
+          ],
+          "tightest_raw_adverse_gate_gap": 545894.890559182
+        },
+        "residue_l1_cap_from_previous_schedule": 0.002391010628977156,
+        "target_mod_286": 0,
+        "target_residue": 5434
+      },
+      {
+        "aggregate_character_l2_cap": 0.16849181707559785,
+        "aggregate_l2_relaxation_vs_global": 1.5414484046826087,
+        "aggregate_l2_relaxation_vs_residue_l1_cap": 67.50313420004824,
+        "character_linf_cap": 0.01893915931474392,
+        "character_linf_relaxation_vs_global": 1.5414484046826085,
+        "local_uniform_main_term": 0.9309352250775339,
+        "period_residue_index": 20,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.014178749295538695,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.6599138172520348,
+          "targets": [
+            1156870,
+            1166880
+          ],
+          "tightest_raw_adverse_gate_gap": 763434.4977643614
+        },
+        "residue_l1_cap_from_previous_schedule": 0.0024960591692863568,
+        "target_mod_286": 0,
+        "target_residue": 5720
+      },
+      {
+        "aggregate_character_l2_cap": 0.17565477503385912,
+        "aggregate_l2_relaxation_vs_global": 1.6069787687632364,
+        "aggregate_l2_relaxation_vs_residue_l1_cap": 67.50313420004824,
+        "character_linf_cap": 0.019744304658244227,
+        "character_linf_relaxation_vs_global": 1.6069787687632362,
+        "local_uniform_main_term": 0.9705113302844889,
+        "period_residue_index": 21,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.06438587637196298,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.5834894642523427,
+          "targets": [
+            1157156,
+            1167166
+          ],
+          "tightest_raw_adverse_gate_gap": 681029.0640335499
+        },
+        "residue_l1_cap_from_previous_schedule": 0.002602172137863987,
+        "target_mod_286": 0,
+        "target_residue": 6006
+      },
+      {
+        "aggregate_character_l2_cap": 0.15547844550558151,
+        "aggregate_l2_relaxation_vs_global": 1.422395496391261,
+        "aggregate_l2_relaxation_vs_residue_l1_cap": 67.50313420004822,
+        "character_linf_cap": 0.017476403902260493,
+        "character_linf_relaxation_vs_global": 1.422395496391261,
+        "local_uniform_main_term": 0.85903496189671,
+        "period_residue_index": 22,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.14315762283762526,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.3922367471994087,
+          "targets": [
+            1157442,
+            1167452
+          ],
+          "tightest_raw_adverse_gate_gap": 457917.5749914441
+        },
+        "residue_l1_cap_from_previous_schedule": 0.0023032774307162533,
+        "target_mod_286": 0,
+        "target_residue": 6292
+      },
+      {
+        "aggregate_character_l2_cap": 0.21036400792259646,
+        "aggregate_l2_relaxation_vs_global": 1.9245163951756583,
+        "aggregate_l2_relaxation_vs_residue_l1_cap": 67.50313420004822,
+        "character_linf_cap": 0.023645762324152147,
+        "character_linf_relaxation_vs_global": 1.9245163951756583,
+        "local_uniform_main_term": 1.162283536747475,
+        "period_residue_index": 23,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.19197367421871855,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.5204928208740214,
+          "targets": [
+            1157728,
+            1167738
+          ],
+          "tightest_raw_adverse_gate_gap": 602589.112524839
+        },
+        "residue_l1_cap_from_previous_schedule": 0.003116359120439865,
+        "target_mod_286": 0,
+        "target_residue": 6578
+      },
+      {
+        "aggregate_character_l2_cap": 0.17471961536193645,
+        "aggregate_l2_relaxation_vs_global": 1.5984234548647462,
+        "aggregate_l2_relaxation_vs_residue_l1_cap": 67.50313420004824,
+        "character_linf_cap": 0.01963918894213013,
+        "character_linf_relaxation_vs_global": 1.5984234548647462,
+        "local_uniform_main_term": 0.965344473550585,
+        "period_residue_index": 24,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.12219411450246964,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.45079961189423406,
+          "targets": [
+            1158014,
+            1168024
+          ],
+          "tightest_raw_adverse_gate_gap": 522032.26176808955
+        },
+        "residue_l1_cap_from_previous_schedule": 0.0025883185637595417,
+        "target_mod_286": 0,
+        "target_residue": 6864
+      },
+      {
+        "aggregate_character_l2_cap": 0.18396730894475144,
+        "aggregate_l2_relaxation_vs_global": 1.6830260353795494,
+        "aggregate_l2_relaxation_vs_residue_l1_cap": 67.50313420004824,
+        "character_linf_cap": 0.02067866697197585,
+        "character_linf_relaxation_vs_global": 1.6830260353795492,
+        "local_uniform_main_term": 1.0164389650005958,
+        "period_residue_index": 25,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.06024397394421116,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.7199136258922489,
+          "targets": [
+            1158300,
+            1168310
+          ],
+          "tightest_raw_adverse_gate_gap": 841082.2882661733
+        },
+        "residue_l1_cap_from_previous_schedule": 0.0027253150705500127,
+        "target_mod_286": 0,
+        "target_residue": 7150
+      },
+      {
+        "aggregate_character_l2_cap": 0.1802506438344825,
+        "aggregate_l2_relaxation_vs_global": 1.6490241022032155,
+        "aggregate_l2_relaxation_vs_residue_l1_cap": 67.50313420004822,
+        "character_linf_cap": 0.02026089883424278,
+        "character_linf_relaxation_vs_global": 1.6490241022032153,
+        "local_uniform_main_term": 0.9959039946321914,
+        "period_residue_index": 26,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.03235351226737984,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.5235742706780225,
+          "targets": [
+            1158586,
+            1168596
+          ],
+          "tightest_raw_adverse_gate_gap": 606605.8199677675
+        },
+        "residue_l1_cap_from_previous_schedule": 0.0026702559217517594,
+        "target_mod_286": 0,
+        "target_residue": 7436
+      },
+      {
+        "aggregate_character_l2_cap": 0.15912405868302645,
+        "aggregate_l2_relaxation_vs_global": 1.4557474105316437,
+        "aggregate_l2_relaxation_vs_residue_l1_cap": 67.50313420004822,
+        "character_linf_cap": 0.017886185516382328,
+        "character_linf_relaxation_vs_global": 1.4557474105316437,
+        "local_uniform_main_term": 0.8791773627728761,
+        "period_residue_index": 27,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.22064948972651888,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.3655535486494789,
+          "targets": [
+            1158872,
+            1168882
+          ],
+          "tightest_raw_adverse_gate_gap": 423629.7720305189
+        },
+        "residue_l1_cap_from_previous_schedule": 0.0023572840071611487,
+        "target_mod_286": 0,
+        "target_residue": 7722
+      },
+      {
+        "aggregate_character_l2_cap": 0.18632920094376973,
+        "aggregate_l2_relaxation_vs_global": 1.7046338185770318,
+        "aggregate_l2_relaxation_vs_residue_l1_cap": 67.50313420004822,
+        "character_linf_cap": 0.02094415315183915,
+        "character_linf_relaxation_vs_global": 1.7046338185770316,
+        "local_uniform_main_term": 1.0294886697155043,
+        "period_residue_index": 28,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.06944001687810132,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.6559116413552586,
+          "targets": [
+            1159158,
+            1169168
+          ],
+          "tightest_raw_adverse_gate_gap": 766870.901900045
+        },
+        "residue_l1_cap_from_previous_schedule": 0.0027603044384809706,
+        "target_mod_286": 0,
+        "target_residue": 8008
+      },
+      {
+        "aggregate_character_l2_cap": 0.23013613353037715,
+        "aggregate_l2_relaxation_vs_global": 2.105401805543232,
+        "aggregate_l2_relaxation_vs_residue_l1_cap": 67.50313420004824,
+        "character_linf_cap": 0.025868228930402068,
+        "character_linf_relaxation_vs_global": 2.105401805543232,
+        "local_uniform_main_term": 1.2715266354475268,
+        "period_residue_index": 29,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.041224171451363784,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.6904969042249955,
+          "targets": [
+            1159444,
+            1169454
+          ],
+          "tightest_raw_adverse_gate_gap": 800592.4926222457
+        },
+        "residue_l1_cap_from_previous_schedule": 0.0034092658993930495,
+        "target_mod_286": 0,
+        "target_residue": 8294
+      },
+      {
+        "aggregate_character_l2_cap": 0.19051683794609361,
+        "aggregate_l2_relaxation_vs_global": 1.7429444409482406,
+        "aggregate_l2_relaxation_vs_residue_l1_cap": 67.50313420004824,
+        "character_linf_cap": 0.021414860428405253,
+        "character_linf_relaxation_vs_global": 1.7429444409482404,
+        "local_uniform_main_term": 1.052625809921858,
+        "period_residue_index": 30,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.10897134658207613,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.6539827792510609,
+          "targets": [
+            1159730,
+            1169740
+          ],
+          "tightest_raw_adverse_gate_gap": 758443.4485808328
+        },
+        "residue_l1_cap_from_previous_schedule": 0.002822340624681061,
+        "target_mod_286": 0,
+        "target_residue": 8580
+      },
+      {
+        "aggregate_character_l2_cap": 0.17819291553136477,
+        "aggregate_l2_relaxation_vs_global": 1.630198962412077,
+        "aggregate_l2_relaxation_vs_residue_l1_cap": 67.50313420004824,
+        "character_linf_cap": 0.020029601879674837,
+        "character_linf_relaxation_vs_global": 1.6301989624120767,
+        "local_uniform_main_term": 0.9845348267149635,
+        "period_residue_index": 31,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.05274747291730541,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.49992005831067493,
+          "targets": [
+            1160016,
+            1170026
+          ],
+          "tightest_raw_adverse_gate_gap": 584919.4661450058
+        },
+        "residue_l1_cap_from_previous_schedule": 0.0026397724734274256,
+        "target_mod_286": 0,
+        "target_residue": 8866
+      },
+      {
+        "aggregate_character_l2_cap": 0.19697776570009118,
+        "aggregate_l2_relaxation_vs_global": 1.8020522774712493,
+        "aggregate_l2_relaxation_vs_residue_l1_cap": 67.50313420004824,
+        "character_linf_cap": 0.022141094747542,
+        "character_linf_relaxation_vs_global": 1.802052277471249,
+        "local_uniform_main_term": 1.0883231235200534,
+        "period_residue_index": 32,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.053782253929293804,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.5444797382209255,
+          "targets": [
+            1160302,
+            1170312
+          ],
+          "tightest_raw_adverse_gate_gap": 631760.9292172163
+        },
+        "residue_l1_cap_from_previous_schedule": 0.002918053628685443,
+        "target_mod_286": 0,
+        "target_residue": 9152
+      },
+      {
+        "aggregate_character_l2_cap": 0.21005198866570815,
+        "aggregate_l2_relaxation_vs_global": 1.9216618851222416,
+        "aggregate_l2_relaxation_vs_residue_l1_cap": 67.50313420004822,
+        "character_linf_cap": 0.02361069010214136,
+        "character_linf_relaxation_vs_global": 1.9216618851222413,
+        "local_uniform_main_term": 1.160559597139123,
+        "period_residue_index": 33,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.09605566935487937,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.5555301602037079,
+          "targets": [
+            1160588,
+            1170598
+          ],
+          "tightest_raw_adverse_gate_gap": 650302.4944741401
+        },
+        "residue_l1_cap_from_previous_schedule": 0.003111736827555454,
+        "target_mod_286": 0,
+        "target_residue": 9438
+      },
+      {
+        "aggregate_character_l2_cap": 0.12922863058340583,
+        "aggregate_l2_relaxation_vs_global": 1.1822489062642942,
+        "aggregate_l2_relaxation_vs_residue_l1_cap": 67.50313420004824,
+        "character_linf_cap": 0.014525818909930746,
+        "character_linf_relaxation_vs_global": 1.1822489062642942,
+        "local_uniform_main_term": 0.7140019401930207,
+        "period_residue_index": 34,
+        "probe_summary": {
+          "largest_raw_adverse_drag_ratio": 0.05421652008207941,
+          "probe_row_count": 2,
+          "smallest_raw_adverse_gate_gap_over_target": 0.3771973169181768,
+          "targets": [
+            1160874,
+            1170884
+          ],
+          "tightest_raw_adverse_gate_gap": 441654.30322242255
+        },
+        "residue_l1_cap_from_previous_schedule": 0.0019144093398749697,
+        "target_mod_286": 0,
+        "target_residue": 9724
+      }
+    ],
+    "target_mod_286": 0,
+    "tightest_aggregate_l2_row": {
+      "aggregate_character_l2_cap": 0.12922863058340583,
+      "aggregate_l2_relaxation_vs_global": 1.1822489062642942,
+      "aggregate_l2_relaxation_vs_residue_l1_cap": 67.50313420004824,
+      "character_linf_cap": 0.014525818909930746,
+      "character_linf_relaxation_vs_global": 1.1822489062642942,
+      "local_uniform_main_term": 0.7140019401930207,
+      "period_residue_index": 34,
+      "probe_summary": {
+        "largest_raw_adverse_drag_ratio": 0.05421652008207941,
+        "probe_row_count": 2,
+        "smallest_raw_adverse_gate_gap_over_target": 0.3771973169181768,
+        "targets": [
+          1160874,
+          1170884
+        ],
+        "tightest_raw_adverse_gate_gap": 441654.30322242255
+      },
+      "residue_l1_cap_from_previous_schedule": 0.0019144093398749697,
+      "target_mod_286": 0,
+      "target_residue": 9724
+    },
+    "tightest_character_linf_row": {
+      "aggregate_character_l2_cap": 0.12922863058340583,
+      "aggregate_l2_relaxation_vs_global": 1.1822489062642942,
+      "aggregate_l2_relaxation_vs_residue_l1_cap": 67.50313420004824,
+      "character_linf_cap": 0.014525818909930746,
+      "character_linf_relaxation_vs_global": 1.1822489062642942,
+      "local_uniform_main_term": 0.7140019401930207,
+      "period_residue_index": 34,
+      "probe_summary": {
+        "largest_raw_adverse_drag_ratio": 0.05421652008207941,
+        "probe_row_count": 2,
+        "smallest_raw_adverse_gate_gap_over_target": 0.3771973169181768,
+        "targets": [
+          1160874,
+          1170884
+        ],
+        "tightest_raw_adverse_gate_gap": 441654.30322242255
+      },
+      "residue_l1_cap_from_previous_schedule": 0.0019144093398749697,
+      "target_mod_286": 0,
+      "target_residue": 9724
+    }
+  },
+  "zero_residue_raw_adverse_drag_theorem_proved": false
+}

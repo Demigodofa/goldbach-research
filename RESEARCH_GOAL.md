@@ -6,6 +6,36 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The q286-WBSS route now has an active-character theorem-payment schedule for
+the unique `K_286` no-reflection-discount lane:
+`tools/build_q286_wbss_k286_zero_residue_character_budget_schedule.py`
+generated
+`evidence/q286-wbss-k286-zero-residue-character-budget-schedule.json`, with
+explanation in
+`notes/q286-wbss-k286-zero-residue-character-budget-schedule.md`.
+
+Question: after crude residue-`L1` failed to explain the `K_286` zero lane,
+what active character-moment payments would be sufficient on `N == 0 mod 286`?
+
+Answer: the zero lane is not worse than the global all-residue active-character
+payment either.  The active package has `122` complex characters, `64` real
+channels, total character `L1` `49.153988812629684`, and aggregate character
+`L2` `5.525106448699807`.  The global aggregate `L2` cap is
+`0.10930746469603118`, while the zero-lane aggregate `L2` caps range from
+`0.12922863058340583` to `0.2301361335303773`.  The tightest zero-lane residue
+is again `9724 mod 10010`, with a `1.1822489062642942` relaxation factor
+against the global cap.
+
+Decision: `TARGET_zero_residue_character_moment_budget_schedule_unproved`.
+The live obstruction is not coefficient-norm size alone.  The proof pressure
+now belongs on a pointwise raw signed/character binary-prime estimate, or a
+direct raw witness theorem, not more coefficient-size accounting.  No
+zero-residue raw adverse-drag theorem, aggregate character-moment theorem,
+universal pointwise raw estimate, binary-prime moment theorem, q286 threshold
+theorem, strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-16
+
 The q286-WBSS route now has an exact raw theorem-payment schedule for the
 unique `K_286` no-reflection-discount lane:
 `tools/build_q286_wbss_k286_zero_residue_raw_budget_schedule.py` generated
