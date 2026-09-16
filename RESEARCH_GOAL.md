@@ -6,6 +6,38 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The `Q=46189` replacement-family lane now has a scalar-collapse audit:
+`tools/build_mobius_moment_square_degree5_q46189_scalar_collapse_audit.py`
+generated
+`evidence/mobius-moment-square-degree5-q46189-scalar-collapse-audit.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-q46189-scalar-collapse-audit.md`.
+
+Question: is the negative-real scalar alignment for `Q=46189` and its
+replacement family already cellwise after reduced-residue aggregation, so the
+cross-ratio problem reduces to one coordinate?
+
+Answer: yes for this finite family.  For `Q=46189` and all ten replacement
+denominators, coordinate `12` is a constant negative-real multiple of
+coordinate `00` in every reduced-residue cell to numerical tolerance.  The
+`Q=46189` scalar is `-0.07475328212536139`, with ratio-minus-half
+`-0.0026909627652297874`.  Across the replacement rows, the maximum cellwise
+scalar deviation is `3.7533634042488167e-13`, and the maximum error between
+the cross active/full ratio and the one-coordinate `00` active/full ratio is
+`8.881784197001252e-16`.  All replacement rows collapse cellwise and remain
+above one half.
+
+Decision: the replacement-family phase-ratio checkpoint tightens to a
+cellwise scalar-collapse checkpoint.  The next theorem-shaped object is an
+exact divisor-pair scalar identity plus a one-coordinate active/full ratio
+inequality.  This remains finite diagnostic evidence only.  It proves no
+exact scalar identity theorem, symbolic replacement ratio theorem,
+replacement-family payment theorem, phase-defect payment theorem, near-adverse
+upper bound, middle/far lower bound, clearance-family theorem, source-start
+theorem, strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The `Q=46189` replacement-family lane now has a phase-profile audit:
 `tools/build_mobius_moment_square_degree5_q46189_replacement_phase_profile_audit.py`
 generated

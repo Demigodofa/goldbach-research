@@ -6,6 +6,39 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The `Q=46189` replacement-family lane now has a scalar-collapse audit:
+
+```text
+tools/build_mobius_moment_square_degree5_q46189_scalar_collapse_audit.py
+notes/mobius-moment-square-degree5-q46189-scalar-collapse-audit.md
+evidence/mobius-moment-square-degree5-q46189-scalar-collapse-audit.json
+```
+
+Result:
+
+```text
+Q=46189 scalar:                    -0.07475328212536139
+Q=46189 ratio minus half:          -0.0026909627652297874
+replacement rows:                  10
+max cellwise scalar deviation:     3.7533634042488167e-13
+max ratio-reduction abs error:     8.881784197001252e-16
+all replacement rows collapse:     true
+all replacement rows above half:   true
+```
+
+Decision: the replacement-family phase-ratio checkpoint tightens to a
+cellwise scalar-collapse checkpoint.  For this finite family, coordinate `12`
+is a constant negative-real multiple of coordinate `00` in every
+reduced-residue cell, and the cross-ratio sign reduces to the one-coordinate
+active/full energy ratio.  The next useful route is an exact divisor-pair
+scalar identity plus a one-coordinate active/full ratio inequality.  This
+proves no exact scalar identity theorem, symbolic replacement ratio theorem,
+replacement-family payment theorem, phase-defect payment theorem,
+near-adverse upper bound, middle/far lower bound, clearance-family theorem,
+source-start theorem, strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The `Q=46189` replacement-family lane now has a phase-profile audit:
 
 ```text
