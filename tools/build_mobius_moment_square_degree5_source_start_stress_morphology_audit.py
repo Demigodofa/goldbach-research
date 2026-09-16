@@ -1,10 +1,9 @@
 """Summarize stress morphology across complete source-start sweeps.
 
-The full M=331 sweep survived but moved the weakest row from the sentinel
-prime p=461 to p=599.  This derived audit reads the complete fresh-scale
-source-start sweeps and asks what should guide the next finite or theorem
-target: fixed attention primes, endpoint position, component labels, or
-prime-level stress blocks.
+The full M=353 sweep survived the prospective prime-block morphology test.
+This derived audit reads the complete fresh-scale source-start sweeps and asks
+what should guide the next finite or theorem target: fixed attention primes,
+endpoint position, component labels, or prime-level stress blocks.
 """
 
 from __future__ import annotations
@@ -20,7 +19,7 @@ EVIDENCE = ROOT / "evidence"
 OUT = (
     EVIDENCE
     / "mobius-moment-square-degree5-source-start-stress-morphology-audit.json")
-SCALES = (229, 251, 293, 331)
+SCALES = (229, 251, 293, 331, 353)
 TOP_ROW_COUNT = 12
 TOP_BLOCK_COUNT = 4
 
@@ -161,7 +160,7 @@ def build_receipt():
         "status": "AUDIT_degree5_source_start_stress_morphology",
         "question": (
             "Across the complete fresh-scale source-start sweeps M=229, 251, "
-            "293, and 331, what finite stress morphology should guide the "
+            "293, 331, and 353, what finite stress morphology should guide the "
             "next theorem target or falsifier?"),
         "scales": list(SCALES),
         "scale_count": len(SCALES),
@@ -191,7 +190,7 @@ def build_receipt():
                 "block, then treat component labels as a secondary spread "
                 "inside each block."),
             "prediction": (
-                "A future M=353 or larger full sweep should either produce a "
+                "A future M=379 or larger full sweep should either produce a "
                 "new coherent prime block of weak rows, or expose the first "
                 "split-block falsifier of this morphology."),
             "falsifier": (
@@ -202,11 +201,13 @@ def build_receipt():
         },
         "decision": (
             "The completed sweeps support prime-block stress tracking, not a "
-            "single fixed-prime predictor.  All four weakest rows use label "
-            "(00,12), but the weakest prime moves from 379 to 461 to 599, "
-            "and each scale's tightest rows bunch by prime block.  Future "
-            "finite work should track coherent prime blocks and use fixed "
-            "attention primes only as secondary diagnostics."),
+            "single fixed-prime predictor.  All five weakest rows use label "
+            "(00,12), but the weakest prime moves from 379 to 461 to 599.  "
+            "The prime p=599 now persists across M=331 and M=353, but this is "
+            "still a current diagnostic rather than a rule.  Each scale's "
+            "tightest rows bunch by prime block.  Future finite work should "
+            "track coherent prime blocks and use fixed attention primes only "
+            "as secondary diagnostics."),
         "finite_morphology_audit_only": True,
         "finite_diagnostic_only": True,
         "goldbach_proved": False,

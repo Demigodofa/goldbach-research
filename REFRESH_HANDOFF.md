@@ -6,6 +6,42 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The source-start stress-morphology audit is now consolidated through the full
+`M=353` sweep:
+
+```text
+tools/build_mobius_moment_square_degree5_source_start_stress_morphology_audit.py
+notes/mobius-moment-square-degree5-source-start-stress-morphology-audit.md
+evidence/mobius-moment-square-degree5-source-start-stress-morphology-audit.json
+```
+
+Result:
+
+```text
+status:                         AUDIT_degree5_source_start_stress_morphology
+scales:                         229, 251, 293, 331, 353
+all complete sweeps pass:       true
+prime rows by scale:            39, 42, 45, 55, 56
+weakest primes:                 379, 379, 461, 599, 599
+weakest label counts:           (00,12) -> 5
+single fixed-prime rule:        false
+tightest rows form prime block: true
+p=599 current diagnostic:       M=331 and M=353
+candidate next target:          source-start prime-block lower-frame control
+```
+
+Decision: the first prospective `M=353` morphology test did not produce a
+split-block falsifier.  Prime-block stress tracking remains the live finite
+theorem-shaped target.  Fixed-prime tracking remains downgraded as a rule:
+`p=599` is now a durable current diagnostic across `M=331` and `M=353`, not a
+universal predictor.  The next finite falsifier is a future full sweep, likely
+`M=379` or larger, whose tightest rows split across unrelated primes or isolate
+one component far below its prime companions.  This is finite evidence only,
+not a prime-block theorem, not a source-start theorem, not a source-window
+theorem, not a strict-central Goldbach theorem, and not a Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The source-start lane now has a prospective full `M=353` prime-row sweep:
 
 ```text

@@ -7,17 +7,17 @@
     "mechanism": "Bound the source-start active/full ratio first by prime block, then treat component labels as a secondary spread inside each block.",
     "name": "source-start prime-block lower-frame control",
     "novelty_label": "new-to-this-task",
-    "prediction": "A future M=353 or larger full sweep should either produce a new coherent prime block of weak rows, or expose the first split-block falsifier of this morphology."
+    "prediction": "A future M=379 or larger full sweep should either produce a new coherent prime block of weak rows, or expose the first split-block falsifier of this morphology."
   },
-  "decision": "The completed sweeps support prime-block stress tracking, not a single fixed-prime predictor.  All four weakest rows use label (00,12), but the weakest prime moves from 379 to 461 to 599, and each scale's tightest rows bunch by prime block.  Future finite work should track coherent prime blocks and use fixed attention primes only as secondary diagnostics.",
+  "decision": "The completed sweeps support prime-block stress tracking, not a single fixed-prime predictor.  All five weakest rows use label (00,12), but the weakest prime moves from 379 to 461 to 599.  The prime p=599 now persists across M=331 and M=353, but this is still a current diagnostic rather than a rule.  Each scale's tightest rows bunch by prime block.  Future finite work should track coherent prime blocks and use fixed attention primes only as secondary diagnostics.",
   "finite_diagnostic_only": true,
   "finite_morphology_audit_only": true,
   "goldbach_proved": false,
   "prime_block_morphology_falsifier": "A future complete scale whose tightest rows are split across unrelated primes, or whose weakest row is not in a coherent four-row prime block, falsifies the row-coherent stress-block candidate.",
   "prime_block_morphology_prediction": "The next complete source-start sweep should be tracked first at the prime-block level: when one prime is tight, all three components and TOTAL should bunch near the same slack before component labels become decisive.",
   "prime_block_theorem_proved": false,
-  "question": "Across the complete fresh-scale source-start sweeps M=229, 251, 293, and 331, what finite stress morphology should guide the next theorem target or falsifier?",
-  "scale_count": 4,
+  "question": "Across the complete fresh-scale source-start sweeps M=229, 251, 293, 331, and 353, what finite stress morphology should guide the next theorem target or falsifier?",
+  "scale_count": 5,
   "scale_summaries": [
     {
       "all_rows_dominate_one_half_signed_full": true,
@@ -830,28 +830,232 @@
         "scale_modulus": 331
       },
       "weakest_tail_fraction": 0.1903323262839879
+    },
+    {
+      "all_rows_dominate_one_half_signed_full": true,
+      "dominance_row_count": 224,
+      "minimum_slack": 0.41096324474219414,
+      "prime_interval": [
+        353,
+        706
+      ],
+      "prime_row_count": 56,
+      "scale_modulus": 353,
+      "source_receipt": "evidence\\mobius-moment-square-degree5-source-start-m353-full-prime-sweep.json",
+      "source_status": "SWEEP_degree5_source_start_m353_full_prime_rows",
+      "tightest_prime_block_is_row_coherent": true,
+      "tightest_prime_blocks": [
+        {
+          "labels_by_slack": [
+            "00,12",
+            "TOTAL",
+            "01,11",
+            "01,02"
+          ],
+          "maximum_slack": 0.41175603364354507,
+          "minimum_ratio": 0.9109632447421941,
+          "minimum_slack": 0.41096324474219414,
+          "prime_modulus": 599,
+          "prime_over_scale": 1.6968838526912182,
+          "scale_modulus": 353,
+          "slack_spread": 0.0007927889013509271,
+          "tail_fraction": 0.3031161473087819,
+          "weakest_label": "00,12"
+        },
+        {
+          "labels_by_slack": [
+            "00,12",
+            "TOTAL",
+            "01,11",
+            "01,02"
+          ],
+          "maximum_slack": 0.4239976647636833,
+          "minimum_ratio": 0.9234485700353188,
+          "minimum_slack": 0.42344857003531877,
+          "prime_modulus": 691,
+          "prime_over_scale": 1.9575070821529745,
+          "scale_modulus": 353,
+          "slack_spread": 0.0005490947283645076,
+          "tail_fraction": 0.042492917847025496,
+          "weakest_label": "00,12"
+        },
+        {
+          "labels_by_slack": [
+            "00,12",
+            "TOTAL",
+            "01,02",
+            "01,11"
+          ],
+          "maximum_slack": 0.42917891977614964,
+          "minimum_ratio": 0.92860074504794,
+          "minimum_slack": 0.42860074504794,
+          "prime_modulus": 647,
+          "prime_over_scale": 1.8328611898016998,
+          "scale_modulus": 353,
+          "slack_spread": 0.0005781747282096461,
+          "tail_fraction": 0.1671388101983003,
+          "weakest_label": "00,12"
+        },
+        {
+          "labels_by_slack": [
+            "00,12",
+            "TOTAL",
+            "01,11",
+            "01,02"
+          ],
+          "maximum_slack": 0.4428268291842118,
+          "minimum_ratio": 0.94223687010496,
+          "minimum_slack": 0.44223687010496004,
+          "prime_modulus": 601,
+          "prime_over_scale": 1.7025495750708215,
+          "scale_modulus": 353,
+          "slack_spread": 0.0005899590792517451,
+          "tail_fraction": 0.29745042492917845,
+          "weakest_label": "00,12"
+        }
+      ],
+      "top_row_prime_counts": {
+        "599": 4,
+        "647": 4,
+        "691": 4
+      },
+      "top_rows": [
+        {
+          "active_over_full_ratio": 0.9109632447421941,
+          "dominance_slack_above_one_half": 0.41096324474219414,
+          "label": "00,12",
+          "prime_modulus": 599,
+          "prime_over_scale": 1.6968838526912182,
+          "tail_fraction": 0.3031161473087819
+        },
+        {
+          "active_over_full_ratio": 0.9115266202346475,
+          "dominance_slack_above_one_half": 0.4115266202346475,
+          "label": "TOTAL",
+          "prime_modulus": 599,
+          "prime_over_scale": 1.6968838526912182,
+          "tail_fraction": 0.3031161473087819
+        },
+        {
+          "active_over_full_ratio": 0.9115512901928433,
+          "dominance_slack_above_one_half": 0.4115512901928433,
+          "label": "01,11",
+          "prime_modulus": 599,
+          "prime_over_scale": 1.6968838526912182,
+          "tail_fraction": 0.3031161473087819
+        },
+        {
+          "active_over_full_ratio": 0.9117560336435451,
+          "dominance_slack_above_one_half": 0.41175603364354507,
+          "label": "01,02",
+          "prime_modulus": 599,
+          "prime_over_scale": 1.6968838526912182,
+          "tail_fraction": 0.3031161473087819
+        },
+        {
+          "active_over_full_ratio": 0.9234485700353188,
+          "dominance_slack_above_one_half": 0.42344857003531877,
+          "label": "00,12",
+          "prime_modulus": 691,
+          "prime_over_scale": 1.9575070821529745,
+          "tail_fraction": 0.042492917847025496
+        },
+        {
+          "active_over_full_ratio": 0.9238797608765317,
+          "dominance_slack_above_one_half": 0.4238797608765317,
+          "label": "TOTAL",
+          "prime_modulus": 691,
+          "prime_over_scale": 1.9575070821529745,
+          "tail_fraction": 0.042492917847025496
+        },
+        {
+          "active_over_full_ratio": 0.9239275942054721,
+          "dominance_slack_above_one_half": 0.4239275942054721,
+          "label": "01,11",
+          "prime_modulus": 691,
+          "prime_over_scale": 1.9575070821529745,
+          "tail_fraction": 0.042492917847025496
+        },
+        {
+          "active_over_full_ratio": 0.9239976647636833,
+          "dominance_slack_above_one_half": 0.4239976647636833,
+          "label": "01,02",
+          "prime_modulus": 691,
+          "prime_over_scale": 1.9575070821529745,
+          "tail_fraction": 0.042492917847025496
+        },
+        {
+          "active_over_full_ratio": 0.92860074504794,
+          "dominance_slack_above_one_half": 0.42860074504794,
+          "label": "00,12",
+          "prime_modulus": 647,
+          "prime_over_scale": 1.8328611898016998,
+          "tail_fraction": 0.1671388101983003
+        },
+        {
+          "active_over_full_ratio": 0.9290794818442959,
+          "dominance_slack_above_one_half": 0.4290794818442959,
+          "label": "TOTAL",
+          "prime_modulus": 647,
+          "prime_over_scale": 1.8328611898016998,
+          "tail_fraction": 0.1671388101983003
+        },
+        {
+          "active_over_full_ratio": 0.9291180716159053,
+          "dominance_slack_above_one_half": 0.4291180716159053,
+          "label": "01,02",
+          "prime_modulus": 647,
+          "prime_over_scale": 1.8328611898016998,
+          "tail_fraction": 0.1671388101983003
+        },
+        {
+          "active_over_full_ratio": 0.9291789197761496,
+          "dominance_slack_above_one_half": 0.42917891977614964,
+          "label": "01,11",
+          "prime_modulus": 647,
+          "prime_over_scale": 1.8328611898016998,
+          "tail_fraction": 0.1671388101983003
+        }
+      ],
+      "weakest_prime_modulus": 599,
+      "weakest_prime_over_scale": 1.6968838526912182,
+      "weakest_row": {
+        "active_contribution": -562690219396064.9,
+        "active_contribution_negative": true,
+        "active_over_full_ratio": 0.9109632447421941,
+        "dominance_slack_above_one_half": 0.41096324474219414,
+        "dominates_one_half_signed_full": true,
+        "full_contribution": -617687072056686.8,
+        "full_contribution_negative": true,
+        "half_frame_contribution": -253846683367721.5,
+        "label": "00,12",
+        "prime_modulus": 599,
+        "scale_modulus": 353
+      },
+      "weakest_tail_fraction": 0.3031161473087819
     }
   ],
   "scales": [
     229,
     251,
     293,
-    331
+    331,
+    353
   ],
   "schema_version": 1,
   "single_fixed_weakest_prime_rule_survives": false,
-  "source_commit": "a6c425114c35ad65199d02a70a0de418efd4e02f",
+  "source_commit": "ba5c52dfc25f4f96713873fe76386af6853cf608",
   "source_start_theorem_proved": false,
   "source_window_theorem_proved": false,
   "status": "AUDIT_degree5_source_start_stress_morphology",
   "strict_central_goldbach_theorem_proved": false,
   "weakest_label_counts": {
-    "00,12": 4
+    "00,12": 5
   },
   "weakest_prime_counts": {
     "379": 2,
     "461": 1,
-    "599": 1
+    "599": 2
   },
   "weakest_sequence": [
     {
@@ -885,6 +1089,14 @@
       "weakest_prime_modulus": 599,
       "weakest_prime_over_scale": 1.809667673716012,
       "weakest_tail_fraction": 0.1903323262839879
+    },
+    {
+      "minimum_slack": 0.41096324474219414,
+      "scale_modulus": 353,
+      "weakest_label": "00,12",
+      "weakest_prime_modulus": 599,
+      "weakest_prime_over_scale": 1.6968838526912182,
+      "weakest_tail_fraction": 0.3031161473087819
     }
   ]
 }
