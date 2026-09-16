@@ -6,6 +6,65 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 residual support-order route now has a raw adverse-ratio theorem
+target classifier:
+`tools/build_q286_residual_support_order_raw_adverse_ratio_target.py`
+generated
+`evidence/q286-residual-support-order-raw-adverse-ratio-target.json`, with
+explanation in
+`notes/q286-residual-support-order-raw-adverse-ratio-target.md`.
+
+Question: can the finite statistic
+
+```text
+D_high_minus_raw(N) / B_low_raw(N)
+```
+
+become a cleaner theorem target?
+
+Answer: yes, but only with the missing positive low-order theorem made
+explicit.  A sufficient shape is
+
+```text
+B_low_raw(N) > 0
+rho_raw(N)=D_high_minus_raw(N)/B_low_raw(N) <= rho_* < 1.
+```
+
+Then `R_raw(N)=B_low_raw(N)*(1-rho_raw(N))>0`.  But if
+strict-central support is empty, all raw prime-pair sums in this witness
+vanish and `B_low_raw(N)=0`, so the ratio is undefined.  A theorem proving
+`B_low_raw(N)>0` is support/existence-strength for this witness family, not a
+minor side condition.
+
+Finite calibration:
+
+```text
+checked rows:                         224
+positive low-order rows:              224
+nonpositive low-order targets:          0
+zero adverse-drag rows:               124
+nonzero adverse-drag rows:            100
+ratio < 1 rows:                       224
+ratio >= 1 targets:                     0
+largest adverse-ratio target:      164926
+largest adverse / low: 0.13266261119465184
+ratio slack to 1:      0.8673373888053482
+smallest low-order target:          24148
+smallest raw low:       494408133.6057817
+tightest raw-margin target:         44168
+```
+
+Decision: `TARGET_raw_adverse_ratio_plus_positive_low_order`.  The
+adverse-ratio route is a valid sufficient theorem shape, but it does not avoid
+the support problem by itself.  The clean route remains one direct raw
+lower-bound theorem unless an independent raw positive low-order theorem and
+a same-scale adverse-ratio theorem can both be stated without dividing by
+unproved mass.  This proves no raw adverse-ratio theorem, positive low-order
+theorem, raw lower-bound theorem, q286 threshold theorem, strict-central
+Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 residual support-order route now has a raw-bound phase-space stress
 locator:
 `tools/build_q286_residual_support_order_raw_bound_phase_space.py`

@@ -1,0 +1,101 @@
+{
+  "decision": "The adverse-ratio statistic is a useful theorem target, not a proof.  On the checked horizon the worst ratio is about 0.132663 at target 164926, far below 1, but a universal ratio bound only proves positivity when paired with B_low_raw(N)>0.  Since zero strict-central support makes B_low_raw vanish, the positive low-order condition is support-strength, not a cheap side condition.  The clean route therefore remains a direct raw lower-bound theorem unless an independent raw low-order lower bound is proved.",
+  "finite_calibration": {
+    "adverse_ratio_summary": {
+      "count": 224,
+      "maximum": 0.13266261119465184,
+      "mean": 0.007892233718366701,
+      "minimum": 0.0
+    },
+    "finite_evidence_is_acceptance_condition": false,
+    "largest_adverse_ratio_row": {
+      "adverse_drag_ratio_to_low_order": 0.13266261119465184,
+      "lift_index": 7,
+      "ordered_central_prime_pair_count": 585,
+      "ratio_slack_to_one": 0.8673373888053482,
+      "raw_adverse_drag": 229106462.88132626,
+      "raw_high_order_tail": -229106462.88132626,
+      "raw_low_order_base": 1726985929.3298945,
+      "raw_pointwise_margin": 1497879466.4485683,
+      "strict_central_total_weight": 74677.24794731945,
+      "target": 164926,
+      "target_mod_286": 190,
+      "target_mod_period": 4766
+    },
+    "nonpositive_low_order_targets": [],
+    "nonzero_adverse_drag_rows": 100,
+    "positive_low_order_rows": 224,
+    "ratio_less_than_one_rows": 224,
+    "ratio_not_less_than_one_targets": [],
+    "ratio_slack_to_one_summary": {
+      "count": 224,
+      "maximum": 1.0,
+      "mean": 0.9921077662816333,
+      "minimum": 0.8673373888053482
+    },
+    "row_count": 224,
+    "smallest_low_order_row": {
+      "adverse_drag_ratio_to_low_order": 0.0,
+      "lift_index": 1,
+      "ordered_central_prime_pair_count": 106,
+      "ratio_slack_to_one": 1.0,
+      "raw_adverse_drag": 0.0,
+      "raw_high_order_tail": 21011724.9799906,
+      "raw_low_order_base": 494408133.6057817,
+      "raw_pointwise_margin": 494408133.6057817,
+      "strict_central_total_weight": 9320.216763448925,
+      "target": 24148,
+      "target_mod_286": 124,
+      "target_mod_period": 4128
+    },
+    "tightest_raw_margin_row": {
+      "adverse_drag_ratio_to_low_order": 0.08428233439547496,
+      "lift_index": 3,
+      "ordered_central_prime_pair_count": 196,
+      "ratio_slack_to_one": 0.915717665604525,
+      "raw_adverse_drag": 43380500.493129835,
+      "raw_high_order_tail": -43380500.493129835,
+      "raw_low_order_base": 514704544.0101015,
+      "raw_pointwise_margin": 471324043.51697165,
+      "strict_central_total_weight": 19519.254019047192,
+      "target": 44168,
+      "target_mod_286": 124,
+      "target_mod_period": 4128
+    },
+    "zero_adverse_drag_rows": 124
+  },
+  "goldbach_proved": false,
+  "positive_low_order_theorem_proved": false,
+  "positive_mass_theorem_proved": false,
+  "q286_threshold_theorem_proved": false,
+  "raw_adverse_ratio_theorem_proved": false,
+  "raw_lower_bound_theorem_proved": false,
+  "route_decision": {
+    "positive_low_order_is_not_a_minor_side_condition": true,
+    "ratio_route_is_valid_sufficient_shape": true,
+    "ratio_route_requires_positive_low_order": true,
+    "recommended_next": "Try to prove a raw positive low-order lower bound and a same-scale adverse-ratio upper bound only if both can be stated without dividing by an unproved mass.  Otherwise keep the single raw lower-bound target as the cleaner theorem.",
+    "single_raw_lower_bound_remains_cleaner": true
+  },
+  "schema_version": 1,
+  "source_commit": "3eb29978e50d8e043bf4799f6a921f9ece325a61",
+  "sources": {
+    "raw_bound_phase_space": "evidence\\q286-residual-support-order-raw-bound-phase-space.json",
+    "single_raw_bound_target": "evidence\\q286-residual-support-order-single-raw-bound-target.json"
+  },
+  "status": "TARGET_raw_adverse_ratio_plus_positive_low_order",
+  "status_boundary": "logical theorem-target and finite calibration only; no raw adverse-ratio theorem, positive low-order theorem, raw lower-bound theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof",
+  "theorem_target": {
+    "conclusion": "R_raw(N)=B_low_raw(N)*(1-rho_raw(N))>0, hence the raw support-order witness is positive.",
+    "eligible_domain": "every sufficiently large eligible N in the named q286 support-order period classes, with any finite initial range verified separately",
+    "ratio": "rho_raw(N)=D_high_minus_raw(N)/B_low_raw(N)",
+    "raw_adverse_drag": "D_high_minus_raw(N)=max(0,-T_high_raw(N))",
+    "raw_low_order_base": "B_low_raw(N)",
+    "safe_use": "Use the ratio target only together with an independent raw positive low-order lower bound, or fold both into one direct raw witness lower-bound theorem.",
+    "sufficient_conditions": [
+      "B_low_raw(N)>0",
+      "rho_raw(N)<=rho_*<1 for every sufficiently large eligible N"
+    ],
+    "zero_support_boundary": "If strict-central support is empty, all raw prime-pair sums in this witness vanish.  Then B_low_raw(N)=0 and the ratio is undefined rather than a shortcut.  A theorem proving B_low_raw(N)>0 is already support/existence-strength for this witness family."
+  }
+}

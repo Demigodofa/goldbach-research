@@ -6,6 +6,60 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 residual support-order route now has a raw adverse-ratio theorem
+target classifier:
+
+```text
+tools/build_q286_residual_support_order_raw_adverse_ratio_target.py
+notes/q286-residual-support-order-raw-adverse-ratio-target.md
+evidence/q286-residual-support-order-raw-adverse-ratio-target.json
+```
+
+The sufficient theorem shape is:
+
+```text
+B_low_raw(N) > 0
+rho_raw(N)=D_high_minus_raw(N)/B_low_raw(N) <= rho_* < 1
+```
+
+for every sufficiently large eligible `N` in the named q286 support-order
+period classes.  Then
+
+```text
+R_raw(N)=B_low_raw(N)*(1-rho_raw(N)) > 0.
+```
+
+Result:
+
+```text
+checked rows:                         224
+positive low-order rows:              224
+nonpositive low-order targets:          0
+zero adverse-drag rows:               124
+nonzero adverse-drag rows:            100
+ratio < 1 rows:                       224
+ratio >= 1 targets:                     0
+largest adverse-ratio target:      164926
+largest adverse / low: 0.13266261119465184
+ratio slack to 1:      0.8673373888053482
+smallest low-order target:          24148
+smallest raw low:       494408133.6057817
+tightest raw-margin target:         44168
+```
+
+Decision: `TARGET_raw_adverse_ratio_plus_positive_low_order`.  The ratio
+route is valid only together with `B_low_raw(N)>0`.  If strict-central support
+is empty, all raw prime-pair sums in this witness vanish, so `B_low_raw(N)=0`
+and the ratio is undefined.  Positive low-order is therefore
+support/existence-strength for this witness family, not a cheap side
+condition.  The clean route remains a direct raw lower-bound theorem unless a
+separate raw positive low-order theorem and same-scale adverse-ratio theorem
+can both be proved.  No raw adverse-ratio theorem, positive low-order theorem,
+raw lower-bound theorem, q286 threshold theorem, strict-central Goldbach
+theorem, or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 residual support-order route now has a raw-bound phase-space stress
 locator:
 
