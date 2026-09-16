@@ -6,6 +6,36 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The metric-soft moment-square route now has a robust Sturm sign-obligation
+audit: `tools/build_mobius_moment_square_sturm_obligation_audit.py` generated
+`evidence/mobius-moment-square-sturm-obligation-audit.json`, with explanation
+in `notes/mobius-moment-square-sturm-obligation-audit.md`.
+
+Question: at robust margin `21/50`, what exact nonzero leading-coefficient
+sign obligations must a universal Sturm proof preserve?
+
+Answer: across the six checked scales and both serialized coefficient
+families, there are `108` checked leading-coefficient obligations in the
+canonical Sturm sequences for `P(t)-21/50`.  None is zero.  Source and
+provenance sign words match scale-by-scale, both variation certificates pass,
+and the checked data still occupy `4` distinct sign-word chambers.  The
+weakest checked nondegeneracy is the final degree-`0` Sturm constant at
+`M=167` in the coefficient-provenance serialization, with absolute value about
+`8.004e-19`.
+
+Decision: `EXTRACT_robust_sturm_sign_obligations`.  The live theorem target
+is a parametric Sturm-sign/nonzero-leading-coefficient theorem at margin
+`21/50`, or a weaker direct proof that the two infinity variation counts stay
+equal for every sufficiently large admissible scale.  This is finite
+serialized Sturm-obligation evidence only.  No Sturm-obligation theorem,
+robust Sturm chamber theorem, robust-margin universal theorem,
+coefficient-family theorem, universal Sturm-certificate theorem, half-frame
+curve-positivity theorem, uniform active/full lower-frame theorem, Mobius
+covariance theorem, signed prime-correlation estimate, q286 theorem,
+strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-16
+
 The metric-soft moment-square route now has a serialized Sturm margin-window
 audit: `tools/build_mobius_moment_square_sturm_margin_window_audit.py`
 generated

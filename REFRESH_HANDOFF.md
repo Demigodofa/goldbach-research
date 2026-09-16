@@ -6,6 +6,46 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The metric-soft moment-square route now has a robust Sturm sign-obligation
+audit:
+
+```text
+tools/build_mobius_moment_square_sturm_obligation_audit.py
+notes/mobius-moment-square-sturm-obligation-audit.md
+evidence/mobius-moment-square-sturm-obligation-audit.json
+```
+
+Result:
+
+```text
+status: EXTRACT_robust_sturm_sign_obligations
+robust margin:                            21/50
+checked leading-coefficient obligations:  108
+zero leading-coefficient obligations:     0
+source/provenance sign words match:       true
+source variation certificates pass:       true
+provenance variation certificates pass:   true
+distinct checked sign-word pairs:         4
+weakest obligation:                       M=167, provenance, sequence 8
+weakest obligation degree/sign:           0 / +
+weakest obligation absolute value:        about 8.004e-19
+```
+
+Decision: the robust finite certificate is not sitting on a zero
+leading-coefficient degeneracy, but the proof burden is now more explicit and
+delicate.  A universal route must derive exact coefficient formulas and prove
+that the canonical Sturm sequence for `P_M(t)-21/50` preserves the required
+nonzero leading-coefficient signs, or at least preserves equal variation
+counts at the two infinities, for every sufficiently large admissible scale.
+This is finite serialized Sturm-obligation evidence only; no
+Sturm-obligation theorem, robust Sturm chamber theorem, robust-margin universal
+theorem, coefficient-family theorem, universal Sturm-certificate theorem,
+half-frame curve-positivity theorem, uniform active/full lower frame, Mobius
+covariance theorem, signed prime-correlation estimate, q286 theorem,
+strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-16
+
 The metric-soft moment-square route now has a serialized Sturm margin-window
 audit:
 
