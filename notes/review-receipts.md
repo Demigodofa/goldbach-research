@@ -45,6 +45,9 @@ and zero tool calls. The existing negative-covariance test explicitly places
 both endpoints in one residue-prefix; the proof uses
 `Var(sigma*(uI-vJ))=(uI-vJ)^2=u^2I+v^2J-2uvIJ` for a uniform random sign.
 The helper added no accepted mathematical result or verification savings.
+Kevin then instructed Rill to skip Qwen and use a spawned agent instead.
+Future research reviews follow that instruction when a separate check adds
+value; the existing Sol review already covers this checkpoint.
 
 Global consistency is achieved, but exact `Lambda` values, the frozen Mobius
 identity, actual long coefficients/periodic-envelope theorem and lower-order

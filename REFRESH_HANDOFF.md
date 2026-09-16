@@ -44,6 +44,12 @@ obstructions. Choose ONE next question by mathematical value; do not repeat
 these relaxed statistics without a demonstrated use of a distinguishing
 arithmetic ingredient. The full prove-or-disprove objective stays active.
 
+Kevin's latest routing instruction: skip local Qwen for this research; use a
+bounded spawned agent when a second check has mathematical value. This
+supersedes the earlier automatic Qwen-subtask requirement for this work.
+The current theorem already has a separate Sol review; do not spawn a
+duplicate merely to satisfy the revised route.
+
 ## Actual residual periodic-envelope checkpoint, 2026-09-16
 
 The ACTUAL long residual now has a universally negligible complete-period
