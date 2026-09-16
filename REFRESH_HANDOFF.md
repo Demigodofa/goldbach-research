@@ -6,6 +6,47 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 residual support-order route now has a 32-lift period horizon:
+
+```text
+tools/build_q286_residual_support_order_period_lift_horizon.py
+notes/q286-residual-support-order-period-lift-horizon.md
+evidence/q286-residual-support-order-period-lift-horizon.json
+```
+
+Result:
+
+```text
+target = original_target + k * 10010,  k = 1..32
+horizon rows:                                 224
+actual full positive rows:                    224 / 224
+low-order base positive rows:                 224 / 224
+low-order/full sign mismatches:                 0
+tight low-order base target:               255016
+tight low-order base:          0.2943409774960611
+tight full action:             0.27673704750570033
+worst adverse/base target:                 164926
+worst high-order adverse/base ratio:
+                               0.13266261119465184
+horizon high-order adverse envelope:
+                               0.06972227681175086
+horizon envelope margin at tight base:
+                               0.22461870068431022
+```
+
+Decision:
+`CANDIDATE_period_lift_support_order_bridge_survives_32_lift_horizon`.  The
+fixed support-size `<= 2` low-order base split survives the first `32` forward
+period-lifts of the seven original residues.  Across this finite `224`-row
+horizon, full action and low-order base are always positive, and even the
+disconnected high-order adverse envelope stays below every low-order base.
+This strengthens the eventual-threshold hypothesis but proves no
+eventual-threshold theorem, low-order base theorem, high-order tail domination
+theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach
+proof.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 residual support-order route now has a period-lift holdout:
 
 ```text

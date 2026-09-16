@@ -6,6 +6,49 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 residual support-order route now has a 32-lift period horizon:
+`tools/build_q286_residual_support_order_period_lift_horizon.py` generated
+`evidence/q286-residual-support-order-period-lift-horizon.json`, with
+explanation in
+`notes/q286-residual-support-order-period-lift-horizon.md`.
+
+Question: does the fixed support-size `<= 2` low-order base split survive a
+wider consecutive period-lift horizon without changing the mask or refitting a
+tail envelope?
+
+Answer: yes on the first `32` forward period-lifts of the original seven
+residues:
+
+```text
+target = original_target + k * 10010,  k = 1..32
+horizon rows:                                 224
+actual full positive rows:                    224 / 224
+low-order base positive rows:                 224 / 224
+low-order/full sign mismatches:                 0
+tight low-order base target:               255016
+tight low-order base:          0.2943409774960611
+tight full action:             0.27673704750570033
+worst adverse/base target:                 164926
+worst high-order adverse/base ratio:
+                               0.13266261119465184
+horizon high-order adverse envelope:
+                               0.06972227681175086
+horizon envelope margin at tight base:
+                               0.22461870068431022
+```
+
+Decision:
+`CANDIDATE_period_lift_support_order_bridge_survives_32_lift_horizon`.  This
+strengthens the eventual-threshold hypothesis for the support-order split.  The
+hard original fixture remains the real stress case; across this lifted
+`224`-row horizon, the low-order base and full action are always positive, and
+even the disconnected high-order adverse envelope stays below every low-order
+base.  This remains finite evidence only.  It proves no eventual-threshold
+theorem, low-order base theorem, high-order tail domination theorem, q286
+threshold theorem, strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 residual support-order route now has a period-lift holdout:
 `tools/build_q286_residual_support_order_period_lift_holdout.py` generated
 `evidence/q286-residual-support-order-period-lift-holdout.json`, with
