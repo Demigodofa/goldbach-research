@@ -6,6 +6,44 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS route now has a logic bridge gate audit:
+
+```text
+tools/build_q286_wbss_logic_bridge_gate_audit.py
+notes/q286-wbss-logic-bridge-gate-audit.md
+evidence/q286-wbss-logic-bridge-gate-audit.json
+```
+
+Result:
+
+```text
+checked rows:                         348
+zero pair-count rows:                   0
+zero actual-mass rows:                  0
+row-local L2 cap violations:       120 / 348
+global-minimum L2 cap violations:  301 / 348
+worst row-local ratio:  1.5570989543984672
+worst row-local target:            1089544
+```
+
+Decision: `TARGET_unnormalized_pointwise_bridge_not_L2_acceptance`.  The
+finite zero-mass check only shows that the checked `L2` failures are not
+normalization artifacts.  It does not confirm a non-circular proof bridge.
+Normalized `L2` can bound distribution after strict-central mass exists; it
+does not create that mass.  The active theorem gate is the universal
+pointwise unnormalized inequality
+
+```text
+adverse_drag(N) < local_main(N)
+```
+
+for every sufficiently large covered even `N`, with explicit threshold and
+finite remainder.  No `L2` discrepancy theorem, pointwise adverse-drag
+theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach
+proof is established.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 residual support-order route now has a positive low-order obligation
 classifier:
 

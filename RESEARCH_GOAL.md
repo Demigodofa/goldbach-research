@@ -6,6 +6,50 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS route now has a logic bridge gate audit:
+`tools/build_q286_wbss_logic_bridge_gate_audit.py` generated
+`evidence/q286-wbss-logic-bridge-gate-audit.json`, with explanation in
+`notes/q286-wbss-logic-bridge-gate-audit.md`.
+
+Question: does the finite zero-mass and `L2` arithmetic audit actually confirm
+a non-circular bridge?
+
+Answer: no.  The zero-mass check is real but finite:
+
+```text
+checked rows:             348
+zero pair-count rows:       0
+zero actual-mass rows:      0
+```
+
+It confirms that the checked `L2` failures are not zero-mass normalization
+artifacts.  It does not prove positivity for unobserved `N`, and it does not
+make a normalized `L2` premise independent of strict-central mass.
+
+The normalized `L2` route remains conditional/reservoir:
+
+```text
+row-local L2 cap violations:       120 / 348
+global-minimum L2 cap violations:  301 / 348
+worst row-local ratio:             1.5570989543984672
+worst row-local target:            1089544
+```
+
+Decision: `TARGET_unnormalized_pointwise_bridge_not_L2_acceptance`.  The live
+acceptance gate is a universal pointwise unnormalized theorem
+
+```text
+adverse_drag(N) < local_main(N)
+```
+
+for every sufficiently large covered even `N`, with an explicit threshold and
+finite remainder.  `L2` should reactivate only if it is replaced by an
+unnormalized estimate or paired with an independent positive-mass theorem.
+This proves no `L2` discrepancy theorem, pointwise adverse-drag theorem, q286
+threshold theorem, strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 residual support-order route now has a positive low-order obligation
 classifier:
 `tools/build_q286_residual_support_order_positive_low_order_obligation.py`
