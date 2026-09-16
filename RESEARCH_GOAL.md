@@ -6,6 +6,33 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The narrowed source-start lane now has a second full fresh-scale prime-row
+sweep, for `M=251`:
+`tools/build_mobius_moment_square_degree5_source_start_m251_full_prime_sweep.py`
+generated
+`evidence/mobius-moment-square-degree5-source-start-m251-full-prime-sweep.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-source-start-m251-full-prime-sweep.md`.
+
+Question: after the full `M=229` source-start sweep survived, do all
+canonical source-start prime rows for the next fresh scale, `M=251`, satisfy
+signed active/full dominance?
+
+Answer: yes as a second one-scale finite sweep.  All `42` prime rows in
+`[251,502]` were checked, giving `126` component rows and `42` degree-5 total
+rows.  All `168` rows pass `full < 0` and `active/full > 1/2`.  The weakest
+row is `M=251`, `p=379`, component `(00,12)`, with active/full ratio
+`0.934353336374303` and slack `0.43435333637430296`.
+
+Decision: two adjacent complete fresh source-start scales now survive
+(`M=229` and `M=251`).  The same prime `p=379` is the weakest point in both
+full sweeps, so future work should treat `p=379` as a concrete interior-prime
+attention point across nearby scales.  This is not a universal source-start
+theorem, not a source-window theorem, not an endpoint-swap theorem, not a
+strict-central Goldbach theorem, and not a Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The narrowed source-start lane now has a full fresh-scale prime-row sweep for
 `M=229`: `tools/build_mobius_moment_square_degree5_source_start_m229_full_prime_sweep.py`
 generated

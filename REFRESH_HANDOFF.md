@@ -6,6 +6,40 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The narrowed source-start lane now has a second full fresh-scale prime-row
+sweep, for `M=251`:
+
+```text
+tools/build_mobius_moment_square_degree5_source_start_m251_full_prime_sweep.py
+notes/mobius-moment-square-degree5-source-start-m251-full-prime-sweep.md
+evidence/mobius-moment-square-degree5-source-start-m251-full-prime-sweep.json
+```
+
+Result:
+
+```text
+status:                         SWEEP_degree5_source_start_m251_full_prime_rows
+scale:                          251
+prime interval:                 251..502
+prime rows checked:             42
+component rows:                 126
+degree-5 total rows:            42
+all rows pass signed dominance: true
+minimum slack above one half:   0.43435333637430296
+weakest row:                    M=251, p=379, (00,12)
+weakest active/full ratio:      0.934353336374303
+all fresh scales swept:         false
+```
+
+Decision: two adjacent complete fresh source-start scales now survive
+(`M=229` and `M=251`).  The same prime `p=379` is the weakest point in both
+full sweeps, so future work should treat `p=379` as a concrete interior-prime
+attention point across nearby scales.  This is one finite scale only, not a
+universal source-start theorem, not a source-window theorem, not an endpoint-
+swap theorem, not a strict-central Goldbach theorem, and not a Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The narrowed source-start lane now has a full fresh-scale prime-row sweep for
 `M=229`:
 
