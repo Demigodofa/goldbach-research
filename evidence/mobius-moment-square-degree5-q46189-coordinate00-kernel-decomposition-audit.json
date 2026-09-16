@@ -1,0 +1,464 @@
+{
+  "answer": "Yes as a finite decomposition.  The component active energy matches the direct active-window transform, and the half-margin splits into a positive diagonal half plus off-diagonal Dirichlet-kernel residue-gap terms.  Q=46189 is negative because its off-diagonal total slightly overcomes the diagonal half; the weakest replacement remains positive because the same split does not erase the diagonal half.",
+  "candidate_next_action": {
+    "falsifier": "If future source-admissible replacements have off-diagonal totals below negative diagonal half, or if Q-style defects are not localized in residue-gap pairs, this theorem target does not generalize.",
+    "mechanism": "Turn the finite residue-gap decomposition into structural bounds: control the off-diagonal Dirichlet-kernel total relative to the diagonal half for the replacement family, while allowing rare Q-style overpayment defects.",
+    "name": "coordinate-00 residue-gap sign theorem candidate",
+    "novelty_label": "new-to-this-task",
+    "prediction": "For replacement rows, grouped residue-gap buckets should retain enough diagonal half after adverse off-diagonal terms; for Q-style adverse rows, a small set of circular gap pairs should account for the sign reversal.",
+    "smallest_next_test": "Run the same kernel-gap decomposition across all ten replacement rows and test whether the weakest-row gap structure is the worst case by bucket and top-pair metrics."
+  },
+  "classification": {
+    "finite_kernel_decomposition_only": true,
+    "q46189_kernel_identity_verified": true,
+    "q46189_negative_sign_from_off_diagonal_overpayment": true,
+    "weakest_replacement_kernel_identity_verified": true,
+    "weakest_replacement_positive_after_off_diagonal": true
+  },
+  "coordinate00_residue_gap_sign_theorem_proved": false,
+  "decision": "The one-coordinate obstruction has a concrete finite kernel shape: diagonal half-energy competes with off-diagonal Dirichlet-kernel residue-gap mass.  The next theorem-shaped object is a residue-gap sign bound, not another phase-scalar identity.  No universal coordinate-00 ratio theorem or Goldbach proof is established.",
+  "decomposition_rows": [
+    {
+      "active_reconstruction_abs_error": 0.0703125,
+      "active_row_start": 43,
+      "active_row_stop": 85,
+      "component_active_energy": 20877270338102.797,
+      "component_active_energy_direct": 20877270338102.727,
+      "component_full_energy": 41980476474323.44,
+      "component_half_margin_active_minus_half_full": -112967899058.92188,
+      "coordinate_00_active_over_full_ratio": 0.4973090372347723,
+      "diagonal_half_contribution": 20990238237161.72,
+      "distance_bucket_contributions": [
+        {
+          "bucket": "near_1_to_A",
+          "component_active_contribution": -2891143692530.4766,
+          "delta_count": 86,
+          "distance_range": [
+            1,
+            43
+          ],
+          "negative_contribution_sum": -6198213679839.223,
+          "positive_contribution_sum": 3307069987308.746
+        },
+        {
+          "bucket": "middle_A_to_10A",
+          "component_active_contribution": -5962098407353.211,
+          "delta_count": 774,
+          "distance_range": [
+            44,
+            430
+          ],
+          "negative_contribution_sum": -31613047312369.242,
+          "positive_contribution_sum": 25650948905016.03
+        },
+        {
+          "bucket": "far_10A_to_100A",
+          "component_active_contribution": -10003143720447.055,
+          "delta_count": 7740,
+          "distance_range": [
+            431,
+            4300
+          ],
+          "negative_contribution_sum": -47280470449961.516,
+          "positive_contribution_sum": 37277326729514.46
+        },
+        {
+          "bucket": "tail_over_100A",
+          "component_active_contribution": -2246820315889.904,
+          "delta_count": 37588,
+          "distance_range": [
+            4301,
+            23094
+          ],
+          "negative_contribution_sum": -35757048525840.42,
+          "positive_contribution_sum": 33510228209950.523
+        }
+      ],
+      "factorization": {
+        "11": 1,
+        "13": 1,
+        "17": 1,
+        "19": 1
+      },
+      "finite_dirichlet_kernel_identity_verified": true,
+      "ledger_coordinate_00_active_energy": 20877270338102.797,
+      "ledger_coordinate_00_full_energy": 41980476474323.6,
+      "ledger_scalar_cancelled_margin": -8444721229.467161,
+      "off_diagonal_over_diagonal_half": -1.0053819255304557,
+      "off_diagonal_total_contribution": -21103206136220.65,
+      "ratio_minus_half": -0.002690962765227678,
+      "reduced_denominator": 46189,
+      "residue_cell_count": 34560,
+      "role": "q46189_adverse",
+      "scalar_cancelled_margin_abs_error": 0.006229400634765625,
+      "scalar_cancelled_margin_from_kernel": -8444721229.460932,
+      "top_negative_gap_pairs": [
+        {
+          "circular_distance": 245,
+          "component_active_contribution": -2096956743395.722,
+          "deltas": [
+            245,
+            45944
+          ]
+        },
+        {
+          "circular_distance": 268,
+          "component_active_contribution": -1891235384213.7842,
+          "deltas": [
+            268,
+            45921
+          ]
+        },
+        {
+          "circular_distance": 477,
+          "component_active_contribution": -1692091390929.8489,
+          "deltas": [
+            477,
+            45712
+          ]
+        },
+        {
+          "circular_distance": 36,
+          "component_active_contribution": -1522695940760.5918,
+          "deltas": [
+            36,
+            46153
+          ]
+        },
+        {
+          "circular_distance": 317,
+          "component_active_contribution": -1399701907001.8352,
+          "deltas": [
+            317,
+            45872
+          ]
+        },
+        {
+          "circular_distance": 428,
+          "component_active_contribution": -1336462747537.3945,
+          "deltas": [
+            428,
+            45761
+          ]
+        },
+        {
+          "circular_distance": 418,
+          "component_active_contribution": -1122236112346.4673,
+          "deltas": [
+            418,
+            45771
+          ]
+        },
+        {
+          "circular_distance": 392,
+          "component_active_contribution": -891030957448.3164,
+          "deltas": [
+            392,
+            45797
+          ]
+        }
+      ],
+      "top_positive_gap_pairs": [
+        {
+          "circular_distance": 134,
+          "component_active_contribution": 3254179640437.5176,
+          "deltas": [
+            134,
+            46055
+          ]
+        },
+        {
+          "circular_distance": 1454,
+          "component_active_contribution": 1390566231004.8926,
+          "deltas": [
+            1454,
+            44735
+          ]
+        },
+        {
+          "circular_distance": 111,
+          "component_active_contribution": 1364433824511.8965,
+          "deltas": [
+            111,
+            46078
+          ]
+        },
+        {
+          "circular_distance": 98,
+          "component_active_contribution": 1254799143119.686,
+          "deltas": [
+            98,
+            46091
+          ]
+        },
+        {
+          "circular_distance": 343,
+          "component_active_contribution": 1063004096942.1852,
+          "deltas": [
+            343,
+            45846
+          ]
+        },
+        {
+          "circular_distance": 85,
+          "component_active_contribution": 810054072628.5659,
+          "deltas": [
+            85,
+            46104
+          ]
+        },
+        {
+          "circular_distance": 722,
+          "component_active_contribution": 803803551597.4052,
+          "deltas": [
+            722,
+            45467
+          ]
+        },
+        {
+          "circular_distance": 49,
+          "component_active_contribution": 788977390116.9856,
+          "deltas": [
+            49,
+            46140
+          ]
+        }
+      ]
+    },
+    {
+      "active_reconstruction_abs_error": 0.18359375,
+      "active_row_start": 43,
+      "active_row_stop": 85,
+      "component_active_energy": 33063451032884.117,
+      "component_active_energy_direct": 33063451032883.934,
+      "component_full_energy": 57366627126281.234,
+      "component_half_margin_active_minus_half_full": 4380137469743.5,
+      "coordinate_00_active_over_full_ratio": 0.5763534077069147,
+      "diagonal_half_contribution": 28683313563140.617,
+      "distance_bucket_contributions": [
+        {
+          "bucket": "near_1_to_A",
+          "component_active_contribution": 622295653747.3829,
+          "delta_count": 86,
+          "distance_range": [
+            1,
+            43
+          ],
+          "negative_contribution_sum": -1842140574666.0347,
+          "positive_contribution_sum": 2464436228413.418
+        },
+        {
+          "bucket": "middle_A_to_10A",
+          "component_active_contribution": -26962113691909.28,
+          "delta_count": 774,
+          "distance_range": [
+            44,
+            430
+          ],
+          "negative_contribution_sum": -40599169107226.81,
+          "positive_contribution_sum": 13637055415317.533
+        },
+        {
+          "bucket": "far_10A_to_100A",
+          "component_active_contribution": 614226464650.8812,
+          "delta_count": 7740,
+          "distance_range": [
+            431,
+            4300
+          ],
+          "negative_contribution_sum": -24884892132035.87,
+          "positive_contribution_sum": 25499118596686.75
+        },
+        {
+          "bucket": "tail_over_100A",
+          "component_active_contribution": 1422415480113.8982,
+          "delta_count": 29437,
+          "distance_range": [
+            4301,
+            19019
+          ],
+          "negative_contribution_sum": -16204658041092.285,
+          "positive_contribution_sum": 17627073521206.184
+        }
+      ],
+      "factorization": {
+        "11": 1,
+        "13": 1,
+        "19": 1,
+        "2": 1,
+        "7": 1
+      },
+      "finite_dirichlet_kernel_identity_verified": true,
+      "ledger_coordinate_00_active_energy": 33063451032883.82,
+      "ledger_coordinate_00_full_energy": 57366627126281.09,
+      "ledger_scalar_cancelled_margin": 310273010682.6687,
+      "off_diagonal_over_diagonal_half": -0.8472931845861708,
+      "off_diagonal_total_contribution": -24303176093397.117,
+      "ratio_minus_half": 0.07635340770691468,
+      "reduced_denominator": 38038,
+      "residue_cell_count": 12960,
+      "role": "weakest_positive_replacement",
+      "scalar_cancelled_margin_abs_error": 0.0159912109375,
+      "scalar_cancelled_margin_from_kernel": 310273010682.6847,
+      "top_negative_gap_pairs": [
+        {
+          "circular_distance": 68,
+          "component_active_contribution": -14292958623877.297,
+          "deltas": [
+            68,
+            37970
+          ]
+        },
+        {
+          "circular_distance": 278,
+          "component_active_contribution": -4706266398775.004,
+          "deltas": [
+            278,
+            37760
+          ]
+        },
+        {
+          "circular_distance": 70,
+          "component_active_contribution": -3755614827789.2217,
+          "deltas": [
+            70,
+            37968
+          ]
+        },
+        {
+          "circular_distance": 202,
+          "component_active_contribution": -1409952505387.028,
+          "deltas": [
+            202,
+            37836
+          ]
+        },
+        {
+          "circular_distance": 1170,
+          "component_active_contribution": -1248800060667.9907,
+          "deltas": [
+            1170,
+            36868
+          ]
+        },
+        {
+          "circular_distance": 206,
+          "component_active_contribution": -1209488709488.726,
+          "deltas": [
+            206,
+            37832
+          ]
+        },
+        {
+          "circular_distance": 414,
+          "component_active_contribution": -1156186223181.9165,
+          "deltas": [
+            414,
+            37624
+          ]
+        },
+        {
+          "circular_distance": 276,
+          "component_active_contribution": -1152688577036.6963,
+          "deltas": [
+            276,
+            37762
+          ]
+        }
+      ],
+      "top_positive_gap_pairs": [
+        {
+          "circular_distance": 552,
+          "component_active_contribution": 2776505868528.0645,
+          "deltas": [
+            552,
+            37486
+          ]
+        },
+        {
+          "circular_distance": 342,
+          "component_active_contribution": 1059143946140.9692,
+          "deltas": [
+            342,
+            37696
+          ]
+        },
+        {
+          "circular_distance": 1172,
+          "component_active_contribution": 1008272456223.4956,
+          "deltas": [
+            1172,
+            36866
+          ]
+        },
+        {
+          "circular_distance": 334,
+          "component_active_contribution": 854590281680.9794,
+          "deltas": [
+            334,
+            37704
+          ]
+        },
+        {
+          "circular_distance": 66,
+          "component_active_contribution": 846809443616.1337,
+          "deltas": [
+            66,
+            37972
+          ]
+        },
+        {
+          "circular_distance": 280,
+          "component_active_contribution": 791394840299.761,
+          "deltas": [
+            280,
+            37758
+          ]
+        },
+        {
+          "circular_distance": 286,
+          "component_active_contribution": 744366367946.0742,
+          "deltas": [
+            286,
+            37752
+          ]
+        },
+        {
+          "circular_distance": 5650,
+          "component_active_contribution": 720915367432.3628,
+          "deltas": [
+            5650,
+            32388
+          ]
+        }
+      ]
+    }
+  ],
+  "finite_coordinate00_kernel_decomposition_audit_only": true,
+  "finite_diagnostic_only": true,
+  "fixture": {
+    "active_row_start": 43,
+    "adverse_denominator": 46189,
+    "divisor_range": [
+      3,
+      19
+    ],
+    "ell_freeze": 64,
+    "kernel_identity": "active_00 = 2*q*sum_delta C_delta*K_delta, full_00 = 2*q*C_0, half_margin = full_00/2 + 2*q*sum_{delta!=0} C_delta*K_delta",
+    "prime_modulus": 379,
+    "row_count_A": 43,
+    "scale_modulus": 229,
+    "target_label": "00,12",
+    "weakest_replacement_denominator": 38038
+  },
+  "goldbach_proved": false,
+  "one_coordinate_active_full_ratio_theorem_proved": false,
+  "question": "Can the coordinate-00 half-margin for Q=46189 and the weakest replacement row be decomposed into finite Dirichlet-kernel autocorrelation terms that identify the sign-deciding residue gap structure?",
+  "replacement_family_payment_theorem_proved": false,
+  "schema_version": 1,
+  "source_commit": "cc274a5d595aa76c922599e184d9643321af101b",
+  "source_one_coordinate_ledger": "evidence\\mobius-moment-square-degree5-q46189-one-coordinate-ratio-ledger-audit.json",
+  "status": "AUDIT_q46189_coordinate00_kernel_decomposition",
+  "strict_central_goldbach_theorem_proved": false,
+  "symbolic_coordinate_00_energy_ratio_theorem_proved": false
+}

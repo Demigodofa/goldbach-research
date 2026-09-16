@@ -6,6 +6,48 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The `Q=46189` replacement-family lane now has a coordinate-`00`
+Dirichlet-kernel decomposition checkpoint:
+`tools/build_mobius_moment_square_degree5_q46189_coordinate00_kernel_decomposition_audit.py`
+generated
+`evidence/mobius-moment-square-degree5-q46189-coordinate00-kernel-decomposition-audit.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-q46189-coordinate00-kernel-decomposition-audit.md`.
+
+Question: can the coordinate-`00` half-margin for `Q=46189` and the weakest
+replacement row be decomposed into finite Dirichlet-kernel autocorrelation
+terms that identify the sign-deciding residue-gap structure?
+
+Answer: yes as a finite decomposition.  The component active energy matches
+the direct active-window transform.  The half-margin splits into a positive
+diagonal half plus off-diagonal Dirichlet-kernel residue-gap terms:
+
+```text
+active_00 = 2*q*sum_delta C_delta*K_delta
+full_00   = 2*q*C_0
+margin    = full_00/2 + 2*q*sum_{delta!=0} C_delta*K_delta
+```
+
+For `Q=46189`, diagonal half is `20990238237161.72`, off-diagonal total is
+`-21103206136220.65`, and the resulting coordinate-`00` half-margin is
+`-112967899058.92188`.  The weakest replacement is denominator `38038`; its
+diagonal half is `28683313563140.617`, off-diagonal total is
+`-24303176093397.117`, and the resulting half-margin remains positive at
+`4380137469743.5`.
+
+Decision: the one-coordinate obstruction now has a concrete finite kernel
+shape: diagonal half-energy competes with off-diagonal Dirichlet-kernel
+residue-gap mass.  `Q=46189` is negative because the off-diagonal total
+slightly overcomes the diagonal half; the weakest replacement remains positive
+because it does not.  The next theorem-shaped object is a coordinate-`00`
+residue-gap sign bound across the replacement family.  This remains finite
+diagnostic evidence only; it proves no coordinate-`00` residue-gap sign
+theorem, symbolic coordinate-`00` energy ratio theorem, one-coordinate
+active/full ratio theorem, replacement-family payment theorem,
+strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The `Q=46189` replacement-family lane now has a scalar-cancelled
 one-coordinate ratio ledger:
 `tools/build_mobius_moment_square_degree5_q46189_one_coordinate_ratio_ledger_audit.py`
