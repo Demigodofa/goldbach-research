@@ -54,3 +54,27 @@ def prefix_perturbation_form(target, weights, modulus, residue, prefix):
     midpoint = target // 2
     bias = -weights.get(midpoint, F(0)) * selected(midpoint)
     return coefficients, bias
+
+
+def quadratic_terms(target, weights, model):
+    """Exact (norm change, squared distance, base cross term) on I_N."""
+    weights, model = _measure(target, weights), _measure(target, model)
+    change = distance = cross = F(0)
+    for n in central_interval(target):
+        base, value = weights.get(n, F(0)), model.get(n, F(0))
+        delta = value - base
+        change += value * value - base * base
+        distance += delta * delta
+        cross += base * delta
+    return change, distance, cross
+
+
+def pair_deletion_floor(target, weights):
+    """Least squared distance to nonnegative pair-free weights on I_N.
+
+    This exact finite floor imposes no progression or mass constraint.
+    """
+    weights = _measure(target, weights)
+    return sum((min(weights[n] ** 2, weights[m] ** 2)
+                for n, m in collision_pairs(target, weights)), F(0)) + \
+        weights.get(target // 2, F(0)) ** 2

@@ -4,6 +4,45 @@ Owner: Rill. Purpose: preserve the reasoning and validation that support claimed
 results, including corrections that change future execution. No raw model
 reasoning is retained. Model agreement is not a proof by itself.
 
+## Reflection-thinning second-moment rigidity, 2026-09-16
+
+A separate fresh-context read-only Sol reviewer
+(`01a0ac8b-96dd-7e33-a5ec-b9aaa2d27a7f`) returned consolidated PASS with
+no blocking finding for `notes/reflection-thinning-second-moment-rigidity.md`,
+the two exact helper functions and eight new tests. This was a supplied-proof
+review, not blind discovery. No Qwen was used, following Kevin's latest
+instruction; no additional duplicate reviewer was launched.
+
+The checked statement retains the cross term in polarization, controls it
+using `Lambda(p)=log p`, partial summation and an elementary proper-power
+bound, and proves the least pair-deletion distance with correct midpoint
+accounting. Under the stated support, weight and prefix conditions, a
+pair-free model pays at least `(1/2-o(1))T_N` in second-moment discrepancy.
+The preceding good keep/double construction pays
+`T_N+O(N/log N+sqrt N log(N)^3)`.
+
+The reviewer explicitly checked BOTH directions of the global-prefix
+equivalence: a single model retaining the AP bound and prefix second moments
+to `o(X)`, while killing pairs infinitely often, exists if and only if
+`liminf_(even N)T_N/N=0`. The reverse proof bounds absolute changes on every
+partial block, not just completed blocks, and allows arbitrarily large gaps
+between targets. The actual second-moment coefficient and the unconstrained
+finite-floor scope were also checked. The lead verified the published PNT/BV
+input at Goldston-Yildirim (1.30), with `q=1`; no prime-pair asymptotic is used.
+
+Eighteen new/immediate-parent tests pass. The combined suite passes 93 tests,
+and 58 new/affected tests pass under optimized Python. The reviewer separately
+ran the 18 focused tests in normal and optimized modes. These verify finite
+identities and implementation, not the infinite estimates; no repository-wide
+test run is claimed. The proof did not require a mathematical correction.
+
+The density-collapse condition is not proved, and is not the same as a
+Goldbach counterexample. The refined norm formula belongs to actual Lambda;
+transferring it to the model would introduce exactly the extra obligation
+identified here. The original weaker countermodel remains valid. No favorable
+pointwise E_D estimate, effective threshold, finite remainder closure, q286 or
+Q46189 transfer, or Goldbach proof/disproof follows. The full goal stays active.
+
 ## Global reflection-thinning input obstruction, 2026-09-16
 
 A separate fresh-context read-only Sol reviewer

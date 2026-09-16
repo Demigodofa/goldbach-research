@@ -6,6 +6,48 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The missing scale-N second-moment information now has an exact boundary.
+See `notes/reflection-thinning-second-moment-rigidity.md`. For
+`0<=a<=2Lambda`, `delta=a-Lambda`, local prefix discrepancy `eta_N`,
+`Q_N=sum_(I_N)(a^2-Lambda^2)`, and `V_N=sum_(I_N)delta^2`,
+
+```text
+|Q_N-V_N| << eta_N log N + sqrt N log(N)^3,
+C_N(a,a)=0  =>  V_N >= (r_N/2)T_N,
+r_N=log(N/3)/log(2N/3) -> 1.
+```
+
+Here `T_N` is the ordered PRIME-only central log mass. The proof retains
+the mixed cross term, uses `Lambda(p)=log p` and partial summation, and
+counts the prime midpoint once. For the preceding good keep/double
+orientation, a sharper identity gives
+`Q_N=T_N+O(N/log N+sqrt N log(N)^3)=T_N+o(N)`.
+
+Consequently, existence of ONE global `0<=a<=2Lambda` retaining the prior
+aggregate AP-prefix bound, matching prefix second moments to `o(X)`, and
+having infinitely many pair-free central targets is EQUIVALENT to
+`liminf_(even N)T_N/N=0`. Both directions are proved, including geometric
+gluing with arbitrarily large gaps and partial blocks. That density-collapse
+condition remains open; it is not equivalent to Goldbach failure.
+
+The actual second moment is known through scale N:
+`sum_(I_N)Lambda^2=(N/3)log N+((2log 2-log 3-1)/3)N+o(N)`.
+Transferring this refinement to the artificial sequence would be an extra
+assumption, not a consequence of the previous leading-moment result.
+The original global countermodel remains valid. Its free refinement to
+`o(X)` second-moment error is no longer an unexamined option.
+
+Eight new exact tests, 93 combined and 58 optimized affected tests pass;
+separate review is recorded in `notes/review-receipts.md`. The actual E_D
+bound, effective threshold, finite remainder and Goldbach remain OPEN.
+Preserve finite-cutoff L2, q286 missing-mass and Q46189 transfer boundaries.
+Choose one next question for mathematical value; do not treat this model's
+pair-dependent norm discrepancy as an independent way to estimate T_N.
+Kevin's instruction remains: no Qwen; use a bounded spawned reviewer when
+a second check adds value. Full prove-or-disprove objective stays active.
+
+## Global reflection-thinning checkpoint, 2026-09-16
+
 One global reflection-thinned sequence now separates the retained one-prime
 statistics from the missing pair margin. See
 `notes/reflection-thinning-linear-input-obstruction.md`.

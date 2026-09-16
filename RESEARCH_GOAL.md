@@ -6,6 +6,30 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The quadratic price of the previous countermodel is now quantified:
+`notes/reflection-thinning-second-moment-rigidity.md`. For prime-supported
+`0<=a<=2Lambda` with accurate first-moment prefixes, the second-moment
+discrepancy equals `||a-Lambda||^2+o(N)`. A pair-free model must pay at least
+`(1/2-o(1))T_N` in that squared distance. The actual keep/double construction
+pays `T_N+o(N)`, with an explicit vanishing error, not a fitted constant.
+
+There is an exact new obstruction to strengthening the model: a single
+global sequence retaining the previous AP-prefix estimate, matching prefix
+second moments to `o(X)`, and deleting all central pairs infinitely often
+exists IF AND ONLY IF `liminf_(even N)T_N/N=0`. This condition is open and
+is weaker than a Goldbach counterexample. The actual refined one-point
+second moment is known, but cannot be transferred to the model for free.
+
+Eight new tests, 93 combined and 58 optimized affected tests pass; review
+is recorded separately. The earlier countermodel is unchanged, while the
+cost of its proposed refinement is now explicit. No favorable pointwise
+bound for the actual E_D, effective starting point, or Goldbach proof or
+disproof follows. Preserve the full objective, previous failed shortcuts
+and freedom to choose the next bounded question by mathematical value.
+Do not recast this pair-dependent diagnostic as an independent proof bridge.
+
+## Global reflection-thinning evidence, 2026-09-16
+
 A global reflection-thinning construction analytically falsifies a specific
 logical shortcut: `notes/reflection-thinning-linear-input-obstruction.md`.
 One sequence `0<=a<=2Lambda`, supported on actual prime powers, inherits
