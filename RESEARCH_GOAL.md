@@ -6,6 +6,34 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The narrowed source-start lane now has a third full fresh-scale prime-row
+sweep, for `M=293`:
+`tools/build_mobius_moment_square_degree5_source_start_m293_full_prime_sweep.py`
+generated
+`evidence/mobius-moment-square-degree5-source-start-m293-full-prime-sweep.json`,
+with explanation in
+`notes/mobius-moment-square-degree5-source-start-m293-full-prime-sweep.md`.
+
+Question: after `M=229` and `M=251` survived and `p=379` became a lower-scale
+attention point, do all canonical source-start prime rows for `M=293` satisfy
+signed active/full dominance, and is the weakest row still near `p=379`?
+
+Answer: yes on dominance, no on the `p=379` control story.  All `45` prime
+rows in `[293,586]` were checked, giving `135` component rows and `45`
+degree-5 total rows.  All `180` rows pass `full < 0` and `active/full > 1/2`.
+The weakest row is `M=293`, `p=461`, component `(00,12)`, with ratio
+`0.9257305726250574` and slack `0.4257305726250574`.  The `p=379` row remains
+positive but has looser slack `0.4715916000491919`.
+
+Decision: three complete fresh source-start scales now survive (`M=229`,
+`M=251`, and `M=293`).  The `p=379` attention point is downgraded as a
+controlling predictor at `M=293`; it remains lower-scale stress evidence, not
+a durable weakest-row rule.  This is not a universal source-start theorem, not
+a source-window theorem, not a strict-central Goldbach theorem, and not a
+Goldbach proof.
+
+## Previous continuation evidence, 2026-09-16
+
 The source-start lane now has a fixed-prime cross-scale stress audit for
 `p=379`:
 `tools/build_mobius_moment_square_degree5_source_start_p379_cross_scale_audit.py`

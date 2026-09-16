@@ -6,6 +6,41 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The narrowed source-start lane now has a third full fresh-scale prime-row
+sweep, for `M=293`:
+
+```text
+tools/build_mobius_moment_square_degree5_source_start_m293_full_prime_sweep.py
+notes/mobius-moment-square-degree5-source-start-m293-full-prime-sweep.md
+evidence/mobius-moment-square-degree5-source-start-m293-full-prime-sweep.json
+```
+
+Result:
+
+```text
+status:                         SWEEP_degree5_source_start_m293_full_prime_rows
+scale:                          293
+prime interval:                 293..586
+prime rows checked:             45
+component rows:                 135
+degree-5 total rows:            45
+all rows pass signed dominance: true
+minimum slack above one half:   0.4257305726250574
+weakest row:                    M=293, p=461, (00,12)
+weakest active/full ratio:      0.9257305726250574
+p=379 weakest-row slack:        0.4715916000491919
+all fresh scales swept:         false
+```
+
+Decision: three complete fresh source-start scales now survive (`M=229`,
+`M=251`, and `M=293`).  The `p=379` attention point is downgraded as a
+controlling predictor at `M=293`; it remains lower-scale stress evidence, not
+a durable weakest-row rule.  This is finite evidence only, not a universal
+source-start theorem, not a source-window theorem, not a strict-central
+Goldbach theorem, and not a Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-16
+
 The source-start lane now has a fixed-prime cross-scale stress audit for
 `p=379`:
 
