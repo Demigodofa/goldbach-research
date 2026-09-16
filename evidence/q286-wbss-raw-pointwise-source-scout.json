@@ -1,0 +1,89 @@
+{
+  "active_character_moment_theorem_proved": false,
+  "answer": "No checked nearby source reactivates the lane.  Salmensuu gives almost-all AP-Goldbach information; Halupczok gives mean-value and ternary/short-interval context; Lichtman improves distribution and upper bounds for Goldbach representations; Bauer-Wang remains a relevant source to inspect but is not promoted here.  None is recorded as a universal pointwise raw theorem for the exact signed q286 weight.",
+  "candidate": {
+    "falsifier": "A verified no-exception theorem for the exact signed q286 weight, or an explicit derivation from a source theorem, would falsify this HOLD.",
+    "mechanism": "Reactivate q286 only if a primary source or exact derivation supplies the raw pointwise weighted binary-prime estimate the sleep/HOLD requires.",
+    "name": "source-backed raw pointwise q286 bridge",
+    "novelty_label": "new-to-this-task",
+    "prediction": "Nearby AP-Goldbach literature will be relevant context but will usually miss the exact no-exception signed-weight target.",
+    "smallest_next_action": "Either inspect Bauer-Wang in full for an exact corollary, or move to a different proof engine rather than retrying q286 without a raw theorem."
+  },
+  "decision": "SOURCE_SCOUT_no_raw_pointwise_q286_bridge_found.  The current source scout does not reactivate the signed-weight q286 proof engine.  The lane remains dormant until a source-backed raw pointwise weighted binary-prime theorem, a materially new signed weight, a raw active-character moment theorem, or an explicitly labeled positive-mass theorem changes the condition.",
+  "external_pointwise_bridge_found": false,
+  "fit_summary": {
+    "best_current_disposition": "keep q286 signed-weight proof engine asleep until a raw pointwise theorem or exact derived corollary is available",
+    "checked_source_count": 4,
+    "direct_raw_pointwise_bridge_count": 0,
+    "reactivates_q286_signed_weight_lane": false
+  },
+  "goldbach_proved": false,
+  "positive_mass_theorem_proved": false,
+  "q286_threshold_theorem_proved": false,
+  "question": "Does a nearby source-shaped theorem currently reactivate the q286 signed-weight lane by paying the exact raw pointwise weighted binary-prime target?",
+  "raw_weighted_witness_theorem_proved": false,
+  "receipt": "q286-wbss-raw-pointwise-source-scout",
+  "required_bridge_shape": {
+    "finite_remainder": "explicit threshold N0 plus finite verification below N0",
+    "quantifier": "every sufficiently large covered even N",
+    "scale": "raw unnormalized log-prime pair sum",
+    "support_boundary": "must not normalize by T_N before support is created, unless a separate positive-mass theorem is explicitly imported",
+    "weight": "exact signed q286 finite-modulus left-prime weight"
+  },
+  "schema_version": 1,
+  "signed_weight_major_arc_estimate_proved": false,
+  "source_commit": "0b898e8f8861b3623ebe23df24d057f8be5224d9",
+  "source_fit_table": [
+    {
+      "authors": "Juho Salmensuu",
+      "checked_claim": "Almost-all result for moduli r up to about N^(1/2)/log^O(1) N, almost all b2, and almost all eligible 2n <= N.",
+      "fit_to_q286_raw_pointwise_trigger": "insufficient",
+      "id": "Salmensuu_2021_summands_in_AP",
+      "mismatch": "The q286 trigger needs every sufficiently large covered N, the exact fixed q286 signed weight, strict-central truncation, and no unnamed exceptional targets.  Almost-all quantifiers do not pay that pointwise raw bridge.",
+      "reactivation_condition": "Derive a no-exception corollary for the exact signed q286 weight, with explicit threshold and finite remainder.",
+      "source_type": "primary arXiv source / published-paper locator",
+      "title": "The Goldbach conjecture with summands in arithmetic progressions",
+      "url": "https://arxiv.org/abs/2106.00778"
+    },
+    {
+      "authors": "Karin Halupczok",
+      "checked_claim": "Mean-value theorems in Bombieri-Vinogradov style for binary and ternary additive problems, with a ternary short-interval application.",
+      "fit_to_q286_raw_pointwise_trigger": "insufficient",
+      "id": "Halupczok_2012_AP_and_short_intervals",
+      "mismatch": "Mean-value and ternary/short-interval results do not give a pointwise lower bound for the exact q286 signed weighted binary-prime convolution for every covered N.",
+      "reactivation_condition": "Derive a pointwise fixed finite-modulus weighted binary prime corollary matching the q286 weight.",
+      "source_type": "primary arXiv source / accepted-paper locator",
+      "title": "Goldbach's problem with primes in arithmetic progressions and in short intervals",
+      "url": "https://arxiv.org/abs/1212.4406"
+    },
+    {
+      "authors": "Jared Duker Lichtman",
+      "checked_claim": "Improved level of distribution for primes and new upper bounds for Goldbach representations.",
+      "fit_to_q286_raw_pointwise_trigger": "insufficient",
+      "id": "Lichtman_2023_Goldbach_upper_bounds",
+      "mismatch": "Upper bounds for the number of Goldbach representations and distribution estimates do not provide the required positive pointwise lower bound for the exact signed q286 weighted witness.",
+      "reactivation_condition": "Use only if a lower-bound or signed-weighted pointwise corollary is actually derived, not from the upper-bound statement alone.",
+      "source_type": "primary arXiv source",
+      "title": "Primes in arithmetic progressions to large moduli, and Goldbach beyond the square-root barrier",
+      "url": "https://arxiv.org/abs/2309.08522"
+    },
+    {
+      "authors": "Claus Bauer and Yonghui Wang",
+      "checked_claim": "Relevant binary Goldbach in arithmetic progressions with large modulus, as cited by later AP-Goldbach literature.",
+      "fit_to_q286_raw_pointwise_trigger": "not_promoted",
+      "id": "Bauer_Wang_2013_binary_AP_large_modulus",
+      "mismatch": "The current scout did not verify a theorem statement strong enough to pay the exact signed q286 raw pointwise target.  It remains a candidate source to inspect, not an accepted bridge.",
+      "reactivation_condition": "Open and verify the exact theorem statement and constants; derive the exact signed q286 weighted strict-central corollary without almost-all exceptions.",
+      "source_type": "bibliographic primary-paper locator; full text not promoted by this receipt",
+      "title": "The binary Goldbach conjecture with primes in arithmetic progressions with large modulus",
+      "url": "https://doi.org/10.4064/aa159-3-2"
+    }
+  ],
+  "sources": {
+    "signed_weight_proof_engine_sleep_hold": "evidence\\q286-wbss-signed-weight-proof-engine-sleep-hold.json",
+    "signed_weight_sleep_status": "SLEEP_q286_signed_weight_proof_engine_until_raw_estimate"
+  },
+  "status": "SOURCE_SCOUT_no_raw_pointwise_q286_bridge_found",
+  "status_boundary": "Source-scout HOLD only.  No external theorem is promoted to a q286 bridge, no signed-weight major/minor arc estimate, no raw weighted witness theorem, no active-character moment theorem, no positive-mass theorem, no q286 threshold theorem, no strict-central Goldbach theorem, and no Goldbach proof is established.",
+  "strict_central_goldbach_theorem_proved": false
+}

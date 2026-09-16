@@ -6,6 +6,41 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The q286-WBSS route now has a raw pointwise source scout:
+
+```text
+tools/build_q286_wbss_raw_pointwise_source_scout.py
+notes/q286-wbss-raw-pointwise-source-scout.md
+evidence/q286-wbss-raw-pointwise-source-scout.json
+```
+
+Question: does a nearby source-shaped theorem currently reactivate the
+signed-weight proof engine by paying the exact raw pointwise weighted
+binary-prime target for the q286 signed weight?
+
+Result:
+
+```text
+status: SOURCE_SCOUT_no_raw_pointwise_q286_bridge_found
+checked sources: 4
+direct raw pointwise bridges found: 0
+reactivates q286 signed-weight lane: false
+```
+
+Decision: no checked nearby source reactivates the signed-weight q286 proof
+engine.  Salmensuu gives almost-all AP-Goldbach information; Halupczok gives
+mean-value and ternary/short-interval context; Lichtman gives distribution and
+upper-bound information; Bauer-Wang remains a relevant source to inspect but is
+not promoted here.  The required bridge remains a raw unnormalized estimate for
+every sufficiently large covered even `N`, with the exact signed q286
+finite-modulus left-prime weight, an explicit threshold, and finite remainder.
+No external theorem is promoted to a q286 bridge, no signed-weight major/minor
+arc estimate, raw weighted witness theorem, active-character moment theorem,
+positive-mass theorem, q286 threshold theorem, strict-central Goldbach theorem,
+or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-16
+
 The q286-WBSS route now has a signed-weight proof-engine sleep/HOLD:
 
 ```text

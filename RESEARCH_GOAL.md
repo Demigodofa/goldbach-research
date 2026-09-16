@@ -6,6 +6,36 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The q286-WBSS route now has a raw pointwise source scout:
+`tools/build_q286_wbss_raw_pointwise_source_scout.py` generated
+`evidence/q286-wbss-raw-pointwise-source-scout.json`, with explanation in
+`notes/q286-wbss-raw-pointwise-source-scout.md`.
+
+Question: does a nearby source-shaped theorem currently reactivate the
+signed-weight proof engine by paying the exact raw pointwise weighted
+binary-prime target for the q286 signed weight?
+
+Answer: no checked nearby source reactivates the lane.  Salmensuu gives
+almost-all AP-Goldbach information; Halupczok gives mean-value and
+ternary/short-interval context; Lichtman gives distribution and upper-bound
+information; Bauer-Wang remains a relevant source to inspect but is not
+promoted here.  None is recorded as a universal pointwise raw theorem for the
+exact signed q286 weight.
+
+Decision: `SOURCE_SCOUT_no_raw_pointwise_q286_bridge_found`.  The required
+bridge remains a raw unnormalized estimate for every sufficiently large
+covered even `N`, with the exact signed q286 finite-modulus left-prime weight,
+an explicit threshold, and finite remainder.  The signed-weight lane remains
+dormant until a source-backed raw pointwise weighted binary-prime theorem, a
+materially new signed weight, a raw active-character moment theorem, or an
+explicitly labeled positive-mass theorem changes the condition.  No external
+theorem is promoted to a q286 bridge, no signed-weight major/minor arc
+estimate, raw weighted witness theorem, active-character moment theorem,
+positive-mass theorem, q286 threshold theorem, strict-central Goldbach theorem,
+or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-16
+
 The q286-WBSS route now has a signed-weight proof-engine sleep/HOLD:
 `tools/build_q286_wbss_signed_weight_proof_engine_sleep_hold.py` generated
 `evidence/q286-wbss-signed-weight-proof-engine-sleep-hold.json`, with
