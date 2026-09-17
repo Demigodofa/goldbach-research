@@ -4,6 +4,45 @@ Owner: Rill. Purpose: preserve the reasoning and validation that support claimed
 results, including corrections that change future execution. No raw model
 reasoning is retained. Model agreement is not a proof by itself.
 
+## Same-sign six-factor adverse mass, 2026-09-16
+
+A separate fresh-context read-only Sol reviewer
+(`01a0acd3-6734-75b1-8088-5f01eb67e696`) returned scoped PASS with no
+material mathematical, source, code or validation findings for
+`notes/same-sign-six-factor-adverse-mass.md`, its exact helpers, nine tests
+and the two leading handoff sections. It first reviewed the supplied proof
+plan, then the actual files. This is supplied-proof/source review, not blind
+discovery. No Qwen, duplicate reviewer or correction loop was used.
+
+The reviewer checked the two exact six-factor hinge formulas, the uniform
+Lipschitz/frozen-cutoff budget, the PNT product count with distinct primes,
+the at-most-6! multiplicity, disjoint factor bands, strict centrality and
+the singular-series mean normalization. It directly checked Tao's Notes 2
+Corollary 39 and Exercise 40; the harmonic prime-band input follows by
+partial summation. No fixed-target prime-pair or Linnik input is needed.
+
+Accepted result: for fixed 9/20<theta<1/2, every sufficiently large
+[2Y,11Y/5] window has an even target where actual D_R negative-part mass
+on coprime squarefree six-factor pairs is at least c_theta H(N), despite
+both outer Mobius signs being +1. This is a coherent negative BLOCK and
+an obstruction to an o(H) negative-part bound on that sector. It is not
+a claim about the whole signed sector, failure of compensation, every
+target, other cutoff regimes, or Goldbach failure. Direct coprimality of
+the construction is not an intersection of the two earlier signed masks.
+
+Lead validation: 9 new tests; 143 current-chain plus 23 dependency/adjacent
+tests (166 distinct normal tests); 108 current-chain plus 23 adjacent in
+optimized mode (131). Reviewer validation: 9 new focused tests in each
+mode and, during proof-plan review, 28 related existing tests in each mode.
+No repository-wide run is claimed. Exact rational fixtures guard algebra;
+the asymptotic theorem rests on the analytical proof and primary input.
+
+The result strengthens the isolated W_3(30)<0 example into an actual
+growing-cutoff, main-scale statement and distinguishes this D_R block from
+the older absolute Vaughan-remainder obstruction. It does not estimate the
+remaining full signed sum favorably. Further shape refinements are not an
+automatic next task; they must change an obligation on the active gate.
+
 ## Signed squarefree residual localization, 2026-09-16
 
 A separate fresh-context read-only Sol reviewer

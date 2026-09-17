@@ -6,6 +6,49 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+An actual same-sign, same-factor-count adverse block is now main-scale.
+See `notes/same-sign-six-factor-adverse-mass.md`. For fixed
+`9/20<theta<1/2`, `R=floor(N^theta)`, there is c_theta>0 such that EVERY
+sufficiently large Y has an even N in [2Y,11Y/5] for which
+
+```text
+sum_(n in I_N, n and N-n squarefree, gcd(n,N-n)=1,
+     omega(n)=omega(N-n)=6) max(0,-D_R(n)D_R(N-n))
+  >= c_theta H(N).
+```
+
+Both outer Mobius signs are +1. The coherent negative sub-block uses
+balanced six-prime products with log shares near (1/6,...,1/6), paired
+with skew products near (1/8,1/8,1/8,1/8,1/8,3/8). Their exact cutoff
+hinges are `10theta-4>0` and `9/4-5theta<0`. A Lipschitz budget handles
+open shape neighborhoods and the actual FROZEN target cutoff, including
+its floor. PNT counts each family as >>Y/log Y after distinctness and
+bounded multiplicity are paid. The elementary mean bound
+`sum_(N<=X,even)S_2(N)<=X` compares the adverse block with H, not just N.
+No sign independence or fixed-target prime-pair theorem is used.
+
+This excludes treating the positive outer-sign sector's negative part as
+negligible, EVEN after exact factor-count conditioning. It is not a bound
+on that sector's signed total, a failure of compensation, an every-target
+claim, or a Goldbach counterexample. No claim is made for theta<=9/20.
+This actual D_R block is distinct from the older absolute Vaughan remainder.
+It is directly coprime and squarefree; no intersection of signed support
+localization theorems was inferred.
+
+Nine new exact tests, 143 current-chain and 23 dependency/adjacent tests
+pass; optimized checks pass 108 current-chain plus the same 23 adjacent.
+The separate source/math review is recorded in `notes/review-receipts.md`.
+The full prove-or-disprove goal remains active. The favorable pointwise
+bound on S_sf, effective threshold and finite remainder are still open.
+Retain q286 missing mass, Q46189 gaps, all earlier obstructions and the
+independent unit/Vaughan route. Choose ONE next question by information
+value, with mechanism, changed prediction, falsifier and exact bound before
+computation. Do not merely refine factor-shape counterexamples unless it
+changes an obligation on the full signed sum. No Qwen; at most one reviewed
+direct PowerShell exact-thread continuation.
+
+## Signed squarefree localization checkpoint, 2026-09-16
+
 The actual residual now has a signed squarefree-pair localization. See
 `notes/squarefree-residual-localization.md`. For every fixed
 `0<theta<1/2`, `R=floor(N^theta)`, `D_R=Lambda-A_R` and fixed J>0,

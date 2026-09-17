@@ -6,6 +6,34 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The squarefree outer sign is not a favorable-sign certificate, even after
+fixing both exact factor counts. `notes/same-sign-six-factor-adverse-mass.md`
+proves that for every fixed 9/20<theta<1/2, the actual D_R negative-part
+mass on coprime squarefree six-factor pairs, both with mu=+1, is at least
+c_theta H(N) for some even N in EVERY sufficiently large [2Y,11Y/5] window.
+Stable balanced and skew log-factor shapes give opposite cutoff signs;
+PNT counts enough actual products, and a singular-series mean bound pays
+the H normalization. Frozen R=floor(N^theta), distinct primes and all
+multiplicities are retained.
+
+This is a main-scale analytical obstruction to dropping the negative part
+of a seemingly favorable sign/factor-count sector. It is NOT a lower bound
+on the full signed sector, a failure of compensation or a Goldbach
+counterexample. No new support restriction is imposed on Delta_0. A method
+that retains amplitude geometry or proves coupled compensation remains
+possible; no claim is made outside the fixed exponent range above.
+
+Nine new exact tests pass with 143 current-chain and 23 adjacent tests;
+108 current-chain and 23 adjacent pass optimized. Separate source/math
+review is recorded in the review receipt. The favorable pointwise residual
+bound, effective threshold, finite remainder and full prove-or-disprove
+objective remain open. Preserve all earlier q286/Q46189, L2, absolute-mass,
+thinning and localization scope boundaries. Do not convert this result
+into another series of shape refinements without a new implication for
+the actual signed arithmetic gate.
+
+## Signed squarefree localization evidence, 2026-09-16
+
 A former support obstruction is now controlled analytically for actual D_R:
 `notes/squarefree-residual-localization.md` proves
 `C(D_R,D_R)-C(mu^2 D_R,mu^2 D_R)=O_(theta,J)(N/log(N)^J)` for every fixed
