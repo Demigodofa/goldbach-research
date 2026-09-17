@@ -6,6 +6,38 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The actual composite-composite sector now has proved pointwise signed
+compensation: `notes/composite-sector-signed-compensation.md`. For every
+fixed 0<theta<1/2 and R=floor(N^theta), D_c=(1-P)D_R satisfies
+
+```text
+C(D_c,D_c)=H-2log(R)S_2(N) integral_(N/3)^(2N/3)dt/log t
+           +log(R)^2 C(P,P)+O_J(N/log(N)^J)
+          >=(1-2theta-o(1))H
+```
+
+at every sufficiently large even N. P is the ACTUAL prime indicator; no
+positive prime-pair count is assumed. The weighted prime-cutoff estimate
+is proved using common-endpoint BV, partial summation and the independent
+GY scalar density. Proper powers remain in the exact composite sector,
+with power-saving correction bounds. This is not sign independence or a
+new support-localization claim.
+
+The earlier six-factor adverse block remains real, but positive mass in
+the whole composite sector must exceed its full negative mass. The result
+does not place that compensation inside any narrower sign/factor family.
+The three-sector ledger shows all new-looking main terms cancel back to
+T_N-H; the composite margin cannot be spent again as Goldbach progress.
+The remaining full signed gate, effective threshold and finite remainder
+are still open. Further sector restatements require a new implication.
+
+Ten new exact tests, 153 combined and 118 optimized affected/adjacent tests
+pass; separate source/math review is recorded. The full prove-or-disprove
+goal and all prior q286/Q46189, absolute-mass, finite-cutoff L2, thinning
+and support-intersection boundaries remain active.
+
+## Same-sign six-factor evidence, 2026-09-16
+
 The squarefree outer sign is not a favorable-sign certificate, even after
 fixing both exact factor counts. `notes/same-sign-six-factor-adverse-mass.md`
 proves that for every fixed 9/20<theta<1/2, the actual D_R negative-part

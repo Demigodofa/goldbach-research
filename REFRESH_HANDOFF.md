@@ -6,6 +6,51 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+There is now a positive ACTUAL signed composite-composite sector theorem,
+not just an adverse-block obstruction. See
+`notes/composite-sector-signed-compensation.md`. Fix 0<theta<1/2 and let
+R=floor(N^theta), a=log R, P indicate actual primes, D_c=(1-P)D_R,
+Z_N=C(P,P), and J_N=integral_(N/3)^(2N/3)dt/log t. Then, for every fixed J,
+
+```text
+C(D_c,D_c)=H-2a S_2(N)J_N+a^2 Z_N+O_(theta,J)(N/log(N)^J)
+          >=(1-2theta-o(1))H.
+```
+
+Thus the ENTIRE composite-composite sector compensates its own negative
+part at every sufficiently large even target. No prime pair is assumed:
+Z_N>=0 suffices. The prior six-factor negative block remains valid and is
+contained in that negative part; compensation need not stay within the
+six-factor, positive-Mobius-sign sector.
+
+Mechanism: weighted BV yields C(P,A_R)=S_2(N)J_N+O_J. Every modulus uses
+the SAME prefix endpoint, so a supremum outside the modulus sum is enough;
+no exchange of sup/sum or repeated Type I mesh proof is made. GY Lemma 2.1
+pays the reduced scalar density. Nonreduced prime residues are empty,
+proper powers are retained, and their actual divisor incidence costs only
+N^(1/2+eta) log(N)^3. For B=A_R-aP and Q=Lambda-Lambda_p, the exact identity
+D_c=-B+Q gives the theorem using the accepted C(A_R,A_R) main.
+
+IMPORTANT: this positive sector is not a free Goldbach margin. With
+M_N=C(Lambda_p,P) and T_N=C(Lambda_p,Lambda_p), the prime-prime sector is
+T_N-2aM_N+a^2Z_N, and the two mixed sectors sum to
+-2H+2aS_2(N)J_N+2aM_N-2a^2Z_N+O_J. Full recombination is T_N-H+O_J.
+Do not spend the composite margin twice. No effective onset, shrinking-gap
+uniformity, narrower-sector compensation or joint squarefree/unit mask is
+proved. The full pointwise residual bound and Goldbach remain open.
+
+Ten new tests, 153 current-chain tests and 118 optimized affected/adjacent
+tests pass; separate source/math review is recorded in
+`notes/review-receipts.md`. The full prove-or-disprove objective remains
+active. Choose ONE bounded question with mechanism, changed prediction,
+falsifier and exact bound before computing. A next step must address an
+unpaid signed coupling or a better arithmetic input, not repackage this
+sector identity. Preserve q286 missing mass, Q46189 gaps, earlier L2,
+absolute-remainder and thinning obstructions and the unit/Vaughan route.
+No Qwen; at most one reviewed direct PowerShell exact-thread continuation.
+
+## Same-sign six-factor checkpoint, 2026-09-16
+
 An actual same-sign, same-factor-count adverse block is now main-scale.
 See `notes/same-sign-six-factor-adverse-mass.md`. For fixed
 `9/20<theta<1/2`, `R=floor(N^theta)`, there is c_theta>0 such that EVERY

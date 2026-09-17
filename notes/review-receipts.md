@@ -4,6 +4,47 @@ Owner: Rill. Purpose: preserve the reasoning and validation that support claimed
 results, including corrections that change future execution. No raw model
 reasoning is retained. Model agreement is not a proof by itself.
 
+## Composite-sector signed compensation, 2026-09-16
+
+A separate fresh-context read-only Sol reviewer
+(`01a0ace2-d3b3-7193-b7d8-dc6f8a4f7df5`) returned scoped PASS with no
+material findings for `notes/composite-sector-signed-compensation.md`,
+its exact helper and ten tests, and the new leading handoff/goal sections.
+This was supplied-proof/source review, not blind discovery. No Qwen,
+nested agent or reviewer file edit was used.
+
+The review accepted the common-endpoint BV argument: the supremum stays
+OUTSIDE the modulus sum, the lower endpoint is paid separately, and the
+fixed exponent gap is uniform across the central interval. The weighted
+prime-cutoff estimate uses partial summation and the GY scalar density,
+not prime-pair distribution. The lead checked GY (1.30), printed p.8, and
+Lemma 2.1 (2.11)-(2.12), printed p.16, against the primary paper.
+Nonreduced prime classes are empty; proper powers remain explicitly
+controlled by actual divisor incidence and are not deleted from identities.
+
+Accepted conclusion: for fixed 0<theta<1/2, the ACTUAL composite-composite
+residual satisfies
+`C(D_c,D_c)=H-2aS_2(N)J_N+a^2 Z_N+O_J(N/log(N)^J)` and hence
+`C(D_c,D_c)>=(1-2theta-o(1))H` pointwise through sufficiently large even N.
+No positive Z_N is assumed. The correct normalization is
+`aS_2(N)J_N/H=3aJ_N/N`, not `aJ_N/H`; this was made explicit during review.
+The exact D_c=-B+Q identity and all proper-power corrections check out.
+
+The three-sector ledger preserves the unknown Z_N,M_N,T_N terms and
+cancels back to T_N-H with no extra margin. The theorem compensates the
+whole composite sector, not every narrower factor/sign class or any new
+joint support mask. The six-factor adverse block remains real and is
+contained in this sector. No effective onset, shrinking-gap claim or
+Goldbach proof/disproof is established. No correction to the written
+theorem or implementation was required.
+
+Lead validation: 10 new tests; 153 combined current-chain tests and 118
+optimized affected/adjacent tests passed. Reviewer validation: the ten
+new tests passed in both modes; the broader chain was not duplicated.
+Whitespace validation passed. No repository-wide test run is claimed.
+The fixtures establish exact finite algebra only; the stated asymptotic
+theorem rests on the analytical proof and its established source inputs.
+
 ## Same-sign six-factor adverse mass, 2026-09-16
 
 A separate fresh-context read-only Sol reviewer
