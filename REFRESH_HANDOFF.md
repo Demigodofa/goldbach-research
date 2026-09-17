@@ -20,6 +20,30 @@ cross-domain hypotheses are welcome when a mechanism and falsifier give them
 mathematical value. Quantum/spectral analogy is not spectral correspondence.
 NO QWEN remains in force. No continuation was queued during this pivot.
 
+### Latest RH crossover result
+
+`notes/rh-mobius-cutoff-transfer.md` now gives an exact dictionary from the
+actual a_d=mu(d)log(R/d) cutoff to the published Nyman--Beurling approximation
+family. The full norm J_R has a fixed nonzero target, and J_R->0 is a genuine
+RH-sufficient estimate; this does NOT assert a converse for this particular
+family. Its arithmetic ledger keeps proper powers and the strict y=1 endpoint.
+The far tail y>R^3 is unconditionally <=4/(R log(R)^2). The remaining
+finite-but-growing-window bound (5) is OPEN. Existing weights are known
+prior art; a conditional published estimate for them cannot prove RH.
+Independent Sol source/math/file review PASS, 7 new tests, 38 normal and
+optimized affected/adjacent tests passed; reviewer 7 each mode. No new RH or
+Goldbach proof/disproof, universal margin, or numerical onset is claimed.
+
+Kevin's new Downloads `zeta-two-thirds.pdf` is a 35-page August 10 draft,
+not byte-identical to the 17-page August 11 revision currently linked by
+Anthropic. Version hashes and inspected scope are in the crossover inventory.
+The announcement is about a 67.2% lower proportion of zeros, not 67.2% of an
+RH proof. Its signed Hermitian-form/rank method is relevant prior art, not
+merely brute force. Full proof and formalization have NOT been independently
+reproduced here. Do not transfer its claims to Q46189 without an exact map.
+Next choose by information value; do not automatically scan mollifier weights
+or repeat the now-settled transfer/tail calculation. Both full goals stay open.
+
 ## Preserved Goldbach checkpoint, 2026-09-16
 
 The positive Jordan-deformation experiment has a new unconditional uniform

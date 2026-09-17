@@ -13,6 +13,13 @@ The full Goldbach prove-or-disprove objective below remains open and
 preserved; a focus change is not achievement or an impossibility claim.
 Do not queue the older Goldbach next action over this newer instruction.
 
+Current checked RH crossover: `notes/rh-mobius-cutoff-transfer.md` maps the
+actual cutoff to a known RH-sufficient approximation family and pays its
+far tail. The moving-window norm estimate remains open. Independent review
+and 38 normal/optimized affected tests passed; no claim of an RH proof or
+new mollifier. The 67.2% Anthropic result is a zero-proportion statement;
+source versions and reuse boundaries are preserved in the crossover inventory.
+
 ## Latest Goldbach continuation evidence, 2026-09-16
 
 The positive Jordan deformation was tested as a different arithmetic route:

@@ -177,6 +177,35 @@ used in the source proof and which independent estimate could replace it.
 Do not create new coefficient scans merely because an equivalent criterion
 is computationally accessible. No full source-proof audit has yet been done.
 
+## New source identified: Anthropic zero-proportion result
+
+Kevin supplied `C:/Users/KevinPenfield/Downloads/zeta-two-thirds.pdf`.
+Read-only intake on 2026-09-16: 35 pages, 631785 bytes, internal date
+August 10, 2026, SHA256
+`6792988e6cd0e17690621ce898abd5d534f98407741bc7cb14bbe7d07c77d72f`.
+The title is "More than two thirds of the zeros of the Riemann zeta function
+lie on the critical line", author Claude. Pages 1-2 and 9-10 were inspected
+for stated scope and the matrix mechanism. The original was not modified.
+
+[Anthropic's announcement](https://www.anthropic.com/research/riemann-zeta)
+reports a 67.2% lower proportion, not that RH is 67.2% solved. Its currently
+linked [paper](https://www-cdn.anthropic.com/95c246936988e43127bc6b2ceb7077c1dad2d68e.pdf)
+has 17 pages, internal date August 11, 2026, 458932 bytes, SHA256
+`19f827bee5834d61aa6dd756cdaea582492703ddbfd6bdc2058de10b93f7e814`.
+Do not conflate these versions or treat the older 2025 source above as the
+current best proportion. The announcement reports human review and formal
+verification; we have not independently reproduced either for the full paper.
+
+The useful mechanism is a rank/trace bound for an indefinite Hermitian form,
+retaining interactions between positive and negative parts. Its zero-count
+application is not merely brute force and does not establish RH. The older
+Q46189 matrices have no proved mapping into that Weil form. A genuine reuse
+must supply that mapping and its hypotheses, not borrow the word "matrix".
+
+The separate checked cutoff transfer is developed in
+`rh-mobius-cutoff-transfer.md`; it identifies an existing RH approximation
+family, a non-circular sufficient target, and the still-unpaid norm estimate.
+
 ## Validation and continuation
 
 Confirmed presence of both linked-view HTML files, glow/PCA JSON, static SVG,
