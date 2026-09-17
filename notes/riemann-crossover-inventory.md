@@ -139,6 +139,44 @@ This is a screening question, not a claimed new proof strategy. Do not build
 a quartet simulator automatically: first check whether the exact formula
 already settles the proposed information-loss question on paper.
 
+## Reverse-engineering published results
+
+Kevin suggests working backward from published consequences of RH. Keep the
+logical directions explicit: RH implies X does not let a proof of X establish
+RH. A disproof of X would refute RH, provided the implication and its other
+hypotheses hold. A proved equivalence RH iff X is a genuine alternative
+target; a conditional proof of X using RH cannot then be reused to prove RH.
+There is no established percentage of a proof completed by counting related
+papers, equivalent criteria, or conditional consequences.
+
+Two primary-source criteria worth comparing against existing tools:
+
+- [Lagarias](https://arxiv.org/abs/math/0008177): an all-integer inequality
+  involving divisor sums and harmonic numbers is equivalent to RH. Exact
+  divisor tools fit the finite arithmetic, but finite checks do not supply
+  the required universal inequality.
+- [Baez-Duarte](https://arxiv.org/abs/math/0205003): in L2(0,infinity), RH is
+  equivalent to the indicator of (0,1) being in the closed linear span of
+  `x -> fractional_part(1/(n*x))`, for positive integers n. This is an
+  established logical bridge for a SPECIFIC approximation problem, unlike
+  an arbitrary useful-looking L2 bound. Our Mobius, kernel and exact-accounting
+  tools make it a candidate for inspection, not a result. The approximation
+  rate stated in that paper assumes RH; importing it as unconditional would
+  be circular. The defining approximation target does not assume RH.
+
+[Goldston--Suriajaya, 2025](https://arxiv.org/abs/2511.20059) is a concrete
+published example of asking what removing RH from a known argument would
+yield. Its stated two-thirds conclusion is not proved unconditionally there.
+It is a source locator for a dependency audit, not evidence of a new theorem
+in this repository. An asymptotic proportion of zeros on the line, even one,
+does not by itself exclude an exceptional set of density zero. RH requires
+every nontrivial zero to lie on the line.
+
+Before selecting one of these alternatives, identify exactly where RH is
+used in the source proof and which independent estimate could replace it.
+Do not create new coefficient scans merely because an equivalent criterion
+is computationally accessible. No full source-proof audit has yet been done.
+
 ## Validation and continuation
 
 Confirmed presence of both linked-view HTML files, glow/PCA JSON, static SVG,
