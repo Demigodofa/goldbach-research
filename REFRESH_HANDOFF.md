@@ -1,5 +1,13 @@
 # Rill research refresh — 2026-09-09
 
+## Superseding User Direction - Project Closed
+
+On 2026-09-16 ET Kevin closed Goldbach as an active project. It is now only a
+source folder. Current research lives in `Demigodofa/rill-research-lab` and
+uses the `riemann-research` skill. Do not continue either the old Goldbach goal
+or RH development in this archive. The entries below preserve history, not
+active instructions. No proof/disproof is implied by project closure.
+
 Owner: Kevin. Purpose: Kevin explicitly requested a copy-and-paste refresh
 handoff at a checked mathematical checkpoint. This file is the entrypoint
 for the next session; the proofs and executable truth remain in the modules.

@@ -1,5 +1,12 @@
 # Rill's chosen mathematical research goal
 
+## Closed by Kevin - 2026-09-16 ET
+
+This is a historical goal, not active work. Kevin designated this folder a
+reference resource only. Use `riemann-research` and
+`Demigodofa/rill-research-lab` for current work. Do not arm Goldbach
+continuations. Project closure does not prove or disprove the conjecture.
+
 Owner: Kevin; lead: Rill (`agent.rill`). Purpose: preserve the self-chosen
 goal and its evidence rules across continuation, instead of reviving an
 expired deadline after a session boundary.

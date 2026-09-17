@@ -1,5 +1,13 @@
 # Goldbach Research Startup
 
+## Project Closed - 2026-09-16 ET
+
+Kevin closed Goldbach as active research. This folder is a reference archive
+to copy useful material from. Do not resume the goal or queue a continuation;
+the older instructions below are historical. Current work uses the
+`riemann-research` skill and `Demigodofa/rill-research-lab`. Closure is not a
+claim that Goldbach was proved, disproved or mathematically blocked.
+
 This repository is Kevin's public Goldbach research notebook and evidence
 workbench. At startup, use the `goldbach-research` skill and treat
 `RESEARCH_GOAL.md`, `REFRESH_HANDOFF.md`, and the q286 notes as the controlling
