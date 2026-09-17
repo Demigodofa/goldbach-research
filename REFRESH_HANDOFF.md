@@ -4,7 +4,23 @@ Owner: Kevin. Purpose: Kevin explicitly requested a copy-and-paste refresh
 handoff at a checked mathematical checkpoint. This file is the entrypoint
 for the next session; the proofs and executable truth remain in the modules.
 
-## Latest active checkpoint note, 2026-09-16
+## Current user direction: RH crossover, 2026-09-16
+
+Kevin has redirected the active research focus to attempting the Riemann
+hypothesis. Audit ALL potentially reusable work, including older or partial
+tools, heat/glow maps, linked views, research graphs and mathematics. Goldbach
+remains unresolved and preserved, not completed or disproved. Do not blindly
+resume a Goldbach continuation from the older sections below.
+
+Start with `notes/riemann-crossover-inventory.md`. This is a source-inspected
+reuse map, not an RH theorem or an exhaustive rereview of the repository.
+The first selected reuse tests passed (19). No new visualization was built;
+no browser interaction or RH-adapted runtime is claimed. Creativity and
+cross-domain hypotheses are welcome when a mechanism and falsifier give them
+mathematical value. Quantum/spectral analogy is not spectral correspondence.
+NO QWEN remains in force. No continuation was queued during this pivot.
+
+## Preserved Goldbach checkpoint, 2026-09-16
 
 The positive Jordan-deformation experiment has a new unconditional uniform
 averaging estimate, but its proposed prime-coefficient transfer fails.
@@ -38,7 +54,8 @@ that fact is not contradicted. New boundary-sensitive information is needed.
 This is not a full Jordan-method impossibility or a new estimate for the
 unpaid Goldbach residual. Preserve the positive-family estimate, but do
 not repeat sampling or transfer theorems unchanged. Seven exact tests and
-separate review are recorded in `notes/review-receipts.md`. All previous
+separate review are recorded in
+`notes/positive-jordan-deformation-boundary-review.md`. All previous
 cutoff, sector, q286/Q46189, thinning and exceptional-zero boundaries remain.
 Kevin asked whether an end is in sight. Rill's assessment: no decisive
 bridge or end is currently visible; that does not establish unsolvability.

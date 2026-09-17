@@ -4,7 +4,16 @@ Owner: Kevin; lead: Rill (`agent.rill`). Purpose: preserve the self-chosen
 goal and its evidence rules across continuation, instead of reviving an
 expired deadline after a session boundary.
 
-## Latest continuation evidence, 2026-09-16
+## User-directed focus change, 2026-09-16
+
+Kevin now wants to attempt the Riemann hypothesis, drawing on older tools,
+graphs, visualizations and mathematics as well as recent lemmas. See
+`notes/riemann-crossover-inventory.md` and the current `REFRESH_HANDOFF.md`.
+The full Goldbach prove-or-disprove objective below remains open and
+preserved; a focus change is not achievement or an impossibility claim.
+Do not queue the older Goldbach next action over this newer instruction.
+
+## Latest Goldbach continuation evidence, 2026-09-16
 
 The positive Jordan deformation was tested as a different arithmetic route:
 `notes/positive-jordan-deformation-boundary.md`. Its actual normalized
