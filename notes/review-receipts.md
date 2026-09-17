@@ -4,6 +4,44 @@ Owner: Rill. Purpose: preserve the reasoning and validation that support claimed
 results, including corrections that change future execution. No raw model
 reasoning is retained. Model agreement is not a proof by itself.
 
+## Signed squarefree residual localization, 2026-09-16
+
+A separate fresh-context read-only Sol reviewer
+(`01a0acc1-c62f-7a21-a10d-f9dade75a229`) returned scoped PASS with no
+material mathematical, source or code findings for
+`notes/squarefree-residual-localization.md`, its exact helpers and eleven
+tests. This was supplied-proof/source review, not blind discovery. Kevin's
+no-Qwen instruction was followed. No correction was required.
+
+The reviewer directly checked GY Lemma 2.1, (2.25) with r=N,k=P even when
+P does not divide N, and ordinary BV (1.30). It verified fixed uniformity
+ratios, theta+2gamma<1/2 for the mixed progression moduli, two-sided
+nonsquarefree overlap, the forced-prime cutoff main cancellation and
+convergent square-divisor multiplicities. Proper-power exceptions were
+charged by actual divisor incidence, not by a spurious extra G^2 factor.
+
+The accepted conclusion is the SIGNED estimate
+`C(D_R,D_R)-C(mu^2 D_R,mu^2 D_R)=O_(theta,J)(N/log(N)^J)` for fixed
+0<theta<1/2 and every fixed J>0. It licenses the complementary outer
+Mobius sign on squarefree pairs, up to that aggregate error. It does not
+give small absolute nonsquarefree mass or exact vanishing. W_R can change
+sign, its cutoff depends on its argument, and the old middle-band
+nonsquarefree caveat is not retroactively removed.
+
+The reviewer explicitly retained the separate intersection obligation:
+the signed nonunit and signed nonsquarefree estimates do not automatically
+license restricting to their joint complement. No favorable bound on the
+remaining signed correlation, effective threshold or Goldbach result is
+asserted. Earlier q286/Q46189, L2 and thinning boundaries remain intact.
+
+Lead validation: 11 focused, 134 combined and 99 optimized affected/adjacent
+tests passed. Reviewer validation: 11 focused and 22 parent tests each in
+normal and optimized modes; Python compilation passed. Its additional
+exact probes covered 4,759 projector pairs, 4,036 CRT blocks and 133 Euler
+collapse cases. It did not duplicate the lead's full adjacent suite.
+No repository-wide test run or proof by finite asymptotic extrapolation is
+claimed. The analytical derivation and cited primary inputs are the proof.
+
 ## Unconditional residual Type I transfer, 2026-09-16
 
 A separate fresh-context read-only Sol reviewer

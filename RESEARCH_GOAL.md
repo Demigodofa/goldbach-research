@@ -6,6 +6,31 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+A former support obstruction is now controlled analytically for actual D_R:
+`notes/squarefree-residual-localization.md` proves
+`C(D_R,D_R)-C(mu^2 D_R,mu^2 D_R)=O_(theta,J)(N/log(N)^J)` for every fixed
+0<theta<1/2 and J>0. Both arguments and their overlap are included. The proof
+uses square-divisor CRT blocks, a cutoff-independent excluded-prime main,
+convergent square-divisor multiplicities, BV for mixed terms and power-saving
+tails. It does not classify all nonsquarefree integers as prime powers.
+
+Consequently the complementary sign switch now represents Delta_0, up to
+that negligible aggregate error, as
+`sum_(n,N-n squarefree)mu(n)mu(N-n)W_R(n)W_R(N-n)` on the strict central
+interval, where `W_R(n)=sum_(k|n,R*k<n)mu(k)log(n/(R*k))`. Its inner cutoff
+depends on n, and its inner amplitude can be negative. The favorable
+pointwise lower bound remains open; exposing a sign is not estimating it.
+
+Eleven new tests, 134 combined and 99 optimized affected/adjacent tests pass.
+Review is recorded separately. The exact nonsquarefree caveat and the older
+middle-band scope remain valid; this is a new aggregate deduction for D_R.
+Do not intersect this signed localization with the earlier signed coprime
+localization without another argument. The full prove-or-disprove objective,
+effective threshold, finite remainder, q286/Q46189 gaps and prior obstructions
+remain. Choose the next question for new analytical value, not receipt churn.
+
+## Unconditional Type I evidence, 2026-09-16
+
 An unconditional analytical input now supports the actual-residual Vaughan
 route: `notes/unconditional-residual-type-i-transfer.md`. For fixed
 `0<kappa<theta<1/2`, the cutoff residual has aggregate progression-prefix

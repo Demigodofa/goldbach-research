@@ -6,6 +6,54 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The actual residual now has a signed squarefree-pair localization. See
+`notes/squarefree-residual-localization.md`. For every fixed
+`0<theta<1/2`, `R=floor(N^theta)`, `D_R=Lambda-A_R` and fixed J>0,
+
+```text
+C(D_R,D_R)-C(mu^2 D_R,mu^2 D_R)=O_(theta,J)(N/log(N)^J).
+```
+
+The proof handles the UNION where either argument is nonsquarefree, using
+the double square-divisor projector so overlaps remain. On d^2|n,e^2|N-n,
+compatibility is gcd(d,e)^2|N; P=lcm(d,e) need not divide N. Exact forced
+prime supports yield alternating cutoffs. Their excluded density has common
+main `(P/phi(P))S_2(NP)`, which cancels in every nontrivial square block.
+The weighted sum `sum_(d,e sf)tau(P)^B/P^2=product_p(1+3*2^B/p^2)` converges.
+Large squares and CRT errors have power savings; BV plus a separate cutoff
+cancellation handles the mixed prime/cutoff blocks. This is not an argument
+that all nonsquarefree integers are proper prime powers.
+
+The formerly qualified complementary sign switch now gives
+
+```text
+W_R(n)=sum_(k|n,R*k<n)mu(k)log(n/(R*k)),
+Delta_0=sum_(n in I_N,n and N-n squarefree)
+          mu(n)mu(N-n)W_R(n)W_R(N-n)+O_J(N/log(N)^J).
+```
+
+Keep the real, argument-dependent cutoff n/R and the outer signs. W_R need
+not be positive: W_3(30)=-log 2. The exact identity still fails outside
+squarefree support: D_3(12)=-log 2 but mu(12)=0. The new aggregate estimate
+applies to this cutoff-normalized residual, not every earlier middle band.
+It is NOT an absolute nonsquarefree-mass bound. Do NOT insert the coprime
+mask for free: the earlier signed nonunit bound and this signed squarefree
+bound do not by themselves control their intersection.
+
+Eleven new tests, 134 combined and 99 optimized affected/adjacent tests pass;
+separate Sol source/math review returned PASS with no material findings,
+recorded in `notes/review-receipts.md`. The favorable one-sided
+squarefree correlation bound, effective threshold, finite remainder and
+Goldbach proof/disproof remain open. Preserve the independent unit/Vaughan
+route, q286 missing mass, Q46189 transfer gaps, absolute-remainder and
+finite-cutoff L2 obstructions, and both reflection-thinning boundaries.
+Choose ONE next bounded question by analytical information value, with a
+mechanism, changed prediction, falsifier and exact bound before computing.
+Do not repeat controlled localization pieces or call the remaining outer
+signs independent. No Qwen; at most one reviewed direct PowerShell queue.
+
+## Unconditional Type I checkpoint, 2026-09-16
+
 The actual cutoff residual now has unconditional, divisor-weighted Type I
 control. See `notes/unconditional-residual-type-i-transfer.md`. For fixed
 `0<alpha<kappa<theta<1/2`, `R=floor(N^theta)`, `Q=floor(N^kappa)`, and
