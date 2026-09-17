@@ -6,6 +6,47 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The fixed positive-fraction residual gate now has a proved CONDITIONAL
+exceptional-zero obligation. See
+`notes/fixed-density-exceptional-zero-obligation.md`. For a primitive
+quadratic conductor D>24 with nonempty exact suppression family F_D, an
+actual zero beta=1-1/(eta log D), eta>=10, yields an explicitly lifted even
+target D^10<=N<2D^10 with
+
+```text
+0<=T_N/H(N)<<exp(-sqrt(10log eta))+exp(-sqrt(10log D))
+                                            +11(log eta)^6/eta.
+```
+
+This follows from Matomaki--Merikoski Theorem 1.4 at b_D(N)=0, positivity
+T_central<=W_full, and S_2(N)/(N/phi(N))>=1/2. No fitted constant or
+prime-pair scan is used. Thus a sequence with D,eta->infinity would force
+ACTUAL T_N/H->0 and C(D_R,D_R)/H->-1 for each fixed 0<theta<1/2. Such
+zeros are NOT known to exist. This is neither T_N=0 nor necessarily
+T_N/N->0; do not import it into the thinning rigidity criterion.
+
+Conversely a uniform fixed-epsilon residual margin would exclude real
+zeros beta>=1-c/log D for all sufficiently large SUPPRESSIBLE conductors,
+with some c>0. The family includes even characters at nonmultiple targets
+(e.g. D=33 or positive-8-part D=40). Empty-F_D conductors are not excluded
+by this argument; no general zero-free theorem is proved.
+
+Decision: preserve the full prove-or-disprove objective. The fixed-epsilon
+gate is a stronger sufficient target carrying this additional obligation,
+not a synonym for Goldbach. A decaying positive-margin route is logically
+possible but UNPROVED and must pay errors at its actual scale. Do not
+invent a decay rate from an upper-error envelope or recycle the old
+conditional coverage regimes as a new result. No new unconditional lower
+bound, numerical onset, finite remainder closure or Goldbach conclusion.
+
+The exact helper `density_collapse_target` and four new tests guard the
+class lift and scope. Source/math review and validation are recorded in
+`notes/review-receipts.md`. Preserve the composite ledger, all earlier
+obstructions, the independent unit/Vaughan route and the unproved signed-
+mask intersection. No Qwen; at most one reviewed exact-thread continuation.
+
+## Composite-sector checkpoint, 2026-09-16
+
 There is now a positive ACTUAL signed composite-composite sector theorem,
 not just an adverse-block obstruction. See
 `notes/composite-sector-signed-compensation.md`. Fix 0<theta<1/2 and let

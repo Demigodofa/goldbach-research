@@ -124,6 +124,13 @@ These are gaps in this strong-zero certificate family, not Goldbach
 counterexamples. Weaker zeros or different analytic regimes are not ruled
 out. Reusing the same zero at another alpha is not a second character and
 does not justify applying (4); its enlarged range must be checked anew.
+
+The later notes/fixed-density-exceptional-zero-obligation.md uses the SAME
+source on F_D rather than off it. Arbitrarily strong zeros in suppressible
+conductors would force actual central T_N/H(N) to approach zero along
+explicitly lifted targets, and the cutoff residual/H to approach -1.
+This is conditional density collapse, not a zero detection or a vanishing
+prime-pair claim. The helper below certifies only the exact target lift.
 """
 from fractions import Fraction
 from math import isqrt
@@ -156,6 +163,21 @@ def pointwise_coefficient(conductor: int, target: int, *, two_sign: int = 1
         if target % p:
             product *= Fraction(-1, p-2)
     return 1+chi_minus*product
+
+
+def density_collapse_target(conductor: int, *, two_sign: int = 1
+                            ) -> int | None:
+    """First F_D target >= D**10, or None when that residue family is empty.
+
+    A returned target is even and <2*D**10, with source coefficient zero.
+    This is NOT a zero detection, prime-pair count, or numerical analytic
+    certificate. The conditional implication is proved in the linked note.
+    """
+    _, period, residues = suppression_classes(conductor, two_sign=two_sign)
+    if not residues:
+        return None
+    lower = conductor**10
+    return min(lower + (residue-lower) % period for residue in residues)
 
 
 def proper_power_position_cap(target: int) -> int:

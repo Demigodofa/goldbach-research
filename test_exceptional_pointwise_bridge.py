@@ -6,11 +6,56 @@ import unittest
 from character_suppression import suppression_classes
 from exceptional_character_model import character_values
 from exceptional_pointwise_bridge import (pointwise_coefficient, proper_power_position_cap,
-                                          separated_zero_ranges)
+                                          separated_zero_ranges, density_collapse_target)
 from redistribution import trial_prime
 
 
 class ExceptionalPointwiseBridgeTests(unittest.TestCase):
+    def test_density_collapse_target_exact_range_and_character_coefficient(self):
+        for d, sign in ((31, 1), (33, 1), (35, 1), (40, 1), (40, -1),
+                        (60, 1), (120, 1), (120, -1), (280, -1)):
+            target = density_collapse_target(d, two_sign=sign)
+            self.assertIsNotNone(target)
+            self.assertEqual(target % 2, 0)
+            self.assertGreaterEqual(target, d**10)
+            self.assertLess(target, d**10+lcm(2, d))
+            self.assertLess(target, 2*d**10)
+            self.assertLess(target, d**11)  # 10 <= V < 11, without floats.
+            self.assertEqual(pointwise_coefficient(d, target, two_sign=sign), 0)
+            chi = character_values(d, two_sign=sign)
+            r = target % d
+            allowed = [a for a in range(d) if chi[a] and chi[(r-a) % d]]
+            self.assertEqual(sum(chi[a]*chi[(r-a) % d] for a in allowed),
+                             -len(allowed))
+            # Independently exhaust the preceding short interval, not D**10.
+            for n in range(d**10, target):
+                if n % 2 == 0:
+                    self.assertNotEqual(pointwise_coefficient(d, n, two_sign=sign), 0)
+
+    def test_density_collapse_even_characters_need_nonmultiple_targets(self):
+        for d, residue in ((33, 22), (40, 20)):
+            chi = character_values(d)
+            self.assertEqual(chi[-1], 1)
+            self.assertEqual(pointwise_coefficient(d, 0), 2)
+            self.assertEqual(pointwise_coefficient(d, residue), 0)
+            target = density_collapse_target(d)
+            self.assertNotEqual(target % d, 0)
+            self.assertEqual(pointwise_coefficient(d, target), 0)
+        self.assertEqual(density_collapse_target(40), 40**10+20)
+
+    def test_density_collapse_empty_family_is_not_a_negative_certificate(self):
+        for d in (29, 37, 41, 65, 385):
+            self.assertIsNone(density_collapse_target(d))
+        self.assertIn("NOT a zero detection", density_collapse_target.__doc__)
+
+    def test_density_collapse_input_semantics(self):
+        for d in (True, 24, 25, 27, 30, 32, 36, 40.0, 45):
+            with self.assertRaises(ValueError):
+                density_collapse_target(d)
+        for d, sign in ((31, -1), (40, True), (40, 0)):
+            with self.assertRaises(ValueError):
+                density_collapse_target(d, two_sign=sign)
+
     def test_source_product_against_independent_character_periods(self):
         different_from_full_bias = False
         for d, sign in ((29, 1), (31, 1), (33, 1), (35, 1), (40, 1),

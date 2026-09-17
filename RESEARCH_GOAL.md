@@ -6,6 +6,36 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+A new conditional implication distinguishes the fixed positive-fraction
+residual target from the full prove-or-disprove objective:
+`notes/fixed-density-exceptional-zero-obligation.md`. For any actual
+primitive quadratic zero beta=1-1/(eta log D), eta>=10, in a conductor
+D>24 with nonempty F_D, an exact target D^10<=N<2D^10 satisfies
+
+```text
+T_N/H(N) << exp(-sqrt(10log eta))+exp(-sqrt(10log D))
+                                          +11(log eta)^6/eta.
+```
+
+Hence arbitrarily strong such zeros along D->infinity would make actual
+central prime mass/H tend to zero and actual cutoff residual/H tend to -1.
+A uniform fixed-epsilon residual gap would therefore imply a zero-free
+region beta<1-c/log D for sufficiently large suppressible conductors.
+Even characters with nonmultiple suppressed targets are included. The
+empty-F_D family is not excluded. The source is MM Theorem 1.4; the new
+deduction pays target lifting, normalization and transfer to the residual.
+
+No zero existence or T_N=0 is claimed. T_N/H->0 is not the older T_N/N->0
+thinning condition. No fixed-margin disproof follows without the stated
+zero hypothesis. The substantive change is an extra arithmetic obligation
+for that sufficient route; a decaying-margin existence route remains an
+unproved alternative, with no arbitrary rate licensed by this upper bound.
+Four new exact tests and separate review accompany the deduction. All
+prior sector, localization, L2, q286/Q46189 and thinning boundaries remain.
+The full Goldbach objective, effective onset and finite closure stay open.
+
+## Composite-sector evidence, 2026-09-16
+
 The actual composite-composite sector now has proved pointwise signed
 compensation: `notes/composite-sector-signed-compensation.md`. For every
 fixed 0<theta<1/2 and R=floor(N^theta), D_c=(1-P)D_R satisfies

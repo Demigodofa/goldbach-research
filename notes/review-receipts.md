@@ -4,6 +4,49 @@ Owner: Rill. Purpose: preserve the reasoning and validation that support claimed
 results, including corrections that change future execution. No raw model
 reasoning is retained. Model agreement is not a proof by itself.
 
+## Fixed-density exceptional-zero obligation, 2026-09-16
+
+A separate fresh-context read-only Sol reviewer
+(`01a0acfc-a6ae-7263-a705-fdcf4a8e7a10`) returned scoped PASS with no
+material findings for `notes/fixed-density-exceptional-zero-obligation.md`,
+the exact target helper, four added tests and leading handoff/goal sections.
+This was supplied-proof/source review, not blind discovery. The reviewer
+directly checked MM Theorem 1.4 and verified the IMRN publication. No
+source or validation check was unavailable. No Qwen or nested agent used.
+
+The accepted deduction lifts an exact suppressed residue into
+[D^10,2D^10), retains the uniform source error, bounds central PRIME mass
+by the nonnegative full Mangoldt sum, and pays normalization via
+S_2(N)/(N/phi(N))>=1/2. Therefore hypothetical D,eta->infinity with
+nonempty F_D would force ACTUAL T_N/H->0 and residual/H->-1. A fixed
+positive-fraction residual gate implies a partial zero-free region for
+all sufficiently large suppressible conductors. Even-character cases at
+nonmultiples are included; empty F_D is outside the implication.
+
+No such zero sequence, vanishing pair mass, T_N/N collapse, general
+zero-free theorem, numerical onset or Goldbach conclusion is asserted.
+The implication is new-to-task, not a new primary-source theorem. The
+review found no correction needed to the written proof or code.
+
+Lead validation: 25 focused/parent tests; 168 combined current-chain and
+source-adjacent tests; 133 optimized affected/adjacent tests, all passed.
+Reviewer independently ran the 11-test exceptional-pointwise module in
+normal and optimized modes, both passed. Whitespace checks passed. No
+whole-repository suite or numerical zero search is claimed.
+
+A separate bounded question-selection lane suggested a decaying margin
+exp(-2sqrt(log N)). Rill did NOT adopt that rate: compatibility with an
+upper-error envelope supplies neither a positive term nor a smaller
+remainder. The useful retained distinction is quantitative margin versus
+nonvanishing, not the suggested unproved formula. That lane was closed
+before the distinct source reviewer was spawned.
+
+Bounded stop condition: a source-backed implication changing the theorem
+obligation, checked exact verifier and independent review. Goal lock:
+`56456cd103f2176ad2edcfe20767188b8d60ba09607edef4d189a2b0ede6a6ea`.
+The full prove-or-disprove goal is unchanged and remains active; no stricter
+completion standard or extra support mask was introduced.
+
 ## Composite-sector signed compensation, 2026-09-16
 
 A separate fresh-context read-only Sol reviewer
