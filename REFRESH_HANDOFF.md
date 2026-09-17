@@ -6,6 +6,47 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The positive Jordan-deformation experiment has a new unconditional uniform
+averaging estimate, but its proposed prime-coefficient transfer fails.
+See `notes/positive-jordan-deformation-boundary.md`. Put
+J_s(n)=n^s product_(p|n)(1-p^(-s)) and
+F_N(s)=N^(-2s-1) sum_(n in strict I_N)J_s(n)J_s(N-n). For even N, 0<s<=1,
+integer y>=2 and M_y=product_(p<=y)p,
+
+```text
+F_N(s)=I_s rho_s(N)+O(y^(-s)/s+M_y/N),
+I_s=int_(1/3)^(2/3)[u(1-u)]^s du,
+rho_s(N)=product_p(1-2p^(-1-s)+1_(p|N)p^(-1-2s)).
+```
+
+The implied constant is absolute. Positive prime-factor truncation,
+complete-period CRT means and bounded variation prove it. With
+ell=log log N, y=floor(log N/(4ell)) and a_N=8log(ell)/ell, this is a
+relative asymptotic uniformly for a_N<=s<=1, since I_s rho_s>=s^2/108.
+No finite scan or conjectural prime-pair input is used.
+
+SUBSTANTIVE TRANSFER OBSTRUCTION: delete pairs where EITHER argument is a
+prime power. The remaining actual arithmetic transform F_N^comp differs
+by O(1/log N), uniformly in s, and has the SAME relative asymptotic in
+that entire shrinking range. But its s^2 and s^3 Taylor coefficients are
+exactly zero. The original s^2 coefficient is C(Lambda,Lambda)/N, not
+automatically prime-only mass. Prime powers have order one, not two.
+Real positivity and this leading asymptotic therefore do not justify
+differentiating at zero. Exact analytic values would determine derivatives;
+that fact is not contradicted. New boundary-sensitive information is needed.
+
+This is not a full Jordan-method impossibility or a new estimate for the
+unpaid Goldbach residual. Preserve the positive-family estimate, but do
+not repeat sampling or transfer theorems unchanged. Seven exact tests and
+separate review are recorded in `notes/review-receipts.md`. All previous
+cutoff, sector, q286/Q46189, thinning and exceptional-zero boundaries remain.
+Kevin asked whether an end is in sight. Rill's assessment: no decisive
+bridge or end is currently visible; that does not establish unsolvability.
+More checked obstructions are not proportional progress toward a proof.
+Reassess information value before another autonomous continuation.
+
+## Fixed-density checkpoint, 2026-09-16
+
 The fixed positive-fraction residual gate now has a proved CONDITIONAL
 exceptional-zero obligation. See
 `notes/fixed-density-exceptional-zero-obligation.md`. For a primitive

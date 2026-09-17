@@ -6,6 +6,37 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+The positive Jordan deformation was tested as a different arithmetic route:
+`notes/positive-jordan-deformation-boundary.md`. Its actual normalized
+central pair average has the unconditional uniform estimate
+
+```text
+F_N(s)=I_s product_p(1-2p^(-1-s)+1_(p|N)p^(-1-2s))
+                     +O(y^(-s)/s+product_(p<=y)p/N),
+```
+
+for every even N, 0<s<=1 and integer y>=2, with an absolute constant.
+Positive prime-factor tails and periodic CRT averaging prove a relative
+asymptotic even uniformly for
+8log log log N/(log log N)<=s<=1 at sufficiently large N.
+
+However, deleting EVERY prime-power-containing pair preserves this whole
+relative asymptotic while annihilating the quadratic and cubic Taylor
+coefficients at zero. Thus the proved positive-s averages cannot by their
+leading asymptotic and positivity alone determine the prime-detecting
+coefficient. This is a scoped transfer obstruction, not a Goldbach estimate
+or an impossibility theorem for all deformations. The exact identities and
+uniform estimate remain available only with a new boundary-sensitive input.
+Seven exact tests and separate review accompany the deduction.
+
+The full prove-or-disprove objective remains OPEN. No end or decisive
+mechanism is presently in sight, and no unsolvability result has been
+established. Further autonomous work must earn its information value rather
+than accumulate increasingly elaborate obstructions. All earlier q286,
+Q46189, residual, sector, mask-intersection and zero-exclusion limits stand.
+
+## Fixed-density evidence, 2026-09-16
+
 A new conditional implication distinguishes the fixed positive-fraction
 residual target from the full prove-or-disprove objective:
 `notes/fixed-density-exceptional-zero-obligation.md`. For any actual
