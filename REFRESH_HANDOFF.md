@@ -6,6 +6,58 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-16
 
+The actual cutoff residual now has unconditional, divisor-weighted Type I
+control. See `notes/unconditional-residual-type-i-transfer.md`. For fixed
+`0<alpha<kappa<theta<1/2`, `R=floor(N^theta)`, `Q=floor(N^kappa)`, and
+every fixed integer K>=0 and J>0,
+
+```text
+sum_(q<=Q)tau(q)^K max_(r mod q) sup_(N/3<=x<=2N/3)
+  |sum_(N/3<n<=x,n=r mod q)D_R(n)| << N/log(N)^J.
+```
+
+This includes NONREDUCED residues and independent prefix maxima. The exact
+cutoff density has main `1_((q,r)=1)/phi(q)`; GY Lemma 2.1 is uniform because
+`R/h>=R/Q`. A logarithmic mesh derives the prefix maximum from ordinary BV.
+Fixed divisor moments and Cauchy pay for weights without multiplying a
+log-saving estimate by N^o(1). CRT counting costs RQ, a power saving.
+
+With `U=V=floor(N^(alpha/2))`, the exact Vaughan transfer is
+
+```text
+B_U(b)=sum_(d|b,d>U)Lambda(d),
+T_R^unit(N)=sum_(a>V,b>U,ab in I_N,(ab,N)=1)
+                 mu(a)B_U(b)D_R(N-ab),
+Delta_0(N)=T_R^unit(N)+O_J(N/log(N)^J).
+```
+
+The unit mask is paid for: inclusion-exclusion, lcm multiplicity at most
+tau(q)^2 for small common divisors, and a power-saving large-divisor tail.
+The whole nonunit remainder is negligible, not each tuple. The free Vaughan
+factor 1 remains inside B_U; do not replace B_U by Lambda or log, or add
+(a,b)=1. This new D_R route is unconditional; the older Lambda-Gamma_S
+unexceptional-branch theorem is unchanged. No absence of exceptional zeros
+or smooth-kernel transfer is claimed.
+
+Ten new tests, 123 combined and 88 optimized affected/adjacent tests pass;
+separate Sol source/math review returned PASS with no material findings,
+recorded in `notes/review-receipts.md`. The sufficient pointwise
+bound `T_R^unit>=-(1-epsilon)H` is OPEN, as are an effective threshold,
+finite-remainder closure and Goldbach proof/disproof. Re-evaluating the
+full goal: the controlled Type I terms remove a conditional premise for
+this route, but do not yet give favorable signed Type II information.
+
+Choose ONE next question by mathematical information value, with mechanism,
+changed prediction, falsifier and exact analytical bound before computing.
+Do not reprove this Type I input, scan constants, force a covariance route,
+or call a restatement progress without removing an obligation. Preserve
+q286 missing mass, Q46189 transfer gaps, finite-cutoff L2 and both thinning
+boundaries. The absolute remainder obstruction already includes coprime
+configurations. No Qwen. Use a bounded spawned reviewer when useful, and
+at most one Rill-reviewed direct PowerShell codex queue continuation.
+
+## Nonunit localization checkpoint, 2026-09-16
+
 The ACTUAL reflected residual now localizes to arguments coprime to N.
 See `notes/nonunit-residual-localization.md`. For every fixed
 `0<theta<1/2`, `R=floor(N^theta)`, and `D_R=Lambda-A_R`,

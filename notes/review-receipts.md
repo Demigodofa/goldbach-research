@@ -4,6 +4,48 @@ Owner: Rill. Purpose: preserve the reasoning and validation that support claimed
 results, including corrections that change future execution. No raw model
 reasoning is retained. Model agreement is not a proof by itself.
 
+## Unconditional residual Type I transfer, 2026-09-16
+
+A separate fresh-context read-only Sol reviewer
+(`01a0acb1-0743-7862-97cc-3518eaed46ff`) returned scoped PASS with no
+material findings for `notes/unconditional-residual-type-i-transfer.md`,
+the two exact density helpers and ten tests. This was supplied-proof/source
+review, not blind discovery. No Qwen or duplicate reviewer was used.
+
+The reviewer checked GY Lemma 2.1 directly, its fixed logarithmic uniformity
+ratio from R/h>=R/Q, the nonreduced main cancellation, ordinary BV with
+fixed kappa<1/2, the explicit mesh argument for prefix maxima and the
+Cauchy/divisor-moment step for fixed weights. It correctly emphasized that
+the gap theta-kappa must remain fixed; the proof note now says explicitly
+that it makes no shrinking-gap uniformity claim.
+
+The exact Vaughan orientation, signed third term and free convolution
+factor 1 agree with Tao Notes 3 Lemma 18 equation (32). The unit mask is
+paid by inclusion-exclusion, lcm multiplicity <=tau(q)^2 and a large-g
+power-saving tail, not termwise deletion. The reviewer also checked a
+nonzero finite nonunit Type II vector at N=60,R=7,U=V=2 against exact
+Vaughan recombination; small asymptotic aggregate error is not exact zero.
+
+The first lead test run caught an incorrect handwritten expected density
+vector, not a discrepancy between the direct and grouped implementations.
+Direct expansion at q=2,r=0,R=7 gives
+`log(2)/3+log(5)/10-log(7)/10`; the fixture was corrected before passing
+runs. The reviewer independently confirmed that calculation. No analytical
+correction was required.
+
+Lead validation: 123 combined tests and 88 optimized affected/adjacent
+tests passed, including ten new tests and the old Vaughan guards. The
+reviewer independently ran all ten new tests normally and under -O, plus
+exact density, inclusion-exclusion, multiplicity and nonunit recombination
+probes. It did not duplicate the entire lead suite. These are algebraic
+regressions, not computational proof of the asymptotic theorem.
+
+Accepted scope: unconditional weighted Type I control for actual D_R and
+an exact coprime Vaughan transfer up to O_J(N/log(N)^J). The older Gamma_S
+unexceptional-branch theorem is not upgraded. The signed bilinear lower
+bound, effective threshold, finite remainder and Goldbach proof/disproof
+remain open, and the full objective remains active.
+
 ## Actual nonunit residual localization, 2026-09-16
 
 A separate fresh-context read-only Sol reviewer

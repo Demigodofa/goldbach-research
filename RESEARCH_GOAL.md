@@ -6,6 +6,36 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-16
 
+An unconditional analytical input now supports the actual-residual Vaughan
+route: `notes/unconditional-residual-type-i-transfer.md`. For fixed
+`0<kappa<theta<1/2`, the cutoff residual has aggregate progression-prefix
+error `O_J(N/log(N)^J)` through moduli N^kappa, including all residues and
+any fixed divisor weight tau(q)^K. The proof matches the cutoff AP density,
+cancels nonreduced mains, derives prefix maxima from BV by a mesh, and
+pays divisor multiplicity by fixed moments rather than a subpower loss.
+
+For `0<alpha<kappa`, `U=V=floor(N^(alpha/2))`, it follows that
+
+```text
+Delta_0 = sum_(a>V,b>U,ab in I_N,(ab,N)=1)
+             mu(a) [sum_(d|b,d>U)Lambda(d)] D_R(N-ab)
+           +O_J(N/log(N)^J).
+```
+
+The unit restriction has its own aggregate proof and preserves overlapping
+divisibility conditions. This removes the unexceptional-branch prerequisite
+for a NEW D_R route, not for the older Lambda-Gamma_S kernel. It is not
+an assertion about exceptional-zero absence or a favorable bilinear sign.
+
+Ten new tests, 123 combined and 88 optimized affected/adjacent tests pass;
+separate review is recorded with the proof checkpoints. The one-sided bound
+on this exact signed coprime bilinear sum is still open. The prove-or-disprove
+objective, effective-threshold and finite-remainder obligations, q286/Q46189
+gaps and earlier obstructions remain active. The next question must add
+mathematical information, not merely rename the same unpaid signed sum.
+
+## Nonunit localization evidence, 2026-09-16
+
 An actual part of the residual correlation is now controlled:
 `notes/nonunit-residual-localization.md`. For every fixed cutoff exponent
 below 1/2, the signed strict-central contribution with gcd(n,N)>1 is
